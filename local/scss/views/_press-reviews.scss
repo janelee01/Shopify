@@ -1,0 +1,60 @@
+
+#reviews-container blockquote,
+#press-container .article{
+	text-align: center;
+	padding: 15px 0 30px;
+	max-width: 300px;
+	margin: 0 auto;
+	@media (min-width: $screen-sm) {
+		max-width: 100%;
+		padding: 20px;
+	}
+	@media (min-width: $screen-md) {
+		padding: 35px 30px 40px;
+	}
+}
+
+#reviews-container,
+#press-container{
+	h2{
+		text-transform: uppercase;
+		text-align: center;
+	}
+}
+#press-container{
+	border-bottom: 1px solid $gray-lighter;
+	.col-sm-6:nth-child(odd){
+		clear: left;
+		@media (min-width: $screen-md) {
+			clear: none;
+		}
+	}
+	.col-md-4:nth-child(3n+1){
+		@media (min-width: $screen-md) {
+			clear: left;
+		}
+	}
+}
+#reviews-container{
+	padding-bottom: 40px;
+	.col-sm-4:nth-child(3n+1){
+		@media (min-width: $screen-md) {
+			clear: left;
+		}
+	}
+}
+
+.article-title{
+	text-transform: uppercase;
+	font-size: $font-size-small;
+	padding: 0 10px;
+	font-family: $font-family-sans-serif;
+	@include bs-margins-lg;
+	font-style: normal;
+	display: none;
+}
+.article-excerpt{
+	font-size: 18px;
+	padding: 20px 0;
+	margin: 0;
+}

@@ -63,15 +63,23 @@
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
 
-  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+    <a class="in-page-link skip-link sr-only" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+    
+    {% section 'main-menu' %}
 
-  {% section 'header' %}
-
-  <main role="main" id="MainContent">
-    {{ content_for_layout }}
-  </main>
-
-  {% section 'footer' %}
-
+    <div class="site-window" id="site-window">
+        <div class="site-content">
+            {% section 'header' %}
+            <main role="main" id="MainContent">
+                {{ content_for_layout }}
+            </main>
+            {% section 'footer' %}
+        </div>
+        <div class="closed" id="newsletter-prompt">
+            <p>Get <strong>15% OFF</strong> your next order just for signing up.</p>
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newsletter">Join Our Mailing List</button>
+            <button type="button" class="modal-close"><span aria-hidden="true">Close</span></button>
+        </div>
+    </div>
 </body>
 </html>

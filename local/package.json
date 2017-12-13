@@ -1,0 +1,25 @@
+{
+  "name": "ep-tools",
+  "version": "1.0.0",
+  "description": "NodeJS tasks for the ep-tools project.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mitch Kramer <mitch@electricpulp.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-concat": "latest",
+    "gulp-livereload": "latest",
+    "gulp-load-plugins": "latest",
+    "gulp-plumber": "latest",
+    "gulp-sass": "latest",
+    "gulp-size": "latest",
+    "gulp-rev": "latest",
+    "run-sequence": "latest",
+    "rev-del": "latest"
+  }
+}

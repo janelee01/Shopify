@@ -1,0 +1,128 @@
+.site-footer{
+	padding: 40px 0;
+	text-align: center;
+	@include mobile-inset;
+	margin: 0 20px;
+	@media (min-width: $screen-sm) {
+	   text-align: left;
+	   .container-fluid{
+	   	border-top: solid 1px $gray-lighter;
+	   }
+	}
+	@media (min-width: $screen-md) {
+	   padding: 25px 0 55px;
+	   margin: 0 30px;
+	}
+	@media (min-width: 1260px) {
+	   margin: 0 auto;
+	}
+	.title{
+		text-transform: uppercase;
+		letter-spacing: $ls-lg;
+		padding-left: $ls-lg; // text is just slightly offcenter due to the letter spacing
+		margin-bottom: 20px;
+		font-family: $font-family-sans-serif;
+		color: $headings-color;
+		@media (min-width: $screen-sm) {
+		 padding: 0;   
+		}
+	}
+	p{
+		padding: 0 15px;
+		@media (min-width: $screen-sm) {
+		 padding: 0;   
+		}
+	}
+	.form-inline{
+		@media (max-width: $screen-sm-max) {
+			margin-bottom: 30px; 
+		}
+	}
+	.form-inline .message{
+		position: absolute;
+		left: -1px;
+		right: -1px;
+		text-align: center;
+		padding-top: 8px;
+		@media (min-width: $screen-sm) {
+		 text-align: left;  
+		}
+		@media (min-width: $screen-md) {
+		 text-align: center;  
+		}
+		&.success{
+			color: $brand-success;
+		}
+		&.error{
+			color: $brand-danger;
+		}
+	}
+}
+.cms-our-story .site-footer{
+	border: none;
+}
+.footer-nav{
+	font-family: $font-family-sans-serif;
+	margin-bottom: 40px;
+	@media (min-width: $screen-sm) {
+		float: left;
+		padding-right: 40px;
+	}
+	@media (min-width: $screen-md) {
+		padding-right: 80px;
+	}
+	ul{
+		@include clean;
+	}
+	a{
+		font-size: $font-size-xs;
+		text-transform: uppercase;
+		color: $gray-light;
+		letter-spacing: $ls-xs;
+		display: block;
+		padding: 6px 0;
+		&:hover{
+			color: $gray-dark;
+			text-decoration: none;
+		}
+		&.title{
+			padding-top: 0;
+			padding-bottom: 0;
+			font-size: $font-size-small;
+		}
+	}
+	&.social-nav{
+		ul{
+			width: 50%;
+			margin-top: 12px;
+			li{
+				display: inline-block;
+			}
+		}
+		a{
+			font-size: 34px;
+			display: inline-block;
+			margin: 0 12px;
+			letter-spacing: 0;
+			@include transition-off;
+			@media (min-width: $screen-sm) {
+			    margin-right: 25px;
+			    margin-left: 0;
+			}
+			&:hover{
+				@include transition-on;
+			}
+		}	
+	}
+}
+
+.payment-icons{
+	@include clean;
+	li{
+		display: inline-block;
+	}
+	svg{
+		height: 24px;
+		fill-opacity: .5;
+	}
+}

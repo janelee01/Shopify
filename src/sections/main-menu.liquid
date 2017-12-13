@@ -1,0 +1,69 @@
+<div class="nav-window" id="oc-nav">
+  <div class="nav-content">
+  	<nav role="navigation" id="site-menu">
+  	  <ul class="site-nav">
+  	    {% for link in linklists[section.settings.main_linklist].links %}
+  	      {%- assign child_list_handle = link.title | handleize -%}
+  	      {% if menus[child_list_handle].links != blank %}
+  	        <li class="site-nav--has-submenu{% if link.active %} site-nav--active{% endif %}">
+  	          <a href="#sub-menu-{{ forloop.index0 }}" class="site-nav__link menu-toggle" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu-{{ forloop.index0 }}">
+  	            {{ link.title }}
+  	          </a>
+              <div class="collapse" id="sub-menu-{{ forloop.index0 }}">
+    	          <ul class="site-nav__submenu">
+    	            {% for childlink in menus[child_list_handle].links %}
+    	              <li {% if childlink.active %}class="site-nav--active"{% endif %}>
+    	                <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+    	              </li>
+    	            {% endfor %}
+    	          </ul>
+              </div>
+  	        </li>
+  	      {% else %}
+  	        <li {% if link.active %}class="site-nav--active"{% endif %}>
+  	          <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+  	        </li>
+  	      {% endif %}
+  	    {% endfor %}
+
+  	    {% if shop.customer_accounts_enabled %}
+  	        {% if customer %}
+  	          <li>
+  	            {% if customer.first_name != blank %}
+  	              {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
+  	              {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
+  	            {% else %}
+  	              <a href="/account">{{ 'layout.customer.account' | t }}</a>
+  	            {% endif %}
+  	          </li>
+  	          <li>
+  	            {{ 'layout.customer.log_out' | t | customer_logout_link }}
+  	          </li>
+  	        {% else %}
+  	          <li>
+  	            {{ 'layout.customer.log_in' | t | customer_login_link }}
+  	          </li>
+  	          <li>
+  	            {{ 'layout.customer.create_account' | t | customer_register_link }}
+  	          </li>
+  	        {% endif %}
+  	    {% endif %}
+  	  </ul>
+  	</nav>
+  </div>
+  <button id="nav-window-close" class="window-close"><span class="sr-only">Close</span></button>
+</div>
+
+{% schema %}
+  {
+    "name": "Menu Panel",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "main_linklist",
+        "label": "Menu",
+        "default": "main-menu"
+      }
+    ]
+  }
+{% endschema %}

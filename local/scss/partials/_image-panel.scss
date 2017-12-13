@@ -1,0 +1,327 @@
+.image-panel{
+	position: relative;
+	&.pad-top-m{
+		padding-top: 20px;
+	}
+	&.pad-bottom-m{
+		padding-bottom: 20px;
+	}
+	// -d is "desktop" but we'll kick the styles in at $screen-sm because that's when we grid up
+	&.pad-top-d{
+		@media (min-width: $screen-sm) {
+			padding-top: 20px;
+		}
+		@media (min-width: $screen-md) {
+			padding-top: 40px;
+		}
+	}
+	&.pad-bottom-d{
+		@media (min-width: $screen-sm) {
+			padding-bottom: 20px;
+		}
+		@media (min-width: $screen-md) {
+			padding-bottom: 40px;
+		}
+	}
+	img{
+		width: 100%;
+	}
+	.image-panel-content{
+		text-align: center;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		display: flex;
+		align-items: center;  
+		justify-content: center;
+		font-size: 8vw;
+		@media (min-width: 550px) {
+			font-size: 6vw;
+		}
+		@media (min-width: $screen-picture-switch) {
+			font-size: 3.5vw;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 3vw;
+		}
+		&.h-aligned-center{
+			.flexer{
+				@media (min-width: $screen-picture-switch) {
+					width: 70%;
+				}
+			}
+		}
+		&.h-aligned-left{
+			justify-content: flex-start;
+		}
+		&.h-aligned-right{
+			justify-content: flex-end;
+		}
+		@media (max-width: $screen-picture-switch - 1) {
+			&.v-aligned-m-top{
+				align-items: flex-start;  
+			}
+			&.v-aligned-m-bottom{
+				align-items: flex-end;   
+			}
+		}
+		@media (min-width: $screen-picture-switch) {
+			&.v-aligned-d-top{
+				align-items: flex-start;  
+			}
+			&.v-aligned-d-bottom{
+				align-items: flex-end;   
+			}
+		}
+
+		&.no-image{
+			.title,
+			.subtitle,
+			.description{
+				color: $gray-darker;
+			}
+			.link a{
+				color: $gray-dark;
+				border-bottom-color: $gray-dark;
+				&:hover,
+				&:focus{
+					text-decoration: none;
+					border-bottom-color: transparent;
+				}
+			}
+			&.ratio-1-1 .flexer{
+				@media (min-width: $screen-sm) {
+					width: 90%;
+					max-width: 640px; 
+				}
+			}
+			&.ratio-3-2 .flexer{
+				@media (min-width: $screen-sm) {
+					width: 90%;
+					max-width: 1150px; 
+				}	
+			}
+			&.ratio-4-3 .flexer{
+				@media (min-width: $screen-sm) {
+					width: 90%;
+					max-width: 1024px; 
+				}
+			}
+			&.ratio-16-9 .flexer{
+				@media (min-width: $screen-sm) {
+					width: 90%;
+				}
+				max-width: $xl-max-width;
+			}
+		}
+
+		.flexer{
+			padding: 15%; 
+			width: 100%;
+			@media (min-width: $screen-picture-switch) {
+				width: 50%;
+				padding: 3vw 11%; 
+			}
+		}
+		p{
+			margin-bottom: 5vw;
+			@media (min-width: $screen-picture-switch) {
+				margin-bottom: 1.5vw;
+			}
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+		hr{
+			width: 10%;
+			border-top-width: 2px;
+			border-top-color: #fff;
+			@media (max-width: $screen-picture-switch - 1) {
+				margin-top: 5vw;
+				margin-bottom: 5vw;
+			}
+		}
+	}
+	.title{
+		color: #FFF;
+		font-family: $font-family-bold; 
+		line-height: 1.1;
+		letter-spacing: 2px;
+		font-size: 100%;
+	}
+	.subtitle{
+		color: #FFF;
+		text-transform: uppercase;
+		font-family: $font-family-sans-serif;
+		letter-spacing: 2px;
+		font-size: 40%;
+	}
+	.description{
+		font-size: 53%;
+		font-family: $font-family-sans-serif;
+		color: #FFF;
+		position: relative;
+	}
+	.link{
+		margin: 0;
+		line-height: 1;
+		a{
+			font-family: $font-family-sans-serif;
+			border-bottom: solid 1px #fff;
+			padding-bottom: 2px;
+			display: inline-block;
+			vertical-align: middle;
+			font-size: 50%;
+			color: #FFF;
+			&:hover,
+			&:focus{
+				text-decoration: none;
+				border-bottom-color: transparent;
+			}
+			@media (min-width: $screen-picture-switch) {
+				font-size: 40%;
+			}
+			&.btn{
+				border: 0;
+				background-color: $brand-blue;
+				padding: 0;
+				line-height: 1;
+				color: #FFF;
+				&:hover{
+					background-color: $brand-blue-dark;
+				}
+				span{
+					display: block;
+					padding: .65em .75em; // inner span is always present to adjust padding based on either the default font size or override
+				}
+			}
+		}
+	} 
+	.inline-video{
+		margin: 0 auto;
+		width: 90%;
+		position: relative;
+		&.ratio-1-1{
+			@media (min-width: $screen-sm) {
+				max-width: 640px; 
+			}
+		}
+		&.ratio-3-2{
+			@media (min-width: $screen-sm) {
+				max-width: 1150px; 
+			}	
+		}
+		&.ratio-4-3{
+			@media (min-width: $screen-sm) {
+				max-width: 1024px; 
+			}
+		}
+		&.ratio-16-9{
+			max-width: $xl-max-width;
+		}
+
+		&.right{
+			@media (min-width: $screen-sm) {
+				margin-left: auto;
+				margin-right: 0;
+			}
+		}
+		&.left{
+			@media (min-width: $screen-sm) {
+				margin-left: 0;
+				margin-right: auto;
+			}
+		}
+		&.full{
+			width: 100%;
+			max-width: 100%; 
+			margin: 0;
+		}
+		[class^="video-trigger"]{
+			display: none;
+		}
+		video{ 
+			object-fit: contain;
+		}
+		.loading{
+			display: block; 
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			background-color: transparent;
+			background-image: url('oval.svg');
+			background-size: 75px;
+		}
+	}
+}
+[class^="video-trigger"],
+.overview-video-trigger{
+	// background: url('play.svg') no-repeat center center;
+	// background-size: cover;
+	display: block;
+	@include text-hide;
+	margin: 0 auto;
+	opacity: 0.7;
+	@include transition(opacity, .2s, ease);
+	&:hover{
+		opacity: .9;
+	}
+	svg{ // inline so we can override fill color
+		width: 70px;
+		height: 70px;
+		@media (min-width: $screen-md) {
+			width: 90px;
+			height: 90px;
+		}
+	}
+}
+[class^="video-trigger"]{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -35px;
+	margin-left: -35px;
+	@media (min-width: $screen-md) {
+		margin-top: -45px;
+		margin-left: -45px;
+	}
+}
+
+.half-width-panels{
+	.row{ // background images don't have to be present, so align the content to the other column's height
+		margin: 0;
+		@media (min-width: $screen-picture-switch) {
+			display: flex;
+			align-items: stretch;
+		}
+	}
+	[class^="col-"]{
+		padding: 0;
+	}
+}
+.half-width-panel{ 
+	.item{
+		@media (min-width: $screen-picture-switch) {
+			display: flex;
+			align-items: stretch;
+			picture{
+				width: 100%;
+			}
+		}
+	}
+	.image-panel-content{
+		&.no-image{			
+			@media (max-width: $screen-picture-switch - 1) {
+				padding: 10vw;
+				position: static;
+				display: block;
+				text-align: center;
+				.flexer{
+					padding: 0;
+				}
+			}
+		}
+	}
+}

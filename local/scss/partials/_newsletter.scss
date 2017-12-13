@@ -1,0 +1,113 @@
+/*Newsletter Modal*/
+.newsletter {
+
+	
+	.gform_footer,
+	.modal-footer {
+		border: none;
+		padding: 0;
+		text-align: center;
+	}
+	.product-types-val.form-group label {
+		color: $gray;
+		font: 15px "Adobe Garamond Pro",Garamond,Baskerville,"Baskerville Old Face","Hoefler Text","Times New Roman",serif !important;
+		letter-spacing: normal;
+		text-transform: none;
+		vertical-align: middle;
+	}
+	.checkbox-inline {
+		padding-left: 10px;
+
+		input[type="checkbox"] {
+			margin: 2px 10px 0 0;
+		}
+	}
+	@media(max-width:480px) {
+		.check-title {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	.gfield{
+		.gfield_label{
+			font-family: $font-family-sans-serif;
+		}
+	}
+}
+
+/*Newsletter - Vertically Align - Middle*/
+.modal {
+	text-align: center;
+}
+@media screen and (min-width: 768px) {
+	.modal:before {
+		display: inline-block;
+    	vertical-align: middle;
+    	content: " ";
+    	height: 100%;
+  	}
+}
+.modal-dialog {
+  	display: inline-block;
+  	text-align: left;
+  	vertical-align: middle;
+}
+
+
+#footer-newsletter-message {
+  text-align: center; }
+#footer-newsletter .btn.dropdown-toggle {
+  background-image:none; }
+#footer-newsletter .error {
+  text-transform: uppercase;
+  font-size: 13px;
+  margin: 0 0 10px 0;
+  font-family: "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 1px;
+  color: #A94442;
+  float: none;
+  padding: 0; }
+#footer-newsletter .product-types-val .validation-advice {
+  text-align:center; }
+#footer-newsletter .product-types-val .validation-advice:after {
+  background-image:none;
+  top: 99px; }
+@media (max-width: 768px) {
+  #newsletter #advice-validate-select-birthyear:after {
+    background: none;
+    top: 99px;
+  }
+}
+
+#newsletter-prompt{
+	background: #FFF;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	box-shadow: 0 -10px 40px rgba(0,0,0,.1);
+	padding: 40px;
+	text-align: center;
+	z-index: 999;
+	@include transition-off;
+	@media (min-width: $screen-md) {
+		padding: 60px;
+	}
+	&.closed{
+		bottom: -184px;
+		box-shadow: none;
+		@media (min-width: $screen-md) {
+			bottom: -158px;
+		}
+	}
+	p{
+		font-family: $font-family-sans-serif;
+		strong{
+			color: $brand-blue-dark;
+		}
+		@media (min-width: $screen-md) {
+			display: inline;
+			padding: 0 20px;
+		}
+	}
+}

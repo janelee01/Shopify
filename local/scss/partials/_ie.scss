@@ -1,0 +1,34 @@
+.no-placeholder{
+	display: none;
+	text-transform: uppercase;
+	font-size: 13px;
+	color: $gray-dark;
+	font-family: $font-family-sans-serif;
+	font-weight: normal;
+	letter-spacing: $ls-xs;
+}
+.no-flexbox{
+	.no-placeholder{
+		display: block;
+	}
+	.spinner {
+	  border: 0;
+	  background: url(ajax-loader.gif) no-repeat;
+	  background-size: 3em auto;
+	}
+	.spinner,
+	.spinner:after {
+	  border-radius: 0;
+	}
+	.cart-tools{
+		padding-bottom: 90px;
+	}
+}
+.no-backgroundsize{
+	.logo {
+		background-image: url(logo.png);
+	}
+	.cart {
+		background-image: url(icon-cart.png);
+	}
+}

@@ -1,0 +1,62 @@
+.account{
+	@include mobile-inset;
+	@media (min-width: $screen-md) {
+	    margin: 0 auto;
+	}
+	padding-top: 40px;
+	padding-bottom: 60px;
+	h2{
+		text-transform: uppercase;
+		
+	}
+	&.has-appended-content{
+		padding-bottom: 0;
+	}
+	.validation-advice{
+		top: 4px; // not sure why this is off on the account pages
+	}
+}
+.address-title{
+	margin-top: 24px;
+}
+
+.page-print{
+	.order-table{
+		th{
+			color: #000;
+			background: none;
+			border-bottom: solid 2px #000
+		}
+	}
+}
+
+#my_recent_reviews{
+	@include clean;
+	li{
+		margin: 15px 0;
+		padding: 0;
+	}
+	.rating-box{
+		float: none;
+		display: inline-block;
+	}
+	.product-name{
+		margin: 0;
+		font-size: $font-size-base;
+		font-style: normal;
+	}
+	.number{
+		float: left;
+		width: 10%;
+		font-size: $font-size-base;
+		line-height: 1.1;
+		display: block;
+	}
+	.details{
+		margin-left: 10%;
+	}
+}
+
+.review-content{
+	margin-bottom: 30px;
+}

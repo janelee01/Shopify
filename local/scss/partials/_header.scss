@@ -1,0 +1,368 @@
+.navbar {
+	margin:0;
+	padding-top:15px;
+	text-align: center;
+	border: none;
+}
+// #header .navbar{
+// 	@media (min-width: $screen-md) {
+// 		position: static;
+// 	}
+// }
+
+#site-header {
+	padding-bottom:12px;
+	padding-top:12px;
+	font-family: $font-family-sans-serif;
+	@include transition(all .25s ease-out);
+	position:fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: #FFF;
+	background: rgba(255, 255, 255, .95);
+	line-height: 0; // fixes weird space below items ¯\_(ツ)_/¯
+	margin: 0;
+	text-align: center;
+	z-index: 1000;
+	@media (min-width: $screen-md) {
+		padding: 0;
+	}
+	.logo {
+		@include text-hide;
+		overflow:hidden;
+		background: url(logo@2x.png) no-repeat transparent center center;
+		@include size(52px, 30px);
+		background-size: 52px auto;
+		margin:0 auto;
+		padding:0;
+		display: block;
+		@media only screen and (min-width: $screen-md) {
+			@include size(70px, $ls-navbar-height);
+			background-size: auto 36px;
+		    position: relative;
+		    z-index: 10;
+		}
+	}
+	.cart-toggle {
+		display:inline-block;
+		padding: 0 0 0 31px;
+		height: 24px;
+		background: url(icon-cart@2x.png) no-repeat 0 50%;
+		background-size: 26px auto;
+		&:hover {
+			color: #333;
+		}
+	}
+}
+.navbar-nav {
+	letter-spacing: $ls-sm;
+	text-transform:uppercase;
+	float: none;
+	display:inline-block;
+	font-size: $font-size-small;
+	@media (min-width: $screen-md) {
+	    letter-spacing: $ls-lg;
+	}
+	li {
+		text-align: left;
+		position: static;
+		&.has-children:hover{
+			.mega-menu{
+				display: block;
+			}
+		}
+		a{
+			@media (min-width: $screen-md) {
+			    padding-left: 10px;
+			    padding-right: 10px;
+			}
+			@include transition-off;
+			&:hover{
+				@include transition-on;
+			}
+			&.cart-toggle{
+				&:focus{
+					background-color: transparent;
+					color: $gray-dark;
+				}
+			}
+		}
+	}
+	.mega-menu{
+		display: none;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: $ls-navbar-height;
+		padding: 45px 0 15px;
+		background: #E9E8E8;
+		line-height: 1.1;
+		ul{
+			font-size: $font-size-base;
+			text-transform: none;
+			@include clean;
+			@include clearfix;
+			&.has-5-columns{
+				> li{
+					width: 20%;
+					&:nth-child(5n+5){
+						clear: none;
+					}
+				}
+			}
+		}
+		li{
+			float: left;
+			width: 25%;
+			margin: 0 0 30px;
+			padding-right: 5%;
+			&:last-child{
+				padding-right: 0;
+			}
+			&:nth-child(5n+5){
+				clear: left;
+			}
+			a{
+				font-weight: bold;
+				display: block;
+				padding: 11px 0 20px;
+				&.menu-toggle{
+					color: #939393;
+					@media (min-width: $screen-md) {
+						&:hover{
+							text-decoration: none;
+							cursor: default;
+						}
+					}
+				}
+			}
+			li{
+				float: none;
+				width: auto;
+				padding-right: 0;
+				text-transform: uppercase;
+				margin-bottom: 0;
+				a{
+					font-weight: normal;
+					padding: 9px 0;
+					font-size: $font-size-small;
+				}
+			}
+		}
+	}
+}
+.navbar-default{
+	padding-top: 0;
+	min-height: 0;
+	
+	.navbar-toggle,
+	.cart-toggle{
+		display: block;
+		position: absolute;
+	}
+	.navbar-toggle{
+		border: none;
+		margin: 0;
+		left: 0px;
+		top: -3px;
+		@media (min-width: $screen-md) {
+			left: 10px;
+			top: 13px;
+		}
+		.icon-bar{
+			background-color: $headings-color;
+			width: 25px;
+		}
+		.icon-bar + .icon-bar{
+			margin-top: 6px;
+		}
+		&:hover,
+		&:focus{
+			background: none;
+		}
+		&:focus{
+			.icon-bar{
+				background-color: $brand-blue;
+			}
+		}
+	}
+	.cart-toggle{
+		right: 0px;
+		top: 0;
+		height: 30px;
+		@media (min-width: $screen-md) {
+			top: 16px;
+			right: 10px;
+			&:hover{
+				background-color: transparent;
+				color: $headings-color;
+			}
+		}
+		.badge{
+			background: $brand-blue;
+			color: #FFF;
+			letter-spacing: 0;
+			margin-top: 3px;
+			font-weight: normal;
+			font-family: $font-family-bold; 
+			&.no-items{
+				display: none;
+			}
+		}
+	}
+
+	// .navbar-click{
+	// 	display: none;
+	// 	@media (min-width: $screen-md) {
+	// 	    display: block;
+	// 	}
+	// 	.navbar-nav > li{
+	// 		&:hover{
+	// 			> a {
+	// 				background-color: #E9E8E8;
+	// 				&.cart-toggle{
+	// 					background-color: transparent;
+	// 				}
+	// 			}
+	// 		}
+	// 		> a{
+	// 			padding: 0 21px;
+	// 			height: $ls-navbar-height;
+	// 			line-height: $ls-navbar-height;
+	// 			&.cart-toggle{
+	// 				padding: 0 0 0 30px;
+	// 			}
+	// 			@media (min-width: $screen-lg) {
+	// 				padding: 0 30px;
+	// 			}
+	// 		}	
+	// 	} 
+	// 	.navbar-right{
+	// 		li{
+	// 			margin-right: 0;
+	// 		}
+	// 	}
+	// 	.menu-toggle{
+	// 		&:before,
+	// 		&:after{
+	// 			display: none;	
+	// 		}
+	// 	}
+	// }
+}
+
+.nav-window{
+	position: fixed;
+	left: -100%;
+	top: 0;
+	bottom: 0;
+	overflow: hidden;
+	z-index: 10001;
+	width: 100%;
+	background: #fff;
+	@include transition(left .25s ease-out);
+	@media (min-width: $screen-sm) {
+		left: -$menu-width-sm;
+		width: $menu-width-sm;
+		@include transition(left .5s ease-out);
+	}
+	@media (min-width: $screen-md) {
+		left: -$menu-width-md;
+		width: $menu-width-md;
+	}
+}
+.nav-content{
+	height: 100%;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	nav{
+		margin: $ls-navbar-height-xs auto 0;
+		max-width: 80%;
+		@media (min-width: $screen-md) {
+			max-width: 90%;
+		}
+		li{
+			border-bottom: solid 1px #EDEDED;
+			&:last-child{
+				border: 0;
+			}
+		}
+	}
+	ul{
+		@include clean;
+		font-size: $font-size-base;
+		li{
+			position: relative;
+			&.open{
+				> .menu-toggle{
+					&:after{
+						@include rotate(135deg);
+					}
+					&:before{
+						@include rotate(225deg);
+					}
+				}
+			}
+			li:last-child{
+				border-bottom: 0; 
+			}
+		}
+		a{
+			display: block;
+			padding: 21px 27px;
+			color: $gray-dark;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+		ul{
+			overflow: hidden;
+			background: #FFF;
+			margin: 0;
+			padding: 0 27px;
+			font-size: $font-size-small;
+			text-transform: none;
+			@include transition(height .3s ease-out);
+			a{
+				color: $gray;
+				display: block;
+				padding: 21px 5px;
+				&:hover{
+					color: $brand-blue;
+				}
+			}
+			.menu-toggle{
+				&:before,
+				&:after{
+					right: 10px;
+				}
+			}
+			ul{
+				padding: 0 0 0 27px;
+			}
+		}
+		.caret{
+			display: none;
+		}
+		.menu-toggle{
+			position: relative;
+			&:before,
+			&:after{
+				content: '';
+				display: block;
+				width: 12px;
+				height: 2px;
+				background: $brand-blue;
+				position: absolute;
+				right: 30px;
+				top: 50%;
+				margin: -1px 0 0 -6px;
+				@include transition(all .3s ease-out);
+			}
+			&:after{
+				@include rotate(90deg);
+			}
+		}
+	}
+}
