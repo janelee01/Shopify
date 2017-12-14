@@ -1,5 +1,5 @@
 .product-grid {
-	margin: 0 auto;
+	margin: 60px 0;
 	@media (max-width: $screen-xs-max) {
 	    .col-xs-6:nth-child(2n+1){
 			clear: left;
@@ -10,40 +10,9 @@
 			clear: left;
 	    }
 	}
-	// @media (min-width: $screen-md) {
-	//     .col-md-6:nth-child(2n+1){
-	// 		clear: left;
-	//     }
-	// }
-	// @media (min-width: $screen-lg) {
- //        .col-xs-6:nth-child(2n+1){
- //    		clear: none;
- //        }
- //        .col-xs-6:nth-child(3n+1){
- //    		clear: left;
- //        }
- //        .col-md-6:nth-child(2n+1){
-	// 		clear: none;
-	//     }
-	//     .col-md-6:nth-child(3n+1){
-	// 		clear: left;
-	//     }
-	// }
 	img{
 		width: 100%;
 		height: auto;
-	}
-	.carousel-control.left,
-	.carousel-control.right{
-		&:after{
-			background-image: url('slide-prev-white.png');
-		}
-		@media (min-width: $screen-md) {
-		    opacity: 0;
-		}
-	}
-	.carousel-control.right:after{
-		background-image: url('slide-next-white.png');
 	}
 	.product-grid-image{
 		position: relative;
@@ -64,50 +33,12 @@
 	}
 	.product{
 		text-align: center;
-		margin: 0 5px 30px;
-		// max-width: 320px;
-		// @media (min-width: 600px) {
-		// 	max-width: 90%;
-		// }
-		@media (min-width: $screen-sm) {
-			margin: 0 10px 60px;
-		}
-		@media (min-width: $screen-md) {
-			max-width: 350px;
-			margin: 0 10px 40px;
-		}
-		@media (min-width: $screen-lg) {
-			max-width: 320px;
-		}
+		padding: 0 20px;
 		@media (min-width: $screen-md) {
 			overflow: hidden;
 			img{
 				@include transition-off;
 			}
-		    &:hover{
-		    	// img{
-		    	// 	@include transition(all 0.3s ease-in-out);
-		    	// 	@include scale(1.05);
-		    	// }
-
-		    	.carousel-control{
-		    		opacity: .7;
-		    		&:hover{
-		    			opacity: 1;
-		    		}
-		    	}
-		    }
-		}
-		@media (min-width: $screen-md) {
-		    margin: 0 6px 40px;
-		    &.first{
-		    	margin-left: 0;
-		    	margin-right: 12px;
-		    }
-		    &.last{
-		    	margin-right: 0;
-		    	margin-left: 12px;
-		    }
 		}
 	}
 
@@ -147,10 +78,6 @@
 			margin-bottom: 23px;
 		}
 		.price-box{
-			// display: inline;
-			// font-size: 1em;
-			// line-height: inherit;
-			// margin: 0;
 			font-family: $font-family-sans-serif;
 			color: $gray-dark;
 			letter-spacing: $ls-xs;

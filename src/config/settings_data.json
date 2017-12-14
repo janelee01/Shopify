@@ -1,42 +1,166 @@
 {
-  "current": "Default",
-  "presets": {
-    "Default": {
-      "sections": {
-        "collection-list": {
-          "type": "collection-list",
-          "blocks": {
-            "collection-list-0": {
-              "type": "collection"
+   "current":{
+      "type_base_size":"16px",
+      "color_primary":"#000",
+      "color_body_text":"#000",
+      "social_sharing_blog":true,
+      "share_facebook":true,
+      "share_twitter":true,
+      "share_pinterest":true,
+      "social_twitter_link":"http:\/\/bit.ly\/loandsonstwitter",
+      "social_facebook_link":"http:\/\/on.fb.me\/UJbzFY",
+      "social_pinterest_link":"http:\/\/bit.ly\/loandsonspinterest",
+      "social_instagram_link":"http:\/\/bit.ly\/loandsonsinstagram",
+      "social_snapchat_link":"",
+      "social_tumblr_link":"",
+      "social_youtube_link":"",
+      "social_vimeo_link":"",
+      "cart_notes_enable":true,
+      "favicon":"",
+      "checkout_header_image":"",
+      "checkout_logo_image":"",
+      "checkout_logo_position":"left",
+      "checkout_logo_size":"medium",
+      "checkout_body_background_image":"",
+      "checkout_body_background_color":"#fff",
+      "checkout_input_background_color_mode":"white",
+      "checkout_sidebar_background_image":"",
+      "checkout_sidebar_background_color":"#fafafa",
+      "checkout_heading_font":"Helvetica Neue",
+      "checkout_body_font":"Helvetica Neue",
+      "checkout_accent_color":"#1990c6",
+      "checkout_button_color":"#1990c6",
+      "checkout_error_color":"#ff6d6d",
+      "sections":{
+         "collection-list":{
+            "type":"collection-list",
+            "blocks":{
+               "collection-list-0":{
+                  "type":"collection",
+                  "settings":{
+                     "collection":""
+                  }
+               },
+               "collection-list-1":{
+                  "type":"collection",
+                  "settings":{
+                     "collection":""
+                  }
+               },
+               "collection-list-2":{
+                  "type":"collection",
+                  "settings":{
+                     "collection":""
+                  }
+               }
             },
-            "collection-list-1": {
-              "type": "collection"
-            },
-            "collection-list-2": {
-              "type": "collection"
+            "block_order":[
+               "collection-list-0",
+               "collection-list-1",
+               "collection-list-2"
+            ],
+            "settings":{
+               "title":"Collection list"
             }
-          },
-          "block_order": [
-            "collection-list-0",
-            "collection-list-1",
-            "collection-list-2"
-          ]
-        },
-        "featured-collection": {
-          "type": "featured-collection",
-          "settings": {
-            "collection": "frontpage"
-          }
-        },
-        "featured-product": {
-          "type": "featured-product"
-        }
+         },
+         "featured-collection":{
+            "type":"featured-collection",
+            "settings":{
+               "title":"Featured collection",
+               "collection":"frontpage"
+            }
+         },
+         "featured-product":{
+            "type":"featured-product",
+            "settings":{
+               "product":"",
+               "show_share_buttons":false
+            }
+         },
+         "main-menu":{
+            "type":"main-menu",
+            "settings":{
+               "main_linklist":"main-menu"
+            }
+         },
+         "header":{
+            "type":"header",
+            "settings":{
+
+            }
+         },
+         "marquee":{
+            "type":"marquee",
+            "settings":{
+               "marquee_text":"HOLIDAY SALE! Up to 40% off select styles + extended 30 day return policy.",
+               "marquee_link":"discover-catalina-deluxe",
+               "background_color":"#4dbeee",
+               "marquee_active":true
+            }
+         },
+         "footer":{
+            "type":"footer",
+            "settings":{
+               "footer_linklist_1":"footer",
+               "footer_linklist_2":"about",
+               "show_payment_icons":false
+            }
+         }
       },
-      "content_for_index": [
-        "collection-list",
-        "featured-collection",
-        "featured-product"
+      "content_for_index":[
+
       ]
-    }
-  }
+   },
+   "presets":{
+      "Default":{
+         "sections":{
+            "collection-list":{
+               "type":"collection-list",
+               "blocks":{
+                  "collection-list-0":{
+                     "type":"collection",
+                     "settings":{
+
+                     }
+                  },
+                  "collection-list-1":{
+                     "type":"collection",
+                     "settings":{
+
+                     }
+                  },
+                  "collection-list-2":{
+                     "type":"collection",
+                     "settings":{
+
+                     }
+                  }
+               },
+               "block_order":[
+                  "collection-list-0",
+                  "collection-list-1",
+                  "collection-list-2"
+               ],
+               "settings":{
+
+               }
+            },
+            "featured-collection":{
+               "type":"featured-collection",
+               "settings":{
+                  "collection":"frontpage"
+               }
+            },
+            "featured-product":{
+               "type":"featured-product",
+               "settings":{
+
+               }
+            }
+         },
+         "content_for_index":[
+
+         ]
+      }
+   }
 }

@@ -125,4 +125,18 @@ $(document).ready(function() {
 
   });
 
+  // marquees
+  $('body').on('click', '.marquee-close', function(e){
+    e.preventDefault();
+    $('#shopify-section-marquee').fadeOut('fast');
+    sessionStorage.setItem("lo-marquee-dismissed", "1");
+  });
+
+  // marquees are hidden by default, so show if they haven't been closed
+  if ( 'lo-marquee-dismissed' in sessionStorage) {
+    // no nothing
+  }else{
+    $('#shopify-section-marquee .marquee').removeClass('hidden');
+  }
+
 });
