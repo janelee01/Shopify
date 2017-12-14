@@ -1,0 +1,37 @@
+{% if section.settings.marquee_active == true %}
+<div class="marquee text-center hidden" role="marquee" style="background-color: {{ section.settings.background_color }}">
+  <a href="{{ section.settings.marquee_link }}">{{ section.settings.marquee_text }}</a>  <a href="#" class="marquee-close"><i class="ss-icon">␡</i></a>
+</div>
+{% endif %}
+ 
+{% schema %}
+  {
+    "name": "Marquee",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "marquee_text",
+        "label": "Message"
+      },
+      {
+         "type": "page",
+         "id": "marquee_link",
+         "label": "Links to"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#4DBEEE",
+        "info": "Default is #4DBEEE"
+      },
+      {
+         "type": "checkbox",
+         "id": "marquee_active",
+         "label": "Enabled",
+         "default": true
+      }
+    ]
+  }
+
+{% endschema %}
