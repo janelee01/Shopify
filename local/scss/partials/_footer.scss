@@ -1,5 +1,5 @@
 .site-footer{
-	padding: 40px 0;
+	padding: 40px 0 0;
 	text-align: center;
 	@include mobile-inset;
 	margin: 0 20px;
@@ -58,19 +58,10 @@
 		}
 	}
 }
-.cms-our-story .site-footer{
-	border: none;
-}
+
 .footer-nav{
 	font-family: $font-family-sans-serif;
 	margin-bottom: 40px;
-	@media (min-width: $screen-sm) {
-		float: left;
-		padding-right: 40px;
-	}
-	@media (min-width: $screen-md) {
-		padding-right: 80px;
-	}
 	ul{
 		@include clean;
 	}
@@ -93,8 +84,15 @@
 	}
 	&.social-nav{
 		ul{
+			margin: 0 auto;
 			width: 50%;
-			margin-top: 12px;
+			@media (min-width: $screen-sm) {
+				width: auto;
+				margin: 12px 0 0;
+			}
+			@media (min-width: $screen-md) {
+				width: 50%;
+			}
 			li{
 				display: inline-block;
 			}
@@ -115,7 +113,14 @@
 		}	
 	}
 }
-
+.copyright{
+	@media (min-width: $screen-sm) {
+		text-align: right;
+	}
+	@media (min-width: $screen-md) {
+		text-align: left;
+	}
+}
 .payment-icons{
 	@include clean;
 	li{

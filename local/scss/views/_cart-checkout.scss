@@ -102,11 +102,20 @@
 
 .checkout-types{
 	@include clean;
+	margin-bottom: 10px;
 	@media (min-width: $screen-sm) {
 		text-align: right;
 		li{
 			display: inline-block;
 		}
+	}
+}
+#checkout-message{
+	font-size: $font-size-xs;
+	text-transform: uppercase;
+	font-family: $font-family-sans-serif;
+	@media (min-width: $screen-sm) {
+		text-align: right;
 	}
 }
 .cart-actions{
@@ -191,7 +200,7 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  * Cart
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-.checkout-cart-index{
+.template-cart{
 	.cart-toggle{
 		cursor: default;
 	}

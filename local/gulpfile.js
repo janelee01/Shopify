@@ -27,16 +27,28 @@ gulp.task('styles', function () {
         .pipe($.size())
 });
 
+gulp.task('checkout', function () {
+    return gulp.src('scss/checkout.scss')
+        .pipe($.plumber({ errorHandler: onError }))
+        .pipe($.sass({
+            'outputStyle' : 'expanded',
+        }))
+        .pipe($.autoprefixer('last 2 version', 'ie 9'))
+        .pipe($.concat('lo-checkout.css')) // slate grabs this file for it's build
+        .pipe(gulp.dest('../src/styles/vendor')) 
+        .pipe($.size())
+});
+
 gulp.task('default', function () {
   /**
    * Run tasks in sequence.
    * @{@link http://stackoverflow.com/a/22826429}
    */
-  return runSequence('styles');
+  return runSequence('styles', 'checkout');
 });
 
 gulp.task('watch', function () {
     gulp.watch('scss/**/*.scss', function() {
-        return runSequence('styles');
+        return runSequence('styles', 'checkout');
     });
 });

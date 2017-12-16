@@ -1,4 +1,8 @@
 /*Newsletter Modal*/
+[data-target="#newsletter"]{
+	margin-top: 24px;
+	margin-bottom: $line-height-computed/2;
+}
 .newsletter {
 
 	
@@ -94,11 +98,9 @@
 		padding: 60px;
 	}
 	&.closed{
-		bottom: -184px;
+		bottom: auto;
+		top: 100%;
 		box-shadow: none;
-		@media (min-width: $screen-md) {
-			bottom: -158px;
-		}
 	}
 	p{
 		font-family: $font-family-sans-serif;

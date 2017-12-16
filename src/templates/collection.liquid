@@ -44,7 +44,7 @@
                 <h2 class="product-name product-grid-title">{{ product.title }}</h2>
                 {% if product.metafields.extra.description != blank %}
                 <div class="product-grid-description">
-                  <p>{{ product.metafields.extra.description }}</p>
+                  <p>{{ product.metafields["global"]["short-description"] }}</p>
                 </div>
                 {% endif %}
                 <div class="product-grid-price">
@@ -79,7 +79,6 @@
                       </span>
                       {% endunless %}
 
-                      <span class="promo-text">{{ product.metafields.extra.promo }}</span>
                     </div>
                 </div>
               </a>
