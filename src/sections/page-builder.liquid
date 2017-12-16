@@ -1,0 +1,145 @@
+{% for block in section.blocks %}
+<div class="page-block"
+  style="{%- if block.settings.disableTopMargin -%}margin-top: 0;{%- endif -%}
+  {%- if block.settings.disableBottomMargin -%} margin-bottom: 0;{%- endif -%}"
+  {{ block.shopify_attributes }}>
+  {% case block.type %}
+
+    {% when 'sectionHeading' %}
+    {% include 'builder-section-heading' %}
+
+    {% when 'hero' %}
+    {% include 'builder-hero' %}
+
+    {% when 'columns' %}
+    {% include 'builder-columns' %}
+
+    {% when 'slider' %}
+    {% include 'builder-slides' %}
+
+  {% endcase %}
+</div>
+{% endfor %}
+
+
+{% schema %}
+  {
+    "blocks": [
+      {
+        "type": "columns",
+        "name": "Two Columns",
+        "settings": [
+          {
+             "type": "checkbox",
+             "id": "swapOrder",
+             "default": false,
+             "label": "Swap Order"
+          },
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+             "type": "text",
+             "id": "title",
+             "label": "Title"
+          },
+          {
+             "type": "text",
+             "id": "subtitle",
+             "label": "Subtitle"
+          },
+          {
+             "type": "text",
+             "id": "description",
+             "label": "Description"
+          },
+          {
+             "type": "text",
+             "id": "linkText",
+             "label": "Link Text"
+          },
+          {
+             "type": "url",
+             "id": "linkUrl",
+             "label": "Link Url"
+          },
+          {
+             "type": "checkbox",
+             "id": "disableTopMargin",
+             "default": false,
+             "label": "Remove Top Margin"
+          },
+          {
+             "type": "checkbox",
+             "id": "disableBottomMargin",
+             "default": false,
+             "label": "Remove Bottom Margin"
+          }
+        ]
+      },
+      {
+        "type": "sectionHeading",
+        "name": "Section Heading",
+        "settings": [
+          {
+            "id": "text",
+            "type": "text",
+            "label": "Text"
+          },
+          {
+             "type": "checkbox",
+             "id": "disableTopMargin",
+             "default": false,
+             "label": "Remove Top Margin"
+          },
+          {
+             "type": "checkbox",
+             "id": "disableBottomMargin",
+             "default": false,
+             "label": "Remove Bottom Margin"
+          }
+        ]
+      },
+      {
+        "type": "hero",
+        "name": "Hero",
+        "settings": [
+          {
+            "id": "mobileImage",
+            "type": "image_picker",
+            "label": "Mobile Image"
+          },
+          {
+            "id": "desktopImage",
+            "type": "image_picker",
+            "label": "Desktop Image"
+          },
+          {
+            "id": "altText",
+            "type": "text",
+            "label": "Alt Text"
+          },
+          {
+             "type": "checkbox",
+             "id": "disableTopMargin",
+             "default": false,
+             "label": "Remove Top Margin"
+          },
+          {
+             "type": "checkbox",
+             "id": "disableBottomMargin",
+             "default": false,
+             "label": "Remove Bottom Margin"
+          }
+        ]
+      },
+      {
+        "type": "slider",
+        "name": "Slider" 
+      }
+      
+    ]
+  }
+{% endschema %}

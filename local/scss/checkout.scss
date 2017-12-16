@@ -1,0 +1,81 @@
+/*
+	Setup
+ */
+@import 'base/fonts';
+@import 'base/variables';
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import 'bootstrap/grid';
+@import 'base/base';
+
+$shopify-min: 1000px;
+$shopify-max: $shopify-min - 1;
+
+/*
+	Lo overrides
+ */
+body{
+	font-size: $font-size-base;
+}
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  margin: 0;
+  letter-spacing: 0;
+}
+.checkout-header{
+	padding: 43px 40px;
+	margin: 0;
+	@media (max-width: $shopify-max) {
+		display: none;	
+	}
+}
+
+/*
+	Shopify overrides
+ */
+.anyflexbox{
+	.sidebar,
+	.main{
+		display: block;
+		width: auto;
+		.field__input,
+		.btn{
+			border-radius: 0;
+		}
+	}
+}
+
+.page--no-banner .main,
+.page--no-banner .sidebar{
+	float: none;
+	width: auto;
+	background: none;
+	@media (min-width: $shopify-min) {
+		padding: 0;
+	}
+}
+.sidebar:after{
+	display: none;
+}
+
+.step__footer__continue-btn{
+	@extend .btn-primary;
+}
+[data-step="payment_method"]{
+	.step__footer__continue-btn{
+		@extend .btn-success;
+	}
+}
+
+.content-box,
+.content-box__row:last-child,
+.content-box__row:first-child,
+.product-thumbnail,
+.product-thumbnail__wrapper,
+.product-thumbnail::after{
+	border-radius: 0;
+}
+.product-thumbnail__quantity{
+	background-color: $brand-blue;
+}

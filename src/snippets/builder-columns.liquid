@@ -1,0 +1,24 @@
+<div class="container-fluid">
+	<div class="row flexed">
+		<div class="col-sm-6 {% if block.settings.swapOrder %}col-sm-push-6{% endif %}">
+			<div class="section-content">
+				<picture>
+					{% comment %}<source srcset="{{ block.settings.desktopImage | img_url: 'master' }}" media="(min-width: 768px)">{% endcomment %}
+					<img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}">
+				</picture>
+			</div>
+		</div>
+		<div class="col-sm-6 {% if block.settings.swapOrder %}col-sm-pull-6{% endif %}">
+			<div class="section-content">
+			    <div class="flexer">
+			        <p class="title" {% if block.settings.title == blank %}style="display: none"{% endif %}>{{ block.settings.title }}</p>
+			        <p class="subtitle" {% if block.settings.subtitle == blank %}style="display: none"{% endif %}>{{ block.settings.subtitle }}</p>
+			        <p class="description" {% if block.settings.description == blank %}style="display: none"{% endif %}>{{ block.settings.description }}</p>
+			        <p class="link" {% if block.settings.linkText == blank %}style="display: none"{% endif %}>
+			            <a href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
+			        </p>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
