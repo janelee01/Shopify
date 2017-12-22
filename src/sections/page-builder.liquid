@@ -1,145 +1,216 @@
 {% for block in section.blocks %}
-<div class="page-block"
-  style="{%- if block.settings.disableTopMargin -%}margin-top: 0;{%- endif -%}
-  {%- if block.settings.disableBottomMargin -%} margin-bottom: 0;{%- endif -%}"
-  {{ block.shopify_attributes }}>
-  {% case block.type %}
+	<div class="page-block"
+		style="{%- if block.settings.disableTopMargin -%}margin-top: 0;{%- endif -%}
+		{%- if block.settings.disableBottomMargin -%} margin-bottom: 0;{%- endif -%}"
+		{{ block.shopify_attributes }}>
+		{% case block.type %}
 
-    {% when 'sectionHeading' %}
-    {% include 'builder-section-heading' %}
+			{% when 'sectionHeading' %}
+			{% include 'builder-section-heading' %}
 
-    {% when 'hero' %}
-    {% include 'builder-hero' %}
+			{% when 'hero' %}
+			{% include 'builder-hero' %}
 
-    {% when 'columns' %}
-    {% include 'builder-columns' %}
+			{% when 'columns' %}
+			{% include 'builder-columns' %}
 
-    {% when 'slider' %}
-    {% include 'builder-slides' %}
-
-  {% endcase %}
-</div>
-{% endfor %}
-
+		{% endcase %}
+	</div>
+	{% endfor %}
 
 {% schema %}
-  {
-    "blocks": [
-      {
-        "type": "columns",
-        "name": "Two Columns",
-        "settings": [
-          {
-             "type": "checkbox",
-             "id": "swapOrder",
-             "default": false,
-             "label": "Swap Order"
-          },
-          {
-            "id": "image",
-            "type": "image_picker",
-            "label": "Image"
-          },
-          {
-             "type": "text",
-             "id": "title",
-             "label": "Title"
-          },
-          {
-             "type": "text",
-             "id": "subtitle",
-             "label": "Subtitle"
-          },
-          {
-             "type": "text",
-             "id": "description",
-             "label": "Description"
-          },
-          {
-             "type": "text",
-             "id": "linkText",
-             "label": "Link Text"
-          },
-          {
-             "type": "url",
-             "id": "linkUrl",
-             "label": "Link Url"
-          },
-          {
-             "type": "checkbox",
-             "id": "disableTopMargin",
-             "default": false,
-             "label": "Remove Top Margin"
-          },
-          {
-             "type": "checkbox",
-             "id": "disableBottomMargin",
-             "default": false,
-             "label": "Remove Bottom Margin"
-          }
-        ]
-      },
-      {
-        "type": "sectionHeading",
-        "name": "Section Heading",
-        "settings": [
-          {
-            "id": "text",
-            "type": "text",
-            "label": "Text"
-          },
-          {
-             "type": "checkbox",
-             "id": "disableTopMargin",
-             "default": false,
-             "label": "Remove Top Margin"
-          },
-          {
-             "type": "checkbox",
-             "id": "disableBottomMargin",
-             "default": false,
-             "label": "Remove Bottom Margin"
-          }
-        ]
-      },
-      {
-        "type": "hero",
-        "name": "Hero",
-        "settings": [
-          {
-            "id": "mobileImage",
-            "type": "image_picker",
-            "label": "Mobile Image"
-          },
-          {
-            "id": "desktopImage",
-            "type": "image_picker",
-            "label": "Desktop Image"
-          },
-          {
-            "id": "altText",
-            "type": "text",
-            "label": "Alt Text"
-          },
-          {
-             "type": "checkbox",
-             "id": "disableTopMargin",
-             "default": false,
-             "label": "Remove Top Margin"
-          },
-          {
-             "type": "checkbox",
-             "id": "disableBottomMargin",
-             "default": false,
-             "label": "Remove Bottom Margin"
-          }
-        ]
-      },
-      {
-        "type": "slider",
-        "name": "Slider" 
-      }
-      
-    ]
-  }
+{
+	"blocks": [
+		{
+			"type": "columns",
+			"name": "Two Columns",
+			"settings": [
+				{
+					"id": "image",
+					"type": "image_picker",
+					"label": "Image"
+				},
+				{
+					"id": "video",
+					"type": "text",
+					"label": "Video",
+					"info": "Image field will be used as video's poster"
+				},
+				{
+					"id": "mobileVideo",
+					"type": "text",
+					"label": "Mobile Video",
+					"info": "Optional"
+				},
+				{
+					"id": "videoRatio",
+					"type": "radio",
+					"label": "Video Ratio",
+					"options": [
+						{ "value": "ratio-1-1", "label": "1:1" },
+						{ "value": "ratio-3-2", "label": "3:2" },
+						{ "value": "ratio-4-3", "label": "4:3" }
+					]
+				},
+				{
+					"type": "checkbox",
+					"id": "autoplay",
+					"default": true,
+					"label": "Autoplay"
+				},
+				{
+					"type": "text",
+					"id": "loops",
+					"label": "Loops",
+					"default": "10"
+				},
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title"
+				},
+				{
+					"type": "text",
+					"id": "subtitle",
+					"label": "Subtitle"
+				},
+				{
+					"type": "text",
+					"id": "description",
+					"label": "Description"
+				},
+				{
+					"type": "text",
+					"id": "linkText",
+					"label": "Link A Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrl",
+					"label": "Link A Url"
+				},
+				{
+					"type": "text",
+					"id": "linkTextB",
+					"label": "Link B Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrlB",
+					"label": "Link B Url"
+				},
+				{
+					"type": "checkbox",
+					"id": "swapOrder",
+					"default": false,
+					"label": "Swap Column Order"
+				},
+				{
+					"type": "checkbox",
+					"id": "disableTopMargin",
+					"default": false,
+					"label": "Remove Top Margin"
+				},
+				{
+					"type": "checkbox",
+					"id": "disableBottomMargin",
+					"default": false,
+					"label": "Remove Bottom Margin"
+				}
+			]
+		},
+		{
+			"type": "sectionHeading",
+			"name": "Section Heading",
+			"settings": [
+				{
+					"id": "text",
+					"type": "text",
+					"label": "Text"
+				},
+				{
+					"type": "checkbox",
+					"id": "disableTopMargin",
+					"default": false,
+					"label": "Remove Top Margin"
+				},
+				{
+					"type": "checkbox",
+					"id": "disableBottomMargin",
+					"default": false,
+					"label": "Remove Bottom Margin"
+				}
+			]
+		},
+		{
+			"type": "hero",
+			"name": "Hero",
+			"settings": [
+				{
+					"id": "mobileImage",
+					"type": "image_picker",
+					"label": "Mobile Image"
+				},
+				{
+					"id": "desktopImage",
+					"type": "image_picker",
+					"label": "Desktop Image"
+				},
+				{
+					"id": "altText",
+					"type": "text",
+					"label": "Alt Text"
+				},
+				{
+					"id": "video",
+					"type": "text",
+					"label": "Video",
+					"info": "Image fields will be used as video's poster"
+				},
+				{
+					"id": "mobileVideo",
+					"type": "text",
+					"label": "Mobile Video",
+					"info": "Optional"
+				},
+				{
+					"id": "videoRatio",
+					"type": "radio",
+					"label": "Video Ratio",
+					"default": "ratio-16-9",
+					"options": [
+						{ "value": "ratio-1-1", "label": "1:1" },
+						{ "value": "ratio-3-2", "label": "3:2" },
+						{ "value": "ratio-4-3", "label": "4:3" },
+						{ "value": "ratio-16-9", "label": "16:9" }
+					]
+				},
+				{
+					"type": "checkbox",
+					"id": "autoplay",
+					"default": true,
+					"label": "Autoplay"
+				},
+				{
+					"type": "text",
+					"id": "loops",
+					"label": "Loops",
+					"default": "10"
+				},
+				{
+					"type": "checkbox",
+					"id": "disableTopMargin",
+					"default": false,
+					"label": "Remove Top Margin"
+				},
+				{
+					"type": "checkbox",
+					"id": "disableBottomMargin",
+					"default": false,
+					"label": "Remove Bottom Margin"
+				}
+			]
+		}
+	]
+}
 {% endschema %}

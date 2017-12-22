@@ -1,24 +1,55 @@
-<div class="container-fluid">
-	<div class="row flexed">
-		<div class="col-sm-6 {% if block.settings.swapOrder %}col-sm-push-6{% endif %}">
-			<div class="section-content">
+<div class="row flexed">
+	<div class="col-sm-6 {% if block.settings.swapOrder %}col-sm-push-6{% endif %}">
+		<div class="section-content is-media">
+			{% if block.settings.video != blank %}
+
+				{% comment %} standard embeds, in case we want to make this simpler later
+					{% if block.settings.video.type == 'youtube' %}
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ block.settings.video.id }}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+					{% else %}
+						<iframe src="https://player.vimeo.com/video/{{ block.settings.video.id }}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					{% endif %}			
+				{% endcomment %}		
+				
+        		<div class="inline-video {{ block.settings.videoRatio }}">
+	            	<div class="embed-container"
+	            		data-desktop-url="{{ block.settings.video }}"
+	            		data-mobile-url="{{ block.settings.mobileVideo }}"
+	            		data-autoplay="{{ block.settings.autoplay }}"
+	            		data-loops="{{ block.settings.loops }}">
+	            		<video id="video-{{ block.id }}" width="100%" loop muted playsinline="true" poster="{{ block.settings.image | img_url: 'master' }}"></video>
+	            		<a href="#" class="video-trigger" {% if block.settings.autoplay %}style="display: none"{% endif %}>Play Video
+	            			<svg viewBox="0 0 90 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	            			    <g id="Page-1-{{ block.id }}" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+	            			        <path d="M45,90 C69.8528137,90 90,69.8528137 90,45 C90,20.1471863 69.8528137,0 45,0 C20.1471863,0 0,20.1471863 0,45 C0,69.8528137 20.1471863,90 45,90 Z M35,30 L62,45.5 L35,61 L35,30 Z" id="section-{{ block.id }}-play-icon" fill="#FFFFFF"></path>
+	            			    </g>
+	            			</svg>
+	            		</a>
+	            		<div class="loading"></div>
+	            	</div>
+        		</div>
+        		
+    		{% else %}
 				<picture>
 					{% comment %}<source srcset="{{ block.settings.desktopImage | img_url: 'master' }}" media="(min-width: 768px)">{% endcomment %}
 					<img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}">
 				</picture>
-			</div>
+    		{% endif %}
 		</div>
-		<div class="col-sm-6 {% if block.settings.swapOrder %}col-sm-pull-6{% endif %}">
-			<div class="section-content">
-			    <div class="flexer">
-			        <p class="title" {% if block.settings.title == blank %}style="display: none"{% endif %}>{{ block.settings.title }}</p>
-			        <p class="subtitle" {% if block.settings.subtitle == blank %}style="display: none"{% endif %}>{{ block.settings.subtitle }}</p>
-			        <p class="description" {% if block.settings.description == blank %}style="display: none"{% endif %}>{{ block.settings.description }}</p>
-			        <p class="link" {% if block.settings.linkText == blank %}style="display: none"{% endif %}>
-			            <a href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
-			        </p>
-			    </div>
-			</div>
+	</div>
+	<div class="col-sm-6 {% if block.settings.swapOrder %}col-sm-pull-6{% endif %}">
+		<div class="section-content">
+		    <div class="flexer">
+		        <p class="title" {% if block.settings.title == blank %}style="display: none"{% endif %}>{{ block.settings.title }}</p>
+		        <p class="subtitle" {% if block.settings.subtitle == blank %}style="display: none"{% endif %}>{{ block.settings.subtitle }}</p>
+		        <p class="description" {% if block.settings.description == blank %}style="display: none"{% endif %}>{{ block.settings.description }}</p>
+		        <p class="link" {% if block.settings.linkText == blank %}style="display: none"{% endif %}>
+		            <a href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
+		        </p>
+		        <p class="link" {% if block.settings.linkTextB == blank %}style="display: none"{% endif %}>
+		            <a href="{{ block.settings.linkUrlB }}">{{ block.settings.linkTextB }}</a>
+		        </p>
+		    </div>
 		</div>
 	</div>
 </div>
