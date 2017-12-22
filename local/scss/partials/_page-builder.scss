@@ -1,0 +1,154 @@
+.page-block,
+.shg-c{
+	// default margins for each block
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 8vw;
+	@media (min-width: $screen-sm) {
+		font-size: 3.5vw;
+	}
+	@media (min-width: $screen-md) {
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+	@media (min-width: $screen-lg) {
+		font-size: 3vw;
+	}
+	&.contained{
+		@extend .container-fluid;
+		@media (min-width: 1200px) {
+			font-size: 2.5vw;
+		}
+		@media (min-width: $screen-xl) {
+			font-size: 2vw;
+		}
+		// allow full width when parent container is not
+		.shg-c{
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+	// no margins for nested blocks,
+	// don't allow full width for nested items
+	.section-content,
+	.shg-c{
+		font-size: 100%;
+		margin: 0 auto;
+		width: 90%;
+		max-width: 1024px; 
+	}
+	// for flexed elements
+	.shg-row{
+		.shg-c{
+			height: 100%;
+		}
+	}
+}
+
+.row.flexed{
+	@media (min-width: $screen-sm) {
+		display: flex;
+		align-items: stretch;
+	}
+	.flexer{
+		max-width: 670px;
+	}
+}
+
+.section-header{
+	text-align: center;
+	background: #f4f4f4;
+	padding: 20px;
+	@media (min-width: $screen-md) {
+		padding: 40px;
+	}
+	.header-text{
+		margin: 0;
+		line-height: 1;
+		text-transform: uppercase;
+		font-family: $font-family-bold;
+		font-size: 90%;
+	}
+}
+.section-content{
+	text-align: center;
+	color: $gray-darker;
+	padding: 10vw;
+	&.is-media{
+		padding: 0;
+	}
+	@media (min-width: $screen-sm) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		padding: 0;
+	}
+	.title{
+		font-family: $font-family-bold; 
+		line-height: 1.1;
+		letter-spacing: 2px;
+		font-size: 80%;
+	}
+	.subtitle{
+		text-transform: uppercase;
+		font-family: $font-family-sans-serif;
+		letter-spacing: 2px;
+		font-size: 40%;
+	}
+	.description{
+		font-size: 53%;
+		font-family: $font-family-sans-serif;
+		position: relative;
+	}
+	.link{
+		line-height: 1;
+		&:last-child{
+			margin: 0;
+		}
+		a{
+			font-family: $font-family-sans-serif;
+			border-bottom: solid 1px $gray-dark;
+			padding-bottom: 2px;
+			display: inline-block;
+			vertical-align: middle;
+			font-size: 50%;
+			text-transform: uppercase;
+			&:hover,
+			&:focus{
+				text-decoration: none;
+				border-bottom-color: transparent;
+			}
+			@media (min-width: $screen-picture-switch) {
+				font-size: 40%;
+			}
+		}
+	} 
+}
+.video-trigger{
+	display: block;
+	@include text-hide;
+	margin: 0 auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -35px;
+	margin-left: -35px;
+	opacity: 0.7;
+	@include transition(opacity .2s ease);
+	@media (min-width: $screen-md) {
+		margin-top: -45px;
+		margin-left: -45px;
+		&:hover{
+			opacity: .9;
+		}
+	}
+	svg{ // inline so we can override fill color
+		width: 70px;
+		height: 70px;
+		@media (min-width: $screen-md) {
+			width: 90px;
+			height: 90px;
+		}
+	}
+}
