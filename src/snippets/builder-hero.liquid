@@ -20,9 +20,11 @@
 	
 {% else %}
 
-	<picture>
-		<source srcset="{{ block.settings.desktopImage | img_url: 'master' }}" media="(min-width: 768px)">
-		<img src="{{ block.settings.mobileImage | img_url: 'master' }}" alt="{{ block.settings.altText }}">
-	</picture>
+	<div class="fw-image">
+		<picture class="hero">
+			<source srcset="{{ block.settings.desktopImage | img_url: 'master' }}" media="(min-width: 768px)">
+			<img src="{{ block.settings.mobileImage | img_url: 'master' }}" alt="{{ block.settings.altText }}">
+		</picture>
+	</div>
 
 {% endif %}

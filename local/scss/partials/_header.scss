@@ -283,7 +283,7 @@
 			max-width: 90%;
 		}
 		li{
-			border-bottom: solid 1px #EDEDED;
+			border-bottom: solid 1px $gray-lighter;
 			&:last-child{
 				border: 0;
 			}

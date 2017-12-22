@@ -1,7 +1,11 @@
 <div class="nav-window" id="oc-nav">
   <div class="nav-content">
   	<nav role="navigation" id="site-menu">
-  	  <ul class="site-nav">
+      
+      {% assign fieldId = 'in-menu-search' %}
+      {% include 'search-form' with fieldId %}
+  	  
+      <ul class="site-nav">
   	    {% for link in linklists[section.settings.main_linklist].links %}
   	      {%- assign child_list_handle = link.title | handleize -%}
   	      {% if menus[child_list_handle].links != blank %}

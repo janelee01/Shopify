@@ -1,0 +1,16 @@
+<form action="/search" method="get" role="search">
+  <label for="{{ fieldId }}" class="sr-only">
+    {{ 'general.search.placeholder' | t }}
+  </label>
+  <input type="search"
+         name="q"
+         id="{{ fieldId }}"
+         class="form-control"
+         value="{{ search.terms | escape }}"
+         placeholder="{{ 'general.search.placeholder' | t }}">
+  <input type="hidden" name="type" value="product" />
+  <button type="submit" class="btn">
+    {% include 'icon-search' %}
+    <span class="sr-only">{{ 'general.search.submit' | t }}</span>
+  </button>
+</form> 

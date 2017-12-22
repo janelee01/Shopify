@@ -20,6 +20,7 @@ window.theme = window.theme || {};
 
 /*================ Lo & Sons ================*/
 // =require vendor/bootstrap.min.js
+// =require vendor/jquery.cookie.js
 // =require vendor/lo-and-sons.js
 
 $(document).ready(function() {
@@ -226,5 +227,30 @@ $(document).ready(function() {
 			video.play();
 		});
 	});
+
+	/* Newsletter Prompt */
+	$('#newsletter-prompt .modal-close, #newsletter-prompt .btn').on('click', function(){
+		$('#newsletter-prompt').addClass('closed');
+		$.cookie('lo-nl-prompt-dismissed', '1', { path: '/' });
+	});
+
+	var displayNewsletterPrompt = function() {
+
+		// Not on the /sale page
+		if (window.location.pathname.match(/^\/sale/)) {
+			return;
+		}
+
+		// Not on the cart or checkout pages
+		if (window.location.pathname.match(/^\/checkout/)) {
+			return;
+		}
+
+		if ( ! $.cookie('lo-nl-prompt-dismissed') ) {
+			$('#newsletter-prompt').removeClass('closed');
+		}
+
+	};
+	var newletterTimeout = setTimeout(displayNewsletterPrompt, 30000);
 
 });

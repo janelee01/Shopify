@@ -1,14 +1,12 @@
 .page-block,
 .shg-c{
 	// default margins for each block
-	margin-top: 20px;
 	margin-bottom: 20px;
 	font-size: 8vw;
 	@media (min-width: $screen-sm) {
 		font-size: 3.5vw;
 	}
 	@media (min-width: $screen-md) {
-		margin-top: 40px;
 		margin-bottom: 40px;
 	}
 	@media (min-width: $screen-lg) {
@@ -84,11 +82,15 @@
 		height: 100%;
 		padding: 0;
 	}
+	p{
+		margin-bottom: .75em;
+	}
 	.title{
 		font-family: $font-family-bold; 
 		line-height: 1.1;
 		letter-spacing: 2px;
 		font-size: 80%;
+		margin-bottom: 0.5em;
 	}
 	.subtitle{
 		text-transform: uppercase;
@@ -103,6 +105,10 @@
 	}
 	.link{
 		line-height: 1;
+		font-size: 50%;
+		@media (min-width: $screen-picture-switch) {
+			font-size: 40%;
+		}
 		&:last-child{
 			margin: 0;
 		}
@@ -112,43 +118,61 @@
 			padding-bottom: 2px;
 			display: inline-block;
 			vertical-align: middle;
-			font-size: 50%;
 			text-transform: uppercase;
 			&:hover,
 			&:focus{
 				text-decoration: none;
 				border-bottom-color: transparent;
 			}
-			@media (min-width: $screen-picture-switch) {
-				font-size: 40%;
-			}
 		}
 	} 
 }
-.video-trigger{
-	display: block;
-	@include text-hide;
-	margin: 0 auto;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -35px;
-	margin-left: -35px;
-	opacity: 0.7;
-	@include transition(opacity .2s ease);
-	@media (min-width: $screen-md) {
-		margin-top: -45px;
-		margin-left: -45px;
-		&:hover{
-			opacity: .9;
+.page-block{
+	.inline-video{
+		
+	}
+	video{ 
+		object-fit: contain;
+	}
+	.loading{
+		display: block; 
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background-color: transparent;
+		background-image: url('oval.svg');
+		background-size: 75px;
+	}
+	.video-trigger{
+		display: block;
+		@include text-hide;
+		margin: 0 auto;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -35px;
+		margin-left: -35px;
+		opacity: 0.7;
+		@include transition(opacity .2s ease);
+		@media (min-width: $screen-md) {
+			margin-top: -45px;
+			margin-left: -45px;
+			&:hover{
+				opacity: .9;
+			}
+		}
+		svg{ // inline so we can override fill color
+			width: 70px;
+			height: 70px;
+			@media (min-width: $screen-md) {
+				width: 90px;
+				height: 90px;
+			}
 		}
 	}
-	svg{ // inline so we can override fill color
-		width: 70px;
-		height: 70px;
-		@media (min-width: $screen-md) {
-			width: 90px;
-			height: 90px;
-		}
+}
+.fw-image{
+	img{
+		width: 100%;
 	}
 }

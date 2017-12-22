@@ -1,7 +1,6 @@
 {% for block in section.blocks %}
 	<div class="page-block"
-		style="{%- if block.settings.disableTopMargin -%}margin-top: 0;{%- endif -%}
-		{%- if block.settings.disableBottomMargin -%} margin-bottom: 0;{%- endif -%}"
+		style="{%- if block.settings.disableBottomMargin -%} margin-bottom: 0;{%- endif -%}"
 		{{ block.shopify_attributes }}>
 		{% case block.type %}
 
@@ -100,16 +99,20 @@
 					"label": "Link B Url"
 				},
 				{
+					"type": "text",
+					"id": "linkTextC",
+					"label": "Link C Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrlC",
+					"label": "Link C Url"
+				},
+				{
 					"type": "checkbox",
 					"id": "swapOrder",
 					"default": false,
 					"label": "Swap Column Order"
-				},
-				{
-					"type": "checkbox",
-					"id": "disableTopMargin",
-					"default": false,
-					"label": "Remove Top Margin"
 				},
 				{
 					"type": "checkbox",
@@ -127,12 +130,6 @@
 					"id": "text",
 					"type": "text",
 					"label": "Text"
-				},
-				{
-					"type": "checkbox",
-					"id": "disableTopMargin",
-					"default": false,
-					"label": "Remove Top Margin"
 				},
 				{
 					"type": "checkbox",
@@ -196,12 +193,6 @@
 					"id": "loops",
 					"label": "Loops",
 					"default": "10"
-				},
-				{
-					"type": "checkbox",
-					"id": "disableTopMargin",
-					"default": false,
-					"label": "Remove Top Margin"
 				},
 				{
 					"type": "checkbox",

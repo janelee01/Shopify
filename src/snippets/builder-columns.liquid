@@ -40,15 +40,24 @@
 	<div class="col-sm-6 {% if block.settings.swapOrder %}col-sm-pull-6{% endif %}">
 		<div class="section-content">
 		    <div class="flexer">
-		        <p class="title" {% if block.settings.title == blank %}style="display: none"{% endif %}>{{ block.settings.title }}</p>
-		        <p class="subtitle" {% if block.settings.subtitle == blank %}style="display: none"{% endif %}>{{ block.settings.subtitle }}</p>
-		        <p class="description" {% if block.settings.description == blank %}style="display: none"{% endif %}>{{ block.settings.description }}</p>
-		        <p class="link" {% if block.settings.linkText == blank %}style="display: none"{% endif %}>
-		            <a href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
-		        </p>
-		        <p class="link" {% if block.settings.linkTextB == blank %}style="display: none"{% endif %}>
-		            <a href="{{ block.settings.linkUrlB }}">{{ block.settings.linkTextB }}</a>
-		        </p>
+		        {% unless block.settings.title == blank %}
+		        	<p class="title">{{ block.settings.title }}</p>
+		        {% endunless %}
+		        {% unless block.settings.subtitle == blank %}
+		        	<p class="subtitle">{{ block.settings.subtitle }}</p>
+		        {% endunless %}
+		        {% unless block.settings.description == blank %}
+		        	<p class="description">{{ block.settings.description }}</p>
+		        {% endunless %}
+		        {% unless block.settings.linkText == blank %}
+			        <p class="link"><a href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a></p>
+		        {% endunless %}
+                {% unless block.settings.linkTextB == blank %}
+        	        <p class="link"><a href="{{ block.settings.linkUrlB }}">{{ block.settings.linkTextB }}</a></p>
+                {% endunless %}
+                {% unless block.settings.linkTextC == blank %}
+        	        <p class="link"><a href="{{ block.settings.linkUrlC }}">{{ block.settings.linkTextC }}</a></p>
+                {% endunless %}
 		    </div>
 		</div>
 	</div>
