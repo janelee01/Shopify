@@ -447,7 +447,7 @@ hr.mini-divider{
 	font-size: $font-size-small;
 	font-family: $font-family-sans-serif;
 	letter-spacing: $ls-xs;
-	z-index: 1;
+	z-index: 1000;
 	color: #FFF;
 	position: relative;
 	a{

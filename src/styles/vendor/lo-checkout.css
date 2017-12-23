@@ -2477,7 +2477,7 @@ hr.mini-divider {
   font-size: 14px;
   font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 1px;
-  z-index: 1;
+  z-index: 1000;
   color: #FFF;
   position: relative;
 }

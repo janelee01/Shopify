@@ -20,6 +20,7 @@ window.theme = window.theme || {};
 
 /*================ Lo & Sons ================*/
 // =require vendor/bootstrap.min.js
+// =require vendor/jquery.fitvids.js
 // =require vendor/jquery.cookie.js
 // =require vendor/lo-and-sons.js
 
@@ -228,6 +229,30 @@ $(document).ready(function() {
 		});
 	});
 
+	// Product video
+	$('body').on('click', '.product-video-trigger', function(e){
+		e.preventDefault();
+		LS.productVideoOpen(1); // button always shows the first video
+	});
+	$('body').on('click', '.has-video', function(e){
+	    e.preventDefault();
+	    LS.productVideoOpen($(this).data('video-id'));
+	});
+	$('body').on('click', '.overview-video-trigger', function(e){
+	    e.preventDefault();
+	    LS.productVideoOpen($(this).data('video-id'));
+	});
+
+	$('body').on('click', '#product-video .modal-close', function(e){
+		e.preventDefault();
+		LS.productVideoClose();
+	});
+	$(document).keyup(function(e) {
+	    if (e.keyCode == 27) { // escape key maps to keycode `27`
+	    	LS.productVideoClose();
+	    }
+	});
+
 	/* Newsletter Prompt */
 	$('#newsletter-prompt .modal-close, #newsletter-prompt .btn').on('click', function(){
 		$('#newsletter-prompt').addClass('closed');
@@ -252,5 +277,90 @@ $(document).ready(function() {
 
 	};
 	var newletterTimeout = setTimeout(displayNewsletterPrompt, 30000);
+
+	// page nav
+	$('#page-nav-items-toggle').on('click', function(e){
+	    e.preventDefault();
+	    $('.page-nav').toggleClass('open');
+	});
+	$('.page-nav-item').on('click', function(e){
+	    e.preventDefault();
+	    $('.page-nav').removeClass('open');
+	});
+
+	var lastScrollTop = 0;
+	var lowestScrollPos = 0;
+	var $pageNav = $('.page-nav');
+	var $header = $('#site-header');
+	var headerOffset = $header.outerHeight();
+
+	$(window).scroll(function(){
+
+		var $ = jQuery;
+
+		// sticky sidebars
+		if( $(window).width() > LS.desktopBreakpoint && has_sticky_element ){
+			LS.doStickyColumn(el_starting_pos);
+		}
+
+		var $el = $('.page-header-image, #overview-block-0');
+		if( $el.length > 0 ){
+			var container_bottom = $el.offset().top + $el.outerHeight() - $(window).scrollTop();
+			var	indicator_bottom = $('.scroll-down-indicator').offset().top + $('.scroll-down-indicator').outerHeight() - $(window).scrollTop();
+			var window_height = $(window).height();
+
+			// deactivate the stick when the image is not below the window
+			if( container_bottom < window_height ){
+				$('.scroll-down-indicator').addClass('pinned');
+			}
+			// stick to the window when the indicator hits the bottom
+			if( indicator_bottom > window_height ){
+				$('.scroll-down-indicator').removeClass('pinned');
+			}
+		}
+
+		// hide the back to top when at the top of the page
+		var $totop = $('.back-to-top.persistent'),
+			window_pos = $(window).scrollTop();
+
+		if( window_pos > 240 ){
+			$totop.addClass('active');
+		}else{
+			$totop.removeClass('active');
+		}
+
+		// trigger the newsletter prompt
+	    if ( window_pos > $('body').height() * 0.7 ) {
+			displayNewsletterPrompt();
+	    }
+
+		// shift main nav out of the way when we have a page nav
+		if( $pageNav.length ){
+			var currentScrollTop = $(this).scrollTop();
+			if (currentScrollTop > lastScrollTop){
+				// scrolling down
+				if( currentScrollTop > headerOffset ){
+					$header.css('top', -headerOffset);
+					$pageNav.css('margin-top', -headerOffset); // "top" value set by css, so shift it with margin
+					$pageNav.addClass('is-shown'); // on mobile this makes it visible
+				}
+				// set our furthest point down the page
+				lowestScrollPos = currentScrollTop;
+			} else {
+				// scrolling up, with a buffer so the header isn't shown immediately
+				if( currentScrollTop + headerOffset < lowestScrollPos ){
+					$header.attr('style', '');
+					$pageNav.attr('style', '');
+				}
+			}
+
+			// hides the page nav on mobile when we're at the top of the page
+			if( currentScrollTop < headerOffset ){
+				$pageNav.removeClass('is-shown');
+			}
+
+			lastScrollTop = currentScrollTop;
+		}
+	});
 
 });
