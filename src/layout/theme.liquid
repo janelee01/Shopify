@@ -61,6 +61,8 @@
   <script src="https://player.vimeo.com/api/player.js"></script>
 
   {{ content_for_header }}
+
+  {% include 'page-assets' %}
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
@@ -84,5 +86,6 @@
             <button type="button" class="modal-close"><span aria-hidden="true">Close</span></button>
         </div>
     </div>
+
 </body>
 </html>

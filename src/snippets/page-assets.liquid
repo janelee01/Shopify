@@ -1,0 +1,51 @@
+{% comment %}
+	theme js is deferred, so we have to defer these files as well
+	the files are located in /local/pages/* and copied into the assets folder via gulp's pages task 
+{% endcomment %}
+{% if page.handle == "discover-womens-hanover-deluxe-travel-backpack" %}
+	{{ 'hanover-deluxe.css' | asset_url | stylesheet_tag }}
+	<script src="{{ 'hanover-deluxe.js' | asset_url }}" defer></script>
+{% endif %} 
+
+{% if page.handle == "discover-womens-hanover-travel-backpack" %}
+	{{ 'hanover.css' | asset_url | stylesheet_tag }}
+{% endif %} 
+
+{% if page.handle == "discover-catalina-deluxe" %}
+	{{ 'catalina-deluxe.css' | asset_url | stylesheet_tag }}
+{% endif %} 
+
+{% if page.handle == "discover-catalina-deluxe-tote" %}
+	{{ 'catalina-deluxe-tote.css' | asset_url | stylesheet_tag }}
+{% endif %} 
+
+{% if page.handle == "discover-the-catalina" %}
+	{{ 'catalina.css' | asset_url | stylesheet_tag }}
+{% endif %} 
+
+{% if page.handle == "discover-pearl" %}
+	{{ 'pearl.css' | asset_url | stylesheet_tag }}
+{% endif %} 
+
+{% if page.handle == "discover-the-waverley-crossbody-bag-belt-bag" %}
+	{{ 'waverley.css' | asset_url | stylesheet_tag }}
+{% endif %} 
+
+{% if page.handle == "discover-seville" %}
+	{{ 'seville.css' | asset_url | stylesheet_tag }}
+{% endif %} 
+
+{% if page.handle == "discover-the-og-and-omg" %}
+	{{ 'og-omg.css' | asset_url | stylesheet_tag }}
+{% endif %} 
+
+{% if page.handle == "discover-the-cambridge-briefcase-travel-bag" %}
+	{{ 'cambridge.css' | asset_url | stylesheet_tag }}
+	<script src="{{ 'cambridge.js' | asset_url }}" defer></script>
+{% endif %} 
+
+{% if page.handle == "discover-the-rhodes-duffel-travel-bag" %}
+	{{ 'rhodes.css' | asset_url | stylesheet_tag }}
+	<script src="{{ 'rhodes.js' | asset_url }}" defer></script>
+{% endif %} 
+

@@ -39,6 +39,12 @@ gulp.task('checkout', function () {
         .pipe($.size())
 });
 
+gulp.task('pages', function () {
+    return gulp.src('pages/*')
+        .pipe(gulp.dest('../src/assets')) 
+        .pipe($.size())
+});
+
 gulp.task('default', function () {
   /**
    * Run tasks in sequence.
@@ -50,5 +56,9 @@ gulp.task('default', function () {
 gulp.task('watch', function () {
     gulp.watch('scss/**/*.scss', function() {
         return runSequence('styles', 'checkout');
+    });
+
+    gulp.watch('pages/*', function() {
+        return runSequence('pages');
     });
 });

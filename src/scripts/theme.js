@@ -22,6 +22,7 @@ window.theme = window.theme || {};
 // =require vendor/bootstrap.min.js
 // =require vendor/jquery.fitvids.js
 // =require vendor/jquery.cookie.js
+// =require vendor/jquery.touchSwipe.min.js
 // =require vendor/lo-and-sons.js
 
 $(document).ready(function() {
@@ -251,6 +252,21 @@ $(document).ready(function() {
 	    if (e.keyCode == 27) { // escape key maps to keycode `27`
 	    	LS.productVideoClose();
 	    }
+	});
+
+	// swipable bs carousels
+	$(".carousel").swipe({
+		allowPageScroll:"auto",
+		threshold: 40,
+		excludedElements: "label, button, input, select, textarea, .noSwipe",
+		swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
+        	// $(this).find('.item a').on('click', function(){ return false; }); interfering with custom layout blocks, doesn't seem to be applicable anywhere else
+        	$(this).carousel('next');
+        },
+		swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
+			// $(this).find('.item a').on('click', function(){ return false; }); interfering with custom layout blocks, doesn't seem to be applicable anywhere else
+        	$(this).carousel('prev');
+        }
 	});
 
 	/* Newsletter Prompt */

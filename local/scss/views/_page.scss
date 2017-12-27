@@ -151,6 +151,27 @@
 	height: $page-nav-height-xs;
 	opacity: 0;
 	@include transition(all .25s ease-out);
+	&.theme-light{
+		background: rgba(255,255,255, 0.7);
+		#page-nav-items-toggle{
+			background-image: url("down-dark.png");
+		}
+		.page-nav-title,
+		.page-nav-item,
+		.page-nav-item:hover,
+		.page-nav-item:focus{
+			color: #000;
+		}
+		&.open{
+			background: #FFF;
+			ul.page-nav-items{
+				background: #FFF;
+				li{ 
+					border-bottom-color: #000;
+				}
+			}
+		}
+	}
 	&.is-shown{
 		opacity: 1;
 	}
