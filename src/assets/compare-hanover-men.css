@@ -1,0 +1,123 @@
+
+@media (max-width: 767px) {
+#section-0-item-0 .title,
+#section-0-item-0 .subtitle,
+#section-0-item-0 .description,
+#section-0-item-0 .link a.default{
+color: #000000;
+border-bottom-color: #000000;
+}
+#section-0-item-0 .link a.default:hover{
+border-bottom-color: transparent;
+}
+#section-0-item-0 hr{
+border-top-color: #000000;
+}
+}
+@media (min-width: 768px) {
+#section-0-item-0 .title,
+#section-0-item-0 .subtitle,
+#section-0-item-0 .description,
+#section-0-item-0 .link a.default{
+color: #000000;
+border-bottom-color: #000000;
+}
+#section-0-item-0 .link a.default:hover{
+border-bottom-color: transparent;
+}
+#section-0-item-0 hr{
+border-top-color: #000000;
+}
+}
+
+
+@media (max-width: 767px) {
+#section-heading-1 .section-title,
+#section-heading-1 .section-subtitle,
+#section-heading-1 .section-title-link a{
+color: #000000;
+}
+#section-heading-1 .section-title-link a{
+border-bottom-color: #000000;
+}
+#section-heading-1 .section-title-link a:hover{
+border-bottom-color: transparent;
+}
+}
+@media (min-width: 768px) {
+#section-heading-1 .section-title,
+#section-heading-1 .section-subtitle,
+#section-heading-1 .section-title-link a{
+color: #000000;
+}
+#section-heading-1 .section-title-link a{
+border-bottom-color: #000000;
+}
+#section-heading-1 .section-title-link a:hover{
+border-bottom-color: transparent;
+}
+}
+
+
+@media (max-width: 767px) {
+#section-15-item-0 .title,
+#section-15-item-0 .subtitle,
+#section-15-item-0 .description,
+#section-15-item-0 .link a.default{
+color: #000000;
+border-bottom-color: #000000;
+}
+#section-15-item-0 .link a.default:hover{
+border-bottom-color: transparent;
+}
+#section-15-item-0 hr{
+border-top-color: #000000;
+}
+}
+@media (min-width: 768px) {
+#section-15-item-0 .title,
+#section-15-item-0 .subtitle,
+#section-15-item-0 .description,
+#section-15-item-0 .link a.default{
+color: #000000;
+border-bottom-color: #000000;
+}
+#section-15-item-0 .link a.default:hover{
+border-bottom-color: transparent;
+}
+#section-15-item-0 hr{
+border-top-color: #000000;
+}
+}
+
+
+@media (max-width: 767px) {
+#section-15-item-1 .title,
+#section-15-item-1 .subtitle,
+#section-15-item-1 .description,
+#section-15-item-1 .link a.default{
+color: #000000;
+border-bottom-color: #000000;
+}
+#section-15-item-1 .link a.default:hover{
+border-bottom-color: transparent;
+}
+#section-15-item-1 hr{
+border-top-color: #000000;
+}
+}
+@media (min-width: 768px) {
+#section-15-item-1 .title,
+#section-15-item-1 .subtitle,
+#section-15-item-1 .description,
+#section-15-item-1 .link a.default{
+color: #000000;
+border-bottom-color: #000000;
+}
+#section-15-item-1 .link a.default:hover{
+border-bottom-color: transparent;
+}
+#section-15-item-1 hr{
+border-top-color: #000000;
+}
+}
