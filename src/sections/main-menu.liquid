@@ -1,24 +1,40 @@
-<div class="nav-window" id="oc-nav">
-  <div class="nav-content">
+<div id="site-nav-panel">
+  <div id="site-nav-body">
+    {% assign fieldId = 'in-menu-search' %}
+    {% include 'search-form' with fieldId %}
   	<nav role="navigation" id="site-menu">
-      
-      {% assign fieldId = 'in-menu-search' %}
-      {% include 'search-form' with fieldId %}
-  	  
-      <ul class="site-nav">
+      <ul> 
   	    {% for link in linklists[section.settings.main_linklist].links %}
   	      {%- assign child_list_handle = link.title | handleize -%}
   	      {% if menus[child_list_handle].links != blank %}
-  	        <li class="site-nav--has-submenu{% if link.active %} site-nav--active{% endif %}">
-  	          <a href="#sub-menu-{{ forloop.index0 }}" class="site-nav__link menu-toggle" data-toggle="collapse" aria-expanded="false" aria-controls="sub-menu-{{ forloop.index0 }}">
+            <li class="has-children{% if link.active %} active-child{% endif %}">
+  	          <a href="#child-menu-{{ forloop.index0 }}" class="menu-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="child-menu-{{ forloop.index0 }}">
   	            {{ link.title }}
   	          </a>
-              <div class="collapse" id="sub-menu-{{ forloop.index0 }}">
-    	          <ul class="site-nav__submenu">
+              <div class="collapse" id="child-menu-{{ forloop.index0 }}">
+    	          <ul>
     	            {% for childlink in menus[child_list_handle].links %}
-    	              <li {% if childlink.active %}class="site-nav--active"{% endif %}>
-    	                <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
-    	              </li>
+                    {%- assign grandchild_list_handle = childlink.title | handleize -%}
+                    {% if menus[grandchild_list_handle].links != blank %}
+                      <li class="has-children{% if childlink.active %} active-child{% endif %}">
+                        <a href="#grandchild-menu-{{ forloop.index0 }}" class="menu-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="grandchild-menu-{{ forloop.index0 }}">
+                          {{ childlink.title }}
+                        </a>
+                        <div class="collapse" id="grandchild-menu-{{ forloop.index0 }}">
+                          <ul>
+                            {% for grandchildlink in menus[grandchild_list_handle].links %}
+                              <li {% if grandchildlink.active %}class="active"{% endif %}>
+                                <a href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      </li>
+                    {% else %}
+      	              <li {% if childlink.active %}class="active"{% endif %}>
+      	                <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+      	              </li>
+                    {% endif %}
     	            {% endfor %}
     	          </ul>
               </div>
@@ -57,8 +73,8 @@
   	    {% endif %}
   	  </ul>
   	</nav>
+    <button id="nav-panel-close" class="panel-close"><span class="sr-only">Close</span></button>
   </div>
-  <button id="nav-window-close" class="window-close"><span class="sr-only">Close</span></button>
 </div>
 
 {% schema %}

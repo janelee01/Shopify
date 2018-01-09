@@ -1,6 +1,10 @@
 {% for block in section.blocks %}
+	{% assign disableMargin = false %}
+	{% if block.type == 'sectionHeading' %}
+		{% assign disableMargin = true %}
+	{% endif %}
 	<div class="page-block"
-		style="{%- if block.settings.disableBottomMargin -%} margin-bottom: 0;{%- endif -%}"
+		style="{%- if block.settings.disableBottomMargin or disableMargin -%} margin-bottom: 0;{%- endif -%}"
 		{{ block.shopify_attributes }}>
 		{% case block.type %}
 
@@ -19,6 +23,7 @@
 
 {% schema %}
 {
+	"name": "Content Manager",
 	"blocks": [
 		{
 			"type": "columns",
@@ -30,48 +35,9 @@
 					"label": "Image"
 				},
 				{
-					"id": "video",
-					"type": "text",
-					"label": "Video",
-					"info": "Image field will be used as video's poster"
-				},
-				{
-					"id": "mobileVideo",
-					"type": "text",
-					"label": "Mobile Video",
-					"info": "Optional"
-				},
-				{
-					"id": "videoRatio",
-					"type": "radio",
-					"label": "Video Ratio",
-					"options": [
-						{ "value": "ratio-1-1", "label": "1:1" },
-						{ "value": "ratio-3-2", "label": "3:2" },
-						{ "value": "ratio-4-3", "label": "4:3" }
-					]
-				},
-				{
-					"type": "checkbox",
-					"id": "autoplay",
-					"default": true,
-					"label": "Autoplay"
-				},
-				{
-					"type": "text",
-					"id": "loops",
-					"label": "Loops",
-					"default": "10"
-				},
-				{
 					"type": "text",
 					"id": "title",
 					"label": "Title"
-				},
-				{
-					"type": "text",
-					"id": "subtitle",
-					"label": "Subtitle"
 				},
 				{
 					"type": "text",
@@ -136,6 +102,40 @@
 					]
 				},
 				{
+					"id": "video",
+					"type": "text",
+					"label": "Video",
+					"info": "Image field will be used as video's poster"
+				},
+				{
+					"id": "mobileVideo",
+					"type": "text",
+					"label": "Mobile Video",
+					"info": "Optional"
+				},
+				{
+					"id": "videoRatio",
+					"type": "radio",
+					"label": "Video Ratio",
+					"options": [
+						{ "value": "ratio-1-1", "label": "1:1" },
+						{ "value": "ratio-3-2", "label": "3:2" },
+						{ "value": "ratio-4-3", "label": "4:3" }
+					]
+				},
+				{
+					"type": "checkbox",
+					"id": "autoplay",
+					"default": true,
+					"label": "Autoplay"
+				},
+				{
+					"type": "text",
+					"id": "loops",
+					"label": "Loops",
+					"default": "10"
+				},
+				{
 					"type": "checkbox",
 					"id": "swapOrder",
 					"default": false,
@@ -157,12 +157,6 @@
 					"id": "text",
 					"type": "text",
 					"label": "Text"
-				},
-				{
-					"type": "checkbox",
-					"id": "disableBottomMargin",
-					"default": false,
-					"label": "Remove Bottom Margin"
 				}
 			]
 		},
@@ -186,10 +180,63 @@
 					"label": "Alt Text"
 				},
 				{
+					"type": "text",
+					"id": "title",
+					"label": "Title"
+				},
+				{
+					"type": "text",
+					"id": "linkText",
+					"label": "Link A -- Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrl",
+					"label": "Link A -- URL"
+				},
+				{
+					"type": "radio",
+					"id": "linkStyle",
+					"label": "Link A -- Style",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "outline", "label": "Outline" }
+					]
+				},
+				{
+					"type": "text",
+					"id": "linkTextB",
+					"label": "Link B -- Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrlB",
+					"label": "Link B -- URL"
+				},
+				{
+					"type": "radio",
+					"id": "linkStyleB",
+					"label": "Link B -- Style",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "outline", "label": "Outline" }
+					]
+				},
+				{
+					"type": "radio",
+					"id": "overlayTextPos",
+					"label": "Text Position",
+					"options": [
+						{ "value": "left", "label": "Left" },
+						{ "value": "center", "label": "Center" },
+						{ "value": "right", "label": "Right" }
+					]
+				},
+				{
 					"id": "video",
 					"type": "text",
 					"label": "Video",
-					"info": "Image fields will be used as video's poster"
+					"info": "Desktop image will be used as video's poster"
 				},
 				{
 					"id": "mobileVideo",
@@ -202,6 +249,7 @@
 					"type": "radio",
 					"label": "Video Ratio",
 					"default": "ratio-16-9",
+					"info": "Only applies to mobile version",
 					"options": [
 						{ "value": "ratio-1-1", "label": "1:1" },
 						{ "value": "ratio-3-2", "label": "3:2" },

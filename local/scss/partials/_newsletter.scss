@@ -1,7 +1,7 @@
 /*Newsletter Modal*/
 [data-target="#newsletter"]{
-	margin-top: 24px;
-	margin-bottom: $line-height-computed/2;
+	// margin-top: 24px;
+	// margin-bottom: $line-height-computed/2;
 }
 .newsletter {
 
@@ -89,27 +89,43 @@
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	box-shadow: 0 -10px 40px rgba(0,0,0,.1);
-	padding: 40px;
-	text-align: center;
+	padding: 20px 40px;
 	z-index: 999;
 	@include transition-off;
+	text-align: center;
 	@media (min-width: $screen-md) {
-		padding: 60px;
+		text-align: left;
+		padding: 33px 0;
 	}
 	&.closed{
-		bottom: auto;
-		top: 100%;
+		bottom: -160px;
 		box-shadow: none;
+		@media (min-width: $screen-md) {
+			bottom: -130px;
+		}
 	}
 	p{
 		font-family: $font-family-sans-serif;
-		strong{
-			color: $brand-blue-dark;
-		}
+		color: $gray-darker;
+		margin-bottom: 20px;
 		@media (min-width: $screen-md) {
-			display: inline;
-			padding: 0 20px;
+			font-size: 20px;
+			line-height: 50px;
+			margin: 0;
+		}
+	}
+	.panel-close{
+		left: auto;
+		right: 0;
+		@media (min-width: $screen-md) {
+			right: 40px;
+			top: 50%;
+			margin-top: -20px;
+		}
+	}
+	[class^="col-"]:last-child{
+		@media (min-width: $screen-md) {
+			text-align: right;
 		}
 	}
 }

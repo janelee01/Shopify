@@ -189,11 +189,10 @@
 		top: $ls-navbar-height;
 		height: $page-nav-height;
 	}
-	@media (max-width: $screen-sm-max) {
-		.btn{
-			padding: 3px 6px;
-			font-size: 10px;
-		}
+	.btn{
+		@extend .btn-sm;
+		width: 90px;
+		letter-spacing: 0;
 	}
 	
 	.container-fluid{

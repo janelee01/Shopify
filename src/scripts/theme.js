@@ -65,7 +65,7 @@ $(document).ready(function() {
 	$('body').toggleClass('menu-open');
 	LS.overlay.open();
   });
-  $('body').on('click', '#nav-window-close', function(e){
+  $('body').on('click', '#nav-panel-close', function(e){
 	e.preventDefault();
 	$('body').removeClass('menu-open');
 	LS.overlay.close();
@@ -244,7 +244,7 @@ $(document).ready(function() {
 	    LS.productVideoOpen($(this).data('video-id'));
 	});
 
-	$('body').on('click', '#product-video .modal-close', function(e){
+	$('body').on('click', '#product-video .panel-close', function(e){
 		e.preventDefault();
 		LS.productVideoClose();
 	});
@@ -270,7 +270,7 @@ $(document).ready(function() {
 	});
 
 	/* Newsletter Prompt */
-	$('#newsletter-prompt .modal-close, #newsletter-prompt .btn').on('click', function(){
+	$('#newsletter-prompt .panel-close, #newsletter-prompt .btn').on('click', function(){
 		$('#newsletter-prompt').addClass('closed');
 		$.cookie('lo-nl-prompt-dismissed', '1', { path: '/' });
 	});

@@ -9,7 +9,7 @@ $screen-xl: 1600px;
 $grid-float-breakpoint: $screen-md; 
 
 $menu-width-sm: 100%;
-$menu-width-md: 370px;
+$menu-width-md: 400px;
 
 $cart-width-md: 370px;
 $checkout-width-md: 710px;
@@ -19,13 +19,15 @@ $ls-navbar-height: 64px;
 $page-nav-height-xs: 46px;
 $page-nav-height: 77px;
 
+$mobile-gutter: 28px;
+
 $text-color: #808080;
 
-$gray-darker:            #000; 
-$gray-dark:              #333;   
+$gray-darker:            #111; 
+$gray-dark:              #414B56;   
 $gray:                   #7f7f7f; 
 $gray-light:             #808080; 
-$gray-lighter:           #e6e6e6; 
+$gray-lighter:           #d6d6d6; 
 $gray-lightest:          #f4f4f4; 
 
 $brand-primary:         #45ADD9;
@@ -35,8 +37,8 @@ $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
 
 $brand-blue-dark: #30A6D8;
-$brand-blue: #4DBEEE;
-$brand-blue-light: #F0F9FD;
+$brand-blue: #00AEEF;
+$brand-blue-light: #DDF2FC;
 
 $brand-yellow: #E3CD6E; 
 
@@ -107,7 +109,7 @@ $block-padding-small-lg: 45px;
 	@include transition(all 0.1s ease-in-out);
 }
 @mixin transition-off(){
-	@include transition(all 0.3s ease-in-out);
+	@include transition(all 0.2s ease-in-out);
 }
 @mixin cart-shift(){
 	@include transition(right .5s ease-out);

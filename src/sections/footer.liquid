@@ -1,147 +1,81 @@
-<footer class="site-footer">
+<div class="container-fluid">
+  <form action="" id="newsletter-signup">
+    <label for="signup-email">Sign up for emails for exclusive offers, new arrivals, and more.</label>
+    <div class="form-group">
+      <input type="email" id="signup-email" class="form-control" placeholder="Enter your email address" />
+      <button id="signup-submit"><span class="sr-only">Submit</span></button>
+    </div>
+  </form>
+</div>
+<footer id="site-footer">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-8">
-        <div class="row">
-          {%- assign footer_linklist_1 = section.settings.footer_linklist_1 -%}
-          {% if linklists[footer_linklist_1].links.size > 0 %}
-            <div class="col-sm-4 hidden-xs">
-              <nav class="footer-nav" role="menu">
-                <h2 class="h6 title">Support</h2>
-                <ul id="footer_1" class="menu">
-                  {% for link in linklists[footer_linklist_1].links %}
-                    <li class="menu-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
-                  {% endfor %}
-                </ul>
-              </nav>
-            </div>
-          {% endif %}
-          {%- assign footer_linklist_2 = section.settings.footer_linklist_2 -%}
-          {% if linklists[footer_linklist_2].links.size > 0 %}
-            <div class="col-sm-4 hidden-xs">
-              <nav class="footer-nav" role="menu">
-                <h2 class="h6 title">About</h2>
-                <ul id="footer_1" class="menu">
-                  {% for link in linklists[footer_linklist_2].links %}
-                    <li class="menu-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
-                  {% endfor %}
-                </ul>
-              </nav>
-            </div>
-          {% endif %}
-          <div class="col-sm-4">
-            <nav class="footer-nav social-nav">
-              <h2 class="sr-only">Social Acocunts</h2>
-              {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram' | split: ', ' -%}
-              <ul>
-                {% for social in social_accounts %}
-                  {%- assign social_handle = social | handleize -%}
-                  {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
-                  {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
-                  {% if settings[social_link] != blank %}
-                    <li>
-                      <a href="{{ settings[social_link] }}" class="ss-icon ss-social-circle" target="_blank" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
-                        {{ social }}
-                      </a>
-                    </li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newsletter"> Join Our Mailing List</button>
-        <p>Be the first to hear about new products, travel features, and exclusive discounts!</p>
-        
-        <div class="newsletter modal fade" id="newsletter" tabindex="-1" role="dialog" aria-labelledby="NewsletterModal">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <form action="" method="post" id="footer-newsletter">
-                <div class="modal-header">
-                  <h4 class="modal-title" id="NewsletterModal">Join Our Mailing List !!! Not hooked into Klaviyo !!!</h4>
-                  <p>Get <strong>15% OFF</strong> your next purchase when you sign up.<br /><small>(discount only applies to full price items)</small></p>
-                </div>
-                <div class="modal-body">
-                  <div class="email-val form-group">
-                    <label for="footer-newsletter-email">Email Address</label>
-                    <input type="email" id="footer-newsletter-email" name="email" class="form-control input-text required-entry validate-email">
-                  </div>
-                  <div class="form-group">
-                    <label for="footer-newsletter-birthyear">Year of Birth</label>
-                    <select id="footer-newsletter-birthyear" name="birthyear" class="validate-select">
-                      <option value="">Please Select...</option>
-                      {% comment %}
-                        minBirthYear = must be 12 years old
-                        limit = you're probably not older than 100, so iterate enough times to show the birth year for someone who is 100
-                      {% endcomment %}
-                      {% assign minAge = 12 %}
-                      {% assign minBirthYear = 'now' | date: "%Y" | minus: minAge %}
-                      {% assign limit = 100 | minus: minAge %}
-                      {% for i in (0..limit) %}
-                          <option value="{{ minBirthYear | minus: i }}">{{ minBirthYear | minus: i }}</option>
-                      {% endfor %}
-                    </select>
-                  </div>
-                  <div class="product-types-val form-group">
-                    <div class="field-row text-center">
-                      <span class="check-title">Interested in products for:</span>
-                      <label class="checkbox-inline">
-                        <input type="checkbox" name="product-types[]" class="validate-one-required-by-name" id="product-interests-women" value="Women"> Women
-                      </label>
-                      <label class="checkbox-inline">
-                        <input type="checkbox" name="product-types[]" class="validate-one-required-by-name" id="product-interests-men" value="Men"> Men
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary">Subscribe</button>
-                </div>
-                <input type="hidden" name="sup_source" value="footer" />
-              </form>
-            </div>
-          </div>
-          <button type="button" class="modal-close" data-dismiss="modal"><span aria-hidden="true">Close</span></button>
-        </div>
-        {% comment %}
-        <?php /* If ?signup=whatever show the newsletter form */ ?>
-        <?php if (Mage::app()->getRequest()->getParam('signup')): ?>
-        <script>
-        jQuery(function($){
-          $('#newsletter').modal('show');
-        });
-        </script>
-        <?php endif; ?>
-        {% endcomment %}
-
+      <img src="{{'ls-logo.svg' | asset_url }}" width="60" alt="{{ shop.name }}" id="footer-logo" />
+      <div id="footer-menus">
+        <nav class="footer-menu" role="menu">
+          <h2 class="menu-title">Support</h2>
+          <ul class="menu">
+            {% for link in linklists['footer-1'].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+        <nav class="footer-menu" role="menu">
+          <h2 class="menu-title">About</h2>
+          <ul class="menu">
+            {% for link in linklists['footer-2'].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+        <nav class="footer-menu" role="menu">
+          <h2 class="menu-title">Terms</h2>
+          <ul class="menu">
+            {% for link in linklists['footer-3'].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+        <nav class="footer-menu" role="menu">
+          <h2 class="menu-title">Connect</h2>
+          {%- assign social_accounts = 'Facebook, Twitter, Instagram, Pinterest' | split: ', ' -%}
+          <ul class="menu social-menu">
+            {% for social in social_accounts %}
+              {%- assign social_handle = social | handleize -%}
+              {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+              {% capture social_icon %}logo-{{ social_handle }}.svg{% endcapture %}
+              {% if settings[social_link] != blank %}
+                <li>
+                  <a href="{{ settings[social_link] }}" target="_blank">
+                    {{social_icon | asset_url | img_tag }}
+                    <span class="sr-only">{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}</span>
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-6 col-md-8">
-        {% if section.settings.show_payment_icons %}
-          {% unless shop.enabled_payment_types == empty %}
-            {%- assign payment_icons_available = 'amazon_payments,american_express,apple_pay,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' -%}
-
-            <h2 class="sr-only">{{ 'layout.footer.payment_methods' | t }}</h2>
-            <ul class="payment-icons">
-              {% for type in shop.enabled_payment_types %}
-                {% if payment_icons_available contains type %}
-                  <li>
-                    {%- assign icon_name = type | prepend: 'icon-' -%}
-                    {% include icon_name %}
-                    <span class="sr-only">{{ type | capitalize | replace: '_', ' ' }}</span>
-                  </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          {% endunless %}
-        {% endif %}
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <p class="copyright">&copy;{{ 'now' | date: "%Y" }}. {{ shop.name }}. All rights reserved.</p>
-      </div>
+  </div>
+  <div id="colophon">
+    <div class="container-fluid">
+      <p id="copyright">&copy;{{ 'now' | date: "%Y" }}. {{ shop.name }}. All rights reserved.</p>
+      <ul class="menu social-menu">
+        {% for social in social_accounts %}
+          {%- assign social_handle = social | handleize -%}
+          {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+          {% capture social_icon %}logo-{{ social_handle }}.svg{% endcapture %}
+          {% if settings[social_link] != blank %}
+            <li>
+              <a href="{{ settings[social_link] }}" target="_blank">
+                {{social_icon | asset_url | img_tag }}
+                <span class="sr-only">{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}</span>
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
     </div>
   </div>
 </footer>
@@ -162,6 +96,12 @@
         "type": "link_list",
         "id": "footer_linklist_2",
         "label": "Second menu",
+        "default": "footer"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_3",
+        "label": "Third menu",
         "default": "footer"
       },
       {

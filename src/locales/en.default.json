@@ -41,7 +41,7 @@
       "no_results_html": "No matches for \"{{ terms }}\"",
       "results_for_html": "Matches for \"{{ terms }}\"",
       "title": "Search",
-      "placeholder": "Search products",
+      "placeholder": "Search Products",
       "submit": "Search"
     }
   },
@@ -80,7 +80,7 @@
       "checkout": "Proceed to Checkout",
       "empty": "Your cart is currently empty.",
       "cookies_required": "Enable cookies to use the shopping cart",
-      "continue_browsing_html": "<a href=\"/collections/all\" class=\"btn-lg btn btn-secondary\">Continue Shopping</a>",
+      "continue_browsing_html": "<a href=\"/collections/all\" class=\"btn btn-secondary btn-sm\">Continue Shopping</a>",
       "item_quantity": "Item quantity",
       "savings": "You're saving"
     },
