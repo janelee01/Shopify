@@ -12,12 +12,19 @@
   </div>  
   {% endif %}
   <a href="{{ product.url | within: collection }}" class="product-grid-details-link">
-    <h2 class="product-name product-grid-title">{{ product.title }}</h2>
+    {%- assign productTitleParts = product.title | split: '-' -%}
+    <h2 class="product-name product-grid-title">{{ productTitleParts[0] | strip }}</h2>
+
     {% if product.metafields.extra.description != blank %}
     <div class="product-grid-description">
       <p>{{ product.metafields["global"]["short-description"] }}</p>
     </div>
     {% endif %}
+    
+    {%- assign productProperties = productTitleParts[1] | split: '/' -%}
+    <p><small>{{ productProperties[0] | strip }}</small><br /><em>{{ productProperties[1] | strip }}</em></p>
+
+
     <div class="product-grid-price">
         <div class="price-box">
           {% if product.compare_at_price > product.price %} {% comment %} product is on sale {% endcomment %}

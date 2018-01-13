@@ -21,8 +21,6 @@ $page-nav-height: 77px;
 
 $mobile-gutter: 28px;
 
-$text-color: #808080;
-
 $gray-darker:            #111; 
 $gray-dark:              #414B56;   
 $gray:                   #7f7f7f; 
@@ -35,6 +33,8 @@ $brand-success:         #5cb85c;
 $brand-info:            #5bc0de;
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
+
+$text-color: $gray-darker;
 
 $brand-blue-dark: #30A6D8;
 $brand-blue: #00AEEF;
@@ -68,14 +68,15 @@ $font-family-semibold: "Circular-Pro-Medium","ProximaNovaSemiBold", "Helvetica N
 $headings-color: $gray-dark;
 
 $font-size-base:          16px;
-$line-height-base:        1.4;
+$font-family-base: $font-family-sans-serif;
+$line-height-base:        1.875;
 
 $font-size-huge:         ceil(($font-size-base * 4.5)); // 72px
 $font-size-large:         ceil(($font-size-base * 1.25)); // 20px
 $font-size-small:         ceil(($font-size-base * 0.85)); // 14px
 $font-size-xs:         floor(($font-size-base * 0.75)); // 12px
 
-$font-size-h1:            floor(($font-size-base * 3)); // ~48px
+$font-size-h1:           40px;
 $font-size-h2:            floor(($font-size-base * 1.5)); // ~24px
 $font-size-h3:            ceil(($font-size-base * 1.375)); // ~22px
 $font-size-h4:            $font-size-large; 

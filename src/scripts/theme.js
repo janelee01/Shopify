@@ -9,11 +9,13 @@ window.theme = window.theme || {};
 // =require slate/sections.js
 // =require slate/currency.js
 // =require slate/images.js
-// =require slate/variants.js
-
+/* removed to avoid conflicts with default behavior
+ slate/variants.js
+*/
 /*================ Sections ================*/
-// =require sections/product.js
-
+/* removed to avoid conflicts with default behavior
+ sections/product.js
+*/
 /*================ Templates ================*/
 // =require templates/customers-addresses.js
 // =require templates/customers-login.js
@@ -24,6 +26,7 @@ window.theme = window.theme || {};
 // =require vendor/jquery.cookie.js
 // =require vendor/jquery.touchSwipe.min.js
 // =require vendor/lo-and-sons.js
+// =require vendor/product.js  
 
 $(document).ready(function() {
   var sections = new slate.Sections();
@@ -129,7 +132,7 @@ $(document).ready(function() {
   });
 
   // marquees
-  $('body').on('click', '.marquee-close', function(e){
+  $('body').on('click', '.marquee .panel-close', function(e){
 	e.preventDefault();
 	$('#shopify-section-marquee').fadeOut('fast');
 	sessionStorage.setItem("lo-marquee-dismissed", "1");
@@ -377,6 +380,89 @@ $(document).ready(function() {
 
 			lastScrollTop = currentScrollTop;
 		}
+	});
+
+	var updatePricing = function(siblingId){
+		var selectedVariant;
+		var comparePrice;
+		for (var i = siblingsJson[siblingId].variants.length - 1; i >= 0; i--) {
+			if( siblingsJson[siblingId].variants[i].id == $('[data-product-select]').val() ){
+				selectedVariant = siblingsJson[siblingId].variants[i];
+			}
+		};
+		// sale pricing
+		if( selectedVariant.compare_at_price && selectedVariant.compare_at_price > 0 ){
+			comparePrice = slate.Currency.formatMoney(selectedVariant.compare_at_price, theme.moneyFormat);
+			$('[data-discount-amount]').text( Math.round( 100*(selectedVariant.compare_at_price - selectedVariant.price) / selectedVariant.compare_at_price ) );
+			$('.discount-badge').removeClass('is-hidden');
+		}else{
+			comparePrice = '';
+			$('.discount-badge').addClass('is-hidden');
+		}
+		$('[data-compare-price]').html(comparePrice);
+
+		// current price
+		var price = slate.Currency.formatMoney(selectedVariant.price, theme.moneyFormat);
+		$('[data-product-price]').html(price.replace('.00',''));
+	}
+
+	$('.swatch').on('click', function(e){
+		e.preventDefault();
+	    var siblingId = $(this).data('sibling');
+
+	    // update active swatch
+	    $('.swatch').removeClass('active');
+	    $(this).addClass('active');
+
+	    // replace galleries
+	    $('#product-galleries .sibling-content').each(function(){
+	    	$(this).addClass('hide');
+	    	if( $(this).data('sibling') == siblingId ){
+	    		$(this).removeClass('hide');
+	    	}
+	    });
+
+	    // replace chosen color
+	    $('#current-option span').text( $(this).find('img').attr('alt') );
+
+	    // replace content
+	    $('.product-detail-panel').each(function(){
+	    	var $overrideContent = $(this).find('[data-sibling="'+siblingId+'"]');
+	    	if( $overrideContent.length ){
+	    		$(this).find('.default-content, .sibling-content').addClass('hide');
+	    		$overrideContent.removeClass('hide');
+	    	}else{
+	    		$(this).find('.sibling-content').addClass('hide');
+	    		$(this).find('.default-content').removeClass('hide');
+	    	}
+	    });
+
+	    // replace options in our Size selector. hard coded for single option variants
+	    var newVariants = siblingsJson[siblingId].variants;
+	    $('[data-product-select]').html(''); // make sure we don't auto-select a variant behind the scenes
+	    for (var i = 0; i <= newVariants.length - 1; i++) {
+	    	if( newVariants[i].available ){
+	    		var optionStr = '<option';
+	    		if( i == 0 ) optionStr += ' selected="selected"';
+	    		optionStr += ' value="'+newVariants[i].id+'">'+newVariants[i].title+'</option>';
+	    		$('[data-product-select]').append(optionStr);
+	    	}
+	    };
+
+	    // update pricing
+	    updatePricing(siblingId);
+
+
+	    // update window URL
+	    if ( history.replaceState ) {
+	      var newurl = window.location.protocol + '//' + window.location.host + $(this).data('url');
+	      window.history.replaceState({path: newurl}, '', newurl);
+	    }
+
+	});
+
+	$('[data-product-select]').on('change', function(){
+		updatePricing($('.swatch.active').data('sibling'));
 	});
 
 });

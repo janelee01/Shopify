@@ -174,6 +174,9 @@ slate.Variants = (function() {
      * @param {object} variant - Currently selected variant
      */
     _updateMasterSelect: function(variant) {
+      console.log( variant.id );
+      console.log( this.originalSelectorId );
+      console.log( this.$container );
       $(this.originalSelectorId, this.$container)[0].value = variant.id;
     }
   });

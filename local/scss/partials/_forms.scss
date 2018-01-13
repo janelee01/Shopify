@@ -117,11 +117,11 @@
 select{
 	font-family: $font-family-sans-serif;
 	display: block;
-   	border: solid 1px $gray-light;
+   	border: solid 1px #e6e6e6;
     border-radius: 0;
-    padding: 0 40px 0 10px;
-    height: 36px;
-    background: url('select-caret.svg') right center no-repeat #fff;
+    padding: 0 40px 0 18px;
+    height: 60px;
+    background: url('select-caret-gray.svg') right center no-repeat #fff;
     width: 100%;
     max-width: 100%;
     // Chrome / Sarfar
@@ -129,10 +129,7 @@ select{
     // FF
     -moz-appearance: none;
     text-overflow: '';
-    font-size: $font-size-base;
-    @media (min-width: $screen-md) {
-    	font-size: $font-size-small;
-    }
+ 
     &[multiple], &[size]{
     	background: #FFF;
 		padding: 10px;

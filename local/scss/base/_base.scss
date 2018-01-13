@@ -1,43 +1,16 @@
 body{
-	font-family: $font-family-serif;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	&.body-shaded{
-		background: $gray-lightest;
-	}
 	&.menu-open{
 		#site-nav-panel{
 			left: 0;
 			box-shadow: 2px 0 8px rgba(0,0,0,.1);
 		}
 	}
-	&.cart-open{
-		.cart-window,
-		.cart-window-actions{
-			right: 0;
-		}
-	}
 	&.page-print{
 		padding-top: 0;
 	}
-	// &.admin-bar{
-	// 	.#site-nav-panel,
-	// 	.cart-window,
-	// 	.cart-window-actions,
-	// 	#site-header{
-	// 		top: 46px;
-	// 		@media (min-width: 783px) {
-	// 			top: 32px;
-	// 		}
-	// 	}
-	// 	.page-nav{
-	// 		top: 100px;
-	// 		@media (min-width: 783px) {
-	// 			top: 96px;
-	// 		}
-	// 	}
-	// }
 }
 
 .site-window{
@@ -378,63 +351,6 @@ hr.mini-divider{
 		}
 	}
 }
-
-// .window-close{
-// 	position: absolute;
-// 	left: 0;
-// 	top: 0;
-// 	width: 100%;
-// 	border: 0;
-// 	background: none;
-// 	padding: 0;
-// 	background: #FFF;
-// 	height: 50px;
-// 	&:before,
-// 	&:after{
-// 		content: '';
-// 		background: #000;
-// 		width: 25px;
-// 		height: 2px;
-// 		display: block;
-// 		position: absolute;
-// 		left: 20px;
-// 		top: 50%;
-// 		margin-left: -12px;
-// 		margin-top: -3px;
-// 		@include rotate(45deg);
-// 		@media (min-width: $screen-md) {
-// 			left: auto;
-// 			right: 10px;
-// 		}
-// 	}
-// 	&:after{
-// 		@include rotate(-45deg);
-// 	}
-// 	&:focus{
-// 		outline: none;
-// 		&:before,
-// 		&:after{
-// 			background: $brand-blue;
-// 		}
-// 	}
-// 	&.panel-close{
-// 		background: none;
-// 		width: 44px;
-// 		left: 100%;
-// 		@include text-hide;
-// 		&:hover{
-// 			&:before,
-// 			&:after{
-// 				background: #000;
-// 			}
-// 		}
-// 		&:before,
-// 		&:after{
-// 			background: $gray;
-// 		}
-// 	}
-// }
-
 .text-small{
 	font-size: $font-size-xs;
 }
@@ -452,7 +368,7 @@ hr.mini-divider{
 	padding: 30px 0 20px;
 }
 .marquee {
-	padding: 10px 30px;
+	padding: 10px 30px 11px;
 	background: $brand-blue;
 	font-size: $font-size-small;
 	font-family: $font-family-sans-serif;
@@ -472,23 +388,28 @@ hr.mini-divider{
 	&::selection{
 		background: $brand-blue-dark;
 	}
+	.panel-close{
+		left: auto;
+		right: 10px;
+		&:before,
+		&:after{
+			background: $brand-blue-light;
+		}
+		@media (min-width: $screen-md) {
+			right: 15px;
+			&:hover{
+				&:before,
+				&:after{
+					background: #FFF;
+				}
+			}
+		}
+	}
 }
 .cms-overview-template .marquee{
 	display: none; // interferes with page nav
 }
-.marquee-close{
-	position: absolute;
-	right: 10px;
-	top: 50%;
-	margin-top: -10px;
-	@media (min-width: $screen-md) {
-		right: 15px;
-	}
-	&:hover{
-		color: #eee;
-		text-decoration: none;
-	}
-}
+
 .alert{
 	font-family: $font-family-sans-serif;
 	a{

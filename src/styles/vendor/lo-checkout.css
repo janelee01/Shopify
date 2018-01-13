@@ -849,25 +849,15 @@
 }
 
 body {
-  font-family: "Adobe Garamond Pro", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-body.body-shaded {
-  background: #f4f4f4;
 }
 
 body.menu-open #site-nav-panel {
   left: 0;
   -webkit-box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
           box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-}
-
-body.cart-open .cart-window,
-body.cart-open .cart-window-actions {
-  right: 0;
 }
 
 body.page-print {
@@ -904,15 +894,15 @@ h5, .h5 {
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-  margin-top: 44px;
-  margin-bottom: 22px;
+  margin-top: 60px;
+  margin-bottom: 30px;
 }
 
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  margin-top: 22px;
-  margin-bottom: 22px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 h1, .h1,
@@ -993,7 +983,7 @@ b, strong {
 
 @media (min-width: 1030px) {
   .page-header.has-image .entry-title {
-    font-size: 48px;
+    font-size: 40px;
     padding: 60px 0;
   }
 }
@@ -1042,7 +1032,7 @@ b, strong {
   left: 47%;
   right: 47%;
   height: 2px;
-  background-color: #808080;
+  background-color: #111;
   display: block;
 }
 
@@ -1051,7 +1041,7 @@ b, strong {
 }
 
 p {
-  margin: 0 0 22px;
+  margin: 0 0 30px;
 }
 
 ul, ol {
@@ -1319,7 +1309,7 @@ hr.mini-divider {
 }
 
 .marquee {
-  padding: 10px 30px;
+  padding: 10px 30px 11px;
   background: #00AEEF;
   font-size: 14px;
   font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1353,26 +1343,26 @@ hr.mini-divider {
   background: #30A6D8;
 }
 
-.cms-overview-template .marquee {
-  display: none;
+.marquee .panel-close {
+  left: auto;
+  right: 10px;
 }
 
-.marquee-close {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  margin-top: -10px;
+.marquee .panel-close:before, .marquee .panel-close:after {
+  background: #DDF2FC;
 }
 
 @media (min-width: 1030px) {
-  .marquee-close {
+  .marquee .panel-close {
     right: 15px;
+  }
+  .marquee .panel-close:hover:before, .marquee .panel-close:hover:after {
+    background: #FFF;
   }
 }
 
-.marquee-close:hover {
-  color: #eee;
-  text-decoration: none;
+.cms-overview-template .marquee {
+  display: none;
 }
 
 .alert {
@@ -1586,7 +1576,7 @@ blockquote .quote-footer:before {
 blockquote .author-title {
   text-transform: none;
   display: block;
-  color: #808080;
+  color: #111;
   padding-top: 5px;
   letter-spacing: 0;
 }
