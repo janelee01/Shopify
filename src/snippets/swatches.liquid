@@ -1,0 +1,20 @@
+<ul class="swatches">
+{% for siblingProduct in parentCollection.products %}{% comment %} all products of this type {% endcomment %}
+	{% if siblingsList contains siblingProduct.id %}{% comment %} make sure this product can be shown {% endcomment %}
+		{% if groupKey == 'any' or siblingProduct.metafields["global"]["swatch-group"] == groupKey %}{% comment %} swatches are sometimes grouped {% endcomment %}
+			{%- assign siblingUrl = siblingProduct.url -%} 
+			{%- if referringCollectionHandle -%}
+				{%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
+			{%- endif -%}
+			<li>
+				<a href="#"
+					class="swatch {% if product.id == siblingProduct.id %}active{% endif %}"
+					data-url="{{ siblingUrl }}"
+					data-sibling="{{ siblingProduct.id }}">
+					<img src="{{ siblingProduct.metafields["global"]["swatch"] }}" alt="{{siblingProduct.metafields["global"]["swatch-label"]}}">
+				</a>
+			</li>
+		{% endif %}
+	{% endif %}
+{% endfor %}
+</ul>
