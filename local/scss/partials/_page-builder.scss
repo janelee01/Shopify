@@ -1,8 +1,7 @@
-.page-block,
-.shg-c{
+.page-block{
 	// default margins for each block
 	margin: 0 auto 20px;
-	max-width: 1680px;
+	max-width: $site-max-width;
 	&.contained{
 		@extend .container-fluid;
 		// allow full width when parent container is not
@@ -13,8 +12,7 @@
 	}
 	// no margins for nested blocks,
 	// don't allow full width for nested items
-	.section-content,
-	.shg-c{
+	.section-content{
 		margin: 0 auto;
 	}
 	// for flexed elements

@@ -31,10 +31,12 @@
       "share_on_facebook": "Share",
       "share_on_twitter": "Tweet",
       "share_on_pinterest": "Pin it",
+      "share_in_email": "Email",
       "alt_text": {
         "share_on_facebook": "Share on Facebook",
         "share_on_twitter": "Tweet on Twitter",
-        "share_on_pinterest": "Pin on Pinterest"
+        "share_on_pinterest": "Pin on Pinterest",
+        "share_in_email": "Email a friend"
       }
     },
     "search": {

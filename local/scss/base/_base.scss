@@ -50,25 +50,6 @@ h6, .h6 {
   margin-bottom: ($line-height-computed);
 }
 
-h1, .h1,
-h2, .h2 {
-	font-family: $font-family-sans-serif;
-}
-
-h3, .h3{
-	font-style: italic;
-	.btn{
-		font-style: normal;
-		margin-top: 20px;
-		@media (min-width: $screen-sm) {
-		    margin-top: 0;
-		}
-	}
-}
-h4, .h4{
-	text-transform: uppercase;
-	font-family: $font-family-sans-serif;
-}
 
 .flush-top{
 	margin-top: 0;

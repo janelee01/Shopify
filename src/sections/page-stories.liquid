@@ -1,0 +1,279 @@
+{% for block in section.blocks %}
+	{% case block.type %}
+
+		{% when 'sectionHeading' %}
+		{% include 'section-heading' %}
+
+		{% when 'twoUp' %}
+		{%- assign thumbSize = '590x395' -%}
+		{%- assign blogHandle = block.settings.blogHandle -%}
+		<div class="row">
+			<div class="col-sm-6">
+				{%- assign articleHandle = block.settings.article1Handle -%}
+				{%- capture articlePath -%}{{ blogHandle }}/{{ articleHandle }}{%- endcapture -%}
+				{%- assign thisArticle = articles[articlePath] -%}
+				{% include 'article-item' %}
+			</div>
+			<div class="col-sm-6">
+				{%- assign articleHandle = block.settings.article2Handle -%}
+				{%- capture articlePath -%}{{ blogHandle }}/{{ articleHandle }}{%- endcapture -%}
+				{%- assign thisArticle = articles[articlePath] -%}
+				{% include 'article-item' %}
+			</div>
+		</div>
+
+		{% when 'fourUp' %}
+		{%- assign thumbSize = '285x190' -%}
+		{%- assign blogHandle = block.settings.blogHandle -%}
+		<div class="side-scroll">
+			<div class="row">
+				<div class="col-xs-3">
+					{%- assign articleHandle = block.settings.article1Handle -%}
+					{%- capture articlePath -%}{{ blogHandle }}/{{ articleHandle }}{%- endcapture -%}
+					{%- assign thisArticle = articles[articlePath] -%}
+					{% include 'article-item' %}
+				</div>
+				<div class="col-xs-3">
+					{%- assign articleHandle = block.settings.article2Handle -%}
+					{%- capture articlePath -%}{{ blogHandle }}/{{ articleHandle }}{%- endcapture -%}
+					{%- assign thisArticle = articles[articlePath] -%}
+					{% include 'article-item' %}
+				</div>
+				<div class="col-xs-3">
+					{%- assign articleHandle = block.settings.article3Handle -%}
+					{%- capture articlePath -%}{{ blogHandle }}/{{ articleHandle }}{%- endcapture -%}
+					{%- assign thisArticle = articles[articlePath] -%}
+					{% include 'article-item' %}
+				</div>
+				<div class="col-xs-3">
+					{%- assign articleHandle = block.settings.article4Handle -%}
+					{%- capture articlePath -%}{{ blogHandle }}/{{ articleHandle }}{%- endcapture -%}
+					{%- assign thisArticle = articles[articlePath] -%}
+					{% include 'article-item' %}
+				</div>
+			</div>
+		</div>
+
+		{% when 'fiveUp' %}
+		{%- assign blogHandle = block.settings.blogHandle -%}
+		<div class="row five-up">
+		    <div class="col-sm-3">
+		    	<div class="row">
+		    		{%- assign thumbSize = '285x190' -%}
+		    		<div class="col-xs-6 col-sm-12">
+		    			{%- assign articleHandle = block.settings.article1Handle -%}
+		    			{%- capture articlePath -%}{{ blogHandle }}/{{ articleHandle }}{%- endcapture -%}
+		    			{%- assign thisArticle = articles[articlePath] -%}
+		    			{% include 'article-item' %}
+		    		</div>
+		    		<div class="col-xs-6 col-sm-12 last">
+						{%- assign articleHandle = block.settings.article2Handle -%}
+						{%- capture articlePath -%}{{ blogHandle }}/{{ articleHandle }}{%- endcapture -%}
+						{%- assign thisArticle = articles[articlePath] -%}
+						{% include 'article-item' %}
+		    		</div>
+		    	</div>
+		    </div>
+		    <div class="col-sm-6 last">
+		    	{%- assign thumbSize = '590x500' -%}
+		        {%- assign articleHandle = block.settings.articleMainHandle -%}
+		        {%- capture articlePath -%}{{ blogHandle }}/{{ articleHandle }}{%- endcapture -%}
+		        {%- assign thisArticle = articles[articlePath] -%}
+		        {% include 'article-item' %}
+		    </div>
+		    <div class="col-sm-3">
+		    	<div class="row">
+		    		{%- assign thumbSize = '285x190' -%}
+		    		<div class="col-xs-6 col-sm-12">
+		    			{%- assign articleHandle = block.settings.article3Handle -%}
+		    			{%- capture articlePath -%}{{ blogHandle }}/{{ articleHandle }}{%- endcapture -%}
+		    			{%- assign thisArticle = articles[articlePath] -%}
+		    			{% include 'article-item' %}
+		    		</div>
+		    		<div class="col-xs-6 col-sm-12 last">
+						{%- assign articleHandle = block.settings.article4Handle -%}
+						{%- capture articlePath -%}{{ blogHandle }}/{{ articleHandle }}{%- endcapture -%}
+						{%- assign thisArticle = articles[articlePath] -%}
+						{% include 'article-item' %}
+		    		</div>
+		    	</div>
+		    </div>
+		</div>
+
+		{% when 'highlight' %}
+		{%- assign thumbSize = '400x267' -%}
+		{%- assign blogHandle = block.settings.blogHandle -%}
+		<div class="highlight">
+			{%- assign articleHandle = block.settings.articleHandle -%}
+			{%- capture articlePath -%}{{ blogHandle }}/{{ articleHandle }}{%- endcapture -%}
+			{%- assign thisArticle = articles[articlePath] -%}
+			{% include 'article-item' %}
+		</div>
+
+		{% when 'banner' %}
+		{%- assign blogHandle = block.settings.blogHandle -%}
+		{%- assign articleHandle = block.settings.articleHandle -%}
+		{%- capture articlePath -%}{{ blogHandle }}/{{ articleHandle }}{%- endcapture -%}
+		{%- assign thisArticle = articles[articlePath] -%}
+		<div class="banner">
+			<article class="entry {{ block.settings.contentPosition }}">
+			    <a href="{{ thisArticle.url }}">
+			        <div class="entry-image"><img src="{{ thisArticle | img_url: '1200x600' }}" alt="{{ thisArticle.title }}"></div>
+			        <div class="entry-content">
+			            <h3 class="entry-title">{{ thisArticle.title }}</h3>
+			            <p class="entry-description">{{ thisArticle.excerpt }}</p>
+			        </div>
+			    </a>
+			</article>
+		</div>
+
+	{% endcase %}
+{% endfor %}
+{% schema %}
+{
+	"name": "Content Manager",
+	"blocks": [
+		{
+			"type": "sectionHeading",
+			"name": "Section Heading",
+			"settings": [
+				{
+					"id": "text",
+					"type": "text",
+					"label": "Text"
+				}
+			]
+		},
+		{
+			"type": "twoUp",
+			"name": "2 Stories",
+			"settings": [
+				{
+					"id": "blogHandle",
+					"type": "text",
+					"label": "Blog Handle"
+				},
+				{
+					"id": "article1Handle",
+					"type": "text",
+					"label": "Article 1 Handle"
+				},
+				{
+					"id": "article2Handle",
+					"type": "text",
+					"label": "Article 2 Handle"
+				}
+			]
+		},
+		{
+			"type": "fourUp",
+			"name": "4 Stories",
+			"settings": [
+				{
+					"id": "blogHandle",
+					"type": "text",
+					"label": "Blog Handle"
+				},
+				{
+					"id": "article1Handle",
+					"type": "text",
+					"label": "Article 1 Handle"
+				},
+				{
+					"id": "article2Handle",
+					"type": "text",
+					"label": "Article 2 Handle"
+				},
+				{
+					"id": "article3Handle",
+					"type": "text",
+					"label": "Article 3 Handle"
+				},
+				{
+					"id": "article4Handle",
+					"type": "text",
+					"label": "Article 4 Handle"
+				}
+			]
+		},
+		{
+			"type": "fiveUp",
+			"name": "5 Stories",
+			"settings": [
+				{
+					"id": "blogHandle",
+					"type": "text",
+					"label": "Blog Handle"
+				},
+				{
+					"id": "article1Handle",
+					"type": "text",
+					"label": "Article 1 Handle"
+				},
+				{
+					"id": "article2Handle",
+					"type": "text",
+					"label": "Article 2 Handle"
+				},
+				{
+					"id": "articleMainHandle",
+					"type": "text",
+					"label": "Main Article Handle"
+				},
+				{
+					"id": "article3Handle",
+					"type": "text",
+					"label": "Article 3 Handle"
+				},
+				{
+					"id": "article4Handle",
+					"type": "text",
+					"label": "Article 4 Handle"
+				}
+			]
+		},
+		{
+			"type": "highlight",
+			"name": "Highlight Article",
+			"settings": [
+				{
+					"id": "blogHandle",
+					"type": "text",
+					"label": "Blog Handle"
+				},
+				{
+					"id": "articleHandle",
+					"type": "text",
+					"label": "Article Handle"
+				}
+			]
+		},
+		{
+			"type": "banner",
+			"name": "Banner Article",
+			"settings": [
+				{
+					"id": "blogHandle",
+					"type": "text",
+					"label": "Blog Handle"
+				},
+				{
+					"id": "articleHandle",
+					"type": "text",
+					"label": "Article Handle"
+				},
+				{
+					"type": "radio",
+					"id": "contentPosition",
+					"label": "Content Position",
+					"options": [
+						{ "value": "left", "label": "Left" },
+						{ "value": "center", "label": "Center" },
+						{ "value": "right", "label": "Right" }
+					]
+				}
+			]
+		}
+	]
+}
+{% endschema %}

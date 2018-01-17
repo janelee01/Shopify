@@ -905,31 +905,6 @@ h6, .h6 {
   margin-bottom: 30px;
 }
 
-h1, .h1,
-h2, .h2 {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-h3, .h3 {
-  font-style: italic;
-}
-
-h3 .btn, .h3 .btn {
-  font-style: normal;
-  margin-top: 20px;
-}
-
-@media (min-width: 768px) {
-  h3 .btn, .h3 .btn {
-    margin-top: 0;
-  }
-}
-
-h4, .h4 {
-  text-transform: uppercase;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
 .flush-top {
   margin-top: 0;
 }
@@ -1109,7 +1084,7 @@ hr.mini-divider {
 
 @media (min-width: 1600px) {
   .container-fluid {
-    max-width: 1260px;
+    max-width: 1200px;
   }
 }
 

@@ -1,0 +1,15 @@
+<article class="entry">
+  <a href="{{ thisArticle.url }}">
+    {% if thisArticle.image %}
+      <div class="entry-image">
+        <img src="{{ thisArticle | img_url: thumbSize, crop: 'center' }}" alt="{{ thisArticle.title }}">
+      </div>
+    {% endif %}
+    <div class="entry-content">
+      <p class="entry-meta">{{ thisArticle.created_at | date: "%e %B %Y" }}</p>
+      <h3 class="entry-title">
+        {{ thisArticle.title }}
+      </h3>
+    </div>
+  </a>
+</article>
