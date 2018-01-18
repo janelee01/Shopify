@@ -252,3 +252,126 @@
 		color: #646464;
 	}
 }
+
+#reviews{
+	dt{
+		font-size: 19px;
+		line-height: 30px;
+		font-family: $font-family-base;
+	}
+	dd{
+		h3{
+			margin: 0 0 15px;
+			font-size: 22px;
+			line-height: 30px;
+		}
+		p{
+			margin-bottom: 0;
+		}
+	}
+	.stars{
+		display: block;
+		padding-top: 13px;
+		.star{
+			display: inline-block;
+			width: 15px;
+			height: 14px;
+			margin-right: 5px;
+			background: url('rating-star.svg');
+			&.filled{
+				background: url('rating-star-filled.svg');
+			}
+		}
+	}
+}
+#reviews-widget{
+	padding-top: 25px;
+	.yotpo-display-wrapper{
+		.yotpo-label,
+		.yotpo-stars-and-sum-reviews,
+		.yotpo-nav,
+		.yotpo-nav-content{
+			display: none;
+		}
+		.yotpo-regular-box,
+		.yotpo-small-box{
+			border: 0;
+			padding: 0;
+			margin: 0;
+		}
+	}
+	.yotpo-header-title{
+		@extend .panel-title;
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 0;
+		color: $text-color;
+	}
+	.yotpo-default-button.write-review-button{
+		position: static;
+		width: 100%;
+		border: solid 1px $brand-blue;
+		padding: 25px 0;
+		text-align: center;
+		text-transform: capitalize;
+		font-size: 16px;
+		background: #FFF;
+		opacity: 1;
+		@include transition(all .3s ease);
+		&.is-hidden{
+			opacity: 0;
+		}
+		&:hover{
+			border-color: $gray-darker;
+			.yotpo-icon-button-text{
+				color: $gray-darker;
+			}
+		}
+		.yotpo-icon{
+			display: none;
+		}
+	}
+	.yotpo-icon-button-text{
+		color: $brand-blue;
+	}
+	.y-input{
+		height: 66px;
+		border-color: #DBDBDB;
+		padding: 30px;
+		font-size: 19px;
+		color: #646464;
+		margin: 5px 0 30px;
+		&:focus{
+			outline: none;
+			border-color: $gray-darker;
+		}
+		&.yotpo-text-box{
+			height: 250px;
+			line-height: 30px;
+		}
+	}
+	.connect-wrapper{
+		margin-bottom: 30px;
+		.y-input{
+			margin: 0;
+		}
+	}
+	.write-review .yotpo-submit{
+		float: none;
+		padding: 25px 0;
+		width: 100%;
+		font-size: 16px;
+		text-transform: none;
+	}
+	.yotpo.yotpo-main-widget .yotpo-icon-btn{
+		padding-top: 24px;
+		padding-bottom: 24px;
+	}
+	.yotpo .write-review .socialize-wrapper .yotpo-or{
+		margin-top: 77px;
+	}
+}
+
+#reviews-navigation{
+	margin-bottom: 60px;
+}

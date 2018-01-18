@@ -1,28 +1,30 @@
-.pagination{
-	text-transform: uppercase;
+.pages{
+	@include clean;
 	font-size: $font-size-small;
-	letter-spacing: $ls-xs;
-	display: block;
 	text-align: center;
-	font-family: $font-family-sans-serif;
-	span{
+	li{
 		display: inline-block;
+		margin: 0 5px;
 		a{
-			padding: 8px 16px;
+			padding: 6px 0;
 			display: block;
+			width: 40px;
+			height: 40px;
 			color: $gray;
 			border: solid 1px $gray-lighter;
+			border-radius: 50%;
+			&:focus,
 			&:hover{
-				color: $gray-darker;
-				border-color: $gray-light;
+				color: $brand-blue;
+				border-color: $brand-blue;
 				text-decoration: none;
 			}
+			&.current{
+				color: $brand-blue;
+				border-color: $brand-blue;
+				cursor: default;
+			}
 		}
-	}
-	.current{
-		padding: 8px 16px;
-		color: $brand-blue;
-		border: solid 1px $gray-lighter;
 	}
 }
 
