@@ -38,7 +38,7 @@
 {%- endcapture -%}
 
 
-<div class="container-fluid" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
+<div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
 
 	{%- assign current_variant = product.selected_or_first_available_variant -%}
 	{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
@@ -78,208 +78,200 @@
 		  </ul>
 		{% endif %}
 	{% endcomment %}
+	<div class="container-fluid">
+	  	<div class="row" id="product-main">
+		    <div class="col-sm-6">
+		    	<div id="product-identity">
+		    		<h1>{{ parentCollection.title }}</h1>
+		    		<p class="product-type-label">{{ product.metafields["global"]["short-description"] }}</p>
+		    		{{ parentCollection.description }}
+		    	</div>
+		    </div>
+	   		<div class="col-sm-6">
+	      		<div id="product-configuration">
 
-  	<div class="row" id="product-main">
-	    <div class="col-sm-6">
-	    	<div id="product-identity">
-	    		<h1>{{ parentCollection.title }}</h1>
-	    		<p class="product-type-label">{{ product.metafields["global"]["short-description"] }}</p>
-	    		{{ parentCollection.description }}
-	    	</div>
-	    </div>
-   		<div class="col-sm-6">
-      		<div id="product-configuration">
-
-				<div id="price-wrapper" data-price-wrapper>
-					<span data-product-price>{{ current_variant.price | money_without_trailing_zeros }}</span>
-			 		{%- if current_variant.compare_at_price > current_variant.price -%}
-			 			{%- assign showSaleElements = true -%}
-			 		{%- endif -%}
-				    <span class="sr-only" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
-				    <s style="{% unless showSaleElements %}display: none{% endunless %}" data-compare-price>
-				      {%- if current_variant.compare_at_price > current_variant.price -%}
-				        {{ current_variant.compare_at_price | money_without_trailing_zeros }}
-				        {%- assign discountAmount = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0 -%}
-				      {%- endif -%}
-				    </s>
-				    <span class="discount-badge{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>% OFF</span>
-				</div>
-		
-				{%- assign swatchGroup1 = parentCollection.metafields["global"]["swatch-group-1-label"] -%}
-				{%- assign swatchGroup2 = parentCollection.metafields["global"]["swatch-group-2-label"] -%}
-
-				{% if swatchGroup1 != blank and swatchGroup2 != blank %}
-					<p class="configuration-label">{{ swatchGroup1 }}</p>
-					{%- assign groupKey = 'swatch-group-1' -%}
+					<div id="price-wrapper" data-price-wrapper>
+						<span data-product-price>{{ current_variant.price | money_without_trailing_zeros }}</span>
+				 		{%- if current_variant.compare_at_price > current_variant.price -%}
+				 			{%- assign showSaleElements = true -%}
+				 		{%- endif -%}
+					    <span class="sr-only" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+					    <s style="{% unless showSaleElements %}display: none{% endunless %}" data-compare-price>
+					      {%- if current_variant.compare_at_price > current_variant.price -%}
+					        {{ current_variant.compare_at_price | money_without_trailing_zeros }}
+					        {%- assign discountAmount = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0 -%}
+					      {%- endif -%}
+					    </s>
+					    <span class="discount-badge{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>% OFF</span>
+					</div>
+					
+					{% comment %} keep this file a little cleaner {% endcomment %}
 					{% include 'swatches' %}
-					<p class="configuration-label">{{ swatchGroup2 }}</p>
-					{%- assign groupKey = 'swatch-group-2' -%}
-					{% include 'swatches' %}
-				{% else %}
-					{% if swatchGroup1 != blank %}<p class="configuration-label">{{ swatchGroup1 }}</p>{% endif %}
-					{%- assign groupKey = 'any' -%}
-					{% include 'swatches' %}
-				{% endif %}
-		    
-				<p id="current-option" class="configuration-label">Color: <span>{{ product.metafields["global"]["swatch-label"] }}</span></p>
+			    
+					<p id="current-option" class="configuration-label">Color: <span>{{ product.metafields["global"]["swatch-label"] }}</span></p>
 
-		      	<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-			        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
-			        <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
-			        <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
+			      	<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+				        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+				        <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+				        <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
 
-			        <form action="/cart/add" method="post" enctype="multipart/form-data">
-						
-						{% comment %} not used for now since we only have one option. will need to reinstate if multiple options become a thing
-			        	{%- unless product.has_only_default_variant -%}
-			        		{%- for option in product.options_with_values -%}
-			        			<div class="selector-wrapper js">
-			        				<label class="sr-only" for="SingleOptionSelector-{{ forloop.index0 }}">{{ option.name }}</label>
-			        				<select
-			        				id="SingleOptionSelector-{{ forloop.index0 }}"
-			        				data-single-option-selector
-			        				data-option-name="{{ option.name }}"
-			        				data-index="option{{ option.position }}">
-			        					<option value="">{{ option.name }}</option>
-			        					{%- for value in option.values -%}
-			        						<option value="{{ value | escape }}">{{ value }}</option>
-			        					{%- endfor -%}
-			        				</select>
-			        			</div>
-			        		{%- endfor -%}
-			        	{%- endunless -%}
-						{% endcomment %}
-						
-						<div class="selector-wrapper">
-							<label class="sr-only" for="variant-selector">Size</label>
-							<select name="id" id="variant-selector" data-product-select>
-								{% for variant in product.variants %}
-									<option
-									{% if variant == current_variant %}selected="selected"{% endif %}
-									{% unless variant.available %}disabled="disabled"{% endunless %}
-									value="{{ variant.id }}">
-									{{ variant.title }}
-									</option>
-								{% endfor %}
-							</select>
-						</div>
-			         
-						<div id="add-to-cart">
-							<label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
-							<input type="number" id="quantity" name="quantity" value="1" min="1">
-							<button
-							  type="submit"
-							  name="add"
-							  class="btn btn-lg btn-success"
-							  data-add-to-cart
-							  {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-							    <span data-add-to-cart-text>
-							      {% if current_variant.available %}
-							        {{ 'products.product.add_to_cart' | t }}
-							      {% else %}
-							        {{ 'products.product.sold_out' | t }}
-							      {% endif %}
-							    </span>
-							</button>
-						</div>
-			        </form>
-				</div>
+				        <form action="/cart/add" method="post" enctype="multipart/form-data">
+							
+							{% comment %} not used for now since we only have one option. will need to reinstate if multiple options become a thing
+				        	{%- unless product.has_only_default_variant -%}
+				        		{%- for option in product.options_with_values -%}
+				        			<div class="selector-wrapper js">
+				        				<label class="sr-only" for="SingleOptionSelector-{{ forloop.index0 }}">{{ option.name }}</label>
+				        				<select
+				        				id="SingleOptionSelector-{{ forloop.index0 }}"
+				        				data-single-option-selector
+				        				data-option-name="{{ option.name }}"
+				        				data-index="option{{ option.position }}">
+				        					<option value="">{{ option.name }}</option>
+				        					{%- for value in option.values -%}
+				        						<option value="{{ value | escape }}">{{ value }}</option>
+				        					{%- endfor -%}
+				        				</select>
+				        			</div>
+				        		{%- endfor -%}
+				        	{%- endunless -%}
+							{% endcomment %}
+							
+							<div class="selector-wrapper">
+								<label for="variant-selector">Size</label>
+								<div id="variant-buttons">
+									{%- for variant in product.variants -%}
+										<a href="#" class="btn btn-secondary variant-option {% if forloop.first %}selected{% endif %}">{{ variant.title }}</a>
+									{%- endfor -%}
+								</div>
+								<select name="id" id="variant-selector" class="hidden" data-product-select>
+									{%- for variant in product.variants -%}
+										<option
+										{% unless variant.available %}disabled="disabled"{% endunless %}
+										value="{{ variant.id }}">
+										{{ variant.title }}
+										</option>
+									{%- endfor -%}
+								</select>
+							</div>
+				         
+							<div id="add-to-cart">
+								<label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
+								<input type="number" id="quantity" name="quantity" value="1" min="1">
+								<button
+								  type="submit"
+								  name="add"
+								  class="btn btn-lg btn-success"
+								  data-add-to-cart
+								  {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+								    <span data-add-to-cart-text>
+								      {% if current_variant.available %}
+								        {{ 'products.product.add_to_cart' | t }}
+								      {% else %}
+								        {{ 'products.product.sold_out' | t }}
+								      {% endif %}
+								    </span>
+								</button>
+							</div>
+				        </form>
+					</div>
 
-		        {% if section.settings.show_share_buttons %}
-		          {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
-		        {% endif %}
-			
-	     	</div>
-	    </div>
-	</div>
-  	
-  	{%- assign detailTitle = 'Overview' -%}
-  	{%- assign detailKey = 'overview' -%}
-  	{% include 'product-detail-panel' %}
-
-  	{%- assign detailTitle = 'Device Compatibility' -%}
-  	{%- assign detailKey = 'device-compatibility' -%}
-  	{% include 'product-detail-panel' %}
-
-  	{%- assign detailTitle = 'Size &amp; Weight' -%}
-  	{%- assign detailKey = 'size-&-weight' -%}
-  	{% include 'product-detail-panel' %}
-
-  	{%- assign detailTitle = 'Materials' -%}
-  	{%- assign detailKey = 'materials' -%}
-  	{% include 'product-detail-panel' %}
-
-  	{%- assign detailTitle = 'Care Instructions' -%}
-  	{%- assign detailKey = 'care-instructions' -%}
-  	{% include 'product-detail-panel' %}
-
-  	<div class="product-detail-panel">
-  	  <h2 class="panel-title">Shipping, Returns, Exchanges</h2>
-  	  {{ shop.metafields["global"]["shipping-returns-exchanges"] }}
-  	</div>
-
-	<div class="product-detail-panel">
-		<h2 class="panel-title">Customer Reviews</h2>
-		<div id="reviews"></div>
-		<div id="reviews-widget">
-			<div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
+			        {% if section.settings.show_share_buttons %}
+			          {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+			        {% endif %}
+				
+		     	</div>
+		    </div>
 		</div>
-		<script>
-			var body = document.getElementsByTagName("BODY")[0];
-			var siblingsList = '{{ siblingsList }}';
-			var siblingIds = siblingsList.split('|');
-			var rawReviewsData = new Array;
-			var dataReceived = 0;
-			window.addEventListener("load", function(event) {
-			    for (var i = siblingIds.length - 1; i >= 0; i--) {
-			    	var data = JSON.stringify(false);
-			    	var xhr = new XMLHttpRequest();
-			    	xhr.withCredentials = true;
-			    	xhr.addEventListener("readystatechange", function () {
-			    	  if (this.readyState === this.DONE) {
-			    	    rawReviewsData.push(JSON.parse(this.responseText));
-			    	    dataReceived++;
-			    	    if (dataReceived == siblingIds.length){
-			    	    	var event = new CustomEvent('reviews-received');
-			    	    	body.dispatchEvent(event);
-			    		}
-			    	  } 
-			    	});
-			    	xhr.open("GET", "https://api.yotpo.com/v1/widget/1BRcvEm4otuzCinl2NlZx7eeyApg3H6EPGJ0Zv74/products/"+siblingIds[i]+"/reviews.json?per_page=100");
-			    	xhr.send(data);
-			    }; 
-		  	});
-		</script>
-	</div>
-  
-	{%- if parentCollection.metafields["global"]["press"] != blank -%}
+	  	
+	  	{%- assign detailTitle = 'Overview' -%}
+	  	{%- assign detailKey = 'overview' -%}
+	  	{% include 'product-detail-panel' %}
+
+	  	{%- assign detailTitle = 'Device Compatibility' -%}
+	  	{%- assign detailKey = 'device-compatibility' -%}
+	  	{% include 'product-detail-panel' %}
+
+	  	{%- assign detailTitle = 'Size &amp; Weight' -%}
+	  	{%- assign detailKey = 'size-&-weight' -%}
+	  	{% include 'product-detail-panel' %}
+
+	  	{%- assign detailTitle = 'Materials' -%}
+	  	{%- assign detailKey = 'materials' -%}
+	  	{% include 'product-detail-panel' %}
+
+	  	{%- assign detailTitle = 'Care Instructions' -%}
+	  	{%- assign detailKey = 'care-instructions' -%}
+	  	{% include 'product-detail-panel' %}
+
+	  	<div class="product-detail-panel">
+	  	  <h2 class="has-divider">Shipping, Returns, Exchanges</h2>
+	  	  {{ shop.metafields["global"]["shipping-returns-exchanges"] }}
+	  	</div>
+
 		<div class="product-detail-panel">
-			<h2 class="panel-title">Press</h2>
-			<div class="press">
-				{{ parentCollection.metafields["global"]["press"] }}
+			<h2 class="has-divider">Customer Reviews</h2>
+			<div id="reviews"></div>
+			<div id="reviews-widget">
+				<div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
 			</div>
+			<script>
+				var body = document.getElementsByTagName("BODY")[0];
+				var siblingsList = '{{ siblingsList }}';
+				var siblingIds = siblingsList.split('|');
+				var rawReviewsData = new Array;
+				var dataReceived = 0;
+				window.addEventListener("load", function(event) {
+				    for (var i = siblingIds.length - 1; i >= 0; i--) {
+				    	var data = JSON.stringify(false);
+				    	var xhr = new XMLHttpRequest();
+				    	xhr.withCredentials = true;
+				    	xhr.addEventListener("readystatechange", function () {
+				    	  if (this.readyState === this.DONE) {
+				    	    rawReviewsData.push(JSON.parse(this.responseText));
+				    	    dataReceived++;
+				    	    if (dataReceived == siblingIds.length){
+				    	    	var event = new CustomEvent('reviews-received');
+				    	    	body.dispatchEvent(event);
+				    		}
+				    	  } 
+				    	});
+				    	xhr.open("GET", "https://api.yotpo.com/v1/widget/1BRcvEm4otuzCinl2NlZx7eeyApg3H6EPGJ0Zv74/products/"+siblingIds[i]+"/reviews.json?per_page=100");
+				    	xhr.send(data);
+				    }; 
+			  	});
+			</script>
 		</div>
-	{%- endif -%}
-  
-	{%- unless product == empty -%}
-		<script type="application/json" data-product-json>
-			{{ product | json }}
+	  
+		{%- if parentCollection.metafields["global"]["press"] != blank -%}
+			<div class="product-detail-panel">
+				<h2 class="has-divider">Press</h2>
+				<div class="press">
+					{{ parentCollection.metafields["global"]["press"] }}
+				</div>
+			</div>
+		{%- endif -%}
+	  
+		{%- unless product == empty -%}
+			<script type="application/json" data-product-json>
+				{{ product | json }}
+			</script>
+		{%- endunless -%}
+		
+		{%- capture siblingsJson -%}
+			{
+				{%- for siblingProduct in parentCollection.products -%}
+					{%- if siblingsList contains siblingProduct.id -%}
+						"{{ siblingProduct.id }}" : {{ siblingProduct | json }}{% unless forloop.last %},{% endunless %}
+					{%- endif -%}
+				{%- endfor -%}
+			}
+		{%- endcapture -%}
+		<script>
+			var siblingsJson = {{ siblingsJson }};
 		</script>
-	{%- endunless -%}
-	
-	{%- capture siblingsJson -%}
-		{
-			{%- for siblingProduct in parentCollection.products -%}
-				{%- if siblingsList contains siblingProduct.id -%}
-					"{{ siblingProduct.id }}" : {{ siblingProduct | json }}{% unless forloop.last %},{% endunless %}
-				{%- endif -%}
-			{%- endfor -%}
-		}
-	{%- endcapture -%}
-	<script>
-		var siblingsJson = {{ siblingsJson }};
-	</script>
 
+	</div>
 </div>
 
 {% schema %}

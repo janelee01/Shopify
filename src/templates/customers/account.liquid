@@ -1,13 +1,20 @@
 <header class="page-header">
-  <h1>{{ 'customer.account.title' | t }}</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-8 col-sm-offset-2 col-sm-8">
+        <h1>{{ 'customer.account.title' | t }}</h1>
+      </div>
+      <div class="col-xs-4 col-sm-2 text-right">
+        <a href="/account/logout" id="account-logout">{{ 'layout.customer.log_out' | t }}</a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <div class="account">
   <div class="container-fluid">
-    
-    <p><a href="/account/logout" class="btn btn-primary">{{ 'layout.customer.log_out' | t }}</a></p>
 
-    <h2>{{ 'customer.orders.title' | t }}</h2>
+    <h2 class="has-divider">{{ 'customer.orders.title' | t }}</h2>
 
     {% paginate customer.orders by 20 %}
       {% if customer.orders.size != 0 %}
@@ -43,9 +50,11 @@
 
     {% endpaginate %}
 
-    <h2>{{ 'customer.account.details' | t }}</h2>
-
-    {{ customer.default_address | format_address }}
+    <h2 class="has-divider">{{ 'customer.account.details' | t }}</h2>
+    
+    <div class="address">
+      {{ customer.default_address | format_address }}
+    </div>
 
     <a class="btn" href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
   </div>

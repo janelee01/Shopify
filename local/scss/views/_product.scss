@@ -136,25 +136,34 @@
 	}
 }
 .swatch{
-	border: solid 1px #fff;
-	border-radius: 50%;
-	display: block;
-	padding: 3px;
-	background: #FFF;
-	@include transition(border-color .2s ease);
 	&.active{
-		border-color: $brand-blue;
 		cursor: default;
+		img{
+			border-color: $brand-blue;
+		}
 	}
-	&:hover{
+	&:hover img{
 		border-color: $brand-blue;
 	}
 	img{
+		border: solid 1px #fff;
+		border-radius: 50%;
 		display: block;
+		padding: 5px;
+		width: 43px;
+		@include transition(border-color .2s ease);
 	}
 }
 .selector-wrapper{
-	margin: 20px 0;
+	border-top: solid 1px #e6e6e6;
+	padding-top: 16px;
+	margin: 25px 0 20px;
+	label{
+		display: block;
+		font-weight: 400;
+		line-height: 1;
+		margin-bottom: 10px;
+	}
 }
 #quantity{
 	width: 75px;
@@ -175,22 +184,8 @@
 .product-detail-panel{
 	padding: 70px 105px;
 	border-top: solid 1px #e6e6e6;
-	.panel-title{
-		margin-top: 0;
-		font-size: 24px;
+	.has-divider{
 		font-family: $font-family-semibold;
-		position: relative;
-		margin-bottom: 45px;
-		padding-bottom: 30px;
-		&:after{
-			content: '';
-			display: block;
-			height: 2px;
-			width: 39px;
-			background: $brand-blue;
-			position: absolute;
-			bottom: 0;
-		}
 	}
 	.press{
 		font-size: 18px;
@@ -286,6 +281,20 @@
 }
 #reviews-widget{
 	padding-top: 25px;
+	.yotpo{
+		div, label{
+			font-family: $font-family-base;
+		}
+	} 
+	.yotpo .y-label, .yotpo label.y-label{
+		color: #646464;
+		font-size: $font-size-base;
+		&.yotpo-header-title{
+			@include divider-title;
+			color: $gray-darker;
+			font-family: $font-family-semibold;
+		}
+	}
 	.yotpo-display-wrapper{
 		.yotpo-label,
 		.yotpo-stars-and-sum-reviews,
@@ -299,13 +308,6 @@
 			padding: 0;
 			margin: 0;
 		}
-	}
-	.yotpo-header-title{
-		@extend .panel-title;
-		padding-left: 0;
-		padding-right: 0;
-		padding-top: 0;
-		color: $text-color;
 	}
 	.yotpo-default-button.write-review-button{
 		position: static;
@@ -369,6 +371,10 @@
 	}
 	.yotpo .write-review .socialize-wrapper .yotpo-or{
 		margin-top: 77px;
+	}
+	.yotpo .write-review .socialize-wrapper,
+	.yotpo .write-review .yotpo-footer{
+		display: block;
 	}
 }
 

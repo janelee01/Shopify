@@ -1,20 +1,55 @@
-<ul class="swatches">
-{% for siblingProduct in parentCollection.products %}{% comment %} all products of this type {% endcomment %}
-	{% if siblingsList contains siblingProduct.id %}{% comment %} make sure this product can be shown {% endcomment %}
-		{% if groupKey == 'any' or siblingProduct.metafields["global"]["swatch-group"] == groupKey %}{% comment %} swatches are sometimes grouped {% endcomment %}
-			{%- assign siblingUrl = siblingProduct.url -%} 
-			{%- if referringCollectionHandle -%}
-				{%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
+{%- assign swatchGroup1Label = parentCollection.metafields["global"]["swatch-group-1-label"] -%}
+{%- assign swatchGroup2Label = parentCollection.metafields["global"]["swatch-group-2-label"] -%}
+{%- if swatchGroup2Label == blank -%}{% comment %} no extra grouping, show them all {% endcomment %}
+	{%- if swatchGroup1Label != blank -%}<p class="configuration-label">{{ swatchGroup1Label }}</p>{%- endif -%}
+	<ul class="swatches">
+		{%- for siblingProduct in parentCollection.products -%}{% comment %} all products of this type {% endcomment %}
+			{%- if siblingsList contains siblingProduct.id -%}{% comment %} make sure this product can be shown {% endcomment %}
+				{%- assign siblingUrl = siblingProduct.url -%} 
+				{%- if referringCollectionHandle -%}
+					{%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
+				{%- endif -%}
+				{% include "swatch" %}
 			{%- endif -%}
-			<li>
-				<a href="#"
-					class="swatch {% if product.id == siblingProduct.id %}active{% endif %}"
-					data-url="{{ siblingUrl }}"
-					data-sibling="{{ siblingProduct.id }}">
-					<img src="{{ siblingProduct.metafields["global"]["swatch"] }}" alt="{{siblingProduct.metafields["global"]["swatch-label"]}}">
-				</a>
-			</li>
-		{% endif %}
-	{% endif %}
-{% endfor %}
-</ul>
+		{%- endfor -%}
+	</ul>
+{%- else -%}
+	{%- capture swatchGroup1 -%}
+		{%- for siblingProduct in parentCollection.products -%}
+			{%- if siblingsList contains siblingProduct.id -%}
+				{%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-1' -%}
+					{%- assign siblingUrl = siblingProduct.url -%} 
+					{%- if referringCollectionHandle -%}
+						{%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
+					{%- endif -%}
+					{% include "swatch" %}
+				{%- endif -%}
+			{%- endif -%}
+		{%- endfor -%}
+	{%- endcapture -%}
+	{% if swatchGroup1 != blank %}{% comment %} these can be blank if the collection-aware URL filters out all products in this group {% endcomment %}
+		<p class="configuration-label">{{ swatchGroup1Label }}</p>
+		<ul class="swatches">
+			{{ swatchGroup1 }}
+		</ul>
+	{%- endif -%}
+	{%- capture swatchGroup2 -%}
+		{%- for siblingProduct in parentCollection.products -%}
+			{%- if siblingsList contains siblingProduct.id -%}
+				{%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-2' -%}
+					{%- assign siblingUrl = siblingProduct.url -%} 
+					{%- if referringCollectionHandle -%}
+						{%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
+					{%- endif -%}
+					{% include "swatch" %}
+				{%- endif -%}
+			{%- endif -%}
+		{%- endfor -%}
+	{%- endcapture -%}
+	{% if swatchGroup2 != blank %}
+		<p class="configuration-label">{{ swatchGroup2Label }}</p>
+		<ul class="swatches">
+			{{ swatchGroup2 }}
+		</ul>
+	{%- endif -%}
+{%- endif -%}	

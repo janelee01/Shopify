@@ -258,20 +258,31 @@ $(document).ready(function() {
 	    }
 	});
 
-	// swipable bs carousels
-	$(".carousel").swipe({
-		allowPageScroll:"auto",
-		threshold: 40,
-		excludedElements: "label, button, input, select, textarea, .noSwipe",
-		swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
-        	// $(this).find('.item a').on('click', function(){ return false; }); interfering with custom layout blocks, doesn't seem to be applicable anywhere else
-        	$(this).carousel('next');
-        },
-		swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
-			// $(this).find('.item a').on('click', function(){ return false; }); interfering with custom layout blocks, doesn't seem to be applicable anywhere else
-        	$(this).carousel('prev');
-        }
+	/*
+		Floating form labels
+	 */
+	$('.form-control').on('keyup', function(){
+		if( $(this).val() != '' ){
+			$(this).closest('.form-group').addClass('has-value');
+		}else{
+			$(this).closest('.form-group').removeClass('has-value');
+		}
 	});
+
+	/*
+	 Forgot Password title update
+	 */
+	var $loginTitle = $('#login-title');
+	$('#RecoverPassword').on('click', function(e){
+	    $loginTitle.text($loginTitle.data('reset-text')).addClass('has-divider');
+	});
+	$('#HideRecoverPasswordLink').on('click', function(e){
+	    $loginTitle.text($loginTitle.data('default-text')).removeClass('has-divider');
+	});
+	if( $('body').attr('id') == 'account' && window.location.hash == '#recover') {
+	  $loginTitle.text($loginTitle.data('reset-text')).addClass('has-divider');
+	}
+
 
 	/* Newsletter Prompt */
 	$('#newsletter-prompt .panel-close, #newsletter-prompt .btn').on('click', function(){
@@ -410,6 +421,7 @@ $(document).ready(function() {
 	$('.swatch').on('click', function(e){
 		e.preventDefault();
 	    var siblingId = $(this).data('sibling');
+	    var currentSize = $('#variant-buttons .selected').text();
 
 	    // update active swatch
 	    $('.swatch').removeClass('active');
@@ -426,6 +438,34 @@ $(document).ready(function() {
 	    // replace chosen color
 	    $('#current-option span').text( $(this).find('img').attr('alt') );
 
+	    // replace options in our Size selector. hard coded for single option variants
+	    var newVariants = siblingsJson[siblingId].variants;
+	    $('#variant-buttons').html('');
+	    $('[data-product-select]').html('<option value=""></option>'); // make sure we don't auto-select a variant behind the scenes
+	    for (var i = 0; i <= newVariants.length - 1; i++) {
+	    	if( newVariants[i].available ){
+	    		// build our hidden select
+	    		$('[data-product-select]').append('<option value="'+newVariants[i].id+'">'+newVariants[i].title+'</option>');
+	    		// build our buttons
+	    		$('#variant-buttons').append('<a href="#" class="btn btn-secondary variant-option">'+newVariants[i].title+'</a>');
+	    	}
+	    };
+
+	    // reselect the size, or use the first option
+	    var sizeFound = false;
+	    $('#variant-buttons .btn').each(function(){
+	    	if( $(this).text() == currentSize ){
+	    		sizeFound = true;
+	    		$(this).click();
+	    	}
+	    });
+	    if( !sizeFound ){
+	    	$('#variant-buttons .btn').first().click();
+	    }
+
+	    // update pricing
+	    updatePricing(siblingId);
+
 	    // replace content
 	    $('.product-detail-panel').each(function(){
 	    	var $overrideContent = $(this).find('[data-sibling="'+siblingId+'"]');
@@ -438,22 +478,6 @@ $(document).ready(function() {
 	    	}
 	    });
 
-	    // replace options in our Size selector. hard coded for single option variants
-	    var newVariants = siblingsJson[siblingId].variants;
-	    $('[data-product-select]').html(''); // make sure we don't auto-select a variant behind the scenes
-	    for (var i = 0; i <= newVariants.length - 1; i++) {
-	    	if( newVariants[i].available ){
-	    		var optionStr = '<option';
-	    		if( i == 0 ) optionStr += ' selected="selected"';
-	    		optionStr += ' value="'+newVariants[i].id+'">'+newVariants[i].title+'</option>';
-	    		$('[data-product-select]').append(optionStr);
-	    	}
-	    };
-
-	    // update pricing
-	    updatePricing(siblingId);
-
-
 	    // update window URL
 	    if ( history.replaceState ) {
 	      var newurl = window.location.protocol + '//' + window.location.host + $(this).data('url');
@@ -462,8 +486,29 @@ $(document).ready(function() {
 
 	});
 
+	$('body').on('click', '.variant-option', function(e){
+	    e.preventDefault();
+	    var $btn = $(this);
+	    $('#variant-buttons .validation-error').remove();
+	    $('.variant-option').removeClass('selected');
+	    $btn.addClass('selected');
+	    $('[data-product-select] option').each(function(){
+	    	if( $(this).text().trim() == $btn.text() ){
+	    		$('[data-product-select]').val($(this).attr('value'));
+	    		$('[data-product-select]').trigger('change');
+	    	}
+	    });
+	});
+
 	$('[data-product-select]').on('change', function(){
 		updatePricing($('.swatch.active').data('sibling'));
+	});
+
+	$('[data-add-to-cart]').on('click', function(e){
+	    if( !$('[data-product-select]').val() ){
+	    	$('#variant-buttons').append('<div class="validation-error">Please select a size</div>');
+	    	return false;
+	    }
 	});
 
 	// reviews-received is fired once all reviews have been returned from yatpo's API
@@ -494,7 +539,7 @@ $(document).ready(function() {
 
 		var reviewsCount = keys.length;
 		var currentPage = 1;
-		var perPage = 3;
+		var perPage = 5;
 
 		var reviewsHtml = '<dl class="page" id="reviews-page-1">';
 		for (var i = 0; i < keys.length; i++) {
@@ -542,6 +587,43 @@ $(document).ready(function() {
 		$('.write-form .yotpo-header-title').text('Write your review');
 		$('.write-form .yotpo-submit').val('Submit review');
 	    $(this).addClass('is-hidden');
+	});
+
+	/*
+		Account Area
+	 */
+	var addressHeight = 0;
+	var $addresses = $('#address-list .address');
+	if( $(window).width() > LS.desktopBreakpoint ){
+		$addresses.each(function(){
+			if( $(this).outerHeight() > addressHeight ){
+				addressHeight = $(this).outerHeight();
+			}
+		});
+		$addresses.css('min-height', addressHeight);
+	}
+
+	// add address
+	$('#address-new-open').on('click', function(e){
+	    $('#address-list').hide();
+	    $('.page-header h1').text($(this).data('title-text'));
+	    $('#AddressNewForm').fadeIn();
+	});
+	$('#address-new-close').on('click', function(e){
+	    $('#AddressNewForm').hide();
+	    $('.page-header h1').text($(this).data('title-text'));
+	    $('#address-list').fadeIn();
+	});
+	// edit address
+	$('.address-edit-open').on('click', function(e){
+	    $('#address-list').hide();
+	    $('.page-header h1').text($(this).data('title-text'));
+	    $('#EditAddress_'+$(this).data('form-id')).fadeIn();
+	});
+	$('.address-edit-close').on('click', function(e){
+	    $('#EditAddress_'+$(this).data('form-id')).hide();
+	    $('.page-header h1').text($(this).data('title-text'));
+	    $('#address-list').fadeIn();
 	});
 
 });

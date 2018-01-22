@@ -1,308 +1,103 @@
-.required em{
-	display: none; // magento's markers
-}
-.form-inline{
-	border: solid 1px $gray-light;
-	position: relative;
-	max-width: 300px;
-	margin: 20px auto;
-	@media (min-width: $screen-sm) {
-	   max-width: 100%;
-	}
-	@media (min-width: $screen-md) {
-	   margin: 20px 0 60px;
-	}
-	input{
-		padding: 0 100px 0 6px;
-		border: none;
-		box-shadow: none;
-		height: 28px;
-		width: 100%;
-		font-family: $font-family-serif;
-		@media (min-width: $screen-md) {
-		   font-size: $font-size-xs;
-		   padding-left: 10px;
-		}
-		&:focus{
-			outline: none;
-		}
-	}
-	button{
-		font-family: $font-family-sans-serif;
-		padding-top: 5px;
-		padding-bottom: 5px;
-		position: absolute;
-		right: 1px;
-		top: 1px;
-	}
-}
-.gfield,
 .form-group{
+	margin-bottom: 10px;
 	position: relative;
-	@media (min-width: $screen-sm) {
-	    &.left{
-	    	margin-right: 15px;
-	    }
-	    &.right{
-	    	margin-left: 15px;
-	    }
+	line-height: 1.3;
+	label{
+		font-weight: 400;
 	}
-	.amcustomerattr label, 
-	> label{
-		text-transform: uppercase;
-		font-size: 13px;
-		color: $gray-dark;
-		font-family: $font-family-sans-serif;
-		font-weight: normal;
-		letter-spacing: $ls-xs;
-	}
-	.form-control-feedback-message,
-	.validation-advice{
-		text-transform: uppercase;
-		font-size: 13px;
-		float: right;
-		margin-top: 2px;
-		font-family: $font-family-sans-serif;
-		color: #A8A8A8;
-		letter-spacing: $ls-xs;
-	}
-	.validation_message,
-	.validation-advice{
-		color: #A94442;
-		float: none;
-		font-size: 13px;
-		font-family: $font-family-sans-serif;
-		padding: 0;
-		margin: 0;
-	}
-	.checkbox,
-	.radio{
-		label{
-			color: $text-color;
-			// text-transform: none;
-		}
-	}
-	.btn{
-		margin-top: 10px; // fakes label spacing
-	}
-	.checkbox,
-	.radio{
-		font-size: $font-size-xs;
-		text-transform: uppercase;
-		letter-spacing: $ls-xs;
-		line-height: 22px;
-		font-family: $font-family-sans-serif;
-	}
-}
-
-.form-control{
-	border-color: $gray-light;
-	height: 36px;
-	box-shadow: none;
-	-webkit-appearance: none;
-	@media (min-width: $screen-md) {
-	   font-size: $font-size-small; 
-	}
-	&:focus{
-		outline: none;
-		box-shadow: none;
-		border-color: #000;
-	}
-	&[disabled='disabled']{
-		background: $gray-lightest;
-		border-color: $gray-lightest; 
-	}
-}
-
-select{
-	font-family: $font-family-sans-serif;
-	display: block;
-   	border: solid 1px #e6e6e6;
-    border-radius: 0;
-    padding: 0 40px 0 18px;
-    height: 60px;
-    background: url('select-caret-gray.svg') right center no-repeat #fff;
-    width: 100%;
-    max-width: 100%;
-    // Chrome / Sarfar
-    -webkit-appearance: none;
-    // FF
-    -moz-appearance: none;
-    text-overflow: '';
- 
-    &[multiple], &[size]{
-    	background: #FFF;
-		padding: 10px;
-    }
-}
-// IE
-select::-ms-expand {
-    display: none;
-}
-
-label.checkbox,
-label.radio{
-	display: inline-block;
-}
-
-.has-error,
-.has-warning,
-.has-success{
 	.form-control{
-		border-color: $gray-light;
+		box-shadow: 0 0 0 1px #d9d9d9;
+		padding: 0.94em 0.8em;
+		border: none;
+		color: #333;
+		height: 48px;
+		line-height: 1;
+		@include transition(all .2s ease-out);
+		-webkit-appearance: none;
 		&:focus{
 			outline: none;
-			box-shadow: none;
-			border-color: #000;
+			box-shadow: 0 0 0 2px $brand-blue;
+		}
+	}
+	&.checkbox{
+		label{
+			color: #646464;
+		}
+	}
+	&.select-wrapper{
+		&:before{
+			content: '';
+			background: #FFF url('select-caret-gray.svg') no-repeat center center;
+			display: block;
+			width: 48px;
+			height: 48px;
+			position: absolute;
+			right: 0;
+			top: 0;
+			pointer-events: none;
 		}
 	}
 }
-
-.validation-failed{
-	border: solid 1px $gray-light !important;
-	background: #fff !important; 
-	position: relative;
-	padding-right: 40px;
-}
-.gfield_error .ginput_container,
-.validation-advice{
-	&:after{
-		content: '';
-		background: url('alert.png') center center no-repeat white;
-		display: block;
-		@include square(15px);
-		position: absolute;
-		right: 12px;
-		top: 32px;
-	}
-}
-
-.gform_fields{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-family: $font-family-serif;
-  ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  li{
-    margin-bottom: 15px;
-  }
-}
-.amcustomerattr,
-.ginput_container{
-	textarea{
-		width: 100%;
-		padding: 12px;
-		display: block;
-	}
-	input[type="text"],
-	input[type="email"]{
-		@extend .form-control;
-	}
-}
-.gfield_radio,
-.gfield_checkbox{
-	li{
-	  margin-bottom: 0;
-	}
-	input{
-	  margin-right: 6px;
+.floating-label{
+	&.has-value{
+		label{
+			opacity: 1;
+			transform: none;
+		}
+		.form-control{
+			padding-top: 1.5em;
+			padding-bottom: 0.38em;
+		}
 	}
 	label{
-		font-family: $font-family-serif;
-		text-transform: none;
-		letter-spacing: 0;
-		font-weight: normal;
-		font-size: 14px;  
-		margin-bottom: 0;
-		color: $text-color;
+		opacity: 0;
+		padding: 0 0.93333em;
+		font-size: 0.85714em;
+		margin-top: .3em;
+		z-index: 1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		user-select: none;
+		pointer-events: none;
+		color: #999;
+		text-align: left;
+		transform: translateY(3px);
+		@include transition(all .2s ease-out);
 	}
 }
-.gfield_description{
-	font-size: 13px;
-	padding-top: 4px;
-	text-transform: none;
-	letter-spacing: 0;
-	font-size: $font-size-small;
+.form-instructions{
+	font-size: 18px;
+	line-height: 26px;
+	color: #646464;
 }
 
-.validation_error,
-.gform_confirmation_message{
-	@extend .alert;
-	text-align: center;
-	color: #A94442;
-}
-.gform_confirmation_message{
-	background: $gray-lightest; 
-	color: $gray-dark;
-}
-.validation_message{
-  font-size: 16px;
-  padding: 5px 0;
-}
-
-ul.messages{
-	@extend .alert;
-	margin: 30px 0 0;
-	padding: 0;
-	list-style: none;
-	text-align: center;
-	> li{
-		margin: 0;
-		padding: 0 !important; 
-		&.success-msg{			
-			li{
-				@extend .alert-success;
-				// color: darken($brand-success, 8%);
-				// background: lighten($brand-success, 40%);
-			}
-		}
-		&.error-msg{
-			li{
-				@extend .alert-danger;
-			}
-		}
-		ul{
-			text-transform: none;
-			list-style: none;
-			letter-spacing: 0; 
-			margin: 0;
-			padding: 0;
-			font-size: $font-size-base;
-			li{
-				margin: 0;
-				padding: 15px;
-				letter-spacing: 0; 
-				a{
-					color: #FFF;
-					text-decoration: underline;
-					&:hover{
-						text-decoration: none;
-					}
-				}
-			}
-		}
+.errors{
+	margin-bottom: 30px;
+	ul{
+		@include clean;
+		border: solid 1px $brand-danger;
+		color: $brand-danger;
 	}
 }
 
-.gform_wrapper .gform_ajax_spinner {
-    margin-left: 10px;
-    vertical-align: middle;
-    width: 24px;
-    height: 24px;
-}
-
-/* hide the honeypot field  ------------------------------------------------------*/ 
-
-.gform_validation_container,
-.gform_wrapper .gform_validation_container,
-body .gform_wrapper li.gform_validation_container,
-body .gform_wrapper .gform_body ul.gform_fields li.gfield.gform_validation_container,
-body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
-  display: none !important;
-  position: absolute !important;
-  left: -9000px;
+.form-success{
+	background: #FDFDFD;
+	border: solid 1px #DEDEDE;
+	border-radius: 2px;
+	padding: 40px 30px 40px 86px;
+	max-width: 800px;
+	margin: 50px auto 0;
+	font-size: 20px;
+	line-height: 25px;
+	display: flex;
+	align-items: center;
+	.icon{
+		display: inline-block;
+		width: 60px;
+		height: 60px;
+		margin-right: 31px;
+		background: url('icon-confirmation.svg');
+	}
 }

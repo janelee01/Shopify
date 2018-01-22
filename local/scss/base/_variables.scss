@@ -148,3 +148,19 @@ $block-padding-small-lg: 45px;
 	background-color: $text-color;
 	display: block;
 }
+@mixin divider-title{
+	font-size: 24px;
+	position: relative;
+	margin-bottom: 45px;
+	padding-bottom: 30px;
+	color: $gray-darker;
+	&:after{
+		content: '';
+		display: block;
+		height: 2px;
+		width: 39px;
+		background: $brand-blue;
+		position: absolute;
+		bottom: 0;
+	}
+}
