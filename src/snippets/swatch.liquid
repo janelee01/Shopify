@@ -1,0 +1,8 @@
+<li>
+	<a href="#"
+		class="swatch {% if product.id == siblingProduct.id %}active{% endif %}"
+		data-url="{{ siblingUrl }}"
+		data-sibling="{{ siblingProduct.id }}">
+		<img src="{{ siblingProduct.metafields["global"]["swatch"] }}" alt="{{siblingProduct.metafields["global"]["swatch-label"]}}">
+	</a>
+</li>
