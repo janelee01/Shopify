@@ -9,7 +9,7 @@
 
 {% comment %} find the type collection {% endcomment %}
 {%- for collection in product.collections -%}
-    {%- if collection.metafields["global"]["is-parent-collection"] -%}
+    {%- if collection.metafields["global"]["is-parent-collection"] == "true" -%}
       {%- assign parentCollection = collections[collection.handle] -%}
       {%- break -%}
     {%- endif -%}
@@ -49,16 +49,27 @@
 	<meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
 	<meta itemprop="description" content="{{ product.description | strip_html | escape }}">
 	
-	<div id="product-galleries">
+	<div class="gallery-container is-loading" id="product-galleries">
 		{% for siblingProduct in parentCollection.products %}
 			{% if siblingsList contains siblingProduct.id %}
-			<div class="sibling-content{% unless siblingProduct.id == product.id %} hide{% endunless %}" data-sibling="{{ siblingProduct.id }}">
+			<div class="product-gallery {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
+				<div class="filmroll" id="gallery-{{ siblingProduct.id }}">
 				{% for image in siblingProduct.images %}
-				  <img src="{{ image.src | img_url: '375x500' }}" alt="{{ image.alt | escape }}">
+					<div class="item">
+						<figure>
+							<span class="{% if forloop.first %}master{% else %}resize{% endif %}">
+								<img src="{{ image.src | img_url: '375x500' }}" alt="{{ image.alt | escape }}">
+							</span>
+						</figure>
+					</div>
 				{% endfor %}
+				</div>
+				<a href="" id="gallery-{{ siblingProduct.id }}-prev" class="gallery-control prev"></a>
+				<a href="" id="gallery-{{ siblingProduct.id }}-next" class="gallery-control next"></a>
 			</div>
 			{% endif %}
 		{% endfor %}
+		<div class="loading"></div>
 	</div>
 	
 	{% comment %} 
@@ -223,6 +234,7 @@
 				var dataReceived = 0;
 				window.addEventListener("load", function(event) {
 				    for (var i = siblingIds.length - 1; i >= 0; i--) {
+				    	if( !siblingIds[i] ) continue;
 				    	var data = JSON.stringify(false);
 				    	var xhr = new XMLHttpRequest();
 				    	xhr.withCredentials = true;

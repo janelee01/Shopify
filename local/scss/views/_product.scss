@@ -28,6 +28,48 @@
 #product-galleries{
 	margin-bottom: 115px;
 }
+.gallery-container{
+	position: relative;
+	&.is-loading{
+		height: 500px;
+		overflow: hidden;
+		.product-gallery{
+			opacity: 0;
+		}
+	}
+	.loading{
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+		.spinner{
+			top: 15%;
+		}
+	}
+}
+.product-gallery{
+	// visually thrown off the page so calculations can still be made
+	position: absolute;
+	top: -20000px;
+	left: 0;
+	width: 100%;
+	&.active{
+		position: static;
+	}
+	&.is-singular{
+		.gallery-control,
+		.film_roll_pager{
+			display: none;
+		}
+	}
+	.item{
+		position: relative;
+		img{
+			width: 100%;
+		}
+	} 
+}
+
 #product-main{
 	margin-bottom: 85px;
 }

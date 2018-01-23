@@ -11669,6 +11669,54 @@ blockquote .author-title {
   margin-bottom: 115px;
 }
 
+.gallery-container {
+  position: relative;
+}
+
+.gallery-container.is-loading {
+  height: 500px;
+  overflow: hidden;
+}
+
+.gallery-container.is-loading .product-gallery {
+  opacity: 0;
+}
+
+.gallery-container .loading {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-container .loading .spinner {
+  top: 15%;
+}
+
+.product-gallery {
+  position: absolute;
+  top: -20000px;
+  left: 0;
+  width: 100%;
+}
+
+.product-gallery.active {
+  position: static;
+}
+
+.product-gallery.is-singular .gallery-control,
+.product-gallery.is-singular .film_roll_pager {
+  display: none;
+}
+
+.product-gallery .item {
+  position: relative;
+}
+
+.product-gallery .item img {
+  width: 100%;
+}
+
 #product-main {
   margin-bottom: 85px;
 }
