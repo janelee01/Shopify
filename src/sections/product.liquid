@@ -18,7 +18,7 @@
 {% comment %} build up a string of IDs to check against later as we loop on sibling products because we only want to do all this logic once {% endcomment %}
 {%- capture siblingsList -%}
 {%- for siblingProduct in parentCollection.products -%}
-  {%- if referringCollectionHandle -%}
+  {%- if referringCollectionHandle and collections[referringCollectionHandle].metafields["global"]["enable-pdp-filtering"] == "true" -%}
     {%- assign excludeProduct = true -%}
     {%- for referringCollectionProduct in collections[referringCollectionHandle].products -%}
       {%- if referringCollectionProduct.id == siblingProduct.id -%}
