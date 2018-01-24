@@ -149,11 +149,16 @@ $block-padding-small-lg: 45px;
 	display: block;
 }
 @mixin divider-title{
-	font-size: 24px;
+	font-size: 18px;
 	position: relative;
-	margin-bottom: 45px;
-	padding-bottom: 30px;
+	margin-bottom: 40px;
+	padding-bottom: 20px;
 	color: $gray-darker;
+	@media (min-width: $screen-md) {
+		margin-bottom: 45px;
+		padding-bottom: 30px;
+		font-size: 24px;
+	}
 	&:after{
 		content: '';
 		display: block;

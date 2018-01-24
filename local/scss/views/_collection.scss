@@ -2,13 +2,32 @@
 	background: none;
 	border-bottom: solid 1px #e6e6e6;
 	padding-bottom: 0;
-	margin-bottom: 70px;
+	margin-bottom: 30px;
+	@media (min-width: $screen-md) {
+		margin-bottom: 70px;
+	}
 	h1{
 		margin-bottom: 35px;
 	}
+	&.has-active-filters{
+		.filter-options{
+			margin-bottom: 0;
+			@media (min-width: $screen-md) {
+			    margin-bottom: 62px;
+			}
+		}
+		#active-filters{
+			display: block;
+		}
+	}
 }
 #filters{
-	display: inline-block;
+	margin-left: $mobile-gutter;
+	margin-right: $mobile-gutter;
+	@media (min-width: $screen-md) {
+		display: inline-block;
+		margin: 0;
+	}
 	ul{
 		@include clean;
 		background: #F8F8F8;
@@ -16,6 +35,7 @@
 		padding: 15px 0;
 		margin: 0 auto 40px;
 		display: flex;
+		justify-content: center;
 	}
 	li{
 		border-right: solid 1px #dcdcdc;
@@ -28,8 +48,11 @@
 	background: none;
 	border: 0;
 	color: #888;
-	padding: 0 45px;
 	font-size: 14px;
+	padding: 0 10px;
+	@media (min-width: $screen-md) {
+		padding: 0 45px;
+	}
 	&.active,
 	&:hover,
 	&:focus{
@@ -39,10 +62,18 @@
 }
 .filter-options{
 	@include clean;
-	margin-bottom: 60px;
+	margin: 0 $mobile-gutter 41px;
+	text-align: left;
+	@media (min-width: $screen-md) {
+		margin: 0 0 103px;
+		text-align: center;
+	}
 	li{
-		display: inline-block;
-		padding: 0 25px;
+		padding: 0 0 30px;
+		@media (min-width: $screen-md) {
+			display: inline-block;
+			padding: 0 25px;
+		}
 	}
 } 
 .filter-option{
@@ -80,15 +111,17 @@
 }
 
 #active-filters{
-	opacity: 0;
+	display: none;
 	margin-bottom: 25px;
 	color: #888;
 	@include transition(all .2s ease);
-	&.is-shown{
-		opacity: 1;
-	}
 	a{
 		color: $brand-blue;
 		padding: 0 15px;
+	}
+}
+[data-active-filters]{
+	@media (max-width: $screen-sm-max) {
+	    display: none;
 	}
 }

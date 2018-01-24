@@ -905,11 +905,19 @@ h6, .h6 {
 }
 
 .has-divider {
-  font-size: 24px;
+  font-size: 18px;
   position: relative;
-  margin-bottom: 45px;
-  padding-bottom: 30px;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
   color: #111;
+}
+
+@media (min-width: 1030px) {
+  .has-divider {
+    margin-bottom: 45px;
+    padding-bottom: 30px;
+    font-size: 24px;
+  }
 }
 
 .has-divider:after {
@@ -978,7 +986,7 @@ b, strong {
 }
 
 .page-header h1, .page-header h2 {
-  font-size: 18px;
+  font-size: 24px;
   margin: 0;
 }
 
@@ -1352,7 +1360,11 @@ hr.mini-divider {
 }
 
 .alert {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-radius: 2px;
+  padding: 40px 30px;
+  font-size: 18px;
+  line-height: 1;
+  text-align: center;
 }
 
 .alert a {
@@ -1365,23 +1377,11 @@ hr.mini-divider {
 }
 
 .alert.alert-muted {
-  background: #f4f4f4;
-  color: #7f7f7f;
+  background: #FDFDFD;
+  border: solid 1px #DEDEDE;
 }
 
 .alert.alert-muted a {
-  color: #7f7f7f;
-}
-
-.alert.alert-form {
-  padding: 8px;
-  margin: 0;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.alert.alert-form a {
   color: #7f7f7f;
 }
 

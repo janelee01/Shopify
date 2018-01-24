@@ -18,16 +18,22 @@
 	    }
 	}
 	.product{
-		margin-bottom: 68px;
+		margin-bottom: 47px;
+		@media (min-width: $screen-md) {
+			margin-bottom: 68px;
+		}
 		.image{
 			margin-bottom: 13px;
 			position: relative;
 		}
 		.title{
 			font-family: $font-family-semibold;
-			font-size: 22px;
-			line-height: 22px;
+			font-size: 15px;
+			line-height: 1;
 			margin: 0 0 6px;
+			@media (min-width: $screen-md) {
+				font-size: 22px;
+			}
 		}
 		a{
 			&:hover{
@@ -36,22 +42,32 @@
 		}
 	}
 	.product-color{
-		font-size: 18px;
+		font-size: 12px;
 		color: $gray-darker;
 		line-height: 1;
 		margin: 0 0 15px;
+		@media (min-width: $screen-md) {
+			font-size: 18px;
+		}
 	}
 	.product-material{
 		color: #A9A9A9;
-		line-height: 16px;
+		font-size: 12px;
 		line-height: 1;
 		margin: 0;
+		@media (min-width: $screen-md) {
+			font-size: 16px;
+		}
 	}
 	.price{
 		font-family: $font-family-semibold;
-		font-size: 18px;
+		font-size: 12px;
 		color: $gray-darker;
-		line-height: 20px;
+		line-height: 12px;
+		@media (min-width: $screen-md) {
+			font-size: 18px;
+			line-height: 20px;
+		}
 		span{
 			display: inline-block;
 			vertical-align: middle;
@@ -59,24 +75,38 @@
 	}
 	.old-price{
 		font-family: $font-family-base;
-		font-size: 14px;
+		font-size: 11px;
 		color: #646464;
-		line-height: 20px;
-		margin-left: 10px;
+		line-height: 12px;
+		margin-left: 5px;
+		@media (min-width: $screen-md) {
+			font-size: 14px;
+			line-height: 20px;
+			margin-left: 10px;
+		}
 	}
 }
 
 .discount-badge{
 	position: absolute;
 	background: #5E4471;
-	top: 20px;
-	left: 20px;
-	width: 55px;
-	height: 55px;
+	top: 10px;
+	left: 10px;
+	width: 37px;
+	height: 37px;
 	color: #F2E7F7;
 	display: block;
 	text-align: center;
 	border-radius: 50%;
 	line-height: 1;
-	padding-top: 11px;
+	padding-top: 9px;
+	font-size: 10px;
+	@media (min-width: $screen-md) {
+		top: 20px;
+		left: 20px;
+		width: 55px;
+		height: 55px;
+		font-size: 16px;
+		padding-top: 11px;
+	}
 }

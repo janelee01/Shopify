@@ -28,47 +28,49 @@ $(document).ready(function(){
 		var reviewsCount = keys.length;
 		var currentPage = 1;
 		var perPage = 5;
+		if( keys.length > 0 ){
+			var reviewsHtml = '<dl class="page" id="reviews-page-1">';
+			for (var i = 0; i < keys.length; i++) {
 
-		var reviewsHtml = '<dl class="page" id="reviews-page-1">';
-		for (var i = 0; i < keys.length; i++) {
+				if( i > 0 && i % perPage == 0 ){
+					currentPage++;
+					reviewsHtml += '</dl><dl class="page" style="display: none" id="reviews-page-'+currentPage+'">';
+				}
 
-			if( i > 0 && i % perPage == 0 ){
-				currentPage++;
-				reviewsHtml += '</dl><dl class="page" style="display: none" id="reviews-page-'+currentPage+'">';
+				reviewsHtml += '<dt>'+finalReviewsData[keys[i]].date;
+				reviewsHtml += '<span class="stars">';
+				for (var c = 1; c <= 5; c++) {
+					reviewsHtml += '<i class="star';
+					if( c <= finalReviewsData[keys[i]].score ) reviewsHtml += ' filled';
+					reviewsHtml += '"></i>';
+				};
+				reviewsHtml += '<span class="sr-only">rated '+finalReviewsData[keys[i]].score+' out of 5</span></span></dt>';
+				reviewsHtml += '<dd><h3>'+finalReviewsData[keys[i]].author+'</h3>';
+				reviewsHtml += '<p>'+finalReviewsData[keys[i]].content+'</p></dd>';
+			};
+			reviewsHtml += '</dl>';
+			$('#reviews').html(reviewsHtml);
+
+			if( currentPage > 1 ){
+				var pagination = '<div class="pagination" id="reviews-navigation">';
+				for (var i = 1; i <= currentPage; i++) {
+					pagination += '<span class="page"><a href="#reviews-page-'+i+'">'+i+'</a></span>';
+				};
+				pagination += '</div>';
+				$('#reviews').append(pagination);
+				$('#reviews-navigation span').first().addClass('current');
 			}
-
-			reviewsHtml += '<dt>'+finalReviewsData[keys[i]].date;
-			reviewsHtml += '<span class="stars">';
-			for (var c = 1; c <= 5; c++) {
-				reviewsHtml += '<i class="star';
-				if( c <= finalReviewsData[keys[i]].score ) reviewsHtml += ' filled';
-				reviewsHtml += '"></i>';
-			};
-			reviewsHtml += '<span class="sr-only">rated '+finalReviewsData[keys[i]].score+' out of 5</span></span></dt>';
-			reviewsHtml += '<dd><h3>'+finalReviewsData[keys[i]].author+'</h3>';
-			reviewsHtml += '<p>'+finalReviewsData[keys[i]].content+'</p></dd>';
-		};
-		reviewsHtml += '</dl>';
-		$('#reviews').html(reviewsHtml);
-
-		if( currentPage > 1 ){
-			var pagination = '<ul class="pages" id="reviews-navigation">';
-			for (var i = 1; i <= currentPage; i++) {
-				pagination += '<li><a href="#reviews-page-'+i+'">'+i+'</a></li>';
-			};
-			pagination += '</ul>';
-			$('#reviews').append(pagination);
-			$('#reviews-navigation li').first().find('a').addClass('current');
+		}else{
+			$('#reviews').html('<div class="alert alert-muted">No reviews yet. Be the first to add a review.</div>');
 		}
-
 	});
 
 	$('body').on('click', '#reviews-navigation a', function(e){
 	    e.preventDefault();
-	    $('#reviews .page').hide();
+	    $('#reviews dl.page').hide();
 	    $($(this).attr('href')).fadeIn();
-	    $('#reviews-navigation a').removeClass('current');
-	    $(this).addClass('current');
+	    $('#reviews-navigation .page').removeClass('current');
+	    $(this).closest('.page').addClass('current');
 	});
 
 	$('body').on('click', '.write-review-button', function(e){

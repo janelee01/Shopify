@@ -291,4 +291,35 @@ $(document).ready(function() {
 		}
 	});
 
+	/*
+	Rebuild article headers for mobile
+	 */
+	var rebuildArticleHeader = function(){
+		var $postTitle = $('.entry-header h1').detach();
+		var $postExcerpt = $('.entry-header .excerpt').detach();
+		var $postSharing = $('.entry-header .social-sharing').detach();
+		var $postImage = $('.entry-header .image picture').detach();
+		if( $(window).width() < 769 && $('#m-variation h1').length < 1 ){
+			$('#m-variation [data-image-container]')
+				.append($postTitle)
+				.append($postImage);
+			$('#m-variation [data-content-container]')
+				.append($postExcerpt)
+				.append($postSharing);
+		}else if( $('#d-variation h1').length < 1 ){
+			$('#d-variation [data-image-container]')
+				.append($postImage);
+			$('#d-variation [data-content-container]')
+				.append($postTitle)
+				.append($postExcerpt)
+				.append($postSharing);
+		}
+	}
+	if( $('body').hasClass('template-article') ){
+		rebuildArticleHeader();
+		$(window).resize(function(){
+			rebuildArticleHeader();
+		});
+	}
+
 });

@@ -1,4 +1,4 @@
-{% paginate collection.products by 12 %}
+{% paginate collection.products by 50 %}
 
 {% comment %} capture all the things {% endcomment %}
 {%- assign tagsList = shop.metafields["global"]["function-tags"] -%}
@@ -56,10 +56,10 @@
         </ul>
       </div>
       <ul class="filter-options" style="display: none" id="price-filters">
-        {%- if have0to100 -%}<li><button class="filter-option" data-hook=".f-0-100">$0.00 - $100.00</button></li>{%- endif -%}
-        {%- if have100to200 -%}<li><button class="filter-option" data-hook=".f-100-200">$100.00 - $200.00</button></li>{%- endif -%}
-        {%- if have200to300 -%}<li><button class="filter-option" data-hook=".f-200-300">$200.00 - $300.00</button></li>{%- endif -%}
-        {%- if have300to400 -%}<li><button class="filter-option" data-hook=".f-300-400">$300.00 - $400.00</button></li>{%- endif -%}
+        {%- if have0to100 -%}<li><button class="filter-option is-price-range" data-hook=".p-0-100">$0.00 - $100.00</button></li>{%- endif -%}
+        {%- if have100to200 -%}<li><button class="filter-option is-price-range" data-hook=".p-100-200">$100.00 - $200.00</button></li>{%- endif -%}
+        {%- if have200to300 -%}<li><button class="filter-option is-price-range" data-hook=".p-200-300">$200.00 - $300.00</button></li>{%- endif -%}
+        {%- if have300to400 -%}<li><button class="filter-option is-price-range" data-hook=".p-300-400">$300.00 - $400.00</button></li>{%- endif -%}
       </ul>
       {%- if functionFilters != blank -%}
         <ul class="filter-options" style="display: none" id="function-filters">{{ functionFilters }}</ul>
@@ -86,11 +86,11 @@
           {% for product in collection.products %}
             {%- assign productNameParts = product.title | split: ' - ' -%}
             {% if productNameParts[0] != parentProductName %}{% continue %}{% endif %}
-            {%- assign priceClass = 'f-0-100' -%}
+            {%- assign priceClass = 'p-0-100' -%}
             {%- assign thisPrice = product.price | divided_by: 100 -%}
-            {%- if thisPrice >= 100 and thisPrice <= 200 -%}{%- assign priceClass = 'f-100-200' -%}{%- endif -%}
-            {%- if thisPrice >= 200 and thisPrice <= 300 -%}{%- assign priceClass = 'f-200-300' -%}{%- endif -%}
-            {%- if thisPrice >= 300 and thisPrice <= 400 -%}{%- assign priceClass = 'f-300-300' -%}{%- endif -%}
+            {%- if thisPrice >= 100 and thisPrice <= 200 -%}{%- assign priceClass = 'p-100-200' -%}{%- endif -%}
+            {%- if thisPrice >= 200 and thisPrice <= 300 -%}{%- assign priceClass = 'p-200-300' -%}{%- endif -%}
+            {%- if thisPrice >= 300 and thisPrice <= 400 -%}{%- assign priceClass = 'p-300-300' -%}{%- endif -%}
             <div class="col-xs-6 col-sm-3 f-hook {{ priceClass }}{% for tag in product.tags %} f-{{ tag | handleize }}{% endfor %}">
               {% include 'product-item' with product %}
             </div>

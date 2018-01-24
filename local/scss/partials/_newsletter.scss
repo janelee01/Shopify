@@ -118,13 +118,16 @@
 		left: auto;
 		right: 0;
 		@media (min-width: $screen-md) {
-			right: 40px;
+			right: 30px;
 			top: 50%;
-			margin-top: -20px;
+			margin-top: -22px;
+		}
+		@media (min-width: 1300px) {
+			right: 40px;
 		}
 	}
 	[class^="col-"]:last-child{
-		@media (min-width: $screen-md) {
+		@media (min-width: 1300px) {
 			text-align: right;
 		}
 	}

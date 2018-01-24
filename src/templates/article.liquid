@@ -1,66 +1,39 @@
-
 {% comment %}
   When a comment is submitted, the browser is redirected to a page that includes 
   the new comment id in its URL.
   #comments is a required ID and is used as an anchor link by Shopify.
-{% endcomment %}
-
+{% endcomment %} 
 {%- assign number_of_comments = article.comments_count -%}
-
 {% comment %}
   If a comment was just submitted but requires moderation, we have an extra comment to count.
 {% endcomment %}
-{% if comment and comment.status != 'published' %}
-  {% assign number_of_comments = article.comments_count | plus: 1 %}
-{% endif %}
+{%- if comment and comment.status != 'published' -%}
+  {%- assign number_of_comments = article.comments_count | plus: 1 -%}
+{%- endif -%}
+
+{%- assign mobileFeaturedImage = article | img_url: '375x598', crop: 'center' -%}
+{%- if article.metafields["global"]["mobile-image"] != blank -%}
+  {%- assign mobileFeaturedImage = article.metafields["global"]["mobile-image"] -%}
+{%- endif -%}
 
 <article role="article" itemscope itemtype="http://schema.org/Article">
   
   <header role="banner" class="entry-header {{ article.metafields["global"]["header-type"] }}">
-  {%- case article.metafields["global"]["header-type"] -%}
-    {%- when 'image-behind' -%}
-      <div class="image">
-        {{ article | img_url: '1680x840', crop: 'center' | img_tag: article.title }}
-      </div>  
-      <div class="content"> 
-        <div class="container-fluid">
-          <h1 class="title">{{ article.title }}</h1>
-          <div class="excerpt">{{ article.excerpt }}</div>
-          {% if settings.social_sharing_blog %}
-            {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
-          {% endif %}
-        </div>
-      </div>
-    {%- when 'image-side-lg' -%}
-      {% comment %} regular row for the image to extend outside of the container {% endcomment %}
-      <div class="row">
-        <div class="col-sm-6 col-sm-push-6">
-          <div class="image">
-            {{ article | img_url: '800x800', crop: 'center' | img_tag: article.title }}
-          </div>
-        </div>
-      </div>
-      {% comment %} positioned row for the content that aligns to the container {% endcomment %}
-      <div class="content-container">
-        <div class="container-fluid">
-          <div class="row flexed">
-            <div class="col-sm-6">
-              <div class="content">
-                <h1 class="title">{{ article.title }}</h1>
-                <div class="excerpt">{{ article.excerpt }}</div>
-                {% if settings.social_sharing_blog %}
-                  {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    {%- when 'image-side-sm' -%}
-      <div class="container-fluid">
-        <div class="row flexed">
-          <div class="col-sm-6">
-            <div class="content">
+    <div id="m-variation">
+      <div class="image" data-image-container></div>
+      <div class="content" data-content-container></div>
+    </div>
+    <div id="d-variation">
+      {%- case article.metafields["global"]["header-type"] -%}
+        {%- when 'image-behind' -%}
+          <div class="image" data-image-container>
+            <picture>
+              <source srcset="{{ article | img_url: '1680x840', crop: 'center' }}" media="(min-width: 768px)">
+              <img src="{{ mobileFeaturedImage }}" alt="{{ article.title }}">
+            </picture>
+          </div>  
+          <div class="content"> 
+            <div class="container-fluid" data-content-container>
               <h1 class="title">{{ article.title }}</h1>
               <div class="excerpt">{{ article.excerpt }}</div>
               {% if settings.social_sharing_blog %}
@@ -68,26 +41,72 @@
               {% endif %}
             </div>
           </div>
-          <div class="col-sm-6">
-            <div class="image">
-              {{ article | img_url: '600x400', crop: 'center' | img_tag: article.title }}
+        {%- when 'image-side-lg' -%}
+          {% comment %} regular row for the image to extend outside of the container {% endcomment %}
+          <div class="row">
+            <div class="col-sm-6 col-sm-push-6">
+              <div class="image" data-image-container>
+                <picture>
+                  <source srcset="{{ article | img_url: '800x800', crop: 'center' }}" media="(min-width: 768px)">
+                  <img src="{{ mobileFeaturedImage }}" alt="{{ article.title }}">
+                </picture>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    {%- when 'image-below' -%}
-      <div class="content">
-        <h1 class="title">{{ article.title }}</h1>
-        <hr>
-        <div class="excerpt">{{ article.excerpt }}</div>
-        {% if settings.social_sharing_blog %}
-          {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
-        {% endif %}
-      </div>
-      <div class="image">
-        {{ article | img_url: '1680x840', crop: 'center' | img_tag: article.title }}
-      </div>
-  {%- endcase -%}
+          {% comment %} positioned row for the content that aligns to the container {% endcomment %}
+          <div class="content-container">
+            <div class="container-fluid">
+              <div class="row flexed">
+                <div class="col-sm-6">
+                  <div class="content" data-content-container>
+                    <h1 class="title">{{ article.title }}</h1>
+                    <div class="excerpt">{{ article.excerpt }}</div>
+                    {% if settings.social_sharing_blog %}
+                      {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- when 'image-side-sm' -%}
+          <div class="container-fluid">
+            <div class="row flexed">
+              <div class="col-sm-6">
+                <div class="content" data-content-container>
+                  <h1 class="title">{{ article.title }}</h1>
+                  <div class="excerpt">{{ article.excerpt }}</div>
+                  {% if settings.social_sharing_blog %}
+                    {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+                  {% endif %}
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="image" data-image-container>
+                  <picture>
+                    <source srcset="{{ article | img_url: '600x400', crop: 'center' }}" media="(min-width: 768px)">
+                    <img src="{{ mobileFeaturedImage }}" alt="{{ article.title }}">
+                  </picture>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- when 'image-below' -%}
+          <div class="content" data-content-container>
+            <h1 class="title has-divider">{{ article.title }}</h1>
+            <div class="excerpt">{{ article.excerpt }}</div>
+            {% if settings.social_sharing_blog %}
+              {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+            {% endif %}
+          </div>
+          <div class="image" data-image-container>
+            <picture>
+              <source srcset="{{ article | img_url: '1680x840', crop: 'center' }}" media="(min-width: 768px)">
+              <img src="{{ mobileFeaturedImage }}" alt="{{ article.title }}">
+            </picture>
+          </div>
+      {%- endcase -%}
+    </div>
   </header>
   
   <div class="container-fluid">

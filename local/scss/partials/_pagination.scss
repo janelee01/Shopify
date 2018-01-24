@@ -1,74 +1,51 @@
-.pages{
-	@include clean;
+.pagination{
 	font-size: $font-size-small;
 	text-align: center;
-	li{
+	display: block;
+	span{
 		display: inline-block;
-		margin: 0 5px;
-		a{
+		margin: 0 2px;
+	}
+	a{
+		color: $gray;
+		&:hover{
+			text-decoration: none;
+			color: $brand-blue;
+		}
+	}
+	.page{
+		a, &.current{
 			padding: 6px 0;
-			display: block;
 			width: 40px;
 			height: 40px;
 			color: $gray;
 			border: solid 1px $gray-lighter;
 			border-radius: 50%;
-			&:focus,
-			&:hover{
+		}
+		a{
+			display: block;
+		}
+		&.current{
+			color: $brand-blue;
+			border-color: $brand-blue;
+			// shopify pagination uses an empty span for current .page,
+			// but our reviews pagination doesn't change the span > a markup,
+			// so reset here
+			a{
+				width: auto;
+				height: auto;
+				padding: 0;
+				border: 0;
 				color: $brand-blue;
-				border-color: $brand-blue;
-				text-decoration: none;
-			}
-			&.current{
-				color: $brand-blue;
-				border-color: $brand-blue;
 				cursor: default;
 			}
 		}
-	}
-}
-
-.pager{
-	text-transform: uppercase;
-	line-height: 36px;
-	font-size: $font-size-xs;
-	letter-spacing: $ls-xs;
-	.amount{
-		strong{
-			font-family: $font-family-sans-serif;
-		}
-	}
-	.limiter{
-		label{
-			font-weight: normal;
-		}
-		select{
-			display: inline-block;
-			width: auto;
-			margin: 0 10px;
-		}
-	}
-	.pages{
-		strong{
-			display: none;
-		}
-		ol{
-			@include clean;
-			display: inline;
-		}
-	}
-	li > a {
-		border: 0;
-		padding-top: 0;
-		padding-bottom: 0;
-		color: $gray;
-		&:active,
+		&:focus,
 		&:hover{
-			background: none;
-			color: $brand-blue;
+			a{
+				border-color: $brand-blue;
+				text-decoration: none;
+			}
 		}
-	}
-	li.current{
-		color: $brand-blue;
 	}
 }

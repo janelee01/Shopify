@@ -99,7 +99,7 @@ b, strong{
 		padding: 35px 0;
 	}
 	h1, h2{
-		font-size: 18px;
+		font-size: 24px;
 		margin: 0;
 		@media (min-width: $screen-md) {
 			font-size: 30px;
@@ -394,7 +394,11 @@ hr.mini-divider{
 }
 
 .alert{
-	font-family: $font-family-sans-serif;
+	border-radius: 2px;
+	padding: 40px 30px;
+	font-size: 18px;
+	line-height: 1;
+	text-align: center;
 	a{
 		color: #FFF;
 		text-decoration: underline;
@@ -403,18 +407,8 @@ hr.mini-divider{
 		}
 	}
 	&.alert-muted{
-		background: $gray-lightest;
-		color: $gray; 
-		a{
-			color: $gray; 
-		}
-	}
-	&.alert-form{
-		padding: 8px;
-		margin: 0;
-		font-size: 13px;
-		text-transform: uppercase;
-		letter-spacing: $ls-xs;
+		background: #FDFDFD;
+		border: solid 1px #DEDEDE;
 		a{
 			color: $gray; 
 		}

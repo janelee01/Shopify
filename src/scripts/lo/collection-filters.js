@@ -15,26 +15,59 @@ $(document).ready(function(){
 	$('.filter-option').on('click', function(e){
 	    e.preventDefault();
 	    $(this).toggleClass('selected');
+
+	    // assume nothing matches
 	    $('.f-hook').addClass('hidden');
 
-	    var activeFiltersArr = [];
+	    // rebuild arrays of selections
+	    var activeTextArr = [];
+	    var activeMatchAllArr = [];
+	    var activeMatchAnyArr = [];
 	    $('.filter-option.selected').each(function(){
-	    	activeFiltersArr.push($(this).text());
-	    	$($(this).data('hook')).removeClass('hidden');
+	    	activeTextArr.push($(this).text());
+	    	if( $(this).hasClass('is-price-range') ){
+	    		activeMatchAnyArr.push($(this).data('hook'));
+	    	}else{
+	    		activeMatchAllArr.push($(this).data('hook'));
+	    	}
 	    });
 
-	    $activeFiltersList.text(activeFiltersArr.join(', '));
-	    if( activeFiltersArr.length < 1 ){
-	    	$activeFilters.removeClass('is-shown');
+	    // update active filter list
+	    $activeFiltersList.text(activeTextArr.join(', '));
+	    
+	    if( activeTextArr.length < 1 ){
+	    	// no active filters, so show everything
+	    	$('.page-header').removeClass('has-active-filters');
 	    	$('.f-hook').removeClass('hidden');
+	    	$('.pagination').show();
 	    }else{
-	    	$activeFilters.addClass('is-shown');
+	    	// hide pagination while filtering for now
+	    	$('.pagination').hide();
+
+	    	// show results
+	    	var matchAllSelector = activeMatchAllArr.join('');
+	    	if( activeMatchAnyArr.length ){
+	    		// combine our Match All selector with each of our Match Any (price) selectors
+	    		// "Weekend bags that will hold tablets and are priced between 0 and 200" ...
+	    		// .f-weekender.f-tablet.p-0-100
+	    		// .f-weekender.f-tablet.p-100-200
+	    		for (var i = 0; i < activeMatchAnyArr.length; i++) {
+	    			$( matchAllSelector + activeMatchAnyArr[i] ).removeClass('hidden');
+	    		};
+	    	}else{
+	    		// no price filters in play, so just the Match All selector
+	    		// .f-weekender.f-tablet
+	    		$(matchAllSelector).removeClass('hidden');
+	    	}
+	    	
+	    	// show our active filters element
+	    	$('.page-header').addClass('has-active-filters');
 	    }
 
 	    // maybe hide the product group
 	    $('.product-family').each(function(){
 	    	if( $(this).find('.f-hook').length == $(this).find('.f-hook.hidden').length ){
-	    		$(this).fadeOut();
+	    		$(this).hide();
 	    	}else{
 	    		$(this).fadeIn();
 	    	}
@@ -43,9 +76,9 @@ $(document).ready(function(){
 	$('#reset-filters').on('click', function(e){
 	    e.preventDefault();
 	    $('.filter-option').removeClass('selected');
-	    $activeFilters.removeClass('is-shown');
-	    $activeFiltersList.text('');
+	    $('.page-header').removeClass('has-active-filters');
 	    $('.f-hook').removeClass('hidden');
 	    $('.product-family').fadeIn();
+	    $('.pagination').show();
 	});
 });
