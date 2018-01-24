@@ -1,0 +1,94 @@
+.page-header.is-collection{
+	background: none;
+	border-bottom: solid 1px #e6e6e6;
+	padding-bottom: 0;
+	margin-bottom: 70px;
+	h1{
+		margin-bottom: 35px;
+	}
+}
+#filters{
+	display: inline-block;
+	ul{
+		@include clean;
+		background: #F8F8F8;
+		border-radius: 4px;
+		padding: 15px 0;
+		margin: 0 auto 40px;
+		display: flex;
+	}
+	li{
+		border-right: solid 1px #dcdcdc;
+		&:last-child{
+			border: 0;
+		}
+	}
+}
+.filter-toggle{
+	background: none;
+	border: 0;
+	color: #888;
+	padding: 0 45px;
+	font-size: 14px;
+	&.active,
+	&:hover,
+	&:focus{
+		color: $gray-darker;
+		text-decoration: none;
+	}
+}
+.filter-options{
+	@include clean;
+	margin-bottom: 60px;
+	li{
+		display: inline-block;
+		padding: 0 25px;
+	}
+} 
+.filter-option{
+	background: none;
+	border: 0;
+	font-size: 14px;
+	color: #646464;
+	line-height: 24px;
+	@include transition(all .2s ease);
+	&:focus,
+	&:hover{
+		outline: none;
+		color: $gray-darker;
+		&:before{
+			border-color: $gray-darker;
+		}
+	}
+	&:before{
+		content: '';
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		background: #FFF url('check-mark.svg') no-repeat center center;
+		border: solid 1px #d8d8d8;
+		margin-right: 15px;
+		vertical-align: bottom;
+		@include transition(all .2s ease);
+	}
+	&.selected{
+		&:before{
+			border-color: $brand-blue;
+			background-color: $brand-blue;
+		}
+	}
+}
+
+#active-filters{
+	opacity: 0;
+	margin-bottom: 25px;
+	color: #888;
+	@include transition(all .2s ease);
+	&.is-shown{
+		opacity: 1;
+	}
+	a{
+		color: $brand-blue;
+		padding: 0 15px;
+	}
+}

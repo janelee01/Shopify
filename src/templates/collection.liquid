@@ -1,71 +1,104 @@
 {% paginate collection.products by 12 %}
-  
-  <header class="page-header">
-    <h1>{{ collection.title }}</h1>
-    {% comment %}
-    {% if collection.description != blank %}
-      {{ collection.description }}
-    {% endif %}
-    {% endcomment %}
-  </header>
 
-{% comment %}
-  {% if collection.all_tags.size > 0 %}
-    <ul>
-      {% for tag in collection.all_tags %}
-        {% if current_tags contains tag %}
-          <li class="active">
-            {{ tag | link_to_remove_tag: tag }}
-          </li>
-        {% else %}
-          <li>
-            {{ tag | link_to_tag: tag }}
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  {% endif %}
-  {% endcomment %}
-  {% assign tagsList = shop.metafields["global"]["category-tags"] %}
-  {% for tag in collection.all_tags %}
-    {% if tagsList contains tag %}
-      {{ tag }} // {{ tag | handleize }}
-    {% endif %}
-  {% endfor %}
-  <div class="product-grid">
-    <div class="container-fluid">
-      <div class="row">
-        {% for product in collection.products %}
+{% comment %} capture all the things {% endcomment %}
+{%- assign tagsList = shop.metafields["global"]["function-tags"] -%}
+{%- capture functionFilters -%}
+{%- for tag in collection.all_tags -%}
+  {%- if tagsList contains tag -%}
+    {%- include 'filter-option' -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- endcapture -%}
+{%- assign tagsList = shop.metafields["global"]["device-fit-tags"] | replace: ' inch', '"' -%}
+{%- capture deviceFitFilters -%}
+{%- for tag in collection.all_tags -%}
+  {%- if tagsList contains tag -%}
+    {%- include 'filter-option' -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- endcapture -%}
+{%- assign tagsList = shop.metafields["global"]["category-tags"] -%}
+{%- capture categoryFilters -%}
+{%- for tag in collection.all_tags -%}
+  {%- if tagsList contains tag -%}
+    {%- include 'filter-option' -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- endcapture -%}
+{%- capture productNames -%}
+{%- for product in collection.products -%}
+  {%- assign productNameParts = product.title | split: ' - ' -%}
+  {{ productNameParts[0] }}|
+{%- endfor -%}
+{%- endcapture -%}
+{%- assign parentProducts = productNames | split: '|' | uniq -%}
+{%- assign have0to100 = false -%}
+{%- assign have100to200 = false -%}
+{%- assign have200to300 = false -%}
+{%- assign have300to400 = false -%}
+{%- for product in collection.products -%}
+  {%- assign thisPrice = product.price | divided_by: 100 -%}
+  {%- if thisPrice <= 100 -%}{%- assign have0to100 = true -%}{%- endif -%}
+  {%- if thisPrice >= 100 and thisPrice <= 200 -%}{%- assign have100to200 = true -%}{%- endif -%}
+  {%- if thisPrice >= 200 and thisPrice <= 300 -%}{%- assign have200to300 = true -%}{%- endif -%}
+  {%- if thisPrice >= 300 and thisPrice <= 400 -%}{%- assign have300to400 = true -%}{%- endif -%}
+{%- endfor -%}
 
-          <div class="col-xs-6 col-sm-3">
-            {% include 'product-item' with product %}
-          </div>
-
-        {% else %}
-
-          {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
-            {% for i in (1..8) %}
-              <a href="#">
-                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-                {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
-              </a>
-
-              <p>
-                <a href="#">{{ 'homepage.onboarding.product_title' | t }}</a>
-              </p>
-
-              <p>
-                {{ 1999 | money }}
-              </p>
-            {% endfor %}
-          {% else %}
-            <p>{{ 'collections.general.no_matches' | t }}</p>
-          {% endif %}
-
-        {% endfor %}
+  <header class="page-header is-collection">
+    <h1 class="has-bar">{{ collection.title }}</h1>
+    <div>{% comment%} both .has-bar and #filters are inline-block, so we need a newline somehow {% endcomment %}
+      <div id="filters">
+        <ul>
+          <li><a href="#price-filters" class="filter-toggle">Price</a></li>
+          {% if functionFilters != blank %}<li><a href="#function-filters" class="filter-toggle">Function</a></li>{% endif %}
+          {% if deviceFitFilters != blank %}<li><a href="#fit-filters" class="filter-toggle">Device Fit</a></li>{% endif %}
+          {% if categoryFilters != blank %}<li><a href="#category-filters" class="filter-toggle">Category</a></li>{% endif %}
+        </ul>
+      </div>
+      <ul class="filter-options" style="display: none" id="price-filters">
+        {%- if have0to100 -%}<li><button class="filter-option" data-hook=".f-0-100">$0.00 - $100.00</button></li>{%- endif -%}
+        {%- if have100to200 -%}<li><button class="filter-option" data-hook=".f-100-200">$100.00 - $200.00</button></li>{%- endif -%}
+        {%- if have200to300 -%}<li><button class="filter-option" data-hook=".f-200-300">$200.00 - $300.00</button></li>{%- endif -%}
+        {%- if have300to400 -%}<li><button class="filter-option" data-hook=".f-300-400">$300.00 - $400.00</button></li>{%- endif -%}
+      </ul>
+      {%- if functionFilters != blank -%}
+        <ul class="filter-options" style="display: none" id="function-filters">{{ functionFilters }}</ul>
+      {%- endif -%}
+      {%- if deviceFitFilters != blank -%}
+        <ul class="filter-options" style="display: none" id="fit-filters">{{ deviceFitFilters }}</ul>
+      {%- endif -%}
+      {%- if categoryFilters != blank -%}
+        <ul class="filter-options" style="display: none" id="category-filters">{{ categoryFilters }}</ul>
+      {%- endif -%}
+      <div id="active-filters">
+        <span data-active-filters></span>
+        <a href="#" id="reset-filters">Reset Filters</a>
       </div>
     </div>
+  </header>
 
+  <div class="container-fluid">
+    {%- for parentProductName in parentProducts -%}
+    <div class="product-family">
+      <h2 class="has-divider">{{ parentProductName }}</h2>
+      <div class="product-grid">
+        <div class="row">
+          {% for product in collection.products %}
+            {%- assign productNameParts = product.title | split: ' - ' -%}
+            {% if productNameParts[0] != parentProductName %}{% continue %}{% endif %}
+            {%- assign priceClass = 'f-0-100' -%}
+            {%- assign thisPrice = product.price | divided_by: 100 -%}
+            {%- if thisPrice >= 100 and thisPrice <= 200 -%}{%- assign priceClass = 'f-100-200' -%}{%- endif -%}
+            {%- if thisPrice >= 200 and thisPrice <= 300 -%}{%- assign priceClass = 'f-200-300' -%}{%- endif -%}
+            {%- if thisPrice >= 300 and thisPrice <= 400 -%}{%- assign priceClass = 'f-300-300' -%}{%- endif -%}
+            <div class="col-xs-6 col-sm-3 f-hook {{ priceClass }}{% for tag in product.tags %} f-{{ tag | handleize }}{% endfor %}">
+              {% include 'product-item' with product %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {%- endfor -%}
     {% if paginate.pages > 1 %}
       {% include 'pagination' %}
     {% endif %}

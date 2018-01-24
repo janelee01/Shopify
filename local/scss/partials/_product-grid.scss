@@ -1,5 +1,11 @@
-.product-grid {
-	margin: 30px 0;
+.product-grid{
+	.row{
+		@include make-row;
+	}
+	[class^="col-"]{
+		padding-left: $grid-gutter-width/2;
+		padding-right: $grid-gutter-width/2;
+	}
 	@media (max-width: $screen-xs-max) {
 	    .col-xs-6:nth-child(2n+1){
 			clear: left;
@@ -11,109 +17,66 @@
 			clear: left;
 	    }
 	}
-	img{
-		width: 100%;
-		height: auto;
-	}
-	.product-grid-image{
-		position: relative;
-		.product-alerts{
-			position: absolute;
-			top: 10px;
-			left: 0;
-			display: block;
-			margin: 0;
-			&:before,
-			&:after{
-				display: none;
-			}
-		}
-		.product-alert{
-			margin-left: 0;
-		}
-	}
 	.product{
-		text-align: center;
-		padding: 0 20px;
-		margin-bottom: 40px;
-		@media (min-width: $screen-md) {
-			overflow: hidden;
-			img{
-				@include transition-off;
+		margin-bottom: 68px;
+		.image{
+			margin-bottom: 13px;
+			position: relative;
+		}
+		.title{
+			font-family: $font-family-semibold;
+			font-size: 22px;
+			line-height: 22px;
+			margin: 0 0 6px;
+		}
+		a{
+			&:hover{
+				text-decoration: none;
 			}
 		}
 	}
-
-	.product-grid-details-link{
-		text-decoration: none;
-		.product-grid-title{
-			font-family: $font-family-sans-serif;
-			font-size: $font-size-base;
-			text-transform: uppercase;
-			padding: 0 15px;
-			font-style: normal;
-			@include bs-margins-lg;
-			@media (min-width: $screen-md ) {
-			    padding: 0;
-			}
-			
-		}
-		.product-grid-color{
-			font-family: $font-family-sans-serif;
-			font-size: $font-size-xs;
-			text-transform: uppercase;
-			padding: 0 15px;
-			margin-bottom: 10px;
-			letter-spacing: $ls-xs;
-			color: $gray-dark;
-		}
-		.product-grid-description{
-			padding: 0 15px;
-			color: $text-color;
-			font-size: $font-size-small;
-			font-family: $font-family-sans-serif;
-			p{
-				margin-bottom: 10px;
-			}
-		}
-		.product-grid-price{
-			margin-bottom: 23px;
-		}
-		.price-box{
-			font-family: $font-family-sans-serif;
-			color: $gray-dark;
-			letter-spacing: $ls-xs;
-		}
-		.special-price{
+	.product-color{
+		font-size: 18px;
+		color: $gray-darker;
+		line-height: 1;
+		margin: 0 0 15px;
+	}
+	.product-material{
+		color: #A9A9A9;
+		line-height: 16px;
+		line-height: 1;
+		margin: 0;
+	}
+	.price{
+		font-family: $font-family-semibold;
+		font-size: 18px;
+		color: $gray-darker;
+		line-height: 20px;
+		span{
 			display: inline-block;
-			.price{
-				background: none;
-				padding: 0;
-				margin-top: 0;
-			}
+			vertical-align: middle;
 		}
-	}
-
-    .item-title {
-    	.price-box {
-      		display: inline;
-	    }
 	}
 	.old-price{
-		padding-right: 8px;
+		font-family: $font-family-base;
+		font-size: 14px;
+		color: #646464;
+		line-height: 20px;
+		margin-left: 10px;
 	}
-	.special-price{
-		.price{
-			padding-top: 0;
-			padding-bottom: 0;
-		}
-	}
+}
 
-	.amgroupcat{
-		display: inline-block;
-	}
-	.low-stock-warning{
-		display: inline-block;
-		padding-left: 8px;
-	}
+.discount-badge{
+	position: absolute;
+	background: #5E4471;
+	top: 20px;
+	left: 20px;
+	width: 55px;
+	height: 55px;
+	color: #F2E7F7;
+	display: block;
+	text-align: center;
+	border-radius: 50%;
+	line-height: 1;
+	padding-top: 11px;
 }

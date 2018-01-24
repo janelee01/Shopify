@@ -5948,6 +5948,33 @@ h6, .h6 {
   bottom: 0;
 }
 
+.has-bar {
+  line-height: 1;
+  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  display: inline-block;
+  position: relative;
+}
+
+.has-bar:after {
+  content: '';
+  height: 50%;
+  background: #DDF2FC;
+  position: absolute;
+  left: -5px;
+  right: -5px;
+  bottom: 2px;
+  z-index: -1;
+}
+
+@media (min-width: 1030px) {
+  .has-bar:after {
+    bottom: -4px;
+    left: -10px;
+    right: -10px;
+  }
+}
+
 .flush-top {
   margin-top: 0;
 }
@@ -5983,7 +6010,7 @@ b, strong {
 
 @media (min-width: 1030px) {
   .page-header h1, .page-header h2 {
-    font-size: 24px;
+    font-size: 30px;
   }
 }
 
@@ -7867,8 +7894,23 @@ blockquote .author-title {
   }
 }
 
-.product-grid {
-  margin: 30px 0;
+.product-grid .row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.product-grid .row:before, .product-grid .row:after {
+  content: " ";
+  display: table;
+}
+
+.product-grid .row:after {
+  clear: both;
+}
+
+.product-grid [class^="col-"] {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 @media (max-width: 767px) {
@@ -7886,128 +7928,73 @@ blockquote .author-title {
   }
 }
 
-.product-grid img {
-  width: 100%;
-  height: auto;
+.product-grid .product {
+  margin-bottom: 68px;
 }
 
-.product-grid .product-grid-image {
+.product-grid .product .image {
+  margin-bottom: 13px;
   position: relative;
 }
 
-.product-grid .product-grid-image .product-alerts {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  display: block;
-  margin: 0;
+.product-grid .product .title {
+  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  line-height: 22px;
+  margin: 0 0 6px;
 }
 
-.product-grid .product-grid-image .product-alerts:before, .product-grid .product-grid-image .product-alerts:after {
-  display: none;
-}
-
-.product-grid .product-grid-image .product-alert {
-  margin-left: 0;
-}
-
-.product-grid .product {
-  text-align: center;
-  padding: 0 20px;
-  margin-bottom: 40px;
-}
-
-@media (min-width: 1030px) {
-  .product-grid .product {
-    overflow: hidden;
-  }
-  .product-grid .product img {
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-  }
-}
-
-.product-grid .product-grid-details-link {
+.product-grid .product a:hover {
   text-decoration: none;
 }
 
-.product-grid .product-grid-details-link .product-grid-title {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  text-transform: uppercase;
-  padding: 0 15px;
-  font-style: normal;
-  margin-top: 30px;
-  margin-bottom: 15px;
-}
-
-@media (min-width: 1030px) {
-  .product-grid .product-grid-details-link .product-grid-title {
-    padding: 0;
-  }
-}
-
-.product-grid .product-grid-details-link .product-grid-color {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-  padding: 0 15px;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-  color: #414B56;
-}
-
-.product-grid .product-grid-details-link .product-grid-description {
-  padding: 0 15px;
+.product-grid .product-color {
+  font-size: 18px;
   color: #111;
-  font-size: 14px;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1;
+  margin: 0 0 15px;
 }
 
-.product-grid .product-grid-details-link .product-grid-description p {
-  margin-bottom: 10px;
+.product-grid .product-material {
+  color: #A9A9A9;
+  line-height: 16px;
+  line-height: 1;
+  margin: 0;
 }
 
-.product-grid .product-grid-details-link .product-grid-price {
-  margin-bottom: 23px;
+.product-grid .price {
+  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  color: #111;
+  line-height: 20px;
 }
 
-.product-grid .product-grid-details-link .price-box {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #414B56;
-  letter-spacing: 1px;
-}
-
-.product-grid .product-grid-details-link .special-price {
+.product-grid .price span {
   display: inline-block;
-}
-
-.product-grid .product-grid-details-link .special-price .price {
-  background: none;
-  padding: 0;
-  margin-top: 0;
-}
-
-.product-grid .item-title .price-box {
-  display: inline;
+  vertical-align: middle;
 }
 
 .product-grid .old-price {
-  padding-right: 8px;
+  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #646464;
+  line-height: 20px;
+  margin-left: 10px;
 }
 
-.product-grid .special-price .price {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.product-grid .amgroupcat {
-  display: inline-block;
-}
-
-.product-grid .low-stock-warning {
-  display: inline-block;
-  padding-left: 8px;
+.discount-badge {
+  position: absolute;
+  background: #5E4471;
+  top: 20px;
+  left: 20px;
+  width: 55px;
+  height: 55px;
+  color: #F2E7F7;
+  display: block;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 1;
+  padding-top: 11px;
 }
 
 .product-images {
@@ -9269,36 +9256,12 @@ blockquote .author-title {
 
 .section-header .header-text {
   margin: 0;
-  line-height: 1;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 30px;
-  display: inline-block;
-  position: relative;
 }
 
 @media (min-width: 1030px) {
   .section-header .header-text {
     font-size: 60px;
-  }
-}
-
-.section-header .header-text:after {
-  content: '';
-  height: 9px;
-  background: #DDF2FC;
-  position: absolute;
-  left: -5px;
-  right: -5px;
-  bottom: 2px;
-  z-index: -1;
-}
-
-@media (min-width: 1030px) {
-  .section-header .header-text:after {
-    height: 28px;
-    bottom: -4px;
-    left: -10px;
-    right: -10px;
   }
 }
 
@@ -11232,6 +11195,121 @@ blockquote .author-title {
   max-width: 180px;
 }
 
+.page-header.is-collection {
+  background: none;
+  border-bottom: solid 1px #e6e6e6;
+  padding-bottom: 0;
+  margin-bottom: 70px;
+}
+
+.page-header.is-collection h1 {
+  margin-bottom: 35px;
+}
+
+#filters {
+  display: inline-block;
+}
+
+#filters ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #F8F8F8;
+  border-radius: 4px;
+  padding: 15px 0;
+  margin: 0 auto 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#filters li {
+  border-right: solid 1px #dcdcdc;
+}
+
+#filters li:last-child {
+  border: 0;
+}
+
+.filter-toggle {
+  background: none;
+  border: 0;
+  color: #888;
+  padding: 0 45px;
+  font-size: 14px;
+}
+
+.filter-toggle.active, .filter-toggle:hover, .filter-toggle:focus {
+  color: #111;
+  text-decoration: none;
+}
+
+.filter-options {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 60px;
+}
+
+.filter-options li {
+  display: inline-block;
+  padding: 0 25px;
+}
+
+.filter-option {
+  background: none;
+  border: 0;
+  font-size: 14px;
+  color: #646464;
+  line-height: 24px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.filter-option:focus, .filter-option:hover {
+  outline: none;
+  color: #111;
+}
+
+.filter-option:focus:before, .filter-option:hover:before {
+  border-color: #111;
+}
+
+.filter-option:before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: #FFF url("check-mark.svg") no-repeat center center;
+  border: solid 1px #d8d8d8;
+  margin-right: 15px;
+  vertical-align: bottom;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.filter-option.selected:before {
+  border-color: #00AEEF;
+  background-color: #00AEEF;
+}
+
+#active-filters {
+  opacity: 0;
+  margin-bottom: 25px;
+  color: #888;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#active-filters.is-shown {
+  opacity: 1;
+}
+
+#active-filters a {
+  color: #00AEEF;
+  padding: 0 15px;
+}
+
 #product-thumbnails {
   margin: 0;
   padding: 0;
@@ -11395,17 +11473,11 @@ blockquote .author-title {
 }
 
 #price-wrapper .discount-badge {
-  position: absolute;
-  background: #5E4471;
   top: -8px;
   right: 0;
+  left: auto;
   width: 60px;
   height: 60px;
-  color: #F2E7F7;
-  display: block;
-  text-align: center;
-  border-radius: 50%;
-  line-height: 1;
   padding-top: 13px;
   opacity: 1;
   -webkit-transition: all .2s ease-out;

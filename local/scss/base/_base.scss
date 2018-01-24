@@ -52,6 +52,28 @@ h6, .h6 {
 .has-divider{
 	@include divider-title;
 }
+.has-bar{
+	line-height: 1;
+	font-family: $font-family-semibold;
+	font-size: 30px;
+	display: inline-block;
+	position: relative;
+	&:after{
+		content: '';
+		height: 50%;
+		background: $brand-blue-light;
+		position: absolute;
+		left: -5px;
+		right: -5px;
+		bottom: 2px;
+		z-index: -1;
+		@media (min-width: $screen-md) {
+			bottom: -4px;
+			left: -10px;
+			right: -10px;
+		}
+	}
+}
 
 .flush-top{
 	margin-top: 0;
@@ -80,7 +102,7 @@ b, strong{
 		font-size: 18px;
 		margin: 0;
 		@media (min-width: $screen-md) {
-			font-size: 24px;
+			font-size: 30px;
 		}
 	}
 }

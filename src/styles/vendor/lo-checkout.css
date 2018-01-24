@@ -922,6 +922,33 @@ h6, .h6 {
   bottom: 0;
 }
 
+.has-bar {
+  line-height: 1;
+  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  display: inline-block;
+  position: relative;
+}
+
+.has-bar:after {
+  content: '';
+  height: 50%;
+  background: #DDF2FC;
+  position: absolute;
+  left: -5px;
+  right: -5px;
+  bottom: 2px;
+  z-index: -1;
+}
+
+@media (min-width: 1030px) {
+  .has-bar:after {
+    bottom: -4px;
+    left: -10px;
+    right: -10px;
+  }
+}
+
 .flush-top {
   margin-top: 0;
 }
@@ -957,7 +984,7 @@ b, strong {
 
 @media (min-width: 1030px) {
   .page-header h1, .page-header h2 {
-    font-size: 24px;
+    font-size: 30px;
   }
 }
 
