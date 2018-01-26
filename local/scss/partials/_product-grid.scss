@@ -13,7 +13,7 @@
 	}
 	@media (min-width: $screen-sm) {
 		margin: 60px 0;
-	    .col-sm-4:nth-child(3n+1){
+	    .col-sm-3:nth-child(4n+1){
 			clear: left;
 	    }
 	}
@@ -30,7 +30,7 @@
 			font-family: $font-family-semibold;
 			font-size: 15px;
 			line-height: 1;
-			margin: 0 0 6px;
+			margin: 0 0 8px;
 			@media (min-width: $screen-md) {
 				font-size: 22px;
 			}
@@ -45,7 +45,7 @@
 		font-size: 12px;
 		color: $gray-darker;
 		line-height: 1;
-		margin: 0 0 15px;
+		margin: 0 0 8px;
 		@media (min-width: $screen-md) {
 			font-size: 18px;
 		}
@@ -54,7 +54,7 @@
 		color: #A9A9A9;
 		font-size: 12px;
 		line-height: 1;
-		margin: 0;
+		margin: 0 0 15px;
 		@media (min-width: $screen-md) {
 			font-size: 16px;
 		}

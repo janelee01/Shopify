@@ -62,7 +62,7 @@
 }
 .filter-options{
 	@include clean;
-	margin: 0 $mobile-gutter 41px;
+	margin: 0 $mobile-gutter;
 	text-align: left;
 	@media (min-width: $screen-md) {
 		margin: 0 0 103px;
@@ -82,30 +82,44 @@
 	font-size: 14px;
 	color: #646464;
 	line-height: 24px;
+	position: relative;
 	@include transition(all .2s ease);
 	&:focus,
 	&:hover{
 		outline: none;
 		color: $gray-darker;
 		&:before{
-			border-color: $gray-darker;
+			box-shadow: 0 0 0 2px #d8d8d8 inset;
 		}
 	}
-	&:before{
+	&:before,
+	&:after{
 		content: '';
-		display: inline-block;
 		width: 24px;
 		height: 24px;
-		background: #FFF url('check-mark.svg') no-repeat center center;
-		border: solid 1px #d8d8d8;
+	}
+	&:before{
+		display: inline-block;
+		box-shadow: 0 0 0 1px #d8d8d8 inset;
 		margin-right: 15px;
 		vertical-align: bottom;
-		@include transition(all .2s ease);
+		@include transition(all .2s ease-in-out);
+	}
+	&:after{
+		display: block;
+		position: absolute;
+		left: 7px;
+		top: 0;
+		opacity: 0;
+		background: url('check-mark.svg') no-repeat center center;
+		@include transition(all .2s ease-in-out .1s);
 	}
 	&.selected{
 		&:before{
-			border-color: $brand-blue;
-			background-color: $brand-blue;
+			box-shadow: 0 0 0 13px $brand-blue inset;
+		}
+		&:after{
+			opacity: 1;
 		}
 	}
 }
@@ -124,4 +138,8 @@
 	@media (max-width: $screen-sm-max) {
 	    display: none;
 	}
+}
+#filters-collapse{
+	margin: 0 auto 30px;
+	width: 230px;
 }

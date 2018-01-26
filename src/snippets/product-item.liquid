@@ -13,7 +13,7 @@
     {%- assign productTitleParts = product.title | split: '-' -%}
     <h3 class="title">{{ productTitleParts[0] | strip }}</h3>
     <p class="product-color">{{ productTitleParts[2] | strip }}</p>
-    <p class="product-material">{{ productProperties[1] | strip }}</p>
+    <p class="product-material">{{ productTitleParts[1] | strip }}</p>
     <div class="price">
         {%- if product.compare_at_price > product.price -%} {% comment %} product is on sale {% endcomment -%}
           {%- if product.price_varies -%}

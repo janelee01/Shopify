@@ -6,9 +6,11 @@ $(document).ready(function(){
 	    $('.filter-options').hide();
 	    if( $(this).hasClass('active') ){
 	    	$(this).removeClass('active');
+	    	$('#filters-panel').hide();
 	    }else{
 	    	$('.filter-toggle').removeClass('active');
 	    	$(this).addClass('active');
+	    	$('#filters-panel').show();
 	    	$($(this).attr('href')).fadeIn();
 	    }
 	});
@@ -18,6 +20,7 @@ $(document).ready(function(){
 
 	    // assume nothing matches
 	    $('.f-hook').addClass('hidden');
+	    $('#filters-collapse').remove();
 
 	    // rebuild arrays of selections
 	    var activeTextArr = [];
@@ -62,6 +65,13 @@ $(document).ready(function(){
 	    	
 	    	// show our active filters element
 	    	$('.page-header').addClass('has-active-filters');
+
+	    	// mobile button to get the filters out of the way
+	    	if( $(window).width() < LS.desktopBreakpoint ){
+	    		var shown = $('.f-hook').length - $('.f-hook.hidden').length;
+	    		var btnText = shown > 1 ? 'Show ' + shown + ' items' : 'Show 1 item';
+	    		$('<button id="filters-collapse" class="btn">' + btnText + '</button>').insertBefore('#active-filters');
+	    	}
 	    }
 
 	    // maybe hide the product group
@@ -80,5 +90,11 @@ $(document).ready(function(){
 	    $('.f-hook').removeClass('hidden');
 	    $('.product-family').fadeIn();
 	    $('.pagination').show();
+	    $('#filters-collapse').hide();
+	});
+	$('body').on('click', '#filters-collapse', function(e){
+	    e.preventDefault();
+	    $('.filter-toggle').removeClass('active');
+	    $('#filters-panel').hide();
 	});
 });

@@ -322,4 +322,40 @@ $(document).ready(function() {
 		});
 	}
 
+	$('.number-down').on('click', function(e){
+	    e.preventDefault();
+	    var $input = $(this).next('input');
+	    var number = $input.val();
+	    if( number > 0 ){
+	    	number--;
+	    	$input.val(number);
+	    }
+	});
+	$('.number-up').on('click', function(e){
+	    e.preventDefault();
+	    var $input = $(this).prev('input');
+	    var number = $input.val();
+	    number++;
+	    $input.val(number);
+	});
+
+	// move the qty control
+	var setCartQtyInputLocation = function(){
+		var $cartRows = $('#cart-items tr');
+		$cartRows.each(function(){
+			var $control = $(this).find('.number-control').detach();
+			if( $(window).width() < 769 && $(this).find('.item-info .number-control').length < 1 ){
+				$(this).find('.item-info').append($control);
+			}else if( $(this).find('.item-qty .number-control').length < 1 ){
+				$(this).find('.item-qty').append($control);
+			}
+		});
+	}
+	if( $('body').hasClass('template-cart') ){
+		setCartQtyInputLocation();
+		$(window).resize(function(){
+			setCartQtyInputLocation();
+		});
+	}
+
 });

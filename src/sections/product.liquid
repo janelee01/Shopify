@@ -55,6 +55,7 @@
 			<div class="product-gallery {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
 				<div class="filmroll" id="gallery-{{ siblingProduct.id }}">
 				{% for image in siblingProduct.images %}
+					{% if image.alt contains 'swatch' %}{% continue %}{% endif %}
 					<div class="item">
 						<figure>
 							<span class="{% if forloop.first %}master{% else %}resize{% endif %}">
@@ -64,8 +65,8 @@
 					</div>
 				{% endfor %}
 				</div>
-				<a href="" id="gallery-{{ siblingProduct.id }}-prev" class="gallery-control prev"></a>
-				<a href="" id="gallery-{{ siblingProduct.id }}-next" class="gallery-control next"></a>
+				<a href="#" id="gallery-{{ siblingProduct.id }}-prev" class="gallery-control prev"></a>
+				<a href="#" id="gallery-{{ siblingProduct.id }}-next" class="gallery-control next"></a>
 			</div>
 			{% endif %}
 		{% endfor %}

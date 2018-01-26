@@ -1,7 +1,10 @@
 .page-block{
 	// default margins for each block
-	margin: 0 auto 20px;
+	margin: 0 auto 60px;
 	max-width: $site-max-width;
+	@media (min-width: $screen-md) {
+		margin-bottom: 40px;
+	}
 	&.contained{
 		@extend .container-fluid;
 		// allow full width when parent container is not
@@ -33,20 +36,7 @@
 	}
 }
 
-.section-header{
-	text-align: center;
-	padding: 50px 0 55px;
-	@media (min-width: $screen-md) {
-		padding: 60px 0 70px;
-	}
-	.header-text{
-		margin: 0;
-		font-size: 30px;
-		@media (min-width: $screen-md) {
-			font-size: 60px;
-		}
-	}
-}
+
 .section-content{
 	text-align: center;
 	color: $gray-darker;
@@ -59,7 +49,7 @@
 		padding: 0 30px;
 	}
 	.flexer{
-		padding: 45px 20px 35px;
+		padding: 45px 20px 0;
 		@media (min-width: $screen-md) {
 			padding: 0;
 		}

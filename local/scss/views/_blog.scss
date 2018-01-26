@@ -275,33 +275,7 @@
 /*
 	Article
  */
-.template-article{
- 	.shogun-image-container{
- 		margin-bottom: 40px;
- 		@media (min-width: $screen-md) {
- 			margin-bottom: 80px;
- 		}
- 		.shogun-image-overlay.shg-middle-center{
- 			display: block;
- 			bottom: 50px;
- 			width: 170px;
- 			right: -200px;
- 			top: auto;
- 			left: auto;
- 			padding: 0;
- 			p{
- 				// shogun get's specific so will be need to be important
- 				font-size: 13px !important;
- 				line-height: 20px !important;
- 				color: $text-color !important;
- 				margin: 0;
- 				text-align: left;
- 			}
- 			
- 		}
- 	}
- }
- .entry-header{
+.entry-header{
  	max-width: $site-max-width;
  	margin: 0 auto 40px;
  	position: relative;
@@ -471,9 +445,9 @@
  			}
  		}
  	}
- }
- // js moves things around 
- #m-variation{
+}
+// js moves things around 
+#m-variation{
  	display: block;
  	.image{
  		position: relative;
@@ -529,11 +503,90 @@
  	@media (min-width: $screen-sm) {
  		display: block;
  	}
- }
+}
 
+// shogun editor is close, but not quite
+.shogun-editor #MainContent{
+	.shogun-component{
+ 		.shogun-image-overlay.shg-middle-center{
+ 			display: block;
+ 			bottom: 100px;
+ 			width: 170px;
+ 			right: -200px;
+ 			top: auto;
+ 			left: auto;
+ 			padding: 0;
+ 			p{
+ 				// shogun get's specific so will be need to be important
+ 				font-size: 13px !important;
+ 				line-height: 20px !important;
+ 				color: $text-color !important;
+ 				font-family: $font-family-base;
+ 				margin: 0;
+ 				text-align: left;
+ 			}
+ 		}
+ 	}
+ 	img.shogun-image{
+ 		margin-bottom: 40px !important;
+ 		@media (min-width: $screen-md) {
+ 			margin-bottom: 80px !important;
+ 		}
+ 	}
+}
+
+.shogun-region, // admin
+.shogun-root{ // front end
+	p, blockquote, ul, ol, .shogun-image-container{ // img is margin: 0 !important in shogun's styles
+		margin-bottom: 40px;
+		@media (min-width: $screen-md) {
+			margin-bottom: 80px;
+		}
+	}
+	ul, ol{
+		color: #646464;
+		padding-left: 25px;
+	}
+	.shogun-video{
+		margin-bottom: 20px;
+	}
+	blockquote{
+		font-size: 22px;
+		line-height: 30px;
+		font-family: $font-family-bold;
+		padding: 0;
+		@media (min-width: $screen-md) {
+			font-size: 35px;
+			line-height: 55px;
+		}
+	}
+	.shogun-image-container{
+		.shogun-image-overlay.shg-middle-center{
+			display: block;
+			bottom: 50px;
+			width: 170px;
+			right: -200px;
+			top: auto;
+			left: auto;
+			padding: 0;
+			p{
+				// shogun get's specific so will be need to be important
+				font-size: 13px !important;
+				line-height: 20px !important;
+				color: $text-color !important;
+				margin: 0;
+				text-align: left;
+			}
+		}
+	}
+}
 .article-lead{
 	font-size: 22px;
 	line-height: 34px;
+	margin-bottom: 40px;
+	@media (min-width: $screen-md) {
+		margin-bottom: 80px;
+	}
 	@media (min-width: $screen-md) {
 		font-size: 40px;
 		line-height: 60px;
@@ -569,29 +622,6 @@
 		@media (min-width: $screen-md) {
 			font-size: 32px;
 			line-height: 36px;
-		}
-	}
-	p, blockquote, ul, ol{
-		margin-bottom: 40px;
-		@media (min-width: $screen-md) {
-			margin-bottom: 80px;
-		}
-	}
-	ul, ol{
-		color: #646464;
-		padding-left: 25px;
-	}
-	.shogun-video{
-		margin-bottom: 20px;
-	}
-	blockquote{
-		font-size: 22px;
-		line-height: 30px;
-		font-family: $font-family-bold;
-		padding: 0;
-		@media (min-width: $screen-md) {
-			font-size: 35px;
-			line-height: 55px;
 		}
 	}
 }

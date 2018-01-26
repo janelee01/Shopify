@@ -18,7 +18,7 @@
 
     {% paginate customer.orders by 20 %}
       {% if customer.orders.size != 0 %}
-        <table class="responsive-table">
+        <table class="table" id="orders-list">
           <thead>
             <tr>
               <th>{{ 'customer.orders.order_number' | t }}</th>
@@ -30,12 +30,12 @@
           </thead>
           <tbody>
             {% for order in customer.orders %}
-              <tr class="responsive-table-row">
-                <td data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name | link_to: order.customer_url }}</td>
-                <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</td>
-                <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
-                <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
-                <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+              <tr>
+                <td>{{ order.name | link_to: order.customer_url }}</td>
+                <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
+                <td>{{ order.financial_status_label }}</td>
+                <td>{{ order.fulfillment_status_label }}</td>
+                <td>{{ order.total_price | money }}</td>
               </tr>
             {% endfor %}
           </tbody>

@@ -1,10 +1,6 @@
 {% for block in section.blocks %}
-	{% assign disableMargin = false %}
-	{% if block.type == 'sectionHeading' %}
-		{% assign disableMargin = true %}
-	{% endif %}
 	<div class="page-block"
-		style="{%- if block.settings.disableBottomMargin or disableMargin -%} margin-bottom: 0;{%- endif -%}"
+		style="{%- if block.settings.disableBottomMargin -%} margin-bottom: 0;{%- endif -%}"
 		{{ block.shopify_attributes }}>
 		{% case block.type %}
 
@@ -157,6 +153,15 @@
 					"id": "text",
 					"type": "text",
 					"label": "Text"
+				},
+				{
+					"type": "radio",
+					"id": "headingStyle",
+					"label": "Heading Style",
+					"options": [
+						{ "value": "has-bar", "label": "Bar Behind" },
+						{ "value": "has-divider", "label": "Divider Line Below" }
+					]
 				}
 			]
 		},

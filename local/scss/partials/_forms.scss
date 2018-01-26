@@ -20,8 +20,44 @@
 		}
 	}
 	&.checkbox{
+		display: flex;
+		align-items: center;
+		padding: 0;
 		label{
 			color: #646464;
+			margin: 0 0 0 15px;
+		}
+		input[type="checkbox"]{
+			-webkit-appearance: none;
+			float: none;
+		    margin: 0;
+			background: none;
+		    border: none;
+		    box-shadow: 0 0 0 1px #d9d9d9 inset;
+		    width: 24px;
+		    height: 24px;
+		    position: relative;
+		    @include transition(all .2s ease-in-out);
+		    cursor: pointer;
+		    &:focus{
+		    	outline: none;
+		    	box-shadow: 0 0 0 2px $brand-blue inset;
+		    }
+		    &:after{
+		    	content: '';
+		    	position: absolute;
+		    	width: 100%;
+		    	height: 100%;
+		    	opacity: 0;
+		    	background: url('check-mark.svg') no-repeat center center;
+		    	@include transition(all .2s ease-in-out .1s);
+		    }
+		    &:checked{
+		    	box-shadow: 0 0 0 13px $brand-blue inset;
+		    	&:after{
+		    		opacity: 1;
+		    	}
+		    }
 		}
 	}
 	&.select-wrapper{
@@ -99,5 +135,38 @@
 		height: 60px;
 		margin-right: 31px;
 		background: url('icon-confirmation.svg');
+	}
+}
+.number-control{
+	display: flex;
+	.number-down, .number-up, input{
+		width: 35px;
+		height: 35px;
+		border: solid 1px #b9b9b9;
+		text-align: center;
+		@media (min-width: $screen-sm) {
+			width: 40px;
+			height: 40px;
+		}
+	}
+	.number-down,
+	.number-up{
+		border: solid 1px #b9b9b9;
+		background: none;
+		&:focus,
+		&:hover{
+			color: $brand-blue;
+			outline: none;
+		}
+	}
+	input{
+		border-left: 0;
+		border-right: 0;
+		-webkit-appearance: none;
+	}
+	input[type=number]::-webkit-inner-spin-button, 
+	input[type=number]::-webkit-outer-spin-button { 
+	  -webkit-appearance: none; 
+	  margin: 0; 
 	}
 }

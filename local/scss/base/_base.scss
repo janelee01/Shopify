@@ -1,3 +1,10 @@
+html{
+	&.supports-cookies{
+		.supports-no-cookies{
+			display: none;
+		}
+	}
+}
 body{
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -50,7 +57,7 @@ h6, .h6 {
 }
 
 .has-divider{
-	@include divider-title;
+	@include divider-title; 
 }
 .has-bar{
 	line-height: 1;
@@ -232,6 +239,7 @@ hr.mini-divider{
 	    }
 	    &.btn-success{
 	    	&:hover{
+	    		border-color: darken($brand-success, 8%);
 	    		background: darken($brand-success, 8%);
 	    	}
 	    }
@@ -240,6 +248,9 @@ hr.mini-divider{
 		color: $gray-dark; 
 		background: transparent;
 		border-color: #A0A4A6;
+		&:focus{
+			box-shadow: none;
+		}
 		&:hover{
 			border-color: $brand-blue;
 			color: $brand-blue;
@@ -566,102 +577,11 @@ blockquote{
 	.author-title{
 		text-transform: none;
 		display: block;
-		color: $text-color;
+		color: $text-color; 
 		padding-top: 5px;
 		letter-spacing: 0;
 	}
 }
-
-.table{
-	thead,
-	tbody,
-	tfoot{
-		> tr{
-			display: block;
-			@media (min-width: $screen-sm) {
-			    display: table-row;
-			    &:first-child{
-			    	td{
-			    		border-top: 0;
-			    	}
-			    }
-			}
-			> th{
-				border: 0;
-				border-right: solid 2px #fff;
-				&:last-child{
-					border-right: none;
-				}
-			}
-			> td,
-			> th{
-				padding: 0 15px 15px;
-				display: block;
-				@media (min-width: $screen-sm) {
-				    display: table-cell;
-				    padding: 15px;
-				}
-				table{
-					margin-bottom: 0;
-					td{
-						border: none;
-						padding: 0;
-					}
-				}
-			}
-			> td{
-				border: 0;
-				@media (min-width: $screen-sm) {
-				    border-top: 1px solid $gray-lighter;
-				}
-			}
-			> td:first-child{
-				padding-top: 15px;
-				border-top: 1px solid $gray-lighter;
-			}
-		}
-	}
-	thead{
-		display: none;
-		@media (min-width: $screen-sm) {
-		    display: table-header-group;
-		}
-		> tr{
-			> th{
-				background: #161616;
-				text-transform: uppercase;
-				color: #FFF;
-				letter-spacing: $ls-xs;
-				text-align: center;
-				font-size: small;
-				font-family: $font-family-sans-serif;
-			}
-		}
-	}
-	.cell-label{
-		text-transform: uppercase;
-		letter-spacing: $ls-xs;
-		@media (min-width: $screen-sm) {
-		    display: none;
-		}
-	}
-}
-
-.table-striped{
-	> tbody{
-		> tr:nth-child(even){
-			td, th{
-				background-color: #f7f7f7;
-			}
-		}
-		> tr:nth-child(odd){
-			td, th{
-				background-color: #fff;
-			}
-		}
-	}
-} 
-
 .pager{
 	@include clearfix;
 	font-family: $font-family-sans-serif;
