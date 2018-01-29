@@ -13846,6 +13846,94 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
   margin-bottom: 30px;
 }
 
+ul.messages {
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+ul.messages > li {
+  margin: 0;
+  padding: 0 !important;
+}
+
+ul.messages > li ul {
+  text-transform: none;
+  list-style: none;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+ul.messages > li ul li {
+  margin: 0;
+  padding: 15px;
+  letter-spacing: 0;
+}
+
+ul.messages > li ul li a {
+  color: #FFF;
+  text-decoration: underline;
+}
+
+ul.messages > li ul li a:hover {
+  text-decoration: none;
+}
+
+ul.messages {
+  padding: 15px;
+  margin-bottom: 22px;
+  border: 1px solid transparent;
+  border-radius: 0;
+}
+
+ul.messages h4 {
+  margin-top: 0;
+  color: inherit;
+}
+
+ul.messages .alert-link {
+  font-weight: bold;
+}
+
+ul.messages > p, ul.messages > ul {
+  margin-bottom: 0;
+}
+
+ul.messages > p + p {
+  margin-top: 5px;
+}
+
+ul.messages > li.success-msg li {
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+  color: #fff;
+}
+
+ul.messages > li.success-msg li hr {
+  border-top-color: #4cae4c;
+}
+
+ul.messages > li.success-msg li .alert-link {
+  color: #e6e6e6;
+}
+
+ul.messages > li.error-msg li {
+  background-color: #d9534f;
+  border-color: #d9534f;
+  color: #fff;
+}
+
+ul.messages > li.error-msg li hr {
+  border-top-color: #d43f3a;
+}
+
+ul.messages > li.error-msg li .alert-link {
+  color: #e6e6e6;
+}
+
 @media (max-width: 768px) {
   #start-a-return #left-column {
     padding-top: 30px;
