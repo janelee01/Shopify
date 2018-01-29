@@ -358,4 +358,39 @@ $(document).ready(function() {
 		});
 	}
 
+	var addTableLabels = function(){
+		if( $(window).width() < 768 ){
+			$('td.has-label').each(function(){
+				if( $(this).find('.key').length < 1 ){
+					$(this).wrapInner('<span class="value" />');
+					$(this).prepend('<span class="key">' + $(this).data('label') + '</span>');
+				}
+			});
+		}else{
+			$('td.has-label .key').remove();
+		}
+	}
+	addTableLabels();
+	$(window).resize(function(){
+		addTableLabels();
+	});
+
+	/*
+	 Tabs
+	 */
+
+	$('.tab-headings .active-bar').width($('.tab-headings a.active').width());
+	$('.tab-headings a').on('click', function(e){
+	    e.preventDefault();
+	    if( !$(this).hasClass('active') ){
+	    	$('.tab-headings a').removeClass('active');
+	    	$('.tab-panel').hide().removeClass('active');
+	    	$(this).addClass('active');
+	    	$($(this).attr('href')).fadeIn();
+	    	$('.tab-headings .active-bar').css({ 
+	    		'left': $(this).position().left,
+	    		'width': $('.tab-headings a.active').width()
+	    	});
+	    }
+	});
 });

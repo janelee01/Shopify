@@ -40,7 +40,7 @@
 
                 {% if item.image != blank %}
                   <a href="{{ item.url | within: collections.all }}">
-                    {{ item | img_url: '110x110', crop: 'center' | img_tag: item.title }}
+                    {{ item | img_url: '90x120' | img_tag: item.title }}
                   </a>
                 {% endif %}
 

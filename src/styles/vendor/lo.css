@@ -6189,12 +6189,19 @@ hr.mini-divider {
 .breadcrumbs a {
   color: #888;
   margin-right: 7px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 @media (min-width: 1030px) {
   .breadcrumbs a {
     margin-right: 15px;
   }
+}
+
+.breadcrumbs a:focus, .breadcrumbs a:hover {
+  text-decoration: none;
+  color: #111;
 }
 
 .breadcrumbs a:after {
@@ -9421,6 +9428,60 @@ blockquote .author-title {
   background-image: url("share-icon-email-black.svg");
 }
 
+.tab-headings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 25px;
+  border-bottom: solid 1px #e6e6e6;
+  position: relative;
+}
+
+.tab-headings .active-bar {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  background: #00AEEF;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.tab-headings a {
+  margin-right: 30px;
+  color: #888;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.tab-headings a.active, .tab-headings a:hover, .tab-headings a:focus {
+  color: #111;
+  text-decoration: none;
+}
+
+@media (min-width: 1030px) {
+  .tab-headings a {
+    margin-right: 40px;
+    font-size: 24px;
+  }
+}
+
+.tab-panel {
+  padding-top: 40px;
+  display: none;
+}
+
+@media (min-width: 1030px) {
+  .tab-panel {
+    padding-top: 50px;
+  }
+}
+
+.tab-panel.active {
+  display: block;
+}
+
 .table {
   width: 100%;
 }
@@ -9475,6 +9536,7 @@ blockquote .author-title {
 
 .order-items {
   color: #888;
+  line-height: 1;
 }
 
 .order-items .item-thumb {
@@ -9493,7 +9555,6 @@ blockquote .author-title {
 }
 
 .order-items .item-info .product-name {
-  font-size: 15px;
   line-height: 1;
   color: #111;
   margin-bottom: 6px;
@@ -9515,16 +9576,15 @@ blockquote .author-title {
 
 .order-items .item-options {
   color: #888;
-  margin: 0 0 10px;
-  font-size: 12px;
-  line-height: 14px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 20px;
 }
 
 @media (min-width: 768px) {
   .order-items .item-options {
     font-size: 16px;
     line-height: 1;
-    margin: 0;
   }
 }
 
@@ -11656,6 +11716,14 @@ blockquote .author-title {
 }
 
 @media (max-width: 767px) {
+  #cart-items .item-options {
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 767px) {
   #cart-items .item-qty {
     display: none;
   }
@@ -11788,10 +11856,17 @@ blockquote .author-title {
   margin: 0;
 }
 
-@media (max-width: 1029px) {
+@media (max-width: 767px) {
   .template-account .page-header,
+  .template-order .page-header,
   .template-addresses .page-header {
     text-align: left;
+  }
+  .template-account .page-header h1,
+  .template-order .page-header h1,
+  .template-addresses .page-header h1 {
+    font-size: 18px;
+    font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 }
 
@@ -11818,9 +11893,15 @@ blockquote .author-title {
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .account-form {
+    margin: 0 auto 70px;
+  }
+}
+
 @media (min-width: 1030px) {
   .account-form {
-    margin: 0 auto 140px;
+    margin-bottom: 140px;
   }
 }
 
@@ -11860,10 +11941,15 @@ blockquote .author-title {
   line-height: 18px;
 }
 
-@media (min-width: 1030px) {
+@media (min-width: 768px) {
   #account-logout {
     line-height: 24px;
-    margin-top: 6px;
+  }
+}
+
+@media (min-width: 1030px) {
+  #account-logout {
+    line-height: 30px;
   }
 }
 
@@ -11873,7 +11959,7 @@ blockquote .author-title {
   list-style: none;
 }
 
-@media (min-width: 1030px) {
+@media (min-width: 768px) {
   #address-list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -11895,7 +11981,7 @@ blockquote .author-title {
   margin-bottom: 24px;
 }
 
-@media (min-width: 1030px) {
+@media (min-width: 768px) {
   #address-list li {
     width: 33%;
   }
@@ -11916,10 +12002,15 @@ blockquote .author-title {
   height: 100%;
 }
 
+@media (min-width: 768px) {
+  .address-item {
+    margin: 0 12px;
+  }
+}
+
 @media (min-width: 1030px) {
   .address-item {
     padding: 40px 50px;
-    margin: 0 12px;
   }
 }
 
@@ -11936,14 +12027,14 @@ blockquote .author-title {
           justify-content: center;
 }
 
-@media (max-width: 1029px) {
+@media (max-width: 767px) {
   #add-address .address-item {
     padding-top: 20px;
     padding-bottom: 20px;
   }
 }
 
-@media (min-width: 1030px) {
+@media (min-width: 768px) {
   #add-address .address-item {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -11995,7 +12086,7 @@ blockquote .author-title {
   border-color: #111;
 }
 
-@media (min-width: 1030px) {
+@media (min-width: 768px) {
   #address-new-open {
     font-size: 20px;
     line-height: 25px;
@@ -12025,7 +12116,7 @@ blockquote .author-title {
   transition: all 0.2s ease;
 }
 
-@media (min-width: 1030px) {
+@media (min-width: 768px) {
   #address-new-open .icon-plus {
     width: 80px;
     height: 80px;
@@ -12063,7 +12154,7 @@ blockquote .author-title {
 }
 
 #orders-list thead th {
-  padding: 0 30px 20px;
+  padding: 0 20px 10px;
   color: #111;
   border: 0;
   font-size: 17px;
@@ -12071,6 +12162,12 @@ blockquote .author-title {
 
 #orders-list thead th:first-child {
   padding-left: 0;
+}
+
+@media (min-width: 1030px) {
+  #orders-list thead th {
+    padding: 0 30px 20px;
+  }
 }
 
 #orders-list tbody td {
@@ -12081,7 +12178,7 @@ blockquote .author-title {
   color: #888888;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1030px) {
   #orders-list tbody td {
     padding: 20px 30px;
   }
@@ -12128,17 +12225,31 @@ blockquote .author-title {
 }
 
 .order {
-  margin: 70px auto;
+  margin: 40px auto;
   max-width: 806px;
 }
 
+@media (min-width: 1030px) {
+  .order {
+    margin: 70px auto;
+  }
+}
+
 .order h2 {
-  font-size: 32px;
-  line-height: 35px;
-  margin-bottom: 5px;
+  font-size: 22px;
+  line-height: 30px;
+  margin: 0;
 }
 
 @media (min-width: 1030px) {
+  .order h2 {
+    font-size: 32px;
+    line-height: 35px;
+    margin-bottom: 5px;
+  }
+}
+
+@media (min-width: 768px) {
   .order #address-list li {
     width: 50%;
   }
@@ -12170,8 +12281,16 @@ blockquote .author-title {
   margin-bottom: 10px;
 }
 
-.order .order-totals {
-  margin-bottom: 80px;
+@media (min-width: 768px) {
+  .order .order-totals {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 1030px) {
+  .order .order-totals {
+    margin-bottom: 80px;
+  }
 }
 
 .order .order-totals td {
@@ -12187,6 +12306,92 @@ blockquote .author-title {
 
 .order .order-totals .total td {
   border: none;
+}
+
+@media (max-width: 767px) {
+  .order .order-items thead {
+    display: none;
+  }
+  .order .order-items tbody tr {
+    display: block;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: solid 1px #e6e6e6;
+  }
+  .order .order-items tbody td {
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    clear: both;
+  }
+  .order .order-items tbody td:last-child {
+    border: 0;
+  }
+  .order .order-items tbody td.item-thumb {
+    float: left;
+    width: 90px;
+    border-bottom: 0;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  .order .order-items tbody td.item-thumb img {
+    width: 100%;
+  }
+  .order .order-items tbody td.item-info {
+    width: auto;
+    border-bottom: 0;
+    clear: none;
+    margin-left: 105px;
+  }
+  .order .order-items tbody td.has-label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .order .order-items tbody td.has-label .key {
+    display: block;
+    color: #111;
+  }
+  .order .order-totals td {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .order .order-totals td:first-child {
+    text-align: left;
+  }
+  .order .order-totals td:last-child {
+    text-align: right;
+  }
+}
+
+.order-meta {
+  font-size: 14px;
+  color: #888;
+}
+
+@media (min-width: 1030px) {
+  .order-meta {
+    font-size: 16px;
+  }
+}
+
+.totals-container {
+  background: #fafafa;
+  border: solid 1px #e6e6e6;
+  padding: 5px 20px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .totals-container {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: 0;
+  }
 }
 
 @media (max-width: 768px) {

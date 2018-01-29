@@ -660,12 +660,19 @@ hr.mini-divider {
 .breadcrumbs a {
   color: #888;
   margin-right: 7px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 @media (min-width: 1030px) {
   .breadcrumbs a {
     margin-right: 15px;
   }
+}
+
+.breadcrumbs a:focus, .breadcrumbs a:hover {
+  text-decoration: none;
+  color: #111;
 }
 
 .breadcrumbs a:after {

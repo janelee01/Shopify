@@ -57,6 +57,13 @@
 			}
 		}
 	}
+	.item-options{
+		@media (max-width: $screen-xs-max) {
+			font-size: 12px;
+			line-height: 14px;
+			margin-bottom: 10px;
+		}
+	}
 	.item-qty{
 		@media (max-width: $screen-xs-max) {
 		    display: none;

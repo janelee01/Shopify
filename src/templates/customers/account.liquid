@@ -14,48 +14,55 @@
 <div class="account">
   <div class="container-fluid">
 
-    <h2 class="has-divider">{{ 'customer.orders.title' | t }}</h2>
+    <nav class="tab-headings">
+      <a href="#orders-panel" class="active">{{ 'customer.orders.title' | t }}</a>
+      <a href="#account-panel">{{ 'customer.account.details' | t }}</a>
+      <span class="active-bar"></span>
+    </nav>
 
-    {% paginate customer.orders by 20 %}
-      {% if customer.orders.size != 0 %}
-        <table class="table" id="orders-list">
-          <thead>
-            <tr>
-              <th>{{ 'customer.orders.order_number' | t }}</th>
-              <th>{{ 'customer.orders.date' | t }}</th>
-              <th>{{ 'customer.orders.payment_status' | t }}</th>
-              <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
-              <th>{{ 'customer.orders.total' | t }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for order in customer.orders %}
-              <tr>
-                <td>{{ order.name | link_to: order.customer_url }}</td>
-                <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
-                <td>{{ order.financial_status_label }}</td>
-                <td>{{ order.fulfillment_status_label }}</td>
-                <td>{{ order.total_price | money }}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      {% else %}
-        <p>{{ 'customer.orders.none' | t }}</p>
-      {% endif %}
+    <div class="tab-panels">
+      <div class="tab-panel active" id="orders-panel">
+        {% paginate customer.orders by 20 %}
+          {% if customer.orders.size != 0 %}
+            <table class="table" id="orders-list">
+              <thead>
+                <tr>
+                  <th>{{ 'customer.orders.order_number' | t }}</th>
+                  <th>{{ 'customer.orders.date' | t }}</th>
+                  <th>{{ 'customer.orders.payment_status' | t }}</th>
+                  <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                  <th>{{ 'customer.orders.total' | t }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for order in customer.orders %}
+                  <tr>
+                    <td>{{ order.name | link_to: order.customer_url }}</td>
+                    <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
+                    <td>{{ order.financial_status_label }}</td>
+                    <td>{{ order.fulfillment_status_label }}</td>
+                    <td>{{ order.total_price | money }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <p>{{ 'customer.orders.none' | t }}</p>
+          {% endif %}
 
-      {% if paginate.pages > 1 %}
-        {% include 'pagination' %}
-      {% endif %}
+          {% if paginate.pages > 1 %}
+            {% include 'pagination' %}
+          {% endif %}
 
-    {% endpaginate %}
-
-    <h2 class="has-divider">{{ 'customer.account.details' | t }}</h2>
-    
-    <div class="address">
-      {{ customer.default_address | format_address }}
+        {% endpaginate %}
+      </div>
+      <div class="tab-panel" id="account-panel">
+        <div class="address">
+          {{ customer.default_address | format_address }}
+        </div>
+        <a class="btn" href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
+      </div>
     </div>
 
-    <a class="btn" href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
   </div>
 </div>

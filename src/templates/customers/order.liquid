@@ -19,8 +19,8 @@
     
     <div class="order">
       <h2>{{ 'customer.order.title' | t: name: order.name }}</h2>
-
-      <p>{{ 'customer.order.date' | t: date: order.created_at | date: "%B %d, %Y" }}</p>
+      {%- assign formattedDate = order.created_at | date: "%B %d, %Y" -%}
+      <p class="order-meta">{{ 'customer.order.date' | t: date: formattedDate }}</p>
 
       {% if order.cancelled %}
         {%- assign cancelled_at = order.cancelled_at | date: "%B %d, %Y %I:%M%p" -%}
@@ -43,7 +43,7 @@
             <tr id="{{ line_item.key }}">
               <td class="item-thumb">
                 {% if line_item.image != blank %}
-                  {{ line_item | img_url: '110x110', crop: 'center' | img_tag: line_item.title }}
+                  {{ line_item | img_url: '90x120' | img_tag: line_item.title }}
                 {% endif %}
               </td>
               <td class="item-info">
@@ -76,49 +76,52 @@
                 {% endif %}
                 {% endcomment %}
               </td>
-              <td>{{ line_item.sku }}</td>
-              <td>{{ line_item.fulfillment.created_at | date: "%b %d, %Y" }}</td>
-              <td>{{ line_item.quantity }}</td>
-              <td>{{ line_item.quantity | times: line_item.price | money }}</td>
+              <td class="has-label" data-label="{{ 'customer.order.sku' | t }}">{{ line_item.sku }}</td>
+              <td class="has-label" data-label="{{ 'customer.order.fulfilled_at' | t }}">{{ line_item.fulfillment.created_at | date: "%b %d, %Y" }}</td>
+              <td class="has-label" data-label="{{ 'customer.order.quantity' | t }}">{{ line_item.quantity }}</td>
+              <td class="has-label" data-label="{{ 'customer.order.price' | t }}">{{ line_item.quantity | times: line_item.price | money }}</td>
             </tr>
           {% endfor %}
         </tbody>
       </table>
-
-      <table class="order-totals">
-        <tbody>
-          <tr>
-            <td>{{ 'customer.order.subtotal' | t }}</td>
-            <td class="line-total">{{ order.subtotal_price | money }}</td>
-          </tr>
-
-          {% for discount in order.discounts %}
+      
+      <div class="totals-container">
+        <table class="order-totals">
+          <tbody>
             <tr>
-              <td>{{ discount.code }} {{ 'customer.order.discount' | t }}</td>
-              <td class="line-total">{{ discount.savings | money }}</td>
+              <td>{{ 'customer.order.subtotal' | t }}</td>
+              <td class="line-total">{{ order.subtotal_price | money }}</td>
             </tr>
-          {% endfor %}
 
-          {% for shipping_method in order.shipping_methods %}
-            <tr>
-              <td>{{ 'customer.order.shipping' | t }} ({{ shipping_method.title }})</td>
-              <td class="line-total">{{ shipping_method.price | money }}</td>
+            {% for discount in order.discounts %}
+              <tr>
+                <td>{{ discount.code }} {{ 'customer.order.discount' | t }}</td>
+                <td class="line-total">{{ discount.savings | money }}</td>
+              </tr>
+            {% endfor %}
+
+            {% for shipping_method in order.shipping_methods %}
+              <tr>
+                <td>{{ 'customer.order.shipping' | t }} ({{ shipping_method.title }})</td>
+                <td class="line-total">{{ shipping_method.price | money }}</td>
+              </tr>
+            {% endfor %}
+
+            {% for tax_line in order.tax_lines %}
+              <tr>
+                <td>{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)</td>
+                <td class="line-total">{{ tax_line.price | money }}</td>
+              </tr>
+            {% endfor %}
+
+            <tr class="total">
+              <td>{{ 'customer.order.total' | t }}</td>
+              <td class="line-total">{{ order.total_price | money }} {{ order.currency }}</td>
             </tr>
-          {% endfor %}
-
-          {% for tax_line in order.tax_lines %}
-            <tr>
-              <td>{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)</td>
-              <td class="line-total">{{ tax_line.price | money }}</td>
-            </tr>
-          {% endfor %}
-
-          <tr class="total">
-            <td>{{ 'customer.order.total' | t }}</td>
-            <td class="line-total">{{ order.total_price | money }} {{ order.currency }}</td>
-          </tr>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
+      
 
       <ul id="address-list">
          <li>

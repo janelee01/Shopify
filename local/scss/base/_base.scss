@@ -444,8 +444,14 @@ hr.mini-divider{
 	a{
 		color: #888;
 		margin-right: 7px;
+		@include transition(all .2s ease);
 		@media (min-width: $screen-md) {
 			margin-right: 15px;
+		}
+		&:focus,
+		&:hover{
+			text-decoration: none;
+			color: $gray-darker;
 		}
 		&:after{
 			content: '';
