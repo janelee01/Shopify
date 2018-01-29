@@ -49,15 +49,17 @@
 		        {% unless block.settings.description == blank %}
 		        	<p class="description">{{ block.settings.description }}</p>
 		        {% endunless %}
-		        {% unless block.settings.linkText == blank %}
-			        <p class="link"><a href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a></p>
-		        {% endunless %}
-                {% unless block.settings.linkTextB == blank %}
-        	        <p class="link"><a href="{{ block.settings.linkUrlB }}">{{ block.settings.linkTextB }}</a></p>
-                {% endunless %}
-                {% unless block.settings.linkTextC == blank %}
-        	        <p class="link"><a href="{{ block.settings.linkUrlC }}">{{ block.settings.linkTextC }}</a></p>
-                {% endunless %}
+                <div class="btn-set">
+			        {% unless block.settings.linkText == blank %}
+				        <a class="btn{% if block.settings.linkStyle == 'outline' %} btn-secondary{% endif %}" href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
+			        {% endunless %}
+	                {% unless block.settings.linkTextB == blank %}
+	        	        <a class="btn{% if block.settings.linkStyleB == 'outline' %} btn-secondary{% endif %}" href="{{ block.settings.linkUrlB }}">{{ block.settings.linkTextB }}</a>
+	                {% endunless %}
+	                {% unless block.settings.linkTextC == blank %}
+	        	        <a class="btn{% if block.settings.linkStyleC == 'outline' %} btn-secondary{% endif %}" href="{{ block.settings.linkUrlC }}">{{ block.settings.linkTextC }}</a>
+	                {% endunless %}
+                </div>
 		    </div>
 		</div>
 	</div>

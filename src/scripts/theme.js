@@ -9,21 +9,32 @@ window.theme = window.theme || {};
 // =require slate/sections.js
 // =require slate/currency.js
 // =require slate/images.js
-// =require slate/variants.js
-
+/* removed to avoid conflicts with default behavior
+ slate/variants.js
+*/
 /*================ Sections ================*/
-// =require sections/product.js
-
+/* removed to avoid conflicts with default behavior
+ sections/product.js
+*/
 /*================ Templates ================*/
 // =require templates/customers-addresses.js
 // =require templates/customers-login.js
 
 /*================ Lo & Sons ================*/
 // =require vendor/bootstrap.min.js
+// =require vendor/jquery-ui-1.10.4.custom.min.js
+// =require vendor/moment.min.js
 // =require vendor/jquery.fitvids.js
 // =require vendor/jquery.cookie.js
 // =require vendor/jquery.touchSwipe.min.js
+// =require vendor/jquery.film_roll.js
 // =require vendor/lo-and-sons.js
+// =require lo/videos.js  
+// =require lo/collection-filters.js  
+// =require lo/swatches.js  
+// =require lo/product-reviews.js  
+// =require lo/product-gallery.js  
+// =require lo/customers.js  
 
 $(document).ready(function() {
   var sections = new slate.Sections();
@@ -65,7 +76,7 @@ $(document).ready(function() {
 	$('body').toggleClass('menu-open');
 	LS.overlay.open();
   });
-  $('body').on('click', '#nav-window-close', function(e){
+  $('body').on('click', '#nav-panel-close', function(e){
 	e.preventDefault();
 	$('body').removeClass('menu-open');
 	LS.overlay.close();
@@ -129,7 +140,7 @@ $(document).ready(function() {
   });
 
   // marquees
-  $('body').on('click', '.marquee-close', function(e){
+  $('body').on('click', '.marquee .panel-close', function(e){
 	e.preventDefault();
 	$('#shopify-section-marquee').fadeOut('fast');
 	sessionStorage.setItem("lo-marquee-dismissed", "1");
@@ -142,135 +153,36 @@ $(document).ready(function() {
 	$('#shopify-section-marquee .marquee').removeClass('hidden');
   }
 
-  /*
-	Videos
-   */
-	var $videos = $('.embed-container');
-	$videos.each(function(){
-		var $embed = $(this);
-		var videoId = $(this).find('video').attr('id');
-		var video = document.getElementById(videoId);
-		var autoPlay = $(this).data('autoplay');
-		var loops = $(this).data('loops');
-		var videoUrl = $embed.data('desktop-url');
-		var mobileVideoUrl = $embed.data('mobile-url');
+  
 
-		if ( $(window).width() < LS.desktopBreakpoint && mobileVideoUrl ) {
-	        $('#'+videoId).append('<source src="' + mobileVideoUrl + '" type="video/mp4" />');
-	    } else {
-	        $('#'+videoId).append('<source src="' + videoUrl + '" type="video/mp4" />');
-	    }
-
-		video.oncanplay = function() {
-			$embed.find('.loading').fadeOut();
-			// play it if we can see it 
-			if( LS.isElementInViewport(video) && $embed.data('autoplay') ){
-				var playPromise = video.play();
-				if (playPromise !== undefined) {
-					playPromise.then(function() {
-						// Automatic playback started, nothing to do
-					}).catch(function(error) {
-						console.log('Playback did not start. Reason: ' + error)
-					});
-				}
-			}
-		};
-
-		// play/pause based on visibility
-		$(window).scroll(function(){
-			if( LS.isElementInViewport(video) ){
-				if( !$embed.hasClass('ended') && $embed.data('autoplay') ){
-					var playPromise = video.play();
-					if (playPromise !== undefined) {
-						playPromise.then(function() {
-							// Automatic playback started, nothing to do
-						}).catch(function(error) {
-							console.log('Playback did not start. Reason: ' + error)
-						});
-					}
-				}
-			}else{
-				var pausePromise = video.pause();
-				if (pausePromise !== undefined) {
-					pausePromise.then(function() {
-						// Paused, nothing to do
-					}).catch(function(error) {
-						console.log('Pause error. Reason: ' + error)
-					});
-				}
-			}
-		});
-
-		// limit number of plays and maybe hide overlay text
-		var playCount= 0;
-		var lastTime = 0;
-		video.addEventListener("timeupdate", function() {
-			if( playCount === loops ){
-				video.pause();
-				$embed.addClass('ended');
-				$embed.find('.video-trigger').fadeIn('slow');
-			}
-
-			// catching the start of the video is tricky with the loop, so see if the current time is the last time we saved ?>
-			if( video.currentTime < lastTime ){
-				playCount++;
-				lastTime = 0;
-			}else{
-				lastTime = video.currentTime;
-			}
-		}, true);
-
-		// that was cool, play it again ?>
-		$embed.find('.video-trigger').on('click', function(e){
-			e.preventDefault();
-			$(this).fadeOut('fast');
-			$embed.removeClass('ended');
-			playCount = 0;
-			video.play();
-		});
+	/*
+		Floating form labels
+	 */
+	$('.form-control').on('keyup', function(){
+		if( $(this).val() != '' ){
+			$(this).closest('.form-group').addClass('has-value');
+		}else{
+			$(this).closest('.form-group').removeClass('has-value');
+		}
 	});
 
-	// Product video
-	$('body').on('click', '.product-video-trigger', function(e){
-		e.preventDefault();
-		LS.productVideoOpen(1); // button always shows the first video
+	/*
+	 Forgot Password title update
+	 */
+	var $loginTitle = $('#login-title');
+	$('#RecoverPassword').on('click', function(e){
+	    $loginTitle.text($loginTitle.data('reset-text')).addClass('has-divider');
 	});
-	$('body').on('click', '.has-video', function(e){
-	    e.preventDefault();
-	    LS.productVideoOpen($(this).data('video-id'));
+	$('#HideRecoverPasswordLink').on('click', function(e){
+	    $loginTitle.text($loginTitle.data('default-text')).removeClass('has-divider');
 	});
-	$('body').on('click', '.overview-video-trigger', function(e){
-	    e.preventDefault();
-	    LS.productVideoOpen($(this).data('video-id'));
-	});
+	if( $('body').attr('id') == 'account' && window.location.hash == '#recover') {
+	  $loginTitle.text($loginTitle.data('reset-text')).addClass('has-divider');
+	}
 
-	$('body').on('click', '#product-video .modal-close', function(e){
-		e.preventDefault();
-		LS.productVideoClose();
-	});
-	$(document).keyup(function(e) {
-	    if (e.keyCode == 27) { // escape key maps to keycode `27`
-	    	LS.productVideoClose();
-	    }
-	});
-
-	// swipable bs carousels
-	$(".carousel").swipe({
-		allowPageScroll:"auto",
-		threshold: 40,
-		excludedElements: "label, button, input, select, textarea, .noSwipe",
-		swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
-        	// $(this).find('.item a').on('click', function(){ return false; }); interfering with custom layout blocks, doesn't seem to be applicable anywhere else
-        	$(this).carousel('next');
-        },
-		swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
-			// $(this).find('.item a').on('click', function(){ return false; }); interfering with custom layout blocks, doesn't seem to be applicable anywhere else
-        	$(this).carousel('prev');
-        }
-	});
 
 	/* Newsletter Prompt */
-	$('#newsletter-prompt .modal-close, #newsletter-prompt .btn').on('click', function(){
+	$('#newsletter-prompt .panel-close, #newsletter-prompt .btn').on('click', function(){
 		$('#newsletter-prompt').addClass('closed');
 		$.cookie('lo-nl-prompt-dismissed', '1', { path: '/' });
 	});
@@ -378,5 +290,72 @@ $(document).ready(function() {
 			lastScrollTop = currentScrollTop;
 		}
 	});
+
+	/*
+	Rebuild article headers for mobile
+	 */
+	var rebuildArticleHeader = function(){
+		var $postTitle = $('.entry-header h1').detach();
+		var $postExcerpt = $('.entry-header .excerpt').detach();
+		var $postSharing = $('.entry-header .social-sharing').detach();
+		var $postImage = $('.entry-header .image picture').detach();
+		if( $(window).width() < 769 && $('#m-variation h1').length < 1 ){
+			$('#m-variation [data-image-container]')
+				.append($postTitle)
+				.append($postImage);
+			$('#m-variation [data-content-container]')
+				.append($postExcerpt)
+				.append($postSharing);
+		}else if( $('#d-variation h1').length < 1 ){
+			$('#d-variation [data-image-container]')
+				.append($postImage);
+			$('#d-variation [data-content-container]')
+				.append($postTitle)
+				.append($postExcerpt)
+				.append($postSharing);
+		}
+	}
+	if( $('body').hasClass('template-article') ){
+		rebuildArticleHeader();
+		$(window).resize(function(){
+			rebuildArticleHeader();
+		});
+	}
+
+	$('.number-down').on('click', function(e){
+	    e.preventDefault();
+	    var $input = $(this).next('input');
+	    var number = $input.val();
+	    if( number > 0 ){
+	    	number--;
+	    	$input.val(number);
+	    }
+	});
+	$('.number-up').on('click', function(e){
+	    e.preventDefault();
+	    var $input = $(this).prev('input');
+	    var number = $input.val();
+	    number++;
+	    $input.val(number);
+	});
+
+	// move the qty control
+	var setCartQtyInputLocation = function(){
+		var $cartRows = $('#cart-items tr');
+		$cartRows.each(function(){
+			var $control = $(this).find('.number-control').detach();
+			if( $(window).width() < 769 && $(this).find('.item-info .number-control').length < 1 ){
+				$(this).find('.item-info').append($control);
+			}else if( $(this).find('.item-qty .number-control').length < 1 ){
+				$(this).find('.item-qty').append($control);
+			}
+		});
+	}
+	if( $('body').hasClass('template-cart') ){
+		setCartQtyInputLocation();
+		$(window).resize(function(){
+			setCartQtyInputLocation();
+		});
+	}
 
 });

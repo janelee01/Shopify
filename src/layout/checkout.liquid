@@ -23,39 +23,48 @@
     </div>
 
     {{ order_summary_toggle }}
-    
-    <div class="container-fluid">
-      <div class="checkout-header">
-        {{ content_for_logo }}
-        {{ breadcrumb }}
-      </div>
-      <div class="row" data-content>
-        <div class="col-md-4 col-md-push-8">
-          <div class="sidebar" role="complementary">
-            <div class="sidebar__header">
-              {{ content_for_logo }}
-            </div>
-            <div class="sidebar__content">
-              {{ content_for_order_summary }}
-            </div>
+
+    <div class="content" data-content>
+      <div class="wrap">
+        <div class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content">
+            {{ content_for_order_summary }}
           </div>
         </div>
-        <div class="col-md-7 col-md-pull-4">
-          <div class="main" role="main">
-            <div class="main__header">
-              {{ alternative_payment_methods }}
-            </div>
-            <div class="main__content">
-              {{ content_for_layout }}
-            </div>
-            <div class="main__footer">
-              {{ content_for_footer }}
-            </div>
+        <div class="main" role="main">
+          <div class="main__header">
+            {{ content_for_logo }}
+            {{ breadcrumb }}
+            {{ alternative_payment_methods }}
+          </div>
+          <div class="main__content">
+            {{ content_for_layout }}
+          </div>
+          <div class="main__footer">
+            {{ content_for_footer }}
           </div>
         </div>
       </div>
     </div>
-
     {{ tracking_code }}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script>
+      jQuery(document).ready(function($){
+        $(window).load(function(){
+          $('.product__description__name').each(function(){
+            var name = $(this).text();
+            var nameParts = name.split(' - ');
+            $(this).text(nameParts[0]);
+            var options = [nameParts[1], nameParts[2], $(this).next('.product__description__variant').text()];
+            $(this).next('.product__description__variant').text(options.join(' / '));
+          });
+        });
+        $('.step__footer__continue-btn').addClass('btn-success');
+      });
+    </script>
   </body>
 </html>

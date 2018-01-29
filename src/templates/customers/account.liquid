@@ -1,17 +1,24 @@
 <header class="page-header">
-  <h1>{{ 'customer.account.title' | t }}</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-8 col-sm-offset-2 col-sm-8">
+        <h1>{{ 'customer.account.title' | t }}</h1>
+      </div>
+      <div class="col-xs-4 col-sm-2 text-right">
+        <a href="/account/logout" id="account-logout">{{ 'layout.customer.log_out' | t }}</a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <div class="account">
   <div class="container-fluid">
-    
-    <p><a href="/account/logout" class="btn btn-primary">{{ 'layout.customer.log_out' | t }}</a></p>
 
-    <h2>{{ 'customer.orders.title' | t }}</h2>
+    <h2 class="has-divider">{{ 'customer.orders.title' | t }}</h2>
 
     {% paginate customer.orders by 20 %}
       {% if customer.orders.size != 0 %}
-        <table class="responsive-table">
+        <table class="table" id="orders-list">
           <thead>
             <tr>
               <th>{{ 'customer.orders.order_number' | t }}</th>
@@ -23,12 +30,12 @@
           </thead>
           <tbody>
             {% for order in customer.orders %}
-              <tr class="responsive-table-row">
-                <td data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name | link_to: order.customer_url }}</td>
-                <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</td>
-                <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
-                <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
-                <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+              <tr>
+                <td>{{ order.name | link_to: order.customer_url }}</td>
+                <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
+                <td>{{ order.financial_status_label }}</td>
+                <td>{{ order.fulfillment_status_label }}</td>
+                <td>{{ order.total_price | money }}</td>
               </tr>
             {% endfor %}
           </tbody>
@@ -43,9 +50,11 @@
 
     {% endpaginate %}
 
-    <h2>{{ 'customer.account.details' | t }}</h2>
-
-    {{ customer.default_address | format_address }}
+    <h2 class="has-divider">{{ 'customer.account.details' | t }}</h2>
+    
+    <div class="address">
+      {{ customer.default_address | format_address }}
+    </div>
 
     <a class="btn" href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
   </div>

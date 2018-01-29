@@ -1,6 +1,7 @@
 @import 'base/fonts';
 @import 'base/variables';
 @import 'bootstrap';
+@import 'base/mixins'; 
 @import 'base/base';
 
 @import 'partials/forms';
@@ -18,14 +19,17 @@
 @import 'partials/page-builder';
 @import 'partials/newsletter';
 @import 'partials/search';
-@import 'partials/section-title';
+// @import 'partials/section-title';
+@import 'partials/sharing';
 @import 'partials/tables';
 
+@import 'views/blog';
 @import 'views/page';
 @import 'views/home';
-@import 'views/category';
+// @import 'views/category';
+@import 'views/collection';
 @import 'views/product';
-@import 'views/cart-checkout';
+@import 'views/cart';
 @import 'views/press-reviews';
 @import 'views/customer';
 @import 'views/returns';

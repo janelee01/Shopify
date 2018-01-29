@@ -1,0 +1,33 @@
+.social-sharing{
+	.share-btn{
+		display: inline-block;
+		width: 50px;
+		height: 50px;
+		margin: 0 3px;
+		background-repeat: no-repeat;
+		background-position: center center;
+		border: solid 1px #e6e6e6;
+		border-radius: 50%;
+		@include transition(all .2s ease);
+		@media (min-width: $screen-md) {
+			width: 60px;
+			height: 60px;
+		}
+		&:hover{
+			border-color: $brand-blue;
+		}
+		&.facebook{
+			background-image: url('share-icon-facebook-black.svg');
+		}
+		&.twitter{
+			background-image: url('share-icon-twitter-black.svg');
+		}
+		&.pinterest{
+			background-image: url('share-icon-pinterest-black.svg');
+			background-size: auto 14px;
+		}
+		&.email{
+			background-image: url('share-icon-email-black.svg');
+		}
+	}
+}

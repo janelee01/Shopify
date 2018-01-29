@@ -3,19 +3,36 @@
 	margin-bottom: 20px;
 	.form-control{
 		padding-right: 60px;
-		border-top: 0;
-		border-left: 0;
-		border-right: 0;
+		border: 0;
+		height: 66px;
+		background: $gray-lightest;
+		font-family: $font-family-sans-serif;
+		font-size: 19px;
+		padding-left: 15px;
+		box-shadow: none;
+		&::-webkit-input-placeholder {
+		  color: #D8D8D8;
+		}
+		&::-moz-placeholder {
+		  color: #D8D8D8;
+		}
+		&:-ms-input-placeholder {
+		  color: #D8D8D8;
+		}
+		&:-moz-placeholder { 
+		  color: #D8D8D8;
+		}
 	}
 	.btn{
-		background: #FFF;
-		padding: 7px 10px 13px;
-		margin: 0;
+		background: url('icon-search.svg') no-repeat center center;
+		background-size: 15px auto;
 		position: absolute;
-		top: 1px;
-		right: 1px;
-		width: 40px;
-		bottom: 1px;
+		right: 0;
+		top: 0;
+		height: 100%;
+		padding: 0;
+		width: 46px;
+		border: 0;
 	}
 }
 

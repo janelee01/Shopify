@@ -1,72 +1,51 @@
 .pagination{
-	text-transform: uppercase;
 	font-size: $font-size-small;
-	letter-spacing: $ls-xs;
-	display: block;
 	text-align: center;
-	font-family: $font-family-sans-serif;
+	display: block;
 	span{
 		display: inline-block;
-		a{
-			padding: 8px 16px;
-			display: block;
-			color: $gray;
-			border: solid 1px $gray-lighter;
-			&:hover{
-				color: $gray-darker;
-				border-color: $gray-light;
-				text-decoration: none;
-			}
-		}
+		margin: 0 2px;
 	}
-	.current{
-		padding: 8px 16px;
-		color: $brand-blue;
-		border: solid 1px $gray-lighter;
-	}
-}
-
-.pager{
-	text-transform: uppercase;
-	line-height: 36px;
-	font-size: $font-size-xs;
-	letter-spacing: $ls-xs;
-	.amount{
-		strong{
-			font-family: $font-family-sans-serif;
-		}
-	}
-	.limiter{
-		label{
-			font-weight: normal;
-		}
-		select{
-			display: inline-block;
-			width: auto;
-			margin: 0 10px;
-		}
-	}
-	.pages{
-		strong{
-			display: none;
-		}
-		ol{
-			@include clean;
-			display: inline;
-		}
-	}
-	li > a {
-		border: 0;
-		padding-top: 0;
-		padding-bottom: 0;
+	a{
 		color: $gray;
-		&:active,
 		&:hover{
-			background: none;
+			text-decoration: none;
 			color: $brand-blue;
 		}
 	}
-	li.current{
-		color: $brand-blue;
+	.page{
+		a, &.current{
+			padding: 6px 0;
+			width: 40px;
+			height: 40px;
+			color: $gray;
+			border: solid 1px $gray-lighter;
+			border-radius: 50%;
+		}
+		a{
+			display: block;
+		}
+		&.current{
+			color: $brand-blue;
+			border-color: $brand-blue;
+			// shopify pagination uses an empty span for current .page,
+			// but our reviews pagination doesn't change the span > a markup,
+			// so reset here
+			a{
+				width: auto;
+				height: auto;
+				padding: 0;
+				border: 0;
+				color: $brand-blue;
+				cursor: default;
+			}
+		}
+		&:focus,
+		&:hover{
+			a{
+				border-color: $brand-blue;
+				text-decoration: none;
+			}
+		}
 	}
 }

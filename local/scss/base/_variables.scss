@@ -1,15 +1,16 @@
 $md-max-width: 940px;
 $lg-max-width: 1140px;
-$xl-max-width: 1260px;
+$xl-max-width: 1200px;
+$site-max-width: 1680px;
 
 $screen-xs-landscape: 450px; // not a value based on any device, just where it looks good to start making layout changes
 $screen-picture-switch: 768px; 
 $screen-md: 1030px; 
 $screen-xl: 1600px; 
 $grid-float-breakpoint: $screen-md; 
-
+ 
 $menu-width-sm: 100%;
-$menu-width-md: 370px;
+$menu-width-md: 400px;
 
 $cart-width-md: 370px;
 $checkout-width-md: 710px;
@@ -19,13 +20,13 @@ $ls-navbar-height: 64px;
 $page-nav-height-xs: 46px;
 $page-nav-height: 77px;
 
-$text-color: #808080;
+$mobile-gutter: 28px;
 
-$gray-darker:            #000; 
-$gray-dark:              #333;   
+$gray-darker:            #111; 
+$gray-dark:              #414B56;   
 $gray:                   #7f7f7f; 
 $gray-light:             #808080; 
-$gray-lighter:           #e6e6e6; 
+$gray-lighter:           #d6d6d6; 
 $gray-lightest:          #f4f4f4; 
 
 $brand-primary:         #45ADD9;
@@ -34,9 +35,11 @@ $brand-info:            #5bc0de;
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
 
+$text-color: $gray-darker;
+
 $brand-blue-dark: #30A6D8;
-$brand-blue: #4DBEEE;
-$brand-blue-light: #F0F9FD;
+$brand-blue: #00AEEF;
+$brand-blue-light: #DDF2FC;
 
 $brand-yellow: #E3CD6E; 
 
@@ -66,14 +69,15 @@ $font-family-semibold: "Circular-Pro-Medium","ProximaNovaSemiBold", "Helvetica N
 $headings-color: $gray-dark;
 
 $font-size-base:          16px;
-$line-height-base:        1.4;
+$font-family-base: $font-family-sans-serif;
+$line-height-base:        1.875;
 
 $font-size-huge:         ceil(($font-size-base * 4.5)); // 72px
 $font-size-large:         ceil(($font-size-base * 1.25)); // 20px
 $font-size-small:         ceil(($font-size-base * 0.85)); // 14px
 $font-size-xs:         floor(($font-size-base * 0.75)); // 12px
 
-$font-size-h1:            floor(($font-size-base * 3)); // ~48px
+$font-size-h1:           40px;
 $font-size-h2:            floor(($font-size-base * 1.5)); // ~24px
 $font-size-h3:            ceil(($font-size-base * 1.375)); // ~22px
 $font-size-h4:            $font-size-large; 
@@ -102,45 +106,3 @@ $block-padding-big-md: 60px;
 $block-padding-small-md: 30px;
 $block-padding-big-lg: 90px;
 $block-padding-small-lg: 45px;
-
-@mixin transition-on(){
-	@include transition(all 0.1s ease-in-out);
-}
-@mixin transition-off(){
-	@include transition(all 0.3s ease-in-out);
-}
-@mixin cart-shift(){
-	@include transition(right .5s ease-out);
-}
-@mixin clean(){
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-@mixin mobile-inset{
-	margin-left: 20px;
-	margin-right: 20px;
-}
-@mixin panel-section{
-	margin-left: 20px;
-	margin-right: 20px;
-	border-bottom: 1px solid #a8a8a8;
-}
-@mixin bs-margins-lg{
-	margin-top: $line-height-computed;
-	margin-bottom: ($line-height-computed / 2);
-}
-@mixin bs-margins-sm{
-	margin-top: $line-height-computed / 2;
-	margin-bottom: ($line-height-computed / 2);
-}
-@mixin title-dash{
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 47%;
-	right: 47%;
-	height: 2px;
-	background-color: $text-color;
-	display: block;
-}

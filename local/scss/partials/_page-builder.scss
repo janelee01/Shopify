@@ -1,25 +1,12 @@
-.page-block,
-.shg-c{
+.page-block{
 	// default margins for each block
-	margin-bottom: 20px;
-	font-size: 8vw;
-	@media (min-width: $screen-sm) {
-		font-size: 3.5vw;
-	}
+	margin: 0 auto 60px;
+	max-width: $site-max-width;
 	@media (min-width: $screen-md) {
 		margin-bottom: 40px;
 	}
-	@media (min-width: $screen-lg) {
-		font-size: 3vw;
-	}
 	&.contained{
 		@extend .container-fluid;
-		@media (min-width: 1200px) {
-			font-size: 2.5vw;
-		}
-		@media (min-width: $screen-xl) {
-			font-size: 2vw;
-		}
 		// allow full width when parent container is not
 		.shg-c{
 			width: 100%;
@@ -28,12 +15,8 @@
 	}
 	// no margins for nested blocks,
 	// don't allow full width for nested items
-	.section-content,
-	.shg-c{
-		font-size: 100%;
+	.section-content{
 		margin: 0 auto;
-		width: 90%;
-		max-width: 1024px; 
 	}
 	// for flexed elements
 	.shg-row{
@@ -49,83 +32,82 @@
 		align-items: stretch;
 	}
 	.flexer{
-		max-width: 670px;
+		max-width: 600px;
 	}
 }
 
-.section-header{
-	text-align: center;
-	background: #f4f4f4;
-	padding: 20px;
-	@media (min-width: $screen-md) {
-		padding: 40px;
-	}
-	.header-text{
-		margin: 0;
-		line-height: 1;
-		text-transform: uppercase;
-		font-family: $font-family-bold;
-		font-size: 90%;
-	}
-}
+
 .section-content{
 	text-align: center;
 	color: $gray-darker;
-	padding: 10vw;
-	&.is-media{
-		padding: 0;
-	}
+	padding: 0 $mobile-gutter;
 	@media (min-width: $screen-sm) {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		height: 100%;
-		padding: 0;
+		padding: 0 30px;
+	}
+	.flexer{
+		padding: 45px 20px 0;
+		@media (min-width: $screen-md) {
+			padding: 0;
+		}
 	}
 	p{
-		margin-bottom: .75em;
+		margin-bottom: 18px;
+		@media (min-width: $screen-md) {
+			margin-bottom: 24px;
+		}
 	}
 	.title{
 		font-family: $font-family-bold; 
+		font-size: 25px;
 		line-height: 1.1;
 		letter-spacing: 2px;
-		font-size: 80%;
 		margin-bottom: 0.5em;
+		@media (min-width: $screen-md) {
+			font-size: 40px;
+		}
 	}
 	.subtitle{
 		text-transform: uppercase;
 		font-family: $font-family-sans-serif;
 		letter-spacing: 2px;
-		font-size: 40%;
 	}
 	.description{
-		font-size: 53%;
+		font-size: 19px;
 		font-family: $font-family-sans-serif;
 		position: relative;
+		@media (min-width: $screen-md) {
+			font-size: 26px;
+		}
 	}
-	.link{
-		line-height: 1;
-		font-size: 50%;
-		@media (min-width: $screen-picture-switch) {
-			font-size: 40%;
+	.btn-set{
+		padding-top: 10px;
+		@media (min-width: $screen-md) {
+			padding-top: 20px;
 		}
-		&:last-child{
-			margin: 0;
-		}
-		a{
-			font-family: $font-family-sans-serif;
-			border-bottom: solid 1px $gray-dark;
-			padding-bottom: 2px;
-			display: inline-block;
-			vertical-align: middle;
-			text-transform: uppercase;
-			&:hover,
-			&:focus{
-				text-decoration: none;
-				border-bottom-color: transparent;
-			}
-		}
-	} 
+	}
+	// .link{
+	// 	line-height: 1;
+	// 	&:last-child{
+	// 		margin: 0;
+	// 	}
+	// 	a{
+	// 		font-family: $font-family-sans-serif;
+	// 		border-bottom: solid 1px $gray-dark;
+	// 		padding-bottom: 2px;
+	// 		display: inline-block;
+	// 		vertical-align: middle;
+	// 		text-transform: uppercase;
+	// 		&:hover,
+	// 		&:focus{
+	// 			text-decoration: none;
+	// 			border-bottom-color: transparent;
+	// 		}
+	// 	}
+	// } 
 }
 .page-block{
 	.inline-video{
@@ -172,7 +154,37 @@
 	}
 }
 .fw-image{
+	position: relative;
 	img{
 		width: 100%;
+	}
+	.section-content{
+		text-align: center;
+		@media (min-width: $screen-md) {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			&.left{
+				left: 0;
+				width: 50%;
+			}
+			&.center{
+				.flexer{
+					width: 30%;
+				}
+			}
+			&.right{
+				left: auto;
+				right: 0;
+				width: 50%;
+			}
+		}
+	}
+	.title{
+		font-size: 36px;
+		@media (min-width: $screen-md) {
+			font-size: 63px;
+		}
 	}
 }

@@ -31,17 +31,19 @@
       "share_on_facebook": "Share",
       "share_on_twitter": "Tweet",
       "share_on_pinterest": "Pin it",
+      "share_in_email": "Email",
       "alt_text": {
         "share_on_facebook": "Share on Facebook",
         "share_on_twitter": "Tweet on Twitter",
-        "share_on_pinterest": "Pin on Pinterest"
+        "share_on_pinterest": "Pin on Pinterest",
+        "share_in_email": "Email a friend"
       }
     },
     "search": {
       "no_results_html": "No matches for \"{{ terms }}\"",
       "results_for_html": "Matches for \"{{ terms }}\"",
       "title": "Search",
-      "placeholder": "Search products",
+      "placeholder": "Search Products",
       "submit": "Search"
     }
   },
@@ -71,16 +73,16 @@
   },
   "cart": {
     "general": {
-      "title": "Cart",
+      "title": "Your cart",
       "remove": "Remove",
       "note": "Special instructions for seller",
       "subtotal": "Subtotal",
       "shipping_at_checkout": "Shipping & taxes calculated at checkout",
-      "update": "Update Cart",
-      "checkout": "Proceed to Checkout",
+      "update": "Update cart",
+      "checkout": "Checkout",
       "empty": "Your cart is currently empty.",
       "cookies_required": "Enable cookies to use the shopping cart",
-      "continue_browsing_html": "<a href=\"/collections/all\" class=\"btn-lg btn btn-secondary\">Continue Shopping</a>",
+      "continue_browsing_html": "<a href=\"/collections/all\" class=\"btn\">Continue shopping</a>",
       "item_quantity": "Item quantity",
       "savings": "You're saving"
     },
@@ -111,10 +113,10 @@
   },
   "customer": {
     "account": {
-      "title": "My Account",
-      "details": "Account Details",
-      "view_addresses": "View Addresses",
-      "return": "Return to Account Details"
+      "title": "My account",
+      "details": "Account details",
+      "view_addresses": "View addresses",
+      "return": "Return to account details"
     },
     "activate_account": {
       "title": "Activate Account",
@@ -125,9 +127,9 @@
       "cancel": "Decline Invitation"
     },
     "addresses": {
-      "title": "Your Addresses",
+      "title": "Address book",
       "default": "Default",
-      "add_new": "Add a New Address",
+      "add_new": "Add new address",
       "edit_address": "Edit address",
       "first_name": "First Name",
       "last_name": "Last Name",
@@ -140,15 +142,15 @@
       "zip": "Postal/Zip Code",
       "phone": "Phone",
       "set_default": "Set as default address",
-      "add": "Add Address",
-      "update": "Update Address",
+      "add": "Add address",
+      "update": "Update address",
       "cancel": "Cancel",
       "edit": "Edit",
       "delete": "Delete",
       "delete_confirm": "Are you sure you wish to delete this address?"
     },
     "login": {
-      "title": "Login",
+      "title": "Login to account",
       "email": "Email",
       "password": "Password",
       "forgot_password": "Forgot your password?",
@@ -159,16 +161,17 @@
     },
     "orders": {
       "title": "Order History",
-      "order_number": "Order",
-      "date": "Date",
-      "payment_status": "Payment Status",
-      "fulfillment_status": "Fulfillment Status",
+      "order_number": "Order number",
+      "date": "Order date",
+      "payment_status": "Payment status",
+      "fulfillment_status": "Fulfillment status",
       "total": "Total",
       "none": "You haven't placed any orders yet."
     },
     "order": {
       "title": "Order {{ name }}",
-      "date": "Placed on {{ date }}",
+      "breadcrumb_title": "Order details",
+      "date": "Ordered on {{ date }}",
       "cancelled": "Order Cancelled on {{ date }}",
       "cancelled_reason": "Reason: {{ reason }}",
       "billing_address": "Billing Address",
@@ -181,7 +184,7 @@
       "product": "Product",
       "sku": "SKU",
       "price": "Price",
-      "quantity": "Quantity",
+      "quantity": "Qty",
       "total": "Total",
       "fulfilled_at": "Date fulfilled",
       "track_shipment": "Track shipment",
@@ -191,28 +194,28 @@
       "subtotal": "Subtotal"
     },
     "recover_password": {
-      "title": "Reset your password",
+      "title": "Reset password",
       "email": "Email",
-      "submit": "Submit",
-      "cancel": "Cancel",
-      "subtext": "We will send you an email to reset your password.",
+      "submit": "Send reset link",
+      "cancel": "Back to login",
+      "subtext": "Enter the email address associated with your account, and we’ll email you a link to reset your password.",
       "success": "We've sent you an email with a link to update your password."
     },
     "reset_password": {
-      "title": "Reset account password",
-      "subtext": "Enter a new password for {{ email }}",
-      "password": "Password",
+      "title": "Reset password",
+      "subtext_html": "Enter a new password for <span class=\"highlighted\">{{ email }}</span>",
+      "password": "New Password",
       "password_confirm": "Confirm Password",
       "submit": "Reset Password"
     },
     "register": {
-      "title": "Create Account",
+      "title": "Create account",
       "first_name": "First Name",
       "last_name": "Last Name",
       "email": "Email",
       "password": "Password",
-      "submit": "Create",
-      "cancel": "Return to Store"
+      "submit": "Create account",
+      "cancel": "Return to store"
     }
   },
   "homepage": {
@@ -249,8 +252,10 @@
       "sold_out": "Sold Out",
       "unavailable": "Unavailable",
       "on_sale": "On Sale",
-      "on_sale_from_html": "On Sale From {{ price }}",
-      "from_text_html": "From {{ price }}",
+      "on_sale_from_html": "{{ price }}",
+      // "on_sale_from_html": "On Sale From {{ price }}",
+      "from_text_html": "{{ price }}",
+      // "from_text_html": "From {{ price }}",
       "quantity": "Quantity",
       "add_to_cart": "Add to Cart"
     }

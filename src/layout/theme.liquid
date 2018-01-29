@@ -6,24 +6,32 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="{{ settings.color_primary }}">
+  
+  {% comment %} hide parent collection pages from indexing {% endcomment %}
+  {%- if template == 'collection' -%}
+    {%- if collection.metafields["global"]["is-parent-collection"] -%}
+      <meta name="robots" content="noindex,follow" />
+    {%- endif -%}
+  {%- endif -%}
+  
   <link rel="canonical" href="{{ canonical_url }}">
 
   {% if settings.favicon != blank %}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
   {% endif %}
 
-  {% capture seo_title %}
+  {%- capture seo_title -%}
     {{ page_title }}
-    {% if current_tags %}
-      {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
-    {% endif %}
-    {% if current_page != 1 %}
+    {%- if current_tags -%}
+      {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}
+    {%- endif -%}
+    {%- if current_page != 1 -%}
       &ndash; {{ 'general.meta.page' | t: page: current_page }}
-    {% endif %}
-    {% unless page_title contains shop.name %}
+    {%- endif -%}
+    {%- unless page_title contains shop.name -%}
       &ndash; {{ shop.name }}
-    {% endunless %}
-  {% endcapture %}
+    {%- endunless -%}
+  {%- endcapture -%}
   <title>{{ seo_title }}</title>
 
   {% if page_description %}
@@ -63,6 +71,8 @@
   {{ content_for_header }}
 
   {% include 'page-assets' %}
+
+  <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/1BRcvEm4otuzCinl2NlZx7eeyApg3H6EPGJ0Zv74/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
@@ -81,9 +91,15 @@
             {% section 'footer' %}
         </div>
         <div class="closed" id="newsletter-prompt">
-            <p>Get <strong>15% OFF</strong> your next order just for signing up.</p>
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newsletter">Join Our Mailing List</button>
-            <button type="button" class="modal-close"><span aria-hidden="true">Close</span></button>
+          <div class="container-fluid">
+            <div class="col-md-10">
+              <p>Get <strong>15% OFF</strong> your next order just for signing up.</p>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-secondary btn-md" data-toggle="modal" data-target="#newsletter">Join now</button>
+            </div>
+          </div>
+          <button type="button" class="panel-close"><span aria-hidden="true">Close</span></button>
         </div>
     </div>
 

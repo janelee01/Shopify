@@ -2,7 +2,7 @@
   
   <header role="banner" id="site-header">
     <div class="container-fluid">
-        <nav class="navbar navbar-default" role="navigation">
+        <nav role="navigation">
           {% if template.name == 'index' %}
             <h1 class="logo" itemscope itemtype="http://schema.org/Organization">{{ shop.name }}</h1>
           {% else %}
@@ -16,9 +16,10 @@
             <span class="icon-bar"></span>
           </a>
 
-          <a href="/cart" class="cart-toggle">
-            <span class="sr-only">{{ 'layout.cart.title' | t }}</span>
-            <span class="badge {% if cart.item_count < 1 %}no-items{% endif %}" id="cart-count-sm">{{ cart.item_count }}</span>
+          <a href="/cart" class="cart-link {% if cart.item_count < 1 %}empty{% endif %}">
+            <span class="cart-icon">
+              <span class="sr-only">{{ 'layout.cart.title' | t }}</span>
+            </span><span class="cart-count">{{ cart.item_count }}</span>
           </a>
 
         </nav>

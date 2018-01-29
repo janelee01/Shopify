@@ -1,222 +1,127 @@
-.table thead > tr > th{
-	background: $gray;
-}
-.cart-items{
-	font-family: $font-family-sans-serif;
-	font-size: $font-size-small;
-	margin-bottom: 0;
-	> tbody > tr > td{
-		vertical-align: middle;
-		padding-top: 15px;
+.table{
+	width: 100%;
+	#table-heading{
+		padding-left: 0;
 	}
-	> tbody > tr > td,
-	> tbody > tr > td:first-child,
-	> tbody > tr:first-child > td{
-		border-top: 0;
-	}
- 	td{
-		color: $gray-dark;
-		vertical-align: middle;
-		.table{
-			margin-bottom: 0; 
-			tbody{
-				td{
-					border: 0;
-					padding: 0;
-				}
+	thead{
+		th{
+			padding: 0 20px 40px;
+			font-size: 19px;
+			line-height: 1;
+			color: #888;
+			text-align: left;
+			border-bottom: solid 1px #e6e6e6;
+			font-weight: normal;
+			white-space: nowrap;
+			@media (min-width: $screen-md) {
+				padding-bottom: 45px;
+			}
+			&.text-right{
+				text-align: right;
 			}
 		}
 	}
-	tr.line-item td{
-		text-transform: uppercase;
-	}
-	.cart-item-thumb{
-		width: 60px; 
-		a{
-			display: block;
-			text-align: center;
+	tbody{
+		td{
+			padding: 20px 10px;
+			border-bottom: solid 1px #e6e6e6;
+			@media (min-width: $screen-md) {
+				padding: 9px 20px;
+			}
+		}
+		tr > td:first-child{
+			@media (max-width: $screen-sm-max) {
+			    padding-left: 0;
+			}
+		}
+		tr > td:last-child{
+			@media (max-width: $screen-sm-max) {
+			    padding-right: 0;
+			}
 		}
 	}
-	.product-name{
-		text-transform: uppercase;
-		letter-spacing: $ls-xs;
-		margin: 0 0 6px;
+}
+
+.order-items{
+	color: #888;
+	.item-thumb{
+		padding-left: 0;
+		padding-right: 0;
+		img{
+			width: 60px;
+			@media (min-width: $screen-sm) {
+				width: auto;
+			}
+		}
+	}
+	.item-info{
+		.product-name{ 
+			font-size: 15px;
+			line-height: 1;
+			color: $gray-darker;
+			margin-bottom: 6px;
+			display: block;
+			@include transition(all .2s ease);
+			@media (min-width: $screen-sm) {
+				font-size: 20px;
+			}
+			&:hover{
+				text-decoration: none;
+				color: $brand-blue;
+			}
+		}
 	}
 	.item-options{
-		font-size: 11px;
-		color: $gray;
-		text-transform: uppercase;
-		letter-spacing: $ls-xs;
-		margin-bottom: 0;
-		.sep{
-			padding-left: 2px;
-			padding-right: 2px;
-		}
-	}
-	.sep{
-		color: $gray-lighter;
-		font-size: 18px;
-		display: inline-block;
-		padding: 0 8px;
-		line-height: 0;
-		text-transform: lowercase;
-		@media (min-width: $screen-sm) {
-			display: none;
-		}
-	}
-	.qty{
-		width: 40px;
-		text-align: center;
-	}
-	.cart-item-qty,
-	.price-box{
-		text-align: center;
-	}
-	.price-box{
-		display: block;
-		font-size: $font-size-small;
-	}
-	.a-right{
-		@media (min-width: $screen-sm) {
-		    text-align: right;
-		}
-	}
-	.a-center{
-		@media (min-width: $screen-sm) {
-		    text-align: center;
-		}
-	}
-	> tbody > tr{
-		position: relative;
-	}
-	.remove-item{
-		display: block;
-		color: #ccc;
+		color: #888;
+		margin: 0 0 10px;
 		font-size: 12px;
-		padding: 10px;
-		text-align: center;
+		line-height: 14px;
 		@media (min-width: $screen-sm) {
-			padding: 0;
-		}
-		&:hover{
-			text-decoration: none;
+			font-size: $font-size-base;
+			line-height: 1;
+			margin: 0;
 		}
 	}
-
-	@media (max-width: $screen-xs-max) {
-		> tbody > tr{
-			@include clearfix;
-			> td{
-				padding-right: 0;
-				&.cart-item-remove{
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 36px;
-					padding: 0;
-					height: 100%;
-				}
-			}
-		} 
-
-		.remove-item{
-			display: inline-block;
-			position: absolute;
-			top: 50%;
-			margin-top: -18px;
+	.item-price{
+		@media (max-width: $screen-xs-max) {
+		    text-align: right;
+		    padding-right: 0;
 		}
-		.cart-item-thumb{
-			position: absolute;
-			left: 36px;
-			top: 0;
-		}
-		.cart-item-info{
-			padding-bottom: 10px;
-		}
-		.cart-item-price,
-		.cart-item-qty,
-		.cart-item-subtotal{
-			text-align: left;
-			display: block;
-			float: left;
-			border: 0;
-			padding-top: 0;
-		}
-		.cart-item-info,
-		.cart-item-price{
-			padding-left: 106px;
-		}
-		.cart-item-price{
-			position: absolute; // why yes, this is gross but it allows us to align the qty cells with padding
-		}
-		.cart-item-qty{
-			padding-left: 60%;
-		}
-		.qty{
-			border: solid 1px $gray-lighter;
-			text-align: center;
-		}
-		.cart-item-subtotal{
-			float: right;	
-		}
-		.price-box{
-			padding-top: 2px;
-		}
+	}
+	.item-subtotal{
+		text-align: right;
 	}
 }
-.cart-totals{
-	color: $gray-dark;
-	text-transform: uppercase;
-	font-family: $font-family-sans-serif;
-	font-size: $font-size-small;
-	text-transform: uppercase;
+
+.order-totals{
 	width: 100%;
-	margin-bottom: 30px;
-	border-top: solid 1px #a8a8a8;
-	tbody > tr{
-		display: table-row;
-		td{
-			border-top: 0;
-			padding: 10px 0;
-			@media (min-width: $screen-sm) {
-				padding: 10px 15px
-			}
-		}
-		&:last-child{
-			td{
-				padding-bottom: 15px;
-			}
-		}
-		.a-right{
-			text-align: left;
-		}
-		> th,
-		> td{
-			display: table-cell;
-		}
-		td.a-right:last-child{ // ewww
+	line-height: 1;
+	@media (min-width: $screen-sm) {
+		margin-left: auto;
+		width: auto;
+	}
+	td{
+		&:first-child{
 			text-align: right;
 		}
-		&#subtotal-row{
-			td{
-				padding-bottom: 10px;
+		&:last-child{
+			text-align: left;
+			@media (min-width: $screen-md) {
+				text-align: right;
 			}
 		}
+		padding: 0 10px;
+		@media (min-width: $screen-md) {
+			padding: 0 20px;
+		}
 	}
-	tr.grand-total > td{
-		border-top: solid 1px #a8a8a8;
-		padding: 10px 0;
+	.total{
 		font-size: 18px;
-		@media (min-width: $screen-sm) {
-			padding: 10px 15px
+		@media (min-width: $screen-md) {
+			font-size: 26px;
 		}
-	}
-	tr.total-adjustment{
-		td{
-			color: $gray;
+		.line-total{
+			color: $brand-blue;
 		}
-	}
-	tfoot > tr td.a-right:last-child{
-		text-align: right;
 	}
 }

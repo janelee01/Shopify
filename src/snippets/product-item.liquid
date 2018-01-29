@@ -1,56 +1,43 @@
 <article class="product">
-  {% if product.featured_image != blank %}
-  <div class="product-grid-image">
+  {%- if product.featured_image != blank -%}
+  <div class="image">
     <a href="{{ product.url | within: collection }}">
       {{ product.featured_image.src | img_url: '480x480' | img_tag: product.featured_image.alt }}
     </a>
-    {% if product.compare_at_price > product.price %}
-      <div class="product-alerts">
-          <span class="product-alert">{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round: 0 }}% OFF</span>
-      </div>
-    {% endif %}
+    {%- if product.compare_at_price > product.price -%}
+      <span class="discount-badge">{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round: 0 }}% OFF</span>
+    {%- endif -%}
   </div>  
-  {% endif %}
-  <a href="{{ product.url | within: collection }}" class="product-grid-details-link">
-    <h2 class="product-name product-grid-title">{{ product.title }}</h2>
-    {% if product.metafields.extra.description != blank %}
-    <div class="product-grid-description">
-      <p>{{ product.metafields["global"]["short-description"] }}</p>
-    </div>
-    {% endif %}
-    <div class="product-grid-price">
-        <div class="price-box">
-          {% if product.compare_at_price > product.price %} {% comment %} product is on sale {% endcomment %}
-            
-            {% if product.price_varies %}
-              {% comment %} Outputs "On Sale from {{ price }}", see locals json {% endcomment %}
-              {%- assign sale_price = product.price | money_without_trailing_zeros -%}
-              <span class="price-varies">{{ 'products.product.on_sale_from_html' | t: price: sale_price }}</span>
-            {% else %}
-              <span class="old-price"><s>{{ product.compare_at_price | money_without_trailing_zeros }}</s></span>
-              <span class="special-price">{{ product.price | money_without_trailing_zeros }}</span>
-            {% endif %}
-
-          {% else %}
-
-            {% if product.price_varies %}
-              {% comment %} Outputs "From {{ price }}", see locals json {% endcomment %}
-              {%- assign price = product.price | money_without_trailing_zeros -%}
-              <span class="price-varies">{{ 'products.product.from_text_html' | t: price: price }}</span>
-            {% else %}
-              <span class="regular-price">{{ product.price | money_without_trailing_zeros }}<span>
-            {% endif %}
-
-          {% endif %}
-
-          
-          {% unless product.available %}
-          <span class="low-stock-warning">
-            {{ 'products.product.sold_out' | t }}
-          </span>
-          {% endunless %}
-
-        </div>
+  {%- endif -%}
+  <a href="{{ product.url | within: collection }}">
+    {%- assign productTitleParts = product.title | split: '-' -%}
+    <h3 class="title">{{ productTitleParts[0] | strip }}</h3>
+    <p class="product-color">{{ productTitleParts[2] | strip }}</p>
+    <p class="product-material">{{ productTitleParts[1] | strip }}</p>
+    <div class="price">
+        {%- if product.compare_at_price > product.price -%} {% comment %} product is on sale {% endcomment -%}
+          {%- if product.price_varies -%}
+            {% comment %} Outputs "On Sale from {{ price }}", see locales json {% endcomment %}
+            {%- assign sale_price = product.price | money_without_trailing_zeros -%}
+            <span class="price-varies">{{ 'products.product.on_sale_from_html' | t: price: sale_price }}</span>
+          {%- else -%}
+            <span class="special-price">{{ product.price | money_without_trailing_zeros }}</span>
+            <span class="old-price"><s>{{ product.compare_at_price | money_without_trailing_zeros }}</s></span>
+          {%- endif -%}
+        {%- else -%}
+          {%- if product.price_varies -%}
+            {% comment %} Outputs "From {{ price }}", see locals json {% endcomment %}
+            {%- assign price = product.price | money_without_trailing_zeros -%}
+            <span class="price-varies">{{ 'products.product.from_text_html' | t: price: price }}</span>
+          {%- else -%}
+            <span class="regular-price">{{ product.price | money_without_trailing_zeros }}<span>
+          {%- endif -%}
+        {%- endif -%}
+        {%- unless product.available -%}
+        <span class="low-stock-warning">
+          {{ 'products.product.sold_out' | t }}
+        </span>
+        {%- endunless -%}
     </div>
   </a>
 </article>

@@ -1,127 +1,290 @@
-<div class="container-fluid" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
+{%- assign parentCollection = false -%}
+{%- assign referringCollectionHandle = false -%}
 
-  {%- assign current_variant = product.selected_or_first_available_variant -%}
-  {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+{% comment %} check the URL for collection-aware content {% endcomment %}
+{%- assign urlParts = request.path | split: '/' -%}
+{%- if urlParts[1] == 'collections' -%}
+  {%- assign referringCollectionHandle = urlParts[2] -%}
+{%- endif -%}
 
-  <meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
-  <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
-  <meta itemprop="brand" content="{{ product.vendor }}">
-  <meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
-  <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
-  
-  <div class="row">
-    <div class="col-sm-6">
-      {% if featured_image != blank %}
-        <img src="{{ featured_image | img_url: '480x480' }}" alt="{{ featured_image.alt | escape }}" data-product-featured-image>
-      {% endif %}
+{% comment %} find the type collection {% endcomment %}
+{%- for collection in product.collections -%}
+    {%- if collection.metafields["global"]["is-parent-collection"] == "true" -%}
+      {%- assign parentCollection = collections[collection.handle] -%}
+      {%- break -%}
+    {%- endif -%}
+{%- endfor -%}
 
-      {% if product.images.size > 1 %}
-        <ul id="product-thumbnails">
-          {% for image in product.images %}
-            <li>
-              <a href="{{ image.src | img_url: '480x480' }}" data-product-single-thumbnail>
-                <img src="{{ image.src | img_url: '160x160' }}" alt="{{ image.alt | escape }}">
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </div>
-    <div class="col-sm-6">
-      <h1>{{ product.title }}</h1>
-      <p>{{ product.vendor }}</p>
+{% comment %} build up a string of IDs to check against later as we loop on sibling products because we only want to do all this logic once {% endcomment %}
+{%- capture siblingsList -%}
+{%- for siblingProduct in parentCollection.products -%}
+  {%- if referringCollectionHandle and collections[referringCollectionHandle].metafields["global"]["enable-pdp-filtering"] == "true" -%}
+    {%- assign excludeProduct = true -%}
+    {%- for referringCollectionProduct in collections[referringCollectionHandle].products -%}
+      {%- if referringCollectionProduct.id == siblingProduct.id -%}
+        {%- assign excludeProduct = false -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if excludeProduct -%}
+      {%- continue -%}
+    {%- else -%}
+      {{ siblingProduct.id }}{%- unless forloop.last -%}|{%- endunless -%}
+    {%- endif -%}
+  {%- else -%}
+    {{ siblingProduct.id }}{%- unless forloop.last -%}|{%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- endcapture -%}
 
-      <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
-        <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
-        <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
 
-        <form action="/cart/add" method="post" enctype="multipart/form-data">
-          {% unless product.has_only_default_variant %}
-            {% for option in product.options_with_values %}
-              <div class="selector-wrapper js">
-                <label for="SingleOptionSelector-{{ forloop.index0 }}">
-                  {{ option.name }}
-                </label>
+<div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
 
-                <select
-                  id="SingleOptionSelector-{{ forloop.index0 }}"
-                  data-single-option-selector
-                  data-index="option{{ option.position }}">
-                  {% for value in option.values %}
-                    <option
-                      value="{{ value | escape }}"
-                      {% if option.selected_value == value %}selected="selected"{% endif %}>
-                        {{ value }}
-                    </option>
-                  {% endfor %}
-                </select>
-              </div>
-            {% endfor %}
-          {% endunless %}
+	{%- assign current_variant = product.selected_or_first_available_variant -%}
+	{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
 
-          <select name="id" class="no-js" data-product-select>
-            {% for variant in product.variants %}
-              <option
-                {% if variant == current_variant %}selected="selected"{% endif %}
-                {% unless variant.available %}disabled="disabled"{% endunless %}
-                value="{{ variant.id }}">
-                  {{ variant.title }}
-              </option>
-            {% endfor %}
-          </select>
+	<meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
+	<meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
+	<meta itemprop="brand" content="{{ product.vendor }}">
+	<meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
+	<meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+	
+	<div class="gallery-container is-loading" id="product-galleries">
+		{% for siblingProduct in parentCollection.products %}
+			{% if siblingsList contains siblingProduct.id %}
+			<div class="product-gallery {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
+				<div class="filmroll" id="gallery-{{ siblingProduct.id }}">
+				{% for image in siblingProduct.images %}
+					{% if image.alt contains 'swatch' %}{% continue %}{% endif %}
+					<div class="item">
+						<figure>
+							<span class="{% if forloop.first %}master{% else %}resize{% endif %}">
+								<img src="{{ image.src | img_url: '375x500' }}" alt="{{ image.alt | escape }}">
+							</span>
+						</figure>
+					</div>
+				{% endfor %}
+				</div>
+				<a href="#" id="gallery-{{ siblingProduct.id }}-prev" class="gallery-control prev"></a>
+				<a href="#" id="gallery-{{ siblingProduct.id }}-next" class="gallery-control next"></a>
+			</div>
+			{% endif %}
+		{% endfor %}
+		<div class="loading"></div>
+	</div>
+	
+	{% comment %} 
+		{% if featured_image != blank %}
+		  <img src="{{ featured_image | img_url: '480x480' }}" alt="{{ featured_image.alt | escape }}" data-product-featured-image>
+		{% endif %}
 
-          <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
-          <input type="number" id="Quantity" name="quantity" value="1" min="1">
+		{% if product.images.size > 1 %}
+		  <ul id="product-thumbnails">
+		    {% for image in product.images %}
+		      <li>
+		        <a href="{{ image.src | img_url: '480x480' }}" data-product-single-thumbnail>
+		          <img src="{{ image.src | img_url: '160x160' }}" alt="{{ image.alt | escape }}">
+		        </a>
+		      </li>
+		    {% endfor %}
+		  </ul>
+		{% endif %}
+	{% endcomment %}
+	<div class="container-fluid">
+	  	<div class="row" id="product-main">
+		    <div class="col-sm-6">
+		    	<div id="product-identity">
+		    		<h1>{{ parentCollection.title }}</h1>
+		    		<p class="product-type-label">{{ product.metafields["global"]["short-description"] }}</p>
+		    		{{ parentCollection.description }}
+		    	</div>
+		    </div>
+	   		<div class="col-sm-6">
+	      		<div id="product-configuration">
 
-          <div data-price-wrapper>
-            <span data-product-price>
-              {{ current_variant.price | money }}
-            </span>
+					<div id="price-wrapper" data-price-wrapper>
+						<span data-product-price>{{ current_variant.price | money_without_trailing_zeros }}</span>
+				 		{%- if current_variant.compare_at_price > current_variant.price -%}
+				 			{%- assign showSaleElements = true -%}
+				 		{%- endif -%}
+					    <span class="sr-only" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+					    <s style="{% unless showSaleElements %}display: none{% endunless %}" data-compare-price>
+					      {%- if current_variant.compare_at_price > current_variant.price -%}
+					        {{ current_variant.compare_at_price | money_without_trailing_zeros }}
+					        {%- assign discountAmount = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0 -%}
+					      {%- endif -%}
+					    </s>
+					    <span class="discount-badge{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>% OFF</span>
+					</div>
+					
+					{% comment %} keep this file a little cleaner {% endcomment %}
+					{% include 'swatches' %}
+			    
+					<p id="current-option" class="configuration-label">Color: <span>{{ product.metafields["global"]["swatch-label"] }}</span></p>
 
-            {% if product.compare_at_price_max > product.price %}
-              <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
-              <s data-compare-price>
-                {% if current_variant.compare_at_price > current_variant.price %}
-                  {{ current_variant.compare_at_price | money }}
-                {% endif %}
-              </s>
-            {% endif %}
-          </div>
+			      	<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+				        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+				        <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+				        <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
 
-          <button
-            type="submit"
-            name="add"
-            class="btn btn-lg btn-success"
-            data-add-to-cart
-            {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-              <span data-add-to-cart-text>
-                {% if current_variant.available %}
-                  {{ 'products.product.add_to_cart' | t }}
-                {% else %}
-                  {{ 'products.product.sold_out' | t }}
-                {% endif %}
-              </span>
-          </button>
-        </form>
+				        <form action="/cart/add" method="post" enctype="multipart/form-data">
+							
+							{% comment %} not used for now since we only have one option. will need to reinstate if multiple options become a thing
+				        	{%- unless product.has_only_default_variant -%}
+				        		{%- for option in product.options_with_values -%}
+				        			<div class="selector-wrapper js">
+				        				<label class="sr-only" for="SingleOptionSelector-{{ forloop.index0 }}">{{ option.name }}</label>
+				        				<select
+				        				id="SingleOptionSelector-{{ forloop.index0 }}"
+				        				data-single-option-selector
+				        				data-option-name="{{ option.name }}"
+				        				data-index="option{{ option.position }}">
+				        					<option value="">{{ option.name }}</option>
+				        					{%- for value in option.values -%}
+				        						<option value="{{ value | escape }}">{{ value }}</option>
+				        					{%- endfor -%}
+				        				</select>
+				        			</div>
+				        		{%- endfor -%}
+				        	{%- endunless -%}
+							{% endcomment %}
+							
+							<div class="selector-wrapper">
+								<label for="variant-selector">Size</label>
+								<div id="variant-buttons">
+									{%- for variant in product.variants -%}
+										<a href="#" class="btn btn-secondary variant-option {% if forloop.first %}selected{% endif %}">{{ variant.title }}</a>
+									{%- endfor -%}
+								</div>
+								<select name="id" id="variant-selector" class="hidden" data-product-select>
+									{%- for variant in product.variants -%}
+										<option
+										{% unless variant.available %}disabled="disabled"{% endunless %}
+										value="{{ variant.id }}">
+										{{ variant.title }}
+										</option>
+									{%- endfor -%}
+								</select>
+							</div>
+				         
+							<div id="add-to-cart">
+								<label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
+								<input type="number" id="quantity" name="quantity" value="1" min="1">
+								<button
+								  type="submit"
+								  name="add"
+								  class="btn btn-lg btn-success"
+								  data-add-to-cart
+								  {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+								    <span data-add-to-cart-text>
+								      {% if current_variant.available %}
+								        {{ 'products.product.add_to_cart' | t }}
+								      {% else %}
+								        {{ 'products.product.sold_out' | t }}
+								      {% endif %}
+								    </span>
+								</button>
+							</div>
+				        </form>
+					</div>
 
-        {% if section.settings.show_share_buttons %}
-          {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
-        {% endif %}
+			        {% if section.settings.show_share_buttons %}
+			          {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+			        {% endif %}
+				
+		     	</div>
+		    </div>
+		</div>
+	  	
+	  	{%- assign detailTitle = 'Overview' -%}
+	  	{%- assign detailKey = 'overview' -%}
+	  	{% include 'product-detail-panel' %}
 
-      </div>
-    </div>
-  </div>
+	  	{%- assign detailTitle = 'Device Compatibility' -%}
+	  	{%- assign detailKey = 'device-compatibility' -%}
+	  	{% include 'product-detail-panel' %}
 
-  <div class="rte">
-    {{ product.description }}
-  </div>
+	  	{%- assign detailTitle = 'Size &amp; Weight' -%}
+	  	{%- assign detailKey = 'size-&-weight' -%}
+	  	{% include 'product-detail-panel' %}
 
-  {% unless product == empty %}
-    <script type="application/json" data-product-json>
-      {{ product | json }}
-    </script>
-  {% endunless %}
+	  	{%- assign detailTitle = 'Materials' -%}
+	  	{%- assign detailKey = 'materials' -%}
+	  	{% include 'product-detail-panel' %}
+
+	  	{%- assign detailTitle = 'Care Instructions' -%}
+	  	{%- assign detailKey = 'care-instructions' -%}
+	  	{% include 'product-detail-panel' %}
+
+	  	<div class="product-detail-panel">
+	  	  <h2 class="has-divider">Shipping, Returns, Exchanges</h2>
+	  	  {{ shop.metafields["global"]["shipping-returns-exchanges"] }}
+	  	</div>
+
+		<div class="product-detail-panel">
+			<h2 class="has-divider">Customer Reviews</h2>
+			<div id="reviews"></div>
+			<div id="reviews-widget">
+				<div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
+			</div>
+			<script>
+				var body = document.getElementsByTagName("BODY")[0];
+				var siblingsList = '{{ siblingsList }}';
+				var siblingIds = siblingsList.split('|');
+				var rawReviewsData = new Array;
+				var dataReceived = 0;
+				window.addEventListener("load", function(event) {
+				    for (var i = siblingIds.length - 1; i >= 0; i--) {
+				    	if( !siblingIds[i] ) continue;
+				    	var data = JSON.stringify(false);
+				    	var xhr = new XMLHttpRequest();
+				    	xhr.withCredentials = true;
+				    	xhr.addEventListener("readystatechange", function () {
+				    	  if (this.readyState === this.DONE) {
+				    	    rawReviewsData.push(JSON.parse(this.responseText));
+				    	    dataReceived++;
+				    	    if (dataReceived == siblingIds.length){
+				    	    	var event = new CustomEvent('reviews-received');
+				    	    	body.dispatchEvent(event);
+				    		}
+				    	  } 
+				    	});
+				    	xhr.open("GET", "https://api.yotpo.com/v1/widget/1BRcvEm4otuzCinl2NlZx7eeyApg3H6EPGJ0Zv74/products/"+siblingIds[i]+"/reviews.json?per_page=100");
+				    	xhr.send(data);
+				    }; 
+			  	});
+			</script>
+		</div>
+	  
+		{%- if parentCollection.metafields["global"]["press"] != blank -%}
+			<div class="product-detail-panel">
+				<h2 class="has-divider">Press</h2>
+				<div class="press">
+					{{ parentCollection.metafields["global"]["press"] }}
+				</div>
+			</div>
+		{%- endif -%}
+	  
+		{%- unless product == empty -%}
+			<script type="application/json" data-product-json>
+				{{ product | json }}
+			</script>
+		{%- endunless -%}
+		
+		{%- capture siblingsJson -%}
+			{
+				{%- for siblingProduct in parentCollection.products -%}
+					{%- if siblingsList contains siblingProduct.id -%}
+						"{{ siblingProduct.id }}" : {{ siblingProduct | json }}{% unless forloop.last %},{% endunless %}
+					{%- endif -%}
+				{%- endfor -%}
+			}
+		{%- endcapture -%}
+		<script>
+			var siblingsJson = {{ siblingsJson }};
+		</script>
+
+	</div>
 </div>
 
 {% schema %}

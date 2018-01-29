@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="11px" viewBox="0 0 13 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Check-mark</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Check-mark" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-6.000000, -6.000000)">
+        <g transform="translate(6.000000, 4.000000)" fill="#FFFFFF" id="Rectangle-6">
+            <g transform="translate(6.717514, 6.717514) rotate(-45.000000) translate(-6.717514, -6.717514) translate(0.217514, 3.717514)">
+                <polygon points="0 3.81416765 12.8361923 3.87257723 12.8361923 5.14396645 0 5.08555686"></polygon>
+                <polygon transform="translate(0.635695, 2.542778) rotate(-270.000000) translate(-0.635695, -2.542778) " points="-1.90708382 1.90708382 3.17847304 1.90708382 3.17847304 3.17847304 -1.90708382 3.17847304"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

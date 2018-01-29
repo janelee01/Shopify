@@ -1,133 +1,174 @@
-.site-footer{
-	padding: 40px 0 0;
+#newsletter-signup{
+	padding: 65px 0;
 	text-align: center;
-	@include mobile-inset;
-	margin: 0 20px;
 	@media (min-width: $screen-sm) {
-	   text-align: left;
-	   .container-fluid{
-	   	border-top: solid 1px $gray-lighter;
-	   }
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		text-align: left;
 	}
-	@media (min-width: $screen-md) {
-	   padding: 25px 0 55px;
-	   margin: 0 30px;
-	}
-	@media (min-width: 1260px) {
-	   margin: 0 auto;
-	}
-	.title{
-		text-transform: uppercase;
-		letter-spacing: $ls-lg;
-		padding-left: $ls-lg; // text is just slightly offcenter due to the letter spacing
-		margin-bottom: 20px;
+	label{
+		color: $gray-darker;
+		font-weight: 400;
+		font-size: 27px;
 		font-family: $font-family-sans-serif;
-		color: $headings-color;
+		display: block;
+		margin-bottom: 35px;
 		@media (min-width: $screen-sm) {
-		 padding: 0;   
-		}
-	}
-	p{
-		padding: 0 15px;
-		@media (min-width: $screen-sm) {
-		 padding: 0;   
-		}
-	}
-	.form-inline{
-		@media (max-width: $screen-sm-max) {
-			margin-bottom: 30px; 
-		}
-	}
-	.form-inline .message{
-		position: absolute;
-		left: -1px;
-		right: -1px;
-		text-align: center;
-		padding-top: 8px;
-		@media (min-width: $screen-sm) {
-		 text-align: left;  
+			font-size: 22px;
+			margin: 0;
+			width: 50%;
+			padding-right: $mobile-gutter;
 		}
 		@media (min-width: $screen-md) {
-		 text-align: center;  
+			font-size: 19px;
+			width: auto;
+			padding: 0;
 		}
-		&.success{
-			color: $brand-success;
+		@media (min-width: $screen-lg) {
+			font-size: 25px;
 		}
-		&.error{
-			color: $brand-danger;
+		@media (min-width: $screen-xl) {
+			font-size: 27px;
+		}
+	}
+	.form-group{
+		margin: 0;
+		position: relative;
+		@media (min-width: $screen-sm) {
+			width: 50%;
+		}
+		@media (min-width: $screen-md) {
+			width: 386px;
+		}
+	}
+	.form-control{
+		background: #f8f8f8;
+		border-color: #f8f8f8;
+		padding-right: 72px;
+		padding-left: 25px;
+		height: 58px;
+		width: 100%;
+		font-size: 18px;
+		font-family: $font-family-sans-serif;
+		@media (min-width: $screen-sm) {
+			border-color: #E6E6E6;
+			background: none;
+			height: 66px;
 		}
 	}
 }
-
-.footer-nav{
-	font-family: $font-family-sans-serif;
-	margin-bottom: 40px;
-	ul{
-		@include clean;
-	}
-	a{
-		font-size: $font-size-xs;
-		text-transform: uppercase;
-		color: $gray-light;
-		letter-spacing: $ls-xs;
-		display: block;
-		padding: 6px 0;
+#signup-submit{
+	background: $brand-blue url('arrow-right.svg') no-repeat center center;
+	background-size: 22px auto;
+	border: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0;
+	@include square(58px);
+	@media (min-width: $screen-sm) {
+		@include square(66px);
+		@include transition(all .3s ease-out);
 		&:hover{
-			color: $gray-dark;
-			text-decoration: none;
-		}
-		&.title{
-			padding-top: 0;
-			padding-bottom: 0;
-			font-size: $font-size-small;
-		}
-	}
-	&.social-nav{
-		ul{
-			margin: 0 auto;
-			width: 50%;
-			@media (min-width: $screen-sm) {
-				width: auto;
-				margin: 12px 0 0;
-			}
-			@media (min-width: $screen-md) {
-				width: 50%;
-			}
-			li{
-				display: inline-block;
-			}
-		}
-		a{
-			font-size: 34px;
-			display: inline-block;
-			margin: 0 12px;
-			letter-spacing: 0;
-			@include transition-off;
-			@media (min-width: $screen-sm) {
-			    margin-right: 25px;
-			    margin-left: 0;
-			}
-			&:hover{
-				@include transition-on;
-			}
+			background-color: $brand-success;
+			background-position: 60% center;
 		}	
 	}
 }
-.copyright{
-	@media (min-width: $screen-sm) {
-		text-align: right;
-	}
+#site-footer{
+	border-top: solid 1px #F4F4F4;
+	padding: 70px 0;
+	text-align: center;
+	margin: 0 $mobile-gutter;
 	@media (min-width: $screen-md) {
 		text-align: left;
+		padding: 100px 0;
+		margin: 0;
+	}
+	.container-fluid{
+		padding: 0;
 	}
 }
-.payment-icons{
-	@include clean;
+#footer-logo{
+	display: block;
+	margin: 0 auto 22px;
+	@media (min-width: $screen-md) {
+		float: left;
+		margin: 0;
+	}
+}
+#footer-menus{
+	display: none;
+	@media (min-width: $screen-md) {
+		display: flex;
+		float: right;
+		width: 81%;
+		margin-bottom: 80px;
+		justify-content: space-between;
+	}
+	@media (min-width: $screen-md) {
+		width: 71%;
+	}
+}
+.footer-menu{
+	.menu-title{
+		font-size: 20px;
+		font-family: $font-family-semibold;
+		margin-top: 10px;
+		margin-bottom: 28px;		
+	}
+	.menu{
+		@include clean;
+		li{
+			margin-bottom: 14px;
+		}
+		a{
+			font-size: 17px;
+			color: #646464;
+			line-height: 1;
+			@include transition(all .2s ease);
+			&:hover{
+				color: $brand-blue;
+				text-decoration: none;
+			}
+		}
+	}
+}
+.social-menu{
 	li{
 		display: inline-block;
+		margin-right: 25px;
 	}
-	svg{
-		height: 24px;
-		fill-opacity: .5;
+	a{
+		display: block;
+		height: 18px;
+		background-size: 100% auto;
+		background-position: left center;
+		background-repeat: no-repeat;
+		@media (min-width: $screen-md) {
+			opacity: .65;
+			&:hover{
+				opacity: 1;
+			}
+		}
+	}
+}
+#colophon{
+	@media (min-width: $screen-md) {
+		border-top: solid 1px #F4F4F4;
+		padding: 45px 0;
+		.social-menu{
+			display: none;
+		}
+	}
+}
+#copyright{
+	font-family: $font-family-sans-serif;
+	color: $gray-darker;
+	font-size: 15px;
+	margin-bottom: 29px;
+	@media (min-width: $screen-md) {
+		color: #646464;
 	}
 }
