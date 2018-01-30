@@ -28,11 +28,11 @@
 	}
 }
 .account-form{
-	max-width: 360px;
-	margin-bottom: 70px;
+	margin: 0 $mobile-gutter 70px;
 	text-align: center;
 	@media (min-width: $screen-sm) {
 		margin: 0 auto 70px;
+		max-width: 360px;
 	}
 	@media (min-width: $screen-md) {
 		margin-bottom: 140px;
@@ -316,6 +316,11 @@
 		}
 		.product-name{
 			margin-bottom: 10px;
+		}
+		.item-thumb{
+			img{
+				max-width: 90px;
+			}
 		}
 	}
 	.order-totals{

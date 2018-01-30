@@ -228,19 +228,13 @@ hr.mini-divider{
 	    @include transition-off;
 	    &:focus,
 	    &:hover{
-	    	background: $brand-blue-dark;
+	    	background: $brand-blue-hover;
 	    	color: #fff;
 	    	@include transition-on;
 	    }
 	    &.btn-primary{
 	    	&:hover{
 	    		border-color: $brand-blue;
-	    	}
-	    }
-	    &.btn-success{
-	    	&:hover{
-	    		border-color: darken($brand-success, 8%);
-	    		background: darken($brand-success, 8%);
 	    	}
 	    }
 	}

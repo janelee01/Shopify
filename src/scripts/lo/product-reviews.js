@@ -1,4 +1,31 @@
 $(document).ready(function(){
+
+	var setReviewMarkupOrder = function(){
+		if( $(window).width() < LS.desktopBreakpoint ){
+			if( $('.reviews-list dt .reviewer-name').length < 1){
+				$('.reviews-list dt').each(function(){
+					$(this).find('.review-date').detach().appendTo($(this).next('dd'));
+				});
+				$('.reviews-list dd').each(function(){
+					$(this).find('.reviewer-name').detach().prependTo($(this).prev('dt'));
+				});
+			}
+		}else{
+			if( $('.reviews-list dd .reviewer-name').length < 1){
+				$('.reviews-list dt').each(function(){
+					$(this).find('.reviewer-name').detach().prependTo($(this).next('dd'));
+				});
+				$('.reviews-list dd').each(function(){
+					$(this).find('.review-date').detach().prependTo($(this).prev('dt'));
+				});
+			}
+		}
+	};
+
+	$(window).resize(function(){
+		setReviewMarkupOrder();
+	});
+
 	// reviews-received is fired once all reviews have been returned from yatpo's API
 	$('body').on('reviews-received', function(){
 		//  the relevant info we need is sort of buried, and we're going to need to sort these, so start a new object
@@ -29,15 +56,15 @@ $(document).ready(function(){
 		var currentPage = 1;
 		var perPage = 5;
 		if( keys.length > 0 ){
-			var reviewsHtml = '<dl class="page" id="reviews-page-1">';
+			var reviewsHtml = '<dl class="reviews-list page" id="reviews-page-1">';
 			for (var i = 0; i < keys.length; i++) {
 
 				if( i > 0 && i % perPage == 0 ){
 					currentPage++;
-					reviewsHtml += '</dl><dl class="page" style="display: none" id="reviews-page-'+currentPage+'">';
+					reviewsHtml += '</dl><dl class="reviews-list page" style="display: none" id="reviews-page-'+currentPage+'">';
 				}
 
-				reviewsHtml += '<dt>'+finalReviewsData[keys[i]].date;
+				reviewsHtml += '<dt><span class="review-date">'+finalReviewsData[keys[i]].date+'</span>';
 				reviewsHtml += '<span class="stars">';
 				for (var c = 1; c <= 5; c++) {
 					reviewsHtml += '<i class="star';
@@ -45,11 +72,14 @@ $(document).ready(function(){
 					reviewsHtml += '"></i>';
 				};
 				reviewsHtml += '<span class="sr-only">rated '+finalReviewsData[keys[i]].score+' out of 5</span></span></dt>';
-				reviewsHtml += '<dd><h3>'+finalReviewsData[keys[i]].author+'</h3>';
+				reviewsHtml += '<dd><h3 class="reviewer-name">'+finalReviewsData[keys[i]].author+'</h3>';
 				reviewsHtml += '<p>'+finalReviewsData[keys[i]].content+'</p></dd>';
 			};
 			reviewsHtml += '</dl>';
 			$('#reviews').html(reviewsHtml);
+
+			// now maybe rearrange things, because designers
+			setReviewMarkupOrder();
 
 			if( currentPage > 1 ){
 				var pagination = '<div class="pagination" id="reviews-navigation">';

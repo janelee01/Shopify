@@ -1,14 +1,15 @@
 <div class="product-detail-panel">
-	<h2 class="has-divider">{{ detailTitle }}</h2>
-	<div class="default-content{% if product.metafields["global"][detailKey] != blank %} hide{% endif%}">
-		{{ parentCollection.metafields["global"][detailKey] }}
+	<h2 class="has-divider panel-toggle collapsed">{{ detailTitle }}</h2>
+	<div class="panel-content">
+		<div class="default-content{% if product.metafields["global"][detailKey] != blank %} hide{% endif%}">
+			{{ parentCollection.metafields["global"][detailKey] }}
+		</div>
+		{% for siblingProduct in parentCollection.products %}
+			{% if siblingsList contains siblingProduct.id and siblingProduct.metafields["global"][detailKey] != blank %}
+				<div class="sibling-content{% unless product.metafields["global"][detailKey] != blank and siblingProduct.id == product.id %} hide{% endunless %}" data-sibling="{{ siblingProduct.id }}">
+					{{ siblingProduct.metafields["global"][detailKey] }}
+				</div>
+			{% endif %}
+		{% endfor %}
 	</div>
-	{% for siblingProduct in parentCollection.products %}
-		{% if siblingsList contains siblingProduct.id and siblingProduct.metafields["global"][detailKey] != blank %}
-			<div class="sibling-content{% unless product.metafields["global"][detailKey] != blank and siblingProduct.id == product.id %} hide{% endunless %}" data-sibling="{{ siblingProduct.id }}">
-				<div style="padding-bottom: 20px; text-align: center;"><code>override content for {{ siblingProduct.title }}</code></div>
-				{{ siblingProduct.metafields["global"][detailKey] }}
-			</div>
-		{% endif %}
-	{% endfor %}
 </div>

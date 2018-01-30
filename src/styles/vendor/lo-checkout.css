@@ -396,17 +396,13 @@ hr.mini-divider {
     transition: all 0.2s ease-in-out;
   }
   .btn:focus, .btn:hover {
-    background: #30A6D8;
+    background: #30a6d8;
     color: #fff;
     -webkit-transition: all 0.1s ease-in-out;
     transition: all 0.1s ease-in-out;
   }
   .btn.btn-primary:hover {
     border-color: #00AEEF;
-  }
-  .btn.btn-success:hover {
-    border-color: #47a447;
-    background: #47a447;
   }
 }
 
@@ -1030,12 +1026,26 @@ body {
   font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.js .main .btn--disabled {
+  border-color: #cccccc;
+}
+
 .page--logo-main .main .logo {
   text-align: left;
 }
 
 .page--logo-main .main .logo img {
   width: 63px;
+}
+
+@media (max-width: 749px) {
+  .logo__image--medium {
+    max-height: 27px;
+  }
+}
+
+.order-summary-toggle {
+  border-bottom: 0;
 }
 
 .page--logo-main .breadcrumb {
@@ -1092,6 +1102,7 @@ body {
 .csspointerevents .main .field__input-wrapper--select::before {
   background-position: -1px center;
   width: 39px;
+  background-color: #fff;
 }
 
 .sidebar .order-summary__section--product-list .product-table {
@@ -1215,4 +1226,10 @@ body {
 
 .field__message--error {
   color: #FF6D6D;
+}
+
+@media (max-width: 749px) {
+  [data-step="thank-you"] .section {
+    padding-top: 0;
+  }
 }

@@ -207,34 +207,7 @@
 			}
 		}
 		.menu-toggle{
-			position: relative;
-			&:before,
-			&:after{
-				position: absolute;
-				right: 0;
-				top: 50%;
-				margin-top: 0;
-				display: block;
-				content: '';
-				width: 15px;
-				height: 1px;
-				background: $brand-blue;
-				@include transition(all .3s ease);
-			}
-			&:before{
-				@include rotate(135deg);
-			}
-			&:after{
-				@include rotate(225deg);
-			}
-			&.collapsed{
-				&:before{
-					@include rotate(0deg);
-				}
-				&:after{
-					@include rotate(90deg);
-				}
-			}
+			@include collapsing-panel-toggle;
 		}
 	}
 }

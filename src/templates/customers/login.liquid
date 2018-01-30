@@ -87,10 +87,11 @@
   </div>
 
   {% if shop.checkout.guest_login %}
+    <hr>
     <h2>{{ 'customer.login.guest_title' | t }}</h2>
 
     {% form 'guest_login' %}
-      <input type="submit" class="btn" value="{{ 'customer.login.guest_continue' | t }}">
+      <input type="submit" class="btn btn-block" value="{{ 'customer.login.guest_continue' | t }}">
     {% endform %}
   {% endif %}
 

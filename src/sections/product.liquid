@@ -48,7 +48,6 @@
 	<meta itemprop="brand" content="{{ product.vendor }}">
 	<meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
 	<meta itemprop="description" content="{{ product.description | strip_html | escape }}">
-	
 	<div class="gallery-container is-loading" id="product-galleries">
 		{% for siblingProduct in parentCollection.products %}
 			{% if siblingsList contains siblingProduct.id %}
@@ -92,14 +91,7 @@
 	{% endcomment %}
 	<div class="container-fluid">
 	  	<div class="row" id="product-main">
-		    <div class="col-sm-6">
-		    	<div id="product-identity">
-		    		<h1>{{ parentCollection.title }}</h1>
-		    		<p class="product-type-label">{{ product.metafields["global"]["short-description"] }}</p>
-		    		{{ parentCollection.description }}
-		    	</div>
-		    </div>
-	   		<div class="col-sm-6">
+	   		<div class="col-sm-6 col-sm-push-6">
 	      		<div id="product-configuration">
 
 					<div id="price-wrapper" data-price-wrapper>
@@ -173,7 +165,7 @@
 								<button
 								  type="submit"
 								  name="add"
-								  class="btn btn-lg btn-success"
+								  class="btn btn-lg"
 								  data-add-to-cart
 								  {% unless current_variant.available %}disabled="disabled"{% endunless %}>
 								    <span data-add-to-cart-text>
@@ -194,6 +186,21 @@
 				
 		     	</div>
 		    </div>
+		    <div class="col-sm-6 col-sm-pull-6">
+		    	<div id="product-identity">
+		    		<h1>{{ parentCollection.title }}</h1>
+		    		{%- unless parentCollection.metafields["global"]["short-description"] == blank -%}
+		    		<p class="product-type-label">{{ parentCollection.metafields["global"]["short-description"] }}</p>
+		    		{%- endunless -%}
+		    	</div>
+		    	<div id="product-description">
+		    		{{ parentCollection.description }}
+		    		{%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
+		    		<a href="#product-video" id="product-video-trigger">See what fits inside</a>
+		    		{%- endunless -%}
+		    	</div>
+		    </div>
+	   		
 		</div>
 	  	
 	  	{%- assign detailTitle = 'Overview' -%}
@@ -217,50 +224,56 @@
 	  	{% include 'product-detail-panel' %}
 
 	  	<div class="product-detail-panel">
-	  	  <h2 class="has-divider">Shipping, Returns, Exchanges</h2>
+	  	  <h2 class="has-divider panel-toggle collapsed">Shipping, Returns, Exchanges</h2>
+	  	  <div class="panel-content">
 	  	  {{ shop.metafields["global"]["shipping-returns-exchanges"] }}
+	  	  </div>
 	  	</div>
 
 		<div class="product-detail-panel">
-			<h2 class="has-divider">Customer Reviews</h2>
-			<div id="reviews"></div>
-			<div id="reviews-widget">
-				<div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
+			<h2 class="has-divider panel-toggle collapsed">Customer Reviews</h2>
+			<div class="panel-content">
+				<div id="reviews"></div>
+				<div id="reviews-widget">
+					<div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
+				</div>
+				<script>
+					var body = document.getElementsByTagName("BODY")[0];
+					var siblingsList = '{{ siblingsList }}';
+					var siblingIds = siblingsList.split('|');
+					var rawReviewsData = new Array;
+					var dataReceived = 0;
+					window.addEventListener("load", function(event) {
+					    for (var i = siblingIds.length - 1; i >= 0; i--) {
+					    	if( !siblingIds[i] ) continue;
+					    	var data = JSON.stringify(false);
+					    	var xhr = new XMLHttpRequest();
+					    	xhr.withCredentials = true;
+					    	xhr.addEventListener("readystatechange", function () {
+					    	  if (this.readyState === this.DONE) {
+					    	    rawReviewsData.push(JSON.parse(this.responseText));
+					    	    dataReceived++;
+					    	    if (dataReceived == siblingIds.length){
+					    	    	var event = new CustomEvent('reviews-received');
+					    	    	body.dispatchEvent(event);
+					    		}
+					    	  } 
+					    	});
+					    	xhr.open("GET", "https://api.yotpo.com/v1/widget/1BRcvEm4otuzCinl2NlZx7eeyApg3H6EPGJ0Zv74/products/"+siblingIds[i]+"/reviews.json?per_page=100");
+					    	xhr.send(data);
+					    }; 
+				  	});
+				</script>
 			</div>
-			<script>
-				var body = document.getElementsByTagName("BODY")[0];
-				var siblingsList = '{{ siblingsList }}';
-				var siblingIds = siblingsList.split('|');
-				var rawReviewsData = new Array;
-				var dataReceived = 0;
-				window.addEventListener("load", function(event) {
-				    for (var i = siblingIds.length - 1; i >= 0; i--) {
-				    	if( !siblingIds[i] ) continue;
-				    	var data = JSON.stringify(false);
-				    	var xhr = new XMLHttpRequest();
-				    	xhr.withCredentials = true;
-				    	xhr.addEventListener("readystatechange", function () {
-				    	  if (this.readyState === this.DONE) {
-				    	    rawReviewsData.push(JSON.parse(this.responseText));
-				    	    dataReceived++;
-				    	    if (dataReceived == siblingIds.length){
-				    	    	var event = new CustomEvent('reviews-received');
-				    	    	body.dispatchEvent(event);
-				    		}
-				    	  } 
-				    	});
-				    	xhr.open("GET", "https://api.yotpo.com/v1/widget/1BRcvEm4otuzCinl2NlZx7eeyApg3H6EPGJ0Zv74/products/"+siblingIds[i]+"/reviews.json?per_page=100");
-				    	xhr.send(data);
-				    }; 
-			  	});
-			</script>
 		</div>
 	  
 		{%- if parentCollection.metafields["global"]["press"] != blank -%}
 			<div class="product-detail-panel">
-				<h2 class="has-divider">Press</h2>
-				<div class="press">
-					{{ parentCollection.metafields["global"]["press"] }}
+				<h2 class="has-divider panel-toggle collapsed">Press</h2>
+				<div class="panel-content">
+					<div class="press">
+						{{ parentCollection.metafields["global"]["press"] }}
+					</div>
 				</div>
 			</div>
 		{%- endif -%}
@@ -286,6 +299,16 @@
 
 	</div>
 </div>
+
+{%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
+<script>
+	var video1Embed = '{{ parentCollection.metafields["global"]["product-video"] }}';
+</script>
+<div id="product-video">
+  <div id="product-video-container"></div>
+  <a href="#" class="panel-close"></a>
+</div>
+{%- endunless -%}
 
 {% schema %}
   {

@@ -9,11 +9,22 @@ body{
 	font-size: $font-size-base;
 	font-family: $font-family-base;
 }
+.js .main .btn--disabled{
+	border-color: #cccccc;
+}
 .page--logo-main .main .logo{
 	text-align: left;
 	img{
 		width: 63px;
 	}
+}
+@media (max-width: 749px){
+	.logo__image--medium{
+		max-height: 27px;
+	}
+}
+.order-summary-toggle{
+	border-bottom: 0;
 }
 .page--logo-main .breadcrumb{
 	margin-top: 40px;
@@ -60,6 +71,7 @@ body{
 .csspointerevents .main .field__input-wrapper--select::before{
 	background-position: -1px center;
 	width: 39px;
+	background-color: #fff;
 }
 .sidebar{
 	.order-summary__section--product-list .product-table{
@@ -158,4 +170,12 @@ body{
 }
 .field__message--error{
 	color: #FF6D6D;
+}
+
+[data-step="thank-you"]{
+	.section{
+		@media (max-width: 749px){
+			padding-top: 0;
+		}
+	}
 }

@@ -6,7 +6,7 @@
 		data-sibling="{{ siblingProduct.id }}">
 		{%- for image in siblingProduct.images -%}
 			{%- if image.alt contains 'swatch' -%}
-				<img src="{{ image.src }}" alt="{{ productTitleParts[2] | strip }} swatch for {{ productTitleParts[0] | strip }}">
+				<img src="{{ image.src | img_url }}" data-color-label="{{ productTitleParts[2] }}" alt="{{ productTitleParts[2] | strip }} swatch for {{ productTitleParts[0] | strip }}">
 			{%- endif -%}
 		{%- endfor -%}
 	</a>

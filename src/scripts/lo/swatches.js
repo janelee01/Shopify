@@ -41,7 +41,7 @@ $(document).ready(function(){
 	    });
 
 	    // replace chosen color
-	    $('#current-option span').text( $(this).find('img').attr('alt') );
+	    $('#current-option span').text( $(this).find('img').data('color-label') );
 
 	    // replace options in our Size selector. hard coded for single option variants
 	    var newVariants = siblingsJson[siblingId].variants;

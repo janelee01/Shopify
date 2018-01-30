@@ -1,3 +1,89 @@
+ul.messages {
+    @include clean;
+    text-align: centerl
+}
+
+ul.messages>li {
+    margin: 0;
+    padding: 0 !important
+}
+
+ul.messages>li ul {
+    text-transform: none;
+    list-style: none;
+    
+    margin: 0;
+    padding: 0;
+    font-size: 16px
+}
+
+ul.messages>li ul li {
+    margin: 0;
+    padding: 15px;
+    
+}
+
+ul.messages>li ul li a {
+    color: #FFF;
+    text-decoration: underline
+}
+
+ul.messages>li ul li a:hover {
+    text-decoration: none
+}
+
+ul.messages {
+    padding: 15px;
+    margin-bottom: 22px;
+    border: 1px solid transparent;
+    border-radius: 0
+}
+
+ul.messages h4 {
+    margin-top: 0;
+    color: inherit
+}
+
+ul.messages .alert-link {
+    font-weight: bold
+}
+
+ul.messages>p,ul.messages>ul {
+    margin-bottom: 0
+}
+
+ul.messages>p+p {
+    margin-top: 5px
+}
+
+ul.messages>li.success-msg li {
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+    color: #fff
+}
+
+ul.messages>li.success-msg li hr {
+    border-top-color: #4cae4c
+}
+
+ul.messages>li.success-msg li .alert-link {
+    color: #e6e6e6
+}
+
+ul.messages>li.error-msg li {
+    background-color: #d9534f;
+    border-color: #d9534f;
+    color: #fff
+}
+
+ul.messages>li.error-msg li hr {
+    border-top-color: #d43f3a
+}
+
+ul.messages>li.error-msg li .alert-link {
+    color: #e6e6e6
+}
+
 #start-a-return {
 
     #left-column {
@@ -8,10 +94,8 @@
 
         a {
             display: block;
-            font-family: "Proxima Nova", sans-serif;
             font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            
             transition: .3s ease;
 
             span {
@@ -36,21 +120,21 @@
     }
 
     #returns-find-order-form {
-        padding-left: 150px;
-        padding-bottom: 200px;
+        // padding-left: 150px;
+        // padding-bottom: 200px;
 
-        @media ( max-width: 1200px ) {
-            padding-left: 80px;
-            padding-bottom: 150px;
-        }
+        // @media ( max-width: 1200px ) {
+        //     padding-left: 80px;
+        //     padding-bottom: 150px;
+        // }
 
-        @media ( max-width: 1029px ) {
-            padding-left: 0;
-            padding-bottom: 100px;
-        }
+        // @media ( max-width: 1029px ) {
+        //     padding-left: 0;
+        //     padding-bottom: 100px;
+        // }
 
         h2 {
-            margin-top: 0;
+            margin-top: 0; 
         }
 
         p {
@@ -63,15 +147,9 @@
         .field-note {
             color: #666;
             opacity: .5;
-            padding-top: 31px;
-            padding-left: 15px;
-
-            @media ( max-width: 768px ) {
-                padding-top: 0;
-                padding-left: 0;
-                padding-bottom: 20px;
-            }
-
+            margin-bottom: 20px;
+            line-height: 1;
+            font-size: 14px;
             a {
                 text-decoration: underline;
             }
@@ -83,14 +161,6 @@
 #return-selector {
 
     #return-order-selector {
-        max-width: 800px;
-        margin: 0 auto;
-        padding-bottom: 100px;
-
-        @media ( max-width: 768px ) {
-            margin: 0 15px;
-        }
-
         .selector-heading {
             font-family: "Garamond", serif;
             font-size: 24px;
@@ -101,54 +171,30 @@
         }
 
         .selector-order-details {
-            border-top: 1px solid #EAEAEA;
-            border-bottom: 1px solid #EAEAEA;
             @include clearfix;
-            padding-top: 20px;
             padding-bottom: 20px;
-
-            .order-number {
-                width: 50%;
-                float: left;
-                font-family: "Proxima Nova", sans-serif;
-                font-size: 24px;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                color: #333333;
-
-                @media ( max-width: 540px ) {
-                    width: auto;
-                    float: none;
-                }
-            }
-
             .order-status {
-                width: 50%;
-                float: left;
-                @include clearfix;
                 text-align: right;
-
-                @media ( max-width: 540px ) {
-                    width: auto;
-                    float: none;
-                    text-align: left;
-                    padding-top: 10px;
-                }
-
                 .icon {
                     display: inline-block;
                     position: relative;
-                    top: -5px;
-                    margin-right: 15px;
+                    top: -4px; 
+                    margin-right: 5px;
+                    width: 20px;
+                    @media (min-width: $screen-md) {
+                        width: auto;
+                        margin-right: 15px;
+                        top: -5px; 
+                    }
                 }
 
                 .status-label {
-                    font-family: "Proxima Nova", sans-serif;
-                    font-size: 24px;
-                    text-transform: uppercase;
-                    letter-spacing: 2px;
-                    color: #333333;
+                    font-size: 18px;
                     display: inline-block;
+                    text-transform: capitalize;
+                    @media (min-width: $screen-md) {
+                        font-size: 24px;
+                    }
                 }
             }
         }
@@ -157,10 +203,7 @@
             padding-top: 10px;
             padding-bottom: 10px;
             border-bottom: 1px solid #EAEAEA;
-            font-family: "Proxima Nova", sans-serif;
             font-size: 12px;
-            letter-spacing: 1.12px;
-            color: #333333;
             text-transform: uppercase;
             line-height: 30px;
             @include clearfix;
@@ -205,8 +248,7 @@
                 }
             }
 
-            &.selected {
-                border-color: #333333;
+            &.selected {b
 
                 .selection-check-box-inner {
                     opacity: 1;
@@ -236,9 +278,8 @@
 
                             h2 {
                                 margin: 0 0 3px;
-                                font-family: "Proxima Nova", sans-serif;
                                 font-size: 16px;
-                                letter-spacing: 1.5px;
+                                
                                 color: #333;
                                 text-transform: uppercase;
                             }
@@ -252,9 +293,8 @@
                     .mobile-sku {
                         display: none;
                         margin: 0;
-                        font-family: "Proxima Nova", sans-serif;
                         font-size: 16px;
-                        letter-spacing: 1.5px;
+                        
                         color: #333;
                         text-transform: uppercase;
                         padding-top: 15px;
@@ -268,9 +308,8 @@
                 .col-sku {
                     h2 {
                         margin: 0;
-                        font-family: "Proxima Nova", sans-serif;
                         font-size: 16px;
-                        letter-spacing: 1.5px;
+                        
                         color: #333;
                         text-transform: uppercase;
                     }

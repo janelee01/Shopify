@@ -65,6 +65,8 @@
 			@media (min-width: $screen-sm) {
 				font-size: 20px;
 			}
+		}
+		a.product-name{
 			&:hover{
 				text-decoration: none;
 				color: $brand-blue;

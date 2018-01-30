@@ -393,4 +393,49 @@ $(document).ready(function() {
 	    	});
 	    }
 	});
+
+	/*
+	 Products
+	 */
+	var setProductTitleLocation = function(){
+		if( $(window).width() < 768 ){
+			if( $('#product-galleries').prev('#product-identity').length < 1 ){
+				$('#product-identity').detach().insertBefore('#product-galleries');
+			}
+		}else if( $('#product-description').prev('#product-identity').length < 1 ){
+			$('#product-identity').detach().insertBefore('#product-description');
+		}
+	}
+	setProductTitleLocation();
+	$(window).resize(function(){
+		setProductTitleLocation();
+	});
+	
+	$('.product-detail-panel h2').on('click', function(e){
+		if( $(window).width() < LS.desktopBreakpoint ){
+			$(this).toggleClass('collapsed');
+			if( !$(this).hasClass('collapsed') ){
+				$(this).next('.panel-content').slideDown().addClass('is-shown');
+			}else{
+				$(this).next('.panel-content').slideUp().removeClass('is-shown');
+			}
+		}
+	});
+
+	// Product video
+	$('#product-video-trigger').detach().insertAfter('#product-description p:first-child');
+	$('body').on('click', '#product-video-trigger', function(e){
+		e.preventDefault();
+		LS.productVideoOpen(1); // button always shows the first video
+	});
+	$('body').on('click', '#product-video .panel-close', function(e){
+		e.preventDefault();
+		LS.productVideoClose();
+	});
+	$(document).keyup(function(e) {
+	    if (e.keyCode == 27) { // escape key maps to keycode `27`
+	    	LS.productVideoClose();
+	    }
+	});
+	
 });

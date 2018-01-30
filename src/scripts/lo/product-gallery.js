@@ -15,8 +15,8 @@ $(document).ready(function(){
 			hover: false, // must be false to allow clickable slides on
 			animation: animation_speed,
 			easing: 'easeInOutCubic',
-			prev: '#gallery-' + $(this).data('color-id') + '-prev',
-			next: '#gallery-' + $(this).data('color-id') + '-next',
+			prev: '#gallery-' + $(this).data('sibling') + '-prev',
+			next: '#gallery-' + $(this).data('sibling') + '-next',
 			vertical_center: false,
 			no_css: true
 		});
