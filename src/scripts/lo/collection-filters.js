@@ -1,6 +1,12 @@
 $(document).ready(function(){
+	var sessionKey = 'lo'+$('.page-header').data('collection');
+	var savedState = sessionStorage.getItem(sessionKey);
+	if( savedState ){
+		$('#MainContent').html(savedState);
+	}
+
 	var $activeFilters = $('#active-filters');
-	var $activeFiltersList = $('[data-active-filters]');
+	// var $activeFiltersList = $('[data-active-filters]');
 	$('.filter-toggle').on('click', function(e){
 	    e.preventDefault();
 	    $('.filter-options').hide();
@@ -21,50 +27,68 @@ $(document).ready(function(){
 	    // assume nothing matches
 	    $('.f-hook').addClass('hidden');
 	    $('#filters-collapse').remove();
+	    $('#filter-alert').hide();
 
 	    // rebuild arrays of selections
-	    var activeTextArr = [];
-	    var activeMatchAllArr = [];
-	    var activeMatchAnyArr = [];
-	    $('.filter-option.selected').each(function(){
-	    	activeTextArr.push($(this).text());
-	    	if( $(this).hasClass('is-price-range') ){
-	    		activeMatchAnyArr.push($(this).data('hook'));
-	    	}else{
-	    		activeMatchAllArr.push($(this).data('hook'));
+	    var allActiveFilters = [];
+	    $('.filter-options').each(function(){
+	    	var $filterGroup = $(this);
+	    	if( $filterGroup.find('.filter-option.selected').length > 0 ){
+	    		var activeGroupFilters = [];
+	    		$filterGroup.find('.filter-option.selected').each(function(){
+	    			activeGroupFilters.push($(this).data('hook'));
+	    		});
+	    		allActiveFilters.push(activeGroupFilters);
 	    	}
 	    });
 
 	    // update active filter list
-	    $activeFiltersList.text(activeTextArr.join(', '));
+	    // used to have a list of active filters but removed per Derek
+	    // var activeTextArr = [];
+	    // $('.filter-option.selected').each(function(){
+	    // 	activeTextArr.push($(this).text()); 
+	    // }
+	    // $activeFiltersList.text(activeTextArr.join(', '));
 	    
-	    if( activeTextArr.length < 1 ){
+	    if( $('.filter-option.selected').length < 1 ){
 	    	// no active filters, so show everything
 	    	$('.page-header').removeClass('has-active-filters');
 	    	$('.f-hook').removeClass('hidden');
 	    	$('.pagination').show();
+	    	sessionStorage.removeItem(sessionKey);
 	    }else{
-	    	// hide pagination while filtering for now
+	    	// hide pagination while filtering
 	    	$('.pagination').hide();
 
 	    	// show results
-	    	var matchAllSelector = activeMatchAllArr.join('');
-	    	if( activeMatchAnyArr.length ){
-	    		// combine our Match All selector with each of our Match Any (price) selectors
-	    		// "Weekend bags that will hold tablets and are priced between 0 and 200" ...
-	    		// .f-weekender.f-tablet.p-0-100
-	    		// .f-weekender.f-tablet.p-100-200
-	    		for (var i = 0; i < activeMatchAnyArr.length; i++) {
-	    			$( matchAllSelector + activeMatchAnyArr[i] ).removeClass('hidden');
+	    	$('.f-hook').each(function(){
+	    		var itemClasses = $(this).attr('class').split(' ');
+	    		var groupMatches = 0;
+	    		// loop over each filter group
+	    		for (var f = 0; f < allActiveFilters.length; f++) {
+	    			// loop over each option in the group
+	    			for (var k = 0; k < allActiveFilters[f].length; k++) {
+	    				// if this option appears somewhere in the product's classes, we've matched the group
+	    				if( itemClasses.indexOf(allActiveFilters[f][k]) > -1 ){
+	    					groupMatches++;
+	    					break; // don't over count
+	    				}
+	    			}
 	    		};
-	    	}else{
-	    		// no price filters in play, so just the Match All selector
-	    		// .f-weekender.f-tablet
-	    		$(matchAllSelector).removeClass('hidden');
-	    	}
+	    		// compare the number of matches we found to the number of groups with active filters
+	    		// if they're equal then this item satisfies each group requirement somehow
+ 				if( groupMatches == allActiveFilters.length ){
+	    			$(this).removeClass('hidden');
+	    		}
+	    	});
 	    	
 	    	// show our active filters element
 	    	$('.page-header').addClass('has-active-filters');
+
+	    	// no results
+	    	if( $('.f-hook').length == $('.f-hook.hidden').length ){
+	    		$('#filter-alert').fadeIn(); 
+	    	}
 
 	    	// mobile button to get the filters out of the way
 	    	if( $(window).width() < LS.desktopBreakpoint ){
@@ -91,10 +115,21 @@ $(document).ready(function(){
 	    $('.product-family').fadeIn();
 	    $('.pagination').show();
 	    $('#filters-collapse').hide();
+	    $('#filter-alert').hide();
+	    sessionStorage.removeItem(sessionKey);
 	});
 	$('body').on('click', '#filters-collapse', function(e){
 	    e.preventDefault();
 	    $('.filter-toggle').removeClass('active');
 	    $('#filters-panel').hide();
 	});
+
+	// save the state on exit
+	// doing this on filter clicks can catch product families at 0% opacity while they fade in
+	// the animations should all be done at this point
+	$(window).on('unload', function(){
+		if( $('.page-header').hasClass('has-active-filters') ){
+			sessionStorage.setItem(sessionKey, $('#MainContent').html());
+		}
+	})
 });

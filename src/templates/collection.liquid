@@ -36,15 +36,17 @@
 {%- assign have100to200 = false -%}
 {%- assign have200to300 = false -%}
 {%- assign have300to400 = false -%}
+{%- assign have400to500 = false -%}
 {%- for product in collection.products -%}
   {%- assign thisPrice = product.price | divided_by: 100 -%}
   {%- if thisPrice <= 100 -%}{%- assign have0to100 = true -%}{%- endif -%}
   {%- if thisPrice >= 100 and thisPrice <= 200 -%}{%- assign have100to200 = true -%}{%- endif -%}
   {%- if thisPrice >= 200 and thisPrice <= 300 -%}{%- assign have200to300 = true -%}{%- endif -%}
   {%- if thisPrice >= 300 and thisPrice <= 400 -%}{%- assign have300to400 = true -%}{%- endif -%}
+  {%- if thisPrice >= 400 and thisPrice <= 500 -%}{%- assign have400to500 = true -%}{%- endif -%}
 {%- endfor -%}
 
-  <header class="page-header is-collection">
+  <header class="page-header is-collection" data-collection="{{ collection.id }}">
     <h1 class="has-bar">{{ collection.title }}</h1>
     <div>{% comment%} both .has-bar and #filters are inline-block, so we need a newline somehow {% endcomment %}
       <div id="filters">
@@ -57,10 +59,11 @@
       </div>
       <div id="filters-panel">
         <ul class="filter-options" style="display: none" id="price-filters">
-          {%- if have0to100 -%}<li><button class="filter-option is-price-range" data-hook=".p-0-100">$0.00 - $100.00</button></li>{%- endif -%}
-          {%- if have100to200 -%}<li><button class="filter-option is-price-range" data-hook=".p-100-200">$100.00 - $200.00</button></li>{%- endif -%}
-          {%- if have200to300 -%}<li><button class="filter-option is-price-range" data-hook=".p-200-300">$200.00 - $300.00</button></li>{%- endif -%}
-          {%- if have300to400 -%}<li><button class="filter-option is-price-range" data-hook=".p-300-400">$300.00 - $400.00</button></li>{%- endif -%}
+          {%- if have0to100 -%}<li><button class="filter-option is-price-range" data-hook="p-0-100">$0.00 - $100.00</button></li>{%- endif -%}
+          {%- if have100to200 -%}<li><button class="filter-option is-price-range" data-hook="p-100-200">$100.00 - $200.00</button></li>{%- endif -%}
+          {%- if have200to300 -%}<li><button class="filter-option is-price-range" data-hook="p-200-300">$200.00 - $300.00</button></li>{%- endif -%}
+          {%- if have300to400 -%}<li><button class="filter-option is-price-range" data-hook="p-300-400">$300.00 - $400.00</button></li>{%- endif -%}
+          {%- if have400to500 -%}<li><button class="filter-option is-price-range" data-hook="p-400-500">$400.00 - $500.00</button></li>{%- endif -%}
         </ul>
         {%- if functionFilters != blank -%}
           <ul class="filter-options" style="display: none" id="function-filters">{{ functionFilters }}</ul>
@@ -92,7 +95,8 @@
             {%- assign thisPrice = product.price | divided_by: 100 -%}
             {%- if thisPrice >= 100 and thisPrice <= 200 -%}{%- assign priceClass = 'p-100-200' -%}{%- endif -%}
             {%- if thisPrice >= 200 and thisPrice <= 300 -%}{%- assign priceClass = 'p-200-300' -%}{%- endif -%}
-            {%- if thisPrice >= 300 and thisPrice <= 400 -%}{%- assign priceClass = 'p-300-300' -%}{%- endif -%}
+            {%- if thisPrice >= 300 and thisPrice <= 400 -%}{%- assign priceClass = 'p-300-400' -%}{%- endif -%}
+            {%- if thisPrice >= 400 and thisPrice <= 500 -%}{%- assign priceClass = 'p-400-500' -%}{%- endif -%}
             <div class="col-xs-6 col-sm-3 f-hook{% for tag in product.tags %} f-{{ tag | handleize }}{% endfor %} {{ priceClass }}">
               {% include 'product-item' with product %}
             </div>
@@ -101,6 +105,7 @@
       </div>
     </div>
     {%- endfor -%}
+    <div id="filter-alert" style="display: none" class="alert alert-warning">No products match your filter selections.</div>
     {% if paginate.pages > 1 %}
       {% include 'pagination' %}
     {% endif %}
