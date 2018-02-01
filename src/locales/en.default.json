@@ -40,10 +40,11 @@
       }
     },
     "search": {
-      "no_results_html": "No matches for \"{{ terms }}\"",
-      "results_for_html": "Matches for \"{{ terms }}\"",
+      "no_results_html": "Your search for <span class=\"highlighted\">\"{{ terms }}\"</span> did not match any products",
+      "result_for_html": "We've found <span class=\"highlighted\">1</span> product for <span class=\"highlighted\">\"{{ terms }}\"</span>",
+      "results_for_html": "We've found <span class=\"highlighted\">{{ count }}</span> products for <span class=\"highlighted\">\"{{ terms }}\"</span>",
       "title": "Search",
-      "placeholder": "Search Products",
+      "placeholder": "Search products",
       "submit": "Search"
     }
   },

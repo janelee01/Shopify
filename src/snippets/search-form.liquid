@@ -1,3 +1,7 @@
+{%- assign ph = 'general.search.placeholder' | t -%}
+{%- if placeholder != blank -%}
+  {%- assign ph = placeholder -%}
+{%- endif -%}
 <form action="/search" method="get" role="search">
   <label for="{{ fieldId }}" class="sr-only">
     {{ 'general.search.placeholder' | t }}
@@ -6,8 +10,8 @@
          name="q"
          id="{{ fieldId }}"
          class="form-control"
-         value="{{ search.terms | escape }}"
-         placeholder="{{ 'general.search.placeholder' | t }}">
+         value=""
+         placeholder="{{ ph }}">
   <input type="hidden" name="type" value="product" />
   <button type="submit" class="btn">
     <span class="sr-only">{{ 'general.search.submit' | t }}</span>
