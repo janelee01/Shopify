@@ -266,15 +266,18 @@
 	}
 }
 .selector-wrapper{
-	border-top: solid 1px #e6e6e6;
-	padding-top: 16px;
-	margin: 25px 0 20px;
+	margin: 0 0 20px;
 	label{
 		display: block;
 		font-weight: 400;
 		line-height: 1;
 		margin-bottom: 10px;
 	}
+}
+#current-option{
+	margin-bottom: 25px;
+	padding-bottom: 16px;
+	border-bottom: solid 1px #e6e6e6;
 }
 #quantity{
 	width: 66px;

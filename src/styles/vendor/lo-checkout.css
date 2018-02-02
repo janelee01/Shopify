@@ -155,7 +155,7 @@ h6, .h6 {
   margin-bottom: 40px;
   padding-bottom: 20px;
   color: #111;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (min-width: 1030px) {
@@ -178,7 +178,7 @@ h6, .h6 {
 
 .has-bar {
   line-height: 1;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 30px;
   display: inline-block;
   position: relative;
@@ -209,7 +209,7 @@ h6, .h6 {
 
 b, strong {
   font-weight: normal;
-  font-family: "Circular-Pro-Bold", "ProximaNovaBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .shop h2 {
@@ -247,7 +247,7 @@ p {
 }
 
 ul, ol {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 img {
@@ -257,7 +257,7 @@ img {
 dl.faqs {
   margin: 0 10px;
   padding: 0;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (min-width: 1030px) {
@@ -267,7 +267,7 @@ dl.faqs {
 }
 
 dl.faqs dt {
-  font-family: "Circular-Pro-Bold", "ProximaNovaBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 20px;
   color: #111;
   font-weight: 400;
@@ -379,7 +379,7 @@ hr.mini-divider {
 }
 
 .btn {
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #00AEEF;
   border: solid 1px #00AEEF;
   color: #FFF;
@@ -445,7 +445,7 @@ hr.mini-divider {
   font-size: 16px;
   padding: 0;
   line-height: 1.875;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .btn.btn-text:hover {
@@ -458,7 +458,7 @@ hr.mini-divider {
   font-size: 15px;
   color: #646464;
   border-color: #e6e6e6;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .btn.variant-option.selected {
@@ -541,7 +541,7 @@ hr.mini-divider {
 }
 
 .callout {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #414B56;
@@ -554,7 +554,7 @@ hr.mini-divider {
   padding: 10px 30px 11px;
   background: #00AEEF;
   font-size: 14px;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 1px;
   z-index: 1000;
   color: #FFF;
@@ -634,7 +634,7 @@ hr.mini-divider {
 }
 
 .low-stock-warning {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #7f7f7f;
   font-size: 12px;
 }
@@ -814,13 +814,13 @@ blockquote p {
 
 blockquote .quote-title {
   text-transform: uppercase;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 1px;
 }
 
 blockquote .quote-footer {
   font-size: 14px;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #414B56;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -840,7 +840,7 @@ blockquote .author-title {
 }
 
 .pager {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
 
@@ -941,7 +941,7 @@ blockquote .author-title {
 }
 
 #habla_beta_container_do_not_rely_on_div_classes_or_names .hbl_pal_main_font_family {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 .embed-container {
@@ -1023,7 +1023,7 @@ blockquote .author-title {
 
 body {
   font-size: 16px;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .js .main .btn--disabled {
@@ -1080,7 +1080,7 @@ body {
 }
 
 .main h2 {
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .main .input-checkbox {
@@ -1141,7 +1141,7 @@ body {
 }
 
 .sidebar .order-summary__emphasis {
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-size: 18px;
   line-height: 20px;

@@ -19,6 +19,8 @@ $ls-navbar-height-xs: 54px;
 $ls-navbar-height: 64px;
 $page-nav-height-xs: 46px;
 $page-nav-height: 77px;
+$local-nav-height-xs: 60px;
+$local-nav-height: 90px;
 
 $mobile-gutter: 28px;
 
@@ -62,11 +64,11 @@ $state-danger-text:              #fff;
 $state-danger-bg:                $brand-danger;
 $state-danger-border:            $brand-danger; 
 
-$font-family-sans-serif: "Circular-Pro-Book","ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-sans-serif: "Circular-Pro-Book","Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-serif: "Adobe Garamond Pro", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
 
-$font-family-bold: "Circular-Pro-Bold","ProximaNovaBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-family-semibold: "Circular-Pro-Medium","ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+$font-family-bold: "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-semibold: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; 
 $headings-color: $gray-dark;
 
 $font-size-base:          16px;

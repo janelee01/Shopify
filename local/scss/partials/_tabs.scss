@@ -3,15 +3,6 @@
 	padding-bottom: 25px;
 	border-bottom: solid 1px #e6e6e6;
 	position: relative;
-	.active-bar{
-		display: block;
-		position: absolute;
-		left: 0;
-		bottom: -1px;
-		height: 2px;
-		background: $brand-blue;
-		@include transition(all .3s ease-out);
-	}
 	a{
 		margin-right: 30px;
 		color: #888;
@@ -27,6 +18,15 @@
 			font-size: 24px;
 		}
 	}
+}
+.active-bar{
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: -1px;
+	height: 2px;
+	background: $brand-blue;
+	@include transition(all .3s ease-out);
 }
 .tab-panel{
 	padding-top: 40px;

@@ -1,6 +1,6 @@
 <div class="product-detail-panel">
-	<h2 class="has-divider panel-toggle collapsed">{{ detailTitle }}</h2>
-	<div class="panel-content">
+	<h2 data-collapse-toggle class="has-divider panel-toggle collapsed">{{ detailTitle }}</h2>
+	<div data-collapse-panel class="panel-content">
 		<div class="default-content{% if product.metafields["global"][detailKey] != blank %} hide{% endif%}">
 			{{ parentCollection.metafields["global"][detailKey] }}
 		</div>

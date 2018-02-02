@@ -399,7 +399,7 @@ html {
 }
 
 body {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.875;
   color: #111;
@@ -5684,7 +5684,7 @@ h6, .h6 {
   margin-bottom: 40px;
   padding-bottom: 20px;
   color: #111;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (min-width: 1030px) {
@@ -5707,7 +5707,7 @@ h6, .h6 {
 
 .has-bar {
   line-height: 1;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 30px;
   display: inline-block;
   position: relative;
@@ -5738,7 +5738,7 @@ h6, .h6 {
 
 b, strong {
   font-weight: normal;
-  font-family: "Circular-Pro-Bold", "ProximaNovaBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .shop h2 {
@@ -5776,7 +5776,7 @@ p {
 }
 
 ul, ol {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 img {
@@ -5786,7 +5786,7 @@ img {
 dl.faqs {
   margin: 0 10px;
   padding: 0;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (min-width: 1030px) {
@@ -5796,7 +5796,7 @@ dl.faqs {
 }
 
 dl.faqs dt {
-  font-family: "Circular-Pro-Bold", "ProximaNovaBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 20px;
   color: #111;
   font-weight: 400;
@@ -5908,7 +5908,7 @@ hr.mini-divider {
 }
 
 .btn {
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #00AEEF;
   border: solid 1px #00AEEF;
   color: #FFF;
@@ -5974,7 +5974,7 @@ hr.mini-divider {
   font-size: 16px;
   padding: 0;
   line-height: 1.875;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .btn.btn-text:hover {
@@ -5987,7 +5987,7 @@ hr.mini-divider {
   font-size: 15px;
   color: #646464;
   border-color: #e6e6e6;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .btn.variant-option.selected {
@@ -6070,7 +6070,7 @@ hr.mini-divider {
 }
 
 .callout {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #414B56;
@@ -6083,7 +6083,7 @@ hr.mini-divider {
   padding: 10px 30px 11px;
   background: #00AEEF;
   font-size: 14px;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 1px;
   z-index: 1000;
   color: #FFF;
@@ -6163,7 +6163,7 @@ hr.mini-divider {
 }
 
 .low-stock-warning {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #7f7f7f;
   font-size: 12px;
 }
@@ -6343,13 +6343,13 @@ blockquote p {
 
 blockquote .quote-title {
   text-transform: uppercase;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 1px;
 }
 
 blockquote .quote-footer {
   font-size: 14px;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #414B56;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -6369,7 +6369,7 @@ blockquote .author-title {
 }
 
 .pager {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
 
@@ -6470,7 +6470,7 @@ blockquote .author-title {
 }
 
 #habla_beta_container_do_not_rely_on_div_classes_or_names .hbl_pal_main_font_family {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 .embed-container {
@@ -6780,7 +6780,7 @@ blockquote .author-title {
 #site-header {
   padding-bottom: 12px;
   padding-top: 12px;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
   position: fixed;
@@ -7069,7 +7069,7 @@ blockquote .author-title {
   color: #111;
   font-weight: 400;
   font-size: 27px;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: block;
   margin-bottom: 35px;
 }
@@ -7128,7 +7128,7 @@ blockquote .author-title {
   height: 58px;
   width: 100%;
   font-size: 18px;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -7221,7 +7221,7 @@ blockquote .author-title {
 
 .footer-menu .menu-title {
   font-size: 20px;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 10px;
   margin-bottom: 28px;
 }
@@ -7282,7 +7282,7 @@ blockquote .author-title {
 }
 
 #copyright {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #111;
   font-size: 15px;
   margin-bottom: 29px;
@@ -7571,7 +7571,7 @@ blockquote .author-title {
 .feature-subtitle {
   margin: 0;
   text-transform: uppercase;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   letter-spacing: 1px;
   color: #414B56;
@@ -7601,7 +7601,7 @@ blockquote .author-title {
 
 .feature-price {
   margin: 25px 0;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -7667,7 +7667,7 @@ blockquote .author-title {
 }
 
 .product-grid .product .title {
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
   line-height: 1;
   margin: 0 0 8px;
@@ -7710,7 +7710,7 @@ blockquote .author-title {
 }
 
 .product-grid .price {
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   color: #111;
   line-height: 12px;
@@ -7729,7 +7729,7 @@ blockquote .author-title {
 }
 
 .product-grid .old-price {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 11px;
   color: #646464;
   line-height: 12px;
@@ -8247,7 +8247,7 @@ blockquote .author-title {
 
 .image-panel .title {
   color: #FFF;
-  font-family: "Circular-Pro-Bold", "ProximaNovaBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.1;
   letter-spacing: 2px;
   font-size: 100%;
@@ -8256,14 +8256,14 @@ blockquote .author-title {
 .image-panel .subtitle {
   color: #FFF;
   text-transform: uppercase;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 2px;
   font-size: 40%;
 }
 
 .image-panel .description {
   font-size: 53%;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #FFF;
   position: relative;
 }
@@ -8274,7 +8274,7 @@ blockquote .author-title {
 }
 
 .image-panel .link a {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border-bottom: solid 1px #fff;
   padding-bottom: 2px;
   display: inline-block;
@@ -8475,7 +8475,7 @@ blockquote .author-title {
   background: #f8f8f8;
   padding: 30px 0;
   color: #414B56;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
 
@@ -8505,7 +8505,7 @@ blockquote .author-title {
 }
 
 .comparison tbody td {
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .comparison tbody th {
@@ -8601,7 +8601,7 @@ blockquote .author-title {
   height: 100%;
   z-index: 10;
   color: #FFF;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 1px;
   text-align: center;
   padding: 0;
@@ -8758,7 +8758,7 @@ blockquote .author-title {
 .sbs-color,
 .sbs-link {
   color: #414B56;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
   margin-bottom: 4vw;
   line-height: 1;
@@ -8801,7 +8801,7 @@ blockquote .author-title {
 }
 
 .sbs-title {
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 100%;
@@ -9035,7 +9035,7 @@ blockquote .author-title {
 }
 
 .section-content .title {
-  font-family: "Circular-Pro-Bold", "ProximaNovaBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 25px;
   line-height: 1.1;
   letter-spacing: 2px;
@@ -9050,13 +9050,13 @@ blockquote .author-title {
 
 .section-content .subtitle {
   text-transform: uppercase;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 2px;
 }
 
 .section-content .description {
   font-size: 19px;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: relative;
 }
 
@@ -9206,7 +9206,7 @@ blockquote .author-title {
 }
 
 .newsletter .gfield .gfield_label {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /*Newsletter - Vertically Align - Middle*/
@@ -9296,7 +9296,7 @@ blockquote .author-title {
 }
 
 #newsletter-prompt p {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #111;
   margin-bottom: 20px;
 }
@@ -9344,7 +9344,7 @@ blockquote .author-title {
   padding-right: 60px;
   height: 58px;
   background: #f4f4f4;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   padding-left: 15px;
   -webkit-box-shadow: none;
@@ -9436,17 +9436,6 @@ blockquote .author-title {
   position: relative;
 }
 
-.tab-headings .active-bar {
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  height: 2px;
-  background: #00AEEF;
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-}
-
 .tab-headings a {
   margin-right: 30px;
   color: #888;
@@ -9464,6 +9453,17 @@ blockquote .author-title {
     margin-right: 40px;
     font-size: 24px;
   }
+}
+
+.active-bar {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  background: #00AEEF;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .tab-panel {
@@ -9666,7 +9666,7 @@ blockquote .author-title {
   margin-bottom: 40px;
   padding-bottom: 20px;
   color: #111;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (min-width: 1030px) {
@@ -9776,7 +9776,7 @@ blockquote .author-title {
 .entry-title {
   margin: 0;
   font-size: 14px;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
@@ -9795,7 +9795,7 @@ blockquote .author-title {
 .banner .entry-title {
   font-size: 24px;
   line-height: 30px;
-  font-family: "Circular-Pro-Bold", "ProximaNovaBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -10067,7 +10067,7 @@ blockquote .author-title {
   margin: 0;
   font-size: 50px;
   line-height: 60px;
-  font-family: "Circular-Pro-Bold", "ProximaNovaBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .entry-header .excerpt {
@@ -10319,7 +10319,7 @@ blockquote .author-title {
 }
 
 #m-variation .excerpt {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 26px;
   margin-bottom: 28px;
@@ -10356,7 +10356,7 @@ blockquote .author-title {
   font-size: 13px !important;
   line-height: 20px !important;
   color: #111 !important;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   text-align: left;
 }
@@ -10407,7 +10407,7 @@ blockquote .author-title {
 .shogun-root blockquote {
   font-size: 22px;
   line-height: 30px;
-  font-family: "Circular-Pro-Bold", "ProximaNovaBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 0;
 }
 
@@ -10550,7 +10550,7 @@ blockquote .author-title {
 .post-edit-link {
   text-transform: uppercase;
   color: #7f7f7f;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #00AEEF;
   letter-spacing: 1px;
 }
@@ -10572,7 +10572,7 @@ blockquote .author-title {
 }
 
 .page-testimonials .story-blocks .story-block-content {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #414B56;
 }
 
@@ -10642,18 +10642,6 @@ blockquote .author-title {
   outline: none;
 }
 
-.faq dt {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #414B56;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
-  font-weight: 400;
-}
-
-.faq dd {
-  margin-bottom: 30px;
-}
-
 .cms-press h2 {
   text-transform: uppercase;
   text-align: center;
@@ -10676,6 +10664,50 @@ blockquote .author-title {
   .cms-press .reviews .col-sm-4:nth-child(3n+1) {
     clear: left;
   }
+}
+
+nav.local {
+  background: #fafafa;
+  padding: 18px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  z-index: 1010;
+  width: 100%;
+  top: 54px;
+}
+
+@media (min-width: 1030px) {
+  nav.local {
+    padding: 30px 0;
+    top: 64px;
+  }
+}
+
+nav.local a {
+  color: #646464;
+  margin: 0 11px;
+  font-size: 13px;
+}
+
+@media (min-width: 1030px) {
+  nav.local a {
+    margin: 0 20px;
+    font-size: 16px;
+  }
+}
+
+nav.local a:focus, nav.local a:hover {
+  text-decoration: none;
+  color: #111;
+}
+
+nav.local a.active {
+  color: #111;
 }
 
 .page-nav {
@@ -10854,7 +10886,7 @@ blockquote .author-title {
   display: inline;
   letter-spacing: 1px;
   color: #FFF;
-  font-family: "Circular-Pro-Bold", "ProximaNovaBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (min-width: 1030px) {
@@ -11382,7 +11414,7 @@ blockquote .author-title {
   font-size: 30px;
   display: inline-block;
   vertical-align: middle;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #price-wrapper [data-compare-price] {
@@ -11421,7 +11453,7 @@ blockquote .author-title {
   line-height: 20px;
   margin-bottom: 10px;
   color: #111;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .configuration-label span {
@@ -11472,9 +11504,7 @@ blockquote .author-title {
 }
 
 .selector-wrapper {
-  border-top: solid 1px #e6e6e6;
-  padding-top: 16px;
-  margin: 25px 0 20px;
+  margin: 0 0 20px;
 }
 
 .selector-wrapper label {
@@ -11482,6 +11512,12 @@ blockquote .author-title {
   font-weight: 400;
   line-height: 1;
   margin-bottom: 10px;
+}
+
+#current-option {
+  margin-bottom: 25px;
+  padding-bottom: 16px;
+  border-bottom: solid 1px #e6e6e6;
 }
 
 #quantity {
@@ -11492,7 +11528,7 @@ blockquote .author-title {
   font-size: 20px;
   text-align: center;
   margin-right: 10px;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #quantity::-webkit-inner-spin-button, #quantity::-webkit-outer-spin-button {
@@ -11666,7 +11702,7 @@ blockquote .author-title {
   font-size: 30px;
   font-weight: 400;
   color: #111;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: block;
   text-align: right;
 }
@@ -11677,7 +11713,7 @@ blockquote .author-title {
 
 .product-detail-panel dt {
   font-weight: normal;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   margin-bottom: 15px;
 }
@@ -11706,7 +11742,7 @@ blockquote .author-title {
 #reviews dt {
   font-size: 19px;
   line-height: 30px;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #reviews dd {
@@ -11721,7 +11757,7 @@ blockquote .author-title {
   margin: 0;
   font-size: 18px;
   line-height: 30px;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (min-width: 1030px) {
@@ -11755,7 +11791,7 @@ blockquote .author-title {
 }
 
 #reviews .review-date {
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #111;
 }
 
@@ -11772,7 +11808,7 @@ blockquote .author-title {
 }
 
 #reviews-widget .yotpo div, #reviews-widget .yotpo label {
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #reviews-widget .yotpo .y-label, #reviews-widget .yotpo label.y-label {
@@ -11786,9 +11822,9 @@ blockquote .author-title {
   margin-bottom: 40px;
   padding-bottom: 20px;
   color: #111;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #111;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (min-width: 1030px) {
@@ -11924,7 +11960,7 @@ blockquote .author-title {
   font-size: 22px;
   color: #111;
   margin: 0;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .template-cart .price {
@@ -11948,7 +11984,7 @@ blockquote .author-title {
 
 .cart-empty h1 {
   font-size: 22px;
-  font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding-bottom: 45px;
   margin-bottom: 45px;
   border-bottom: solid 1px #e6e6e6;
@@ -12108,7 +12144,7 @@ blockquote .author-title {
   text-transform: uppercase;
   font-size: 14px;
   padding: 0 10px;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 30px;
   margin-bottom: 15px;
   font-style: normal;
@@ -12131,7 +12167,7 @@ blockquote .author-title {
   .template-order .page-header h1,
   .template-addresses .page-header h1 {
     font-size: 18px;
-    font-family: "Circular-Pro-Medium", "ProximaNovaSemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 }
 
@@ -12318,7 +12354,7 @@ blockquote .author-title {
 }
 
 .address p:first-line {
-  font-family: "Circular-Pro-Bold", "ProximaNovaBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .address .default-label {
@@ -13658,12 +13694,197 @@ ul.messages > li.error-msg li .alert-link {
   color: #646464;
 }
 
+.support {
+  padding-top: 60px;
+}
+
+@media (min-width: 1030px) {
+  .support {
+    padding-top: 90px;
+  }
+}
+
+.support nav.local .active-bar {
+  left: 50%;
+}
+
+.support .local-nav-section {
+  padding: 50px 0;
+  display: none;
+}
+
+.support .local-nav-section:before, .support .local-nav-section:after {
+  content: " ";
+  display: table;
+}
+
+.support .local-nav-section:after {
+  clear: both;
+}
+
+.support .local-nav-section.active {
+  display: block;
+}
+
+@media (min-width: 1030px) {
+  .support .local-nav-section {
+    padding: 80px 0;
+    border-bottom: solid 1px #e6e6e6;
+    display: block;
+  }
+}
+
+.support .local-nav-section:last-child {
+  border: 0;
+}
+
+@media (min-width: 1030px) {
+  .support .local-nav-section .title {
+    padding-left: 80px;
+    width: 190px;
+    float: left;
+  }
+}
+
+.support .local-nav-section .content {
+  font-size: 17px;
+  line-height: 30px;
+  color: #646464;
+}
+
+@media (min-width: 1030px) {
+  .support .local-nav-section .content {
+    max-width: 770px;
+    margin-left: 330px;
+    font-size: 19px;
+    line-height: 38px;
+  }
+}
+
+.support .local-nav-section h2 {
+  font-size: 22px;
+  line-height: 30px;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.support .local-nav-section a {
+  color: #00AEEF;
+}
+
+.support .local-nav-section a:hover {
+  color: #30A6D8;
+}
+
+.support .jumptarget:before {
+  height: 114px;
+  margin: -114px 0 0;
+}
+
+@media (min-width: 1030px) {
+  .support .jumptarget:before {
+    height: 154px;
+    margin: -154px 0 0;
+  }
+}
+
+dl.faq dt {
+  color: #111;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 20px;
+  font-weight: normal;
+  padding-right: 40px;
+  border-bottom: solid 1px #fff;
+  position: relative;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+dl.faq dt:before, dl.faq dt:after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: 0;
+  display: block;
+  content: '';
+  width: 15px;
+  height: 1px;
+  background: #00AEEF;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+dl.faq dt:before {
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+dl.faq dt:after {
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+dl.faq dt.collapsed:before {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+dl.faq dt.collapsed:after {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+dl.faq dt.collapsed {
+  padding-bottom: 20px;
+  border-bottom-color: #e6e6e6;
+}
+
+dl.faq dt:before, dl.faq dt:after {
+  top: 11px;
+}
+
+dl.faq dt:last-child {
+  border: 0;
+}
+
+@media (min-width: 1030px) {
+  dl.faq dt {
+    font-size: 21px;
+    line-height: 30px;
+    padding-bottom: 0;
+    padding-right: 0;
+    border: 0;
+  }
+  dl.faq dt:before, dl.faq dt:after {
+    display: none;
+  }
+}
+
+dl.faq dd {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: solid 1px #e6e6e6;
+  display: none;
+}
+
+@media (min-width: 1030px) {
+  dl.faq dd {
+    display: block;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+dl.faq dd:last-child {
+  border: 0;
+}
+
 .no-placeholder {
   display: none;
   text-transform: uppercase;
   font-size: 13px;
   color: #414B56;
-  font-family: "Circular-Pro-Book", "ProximaNovaRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Circular-Pro-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   letter-spacing: 1px;
 }

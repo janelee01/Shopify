@@ -1,0 +1,113 @@
+.support{
+	padding-top: $local-nav-height-xs;
+	@media (min-width: $screen-md) {
+		padding-top: $local-nav-height;
+	}
+	nav.local{
+		.active-bar{
+			left: 50%;
+		}
+	}
+	.local-nav-section{
+		padding: 50px 0;
+		@include clearfix;
+		display: none;
+		&.active{
+			display: block;
+		}
+		@media (min-width: $screen-md) {
+			padding: 80px 0;
+			border-bottom: solid 1px #e6e6e6;
+			display: block;
+		}
+		&:last-child{
+			border: 0;
+		}
+		.title{
+			@media (min-width: $screen-md) {
+				padding-left: 80px;
+				width: 190px;
+				float: left;
+			}
+		}
+		.content{
+			font-size: 17px;
+			line-height: 30px;
+			color: #646464;
+			@media (min-width: $screen-md) {
+				max-width: 770px;
+				margin-left: 330px;
+				font-size: 19px;
+				line-height: 38px;
+			}
+		}
+		h2{
+			font-size: 22px;
+			line-height: 30px;
+			font-family: $font-family-semibold;
+		}
+		a{
+			color: $brand-blue;
+			&:hover{
+				color: $brand-blue-dark;
+			}
+		}
+	}
+	.jumptarget:before{
+		height: $ls-navbar-height-xs + $local-nav-height-xs;
+		margin: -($ls-navbar-height-xs + $local-nav-height-xs) 0 0;
+		@media (min-width: $screen-md) {
+			height: $ls-navbar-height + $local-nav-height;
+			margin: -($ls-navbar-height + $local-nav-height) 0 0;
+		}
+	}
+}
+dl.faq{
+	dt{
+		color: $gray-darker;
+		font-size: 18px;
+		line-height: 22px;
+		margin-bottom: 20px;
+		font-weight: normal;
+		padding-right: 40px;
+		border-bottom: solid 1px #fff;
+		@include collapsing-panel-toggle;
+		@include transition(all .3s ease);
+		&.collapsed{
+			padding-bottom: 20px;
+			border-bottom-color: #e6e6e6;
+		}
+		&:before,
+		&:after{
+			top: 11px;
+		}
+		&:last-child{
+			border: 0;
+		}
+		@media (min-width: $screen-md) {
+			font-size: 21px;
+			line-height: 30px;
+			padding-bottom: 0;
+			padding-right: 0;
+			border: 0;
+			&:before,
+			&:after{
+				display: none;
+			}
+		}
+	}
+	dd{
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+		border-bottom: solid 1px #e6e6e6;
+		display: none;
+		@media (min-width: $screen-md) {
+			display: block;
+			margin-bottom: 40px;
+			padding-bottom: 40px;
+		}
+		&:last-child{
+			border: 0;
+		}
+	}
+}

@@ -103,18 +103,6 @@
 // 	}
 // }
 
-.faq{
-	dt{
-		font-family: $font-family-sans-serif;
-		color: $gray-dark;
-		margin-bottom: $line-height-computed/2;
-		letter-spacing: $ls-xs;
-		font-weight: 400;
-	}
-	dd{
-		margin-bottom: $line-height-computed;
-	}
-}
 .cms-press{
 	h2{
 		text-transform: uppercase;
@@ -137,6 +125,38 @@
 			}
 		}
 	}
+}
+
+nav.local{
+	background: #fafafa;
+	padding: 18px 0;
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	z-index: 1010;
+	width: 100%;
+	top: $ls-navbar-height-xs;
+	@media (min-width: $screen-md) {
+		padding: 30px 0;
+		top: $ls-navbar-height;
+	}
+	a{
+		color: #646464;
+		margin: 0 11px;
+		font-size: 13px;
+		@media (min-width: $screen-md) {
+			margin: 0 20px;
+			font-size: $font-size-base;
+		}
+		&:focus,
+		&:hover{
+			text-decoration: none;
+			color: $gray-darker;
+		}
+		&.active{
+			color: $gray-darker;
+		}
+	}	
 }
 
 .page-nav{

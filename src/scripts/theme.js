@@ -29,6 +29,7 @@ window.theme = window.theme || {};
 // =require vendor/jquery.touchSwipe.min.js
 // =require vendor/jquery.film_roll.js
 // =require vendor/lo-and-sons.js
+// =require lo/navigation.js  
 // =require lo/videos.js  
 // =require lo/collection-filters.js  
 // =require lo/swatches.js  
@@ -70,28 +71,18 @@ $(document).ready(function() {
 	document.documentElement.className = document.documentElement.className.replace('supports-no-cookies', 'supports-cookies');
   }
 
-  // off canvas nav
-  $('body').on('click', '.navbar-toggle', function(e){
-	e.preventDefault();
-	$('body').toggleClass('menu-open');
-	LS.overlay.open();
-  });
-  $('body').on('click', '#nav-panel-close', function(e){
-	e.preventDefault();
-	$('body').removeClass('menu-open');
-	LS.overlay.close();
-  });
-  $('.site-content').on('click', function(e){
-	  if( $('body').hasClass('menu-open') ){
-		e.stopPropagation();
-		$('body').removeClass('menu-open');
-		LS.overlay.close();
-	  }
-  });
-  $('body').on('click', '.menu-toggle', function(e){
-	e.preventDefault();
-	$(this).closest('li').toggleClass('open');
-  });
+
+	// mobile collapsed panels
+	if( $(window).width() < LS.desktopBreakpoint ){
+		$('[data-collapse-toggle]').on('click', function(e){
+		    $(this).toggleClass('collapsed');
+		    if( !$(this).hasClass('collapsed') ){
+		    	$(this).next('[data-collapse-panel]').slideDown().addClass('is-shown');
+		    }else{
+		    	$(this).next('[data-collapse-panel]').slideUp().removeClass('is-shown');
+		    }
+		});
+	}
 
   // sticky sidebar
   var has_sticky_element = $('.sticky').length > 0;
@@ -409,17 +400,6 @@ $(document).ready(function() {
 	setProductTitleLocation();
 	$(window).resize(function(){
 		setProductTitleLocation();
-	});
-	
-	$('.product-detail-panel h2').on('click', function(e){
-		if( $(window).width() < LS.desktopBreakpoint ){
-			$(this).toggleClass('collapsed');
-			if( !$(this).hasClass('collapsed') ){
-				$(this).next('.panel-content').slideDown().addClass('is-shown');
-			}else{
-				$(this).next('.panel-content').slideUp().removeClass('is-shown');
-			}
-		}
 	});
 
 	// Product video
