@@ -13787,6 +13787,61 @@ ul.messages > li.error-msg li .alert-link {
   }
 }
 
+.contact-method {
+  margin-bottom: 35px;
+  padding-left: 80px;
+  background-repeat: no-repeat;
+  background-size: 55px auto;
+  min-height: 61px;
+}
+
+.contact-method.last {
+  margin-bottom: 0;
+}
+
+@media (min-width: 1030px) {
+  .contact-method.last-md {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1030px) {
+  .contact-method {
+    margin-bottom: 80px;
+    min-height: 83px;
+    background-size: auto;
+    padding-left: 122px;
+  }
+}
+
+.contact-method h3 {
+  margin: 0;
+  font-size: 16px;
+  font-family: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@media (min-width: 1030px) {
+  .contact-method h3 {
+    font-size: 21px;
+  }
+}
+
+.contact-method#method-support {
+  background-image: url("icon-support.svg");
+}
+
+.contact-method#method-press {
+  background-image: url("icon-press.svg");
+}
+
+.contact-method#method-general {
+  background-image: url("icon-speech.svg");
+}
+
+.contact-method#method-careers {
+  background-image: url("icon-careers.svg");
+}
+
 dl.faq dt {
   color: #111;
   font-size: 18px;

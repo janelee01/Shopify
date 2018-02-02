@@ -62,6 +62,39 @@
 		}
 	}
 }
+.contact-method{
+	margin-bottom: 35px;
+	padding-left: 80px;
+	background-repeat: no-repeat;
+	background-size: 55px auto;
+	min-height: 61px;
+	&.last{
+		margin-bottom: 0;
+	}
+	&.last-md{
+		@media (min-width: $screen-md) {
+			margin-bottom: 0;
+		}
+	}
+	@media (min-width: $screen-md) {
+		margin-bottom: 80px;
+		min-height: 83px;
+		background-size: auto;
+		padding-left: 122px;
+	}
+	h3{
+		margin: 0;
+		font-size: 16px;
+		font-family: $font-family-semibold;
+		@media (min-width: $screen-md) {
+			font-size: 21px;
+		}
+	}
+	&#method-support{ background-image: url('icon-support.svg'); }
+	&#method-press{ background-image: url('icon-press.svg'); }
+	&#method-general{ background-image: url('icon-speech.svg'); }
+	&#method-careers{ background-image: url('icon-careers.svg'); }
+}
 dl.faq{
 	dt{
 		color: $gray-darker;

@@ -42,6 +42,45 @@ $(document).ready(function(){
 				$('.local-nav-section').show();
 			}
 		});
+
+		// jump to/show a section
+		if( location.hash ){
+			$('nav.local a').removeClass('active')
+			$('[href="'+location.hash+'"]').addClass('active');
+			setActiveBar();
+			if( $(window).width() <= LS.desktopBreakpoint ){
+				$('.local-nav-section').hide();
+				$($('nav.local .active').attr('href')).next('.local-nav-section').fadeIn();
+			}
+		}
+
+		// scroll spy
+		var $topics = $('nav.local a');
+		var $targets = $('.jumptarget');
+		var headerHeight = $('#site-header').outerHeight() + $('nav.local').outerHeight();
+		$(window).scroll(function(){
+			if( $(window).width() > LS.desktopBreakpoint ){
+				var scrollPosition = $(window).scrollTop();
+				var activeSectionIndex = 0;
+				$targets.each(function(i){
+					var sectionTopPosition = $(this).offset().top - scrollPosition;
+					if( sectionTopPosition <= headerHeight ){
+						if( i > activeSectionIndex ){
+							activeSectionIndex = i;
+							$topics.removeClass('active');
+							$topics.eq(activeSectionIndex).addClass('active');
+							setActiveBar();
+						}
+					}
+				});
+				if( scrollPosition < headerHeight ){
+					$topics.removeClass('active');
+					$topics.eq(0).addClass('active');
+					setActiveBar();
+				}
+			}
+		});
+			
 	}
 	$('body').on('click', 'nav.local a', function(e){
 		e.preventDefault();
@@ -77,42 +116,4 @@ $(document).ready(function(){
 			}
 		}
 	});
-
-	// jump to/show a section
-	if( $('nav.local').length && location.hash ){
-		$('nav.local a').removeClass('active')
-		$('[href="'+location.hash+'"]').addClass('active');
-		setActiveBar();
-		if( $(window).width() <= LS.desktopBreakpoint ){
-			$('.local-nav-section').hide();
-			$($('nav.local .active').attr('href')).next('.local-nav-section').fadeIn();
-		}
-	}
-
-	// scroll spy
-	if( $('nav.local').length && $(window).width() > LS.desktopBreakpoint ){
-		var $topics = $('nav.local a');
-		var $targets = $('.jumptarget');
-		var headerHeight = $('#site-header').outerHeight() + $('nav.local').outerHeight();
-		$(window).scroll(function(){
-			var scrollPosition = $(window).scrollTop();
-			var activeSectionIndex = 0;
-			$targets.each(function(i){
-				var sectionTopPosition = $(this).offset().top - scrollPosition;
-				if( sectionTopPosition <= headerHeight ){
-					if( i > activeSectionIndex ){
-						activeSectionIndex = i;
-						$topics.removeClass('active');
-						$topics.eq(activeSectionIndex).addClass('active');
-						setActiveBar();
-					}
-				}
-			});
-			if( scrollPosition < headerHeight ){
-				$topics.removeClass('active');
-				$topics.eq(0).addClass('active');
-				setActiveBar();
-			}
-		});
-	}
 });
