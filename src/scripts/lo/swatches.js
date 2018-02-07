@@ -21,7 +21,53 @@ $(document).ready(function(){
 		// current price
 		var price = slate.Currency.formatMoney(selectedVariant.price, theme.moneyFormat);
 		$('[data-product-price]').html(price.replace('.00',''));
-	}
+	};
+
+	var updateCta = function(){
+		var selectedVariantID = $('[data-product-select]').val();
+		var $addToCartBtn = $('[data-add-to-cart]');
+		var $addToWaitlistBtn = $('[data-add-to-waitlist]');
+		var siblingId = $('.swatch.active').data('sibling');
+		var newVariants = siblingsJson[siblingId].variants;
+		for (var i = 0; i < newVariants.length; i++) {
+			if( newVariants[i].id == selectedVariantID ){
+				if( newVariants[i].available ){
+					$addToCartBtn.show();
+					$addToWaitlistBtn.hide();
+				}else{
+					$addToWaitlistBtn.data('variant-id', selectedVariantID).show();
+					$addToCartBtn.hide();
+					$('#wl-variant').val(selectedVariantID);
+				}
+			}
+		};
+	};
+
+	var updateWaitlistMeta = function(){
+		var wlMeta = [$('#current-option span').text(), $('#variant-buttons .selected').text()];
+		$('[data-wl-meta]').text(wlMeta.join(' - '));
+	};
+
+	var updateDataLayer = function(){
+		var dataLayer = window.dataLayer || [];
+		var selectedSibling = $('.swatch.active').data('sibling');
+		var selectedVariantID = $('[data-product-select]').val();
+		for (var i = 0; i < siblingsJson[selectedSibling].variants.length; i++) {
+			if( siblingsJson[selectedSibling].variants[i].id == selectedVariantID ){
+				dataLayer.push({
+					'event' : 'swatchClick',
+					'productPrice' : siblingsJson[selectedSibling].variants[i].price * 0.01,
+					'productSku' : siblingsJson[selectedSibling].variants[i].sku,
+					'productName' : siblingsJson[selectedSibling].title,
+					'productVariant' : siblingsJson[selectedSibling].variants[i].title
+					// productType doesn't need to change while on a PDP
+				});
+			}
+		};
+	};
+
+	// on page load
+	updateWaitlistMeta();
 
 	$('.swatch').on('click', function(e){
 		e.preventDefault();
@@ -32,28 +78,18 @@ $(document).ready(function(){
 	    $('.swatch').removeClass('active');
 	    $(this).addClass('active');
 
-	    // replace galleries
-	    $('.product-gallery').removeClass('active');
-	    $('.product-gallery').each(function(){
-	    	if( $(this).data('sibling') == siblingId ){
-	    		$(this).addClass('active');
-	    	}
-	    });
-
 	    // replace chosen color
 	    $('#current-option span').text( $(this).find('img').data('color-label') );
 
 	    // replace options in our Size selector. hard coded for single option variants
 	    var newVariants = siblingsJson[siblingId].variants;
 	    $('#variant-buttons').html('');
-	    $('[data-product-select]').html('<option value=""></option>'); // make sure we don't auto-select a variant behind the scenes
+	    $('[data-product-select]').html('');
 	    for (var i = 0; i <= newVariants.length - 1; i++) {
-	    	if( newVariants[i].available ){
-	    		// build our hidden select
-	    		$('[data-product-select]').append('<option value="'+newVariants[i].id+'">'+newVariants[i].title+'</option>');
-	    		// build our buttons
-	    		$('#variant-buttons').append('<a href="#" class="btn btn-secondary variant-option">'+newVariants[i].title+'</a>');
-	    	}
+	    	// build our hidden select
+	    	$('[data-product-select]').append('<option value="'+newVariants[i].id+'">'+newVariants[i].title+'</option>');
+	    	// build our buttons
+	    	$('#variant-buttons').append('<a href="#" class="btn btn-secondary variant-option">'+newVariants[i].title+'</a>');
 	    };
 
 	    // reselect the size, or use the first option
@@ -70,6 +106,31 @@ $(document).ready(function(){
 
 	    // update pricing
 	    updatePricing(siblingId);
+
+	    // toggle Add to cart / Join waitlist visibility
+	    updateCta(); 
+
+	    // update dataLayer values
+	    updateDataLayer();
+
+	    // update waitlist 
+	    $('#wl-image').attr('src', siblingsJson[siblingId].featured_image);
+	    $('#wl-product').val(siblingId);
+	    updateWaitlistMeta();
+
+	    // replace galleries
+	    $('.product-gallery').removeClass('active');
+	    $('.product-gallery').each(function(){
+	    	if( $(this).data('sibling') == siblingId ){
+	    		$(this).addClass('active');
+	    		var $active_slide = $(this).find('.film_roll_pager a.active');
+	    		var active_slide_position = $(this).find('.film_roll_pager a').index( $active_slide ) + 1; // using the pager here because film role adjusts the index of slides with each animation
+    			dataLayer.push({
+    				'event' : 'galleryNavigation',
+    				'productImage' : active_slide_position
+    			});
+	    	}
+	    });
 
 	    // replace content
 	    $('.product-detail-panel').each(function(){
@@ -103,6 +164,10 @@ $(document).ready(function(){
 	    		$('[data-product-select]').trigger('change');
 	    	}
 	    });
+	    $('#wl-variant').val($('[data-product-select]').val());
+	    updateCta();
+	    updateDataLayer();
+	    updateWaitlistMeta();
 	});
 
 	$('[data-product-select]').on('change', function(){

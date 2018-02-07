@@ -16,7 +16,7 @@
           <h2 class="menu-title">Support</h2>
           <ul class="menu">
             {% for link in linklists['footer-1'].links %}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              <li><a class="footer-menu-item" href="{{ link.url }}">{{ link.title }}</a></li>
             {% endfor %}
           </ul>
         </nav>
@@ -24,7 +24,7 @@
           <h2 class="menu-title">About</h2>
           <ul class="menu">
             {% for link in linklists['footer-2'].links %}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              <li><a class="footer-menu-item" href="{{ link.url }}">{{ link.title }}</a></li>
             {% endfor %}
           </ul>
         </nav>
@@ -32,7 +32,7 @@
           <h2 class="menu-title">Terms</h2>
           <ul class="menu">
             {% for link in linklists['footer-3'].links %}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              <li><a class="footer-menu-item" href="{{ link.url }}">{{ link.title }}</a></li>
             {% endfor %}
           </ul>
         </nav>
@@ -46,7 +46,7 @@
               {% capture social_icon %}logo-{{ social_handle }}.svg{% endcapture %}
               {% if settings[social_link] != blank %}
                 <li>
-                  <a href="{{ settings[social_link] }}" target="_blank">
+                  <a class="footer-menu-item" href="{{ settings[social_link] }}" target="_blank">
                     {{social_icon | asset_url | img_tag }}
                     <span class="sr-only">{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}</span>
                   </a>

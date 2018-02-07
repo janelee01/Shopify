@@ -151,11 +151,7 @@
 								</div>
 								<select name="id" id="variant-selector" class="hidden" data-product-select>
 									{%- for variant in product.variants -%}
-										<option
-										{% unless variant.available %}disabled="disabled"{% endunless %}
-										value="{{ variant.id }}">
-										{{ variant.title }}
-										</option>
+										<option value="{{ variant.id }}">{{ variant.title }}</option>
 									{%- endfor -%}
 								</select>
 							</div>
@@ -169,15 +165,16 @@
 								  name="add"
 								  class="btn btn-lg"
 								  data-add-to-cart
-								  {% unless current_variant.available %}disabled="disabled"{% endunless %}>
-								    <span data-add-to-cart-text>
-								      {% if current_variant.available %}
-								        {{ 'products.product.add_to_cart' | t }}
-								      {% else %}
-								        {{ 'products.product.sold_out' | t }}
-								      {% endif %}
-								    </span>
+								  id="add-product-proceed"
+								  {% unless current_variant.available %}style="display: none"{% endunless %}>
+								    {{ 'products.product.add_to_cart' | t }}
 								</button>
+								
+								<button
+									class="btn btn-lg"
+									data-add-to-waitlist
+									id="waitlist-open"
+									{% if current_variant.available %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</a>
 							</div>
 				        </form>
 					</div>
@@ -196,7 +193,7 @@
 		    		{%- endunless -%}
 		    	</div>
 		    	<div id="product-description">
-		    		{{ parentCollection.description }}
+		    		{{ parentCollection.description | replace: '<a ', '<a class="pdp-more" ' }}
 		    		{%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
 		    		<a href="#product-video" id="product-video-trigger">See what fits inside</a>
 		    		{%- endunless -%}
@@ -304,13 +301,44 @@
 
 {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
 <script>
-	var video1Embed = '{{ parentCollection.metafields["global"]["product-video"] }}';
+	var video1Embed = '{{ parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" }}';
 </script>
 <div id="product-video">
   <div id="product-video-container"></div>
   <a href="#" class="panel-close"></a>
 </div>
 {%- endunless -%}
+
+<div id="wl-overlay">
+	<div id="wl-window">
+		<form id="wl-form" action="">
+			<div id="wl-content" style="display: none">
+				<h2 class="has-divider">{{ 'products.waitlist.title' | t }}</h2>
+				<p id="wl-product-name">{{ parentCollection.title }}<br />
+				<span data-wl-meta></span></p>
+				<p>{{ 'products.waitlist.content' | t }}</p>
+				<div id="wl-error" class="validation-error"></div>
+				<div class="form-group floating-label">
+					<label for="wl-email">{{ 'products.waitlist.email_label' | t }}</label>
+					<input type="email" class="form-control" id="wl-email" placeholder="{{ 'products.waitlist.email_label' | t }}" />
+					<div class="validation-error"></div>
+				</div>
+				<input type="hidden" id="wl-product" value="{{ product.id }}" />
+				<input type="hidden" id="wl-variant" value="{{ current_variant.id }}" />
+				<button type="submit" class="btn btn-block">{{ 'products.waitlist.submit' | t }}</button>
+				<button class="btn btn-block btn-text" id="waitlist-cancel" data-wl-cancel>{{ 'products.waitlist.cancel' | t }}</button>
+			</div>
+			<div id="wl-confirmation">
+				<div class="flexer">
+					<h2 class="has-divider">{{ 'products.waitlist.confirmation_title' | t }}</h2>
+					<p>{{ 'products.waitlist.confirmation' | t }}</p>
+					<button class="btn btn-block" data-wl-cancel>{{ 'products.waitlist.back' | t }}</button>
+				</div>
+			</div>
+			<img src="{{ product.featured_image | img_url: '375x500' }}" alt="" id="wl-image">
+		</form>
+	</div>
+</div>
 
 {% schema %}
   {

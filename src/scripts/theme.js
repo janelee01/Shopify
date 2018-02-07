@@ -33,6 +33,7 @@ window.theme = window.theme || {};
 // =require lo/videos.js  
 // =require lo/collection-filters.js  
 // =require lo/swatches.js  
+// =require lo/waitlist.js  
 // =require lo/product-reviews.js  
 // =require lo/product-gallery.js  
 // =require lo/customers.js  

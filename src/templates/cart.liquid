@@ -25,14 +25,12 @@
             <tr>
               <td class="item-remove">
                   <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="remove-item panel-close"
-                      data-item-id=""
-                      data-product-id=""
-                      data-simple-sku="" 
-                      data-product-sku="" 
-                      data-product-name="" 
-                      data-product-qty="" 
-                      data-product-price=""
-                      data-product-variant="" 
+                      data-product-sku="{{ item.sku }}" 
+                      data-product-name="{{ item.product.title }}" 
+                      data-product-qty="{{ item.quantity }}" 
+                      data-product-price="{{ item.price | money_without_currency }}"
+                      data-product-variant="{{ item.variant.title }}" 
+                      data-product-type="{{ item.product.type }}" 
                       ><span class="sr-only">{{ 'cart.general.remove' | t }}</span></a>
               </td>
 
@@ -135,8 +133,8 @@
       </table>
       
       <div id="cart-actions">
-        <input type="submit" name="update" class="btn btn-secondary" value="{{ 'cart.general.update' | t }}">
-        <input type="submit" name="checkout" class="btn" value="{{ 'cart.general.checkout' | t }}">
+        <input type="submit" name="update" class="btn btn-secondary" id="cart-update" value="{{ 'cart.general.update' | t }}">
+        <input type="submit" name="checkout" class="btn" id="cart-proceed" value="{{ 'cart.general.checkout' | t }}">
       </div>
 
       <p id="checkout-message">{{ 'cart.general.shipping_at_checkout' | t }}</p>

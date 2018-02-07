@@ -579,3 +579,101 @@
 #reviews-navigation{
 	margin-bottom: 60px;
 }
+
+#wl-overlay{
+	display: none;
+	background: #F8F8F8;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1040;
+	overflow-y: scroll;
+	@media (min-width: $screen-sm) {
+	    background: rgba(40,40,40,.75);
+	}
+}
+#wl-window{
+	@media (min-width: $screen-sm) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+}
+#wl-form{
+	background: #F8F8F8;
+	padding: $mobile-gutter;
+	@media (min-width: $screen-sm) {
+		display: flex;
+		align-items: center;
+	}
+	@media (min-width: $screen-md) {
+		padding: 60px 40px 60px 90px;
+	}
+	.form-group{
+		margin-bottom: 20px;
+		.validation-error{
+			text-align: left;
+		}
+	}
+	button[type="submit"]{
+		margin-bottom: 20px;
+	}
+}
+#wl-confirmation,
+#wl-content{
+	text-align: center;
+	@media (min-width: $screen-sm) {
+		width: 320px;
+		margin-right: 40px;
+	}
+	p{
+		font-size: 20px;
+		line-height: 32px;
+		color: #646464;
+		&#wl-product-name{
+			font-size: 22px;
+			color: $gray-darker;
+			line-height: 1.1;
+			@media (max-width: $screen-xs-max) {
+			    margin-bottom: -20px; // pulls the image up
+			    position: relative;
+			}
+			span{
+				color: #646464;
+				font-size: 14px;
+			}
+		}
+	}
+	.has-divider{
+		font-size: 32px;
+		&:after{
+			left: 50%;
+			margin-left: -20px;
+		}
+	}
+	#wl-image{
+		display: block;
+		width: 160px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+#wl-confirmation{
+	@media (max-width: $screen-xs-max) {
+	    position: fixed;
+	    width: 100%;
+	    height: 100%;
+	    padding: $mobile-gutter;
+	    top: 0;
+	    left: 0;
+	    .flexer{
+	    	height: 100%;
+	    	display: flex;
+	    	justify-content: center;
+	    	flex-direction: column;
+	    }
+	}
+}

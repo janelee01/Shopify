@@ -110,5 +110,17 @@
       {% include 'pagination' %}
     {% endif %}
   </div>
-  
+  {% comment %}
+    collectionSkus is used by GTM. doing this here instead of the GTM snippet so pagination values are used
+  {% endcomment %}
+  {%- capture collectionSkus -%}
+    [
+    {%- for product in collection.products -%}
+      "{{ product.first_available_variant.sku }}"{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+    ]
+  {%- endcapture -%}
+  <script>
+    var collectionSkus = {{ collectionSkus }};
+  </script>
 {% endpaginate %}

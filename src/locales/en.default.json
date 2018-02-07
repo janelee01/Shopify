@@ -259,6 +259,16 @@
       // "from_text_html": "From {{ price }}",
       "quantity": "Quantity",
       "add_to_cart": "Add to Cart"
+    },
+    "waitlist": {
+      "title" : "Join waitlist",
+      "content" : "Register your email address below to receive an email as soon as this becomes available again.",
+      "confirmation" : "Your notification has been registered. We’ll notice you when this product is in stock.",
+      "confirmation_title" : "Confirmation",
+      "email_label" : "Email address",
+      "submit" : "Join",
+      "cancel" : "Cancel",
+      "back" : "Back to our store"
     }
   },
   "gift_cards": {

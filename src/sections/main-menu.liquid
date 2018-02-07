@@ -24,7 +24,7 @@
                           <ul>
                             {% for grandchildlink in menus[grandchild_list_handle].links %}
                               <li {% if grandchildlink.active %}class="active"{% endif %}>
-                                <a href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
+                                <a class="main-menu-item" href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
                               </li>
                             {% endfor %}
                           </ul>
@@ -32,7 +32,7 @@
                       </li>
                     {% else %}
       	              <li {% if childlink.active %}class="active"{% endif %}>
-      	                <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+      	                <a class="main-menu-item" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
       	              </li>
                     {% endif %}
     	            {% endfor %}
@@ -40,8 +40,8 @@
               </div>
   	        </li>
   	      {% else %}
-  	        <li {% if link.active %}class="site-nav--active"{% endif %}>
-  	          <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+  	        <li {% if link.active %}class="active"{% endif %}>
+  	          <a class="main-menu-item" href="{{ link.url }}">{{ link.title }}</a>
   	        </li>
   	      {% endif %}
   	    {% endfor %}
@@ -50,9 +50,9 @@
   	        {% if customer %}
   	          <li>
   	            {% if customer.first_name != blank %}
-  	              <a href="/account">{{ 'layout.customer.logged_in_as_html' | t: first_name: customer.first_name }}</a>
+  	              <a class="main-menu-account-item" href="/account">{{ 'layout.customer.logged_in_as_html' | t: first_name: customer.first_name }}</a>
   	            {% else %}
-  	              <a href="/account">{{ 'layout.customer.account' | t }}</a>
+  	              <a class="main-menu-account-item" href="/account">{{ 'layout.customer.account' | t }}</a>
   	            {% endif %}
   	          </li>
   	          {% comment %}

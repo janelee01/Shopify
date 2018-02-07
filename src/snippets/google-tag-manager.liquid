@@ -1,0 +1,61 @@
+<!-- Google Tag Manager -->
+<script>
+	var dataLayer = window.dataLayer || [];
+	dataLayer.push({
+		'storeCurrency' : '{{ shop.currency }}',
+		'cartItemCount' : '{{ cart.item_count }}', {% comment %} added as string as it will be empty during checkout {% endcomment %} 
+		'cartItems' : [
+			{%- for item in cart.items -%}
+			{
+				'sku' : '{{ item.sku }}',
+				'price' : {{ item.price | money_without_currency }},
+				'quantity' : {{ item.quantity }},
+				'name' : '{{ item.product.title }}',
+				'type' : '{{ item.product.type }}',
+				'variant' : '{{ item.variant.title }}'
+			}{% unless forloop.last %},{% endunless %}
+			{%- endfor -%}
+		],
+		'checkoutData' : {
+			{%- if checkout.order_id != blank -%}
+			'orderId' : {{ checkout.id }},
+			'subtotal' : {{ checkout.subtotal_price | money_without_currency }},
+			'total' : {{ checkout.total_price | money_without_currency }},
+			'tax' : {{ checkout.tax_price | money_without_currency }},
+			'shipping' : {{ checkout.shipping_price | money_without_currency }},
+			{%- for discount in checkout.discounts -%}
+			'coupon' : {{ discount.code }},
+			{%- endfor -%}
+			{%- endif -%}
+			'items' : [
+				{%- for item in checkout.line_items -%}
+				{
+					'sku' : '{{ item.sku }}',
+					'price' : {{ item.price | money_without_currency }},
+					'quantity' : {{ item.quantity }},
+					'name' : '{{ item.product.title }}',
+					'type' : '{{ item.product.type }}',
+					'variant' : '{{ item.variant.title }}'
+				}{% unless forloop.last %},{% endunless %}
+				{%- endfor -%}
+			]
+		},
+		'searchTerms' : '{{ search.terms }}',
+		{% if template == 'product' %}
+		{%- assign current_variant = product.selected_or_first_available_variant -%}
+		'productPrice' : {{ current_variant.price | money_without_currency }},
+		'productSku' : '{{ current_variant.sku }}',
+		'productName' : '{{ product.title }}',
+		'productType' : '{{ product.type }}',
+		'productVariant' : '{{ current_variant.title }}',
+		'productImage' : 1,
+		{% endif %}
+		'template' : '{{ template }}'
+	})
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TJKPR6K');</script>
+<!-- End Google Tag Manager -->

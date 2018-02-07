@@ -1,5 +1,6 @@
 var LS = LS || window.LS || {};
 
+LS.tabletBreakpoint = 769;
 LS.desktopBreakpoint = 1030;
 LS.galleries = [];
 
@@ -537,6 +538,7 @@ LS.linkImagesToVideos = function(){
 LS.productVideoOpen = function(videoId){
 	var $ = jQuery;
 	var $container = $('#product-video-container');
+	var dataLayer = window.dataLayer || [];
 
 	// video{n}Embed variables are defined in /app/design/frontend/lo-rwd/default/template/catalog/product/view.phtml
 	switch(videoId){
@@ -595,9 +597,10 @@ LS.productVideoOpen = function(videoId){
 
 	player.on('play', function(data){
     	player.getVideoTitle().then(function(title) {
-			if ( LS.haveAnalytics() ) {
-				ga('send', 'event', 'pdp_video', 'play', title);
-			}
+    		dataLayer.push({
+    			'event' : 'videoStart',
+    			'videoName' : title
+    		});
 			if ( LS.havePinterestTracking() ) {
 				pintrk('track', 'watchvideo', {
 					video_title  : title
@@ -609,9 +612,10 @@ LS.productVideoOpen = function(videoId){
 	});
 	player.on('ended', function(data){
     	player.getVideoTitle().then(function(title) {
-	        if ( LS.haveAnalytics() ) {
-		        ga('send', 'event', 'pdp_video', 'complete', title);
-		    }    
+	        dataLayer.push({
+	        	'event' : 'videoEnd',
+	        	'videoName' : title
+	        });
     	}).catch(function(error) {
     		console.log(error);
     	});

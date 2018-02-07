@@ -6567,7 +6567,7 @@ blockquote .author-title {
   border: none;
   color: #333;
   height: 48px;
-  line-height: 1;
+  line-height: 1.2;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
   -webkit-appearance: none;
@@ -6577,6 +6577,12 @@ blockquote .author-title {
   outline: none;
   -webkit-box-shadow: 0 0 0 2px #00AEEF;
           box-shadow: 0 0 0 2px #00AEEF;
+}
+
+.form-group .form-control.has-error {
+  -webkit-box-shadow: 0 0 0 1px #FFD8D8;
+          box-shadow: 0 0 0 1px #FFD8D8;
+  color: #FF6D6D;
 }
 
 .form-group.checkbox {
@@ -6655,7 +6661,7 @@ blockquote .author-title {
 }
 
 .floating-label.has-value .form-control {
-  padding-top: 1.5em;
+  padding-top: 1.4em;
   padding-bottom: 0.38em;
 }
 
@@ -6663,7 +6669,7 @@ blockquote .author-title {
   opacity: 0;
   padding: 0 0.93333em;
   font-size: 0.85714em;
-  margin-top: .3em;
+  margin-top: .5em;
   z-index: 1;
   position: absolute;
   top: 0;
@@ -6768,6 +6774,13 @@ blockquote .author-title {
 .number-control input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.validation-error {
+  font-size: 14px;
+  color: #FF6D6D;
+  margin-top: 10px;
+  display: none;
 }
 
 .navbar {
@@ -11944,6 +11957,157 @@ nav.local a.active {
 
 #reviews-navigation {
   margin-bottom: 60px;
+}
+
+#wl-overlay {
+  display: none;
+  background: #F8F8F8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1040;
+  overflow-y: scroll;
+}
+
+@media (min-width: 768px) {
+  #wl-overlay {
+    background: rgba(40, 40, 40, 0.75);
+  }
+}
+
+@media (min-width: 768px) {
+  #wl-window {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 100%;
+  }
+}
+
+#wl-form {
+  background: #F8F8F8;
+  padding: 28px;
+}
+
+@media (min-width: 768px) {
+  #wl-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media (min-width: 1030px) {
+  #wl-form {
+    padding: 60px 40px 60px 90px;
+  }
+}
+
+#wl-form .form-group {
+  margin-bottom: 20px;
+}
+
+#wl-form .form-group .validation-error {
+  text-align: left;
+}
+
+#wl-form button[type="submit"] {
+  margin-bottom: 20px;
+}
+
+#wl-confirmation,
+#wl-content {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  #wl-confirmation,
+  #wl-content {
+    width: 320px;
+    margin-right: 40px;
+  }
+}
+
+#wl-confirmation p,
+#wl-content p {
+  font-size: 20px;
+  line-height: 32px;
+  color: #646464;
+}
+
+#wl-confirmation p#wl-product-name,
+#wl-content p#wl-product-name {
+  font-size: 22px;
+  color: #111;
+  line-height: 1.1;
+}
+
+@media (max-width: 767px) {
+  #wl-confirmation p#wl-product-name,
+  #wl-content p#wl-product-name {
+    margin-bottom: -20px;
+    position: relative;
+  }
+}
+
+#wl-confirmation p#wl-product-name span,
+#wl-content p#wl-product-name span {
+  color: #646464;
+  font-size: 14px;
+}
+
+#wl-confirmation .has-divider,
+#wl-content .has-divider {
+  font-size: 32px;
+}
+
+#wl-confirmation .has-divider:after,
+#wl-content .has-divider:after {
+  left: 50%;
+  margin-left: -20px;
+}
+
+#wl-confirmation #wl-image,
+#wl-content #wl-image {
+  display: block;
+  width: 160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 767px) {
+  #wl-confirmation {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    padding: 28px;
+    top: 0;
+    left: 0;
+  }
+  #wl-confirmation .flexer {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .template-cart #MainContent {
