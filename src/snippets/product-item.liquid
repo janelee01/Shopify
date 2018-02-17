@@ -1,17 +1,27 @@
+{%- case template -%}
+  {%- when 'search' -%}
+     {%- assign listName = 'Search Results' -%}
+  {%- when 'collection' -%}
+    {%- assign listName = collection.title -%}
+{%- endcase -%}
 <article class="product">
-  {%- if product.featured_image != blank -%}
-  <div class="image">
-    <a href="{{ product.url | within: collection }}">
+  <a class="product-link" href="{{ product.url | within: collection }}"
+    data-list-name="{{ listName }}"
+    data-product-name="{{ product.title }}"
+    data-product-price="{{ product.price | money_without_currency }}"
+    data-product-type="{{ product.type }}"
+    data-product-sku="{{ product.selected_or_first_available_variant.sku }}"
+    data-product-position="{{ forloop.index }}">
+    {%- if product.featured_image != blank -%}
+    <div class="image">
       {{ product.featured_image.src | img_url: '480x480' | img_tag: product.featured_image.alt }}
-    </a>
-    {%- if product.compare_at_price > product.price -%}
-      <span class="discount-badge">{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round: 0 }}% OFF</span>
+      {%- if product.compare_at_price > product.price -%}
+        <span class="discount-badge">{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round: 0 }}% OFF</span>
+      {%- endif -%}
+    </div>  
     {%- endif -%}
-  </div>  
-  {%- endif -%}
-  <a href="{{ product.url | within: collection }}">
     {%- assign productTitleParts = product.title | split: '-' -%}
-    <h3 class="title">{{ productTitleParts[0] | strip }}</h3>
+    <h3 class="title">{{ productTitleParts[0] | remove: "The " | strip }}</h3>
     <p class="product-color">{{ productTitleParts[2] | strip }}</p>
     <p class="product-material">{{ productTitleParts[1] | strip }}</p>
     <div class="price">

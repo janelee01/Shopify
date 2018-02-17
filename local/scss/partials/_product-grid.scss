@@ -12,7 +12,7 @@
 	    }
 	}
 	@media (min-width: $screen-sm) {
-		margin: 60px 0;
+		margin: 40px 0;
 	    .col-sm-3:nth-child(4n+1){
 			clear: left;
 	    }
@@ -76,7 +76,7 @@
 	.old-price{
 		font-family: $font-family-base;
 		font-size: 11px;
-		color: #646464;
+		color: $gray;
 		line-height: 12px;
 		margin-left: 5px;
 		@media (min-width: $screen-md) {

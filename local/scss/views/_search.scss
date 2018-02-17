@@ -32,16 +32,16 @@
 		.form-control{
 			background: #FFF;
 			&::-webkit-input-placeholder {
-			  color: #646464;
+			  color: $gray;
 			}
 			&::-moz-placeholder {
-			  color: #646464;
+			  color: $gray;
 			}
 			&:-ms-input-placeholder {
-			  color: #646464;
+			  color: $gray;
 			}
 			&:-moz-placeholder { 
-			  color: #646464;
+			  color: $gray;
 			}
 		}
 	} 

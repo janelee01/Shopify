@@ -56,11 +56,14 @@ $(document).ready(function(){
 			if( siblingsJson[selectedSibling].variants[i].id == selectedVariantID ){
 				dataLayer.push({
 					'event' : 'swatchClick',
-					'productPrice' : siblingsJson[selectedSibling].variants[i].price * 0.01,
-					'productSku' : siblingsJson[selectedSibling].variants[i].sku,
-					'productName' : siblingsJson[selectedSibling].title,
-					'productVariant' : siblingsJson[selectedSibling].variants[i].title
-					// productType doesn't need to change while on a PDP
+					'productData.price' : siblingsJson[selectedSibling].variants[i].price * 0.01,
+					'productData.comparePrice' : siblingsJson[selectedSibling].variants[i].compare_at_price * 0.01,
+					'productData.sku' : siblingsJson[selectedSibling].variants[i].sku,
+					'productData.name' : siblingsJson[selectedSibling].title,
+					'productData.variant' : siblingsJson[selectedSibling].variants[i].title,
+					'productData.url' : siblingsSupplimentalJson[selectedSibling].url,
+					'productData.imageUrl' : siblingsSupplimentalJson[selectedSibling].featuredImage,
+					'productData.collections' : siblingsSupplimentalJson[selectedSibling].collections
 				});
 			}
 		};

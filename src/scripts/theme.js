@@ -72,6 +72,10 @@ $(document).ready(function() {
 	document.documentElement.className = document.documentElement.className.replace('supports-no-cookies', 'supports-cookies');
   }
 
+  $('#article-body').fitVids();
+
+  // give GA something to hook onto
+  $('.pagination .page a').addClass('pagination-link');
 
 	// mobile collapsed panels
 	if( $(window).width() < LS.desktopBreakpoint ){
@@ -145,7 +149,20 @@ $(document).ready(function() {
 	$('#shopify-section-marquee .marquee').removeClass('hidden');
   }
 
-  
+  	// swipable bs carousels
+  	$(".carousel").swipe({
+  		allowPageScroll:"auto",
+  		threshold: 40,
+  		excludedElements: "label, button, input, select, textarea, .noSwipe",
+  		swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
+          	// $(this).find('.item a').on('click', function(){ return false; }); interfering with custom layout blocks, doesn't seem to be applicable anywhere else
+          	$(this).carousel('next');
+          },
+  		swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
+  			// $(this).find('.item a').on('click', function(){ return false; }); interfering with custom layout blocks, doesn't seem to be applicable anywhere else
+          	$(this).carousel('prev');
+          }
+  	});
 
 	/*
 		Floating form labels
@@ -173,30 +190,57 @@ $(document).ready(function() {
 	}
 
 
-	/* Newsletter Prompt */
-	$('#newsletter-prompt .panel-close, #newsletter-prompt .btn').on('click', function(){
-		$('#newsletter-prompt').addClass('closed');
-		$.cookie('lo-nl-prompt-dismissed', '1', { path: '/' });
-	});
+	/* Newsletter Prompt - disabled */
+	// $('#newsletter-prompt .panel-close, #newsletter-prompt .btn').on('click', function(){
+	// 	$('#newsletter-prompt').addClass('closed');
+	// 	$.cookie('lo-nl-prompt-dismissed', '1', { path: '/' });
+	// });
 
-	var displayNewsletterPrompt = function() {
+	// var displayNewsletterPrompt = function() {
 
-		// Not on the /sale page
-		if (window.location.pathname.match(/^\/sale/)) {
-			return;
-		}
+	// 	// Not on the /sale page
+	// 	if (window.location.pathname.match(/^\/sale/)) {
+	// 		return;
+	// 	}
 
-		// Not on the cart or checkout pages
-		if (window.location.pathname.match(/^\/checkout/)) {
-			return;
-		}
+	// 	// Not on the cart or checkout pages
+	// 	if (window.location.pathname.match(/^\/checkout/)) {
+	// 		return;
+	// 	}
 
-		if ( ! $.cookie('lo-nl-prompt-dismissed') ) {
-			$('#newsletter-prompt').removeClass('closed');
-		}
+	// 	if ( ! $.cookie('lo-nl-prompt-dismissed') ) {
+	// 		$('#newsletter-prompt').removeClass('closed');
+	// 	}
 
-	};
-	var newletterTimeout = setTimeout(displayNewsletterPrompt, 30000);
+	// };
+	// var newletterTimeout = setTimeout(displayNewsletterPrompt, 30000);
+
+	$("#newsletter-signup").on('submit', function(e) {
+        e.preventDefault();
+        var email = $('#signup-email').val();
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://manage.kmail-lists.com/subscriptions/external/subscribe",
+            "method": "POST",
+            "headers": {
+                "content-type": "application/x-www-form-urlencoded",
+                "cache-control": "no-cache"
+            },
+            "data": {
+                "g": "KDKe8m",
+                "$fields": "Sign Up Source",
+                "email": email,
+                "Sign Up Source": "footer"
+            }
+        };
+        $.ajax(settings).done(function (response) {
+            if( response.success ){
+            	$("#newsletter-signup label, #newsletter-signup .form-group").hide();
+            	$("#newsletter-signup .alert").fadeIn();
+            }
+        });
+    });
 
 	// page nav
 	$('#page-nav-items-toggle').on('click', function(e){
@@ -250,9 +294,9 @@ $(document).ready(function() {
 		}
 
 		// trigger the newsletter prompt
-	    if ( window_pos > $('body').height() * 0.7 ) {
-			displayNewsletterPrompt();
-	    }
+	  //   if ( window_pos > $('body').height() * 0.7 ) {
+			// displayNewsletterPrompt();
+	  //   }
 
 		// shift main nav out of the way when we have a page nav
 		if( $pageNav.length ){

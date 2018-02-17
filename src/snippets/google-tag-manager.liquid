@@ -1,3 +1,31 @@
+{%- case template -%}
+	{%- when "collection" -%}
+		{%- assign pinterestPage = collection.title -%}
+		{%- assign pinterestCategory = 'Category Page' -%}
+	{%- when "product" -%}
+		{%- assign pinterestPage = product.title -%}
+		{%- assign pinterestCategory = 'Product Page' -%}
+	{%- when "customers/order" -%}
+		{%- assign pinterestPage = 'customer.order.breadcrumb_title' | t -%}
+		{%- assign pinterestCategory = 'Account Pages' -%}
+	{%- when "customers/account" -%}
+		{%- assign pinterestPage = 'customer.account.title' | t -%}
+		{%- assign pinterestCategory = 'Account Pages' -%}
+	{%- when "customers/addresses" -%}
+		{%- assign pinterestPage = 'customer.addresses.title' | t -%}
+		{%- assign pinterestCategory = 'Account Pages' -%}
+	{%- else -%}
+		{%- assign pinterestPage = '' -%}
+		{%- assign pinterestCategory = '' -%}
+{%- endcase -%}
+{% comment %} checkout doesn't have a template, so check for items {% endcomment %}
+{%- if checkout.line_items != blank -%}
+	{%- assign pinterestPage = 'Checkout Page' -%}
+	{%- assign pinterestCategory = 'Checkout Flow' -%}
+{%- elsif checkout.order_id != blank -%}
+	{%- assign pinterestPage = 'Success Page' -%}
+	{%- assign pinterestCategory = 'Checkout Flow' -%}
+{%- endif -%}
 <!-- Google Tag Manager -->
 <script>
 	var dataLayer = window.dataLayer || [];
@@ -18,13 +46,14 @@
 		],
 		'checkoutData' : {
 			{%- if checkout.order_id != blank -%}
-			'orderId' : {{ checkout.id }},
+			'orderId' : {{ checkout.order_number }},
 			'subtotal' : {{ checkout.subtotal_price | money_without_currency }},
 			'total' : {{ checkout.total_price | money_without_currency }},
 			'tax' : {{ checkout.tax_price | money_without_currency }},
 			'shipping' : {{ checkout.shipping_price | money_without_currency }},
+			'email' : '{{ checkout.email | url_encode }}',
 			{%- for discount in checkout.discounts -%}
-			'coupon' : {{ discount.code }},
+			'coupon' : '{{ discount.code }}',
 			{%- endfor -%}
 			{%- endif -%}
 			'items' : [
@@ -43,14 +72,24 @@
 		'searchTerms' : '{{ search.terms }}',
 		{% if template == 'product' %}
 		{%- assign current_variant = product.selected_or_first_available_variant -%}
-		'productPrice' : {{ current_variant.price | money_without_currency }},
-		'productSku' : '{{ current_variant.sku }}',
-		'productName' : '{{ product.title }}',
-		'productType' : '{{ product.type }}',
-		'productVariant' : '{{ current_variant.title }}',
-		'productImage' : 1,
+		'productData' :{
+			'price' : {{ current_variant.price | money_without_currency }},
+			'comparePrice' : {{ current_variant.compare_at_price | money_without_currency }},
+			'sku' : '{{ current_variant.sku }}',
+			'name' : '{{ product.title }}',
+			'type' : '{{ product.type }}',
+			'collections' : '{{ product.collections | map:"title" | json }}',
+			'url' : '{{ shop.secure_url }}{{ product.url }}',
+			'variant' : '{{ current_variant.title }}',
+			'brand' : '{{ product.vendor }}',
+			'imageUrl' : 'https:{{ product.featured_image.src | img_url:"grande" }}',
+			'imagePosition' : 1,
+		},
 		{% endif %}
-		'template' : '{{ template }}'
+		'template' : '{{ template }}',
+		'pinterestCategory' : '{{ pinterestCategory }}',
+		'pinterestPage' : '{{ pinterestPage }}',
+		'emailEncoded' : '{{ customer.email | sha256 }}'
 	})
 </script>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

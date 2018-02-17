@@ -600,12 +600,7 @@ LS.productVideoOpen = function(videoId){
     		dataLayer.push({
     			'event' : 'videoStart',
     			'videoName' : title
-    		});
-			if ( LS.havePinterestTracking() ) {
-				pintrk('track', 'watchvideo', {
-					video_title  : title
-				});
-			}       
+    		});    
     	}).catch(function(error) {
     		console.log(error);
     	});

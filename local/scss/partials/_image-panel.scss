@@ -78,9 +78,11 @@
 
 		&.no-image{
 			.title,
-			.subtitle,
-			.description{
+			.subtitle{
 				color: $gray-darker;
+			}
+			.description{
+				color: $gray;
 			}
 			.link a{
 				color: $gray-dark;
@@ -134,10 +136,15 @@
 				margin-bottom: 0;
 			}
 		}
+		.btn-set p:first-child{
+			margin-bottom: 10px;
+		}
 		hr{
 			width: 10%;
 			border-top-width: 2px;
 			border-top-color: #fff;
+			margin-top: 30px;
+			margin-bottom: 30px;
 			@media (max-width: $screen-picture-switch - 1) {
 				margin-top: 5vw;
 				margin-bottom: 5vw;
@@ -148,14 +155,12 @@
 		color: #FFF;
 		font-family: $font-family-bold; 
 		line-height: 1.1;
-		letter-spacing: 2px;
 		font-size: 100%;
 	}
 	.subtitle{
 		color: #FFF;
 		text-transform: uppercase;
 		font-family: $font-family-sans-serif;
-		letter-spacing: 2px;
 		font-size: 40%;
 	}
 	.description{
@@ -163,6 +168,12 @@
 		font-family: $font-family-sans-serif;
 		color: #FFF;
 		position: relative;
+		line-height: 1.4;
+	}
+	.btn{
+		@media (min-width: $screen-sm) and (max-width: $screen-xl) {
+			font-size: 53%;
+		}
 	}
 	.link{
 		margin: 0;
@@ -183,20 +194,20 @@
 			@media (min-width: $screen-picture-switch) {
 				font-size: 40%;
 			}
-			&.btn{
-				border: 0;
-				background-color: $brand-blue;
-				padding: 0;
-				line-height: 1;
-				color: #FFF;
-				&:hover{
-					background-color: $brand-blue-dark;
-				}
-				span{
-					display: block;
-					padding: .65em .75em; // inner span is always present to adjust padding based on either the default font size or override
-				}
-			}
+			// &.btn{
+			// 	border: 0;
+			// 	background-color: $brand-blue;
+			// 	padding: 0;
+			// 	line-height: 1;
+			// 	color: #FFF;
+			// 	&:hover{
+			// 		background-color: $brand-blue-dark;
+			// 	}
+			// 	span{
+			// 		display: block;
+			// 		padding: .65em .75em; // inner span is always present to adjust padding based on either the default font size or override
+			// 	}
+			// }
 		}
 	} 
 	.inline-video{
@@ -254,6 +265,12 @@
 			background-image: url('oval.svg');
 			background-size: 75px;
 		}
+	}
+	// hotfixes for transferred pages
+	.final-price{
+		font-size: 72%;
+		color: $gray;
+		line-height: calculateEm(50px, 30px);
 	}
 }
 [class^="video-trigger"],

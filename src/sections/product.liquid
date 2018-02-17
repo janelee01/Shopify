@@ -20,12 +20,14 @@
 {%- for siblingProduct in parentCollection.products -%}
   {%- if referringCollectionHandle and collections[referringCollectionHandle].metafields["global"]["enable-pdp-filtering"] == "true" -%}
     {%- assign excludeProduct = true -%}
-    {%- for referringCollectionProduct in collections[referringCollectionHandle].products -%}
-      {%- if referringCollectionProduct.id == siblingProduct.id -%}
-        {%- assign excludeProduct = false -%}
-        {%- break -%}
-      {%- endif -%}
-    {%- endfor -%}
+    {%- paginate collections[referringCollectionHandle].products by 200 -%}
+	    {%- for referringCollectionProduct in collections[referringCollectionHandle].products -%}
+	      {%- if referringCollectionProduct.id == siblingProduct.id -%}
+	        {%- assign excludeProduct = false -%}
+	        {%- break -%}
+	      {%- endif -%}
+	    {%- endfor -%}
+    {%- endpaginate -%}
     {%- if excludeProduct -%}
       {%- continue -%}
     {%- else -%}
@@ -36,7 +38,6 @@
   {%- endif -%}
 {%- endfor -%}
 {%- endcapture -%}
-
 
 <div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
 
@@ -141,21 +142,25 @@
 				        	{%- endunless -%}
 							{% endcomment %}
 							
-							{%- unless product.has_only_default_variant -%}
 							<div class="selector-wrapper">
-								<label for="variant-selector">Size</label>
-								<div id="variant-buttons">
-									{%- for variant in product.variants -%}
-										<a href="#" class="btn btn-secondary variant-option {% if forloop.first %}selected{% endif %}">{{ variant.title }}</a>
-									{%- endfor -%}
-								</div>
+								{%- unless product.has_only_default_variant -%} 
+									<label for="variant-selector">Size</label>
+									<div id="variant-buttons">
+										{%- for variant in product.variants -%}
+											{%- assign selected = '' -%}
+											{%- if product.selected_variant.title == variant.title or forloop.first and product.selected_variant.title == blank -%}
+												{%- assign selected = ' selected' -%}
+											{%- endif -%}
+											<a href="#" class="btn btn-secondary variant-option{{ selected }}">{{ variant.title }}</a>
+										{%- endfor -%}
+									</div>
+								{%- endunless -%}
 								<select name="id" id="variant-selector" class="hidden" data-product-select>
 									{%- for variant in product.variants -%}
-										<option value="{{ variant.id }}">{{ variant.title }}</option>
+										<option value="{{ variant.id }}"{% if variant.id == product.selected_variant.id %} selected="selected"{% endif %}>{{ variant.title }}</option>
 									{%- endfor -%}
 								</select>
 							</div>
-							{%- endunless -%}
 				         
 							<div id="add-to-cart">
 								<label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
@@ -187,7 +192,7 @@
 		    </div>
 		    <div class="col-sm-6 col-sm-pull-6">
 		    	<div id="product-identity">
-		    		<h1>{{ parentCollection.title }}</h1>
+		    		<h1>{{ parentCollection.title | remove: "The " }}</h1>
 		    		{%- unless parentCollection.metafields["global"]["short-description"] == blank -%}
 		    		<p class="product-type-label">{{ parentCollection.metafields["global"]["short-description"] }}</p>
 		    		{%- endunless -%}
@@ -195,7 +200,7 @@
 		    	<div id="product-description">
 		    		{{ parentCollection.description | replace: '<a ', '<a class="pdp-more" ' }}
 		    		{%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
-		    		<a href="#product-video" id="product-video-trigger">See what fits inside</a>
+		    		<a href="#product-video" id="product-video-trigger">Play video</a>
 		    		{%- endunless -%}
 		    	</div>
 		    </div>
@@ -221,7 +226,7 @@
 	  	{%- assign detailTitle = 'Care Instructions' -%}
 	  	{%- assign detailKey = 'care-instructions' -%}
 	  	{% include 'product-detail-panel' %}
-
+		
 	  	<div class="product-detail-panel">
 	  	  <h2 data-collapse-toggle class="has-divider panel-toggle collapsed">Shipping, Returns, Exchanges</h2>
 	  	  <div data-collapse-panel class="panel-content">
@@ -265,17 +270,17 @@
 				</script>
 			</div>
 		</div>
-	  
-		{%- if parentCollection.metafields["global"]["press"] != blank -%}
+	  	
+	  	{%- unless parentCollection.metafields["global"]["press"] == blank -%}
 			<div class="product-detail-panel">
 				<h2 data-collapse-toggle class="has-divider panel-toggle collapsed">Press</h2>
 				<div data-collapse-panel class="panel-content">
-					<div class="press">
+					<div class="press-item">
 						{{ parentCollection.metafields["global"]["press"] }}
 					</div>
 				</div>
 			</div>
-		{%- endif -%}
+		{%- endunless -%}
 	  
 		{%- unless product == empty -%}
 			<script type="application/json" data-product-json>
@@ -292,8 +297,23 @@
 				{%- endfor -%}
 			}
 		{%- endcapture -%}
+		{% comment %} some information isn't included in the normal product object {% endcomment %}
+		{%- capture siblingsSupplimentalJson -%}
+			{
+				{%- for siblingProduct in parentCollection.products -%}
+					{%- if siblingsList contains siblingProduct.id -%}
+						"{{ siblingProduct.id }}" : {
+							"url" : "{{ shop.secure_url }}{{ siblingProduct.url }}",
+							"collections" : {{ siblingProduct.collections | map:"title" | json }},
+							"featuredImage" : "https:{{ siblingProduct.featured_image.src | img_url:"grande" }}"
+						}{% unless forloop.last %},{% endunless %}
+					{%- endif -%}
+				{%- endfor -%}
+			}
+		{%- endcapture -%}
 		<script>
 			var siblingsJson = {{ siblingsJson }};
+			var siblingsSupplimentalJson = {{ siblingsSupplimentalJson }};
 		</script>
 
 	</div>

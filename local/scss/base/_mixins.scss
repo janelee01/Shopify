@@ -1,3 +1,8 @@
+@function calculateEm($input, $base) {
+  $emSize: $input / $base; 
+  @return #{$emSize}em;
+}
+
 @mixin transition-on(){
 	@include transition(all 0.1s ease-in-out);
 }
@@ -48,7 +53,7 @@
 	font-family: $font-family-semibold;
 	@media (min-width: $screen-md) {
 		margin-bottom: 45px;
-		padding-bottom: 30px;
+		padding-bottom: 25px;
 		font-size: 24px;
 	}
 	&:after{

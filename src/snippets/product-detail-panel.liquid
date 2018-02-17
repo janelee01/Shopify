@@ -1,3 +1,4 @@
+{%- unless parentCollection.metafields["global"][detailKey] == blank -%}
 <div class="product-detail-panel">
 	<h2 data-collapse-toggle class="has-divider panel-toggle collapsed">{{ detailTitle }}</h2>
 	<div data-collapse-panel class="panel-content">
@@ -13,3 +14,4 @@
 		{% endfor %}
 	</div>
 </div>
+{%- endunless -%}

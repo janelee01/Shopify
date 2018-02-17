@@ -8,8 +8,8 @@
       "page": "Page {{ page }}"
     },
     "404": {
-      "title": "404 Page Not Found",
-      "subtext_html": "The page you requested does not exist. Click <a href=\"/collections/all\">here</a> to continue shopping."
+      "title": "Page Not Found",
+      "subtext_html": "<p>The page you were looking for cannot be found. Please verify the URL in your address bar and try again or try a search.</p>"
     },
     "password_page": {
       "opening_soon": "Opening Soon",
@@ -85,7 +85,7 @@
       "cookies_required": "Enable cookies to use the shopping cart",
       "continue_browsing_html": "<a href=\"/collections/all\" class=\"btn\">Continue shopping</a>",
       "item_quantity": "Item quantity",
-      "savings": "You're saving"
+      "savings": "Discounts"
     },
     "label": {
       "product": "Product",

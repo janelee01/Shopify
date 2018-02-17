@@ -4,49 +4,78 @@
 	this is by no means a best-practice, but we needed a way to copy over individual page customizations inlined by WP
 {% endcomment %}
 
-{% case page.handle %}
-  {% when "discover-womens-hanover-deluxe-travel-backpack" %}
+{%- case page.handle -%}
+  
+  {%- when "hanover-deluxe-womens-travel-laptop-backpack" -%}
   	{{ 'hanover-deluxe.css' | asset_url | stylesheet_tag }}
   	<script src="{{ 'hanover-deluxe.js' | asset_url }}" defer></script>
-  {% when "discover-womens-hanover-travel-backpack" %}
+  
+  {%- when "hanover-womens-travel-laptop-backpack" -%} 
   	{{ 'hanover.css' | asset_url | stylesheet_tag }}
-  {% when "discover-catalina-deluxe" %}
+  
+  {%- when "catalina-deluxe-womens-weekender-travel-bag" -%}
   	{{ 'catalina-deluxe.css' | asset_url | stylesheet_tag }}
-  {% when "discover-catalina-deluxe-tote" %}
+  
+  {%- when "catalina-deluxe-tote-womens-travel-bag" -%}
   	{{ 'catalina-deluxe-tote.css' | asset_url | stylesheet_tag }}
-  {% when "discover-the-catalina" %}
+  
+  {%- when "catalina-weekender-womens-travel-bag" -%}
   	{{ 'catalina.css' | asset_url | stylesheet_tag }}
-  {% when "discover-pearl" %}
+  
+  {%- when "pearl-womens-leather-travel-crossbody-bag" -%}
   	{{ 'pearl.css' | asset_url | stylesheet_tag }}
-  {% when "discover-the-waverley-crossbody-bag-belt-bag" %}
+  
+  {%- when "waverley-womens-convertible-crossbody-bag" -%}
   	{{ 'waverley.css' | asset_url | stylesheet_tag }}
-  {% when "discover-seville" %}
+  
+  {%- when "seville-womens-laptop-travel-tote" -%}
   	{{ 'seville.css' | asset_url | stylesheet_tag }}
-  {% when "discover-the-og-and-omg" %}
-  	{{ 'og-omg.css' | asset_url | stylesheet_tag }}
-  {% when "discover-the-cambridge-briefcase-travel-bag" %}
+  
+  {%- when "og-omg-womens-travel-overnight-shoulder-bag" -%}
+    {{ 'og-omg.css' | asset_url | stylesheet_tag }}
+
+  {%- when "claremont-womens-leather-camera-bag" -%}
+  	{{ 'claremont.css' | asset_url | stylesheet_tag }}
+  
+  {%- when "cambridge-mens-laptop-briefcase-travel-bag" -%} 
   	{{ 'cambridge.css' | asset_url | stylesheet_tag }}
   	<script src="{{ 'cambridge.js' | asset_url }}" defer></script>
-  {% when "discover-the-rhodes-duffel-travel-bag" %}
+  
+  {%- when "rhodes-mens-weekend-duffel-travel-bag" -%}
   	{{ 'rhodes.css' | asset_url | stylesheet_tag }}
   	<script src="{{ 'rhodes.js' | asset_url }}" defer></script>
-  {% when "discover-mens-hanover-travel-backpack" %}
+  
+  {%- when "hanover-mens-travel-laptop-backpack" -%}
   	{{ 'hanover-men.css' | asset_url | stylesheet_tag }}
-  {% when "discover-mens-hanover-deluxe-travel-backpack" %}
+  
+  {%- when "hanover-deluxe-mens-travel-backpack" -%}
   	{{ 'hanover-deluxe-men.css' | asset_url | stylesheet_tag }}
   	<script src="{{ 'hanover-deluxe-men.js' | asset_url }}" defer></script>
-  {% when "compare-catalina" %}
+  
+  {%- when "compare-catalina-collection" -%}
   	{{ 'compare-catalina.css' | asset_url | stylesheet_tag }}
-  {% when "og-vs-omg-overview" %}
+  
+  {%- when "compare-og-omg" -%}
   	{{ 'compare-og-omg.css' | asset_url | stylesheet_tag }}
-  {% when "compare-seville-size" %}
+  
+  {%- when "compare-seville-size-and-fit" -%}
   	{{ 'compare-seville-size.css' | asset_url | stylesheet_tag }}
-  {% when "compare-seville-materials" %}
+  
+  {%- when "compare-seville-materials" -%}
   	{{ 'compare-seville-materials.css' | asset_url | stylesheet_tag }}
-  {% when "pearl-material-comparison" %}
-	{{ 'compare-pearl-materials.css' | asset_url | stylesheet_tag }}
-  {% when "compare-hanover-men" %}
-	{{ 'compare-hanover-men.css' | asset_url | stylesheet_tag }}
-  {% when "compare-hanover-women" %}
-	{{ 'compare-hanover-women.css' | asset_url | stylesheet_tag }}
-{% endcase %}
+  
+  {%- when "compare-pearl-materials" -%}
+	  {{ 'compare-pearl-materials.css' | asset_url | stylesheet_tag }}
+  
+  {%- when "compare-hanover-collection-mens" -%}
+	  {{ 'compare-hanover-men.css' | asset_url | stylesheet_tag }}
+  
+  {%- when "compare-hanover-collection-womens" -%}
+    {{ 'compare-hanover-women.css' | asset_url | stylesheet_tag }}
+      
+  {%- when "featured-material-recycled-poly" -%}
+    {{ 'recycled-poly.css' | asset_url | stylesheet_tag }}
+
+  {%- when "featured-material-organic-cotton-canvas" -%}
+	  {{ 'organic-cotton.css' | asset_url | stylesheet_tag }}
+{%- endcase -%}

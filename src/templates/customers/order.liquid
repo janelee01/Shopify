@@ -49,7 +49,9 @@
               <td class="item-info">
                 {% assign productNameParts = line_item.title | split: '-' %}
                 <a class="product-name" href="{{ line_item.product.url }}">{{ productNameParts[0] | trim }}</a>
-                <p class="item-options">{{ productNameParts[1] | trim }} / {{ productNameParts[2] | trim }} / {{ productNameParts[3] | trim }}</p>
+                {%- unless productNameParts[1] == blank -%}
+                <p class="item-options">{{ productNameParts[1] | trim }}{%- unless productNameParts[2] == blank -%} / {{ productNameParts[2] | trim }}{%- endunless -%}{%- unless productNameParts[3] == blank -%} / {{ productNameParts[3] | trim }}{%- endunless -%}</p>
+                {%- endunless -%}
                 {% comment %}
                 {% if line_item.fulfillment %}
                   <dl>

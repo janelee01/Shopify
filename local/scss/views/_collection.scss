@@ -22,8 +22,10 @@
 	}
 }
 #filters{
-	margin-left: $mobile-gutter;
-	margin-right: $mobile-gutter;
+	@media (min-width: $screen-sm) {
+		margin-left: $mobile-gutter;
+		margin-right: $mobile-gutter;	
+	}
 	@media (min-width: $screen-md) {
 		display: inline-block;
 		margin: 0;
@@ -80,7 +82,7 @@
 	background: none;
 	border: 0;
 	font-size: 14px;
-	color: #646464;
+	color: $gray;
 	line-height: 24px;
 	position: relative;
 	@include transition(all .2s ease);

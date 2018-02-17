@@ -5,7 +5,7 @@
 	}
 	thead{
 		th{
-			padding: 0 20px 40px;
+			padding: 0 10px 40px;
 			font-size: 19px;
 			line-height: 1;
 			color: #888;
@@ -14,10 +14,13 @@
 			font-weight: normal;
 			white-space: nowrap;
 			@media (min-width: $screen-md) {
-				padding-bottom: 45px;
+				padding: 0 20px 40px;
 			}
 			&.text-right{
 				text-align: right;
+			}
+			&.text-center{
+				text-align: center;
 			}
 		}
 	}
@@ -30,12 +33,12 @@
 			}
 		}
 		tr > td:first-child{
-			@media (max-width: $screen-sm-max) {
+			@media (max-width: $screen-xs-max) {
 			    padding-left: 0;
 			}
 		}
 		tr > td:last-child{
-			@media (max-width: $screen-sm-max) {
+			@media (max-width: $screen-xs-max) {
 			    padding-right: 0;
 			}
 		}
@@ -111,9 +114,9 @@
 				text-align: right;
 			}
 		}
-		padding: 0 10px;
+		padding: 5px 10px;
 		@media (min-width: $screen-md) {
-			padding: 0 20px;
+			padding: 10px 20px;
 		}
 	}
 	.total{

@@ -22,8 +22,9 @@
 	}
 	.old-price{
 		display: block;
-		color: #646464;
+		color: $gray;
 		font-size: 13px;
+		padding-top: 6px;
 	}
 }
 .cart-empty{
@@ -101,7 +102,7 @@
 
 #checkout-message{
 	text-align: right;
-	color: #646464;
+	color: $gray;
 	line-height: 1;
 	@media (max-width: $screen-xs-max) {
 	    text-align: center;

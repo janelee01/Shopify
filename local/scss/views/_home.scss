@@ -2,26 +2,4 @@
 	.btn-set{
 		max-width: 180px;
 	}
-	.section-heading{
-		text-align: center;
-		@media (min-width: $screen-md) {
-			padding: 60px 0;
-		}
-		h2{
-			font-size: 30px;
-			@media (min-width: $screen-md) {
-				font-size: 60px;
-			}
-		}
-		.has-bar{
-			margin-bottom: 4px;
-		}
-		.has-divider{
-			&:after{
-				left: 50%;
-				width: 40px;
-				margin-left: -20px;
-			}
-		}
-	}
 }

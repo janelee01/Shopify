@@ -47,7 +47,7 @@
 {%- endfor -%}
 
   <header class="page-header is-collection" data-collection="{{ collection.id }}">
-    <h1 class="has-bar">{{ collection.title }}</h1>
+    <h1 class="has-bar">{{ collection.title | remove: "Shop " }}</h1>
     <div>{% comment%} both .has-bar and #filters are inline-block, so we need a newline somehow {% endcomment %}
       <div id="filters">
         <ul>
@@ -85,7 +85,7 @@
   <div class="container-fluid">
     {%- for parentProductName in parentProducts -%}
     <div class="product-family">
-      <h2 class="has-divider">{{ parentProductName }}</h2>
+      <h2 class="has-divider">{{ parentProductName | remove: "The " }}</h2>
       <div class="product-grid">
         <div class="row">
           {% for product in collection.products %}

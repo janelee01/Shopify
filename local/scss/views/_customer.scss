@@ -12,7 +12,10 @@
 	}
 }
 .page-header.account-form-heading{
-	padding: 120px 0 50px;
+	padding: 60px 0 20px;
+	@media (min-width: $screen-md) {
+		padding: 120px 0 50px;
+	}
 	background: none;
 	h1{
 		text-transform: none;
@@ -126,7 +129,7 @@
 	}
 }
 .address{
-	color: #646464;
+	color: $gray;
 	p{
 		margin-bottom: 20px;
 		line-height: 26px;
@@ -149,7 +152,7 @@
 	border: 0;
 	font-size: 18px;
 	line-height: 32px;
-	color: #646464;
+	color: $gray;
 	padding: 0;
 	@include transition(all .2s ease);
 	&:focus{
@@ -364,6 +367,7 @@
 	    			clear: both;
 	    			&:last-child{
 	    				border: 0;
+	    				padding-bottom: 0;
 	    			}
 	    			&.item-thumb{
 	    				float: left;
@@ -384,6 +388,7 @@
 	    			&.has-label{
 	    				display: flex;
 	    				justify-content: space-between;
+	    				align-items: center;
 	    				.key{
 	    					display: block;
 	    					color: $gray-darker;

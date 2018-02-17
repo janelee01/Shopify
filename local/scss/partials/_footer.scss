@@ -11,6 +11,7 @@
 		color: $gray-darker;
 		font-weight: 400;
 		font-size: 27px;
+		line-height: calculateEm(34px, 27px);
 		font-family: $font-family-sans-serif;
 		display: block;
 		margin-bottom: 35px;
@@ -55,6 +56,17 @@
 			border-color: #E6E6E6;
 			background: none;
 			height: 66px;
+		}
+	}
+	.alert{
+		line-height: 1.4;
+		color: $gray;
+		font-size: $font-size-base;
+		display: none;
+		strong{
+			color: $brand-blue;
+			font-size: 18px;
+			display: block;
 		}
 	}
 }
@@ -125,7 +137,7 @@
 		}
 		a{
 			font-size: 17px;
-			color: #646464;
+			color: $gray;
 			line-height: 1;
 			@include transition(all .2s ease);
 			&:hover{
@@ -169,6 +181,6 @@
 	font-size: 15px;
 	margin-bottom: 29px;
 	@media (min-width: $screen-md) {
-		color: #646464;
+		color: $gray;
 	}
 }

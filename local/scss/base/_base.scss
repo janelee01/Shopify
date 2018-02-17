@@ -99,7 +99,7 @@ b, strong{
 	text-align: center;
 	background: #fafafa;
 	margin: 0;
-	padding: 20px 0;
+	padding: 20px $mobile-gutter;
 	border: none;
 	line-height: 1;
 	@media (min-width: $screen-md) {
@@ -112,14 +112,16 @@ b, strong{
 			font-size: 30px;
 		}
 	}
+	.container-fluid{
+		padding: 0; 
+	}
 }
-
-
 p {
-  margin: 0 0 ($line-height-computed);
+  margin: 0 0 $line-height-computed;
 }
 ul, ol{
 	font-family: $font-family-sans-serif;
+	margin-bottom: $line-height-computed;
 }
 img {
 	max-width: 100%;
@@ -146,6 +148,10 @@ dl.faqs{
 		font-size: 18px;
 		line-height: 1.5;
 	}
+}
+hr{
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 hr.mini-divider{
 	width: 54px;
@@ -223,7 +229,7 @@ hr.mini-divider{
 	padding: 15px 19px;
 	line-height: 1;
 	@media (min-width: $screen-md) {
-		padding: 22px 29px 23px;
+		padding: 19px 29px 18px;
 		font-size: 19px;
 	    @include transition-off;
 	    &:focus,
@@ -238,6 +244,9 @@ hr.mini-divider{
 	    	}
 	    }
 	}
+	@media (min-width: $screen-xl) {
+		padding: 19px 29px 20px;
+	}
 	&.btn-secondary{
 		color: $gray-dark; 
 		background: transparent;
@@ -248,6 +257,15 @@ hr.mini-divider{
 		&:hover{
 			border-color: $brand-blue;
 			color: $brand-blue;
+		}
+		&.inverted{
+			color: #fff;
+			border-color: #fff;
+			&:hover{
+				border-color: #fff;
+				color: #fff;
+				background: rgba(255,255,255,.1);
+			}
 		}
 	}
 	&.btn-md{
@@ -277,7 +295,7 @@ hr.mini-divider{
 		padding: 12px 26px 11px;
 		margin-right: 10px;
 		font-size: 15px;
-		color: #646464;
+		color: $gray;
 		border-color: #e6e6e6;
 		font-family: $font-family-base;
 		&.selected{
@@ -359,8 +377,6 @@ hr.mini-divider{
 	padding: 10px 30px 11px;
 	background: $brand-blue;
 	font-size: $font-size-small;
-	font-family: $font-family-sans-serif;
-	letter-spacing: $ls-xs;
 	z-index: 1000;
 	color: #FFF;
 	position: relative;
@@ -697,7 +713,7 @@ blockquote{
 		display: inline-block;
 		position: relative;
 		padding: 0 22px;
-		color: #646464;
+		color: $gray;
 		line-height: 1;
 		&:before,
 		&:after{

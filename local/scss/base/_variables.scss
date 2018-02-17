@@ -6,7 +6,7 @@ $site-max-width: 1680px;
 $screen-xs-landscape: 450px; // not a value based on any device, just where it looks good to start making layout changes
 $screen-picture-switch: 768px; 
 $screen-md: 1030px; 
-$screen-xl: 1600px; 
+$screen-xl: 1400px; 
 $grid-float-breakpoint: $screen-md; 
  
 $menu-width-sm: 100%;
@@ -26,10 +26,10 @@ $mobile-gutter: 28px;
 
 $gray-darker:            #111; 
 $gray-dark:              #414B56;   
-$gray:                   #7f7f7f; 
+$gray:                   #646464;  
 $gray-light:             #808080; 
 $gray-lighter:           #d6d6d6; 
-$gray-lightest:          #f4f4f4; 
+$gray-lightest:          #f8f8f8; 
 
 $brand-primary:         #45ADD9;
 $brand-success:         #5cb85c;

@@ -72,20 +72,25 @@
 
               </td>
               <td class="item-price" data-label="{{ 'cart.label.price' | t }}">
-                {% if item.original_line_price != item.line_price %}
+                {% comment %} scripts discount or sale pricing {% endcomment %}
+                {%- if item.original_price > item.price or item.variant.compare_at_price > item.variant.price -%}
                   <span class="price">
                     <span class="sr-only">{{ 'cart.label.discounted_price' | t }}</span>
                     {{ item.price | money }}
                   </span>
                   <span class="old-price">
                     <span class="sr-only">{{ 'cart.label.original_price' | t }}</span>
-                    <s>{{ item.original_price | money }}</s>
+                    {%- if item.variant.compare_at_price > item.variant.price -%}
+                      <s>{{ item.variant.compare_at_price | money }}</s>
+                    {%- else -%}
+                      <s>{{ item.original_price | money }}</s>
+                    {%- endif -%}
                   </span>
-                {% else %}
+                {%- else -%}
                   <span class="price">
                     {{ item.price | money }}
                   </span>
-                {% endif %}
+                {%- endif -%}
               </td>
               <td class="item-qty" data-label="{{ 'cart.label.quantity' | t }}">
                 <div class="number-control">
@@ -119,16 +124,16 @@
 
       <table id="cart-totals" class="order-totals">
         <tbody>
+          {% if cart.total_discounts > 0 %}
+          <tr>
+            <td>{{ 'cart.general.savings' | t }}</td>
+            <td class="line-total" id="discounts-total">{{ cart.total_discounts | money }}</td>
+          </tr>
+          {% endif %}
           <tr class="total">
             <td>{{ 'cart.general.subtotal' | t }}</td> 
             <td class="line-total">{{ cart.total_price | money }}</td>
           </tr>
-          {% if cart.total_discounts > 0 %}
-          <tr>
-            <td>{{ 'cart.general.savings' | t }}</td>
-            <td class="line-total" id="coupon-total">{{ cart.total_discounts | money }}</td>
-          </tr>
-          {% endif %}
           </tbody>
       </table>
       

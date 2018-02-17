@@ -19,7 +19,7 @@ gulp.task('styles', function () {
     return gulp.src('scss/style.scss')
         .pipe($.plumber({ errorHandler: onError }))
         .pipe($.sass({
-            'outputStyle' : 'expanded',
+            'outputStyle' : 'compressed',
         }))
         .pipe($.autoprefixer('last 2 version', 'ie 9'))
         .pipe($.concat('lo.css')) // slate grabs this file for it's build
@@ -31,11 +31,23 @@ gulp.task('checkout', function () {
     return gulp.src('scss/checkout.scss')
         .pipe($.plumber({ errorHandler: onError }))
         .pipe($.sass({
-            'outputStyle' : 'expanded',
+            'outputStyle' : 'compressed',
         }))
         .pipe($.autoprefixer('last 2 version', 'ie 9'))
         .pipe($.concat('lo-checkout.css')) // slate grabs this file for it's build
         .pipe(gulp.dest('../src/styles/vendor')) 
+        .pipe($.size())
+});
+
+gulp.task('notifications', function () {
+    return gulp.src('scss/notifications.scss')
+        .pipe($.plumber({ errorHandler: onError }))
+        .pipe($.sass({
+            'outputStyle' : 'compressed',
+        }))
+        .pipe($.autoprefixer('last 2 version', 'ie 9'))
+        .pipe($.concat('notifications.css'))
+        .pipe(gulp.dest('notifications')) 
         .pipe($.size())
 });
 
@@ -55,7 +67,7 @@ gulp.task('default', function () {
 
 gulp.task('watch', function () {
     gulp.watch('scss/**/*.scss', function() {
-        return runSequence('styles', 'checkout');
+        return runSequence('styles', 'checkout', 'notifications');
     });
 
     gulp.watch('pages/*', function() {

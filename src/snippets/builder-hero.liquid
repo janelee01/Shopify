@@ -20,7 +20,7 @@
 	
 {% else %}
 
-	<div class="fw-image">
+	<div class="fw-image{% unless block.settings.isSecondary %} is-primary-hero{% endunless %}">
 		<picture class="hero">
 			<source srcset="{{ block.settings.desktopImage | img_url: 'master' }}" media="(min-width: 768px)">
 			<img src="{{ block.settings.mobileImage | img_url: 'master' }}" alt="{{ block.settings.altText }}">
@@ -29,6 +29,9 @@
             <div class="flexer">
                 {% unless block.settings.title == blank %}
                     <p class="title">{{ block.settings.title }}</p>
+                {% endunless %}
+                {% unless block.settings.description == blank %}
+                    <p class="description">{{ block.settings.description }}</p>
                 {% endunless %}
                 <div class="btn-set">
                     {% unless block.settings.linkText == blank %}

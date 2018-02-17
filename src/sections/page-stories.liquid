@@ -2,7 +2,7 @@
 	{% case block.type %}
 
 		{% when 'sectionHeading' %}
-		{% include 'section-heading' %}
+		<h2 class="{{ block.settings.headingStyle }}">{{ block.settings.text }}</h2>
 
 		{% when 'twoUp' %}
 		{%- assign thumbSize = '590x395' -%}
