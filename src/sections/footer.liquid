@@ -47,7 +47,7 @@
               {% capture social_icon %}logo-{{ social_handle }}.svg{% endcapture %}
               {% if settings[social_link] != blank %}
                 <li>
-                  <a class="footer-menu-item" href="{{ settings[social_link] }}" target="_blank">
+                  <a class="footer-menu-item" href="{{ settings[social_link] }}" target="_blank" rel="nofollow noreferrer">
                     {{social_icon | asset_url | img_tag }}
                     <span class="sr-only">{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}</span>
                   </a>

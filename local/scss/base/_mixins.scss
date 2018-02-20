@@ -96,3 +96,13 @@
 		}
 	}
 }
+
+@mixin invertedSecondaryBtn{
+	color: #fff;
+	border-color: #fff;
+	&:hover{
+		border-color: #fff;
+		color: #fff;
+		background: rgba(255,255,255,.1);
+	}
+}

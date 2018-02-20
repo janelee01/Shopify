@@ -3,7 +3,7 @@
     {% assign fieldId = 'in-menu-search' %}
     {% include 'search-form' with fieldId %}
   	<nav role="navigation" id="site-menu">
-      <ul> 
+      <ul id="site-menu-items"> 
   	    {% for link in linklists[section.settings.main_linklist].links %}
   	      {%- assign child_list_handle = link.title | handleize -%}
   	      {% if menus[child_list_handle].links != blank %}
@@ -45,33 +45,34 @@
   	        </li>
   	      {% endif %}
   	    {% endfor %}
-
-  	    {% if shop.customer_accounts_enabled %}
-  	        {% if customer %}
-  	          <li>
-  	            {% if customer.first_name != blank %}
-  	              <a class="main-menu-account-item" href="/account">{{ 'layout.customer.logged_in_as_html' | t: first_name: customer.first_name }}</a>
-  	            {% else %}
-  	              <a class="main-menu-account-item" href="/account">{{ 'layout.customer.account' | t }}</a>
-  	            {% endif %}
-  	          </li>
-  	          {% comment %}
-              <li>
-  	            {{ 'layout.customer.log_out' | t | customer_logout_link }}
-  	          </li>
-              {% endcomment %}
-  	        {% else %}
-  	          <li>
-  	            {{ 'layout.customer.log_in' | t | customer_login_link }}
-  	          </li>
-  	          {% comment %}
-              <li>
-  	            {{ 'layout.customer.create_account' | t | customer_register_link }}
-  	          </li>
-              {% endcomment %}
-  	        {% endif %}
-  	    {% endif %}
   	  </ul>
+      {% if shop.customer_accounts_enabled %}
+        <ul id="account-menu-items">
+            {% if customer %}
+              <li>
+                {% if customer.first_name != blank %}
+                  <a href="/account">{{ 'layout.customer.logged_in_as_html' | t: first_name: customer.first_name }}</a>
+                {% else %}
+                  <a href="/account">{{ 'layout.customer.account' | t }}</a>
+                {% endif %}
+              </li>
+              {% comment %}
+              <li>
+                {{ 'layout.customer.log_out' | t | customer_logout_link }}
+              </li>
+              {% endcomment %}
+            {% else %}
+              <li>
+                {{ 'layout.customer.log_in' | t | customer_login_link }}
+              </li>
+              {% comment %}
+              <li>
+                {{ 'layout.customer.create_account' | t | customer_register_link }}
+              </li>
+              {% endcomment %}
+            {% endif %}
+        </ul>
+      {% endif %}
   	</nav>
     <button id="nav-panel-close" class="panel-close"><span class="sr-only">Close</span></button>
   </div>

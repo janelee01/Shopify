@@ -31,7 +31,7 @@ window.theme = window.theme || {};
 // =require vendor/lo-and-sons.js
 // =require lo/navigation.js  
 // =require lo/videos.js  
-// =require lo/collection-filters.js  
+// =require lo/collection-filters.js 
 // =require lo/swatches.js  
 // =require lo/waitlist.js  
 // =require lo/product-reviews.js  
@@ -39,6 +39,7 @@ window.theme = window.theme || {};
 // =require lo/customers.js  
 
 $(document).ready(function() {
+	
   var sections = new slate.Sections();
   sections.register('product', theme.Product);
 
@@ -380,7 +381,7 @@ $(document).ready(function() {
 		var $cartRows = $('#cart-items tr');
 		$cartRows.each(function(){
 			var $control = $(this).find('.number-control').detach();
-			if( $(window).width() < 769 && $(this).find('.item-info .number-control').length < 1 ){
+			if( $(window).width() < 768 && $(this).find('.item-info .number-control').length < 1 ){
 				$(this).find('.item-info').append($control);
 			}else if( $(this).find('.item-qty .number-control').length < 1 ){
 				$(this).find('.item-qty').append($control);

@@ -7,8 +7,9 @@
     <meta name="referrer" content="origin">
 
     {% include 'google-tag-manager' %}
-
-    <title>{{ shop.name }} - {{ page_title }}</title>
+    {%- assign titleWords = page_title | split: ' ' -%}
+    {% capture page_title %}{% for word in titleWords %}{{ word | capitalize }} {% endfor %}{% endcapture %}
+    <title>{{ shop.name }} - {{ page_title | rstrip }}</title>
 
     {{ content_for_header }}
   
@@ -59,15 +60,49 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script>
       jQuery(document).ready(function($){
-        $(window).load(function(){
+        var formatProductNames = function(){
           $('.product__description__name').each(function(){
             var name = $(this).text();
             var nameParts = name.split(' - ');
-            $(this).text(nameParts[0]);
-            var options = [nameParts[1], nameParts[2], $(this).next('.product__description__variant').text()];
+            $(this).text(nameParts[0].replace('The ', ''));
+            var options = [nameParts[1], nameParts[2]];
+            if( $(this).next('.product__description__variant').text() != '' ){
+              options.push($(this).next('.product__description__variant').text());
+            }
             $(this).next('.product__description__variant').text(options.join(' / '));
           });
-        });
+          $('table.product-table').addClass('in');
+        }
+
+        if (window.MutationObserver) { // format our titles when they become available
+          var targetNodes         = $(".sidebar__content");
+          var MutationObserver    = window.MutationObserver || window.WebKitMutationObserver;
+          var myObserver          = new MutationObserver (mutationHandler);
+          var obsConfig           = { childList: true, characterData: true, attributes: true, subtree: true };
+
+          //--- Add a target node to the observer. Can only add one node at a time.
+          targetNodes.each ( function () {
+              myObserver.observe (this, obsConfig);
+          } );
+
+          function mutationHandler (mutationRecords) {
+            mutationRecords.forEach ( function (mutation) {
+                if( mutation.type == "childList" ){
+                  if( mutation.target == $('table.product-table')[0] ){
+                    formatProductNames();
+                  }
+                }
+            } );
+          }
+        }else{
+          $('table.product-table').addClass('in'); // just show the cart contents unformatted
+        }
+
+        if( Shopify.Checkout.step != 'contact_information' ){
+          // titles are available on page load
+          formatProductNames();
+        }
+
       });
     </script>
   </body>

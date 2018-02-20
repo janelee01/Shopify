@@ -1,7 +1,10 @@
 .page-block{
 	// default margins for each block
-	margin: 0 auto 60px;
+	margin: 0 auto 40px;
 	max-width: $site-max-width;
+	@media (min-width: $screen-sm) {
+		margin-bottom: 60px;
+	}
 	@media (min-width: $screen-md) {
 		margin-bottom: 40px;
 	}
@@ -24,12 +27,27 @@
 			height: 100%;
 		}
 	}
+	&.theme-white{
+		@media (min-width: $screen-sm) {
+			.title{
+				color: #FFF;
+			}
+			.btn-secondary{
+				@include invertedSecondaryBtn;
+			}
+		}
+	}
 }
 
 .row.flexed{
 	@media (min-width: $screen-sm) {
 		display: flex;
 		align-items: stretch;
+		[class^="col-"]{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
 	}
 	.flexer{
 		max-width: 400px;
@@ -53,6 +71,12 @@
 			font-size: 48px;
 		}
 	}
+	h1{
+		margin-top: 40px;
+		@media (min-width: $screen-md) {
+			margin-top: 0;
+		}
+	}
 	.has-bar{
 		margin-bottom: 4px;
 	}
@@ -69,10 +93,6 @@
 	color: $gray-darker;
 	padding: 0 $mobile-gutter;
 	@media (min-width: $screen-sm) {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 100%;
 		padding: 0 30px;
 	}
 	.flexer{
@@ -200,6 +220,10 @@
 			left: 0;
 			top: 0;
 			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 			&.left{
 				left: 0;
 				width: 50%;
@@ -222,12 +246,12 @@
 			}
 		}
 	}
-	&.is-primary-hero{
-		.title{
-			font-size: 36px;
-			@media (min-width: $screen-md) {
-				font-size: 63px;
-			}
-		}	
-	}
+	// &.is-primary-hero{
+	// 	.title{
+	// 		font-size: 36px;
+	// 		@media (min-width: $screen-md) {
+	// 			font-size: 63px;
+	// 		}
+	// 	}	
+	// }
 }

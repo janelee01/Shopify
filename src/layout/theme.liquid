@@ -11,7 +11,7 @@
   
   {% comment %} hide parent collection pages from indexing {% endcomment %}
   {%- if template == 'collection' -%}
-    {%- if collection.metafields["global"]["is-parent-collection"] -%}
+    {%- if collection.metafields["global"]["is-parent-collection"] == "true" -%}
       <meta name="robots" content="noindex,follow" />
     {%- endif -%}
   {%- endif -%}

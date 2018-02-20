@@ -90,6 +90,15 @@ body{
 			}
 		}
 	}
+	table.product-table{
+		@media (min-width: $screen-md) {
+			opacity: 0;
+			@include transition(all .3s ease-out);
+			&.in{
+				opacity: 1;
+			}
+		}
+	}
 	.product-thumbnail{
 		border: 0;
 		background: none;
@@ -177,5 +186,13 @@ body{
 		@media (max-width: 749px){
 			padding-top: 0;
 		}
+	}
+}
+
+@media (min-width: 1300px){
+	.os-header__hanging-icon {
+	    position: static;
+	    transform: translateY(0);
+	    margin-right: .75em;
 	}
 }

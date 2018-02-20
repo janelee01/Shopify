@@ -1,4 +1,4 @@
-{% paginate search.results by 12 %}
+{% paginate search.results by 50 %}
 
   <header class="page-header is-search">
     <h1>
@@ -33,7 +33,8 @@
       {% if search.performed and search.results_count > 0 %}
 
         <div class="row">
-          {% for item in search.results %}
+          {% assign results = search.results | sort: 'title' %}
+          {% for item in results %}
             <div class="col-xs-6 col-sm-3">
               {% if item.object_type == 'product' %}
                 {% assign product = item %}

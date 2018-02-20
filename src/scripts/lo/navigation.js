@@ -1,4 +1,14 @@
 $(document).ready(function(){
+	// reload nav state
+	var sessionKey = 'lo-main-menu';
+	var savedState = sessionStorage.getItem(sessionKey);
+	if( savedState ){
+		$('#site-menu-items').html(savedState);
+	}
+	$(window).on('unload', function(){
+		sessionStorage.setItem(sessionKey, $('#site-menu-items').html());
+	});
+
 	// off canvas nav
 	$('body').on('click', '.navbar-toggle', function(e){
 		e.preventDefault();
@@ -60,10 +70,10 @@ $(document).ready(function(){
 		var headerHeight = $('#site-header').outerHeight() + $('nav.local').outerHeight();
 		$(window).scroll(function(){
 			if( $(window).width() > LS.desktopBreakpoint ){
-				var scrollPosition = $(window).scrollTop();
 				var activeSectionIndex = 0;
+				var scrollPosition = $(window).scrollTop();
 				$targets.each(function(i){
-					var sectionTopPosition = $(this).offset().top - scrollPosition;
+					var sectionTopPosition = Math.floor($(this).offset().top) - scrollPosition;
 					if( sectionTopPosition <= headerHeight ){
 						if( i > activeSectionIndex ){
 							activeSectionIndex = i;

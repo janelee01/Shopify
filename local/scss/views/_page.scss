@@ -31,14 +31,11 @@
 	.half-width-panel{
 		padding: 20px;
 	}
-	#section-heading-1{
-		padding-bottom: 5%;
-		@media (min-width: $screen-sm) {
-			padding-bottom: 0;
-		}
+	#section-0-item-0{
+		margin-bottom: 20px;
 	}
-	#section-heading-5{
-		padding-top: 10px;
+	#section-6-item-0{
+		margin-top: 20px;
 	}
 }
 
@@ -217,12 +214,11 @@ nav.local{
 		height: $page-nav-height;
 	}
 	.btn{
-		padding: 3px 6px;
+		padding: 6px 12px;
 		font-size: 10px;
 		line-height: 1.4;
 		letter-spacing: 0;
 		@media (min-width: $screen-md) {
-		    padding: 6px 12px;
 		    font-size: 12px;
 		    width: 90px;
 		}

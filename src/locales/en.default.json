@@ -83,7 +83,7 @@
       "checkout": "Checkout",
       "empty": "Your cart is currently empty.",
       "cookies_required": "Enable cookies to use the shopping cart",
-      "continue_browsing_html": "<a href=\"/collections/all\" class=\"btn\">Continue shopping</a>",
+      "continue_browsing_html": "<a href=\"/collections/all\" class=\"btn btn-text navigate-forward\">Continue shopping</a>",
       "item_quantity": "Item quantity",
       "savings": "Discounts"
     },

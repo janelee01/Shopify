@@ -39,6 +39,13 @@
 {%- endfor -%}
 {%- endcapture -%}
 
+{% comment %} all sibling IDs regardless of referring URLs {% endcomment %}
+{%- capture allSiblingsList -%}
+{%- for siblingProduct in parentCollection.products -%}
+  {{ siblingProduct.id }}{%- unless forloop.last -%}|{%- endunless -%}
+{%- endfor -%}
+{%- endcapture -%}
+
 <div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
 
 	{%- assign current_variant = product.selected_or_first_available_variant -%}
@@ -107,7 +114,7 @@
 					        {%- assign discountAmount = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0 -%}
 					      {%- endif -%}
 					    </s>
-					    <span class="discount-badge{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>% OFF</span>
+					    <span class="discount-badge{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>%<br />OFF</span>
 					</div>
 					
 					{% comment %} keep this file a little cleaner {% endcomment %}
@@ -191,7 +198,7 @@
 		     	</div>
 		    </div>
 		    <div class="col-sm-6 col-sm-pull-6">
-		    	<div id="product-identity">
+		    	<div id="product-identity" class="has-divider">
 		    		<h1>{{ parentCollection.title | remove: "The " }}</h1>
 		    		{%- unless parentCollection.metafields["global"]["short-description"] == blank -%}
 		    		<p class="product-type-label">{{ parentCollection.metafields["global"]["short-description"] }}</p>
@@ -243,7 +250,7 @@
 				</div>
 				<script>
 					var body = document.getElementsByTagName("BODY")[0];
-					var siblingsList = '{{ siblingsList }}';
+					var siblingsList = '{{ allSiblingsList }}';
 					var siblingIds = siblingsList.split('|');
 					var rawReviewsData = new Array;
 					var dataReceived = 0;

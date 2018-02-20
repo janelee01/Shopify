@@ -85,6 +85,7 @@
 	color: $gray;
 	line-height: 24px;
 	position: relative;
+	padding: 0;
 	@include transition(all .2s ease);
 	&:focus,
 	&:hover{
@@ -110,7 +111,7 @@
 	&:after{
 		display: block;
 		position: absolute;
-		left: 7px;
+		left: 0;
 		top: 0;
 		opacity: 0;
 		background: url('check-mark.svg') no-repeat center center;

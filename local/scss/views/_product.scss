@@ -84,25 +84,20 @@
 	}
 }
 #product-identity{
-	max-width: 475px;
 	font-size: 17px;
 	color: $gray;
 	position: relative;
 	text-align: center;
-	padding: 18px 0;
+	padding-top: 18px;
+	@media (max-width: $screen-xs-max) {
+		margin-bottom: 0;
+	    &:after{
+	    	display: none;
+	    }
+	}
 	@media (min-width: $screen-sm) {
 		text-align: left;
-		margin-bottom: 45px;
-		padding: 0 0 30px;
-		&:after{
-			content: '';
-			display: block;
-			height: 2px;
-			width: 39px;
-			background: $brand-blue;
-			position: absolute;
-			bottom: 0;
-		}
+		padding-top: 0;
 	}
 	@media (min-width: $screen-md) {
 		margin-left: 90px;
@@ -173,9 +168,10 @@
 	line-height: 1;
 	padding-top: 5px;
 	margin: 0;
+	font-family: $font-family-base;
 	@media (min-width: $screen-sm) {
 		font-size: 26px;
-		padding-top: 20px;
+		padding-top: 15px;
 	}
 }
 #product-configuration{
@@ -213,7 +209,7 @@
 		margin-left: 20px;
 	}
 	.discount-badge{
-		top: -8px;
+		top: 0;
 		right: 0;
 		left: auto;
 		width: 60px;
@@ -345,6 +341,11 @@
 			padding: 0;
 			&:before{
 				display: none;
+			}
+		}
+		@media (min-width: $screen-md) {
+			p:last-child, dl, dd:last-child{
+				margin-bottom: 0;
 			}
 		}
 	}

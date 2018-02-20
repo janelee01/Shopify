@@ -84,7 +84,7 @@
 
   <div class="container-fluid">
     {%- for parentProductName in parentProducts -%}
-    <div class="product-family">
+    <div class="product-family" data-family-name="{{ parentProductName | handleize }}">
       <h2 class="has-divider">{{ parentProductName | remove: "The " }}</h2>
       <div class="product-grid">
         <div class="row">

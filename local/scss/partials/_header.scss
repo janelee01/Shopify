@@ -162,6 +162,12 @@
 			ul{
 				font-size: 15px;
 				padding: 0;
+				li{
+					&:last-child{
+						border: 0;
+						padding-bottom: 0;
+					}
+				}
 				a{
 					color: $gray;
 					&.menu-toggle{
@@ -191,14 +197,13 @@
 					}
 				}
 			}
+			&#account-menu-items li{
+				border-bottom: 0;
+			}
 		}
 		li{
 			border-bottom: solid 1px #ededed;
 			padding: 20px 0;
-			&:last-child{
-				border: 0;
-				padding-bottom: 0;
-			}
 		}
 		a{
 			display: block;
@@ -210,6 +215,10 @@
 		}
 		.menu-toggle{
 			@include collapsing-panel-toggle;
+		}
+		// force capitalize top level items
+		> ul > li > a{
+			text-transform: capitalize;
 		}
 	}
 }
