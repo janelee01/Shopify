@@ -6,7 +6,9 @@
       </div>
     {% endif %}
     <div class="entry-content">
+      {% unless shop.metafields["global"]["hide-dates-on-stories-page"] == '1' %}
       <p class="entry-meta">{{ thisArticle.created_at | date: "%e %B %Y" }}</p>
+      {% endunless %}
       <h3 class="entry-title">
         {{ thisArticle.title }}
       </h3>

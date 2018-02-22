@@ -7,6 +7,7 @@ $(document).ready(function(){
 				selectedVariant = siblingsJson[siblingId].variants[i];
 			}
 		};
+		
 		// sale pricing
 		if( selectedVariant.compare_at_price && selectedVariant.compare_at_price > 0 ){
 			comparePrice = slate.Currency.formatMoney(selectedVariant.compare_at_price, theme.moneyFormat);
@@ -16,7 +17,14 @@ $(document).ready(function(){
 			comparePrice = '';
 			$('.discount-badge').addClass('is-hidden');
 		}
+		
+		// update the regular price element
 		$('[data-compare-price]').html(comparePrice);
+		if( comparePrice == '' ){
+			$('[data-compare-price]').hide();
+		}else{
+			$('[data-compare-price]').fadeIn();
+		}
 
 		// current price
 		var price = slate.Currency.formatMoney(selectedVariant.price, theme.moneyFormat);
@@ -151,6 +159,7 @@ $(document).ready(function(){
 	    if ( history.replaceState ) {
 	      var newurl = window.location.protocol + '//' + window.location.host + $(this).data('url');
 	      window.history.replaceState({path: newurl}, '', newurl);
+	      sessionStorage.setItem('lo-back-to', newurl); // for use in the cart
 	    }
 
 	});

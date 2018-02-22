@@ -1,12 +1,11 @@
 $(document).ready(function(){
 	// reload nav state
-	var sessionKey = 'lo-main-menu';
-	var savedState = sessionStorage.getItem(sessionKey);
+	var savedState = sessionStorage.getItem('lo-main-menu');
 	if( savedState ){
 		$('#site-menu-items').html(savedState);
 	}
-	$(window).on('unload', function(){
-		sessionStorage.setItem(sessionKey, $('#site-menu-items').html());
+	$('#site-menu a').on('click', function(){
+		sessionStorage.setItem('lo-main-menu', $('#site-menu-items').html());
 	});
 
 	// off canvas nav
@@ -122,6 +121,7 @@ $(document).ready(function(){
 				$('.local-nav-section').hide().removeClass('active');
 				$(this).addClass('active');
 				$($(this).attr('href')).next('.local-nav-section').fadeIn();
+				$('html,body').animate({scrollTop: 0});
 				setActiveBar();
 			}
 		}

@@ -20,7 +20,7 @@
   
   <header role="banner" class="entry-header {{ article.metafields["global"]["header-type"] }}">
     <div id="m-variation">
-      <div class="image" data-image-container></div>
+      <div class="image" data-image-container style="background-image: url('{{ mobileFeaturedImage }}')"></div>
       <div class="content" data-content-container></div>
     </div>
     <div id="d-variation">
@@ -229,7 +229,7 @@
 
     <aside id="related-articles">
       <div class="section-header">
-        <h2 class="header-text">Recommended Articles</h2>  
+        <h2 class="header-text">Related stories</h2>  
       </div>
       <div class="row">
         {%- assign postsCount = 0 -%}

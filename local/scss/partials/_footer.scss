@@ -10,13 +10,13 @@
 	label{
 		color: $gray-darker;
 		font-weight: 400;
-		font-size: 27px;
+		font-size: 22px;
 		line-height: calculateEm(34px, 27px);
 		font-family: $font-family-sans-serif;
 		display: block;
 		margin-bottom: 35px;
 		@media (min-width: $screen-sm) {
-			font-size: 22px;
+			font-size: 18px;
 			margin: 0;
 			width: 50%;
 			padding-right: $mobile-gutter;
@@ -32,6 +32,11 @@
 		@media (min-width: $screen-xl) {
 			font-size: 27px;
 		}
+		small{
+			display: block;
+			color: $gray;
+			font-size: 75%;
+		}
 	}
 	.form-group{
 		margin: 0;
@@ -41,6 +46,11 @@
 		}
 		@media (min-width: $screen-md) {
 			width: 386px;
+		}
+		.validation-error{
+			display: block; 
+			text-align: center;
+			line-height: 1.3;
 		}
 	}
 	.form-control{

@@ -136,7 +136,9 @@ $(document).ready(function() {
 
   });
 
-  // marquees
+  /*
+  Marquees
+   */
   $('body').on('click', '.marquee .panel-close', function(e){
 	e.preventDefault();
 	$('#shopify-section-marquee').fadeOut('fast');
@@ -149,6 +151,13 @@ $(document).ready(function() {
   }else{
 	$('#shopify-section-marquee .marquee').removeClass('hidden');
   }
+
+  // hide marquees on pages with local navs
+  if( $('nav.local').length ){
+  	$('#shopify-section-marquee').hide();
+  }
+
+
 
   	// swipable bs carousels
   	$(".carousel").swipe({
@@ -218,7 +227,12 @@ $(document).ready(function() {
 
 	$("#newsletter-signup").on('submit', function(e) {
         e.preventDefault();
+        $('#newsletter-signup .form-group .validation-error').remove();
         var email = $('#signup-email').val();
+        if( !email ){
+        	$('#newsletter-signup .form-group').append('<small class="validation-error">Please enter your email.</small>');
+        	return;
+        }
         var settings = {
             "async": true,
             "crossDomain": true,
@@ -235,12 +249,16 @@ $(document).ready(function() {
                 "Sign Up Source": "footer"
             }
         };
-        $.ajax(settings).done(function (response) {
-            if( response.success ){
-            	$("#newsletter-signup label, #newsletter-signup .form-group").hide();
-            	$("#newsletter-signup .alert").fadeIn();
-            }
-        });
+        $.ajax(settings)
+        	.fail(function(jqXHR, textStatus, errorThrown){
+        		$('#newsletter-signup .form-group').append('<small class="validation-error">Something went wrong. Perhaps you\'ve already subscribed to our list? <a href="/pages/support#contact">Contact us</a> for further assistance.</small>');
+        	})
+        	.done(function (response) {
+	            if( response.success ){
+	            	$("#newsletter-signup .form-group, #newsletter-signup .form-group").hide();
+	            	$("#newsletter-signup .alert").fadeIn();
+	            }
+	        });
     });
 
 	// page nav
@@ -336,7 +354,7 @@ $(document).ready(function() {
 		var $postExcerpt = $('.entry-header .excerpt').detach();
 		var $postSharing = $('.entry-header .social-sharing').detach();
 		var $postImage = $('.entry-header .image picture').detach();
-		if( $(window).width() < 769 && $('#m-variation h1').length < 1 ){
+		if( $(window).width() < 768 && $('#m-variation h1').length < 1 ){
 			$('#m-variation [data-image-container]')
 				.append($postTitle)
 				.append($postImage);
@@ -351,6 +369,9 @@ $(document).ready(function() {
 				.append($postExcerpt)
 				.append($postSharing);
 		}
+		if( $(window).width() < 768 ){
+			$('#m-variation [data-image-container]').css( 'height', $(window).outerHeight() - $('#site-header').outerHeight() + 2 ); // the +2 fixes a white line at the bottom
+		}
 	}
 	if( $('body').hasClass('template-article') ){
 		rebuildArticleHeader();
@@ -358,6 +379,10 @@ $(document).ready(function() {
 			rebuildArticleHeader();
 		});
 	}
+
+	/*
+	Cart
+	 */
 
 	$('.number-down').on('click', function(e){
 	    e.preventDefault();
@@ -394,6 +419,21 @@ $(document).ready(function() {
 			setCartQtyInputLocation();
 		});
 	}
+
+	$('#cart-continue').on('click', function(e){
+	    e.preventDefault();
+	    var previousPage = sessionStorage.getItem('lo-back-to');
+	    console.log(previousPage);
+	    if( previousPage ){
+	    	window.location = previousPage;
+	    }else{
+	    	window.location = window.location.protocol + '//' + window.location.hostname;
+	    }
+	});
+
+	/*
+	Tables
+	 */
 
 	var addTableLabels = function(){
 		if( $(window).width() < 768 ){
@@ -463,5 +503,8 @@ $(document).ready(function() {
 	    	LS.productVideoClose();
 	    }
 	});
+	if( $('body').hasClass('template-product') ){
+		sessionStorage.setItem('lo-back-to', window.location.href); // for use in the cart
+	}
 	
 });

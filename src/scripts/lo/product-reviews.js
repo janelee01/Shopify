@@ -107,5 +107,8 @@ $(document).ready(function(){
 		$('.write-form .yotpo-header-title').text('Write your review');
 		$('.write-form .yotpo-submit').val('Submit review');
 	    $(this).addClass('is-hidden');
+	    if( $(window).width() < LS.desktopBreakpoint ){
+	    	$(this).closest('.yotpo-regular-box').slideUp();
+	    }
 	});
 });

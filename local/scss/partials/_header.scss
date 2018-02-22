@@ -30,21 +30,21 @@
 	.container-fluid{
 		position: relative;
 	}
-	.logo {
-		@include text-hide;
-		overflow:hidden;
-		background: url(ls-logo.svg) no-repeat transparent center center;
-		@include size(52px, 30px);
-		background-size: 52px auto;
-		margin:0 auto;
-		padding:0;
-		display: block;
-		@media only screen and (min-width: $screen-md) {
-			@include size(70px, $ls-navbar-height);
-			background-size: auto 36px;
-		    position: relative;
-		    z-index: 10;
-		}
+}
+#site-logo {
+	@include text-hide;
+	overflow:hidden;
+	background: url(ls-logo.svg) no-repeat transparent center center;
+	@include size(52px, 30px);
+	background-size: 52px auto;
+	margin:0 auto;
+	padding:0;
+	display: block;
+	@media only screen and (min-width: $screen-md) {
+		@include size(70px, $ls-navbar-height);
+		background-size: auto 36px;
+	    position: relative;
+	    z-index: 10;
 	}
 }
 
@@ -88,7 +88,7 @@
 			border-color: $brand-blue;
 		}
 		.cart-icon{
-			background-image: url(icon-cart-empty.svg);
+			background-position: right center;
 		}
 	}
 	@media (min-width: $screen-md) {
@@ -105,7 +105,7 @@
 		display: inline-block;
 		width: 19px;
 		height: 32px;
-		background: url(icon-cart-empty-gray-v4.svg) no-repeat 0 50%;
+		background: url('sprite-icon-cart.svg') no-repeat left center;
 		background-size: auto 23px;
 		vertical-align: middle;
 	}
@@ -116,7 +116,7 @@
 		border-radius: 50%;
 		border: solid 1px $gray-lighter;
 		color: $brand-blue;
-		margin-left: 15px;
+		margin-left: 10px;
 		line-height: 29px;
 		vertical-align: middle;
 	}

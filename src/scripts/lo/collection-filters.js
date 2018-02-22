@@ -8,19 +8,55 @@ $(document).ready(function(){
 			$('#MainContent').html(savedState);
 		}
 
+		var setFilterOptions = function(){
+			// show/hide filter options
+			$('.filter-option').each(function(){
+				var $parentEl = $(this).closest('li');
+				// might need to show after an AJAX update, so reset to shown as default
+				$parentEl.attr('style', '').removeClass('not-shown');
+				// hide if no products use this filter
+				if( $( '.' + $(this).data('hook') ).length < 1 ){
+					$parentEl.hide().addClass('not-shown');
+				}
+			});
+
+			// reset before hiding things
+			$('.filter-options').removeClass('not-shown');
+			$('.filter-toggle').closest('li').attr('style', '').removeClass('not-shown');
+
+			// hide filter groups if only one option is present
+			$('.filter-options').each(function(){
+				if( $(this).find('li').length - $(this).find('.not-shown').length < 2 ){
+					$('[href="#' + $(this).attr('id') + '"]').closest('li').hide().addClass('not-shown');
+					$(this).hide().addClass('not-shown');
+				}
+			});
+
+			// nothing to filter with, hide the whole thing
+			if( $('#filters').find('li').length == $('#filters').find('.not-shown').length ){
+				$('[data-filters-wrap]').hide();
+			}else{
+				$('[data-filters-wrap]').show();
+			}
+		};
+
 		// go get other pages so we can filter everything at once
-		if( $('.pagination .page').length ){
-			$('.pagination .page a').each(function(){
+
+		if( $('.ajax-pagination').length ){
+			$('.ajax-pagination a').each(function(){
 				$.ajax({
-					url : window.location.protocol + '//' + window.location.host + $(this).attr('href'),
+					async : false, // make sure we get the products back in the correct order
+					url : $(this).attr('href'),
 					success : function( data, textStatus, jqXHR ){
 						// insert the product families from the requested page
 						var $productFamilies = $(data).find('#MainContent .product-family');
 						$productFamilies.insertBefore('#filter-alert');
 					},
 					complete : function(){
-						// clean up families in case a family is split between pages
-
+						/*
+							clean up families in case a family is split between pages
+						 */
+						
 						// grab all of the names
 						var allFamilyNames = [];
 						$('.product-family').each(function(){
@@ -49,23 +85,16 @@ $(document).ready(function(){
 								$secondSet.remove();
 							};
 						}
+
+						// update our filter options
+						setFilterOptions();
 					}
 				});
 			});
-			// clean up
-			$('#MainContent .pagination').remove();
 		}
 
-		// maybe hide filters if only one option is present
-		$('.filter-options').each(function(){
-			if( $(this).find('li').length == 1 ){
-				$('[href="#' + $(this).attr('id') + '"]').closest('li').remove();
-				$(this).remove();
-			}
-		});
-		if( $('#filters').find('li').length < 1 ){
-			$('#filters, #filters-panel').remove();
-		}
+		// setup filter options
+		setFilterOptions();
 
 		var $activeFilters = $('#active-filters');
 		// var $activeFiltersList = $('[data-active-filters]');
@@ -116,12 +145,8 @@ $(document).ready(function(){
 		    	// no active filters, so show everything
 		    	$('.page-header').removeClass('has-active-filters');
 		    	$('.f-hook').removeClass('hidden');
-		    	$('.pagination').show();
 		    	sessionStorage.removeItem(sessionKey);
 		    }else{
-		    	// hide pagination while filtering
-		    	$('.pagination').hide();
-
 		    	// show results
 		    	$('.f-hook').each(function(){
 		    		var itemClasses = $(this).attr('class').split(' ');

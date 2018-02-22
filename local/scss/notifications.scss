@@ -5,6 +5,26 @@
 // This file generate the css we can add to the <head> for each notification template. 
 // <style> tags will get inlined by shopify 
 // https://help.shopify.com/manual/sell-online/notifications/edit-template#style-email-templates-using-inline-css
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  -webkit-text-size-adjust: 100% !important;
+  -ms-text-size-adjust: 100% !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+table {
+  border-collapse: collapse;
+  mso-table-lspace: 0px;
+  mso-table-rspace: 0px;
+}
+td, a, span {
+  border-collapse: collapse;
+  mso-line-height-rule: exactly;
+}
+*{
+	font-family: 'Lato', Arial, sans-serif;
+}
 table.body{
  	background: $gray-lightest;
  	text-align: center;
@@ -59,14 +79,14 @@ table.container{
 
 .content{
 	h2{
-		font-size: 32px;
-		line-height: 30px;
-		margin-bottom: 18px;
+		font-size: 28px;
+		line-height: 36px;
+		margin-bottom: 21px;
 		text-align: center;
 	}
 	p{
-		font-size: 19px;
-		line-height: 30px;
+		font-size: 18px;
+		line-height: 27px;
 		color: #888;
 		text-align: center;
 	}
@@ -81,7 +101,7 @@ table.container{
 	}
 }
 .actions__cell{
-	padding-top: 50px;
+	padding-top: 20px;
 	.button, .link{
 		width: 230px;
 	}
@@ -217,15 +237,13 @@ table.container{
 .customer-info__items{
 	background: $gray-lightest;
 	.rows{
-		padding: 50px;
+		padding: 20px 40px;
 	}
 }
 .customer-info__item{
 	text-align: left;
 	padding: 20px 0;
-	color: #888;
-	font-size: 14px;
-	line-height: 22px;
+	vertical-align: top;
 	&.last{
 		border: 0;
 	}
@@ -235,6 +253,26 @@ table.container{
 		line-height: 1;
 		margin-bottom: 12px;
 	}
+	p, span{
+		color: #888;
+		font-size: 14px;
+		line-height: 22px;
+	}
+	strong{
+		font-size: 14px;
+		line-height: 22px;
+	}
+	span{
+		display: inline-block;
+		vertical-align: top;
+		margin-top: 5px;
+	}
+}
+.customer-info__item-credit{
+	margin-right: 5px;
+}
+.customer-info__item-content{
+	margin: 0;
 }
 @media (min-width: 601px) {
 	td.main-spacer{
@@ -257,4 +295,9 @@ table.container{
 			border: 0;
 		}
 	}
+}
+
+.footer__cell{
+	padding: $mobile-gutter;
+	text-align: center;
 }

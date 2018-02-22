@@ -1,79 +1,52 @@
-{% paginate collection.products by 50 %}
+{% paginate collection.products by 25 %}
 
-{% comment %} capture all the things {% endcomment %}
-{%- assign tagsList = shop.metafields["global"]["function-tags"] -%}
-{%- capture functionFilters -%}
-{%- for tag in collection.all_tags -%}
-  {%- if tagsList contains tag -%}
-    {%- include 'filter-option' -%}
-  {%- endif -%}
-{%- endfor -%}
-{%- endcapture -%}
-{%- assign tagsList = shop.metafields["global"]["device-fit-tags"] | replace: '-inch', '"' -%}
-{%- capture deviceFitFilters -%}
-{%- for tag in collection.all_tags -%}
-  {%- if tagsList contains tag -%}
-    {%- include 'filter-option' -%}
-  {%- endif -%}
-{%- endfor -%}
-{%- endcapture -%}
-{%- assign tagsList = shop.metafields["global"]["category-tags"] -%}
-{%- capture categoryFilters -%}
-{%- for tag in collection.all_tags -%}
-  {%- if tagsList contains tag -%}
-    {%- include 'filter-option' -%}
-  {%- endif -%}
-{%- endfor -%}
-{%- endcapture -%}
 {%- capture productNames -%}
 {%- for product in collection.products -%}
   {%- assign productNameParts = product.title | split: ' - ' -%}
   {{ productNameParts[0] }}|
 {%- endfor -%}
 {%- endcapture -%}
+
 {%- assign parentProducts = productNames | split: '|' | uniq -%}
-{%- assign have0to100 = false -%}
-{%- assign have100to200 = false -%}
-{%- assign have200to300 = false -%}
-{%- assign have300to400 = false -%}
-{%- assign have400to500 = false -%}
-{%- for product in collection.products -%}
-  {%- assign thisPrice = product.price | divided_by: 100 -%}
-  {%- if thisPrice <= 100 -%}{%- assign have0to100 = true -%}{%- endif -%}
-  {%- if thisPrice >= 100 and thisPrice <= 200 -%}{%- assign have100to200 = true -%}{%- endif -%}
-  {%- if thisPrice >= 200 and thisPrice <= 300 -%}{%- assign have200to300 = true -%}{%- endif -%}
-  {%- if thisPrice >= 300 and thisPrice <= 400 -%}{%- assign have300to400 = true -%}{%- endif -%}
-  {%- if thisPrice >= 400 and thisPrice <= 500 -%}{%- assign have400to500 = true -%}{%- endif -%}
-{%- endfor -%}
 
   <header class="page-header is-collection" data-collection="{{ collection.id }}">
     <h1 class="has-bar">{{ collection.title | remove: "Shop " }}</h1>
-    <div>{% comment%} both .has-bar and #filters are inline-block, so we need a newline somehow {% endcomment %}
+    <div data-filters-wrap>{% comment%} both .has-bar and #filters are inline-block, so we need a newline somehow {% endcomment %}
       <div id="filters">
         <ul>
           <li><a href="#price-filters" class="filter-toggle">Price</a></li>
-          {% if functionFilters != blank %}<li><a href="#function-filters" class="filter-toggle">Function</a></li>{% endif %}
-          {% if deviceFitFilters != blank %}<li><a href="#fit-filters" class="filter-toggle">Device Fit</a></li>{% endif %}
-          {% if categoryFilters != blank %}<li><a href="#category-filters" class="filter-toggle">Category</a></li>{% endif %}
+          <li><a href="#function-filters" class="filter-toggle">Function</a></li>
+          <li><a href="#fit-filters" class="filter-toggle">Device Fit</a></li>
+          <li><a href="#category-filters" class="filter-toggle">Category</a></li>
         </ul>
       </div>
       <div id="filters-panel">
         <ul class="filter-options" style="display: none" id="price-filters">
-          {%- if have0to100 -%}<li><button class="filter-option is-price-range" data-hook="p-0-100">$0.00 - $100.00</button></li>{%- endif -%}
-          {%- if have100to200 -%}<li><button class="filter-option is-price-range" data-hook="p-100-200">$100.00 - $200.00</button></li>{%- endif -%}
-          {%- if have200to300 -%}<li><button class="filter-option is-price-range" data-hook="p-200-300">$200.00 - $300.00</button></li>{%- endif -%}
-          {%- if have300to400 -%}<li><button class="filter-option is-price-range" data-hook="p-300-400">$300.00 - $400.00</button></li>{%- endif -%}
-          {%- if have400to500 -%}<li><button class="filter-option is-price-range" data-hook="p-400-500">$400.00 - $500.00</button></li>{%- endif -%}
+          <li><button class="filter-option is-price-range" data-hook="p-0-100">$0.00 - $100.00</button></li>
+          <li><button class="filter-option is-price-range" data-hook="p-100-200">$100.00 - $200.00</button></li>
+          <li><button class="filter-option is-price-range" data-hook="p-200-300">$200.00 - $300.00</button></li>
+          <li><button class="filter-option is-price-range" data-hook="p-300-400">$300.00 - $400.00</button></li>
+          <li><button class="filter-option is-price-range" data-hook="p-400-500">$400.00 - $500.00</button></li>
         </ul>
-        {%- if functionFilters != blank -%}
-          <ul class="filter-options" style="display: none" id="function-filters">{{ functionFilters }}</ul>
-        {%- endif -%}
-        {%- if deviceFitFilters != blank -%}
-          <ul class="filter-options" style="display: none" id="fit-filters">{{ deviceFitFilters }}</ul>
-        {%- endif -%}
-        {%- if categoryFilters != blank -%}
-          <ul class="filter-options" style="display: none" id="category-filters">{{ categoryFilters }}</ul>
-        {%- endif -%}
+         <ul class="filter-options" style="display: none" id="function-filters">
+           {%- assign tagsList = shop.metafields["global"]["function-tags"] | split: ',' -%}
+             {%- for tag in tagsList -%}
+                 {%- include 'filter-option' -%}
+             {%- endfor -%}
+         </ul>
+         <ul class="filter-options" style="display: none" id="fit-filters">
+           {%- assign tagsList = shop.metafields["global"]["device-fit-tags"] | split: ',' -%}
+             {%- for tag in tagsList -%}
+                 {%- include 'filter-option' -%}
+             {%- endfor -%}
+         </ul>
+         <ul class="filter-options" style="display: none" id="category-filters">
+           {%- assign tagsList = shop.metafields["global"]["category-tags"] | split: ',' -%}
+             {%- for tag in tagsList -%}
+                 {%- include 'filter-option' -%}
+             {%- endfor -%}
+         </ul>
+
         <div id="active-filters">
           <span data-active-filters></span>
           <a href="#" id="reset-filters">Reset Filters</a>
@@ -107,7 +80,17 @@
     {%- endfor -%}
     <div id="filter-alert" style="display: none" class="alert alert-warning">No products match your filter selections.</div>
     {% if paginate.pages > 1 %}
-      {% include 'pagination' %}
+     {% comment %}{% include 'pagination' %}{% endcomment %}
+    {% comment %} js hooks into this to get subsequent pages {% endcomment %}
+      <div class="ajax-pagination" style="display: none" aria-hidden="true">
+        {% for i in (1..paginate.pages) %}
+          {% if i == 1 %}
+             {% continue %}
+           {% else %}
+          <a href="{{ canonical_url }}?page={{ i }}">{{ i }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
     {% endif %}
   </div>
   {% comment %}

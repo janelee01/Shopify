@@ -213,15 +213,14 @@
 .carousel-indicators li.active{
 	@include square(15px);
 	background: #D1CDCD;
-	border: solid 2px #fff;
+	border: solid 1px #fff;
 	margin: 0 3px;
 	border-radius: 50%;
 	display: inline-block;
-  opacity: .7;
 	@include transition-off;
 	@media (min-width: $screen-md) {
-	    @include square(12px);
-       margin: 0 2px;
+	    @include square(8px);
+       margin: 0 1px;
 	}
 }
 

@@ -88,11 +88,14 @@
 .banner{
 	.entry-title{
 		font-size: 24px;
-		line-height: 30px;
+		line-height: calculateEm(30px, 24px);
 		font-family: $font-family-bold;
 		@media (min-width: $screen-sm) {
+			font-size: 30px;
+			line-height: calculateEm(35px, 34px);
+		}
+		@media (min-width: $screen-md) {
 			font-size: 34px;
-			line-height: 35px;
 		}
 	}
 }
@@ -145,10 +148,13 @@
 	.entry-description{
 		margin: 0;
 		font-size: 12px;
-		line-height: 18px;
+		line-height: calculateEm(18px, 12px);
 		@media (min-width: $screen-sm) {
+			font-size: 16px;
+			line-height: calculateEm(25px, 20px);
+		}
+		@media (min-width: $screen-md) {
 			font-size: 20px;
-			line-height: 25px;
 		}
 	}
 	.entry-content{
@@ -172,10 +178,10 @@
 	.entry-title, 
 	.entry-description{
 		@media (min-width: $screen-sm) {
-			max-width: 290px;
+			max-width: 81%;
 		}
 		@media (min-width: $screen-md) {
-			max-width: 430px;
+			max-width: 71%;
 		}
 	}
 	.entry{
@@ -284,9 +290,12 @@
  	}
  	.title{
  		margin: 0;
- 		font-size: 50px;
- 		line-height: 60px;
+ 		font-size: 40px;
+ 		line-height: calculataEm(60px, 40px);
  		font-family: $font-family-bold;
+ 		@media (min-width: $screen-md) {
+ 			font-size: 50px;
+ 		}
  	}
  	.excerpt{
  		font-size: 20px;
@@ -384,7 +393,6 @@
  			}
  		}
  		.excerpt{
- 			font-family: $font-family-serif;
  			font-size: 32px;
  			line-height: 45px;
  			margin-bottom: 55px; 
@@ -409,7 +417,6 @@
  			margin-bottom: 30px;
  		}
  		.excerpt{
- 			font-family: $font-family-serif;
  			font-size: 20px;
  			line-height: 32px;
  			margin-bottom: 40px; 
@@ -451,8 +458,9 @@
  	.image{
  		position: relative;
  		text-align: left;
- 		img{
- 			width: 100%;
+ 		background-size: cover;
+ 		picture{
+ 			display: none;
  		}
  		&:after{
  			content: '';
@@ -478,6 +486,9 @@
  		font-size: 34px;
  		line-height: 40px;	
  		z-index: 20;
+ 		display: flex;
+ 		align-items: center;
+ 		height: 100%;
  	}
  	.content{
  		padding: 42px $mobile-gutter 0;
@@ -541,12 +552,12 @@
 
 .shogun-region, // admin
 .shogun-root{ // front end
-	p, blockquote, ul, ol, .shogun-image-container{ // img is margin: 0 !important in shogun's styles
-		margin-bottom: 40px;
-		@media (min-width: $screen-md) {
-			margin-bottom: 80px;
-		}
-	}
+	// p, blockquote, ul, ol, .shogun-image-container{ // img is margin: 0 !important in shogun's styles
+	// 	margin-bottom: 40px;
+	// 	@media (min-width: $screen-md) {
+	// 		margin-bottom: 80px;
+	// 	}
+	// }
 	ul, ol{
 		color: $gray;
 		padding-left: 25px;
@@ -585,6 +596,14 @@
 		}
 	}
 }
+.shogun-video-embed{
+	border: 0;
+}
+.shogun-video-16x9{
+	.fluid-width-video-wrapper{
+		padding-top: 56.25% !important; // fitvids keeps getting this wrong for some reason
+	}
+}
 .article-lead{
 	font-size: 22px;
 	line-height: 34px;
@@ -595,7 +614,7 @@
 	@media (min-width: $screen-md) {
 		font-size: 40px;
 		line-height: 60px;
-		padding-left: 200px;
+		// padding-left: 200px;
 	}
 	p:first-child:first-letter {
 	  float: left;
@@ -605,6 +624,7 @@
 	  padding-bottom: 10px;
 	  position: relative;
 	  margin-left: -10px;
+	  font-family: $font-family-semibold;
 	  @media (min-width: $screen-md) {
 	  	font-size: 220px;
 	  	margin-left: -20px;
@@ -613,39 +633,59 @@
 	}
 }
 .article-content{
-	font-size: 17px;
-	line-height: 30px;
-	@media (min-width: $screen-md) {
-		padding: 0 200px;
-		font-size: 24px;
-		line-height: 42px;
-	}
-	h2, h3, h4, h5, h6{
-		font-family: $font-family-semibold;
-	}
-	h2{
-		font-size: 22px;
-		line-height: 35px;
-		@media (min-width: $screen-md) {
-			font-size: 32px;
-			line-height: 36px;
-		}
-	}
+	// font-size: 17px;
+	// line-height: 30px;
+	// @media (min-width: $screen-md) {
+	// 	// padding: 0 200px;
+	// 	font-size: 24px;
+	// 	line-height: 42px;
+	// }
+	// h2, h3, h4, h5, h6{
+	// 	font-family: $font-family-semibold;
+	// }
+	// h2{
+	// 	font-size: 22px;
+	// 	line-height: 35px;
+	// 	@media (min-width: $screen-md) {
+	// 		font-size: 32px;
+	// 		line-height: 36px;
+	// 	}
+	// }
 }
 
 /*
 	Article reboot
  */
 #article-body{
-	font-size: 24px;
+	font-size: 18px;
 	line-height: calculateEm(42px, 24px);
-	*{
-		margin-bottom: 40px;
-		max-width: 740px;
+	@media (min-width: $screen-sm) {
+		max-width: 80%;
 		margin-left: auto;
 		margin-right: auto;
+		padding-bottom: 60px;
+	}
+	@media (min-width: $screen-md) {
+		max-width: 740px;
+		font-size: 24px;
+		padding-bottom: 80px;
+	}
+	.shogun-root > .shg-c{
+		margin-bottom: 0;
+	}
+	.shg-c{
+		margin-bottom: 40px;
 		@media (min-width: $screen-md) {
-			margin-bottom: 80px;
+			// margin-bottom: 80px;
+		}
+		h2, h3, h4, h5, h6{
+			margin-bottom: 0;
+		}
+	}
+	a{
+		color: $brand-blue;
+		&:hover{
+			color: $brand-blue-hover;
 		}
 	}
 	h2, h3, h4, h5, h6{
@@ -658,6 +698,7 @@
 	}
 	img{
 		margin-bottom: 20px;
+		width: 100%;
 	}
 }
 

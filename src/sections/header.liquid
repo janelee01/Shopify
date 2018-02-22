@@ -4,9 +4,9 @@
     <div class="container-fluid">
         <nav role="navigation">
           {% if template.name == 'index' %}
-            <h1 class="logo" itemscope itemtype="http://schema.org/Organization">{{ shop.name }}</h1>
+            <h1 id="site-logo" itemscope itemtype="http://schema.org/Organization">{{ shop.name }}</h1>
           {% else %}
-            <a href="/" class="logo" itemscope itemtype="http://schema.org/Organization">{{ shop.name }}</a>
+            <a href="/" id="site-logo" itemscope itemtype="http://schema.org/Organization">{{ shop.name }}</a>
           {% endif %}
           
           <a href="#" class="navbar-toggle">

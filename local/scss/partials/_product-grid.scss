@@ -92,21 +92,20 @@
 	background: #5E4471;
 	top: 10px;
 	left: 10px;
-	width: 37px;
-	height: 37px;
+	width: 60px;
+	height: 60px;;
 	color: #F2E7F7;
 	display: block;
+	padding-top: 13px;
 	text-align: center;
 	border-radius: 50%;
 	line-height: 1;
-	padding-top: 9px;
-	font-size: 10px;
+	font-size: 16px;
+	transform: scale(.61);
+	transform-origin: 0 0;
 	@media (min-width: $screen-md) {
 		top: 20px;
 		left: 20px;
-		width: 55px;
-		height: 55px;
-		font-size: 16px;
-		padding-top: 11px;
+		transform: scale(1);
 	}
 }
