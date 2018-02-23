@@ -85,6 +85,12 @@
 			margin-left: 10px;
 		}
 	}
+	.low-stock-warning{
+		margin-left: 5px;
+		@media (min-width: $screen-md) {
+			margin-left: 10px;
+		}
+	}
 }
 
 .discount-badge{

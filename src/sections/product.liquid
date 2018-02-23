@@ -72,8 +72,8 @@
 					</div>
 				{% endfor %}
 				</div>
-				<a href="#" id="gallery-{{ siblingProduct.id }}-prev" class="gallery-control prev"></a>
-				<a href="#" id="gallery-{{ siblingProduct.id }}-next" class="gallery-control next"></a>
+				<a href="#" id="gallery-{{ siblingProduct.id }}-prev" class="gallery-control prev"><span class="sr-only">previous slide</span></a>
+				<a href="#" id="gallery-{{ siblingProduct.id }}-next" class="gallery-control next"><span class="sr-only">next slide</span></a>
 			</div>
 			{% endif %}
 		{% endfor %}
@@ -332,7 +332,7 @@
 </script>
 <div id="product-video">
   <div id="product-video-container"></div>
-  <a href="#" class="panel-close"></a>
+  <a href="#" class="panel-close"><span class="sr-only">close</span></a>
 </div>
 {%- endunless -%}
 

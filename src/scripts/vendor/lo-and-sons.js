@@ -812,43 +812,43 @@ LS.handleFooterNewsletterForm = function(form) {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  * Load Dynamic Elements that bypass cache
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-LS.getDynamicElements = function(){
-	var $ = jQuery;
-	var data = {};
+// LS.getDynamicElements = function(){
+// 	var $ = jQuery;
+// 	var data = {};
 
-	// PDP needs the ID sent for the review form
-	if( $('#product-id').length ){
-		data = {
-			id : $('#product-id').val()
-		}
-	}
+// 	// PDP needs the ID sent for the review form
+// 	if( $('#product-id').length ){
+// 		data = {
+// 			id : $('#product-id').val()
+// 		}
+// 	}
 	
-	$.ajax({
-		url : '/ls-elements/index/data',
-		data : data,
-		success : function(data, textStatus, jqXHR){
+// 	$.ajax({
+// 		url : '/ls-elements/index/data',
+// 		data : data,
+// 		success : function(data, textStatus, jqXHR){
 
-			// add in the current account links (might be the same as what was there before)
-			$('#site-menu > ul').append(data.accountHtml); 
+// 			// add in the current account links (might be the same as what was there before)
+// 			$('#site-menu > ul').append(data.accountHtml); 
 
-			$(data.marquee).insertAfter('#site-header');
+// 			$(data.marquee).insertAfter('#site-header');
 
-			// review form
-			if( $('#reviews-list').length ){
-				$(data.reviewsFormHtml).insertAfter('#reviews-list');
-				$('#add-review-form').show();	
-			}
+// 			// review form
+// 			if( $('#reviews-list').length ){
+// 				$(data.reviewsFormHtml).insertAfter('#reviews-list');
+// 				$('#add-review-form').show();	
+// 			}
 
-			// maybe fire off segment/fullstory identification
-			if( ! LS.isDevSite() && LS.haveSegment() && data.segmentUser ){
-			    analytics.ready(function() {
-			        FS.identify(data.segmentUser.id, data.segmentUser);
-			    });
-			    analytics.identify(data.segmentUser.id, data.segmentUser);
-			}
-		}
-	});
-};
+// 			// maybe fire off segment/fullstory identification
+// 			if( ! LS.isDevSite() && LS.haveSegment() && data.segmentUser ){
+// 			    analytics.ready(function() {
+// 			        FS.identify(data.segmentUser.id, data.segmentUser);
+// 			    });
+// 			    analytics.identify(data.segmentUser.id, data.segmentUser);
+// 			}
+// 		}
+// 	});
+// };
 LS.setRefererUrls = function(){
 	var $ = jQuery;
 

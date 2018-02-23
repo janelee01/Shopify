@@ -29,7 +29,7 @@
             <span class="special-price">{{ product.price | money_without_trailing_zeros }}</span>
             <span class="old-price"><s>{{ product.compare_at_price | money_without_trailing_zeros }}</s></span>
         {%- else -%}
-            <span class="regular-price">{{ product.price | money_without_trailing_zeros }}<span>
+            <span class="regular-price">{{ product.price | money_without_trailing_zeros }}</span>
         {%- endif -%}
         {%- unless product.available -%}
         <span class="low-stock-warning">

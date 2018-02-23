@@ -21,6 +21,7 @@ window.theme = window.theme || {};
 // =require templates/customers-login.js
 
 /*================ Lo & Sons ================*/
+// =require vendor/picturefill.min.js
 // =require vendor/bootstrap.min.js
 // =require vendor/jquery-ui-1.10.4.custom.min.js
 // =require vendor/moment.min.js
@@ -243,7 +244,7 @@ $(document).ready(function() {
                 "cache-control": "no-cache"
             },
             "data": {
-                "g": "KDKe8m",
+                "g": "KUBRaR",
                 "$fields": "Sign Up Source",
                 "email": email,
                 "Sign Up Source": "footer"
@@ -255,7 +256,7 @@ $(document).ready(function() {
         	})
         	.done(function (response) {
 	            if( response.success ){
-	            	$("#newsletter-signup .form-group, #newsletter-signup .form-group").hide();
+	            	$("#newsletter-signup .form-group, #newsletter-signup label").hide();
 	            	$("#newsletter-signup .alert").fadeIn();
 	            }
 	        });
