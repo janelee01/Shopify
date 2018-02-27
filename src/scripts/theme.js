@@ -1,5 +1,5 @@
 window.slate = window.slate || {};
-window.theme = window.theme || {};
+window.theme = window.theme || {};  
 
 /*================ Slate ================*/
 // =require slate/a11y.js

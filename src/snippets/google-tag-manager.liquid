@@ -85,11 +85,14 @@
 			'imageUrl' : 'https:{{ product.featured_image.src | img_url:"grande" }}',
 			'imagePosition' : 1,
 		},
-		{% endif %}
+		{%- endif -%}
+		{%- unless customer.email == blank -%}
+		'emailEncoded' : '{{ customer.email | sha256 }}',
+		'uid' : '{{ customer.id }}',
+		{%- endunless -%}
 		'template' : '{{ template }}',
 		'pinterestCategory' : '{{ pinterestCategory }}',
-		'pinterestPage' : '{{ pinterestPage }}',
-		'emailEncoded' : '{{ customer.email | sha256 }}'
+		'pinterestPage' : '{{ pinterestPage }}'
 	})
 </script>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

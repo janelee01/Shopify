@@ -849,20 +849,20 @@ LS.handleFooterNewsletterForm = function(form) {
 // 		}
 // 	});
 // };
-LS.setRefererUrls = function(){
-	var $ = jQuery;
+// LS.setRefererUrls = function(){
+// 	var $ = jQuery;
 
-	// make sure referer URLs are the current page for cart actions
-	var separator = '?';
-	var bypassStr = 'cf-bypass=true';
+// 	// make sure referer URLs are the current page for cart actions
+// 	var separator = '?';
+// 	var bypassStr = 'cf-bypass=true';
 	
-	if( window.location.search !== '' ){
-	    separator = '&';
-	}
-	var url = window.location.href + separator + bypassStr;
+// 	if( window.location.search !== '' ){
+// 	    separator = '&';
+// 	}
+// 	var url = window.location.href + separator + bypassStr;
 
-	jQuery('input[name="referer_url"]').val(url);
-};
+// 	jQuery('input[name="referer_url"]').val(url);
+// };
 
 
 LS.isElementInViewport = function(el) {
