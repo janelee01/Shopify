@@ -1,9 +1,12 @@
-{% capture email_title %}Thank you for your purchase! {% endcapture %}
-{% capture email_body %}
-  {% if requires_shipping %}
-    Hi {{ customer.first_name }}, we're getting your order ready to be shipped. We will notify you when it has been sent.
-  {% endif %}
-{% endcapture %}
+{% if refund_line_items.size == item_count %}
+  {% capture email_title %}Your order has been refunded {% endcapture %}
+{% elsif refund_line_items.size == 0 %}
+  {% capture email_title %}You have received a refund {% endcapture %}
+{% else %}
+  {% capture email_title %}Some items in your order have been refunded {% endcapture %}
+{% endif %}
+{% capture email_body %}Total amount refunded:<br /> <strong>{{ amount | money_with_currency }}</strong>{% endcapture %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -76,40 +79,6 @@
                             <td>
                               <h2>{{ email_title }}</h2>
                               <p>{{ email_body }}</p>
-                              {% if order_status_url %}
-                                <table class="row actions">
-                                  <tr>
-                                    <td class="actions__cell">
-                                      <table class="button main-action-cell">
-                                        <tr>
-                                          <td class="button__cell"><a href="{{ order_status_url }}" class="button__text">View your order</a></td>
-                                        </tr>
-                                      </table>
-                                      {% if shop.url %}
-                                        <table class="link secondary-action-cell">
-                                          <tr>
-                                            <td class="link__cell"><a href="{{ shop.url }}" class="button__text link__text">Visit our store</a></td>
-                                          </tr>
-                                        </table>
-                                      {% endif %}
-                                    </td>
-                                  </tr>
-                                </table>
-                              {% else %}
-                                {% if shop.url %}
-                                 <table class="row actions">
-                                    <tr>
-                                      <td class="actions__cell">
-                                        <table class="button main-action-cell">
-                                          <tr>
-                                            <td class="button__cell"><a href="{{ shop.url }}" class="button__text">Visit our store</a></td>
-                                          </tr>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                 </table>
-                                {% endif %}
-                              {% endif %}
                             </td>
                           </tr>
                         </table>
@@ -271,78 +240,6 @@
                                   {% endfor %}
                                 </table>
                               {% endif %}
-                            </td>
-                          </tr>
-                        </table>
-                      </center>
-                    </td>
-                  </tr>
-                </table>
-
-                <table class="row section customer-info">
-                  <tr>
-                    <td class="section__cell">
-                      <center>
-                        <table class="section__heading">
-                          <tr>
-                            <td>
-                              <h3>Customer information</h3>
-                              <span class="title-bar"></span>
-                            </td>
-                          </tr>
-                        </table>
-                        <table class="container customer-info__items">
-                          <tr>
-                            <td class="rows">
-                              <table class="row">
-                                <tr>
-                                  {% if requires_shipping and shipping_address %}
-                                  <td align="top" class="customer-info__item">
-                                    <h4>Shipping address</h4>
-                                    {{ shipping_address | format_address }}
-                                  </td>
-                                  {% endif %}
-                                  {% if billing_address %}
-                                  <td align="top" class="customer-info__item">
-                                    <h4>Billing address</h4>
-                                    {{ billing_address | format_address }}
-                                  </td>
-                                  {% endif %}
-                                </tr>
-                              </table>
-                              <table class="row">
-                                <tr>
-                                  {% if requires_shipping and shipping_address %}
-                                  <td align="top" class="customer-info__item">
-                                    <h4>Shipping method</h4>
-                                    <p>{{ shipping_method.title }}</p>
-                                  </td>
-                                  {% endif %}
-                                  {% assign transaction_count = transactions | size %}
-                                  {% if transaction_count > 0 %}
-                                  <td align="top" class="customer-info__item last">
-                                    <h4>Payment method</h4>
-                                    {% for transaction in transactions %}
-                                      {% if transaction.status == "success" or transaction.status == "pending" %}
-                                        {% if transaction.kind == "authorization" or transaction.kind == "sale" %}
-                                          <p class="customer-info__item-content">
-                                            {% if transaction.payment_details.credit_card_company %}
-                                              {% capture credit_card_url %}notifications/{{ transaction.payment_details.credit_card_company | downcase | replace: " ", "_" }}.png{% endcapture %}
-                                              <img src="{{ credit_card_url | shopify_asset_url }}" class="customer-info__item-credit" height="24">
-                                              <span>Ending in {{ transaction.payment_details.credit_card_last_four_digits }}</span>
-                                            {% else %}
-                                              {% unless transaction.gateway == "gift_card" %}
-                                                {{ transaction.gateway | replace: "_", " " | capitalize }} — <strong>{{ transaction.amount | money }}</strong>
-                                              {% endunless %}
-                                            {% endif %}
-                                          </p>
-                                        {% endif %}
-                                      {% endif %}
-                                    {% endfor %}
-                                  </td>
-                                  {% endif %}
-                                </tr>
-                              </table>
                             </td>
                           </tr>
                         </table>

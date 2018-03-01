@@ -1,3 +1,18 @@
+@media screen {
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/l/font?kit=S6uyw4BMUTPHvxw6WQevLq7pzfwWytF-_ufvJ6OAFnsYaeM-GgYtBeGA5xNK2qq3hEt1lRaMKPnWJPh0gUN8b8339eocPKMQbXQhb-Bjtv_YEpFZl2tUiMaoX2c7Y1mTflFjJ7ZvR2ejE74mnpXEjePQ9ETOec3x2K0Uoys63UbO3ATMnvSiCPVllnHkMxcmH6mmEZNtnYEBFGE&skey=2d58b92a99e1c086&v=v14) format('woff2');
+  }
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/l/font?kit=S6u9w4BMUTPHh6UVewqFHi_o38oV3sVr4vn8Re7PWzBNP7lkRV91XavNqA&skey=3480a19627739c0d&v=v14) format('woff2');
+  }
+}
+
 @import 'base/variables';
 @import 'base/mixins'; 
 
@@ -23,7 +38,7 @@ td, a, span {
   mso-line-height-rule: exactly;
 }
 *{
-	font-family: 'Lato', Arial, sans-serif;
+	font-family: 'Lato', sans-serif;
 }
 table.body{
  	background: $gray-lightest;
@@ -84,11 +99,14 @@ table.container{
 		margin-bottom: 21px;
 		text-align: center;
 	}
-	p{
+	p, a{
 		font-size: 18px;
 		line-height: 27px;
 		color: #888;
 		text-align: center;
+	}
+	a{
+		color: $brand-blue;
 	}
 }
 .row.action{
@@ -118,11 +136,11 @@ table.container{
 }
 .button__text{
 	background: $brand-blue;
-	color: #FFF;
+	color: #FFF !important;
 }
 .link__text{
 	background: #FFF;
-	color: #3E4B57;
+	color: #3E4B57 !important;
 	border: 1px solid #A0A4A6;
 	text-align: center;
 }

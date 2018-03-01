@@ -1,9 +1,19 @@
-{% capture email_title %}Thank you for your purchase! {% endcapture %}
-{% capture email_body %}
-  {% if requires_shipping %}
-    Hi {{ customer.first_name }}, we're getting your order ready to be shipped. We will notify you when it has been sent.
+{% if fulfillment.item_count == item_count %}   {% capture shipment_name %}Your order is{% endcapture %}
+{% elsif fulfillment.item_count > 1 %}   {% if fulfillment_status == 'fulfilled' %}
+    {% capture shipment_name %}The last items in your order are{% endcapture %}
+  {% else %}
+    {% capture shipment_name %}Some items in your order are{% endcapture %}
   {% endif %}
-{% endcapture %}
+{% else %}   {% if fulfillment_status == 'fulfilled' %}
+    {% capture shipment_name %}The last item in your order is{% endcapture %}
+  {% else %}
+    {% capture shipment_name %}One item in your order is{% endcapture %}
+  {% endif %}
+{% endif %}
+
+{% capture email_title %}{{ shipment_name }} on the way{% endcapture %}
+{% capture email_body %}{{ shipment_name }} on the way to you. Track your shipment to see the delivery status.{% endcapture %}
+{% capture email_emphasis %}Estimated delivery date: <strong>{{fulfillment.estimated_delivery_at | date: "%B %d, %Y"}}</strong>{% endcapture %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -76,6 +86,9 @@
                             <td>
                               <h2>{{ email_title }}</h2>
                               <p>{{ email_body }}</p>
+                              {% if fulfillment.estimated_delivery_at %}
+                                <p>{{ email_emphasis }}</p>
+                              {% endif %}
                               {% if order_status_url %}
                                 <table class="row actions">
                                   <tr>
@@ -125,7 +138,7 @@
                         <table class="section__heading">
                           <tr>
                             <td>
-                              <h3>Order summary</h3>
+                              <h3>Items in this shipment</h3>
                               <span class="title-bar"></span>
                             </td>
                           </tr>
@@ -174,177 +187,6 @@
                               </table>
                             </td>
                           </tr>{% endfor %}
-                        </table>
-                        <table class="row subtotal-lines">
-                          <tr>
-                            <td class="subtotal-spacer"></td>
-                            <td>
-                              <table class="row subtotal-table">
-                                {% if discounts %}
-                                  {% capture discount_title %}Discount {% if discounts.first.code %}({{ discounts.first.code }}){% endif %}{% endcapture %}
-                                  <tr class="subtotal-line">
-                                    <td class="subtotal-line__title">
-                                      {{ discount_title }}
-                                    </td>
-                                    <td class="subtotal-line__value">
-                                      {{ discounts_savings | money }}
-                                    </td>
-                                  </tr>
-                                {% endif %}
-                                <tr class="subtotal-line">
-                                  <td class="subtotal-line__title">
-                                    Subtotal
-                                  </td>
-                                  <td class="subtotal-line__value">
-                                    {{ subtotal_price | money }}
-                                  </td>
-                                </tr>
-                                <tr class="subtotal-line">
-                                  <td class="subtotal-line__title">
-                                    Shipping
-                                  </td>
-                                  <td class="subtotal-line__value">
-                                    {{ shipping_price | money }}
-                                  </td>
-                                </tr>
-                                {% for line in tax_lines %}
-                                  <tr class="subtotal-line">
-                                    <td class="subtotal-line__title">
-                                      {{ line.title }}
-                                    </td>
-                                    <td class="subtotal-line__value">
-                                      {{ line.price | money }}
-                                    </td>
-                                  </tr>
-                                {% endfor %}
-                              </table>
-                              <table class="row subtotal-table subtotal-table--total">
-                                <tr class="subtotal-line">
-                                  <td class="subtotal-line__title">
-                                    Total
-                                  </td>
-                                  <td class="subtotal-line__value">
-                                    {{ total_price | money_with_currency }}
-                                  </td>
-                                </tr>
-                              </table>
-                              {% assign transaction_size = 0 %}
-                              {% for transaction in transactions %}
-                                {% unless transaction.kind == "capture" or transaction.kind == "void" %}
-                                  {% assign transaction_size = transaction_size | plus: 1 %}
-                                {% endunless %}
-                              {% endfor %}
-                              {% if transaction_size > 1 %}
-                                <table class="row subtotal-table">
-                                  <tr><td colspan="2" class="subtotal-table__small-space"></td></tr>
-                                  {% for transaction in transactions %}
-                                    {% if transaction.status == "success" and transaction.kind == "authorization" or transaction.kind == "sale" %}
-                                      {% if transaction.payment_details.credit_card_company %}
-                                        {% capture transaction_name %}{{ transaction.payment_details.credit_card_company }} (ending in {{ transaction.payment_details.credit_card_last_four_digits }}){% endcapture %}
-                                      {% else %}
-                                        {% capture transaction_name %}{{ transaction.gateway | replace: "_", " " | capitalize }}{% endcapture %}
-                                      {% endif %}
-                                      <tr class="subtotal-line">
-                                        <td class="subtotal-line__title">
-                                          {{transaction_name}}
-                                        </td>
-                                        <td class="subtotal-line__value">
-                                          {{ transaction.amount | money }}
-                                        </td>
-                                      </tr>
-                                    {% endif %}
-                                    {% if transaction.kind == 'refund' %}
-                                      {% if transaction.payment_details.credit_card_company %}
-                                        {% assign refund_method_title = transaction.payment_details.credit_card_company %}
-                                      {% else %}
-                                        {% assign refund_method_title = transaction.gateway %}
-                                      {% endif %}
-                                      <tr class="subtotal-line">
-                                        <td class="subtotal-line__title">
-                                          Refund <small>{{ refund_method_title | replace: "_", " " | capitalize }}</small>
-                                        </td>
-                                        <td class="subtotal-line__value">
-                                          - {{ transaction.amount | money }}
-                                        </td>
-                                      </tr>
-                                    {% endif %}
-                                  {% endfor %}
-                                </table>
-                              {% endif %}
-                            </td>
-                          </tr>
-                        </table>
-                      </center>
-                    </td>
-                  </tr>
-                </table>
-
-                <table class="row section customer-info">
-                  <tr>
-                    <td class="section__cell">
-                      <center>
-                        <table class="section__heading">
-                          <tr>
-                            <td>
-                              <h3>Customer information</h3>
-                              <span class="title-bar"></span>
-                            </td>
-                          </tr>
-                        </table>
-                        <table class="container customer-info__items">
-                          <tr>
-                            <td class="rows">
-                              <table class="row">
-                                <tr>
-                                  {% if requires_shipping and shipping_address %}
-                                  <td align="top" class="customer-info__item">
-                                    <h4>Shipping address</h4>
-                                    {{ shipping_address | format_address }}
-                                  </td>
-                                  {% endif %}
-                                  {% if billing_address %}
-                                  <td align="top" class="customer-info__item">
-                                    <h4>Billing address</h4>
-                                    {{ billing_address | format_address }}
-                                  </td>
-                                  {% endif %}
-                                </tr>
-                              </table>
-                              <table class="row">
-                                <tr>
-                                  {% if requires_shipping and shipping_address %}
-                                  <td align="top" class="customer-info__item">
-                                    <h4>Shipping method</h4>
-                                    <p>{{ shipping_method.title }}</p>
-                                  </td>
-                                  {% endif %}
-                                  {% assign transaction_count = transactions | size %}
-                                  {% if transaction_count > 0 %}
-                                  <td align="top" class="customer-info__item last">
-                                    <h4>Payment method</h4>
-                                    {% for transaction in transactions %}
-                                      {% if transaction.status == "success" or transaction.status == "pending" %}
-                                        {% if transaction.kind == "authorization" or transaction.kind == "sale" %}
-                                          <p class="customer-info__item-content">
-                                            {% if transaction.payment_details.credit_card_company %}
-                                              {% capture credit_card_url %}notifications/{{ transaction.payment_details.credit_card_company | downcase | replace: " ", "_" }}.png{% endcapture %}
-                                              <img src="{{ credit_card_url | shopify_asset_url }}" class="customer-info__item-credit" height="24">
-                                              <span>Ending in {{ transaction.payment_details.credit_card_last_four_digits }}</span>
-                                            {% else %}
-                                              {% unless transaction.gateway == "gift_card" %}
-                                                {{ transaction.gateway | replace: "_", " " | capitalize }} — <strong>{{ transaction.amount | money }}</strong>
-                                              {% endunless %}
-                                            {% endif %}
-                                          </p>
-                                        {% endif %}
-                                      {% endif %}
-                                    {% endfor %}
-                                  </td>
-                                  {% endif %}
-                                </tr>
-                              </table>
-                            </td>
-                          </tr>
                         </table>
                       </center>
                     </td>
