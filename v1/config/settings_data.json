@@ -1,0 +1,704 @@
+{
+  "current": {
+    "type_base_size": "16px",
+    "color_primary": "#000",
+    "color_body_text": "#000",
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "http:\/\/bit.ly\/loandsonstwitter",
+    "social_facebook_link": "http:\/\/on.fb.me\/UJbzFY",
+    "social_pinterest_link": "http:\/\/bit.ly\/loandsonspinterest",
+    "social_instagram_link": "http:\/\/bit.ly\/loandsonsinstagram",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "cart_notes_enable": false,
+    "favicon": "shopify:\/\/shop_images\/apple-touch-icon.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo_2x_a0fd0a3d-12b4-4494-a623-069ce6553c70.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#4dbeee",
+    "checkout_button_color": "#4dbeee",
+    "checkout_error_color": "#d9534f",
+    "sections": {
+      "collection-list": {
+        "type": "collection-list",
+        "blocks": {
+          "collection-list-0": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "collection-list-1": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "collection-list-2": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          }
+        },
+        "block_order": [
+          "collection-list-0",
+          "collection-list-1",
+          "collection-list-2"
+        ],
+        "settings": {
+          "title": "Collection list"
+        }
+      },
+      "featured-collection": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "Featured collection",
+          "collection": "frontpage"
+        }
+      },
+      "featured-product": {
+        "type": "featured-product",
+        "settings": {
+          "product": "",
+          "show_share_buttons": false
+        }
+      },
+      "main-menu": {
+        "type": "main-menu",
+        "settings": {
+          "main_linklist": "main-menu"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+        }
+      },
+      "marquee": {
+        "type": "marquee",
+        "settings": {
+          "marquee_text": "HOLIDAY SALE! Up to 40% off select styles + extended 30 day return policy.",
+          "marquee_link": "discover-catalina-deluxe",
+          "background_color": "#4dbeee",
+          "marquee_active": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_linklist_1": "footer",
+          "footer_linklist_2": "footer-2",
+          "footer_linklist_3": "footer-3",
+          "show_payment_icons": false
+        }
+      },
+      "page-builder": {
+        "type": "page-builder",
+        "blocks": {
+          "1513301711863": {
+            "type": "hero",
+            "settings": {
+              "mobileImage": "shopify:\/\/shop_images\/mobile-01.gif",
+              "desktopImage": "shopify:\/\/shop_images\/desktop-01.gif",
+              "altText": "",
+              "video": "",
+              "mobileVideo": "",
+              "videoRatio": "ratio-1-1",
+              "autoplay": true,
+              "loops": "10",
+              "disableBottomMargin": false
+            }
+          },
+          "1513300827134": {
+            "type": "sectionHeading",
+            "settings": {
+              "text": "Women",
+              "disableBottomMargin": false
+            }
+          },
+          "1513303230678": {
+            "type": "columns",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Homepage-Refresh-backpacks.jpg",
+              "video": "https:\/\/player.vimeo.com\/external\/241595380.hd.mp4?s=6f718acca945b9e68db96f08a2a0e324aec3d73f&profile_id=175",
+              "mobileVideo": "",
+              "videoRatio": "ratio-4-3",
+              "autoplay": true,
+              "loops": "10",
+              "title": "Backpacks",
+              "subtitle": "",
+              "description": "Super lightweight and made from eco-friendly materials.",
+              "linkText": "Shop",
+              "linkUrl": "shopify:\/\/pages\/page-builder-test",
+              "linkStyle": "outline",
+              "linkTextB": "",
+              "linkUrlB": "",
+              "linkStyleB": "default",
+              "linkTextC": "",
+              "linkUrlC": "",
+              "linkStyleC": "outline",
+              "swapOrder": false,
+              "disableBottomMargin": false
+            }
+          },
+          "1513303314233": {
+            "type": "columns",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/home-banner-Tote.jpg",
+              "video": "",
+              "mobileVideo": "",
+              "videoRatio": "ratio-1-1",
+              "autoplay": true,
+              "loops": "10",
+              "title": "Weekenders",
+              "subtitle": "",
+              "description": "Find the perfect bag for a weekend excursion.",
+              "linkText": "Shop",
+              "linkUrl": "shopify:\/\/collections\/womens-weekender-bags",
+              "linkStyle": "outline",
+              "linkTextB": "",
+              "linkUrlB": "",
+              "linkStyleB": "default",
+              "linkTextC": "",
+              "linkUrlC": "",
+              "linkStyleC": "default",
+              "swapOrder": true,
+              "disableBottomMargin": false
+            }
+          },
+          "1513300928993": {
+            "type": "sectionHeading",
+            "settings": {
+              "text": "Men",
+              "disableBottomMargin": false
+            }
+          },
+          "1513304501044": {
+            "type": "columns",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/home-Rhodes.jpg",
+              "video": "",
+              "mobileVideo": "",
+              "videoRatio": "ratio-4-3",
+              "autoplay": true,
+              "loops": "10",
+              "title": "The Rhodes",
+              "subtitle": "",
+              "description": "A duffel bag built for the demands of globetrotting.",
+              "linkText": "Shop",
+              "linkUrl": "shopify:\/\/collections\/3-option",
+              "linkStyle": "outline",
+              "linkTextB": "",
+              "linkUrlB": "",
+              "linkStyleB": "default",
+              "linkTextC": "",
+              "linkUrlC": "",
+              "linkStyleC": "default",
+              "swapOrder": false,
+              "disableBottomMargin": false
+            }
+          },
+          "1513898847005": {
+            "type": "hero",
+            "settings": {
+              "mobileImage": "shopify:\/\/shop_images\/weekender-category-mobile.jpg",
+              "desktopImage": "shopify:\/\/shop_images\/weekender-category-desktop.jpg",
+              "altText": "load out",
+              "video": "https:\/\/player.vimeo.com\/external\/241596467.hd.mp4?s=2364faa62fb69f19e0b2774fa8f1e2de04a13221&profile_id=175",
+              "mobileVideo": "https:\/\/player.vimeo.com\/external\/241596467.sd.mp4?s=3c1cd8f757a70586e150d58fc25b95ab82541433&profile_id=165",
+              "videoRatio": "ratio-16-9",
+              "autoplay": false,
+              "loops": "2",
+              "disableBottomMargin": false
+            }
+          }
+        },
+        "block_order": [
+          "1513301711863",
+          "1513300827134",
+          "1513303230678",
+          "1513303314233",
+          "1513300928993",
+          "1513304501044",
+          "1513898847005"
+        ],
+        "settings": {
+        }
+      },
+      "page-home": {
+        "type": "page-home",
+        "blocks": {
+          "1515191449063": {
+            "type": "hero",
+            "settings": {
+              "mobileImage": "shopify:\/\/shop_images\/01-mobile-01.gif",
+              "desktopImage": "shopify:\/\/shop_images\/desktop-01_7814f81a-f80a-45b1-93c8-7a0832142270.gif",
+              "altText": "shop the hanover deluxe",
+              "title": "",
+              "linkText": "Women",
+              "linkUrl": "shopify:\/\/collections\/all-womens-products",
+              "linkStyle": "outline",
+              "linkTextB": "Men",
+              "linkUrlB": "shopify:\/\/collections\/all-mens-products",
+              "linkStyleB": "outline",
+              "overlayTextPos": "center",
+              "video": "",
+              "mobileVideo": "",
+              "videoRatio": "ratio-16-9",
+              "autoplay": true,
+              "loops": "10",
+              "disableBottomMargin": true
+            }
+          },
+          "1515186161096": {
+            "type": "sectionHeading",
+            "settings": {
+              "text": "Women"
+            }
+          },
+          "1515185761174": {
+            "type": "columns",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Homepage-Refresh-backpacks_8927d031-3846-4a00-b688-ed216da1e474.jpg",
+              "title": "Backpacks",
+              "description": "Super lightweight and made from eco-friendly materials.",
+              "linkText": "Shop",
+              "linkUrl": "shopify:\/\/collections\/womens-backpacks-1",
+              "linkStyle": "outline",
+              "linkTextB": "",
+              "linkUrlB": "",
+              "linkStyleB": "default",
+              "linkTextC": "",
+              "linkUrlC": "",
+              "linkStyleC": "default",
+              "video": "",
+              "mobileVideo": "",
+              "videoRatio": "ratio-1-1",
+              "autoplay": true,
+              "loops": "10",
+              "swapOrder": false,
+              "disableBottomMargin": false
+            }
+          },
+          "1515189370498": {
+            "type": "columns",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/home-banner-Tote_68ecd814-d6a9-4afe-9da8-80414e2994cc.jpg",
+              "title": "Weekenders",
+              "description": "Find the perfect bag for a weekend excursion.",
+              "linkText": "Shop",
+              "linkUrl": "shopify:\/\/collections\/womens-weekender-bags",
+              "linkStyle": "outline",
+              "linkTextB": "",
+              "linkUrlB": "",
+              "linkStyleB": "default",
+              "linkTextC": "",
+              "linkUrlC": "",
+              "linkStyleC": "default",
+              "video": "",
+              "mobileVideo": "",
+              "videoRatio": "ratio-1-1",
+              "autoplay": true,
+              "loops": "10",
+              "swapOrder": true,
+              "disableBottomMargin": false
+            }
+          },
+          "1515189445208": {
+            "type": "columns",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Homepage-crossbody-bags.jpg",
+              "title": "Crossbody Bags",
+              "description": "Small travel bags with big functionality.",
+              "linkText": "Shop",
+              "linkUrl": "#",
+              "linkStyle": "outline",
+              "linkTextB": "",
+              "linkUrlB": "",
+              "linkStyleB": "default",
+              "linkTextC": "",
+              "linkUrlC": "",
+              "linkStyleC": "default",
+              "video": "",
+              "mobileVideo": "",
+              "videoRatio": "ratio-1-1",
+              "autoplay": true,
+              "loops": "10",
+              "swapOrder": false,
+              "disableBottomMargin": false
+            }
+          },
+          "1515189594850": {
+            "type": "columns",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Homepage-Refresh-laptop-totes4.jpg",
+              "title": "Laptop Bags",
+              "description": "Innovative yet elegant laptop bags for any destination.",
+              "linkText": "Shop",
+              "linkUrl": "shopify:\/\/collections\/womens-laptop-friendly",
+              "linkStyle": "outline",
+              "linkTextB": "",
+              "linkUrlB": "",
+              "linkStyleB": "default",
+              "linkTextC": "",
+              "linkUrlC": "",
+              "linkStyleC": "default",
+              "video": "",
+              "mobileVideo": "",
+              "videoRatio": "ratio-1-1",
+              "autoplay": true,
+              "loops": "10",
+              "swapOrder": true,
+              "disableBottomMargin": false
+            }
+          },
+          "1515189655925": {
+            "type": "columns",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Homepage-Refresh-overnight-bags2.jpg",
+              "title": "Overnight Bags",
+              "description": "Carry-ons designed to make travel a breeze.",
+              "linkText": "Shop",
+              "linkUrl": "#",
+              "linkStyle": "outline",
+              "linkTextB": "",
+              "linkUrlB": "",
+              "linkStyleB": "default",
+              "linkTextC": "",
+              "linkUrlC": "",
+              "linkStyleC": "default",
+              "video": "",
+              "mobileVideo": "",
+              "videoRatio": "ratio-1-1",
+              "autoplay": true,
+              "loops": "10",
+              "swapOrder": false,
+              "disableBottomMargin": false
+            }
+          },
+          "1515189691903": {
+            "type": "sectionHeading",
+            "settings": {
+              "text": "Men"
+            }
+          },
+          "1515189774639": {
+            "type": "columns",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hanover-Deluxe-Men.jpg",
+              "title": "The Hanover Deluxe",
+              "description": "Our newest travel backpack made from the same eco-friendly materials, now with even more space.",
+              "linkText": "Shop",
+              "linkUrl": "#",
+              "linkStyle": "outline",
+              "linkTextB": "",
+              "linkUrlB": "",
+              "linkStyleB": "default",
+              "linkTextC": "",
+              "linkUrlC": "",
+              "linkStyleC": "default",
+              "video": "",
+              "mobileVideo": "",
+              "videoRatio": "ratio-1-1",
+              "autoplay": true,
+              "loops": "10",
+              "swapOrder": true,
+              "disableBottomMargin": false
+            }
+          },
+          "1515189814464": {
+            "type": "columns",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Homepage-Refresh3-Backpack-men.jpg",
+              "title": "The Hanover",
+              "description": "Super lightweight and made from eco-friendly materials.",
+              "linkText": "Shop",
+              "linkUrl": "#",
+              "linkStyle": "outline",
+              "linkTextB": "",
+              "linkUrlB": "",
+              "linkStyleB": "default",
+              "linkTextC": "",
+              "linkUrlC": "",
+              "linkStyleC": "default",
+              "video": "",
+              "mobileVideo": "",
+              "videoRatio": "ratio-1-1",
+              "autoplay": true,
+              "loops": "10",
+              "swapOrder": false,
+              "disableBottomMargin": false
+            }
+          },
+          "1515189860870": {
+            "type": "columns",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Homepage-Refresh3-Cambridge.jpg",
+              "title": "The Cambridge",
+              "description": "A laptop briefcase and messenger bag designed for life on the road.",
+              "linkText": "Shop",
+              "linkUrl": "#",
+              "linkStyle": "outline",
+              "linkTextB": "",
+              "linkUrlB": "",
+              "linkStyleB": "default",
+              "linkTextC": "",
+              "linkUrlC": "",
+              "linkStyleC": "default",
+              "video": "",
+              "mobileVideo": "",
+              "videoRatio": "ratio-1-1",
+              "autoplay": true,
+              "loops": "10",
+              "swapOrder": true,
+              "disableBottomMargin": false
+            }
+          },
+          "1515189899009": {
+            "type": "columns",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/home-Rhodes_c822ce86-d7a1-4b73-aca3-a6034a70535d.jpg",
+              "title": "The Rhodes",
+              "description": "A duffel bag built for the demands of globetrotting.",
+              "linkText": "Shop",
+              "linkUrl": "#",
+              "linkStyle": "outline",
+              "linkTextB": "",
+              "linkUrlB": "",
+              "linkStyleB": "default",
+              "linkTextC": "",
+              "linkUrlC": "",
+              "linkStyleC": "default",
+              "video": "",
+              "mobileVideo": "",
+              "videoRatio": "ratio-1-1",
+              "autoplay": true,
+              "loops": "10",
+              "swapOrder": false,
+              "disableBottomMargin": false
+            }
+          }
+        },
+        "block_order": [
+          "1515191449063",
+          "1515186161096",
+          "1515185761174",
+          "1515189370498",
+          "1515189445208",
+          "1515189594850",
+          "1515189655925",
+          "1515189691903",
+          "1515189774639",
+          "1515189814464",
+          "1515189860870",
+          "1515189899009"
+        ],
+        "settings": {
+        }
+      },
+      "product": {
+        "type": "product",
+        "settings": {
+          "show_share_buttons": false
+        }
+      },
+      "page-stories": {
+        "type": "page-stories",
+        "blocks": {
+          "1516066705313": {
+            "type": "sectionHeading",
+            "settings": {
+              "text": "Latest Articles"
+            }
+          },
+          "1516066716034": {
+            "type": "twoUp",
+            "settings": {
+              "blogHandle": "news",
+              "article1Handle": "blog-post-example",
+              "article2Handle": "blog-post-example"
+            }
+          },
+          "1516067891839": {
+            "type": "sectionHeading",
+            "settings": {
+              "text": "Travel"
+            }
+          },
+          "1516067852834": {
+            "type": "fourUp",
+            "settings": {
+              "blogHandle": "news",
+              "article1Handle": "blog-post-example",
+              "article2Handle": "blog-post-example",
+              "article3Handle": "blog-post-example",
+              "article4Handle": "blog-post-example"
+            }
+          },
+          "1516067913778": {
+            "type": "highlight",
+            "settings": {
+              "blogHandle": "news",
+              "articleHandle": "blog-post-example"
+            }
+          },
+          "1516067906082": {
+            "type": "sectionHeading",
+            "settings": {
+              "text": "Business"
+            }
+          },
+          "1516067952544": {
+            "type": "fourUp",
+            "settings": {
+              "blogHandle": "news",
+              "article1Handle": "blog-post-example",
+              "article2Handle": "blog-post-example",
+              "article3Handle": "blog-post-example",
+              "article4Handle": "blog-post-example"
+            }
+          },
+          "1516068003024": {
+            "type": "sectionHeading",
+            "settings": {
+              "text": "Leisure"
+            }
+          },
+          "1516068007884": {
+            "type": "fourUp",
+            "settings": {
+              "blogHandle": "news",
+              "article1Handle": "blog-post-example",
+              "article2Handle": "blog-post-example",
+              "article3Handle": "blog-post-example",
+              "article4Handle": "blog-post-example"
+            }
+          },
+          "1516068023343": {
+            "type": "banner",
+            "settings": {
+              "blogHandle": "news",
+              "articleHandle": "related-post-d",
+              "contentPosition": "right"
+            }
+          },
+          "1516068255459": {
+            "type": "sectionHeading",
+            "settings": {
+              "text": "Travel"
+            }
+          },
+          "1516068268395": {
+            "type": "fourUp",
+            "settings": {
+              "blogHandle": "news",
+              "article1Handle": "related-post-a",
+              "article2Handle": "blog-post-example",
+              "article3Handle": "blog-post-example",
+              "article4Handle": "blog-post-example"
+            }
+          },
+          "1516068306583": {
+            "type": "fiveUp",
+            "settings": {
+              "blogHandle": "news",
+              "article1Handle": "blog-post-example",
+              "article2Handle": "blog-post-example",
+              "articleMainHandle": "related-post-c",
+              "article3Handle": "blog-post-example",
+              "article4Handle": "blog-post-example"
+            }
+          },
+          "1516068332159": {
+            "type": "sectionHeading",
+            "settings": {
+              "text": "Leisure"
+            }
+          }
+        },
+        "block_order": [
+          "1516066705313",
+          "1516066716034",
+          "1516067891839",
+          "1516067852834",
+          "1516067913778",
+          "1516067906082",
+          "1516067952544",
+          "1516068003024",
+          "1516068007884",
+          "1516068023343",
+          "1516068255459",
+          "1516068268395",
+          "1516068332159",
+          "1516068306583"
+        ],
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
+  "presets": {
+    "Default": {
+      "sections": {
+        "collection-list": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-list-0": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "collection-list-1": {
+              "type": "collection",
+              "settings": {
+              }
+            },
+            "collection-list-2": {
+              "type": "collection",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "collection-list-0",
+            "collection-list-1",
+            "collection-list-2"
+          ],
+          "settings": {
+          }
+        },
+        "featured-collection": {
+          "type": "featured-collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        },
+        "featured-product": {
+          "type": "featured-product",
+          "settings": {
+          }
+        }
+      },
+      "content_for_index": [
+
+      ]
+    }
+  }
+}

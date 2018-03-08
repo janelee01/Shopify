@@ -1,0 +1,9 @@
+@charset "UTF-8";
+/*============================================================================
+  Lo & Sons | Built with Slate
+    - You cannot use native CSS/Sass @imports in this file without a build script
+==============================================================================*/
+
+// run 'gulp styles' from within /local to generate this file
+// shopify's SASS version is incompatible with bootstrap
+@import url('vendor/lo.css');
