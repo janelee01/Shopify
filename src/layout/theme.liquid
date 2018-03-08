@@ -70,6 +70,8 @@
 
   <script src="https://player.vimeo.com/api/player.js"></script>
 
+  {% include 'buddha-megamenu-before' %}
+  {% include 'buddha-megamenu' %}
   {{ content_for_header }}
 
   {% include 'page-assets' %}
@@ -78,6 +80,7 @@
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+  {% include 'buddha-megamenu-wireframe' %}
 
   {% include 'body-before-start' %}
 
@@ -108,6 +111,10 @@
         </div>
         {% endcomment %}
     </div>
+
+ {% include 'sweettooth-initializer' %}
+
+ {% include 'sweettooth-tab-widget' %}
 
 </body>
 </html>
