@@ -70,8 +70,6 @@
 
   <script src="https://player.vimeo.com/api/player.js"></script>
 
-  {% include 'buddha-megamenu-before' %}
-  {% include 'buddha-megamenu' %}
   {{ content_for_header }}
 
   {% include 'page-assets' %}
@@ -80,13 +78,12 @@
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
-  {% include 'buddha-megamenu-wireframe' %}
 
-  {% include 'body-before-start' %}
+  {% include 'body-before-start' %} 
 
     <a class="in-page-link skip-link sr-only" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
     
-    {% section 'main-menu' %}
+    {% section 'main-menu' %} 
 
     <div class="site-window" id="site-window">
         <div class="site-content">
