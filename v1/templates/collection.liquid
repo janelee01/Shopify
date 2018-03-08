@@ -1,0 +1,109 @@
+{% paginate collection.products by 25 %}
+
+{%- capture productNames -%}
+{%- for product in collection.products -%}
+  {%- assign productNameParts = product.title | split: ' - ' -%}
+  {{ productNameParts[0] }}|
+{%- endfor -%}
+{%- endcapture -%}
+
+{%- assign parentProducts = productNames | split: '|' | uniq -%}
+
+  <header class="page-header is-collection" data-collection="{{ collection.id }}">
+    <h1 class="has-bar">{{ collection.title | remove: "Shop " }}</h1>
+    <div data-filters-wrap>{% comment%} both .has-bar and #filters are inline-block, so we need a newline somehow {% endcomment %}
+      <div id="filters">
+        <ul>
+          <li><a href="#price-filters" class="filter-toggle">Price</a></li>
+          <li><a href="#function-filters" class="filter-toggle">Function</a></li>
+          <li><a href="#fit-filters" class="filter-toggle">Device Fit</a></li>
+          <li><a href="#category-filters" class="filter-toggle">Category</a></li>
+        </ul>
+      </div>
+      <div id="filters-panel">
+        <ul class="filter-options" style="display: none" id="price-filters">
+          <li><button class="filter-option is-price-range" data-hook="p-0-100">$0.00 - $100.00</button></li>
+          <li><button class="filter-option is-price-range" data-hook="p-100-200">$100.00 - $200.00</button></li>
+          <li><button class="filter-option is-price-range" data-hook="p-200-300">$200.00 - $300.00</button></li>
+          <li><button class="filter-option is-price-range" data-hook="p-300-400">$300.00 - $400.00</button></li>
+          <li><button class="filter-option is-price-range" data-hook="p-400-500">$400.00 - $500.00</button></li>
+        </ul>
+         <ul class="filter-options" style="display: none" id="function-filters">
+           {%- assign tagsList = shop.metafields["global"]["function-tags"] | split: ',' -%}
+             {%- for tag in tagsList -%}
+                 {%- include 'filter-option' -%}
+             {%- endfor -%}
+         </ul>
+         <ul class="filter-options" style="display: none" id="fit-filters">
+           {%- assign tagsList = shop.metafields["global"]["device-fit-tags"] | split: ',' -%}
+             {%- for tag in tagsList -%}
+                 {%- include 'filter-option' -%}
+             {%- endfor -%}
+         </ul>
+         <ul class="filter-options" style="display: none" id="category-filters">
+           {%- assign tagsList = shop.metafields["global"]["category-tags"] | split: ',' -%}
+             {%- for tag in tagsList -%}
+                 {%- include 'filter-option' -%}
+             {%- endfor -%}
+         </ul>
+
+        <div id="active-filters">
+          <span data-active-filters></span>
+          <a href="#" id="reset-filters">Reset Filters</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    {%- for parentProductName in parentProducts -%}
+    <div class="product-family" data-family-name="{{ parentProductName | handleize }}">
+      <h2 class="has-divider">{{ parentProductName | remove: "The " }}</h2>
+      <div class="product-grid">
+        <div class="row">
+          {% for product in collection.products %}
+            {%- assign productNameParts = product.title | split: ' - ' -%}
+            {% if productNameParts[0] != parentProductName %}{% continue %}{% endif %}
+            {%- assign priceClass = 'p-0-100' -%}
+            {%- assign thisPrice = product.price | divided_by: 100 -%}
+            {%- if thisPrice >= 100 and thisPrice <= 200 -%}{%- assign priceClass = 'p-100-200' -%}{%- endif -%}
+            {%- if thisPrice >= 200 and thisPrice <= 300 -%}{%- assign priceClass = 'p-200-300' -%}{%- endif -%}
+            {%- if thisPrice >= 300 and thisPrice <= 400 -%}{%- assign priceClass = 'p-300-400' -%}{%- endif -%}
+            {%- if thisPrice >= 400 and thisPrice <= 500 -%}{%- assign priceClass = 'p-400-500' -%}{%- endif -%}
+            <div class="col-xs-6 col-sm-3 f-hook{% for tag in product.tags %} f-{{ tag | handleize }}{% endfor %} {{ priceClass }}">
+              {% include 'product-item' with product %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {%- endfor -%}
+    <div id="filter-alert" style="display: none" class="alert alert-warning">No products match your filter selections.</div>
+    {% if paginate.pages > 1 %}
+     {% comment %}{% include 'pagination' %}{% endcomment %}
+    {% comment %} js hooks into this to get subsequent pages {% endcomment %}
+      <div class="ajax-pagination" style="display: none" aria-hidden="true">
+        {% for i in (1..paginate.pages) %}
+          {% if i == 1 %}
+             {% continue %}
+           {% else %}
+          <a href="{{ canonical_url }}?page={{ i }}">{{ i }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  {% comment %}
+    collectionSkus is used by GTM. doing this here instead of the GTM snippet so pagination values are used
+  {% endcomment %}
+  {%- capture collectionSkus -%}
+    [
+    {%- for product in collection.products -%}
+      "{{ product.first_available_variant.sku }}"{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+    ]
+  {%- endcapture -%}
+  <script>
+    var collectionSkus = {{ collectionSkus }};
+  </script>
+{% endpaginate %}

@@ -1,0 +1,103 @@
+{%- case template -%}
+	{%- when "collection" -%}
+		{%- assign pinterestPage = collection.title -%}
+		{%- assign pinterestCategory = 'Category Page' -%}
+	{%- when "product" -%}
+		{%- assign pinterestPage = product.title -%}
+		{%- assign pinterestCategory = 'Product Page' -%}
+	{%- when "customers/order" -%}
+		{%- assign pinterestPage = 'customer.order.breadcrumb_title' | t -%}
+		{%- assign pinterestCategory = 'Account Pages' -%}
+	{%- when "customers/account" -%}
+		{%- assign pinterestPage = 'customer.account.title' | t -%}
+		{%- assign pinterestCategory = 'Account Pages' -%}
+	{%- when "customers/addresses" -%}
+		{%- assign pinterestPage = 'customer.addresses.title' | t -%}
+		{%- assign pinterestCategory = 'Account Pages' -%}
+	{%- else -%}
+		{%- assign pinterestPage = '' -%}
+		{%- assign pinterestCategory = '' -%}
+{%- endcase -%}
+{% comment %} checkout doesn't have a template, so check for items {% endcomment %}
+{%- if checkout.line_items != blank -%}
+	{%- assign pinterestPage = 'Checkout Page' -%}
+	{%- assign pinterestCategory = 'Checkout Flow' -%}
+{%- elsif checkout.order_id != blank -%}
+	{%- assign pinterestPage = 'Success Page' -%}
+	{%- assign pinterestCategory = 'Checkout Flow' -%}
+{%- endif -%}
+<!-- Google Tag Manager -->
+<script>
+	var dataLayer = window.dataLayer || [];
+	dataLayer.push({
+		'storeCurrency' : '{{ shop.currency }}',
+		'cartItemCount' : '{{ cart.item_count }}', {% comment %} added as string as it will be empty during checkout {% endcomment %} 
+		'cartItems' : [
+			{%- for item in cart.items -%}
+			{
+				'sku' : '{{ item.sku }}',
+				'price' : {{ item.price | money_without_currency }},
+				'quantity' : {{ item.quantity }},
+				'name' : '{{ item.product.title }}',
+				'type' : '{{ item.product.type }}',
+				'variant' : '{{ item.variant.title }}'
+			}{% unless forloop.last %},{% endunless %}
+			{%- endfor -%}
+		],
+		'checkoutData' : {
+			{%- if checkout.order_id != blank -%}
+			'orderId' : {{ checkout.order_number }},
+			'subtotal' : {{ checkout.subtotal_price | money_without_currency }},
+			'total' : {{ checkout.total_price | money_without_currency }},
+			'tax' : {{ checkout.tax_price | money_without_currency }},
+			'shipping' : {{ checkout.shipping_price | money_without_currency }},
+			'email' : '{{ checkout.email | url_encode }}',
+			{%- for discount in checkout.discounts -%}
+			'coupon' : '{{ discount.code }}',
+			{%- endfor -%}
+			{%- endif -%}
+			'items' : [
+				{%- for item in checkout.line_items -%}
+				{
+					'sku' : '{{ item.sku }}',
+					'price' : {{ item.price | money_without_currency }},
+					'quantity' : {{ item.quantity }},
+					'name' : '{{ item.product.title }}',
+					'type' : '{{ item.product.type }}',
+					'variant' : '{{ item.variant.title }}'
+				}{% unless forloop.last %},{% endunless %}
+				{%- endfor -%}
+			]
+		},
+		'searchTerms' : '{{ search.terms }}',
+		{% if template == 'product' %}
+		{%- assign current_variant = product.selected_or_first_available_variant -%}
+		'productData' :{
+			'price' : {{ current_variant.price | money_without_currency }},
+			'comparePrice' : {{ current_variant.compare_at_price | money_without_currency }},
+			'sku' : '{{ current_variant.sku }}',
+			'name' : '{{ product.title }}',
+			'type' : '{{ product.type }}',
+			'collections' : '{{ product.collections | map:"title" | json }}',
+			'url' : '{{ shop.secure_url }}{{ product.url }}',
+			'variant' : '{{ current_variant.title }}',
+			'brand' : '{{ product.vendor }}',
+			'imageUrl' : 'https:{{ product.featured_image.src | img_url:"grande" }}',
+			'imagePosition' : 1,
+		},
+		{%- endif -%}
+		{%- unless customer.email == blank -%}
+		'emailEncoded' : '{{ customer.email | sha256 }}',
+		'uid' : '{{ customer.id }}',
+		{%- endunless -%}
+		'template' : '{{ template }}',
+		'pinterestCategory' : '{{ pinterestCategory }}',
+		'pinterestPage' : '{{ pinterestPage }}'
+	})
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TJKPR6K');</script>
+<!-- End Google Tag Manager -->

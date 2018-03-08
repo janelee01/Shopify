@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="8px" height="5px" viewBox="0 0 8 5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48 (47235) - http://www.bohemiancoding.com/sketch -->
+    <title>dropdown-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="08-3-Menu-search-3-nested-items-expanded" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-349.000000, -224.000000)">
+        <g id="Buttons-1st-items" transform="translate(40.000000, 167.000000)" fill="#ABABAB">
+            <g id="dropdown-icon" transform="translate(309.000000, 57.000000)">
+                <polygon id="Rectangle-4" points="0.772465632 -1.13686838e-13 4.68965517 3.97058824 4 4.85294118 1.42108547e-12 0.799156157"></polygon>
+                <polygon id="Rectangle-4" points="4 4.85294118 3.31034483 3.97058824 7.17267299 -1.13686838e-13 7.94513862 0.799156157"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
