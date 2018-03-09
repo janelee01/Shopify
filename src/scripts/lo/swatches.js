@@ -97,10 +97,12 @@ $(document).ready(function(){
 	    $('#variant-buttons').html('');
 	    $('[data-product-select]').html('');
 	    for (var i = 0; i <= newVariants.length - 1; i++) {
-	    	// build our hidden select
-	    	$('[data-product-select]').append('<option value="'+newVariants[i].id+'">'+newVariants[i].title+'</option>');
-	    	// build our buttons
-	    	$('#variant-buttons').append('<a href="#" class="btn btn-secondary variant-option">'+newVariants[i].title+'</a>');
+	    	if( hiddenVariants.indexOf(newVariants[i].id) == -1 ){
+	    		// build our hidden select
+	    		$('[data-product-select]').append('<option value="'+newVariants[i].id+'">'+newVariants[i].title+'</option>');
+	    		// build our buttons
+	    		$('#variant-buttons').append('<a href="#" class="btn btn-secondary variant-option">'+newVariants[i].title+'</a>');
+	    	}
 	    };
 
 	    // reselect the size, or use the first option
