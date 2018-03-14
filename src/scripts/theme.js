@@ -145,7 +145,9 @@ $(document).ready(function() {
    */
   $('body').on('click', '.marquee .panel-close', function(e){
 	e.preventDefault();
-	$('#shopify-section-marquee').fadeOut('fast');
+	$('#shopify-section-marquee').fadeOut('fast', function(){
+		$('body').trigger('marquee-hidden');
+	});
 	sessionStorage.setItem("lo-marquee-dismissed", "1");
   });
 
@@ -154,6 +156,7 @@ $(document).ready(function() {
 	// no nothing
   }else{
 	$('#shopify-section-marquee .marquee').removeClass('hidden');
+	$('body').trigger('marquee-shown');
   }
 
   // hide marquees on pages with local navs

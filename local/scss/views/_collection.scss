@@ -3,6 +3,7 @@
 	border-bottom: solid 1px #e6e6e6;
 	padding-bottom: 0;
 	margin-bottom: 30px;
+	z-index: 10;
 	@media (min-width: $screen-md) {
 		margin-bottom: 70px;
 	}
@@ -19,6 +20,13 @@
 		#active-filters{
 			display: block;
 		}
+	}
+}
+body.fixed-filters{
+	.page-header.is-collection{
+		position: fixed;
+		width: 100%;
+		background: #fff;
 	}
 }
 #filters{
