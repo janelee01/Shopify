@@ -1,5 +1,5 @@
 {% for block in section.blocks %}
-	<div class="page-block"
+	<div class="page-block theme-{{ block.settings.textColor }}"
 		style="{%- if block.settings.disableBottomMargin -%} margin-bottom: 0;{%- endif -%}"
 		{{ block.shopify_attributes }}>
 		{% case block.type %}
