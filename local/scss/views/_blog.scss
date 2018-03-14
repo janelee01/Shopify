@@ -587,7 +587,7 @@
 		margin-bottom: .8em;
 	}
 	h2{
-		font-size: 32px;
+		font-size: calculateEm(32px, 24px);
 		line-height: calculateEm(40px, 32px);
 	}
 	img{
