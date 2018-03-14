@@ -291,15 +291,24 @@
  	.title{
  		margin: 0;
  		font-size: 40px;
- 		line-height: calculataEm(60px, 40px);
+ 		line-height: calculateEm(44px, 40px);
  		font-family: $font-family-bold;
- 		@media (min-width: $screen-md) {
+ 		@media (min-width: $screen-sm) {
+ 			font-size: 30px;
+ 		}
+ 		@media (min-width: $screen-lg) {
  			font-size: 50px;
  		}
  	}
  	.excerpt{
  		font-size: 20px;
- 		line-height: 30px;
+ 		line-height: calculateEm(30px, 20px);
+ 		@media (min-width: $screen-sm) {
+ 			font-size: 18px;
+ 		}
+ 		@media (min-width: $screen-lg) {
+ 			font-size: 20px;
+ 		}
  		p{
  			margin: 0;
  		}
@@ -515,105 +524,16 @@
  	}
 }
 
-// shogun editor is close, but not quite
-.shogun-editor #MainContent{
-	.shogun-component{
- 		.shogun-image-overlay.shg-middle-center{
- 			display: block;
- 			bottom: 100px;
- 			width: 170px;
- 			right: -200px;
- 			top: auto;
- 			left: auto;
- 			padding: 0;
- 			p{
- 				// shogun get's specific so will be need to be important
- 				font-size: 13px !important;
- 				line-height: 20px !important;
- 				color: $text-color !important;
- 				font-family: $font-family-base;
- 				margin: 0;
- 				text-align: left;
- 			}
- 		}
- 	}
- 	img.shogun-image{
- 		margin-bottom: 40px !important;
- 		@media (min-width: $screen-md) {
- 			margin-bottom: 80px !important;
- 		}
- 	}
- 	.reduced-margin{
- 		img.shogun-image{
- 			margin-bottom: 20px !important;
- 		}
- 	}
-}
-
-.shogun-region, // admin
-.shogun-root{ // front end
-	// p, blockquote, ul, ol, .shogun-image-container{ // img is margin: 0 !important in shogun's styles
-	// 	margin-bottom: 40px;
-	// 	@media (min-width: $screen-md) {
-	// 		margin-bottom: 80px;
-	// 	}
-	// }
-	ul, ol{
-		color: $gray;
-		padding-left: 25px;
-	}
-	.reduced-margin .shogun-image-container,
-	.shogun-video{
-		margin-bottom: 20px;
-	}
-	blockquote{
-		font-size: 22px;
-		line-height: 30px;
-		font-family: $font-family-bold;
-		padding: 0;
-		@media (min-width: $screen-md) {
-			font-size: 35px;
-			line-height: 55px;
-		}
-	}
-	.shogun-image-container{
-		.shogun-image-overlay.shg-middle-center{
-			display: block;
-			bottom: 50px;
-			width: 170px;
-			right: -200px;
-			top: auto;
-			left: auto;
-			padding: 0;
-			p{
-				// shogun get's specific so will be need to be important
-				font-size: 13px !important;
-				line-height: 20px !important;
-				color: $text-color !important;
-				margin: 0;
-				text-align: left;
-			}
-		}
-	}
-}
-.shogun-video-embed{
-	border: 0;
-}
-.shogun-video-16x9{
-	.fluid-width-video-wrapper{
-		padding-top: 56.25% !important; // fitvids keeps getting this wrong for some reason
-	}
-}
 .article-lead{
 	font-size: 22px;
-	line-height: 34px;
+	line-height: calculateEm(34px, 22px);
 	margin-bottom: 40px;
 	@media (min-width: $screen-md) {
 		margin-bottom: 80px;
+		font-size: 32px;
 	}
-	@media (min-width: $screen-md) {
+	@media (min-width: $screen-lg) {
 		font-size: 40px;
-		line-height: 60px;
 		// padding-left: 200px;
 	}
 	p:first-child:first-letter {
@@ -632,30 +552,7 @@
 	  }
 	}
 }
-.article-content{
-	// font-size: 17px;
-	// line-height: 30px;
-	// @media (min-width: $screen-md) {
-	// 	// padding: 0 200px;
-	// 	font-size: 24px;
-	// 	line-height: 42px;
-	// }
-	// h2, h3, h4, h5, h6{
-	// 	font-family: $font-family-semibold;
-	// }
-	// h2{
-	// 	font-size: 22px;
-	// 	line-height: 35px;
-	// 	@media (min-width: $screen-md) {
-	// 		font-size: 32px;
-	// 		line-height: 36px;
-	// 	}
-	// }
-}
 
-/*
-	Article reboot
- */
 #article-body{
 	font-size: 18px;
 	line-height: calculateEm(42px, 24px);
@@ -670,16 +567,13 @@
 		font-size: 24px;
 		padding-bottom: 80px;
 	}
-	.shogun-root > .shg-c{
-		margin-bottom: 0;
+	blockquote{
+		font-size: 1.5em;
 	}
-	.shg-c{
-		margin-bottom: 40px;
+	p, ul, ol{
+		margin-bottom: calculateEm(40px, 24px);
 		@media (min-width: $screen-md) {
-			// margin-bottom: 80px;
-		}
-		h2, h3, h4, h5, h6{
-			margin-bottom: 0;
+			margin-bottom: calculateEm(80px, 24px);
 		}
 	}
 	a{
