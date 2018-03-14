@@ -238,14 +238,14 @@
 	  	{% include 'product-detail-panel' %}
 		
 	  	<div class="product-detail-panel">
-	  	  <h2 data-collapse-toggle class="has-divider panel-toggle collapsed">Shipping, Returns, Exchanges</h2>
+	  	  <h2 data-collapse-toggle class="panel-toggle collapsed">Shipping, Returns, Exchanges</h2>
 	  	  <div data-collapse-panel class="panel-content">
 	  	  {{ shop.metafields["global"]["shipping-returns-exchanges"] }}
 	  	  </div>
 	  	</div>
 
 		<div class="product-detail-panel">
-			<h2 data-collapse-toggle class="has-divider panel-toggle collapsed">Customer Reviews</h2>
+			<h2 data-collapse-toggle class="panel-toggle collapsed">Customer Reviews</h2>
 			<div data-collapse-panel class="panel-content">
 				<div id="reviews"></div>
 				<div id="reviews-widget">
@@ -283,7 +283,7 @@
 	  	
 	  	{%- unless parentCollection.metafields["global"]["press"] == blank -%}
 			<div class="product-detail-panel">
-				<h2 data-collapse-toggle class="has-divider panel-toggle collapsed">Press</h2>
+				<h2 data-collapse-toggle class="panel-toggle collapsed">Press</h2>
 				<div data-collapse-panel class="panel-content">
 					<div class="press-item">
 						{{ parentCollection.metafields["global"]["press"] }}

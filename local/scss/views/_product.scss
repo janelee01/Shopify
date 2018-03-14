@@ -298,52 +298,56 @@
 }
 .product-detail-panel{
 	border-top: solid 1px #e6e6e6;
-	padding-top: 20px;
+	padding: 20px 0;
 	@media (min-width: $screen-md) {
 		padding: 70px 105px;
 	}
 	.panel-toggle{
-		@media (max-width: $screen-sm-max) {
-		 	@include collapsing-panel-toggle;
-		 	padding-bottom: 20px;
-		 	margin-bottom: 0;
-		 	&:before,
-		 	&:after{
-		 		top: 9px;
-		 	}   
+		@include collapsing-panel-toggle;
+		margin-bottom: 0;
+		cursor: pointer;
+		font-family: $font-family-semibold;
+		font-size: 18px;
+		@media (min-width: $screen-md) {
+			font-size: 24px;
 		}
+		&:before,
+		&:after{
+			top: 9px;
+			@media (min-width: $screen-md) {
+				top: 12px;
+			}
+		} 
 	}
 	.panel-content{
 		display: none;
 		padding-top: 50px;
 		position: relative;
+		@media (min-width: $screen-md) {
+			display: block;
+			padding-top: 75px;
+		}
 		&:before{
 			content: '';
 			display: block;
 			position: absolute;
 			left: 0;
-			top: 0;
+			top: 20px;
 			height: 2px;
 			background: $brand-blue;
 			width: 0;
 			@include transition(all .3s ease);
+			@media (min-width: $screen-md) {
+				top: 25px;
+			}
 		}
 		&.is-shown{
 			&:before{
 				width: 39px;
 			}
 		}
-		@media (min-width: $screen-md) {
-			display: block;
-			padding: 0;
-			&:before{
-				display: none;
-			}
-		}
-		@media (min-width: $screen-md) {
-			p:last-child, dl, dd:last-child{
-				margin-bottom: 0;
-			}
+		p:last-child, dl, dd:last-child{
+			margin-bottom: 0;
 		}
 	}
 	table{
