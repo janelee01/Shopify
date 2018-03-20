@@ -51,7 +51,7 @@
 			'total' : {{ checkout.total_price | money_without_currency }},
 			'tax' : {{ checkout.tax_price | money_without_currency }},
 			'shipping' : {{ checkout.shipping_price | money_without_currency }},
-			'email' : '{{ checkout.email | url_encode }}',
+			'email' : '{{ checkout.email }}',
 			{%- for discount in checkout.discounts -%}
 			'coupon' : '{{ discount.code }}',
 			{%- endfor -%}
