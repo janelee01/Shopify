@@ -37,7 +37,7 @@ window.theme = window.theme || {};
 // =require lo/waitlist.js  
 // =require lo/product-reviews.js  
 // =require lo/product-gallery.js  
-// =require lo/customers.js  
+// =require lo/customers.js
 
 $(document).ready(function() {
 	
