@@ -154,8 +154,11 @@
 									<label for="variant-selector">Size</label>
 									<div id="variant-buttons">
 										{%- for variant in product.variants -%}
+											{%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+												{%- continue -%}
+											{%- endif -%}
 											{%- assign selected = '' -%}
-											{%- if product.selected_variant.title == variant.title or forloop.first and product.selected_variant.title == blank -%}
+											{%- if variant.id == current_variant.id -%}
 												{%- assign selected = ' selected' -%}
 											{%- endif -%}
 											<a href="#" class="btn btn-secondary variant-option{{ selected }}">{{ variant.title }}</a>
@@ -168,7 +171,7 @@
 									{%- endfor -%}
 								</select>
 							</div>
-				         
+
 							<div id="add-to-cart">
 								<label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
 								<input type="number" id="quantity" name="quantity" value="1" min="1">
@@ -235,14 +238,14 @@
 	  	{% include 'product-detail-panel' %}
 		
 	  	<div class="product-detail-panel">
-	  	  <h2 data-collapse-toggle class="has-divider panel-toggle collapsed">Shipping, Returns, Exchanges</h2>
+	  	  <h2 data-collapse-toggle class="panel-toggle collapsed">Shipping, Returns, Exchanges</h2>
 	  	  <div data-collapse-panel class="panel-content">
 	  	  {{ shop.metafields["global"]["shipping-returns-exchanges"] }}
 	  	  </div>
 	  	</div>
 
 		<div class="product-detail-panel">
-			<h2 data-collapse-toggle class="has-divider panel-toggle collapsed">Customer Reviews</h2>
+			<h2 data-collapse-toggle class="panel-toggle collapsed">Customer Reviews</h2>
 			<div data-collapse-panel class="panel-content">
 				<div id="reviews"></div>
 				<div id="reviews-widget">
@@ -280,7 +283,7 @@
 	  	
 	  	{%- unless parentCollection.metafields["global"]["press"] == blank -%}
 			<div class="product-detail-panel">
-				<h2 data-collapse-toggle class="has-divider panel-toggle collapsed">Press</h2>
+				<h2 data-collapse-toggle class="panel-toggle collapsed">Press</h2>
 				<div data-collapse-panel class="panel-content">
 					<div class="press-item">
 						{{ parentCollection.metafields["global"]["press"] }}
@@ -318,9 +321,22 @@
 				{%- endfor -%}
 			}
 		{%- endcapture -%}
+
+		{% comment %} some variants should be hidden when the sell out instead of showing the Join Waitlist button {% endcomment %}
+		{%- capture hiddenVariants -%}
+			{%- for siblingProduct in parentCollection.products -%}
+				{%- for variant in siblingProduct.variants -%}
+					{%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+{{ variant.id }}|
+					{%- endif -%}
+				{%- endfor -%}
+			{%- endfor -%}
+		{%- endcapture -%}
+
 		<script>
 			var siblingsJson = {{ siblingsJson }};
 			var siblingsSupplimentalJson = {{ siblingsSupplimentalJson }};
+			var hiddenVariants = "{{ hiddenVariants }}";
 		</script>
 
 	</div>

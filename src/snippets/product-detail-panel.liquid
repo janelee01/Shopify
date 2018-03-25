@@ -1,6 +1,6 @@
 {%- unless parentCollection.metafields["global"][detailKey] == blank -%}
 <div class="product-detail-panel">
-	<h2 data-collapse-toggle class="has-divider panel-toggle collapsed">{{ detailTitle }}</h2>
+	<h2 data-collapse-toggle class="panel-toggle collapsed">{{ detailTitle }}</h2>
 	<div data-collapse-panel class="panel-content">
 		<div class="default-content{% if product.metafields["global"][detailKey] != blank %} hide{% endif%}">
 			{{ parentCollection.metafields["global"][detailKey] }}

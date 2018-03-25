@@ -80,15 +80,18 @@ $(document).ready(function() {
   $('.pagination .page a').addClass('pagination-link');
 
 	// mobile collapsed panels
-	if( $(window).width() < LS.desktopBreakpoint ){
-		$('[data-collapse-toggle]').on('click', function(e){
-		    $(this).toggleClass('collapsed');
-		    if( !$(this).hasClass('collapsed') ){
-		    	$(this).next('[data-collapse-panel]').slideDown().addClass('is-shown');
-		    }else{
-		    	$(this).next('[data-collapse-panel]').slideUp().removeClass('is-shown');
-		    }
-		});
+	$('[data-collapse-toggle]').on('click', function(e){
+	    $(this).toggleClass('collapsed');
+	    if( !$(this).hasClass('collapsed') ){
+	    	$(this).next('[data-collapse-panel]').slideDown().addClass('is-shown');
+	    }else{
+	    	$(this).next('[data-collapse-panel]').slideUp().removeClass('is-shown');
+	    }
+	});
+
+	if( $(window).width() > LS.desktopBreakpoint ){
+	  $('[data-collapse-toggle]').removeClass('collapsed');
+	  $('[data-collapse-panel]').addClass('is-shown');
 	}
 
   // sticky sidebar
@@ -142,7 +145,9 @@ $(document).ready(function() {
    */
   $('body').on('click', '.marquee .panel-close', function(e){
 	e.preventDefault();
-	$('#shopify-section-marquee').fadeOut('fast');
+	$('#shopify-section-marquee').fadeOut('fast', function(){
+		$('body').trigger('marquee-hidden');
+	});
 	sessionStorage.setItem("lo-marquee-dismissed", "1");
   });
 
@@ -151,6 +156,7 @@ $(document).ready(function() {
 	// no nothing
   }else{
 	$('#shopify-section-marquee .marquee').removeClass('hidden');
+	$('body').trigger('marquee-shown');
   }
 
   // hide marquees on pages with local navs

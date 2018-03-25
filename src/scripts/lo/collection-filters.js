@@ -219,6 +219,41 @@ $(document).ready(function(){
 				sessionStorage.setItem(sessionKey, $('#MainContent').html());
 			}
 		});
+
+		/*
+		Sticky filters
+		 */
+		var $pageHeader = $('.page-header');
+		var $filters = $('[data-filters-wrap]');
+		var siteHeaderHeight = $('#site-header').outerHeight();
+		var headerOffset = $pageHeader.offset().top;
+		var filtersOffset = $filters.offset().top; 		
+		var stickPosition = filtersOffset - siteHeaderHeight - 31; // 35px for the title's margin - 4px for the blue bar that eats into the margin a little
+
+		// set the position for when the header goes fixed.
+		$pageHeader.css('top', headerOffset - stickPosition);
+
+		// marquee can change where we want to trigger the stick
+		$('body').on('marquee-shown', function(){
+			window.marqueeHeight = $('.marquee').outerHeight();
+			stickPosition = stickPosition + marqueeHeight;
+		});
+		$('body').on('marquee-hidden', function(){
+			stickPosition = stickPosition - window.marqueeHeight;
+		});
+
+		$(window).scroll(function(){
+			var scrollAmount = $(window).scrollTop();
+			if( scrollAmount >= stickPosition ){ 
+				if( !$('body').hasClass('fixed-filters') ){ // only do this once
+					$('body').addClass('fixed-filters');
+					$('#MainContent').css('padding-top', parseFloat($pageHeader.outerHeight()) + parseFloat($pageHeader.css('marginBottom').replace(/[^-\d\.]/g, '')) ); 
+				}
+			}else{
+				$('body').removeClass('fixed-filters');
+				$('#MainContent').css('padding-top', 0);
+			}
+		});
 	
 	} // endif is collection page 
 	

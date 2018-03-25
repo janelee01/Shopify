@@ -1,11 +1,14 @@
 {% for block in section.blocks %}
-	<div class="page-block"
+	<div class="page-block theme-{{ block.settings.textColor }}"
 		style="{%- if block.settings.disableBottomMargin -%} margin-bottom: 0;{%- endif -%}"
 		{{ block.shopify_attributes }}>
 		{% case block.type %}
 
 			{% when 'sectionHeading' %}
 			{% include 'section-heading' %}
+			
+			{% when 'hero' %}
+			{% include 'builder-hero' %}
 
 			{% when 'columns' %}
 			{% include 'builder-columns' %}
@@ -165,6 +168,106 @@
 					"id": "isPageTitle",
 					"default": false,
 					"label": "Use as page title (H1 tag)"
+				}
+			]
+		},
+		{
+			"type": "hero",
+			"name": "Hero",
+			"settings": [
+				{
+					"id": "mobileImage",
+					"type": "image_picker",
+					"label": "Mobile Image"
+				},
+				{
+					"id": "desktopImage",
+					"type": "image_picker",
+					"label": "Desktop Image"
+				},
+				{
+					"id": "altText",
+					"type": "text",
+					"label": "Alt Text"
+				},
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title"
+				},
+				{
+					"type": "text",
+					"id": "description",
+					"label": "Description"
+				},
+				{
+					"type": "text",
+					"id": "linkText",
+					"label": "Link A -- Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrl",
+					"label": "Link A -- URL"
+				},
+				{
+					"type": "radio",
+					"id": "linkStyle",
+					"label": "Link A -- Style",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "outline", "label": "Outline" }
+					]
+				},
+				{
+					"type": "text",
+					"id": "linkTextB",
+					"label": "Link B -- Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrlB",
+					"label": "Link B -- URL"
+				},
+				{
+					"type": "radio",
+					"id": "linkStyleB",
+					"label": "Link B -- Style",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "outline", "label": "Outline" }
+					]
+				},
+				{
+					"type": "radio",
+					"id": "overlayTextPos",
+					"label": "Text Position",
+					"options": [
+						{ "value": "left", "label": "Left" },
+						{ "value": "center", "label": "Center" },
+						{ "value": "right", "label": "Right" }
+					]
+				},
+				{
+					"type": "radio",
+					"id": "textColor",
+					"label": "Text Color",
+					"options": [
+						{ "value": "black", "label": "Black" },
+						{ "value": "white", "label": "White" }
+					]
+				},
+				{
+					"type": "checkbox",
+					"id": "disableBottomMargin",
+					"default": false,
+					"label": "Remove Bottom Margin"
+				},
+				{
+					"type": "checkbox",
+					"id": "isSecondary",
+					"default": false,
+					"label": "Use standard block font sizes"
 				}
 			]
 		}
