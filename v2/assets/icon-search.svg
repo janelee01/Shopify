@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="17px" viewBox="0 0 16 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48 (47235) - http://www.bohemiancoding.com/sketch -->
+    <title>Magnifying-glass</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="08-3-Menu-search-3-nested-items-expanded" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-344.000000, -99.000000)">
+        <g id="Search-bar-option1" transform="translate(25.000000, 75.000000)" stroke="#979797">
+            <g id="Magnifying-glass" transform="translate(320.000000, 25.000000)">
+                <g>
+                    <path d="M10,11 L14.5,15.5" id="Line-6" stroke-linecap="square"></path>
+                    <circle id="Oval-3-Copy" cx="6" cy="6" r="6"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

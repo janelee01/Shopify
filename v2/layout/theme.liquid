@@ -1,0 +1,117 @@
+<!doctype html>
+<!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+
+  {% include 'google-tag-manager' %}
+  
+  {% comment %} hide parent collection pages from indexing {% endcomment %}
+  {%- if template == 'collection' -%}
+    {%- if collection.metafields["global"]["is-parent-collection"] == "true" -%}
+      <meta name="robots" content="noindex,follow" />
+    {%- endif -%}
+  {%- endif -%}
+  
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {% if settings.favicon != blank %}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+  {% endif %}
+
+  {%- capture seo_title -%}
+    {{ page_title }}
+    {%- if current_tags -%}
+      {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}
+    {%- endif -%}
+    {%- if current_page != 1 -%}
+      &ndash; {{ 'general.meta.page' | t: page: current_page }}
+    {%- endif -%}
+    {%- unless page_title contains shop.name -%}
+      &ndash; {{ shop.name }}
+    {%- endunless -%}
+  {%- endcapture -%}
+  <title>{{ seo_title }}</title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  {% include 'social-meta-tags' %}
+
+  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+    window.theme = {
+      strings: {
+        addToCart: {{ 'products.product.add_to_cart' | t | json }},
+        soldOut: {{ 'products.product.sold_out' | t | json }},
+        unavailable: {{ 'products.product.unavailable' | t | json }}
+      },
+      moneyFormat: {{ shop.money_format | json }}
+    };
+  </script>
+
+  {% if template.directory == 'customers' %}
+    <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script><!--<![endif]-->
+    <!--[if lte IE 9]><script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script><![endif]-->
+  {% endif %}
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+  <!--[if lt IE 9]><script src="{{ 'vendor.js' | asset_url }}"></script><![endif]-->
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'theme.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+  <!--[if lt IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
+
+  <script src="https://player.vimeo.com/api/player.js"></script>
+
+  {{ content_for_header }}
+
+  {% include 'page-assets' %}
+
+  <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/1BRcvEm4otuzCinl2NlZx7eeyApg3H6EPGJ0Zv74/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
+</head>
+
+<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+
+  {% include 'body-before-start' %} 
+
+    <a class="in-page-link skip-link sr-only" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+    
+    {% section 'main-menu' %} 
+
+    <div class="site-window" id="site-window">
+        <div class="site-content">
+            {% section 'header' %}
+            {% section 'marquee' %}
+            <main role="main" id="MainContent">
+                {{ content_for_layout }}
+            </main>
+            {% section 'footer' %}
+        </div>
+        {% comment %}
+        <div class="closed" id="newsletter-prompt">
+          <div class="container-fluid">
+            <div class="col-md-10">
+              <p>Get <strong>15% OFF</strong> your next order just for signing up.</p>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-secondary btn-md" data-toggle="modal" data-target="#newsletter">Join now</button>
+            </div>
+          </div>
+          <button type="button" class="panel-close"><span aria-hidden="true">Close</span></button>
+        </div>
+        {% endcomment %}
+    </div>
+
+ {% include 'sweettooth-initializer' %}
+
+ {% include 'sweettooth-tab-widget' %}
+
+</body>
+</html>

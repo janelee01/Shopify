@@ -1,0 +1,93 @@
+<div id="site-nav-panel">
+  <div id="site-nav-body">
+    {% assign fieldId = 'in-menu-search' %}
+    {% include 'search-form' with fieldId %}
+  	<nav role="navigation" id="site-menu">
+      <ul id="site-menu-items"> 
+  	    {% for link in linklists[section.settings.main_linklist].links %}
+  	      {%- assign child_list_handle = link.title | handleize -%}
+  	      {% if menus[child_list_handle].links != blank %}
+            <li class="has-children{% if link.active %} active-child{% endif %}">
+  	          <a href="#child-menu-{{ forloop.index0 }}" class="menu-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="child-menu-{{ forloop.index0 }}">
+  	            {{ link.title }}
+  	          </a>
+              <div class="collapse" id="child-menu-{{ forloop.index0 }}">
+    	          <ul>
+    	            {% for childlink in menus[child_list_handle].links %}
+                    {%- assign grandchild_list_handle = childlink.title | handleize -%}
+                    {% if menus[grandchild_list_handle].links != blank %}
+                      <li class="has-children{% if childlink.active %} active-child{% endif %}">
+                        <a href="#grandchild-menu-{{ forloop.index0 }}" class="menu-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="grandchild-menu-{{ forloop.index0 }}">
+                          {{ childlink.title }}
+                        </a>
+                        <div class="collapse" id="grandchild-menu-{{ forloop.index0 }}">
+                          <ul>
+                            {% for grandchildlink in menus[grandchild_list_handle].links %}
+                              <li {% if grandchildlink.active %}class="active"{% endif %}>
+                                <a class="main-menu-item" href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      </li>
+                    {% else %}
+      	              <li {% if childlink.active %}class="active"{% endif %}>
+      	                <a class="main-menu-item" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+      	              </li>
+                    {% endif %}
+    	            {% endfor %}
+    	          </ul>
+              </div>
+  	        </li>
+  	      {% else %}
+  	        <li {% if link.active %}class="active"{% endif %}>
+  	          <a class="main-menu-item" href="{{ link.url }}">{{ link.title }}</a>
+  	        </li>
+  	      {% endif %}
+  	    {% endfor %}
+  	  </ul>
+      {% if shop.customer_accounts_enabled %}
+        <ul id="account-menu-items">
+            {% if customer %}
+              <li>
+                {% if customer.first_name != blank %}
+                  <a href="/account">{{ 'layout.customer.logged_in_as_html' | t: first_name: customer.first_name }}</a>
+                {% else %}
+                  <a href="/account">{{ 'layout.customer.account' | t }}</a>
+                {% endif %}
+              </li>
+              {% comment %}
+              <li>
+                {{ 'layout.customer.log_out' | t | customer_logout_link }}
+              </li>
+              {% endcomment %}
+            {% else %}
+              <li>
+                {{ 'layout.customer.log_in' | t | customer_login_link }}
+              </li>
+              {% comment %}
+              <li>
+                {{ 'layout.customer.create_account' | t | customer_register_link }}
+              </li>
+              {% endcomment %}
+            {% endif %}
+        </ul>
+      {% endif %}
+  	</nav>
+    <button id="nav-panel-close" class="panel-close"><span class="sr-only">Close</span></button>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Menu Panel",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "main_linklist",
+        "label": "Menu",
+        "default": "main-menu"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="6px" height="14px" viewBox="0 0 6 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="02-1-Stories-Detail-Page-option1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-261.000000, -674.000000)">
+        <g id="::HEADER::" fill="#111111" fill-rule="nonzero">
+            <g id="Hero" transform="translate(0.000000, 79.000000)">
+                <g id="SM-icons" transform="translate(240.000000, 577.000000)">
+                    <g id="Facebook">
+                        <path d="M24.9923866,22.5873134 L24.9923866,21.3809981 C24.9923866,21.1999192 25.0000343,21.059665 25.0155615,20.9605714 C25.0311144,20.8613658 25.066366,20.7637562 25.1211874,20.6674067 C25.1759059,20.5711411 25.2644339,20.5046401 25.3867714,20.4678195 C25.5092378,20.4309429 25.6719769,20.4125186 25.8752205,20.4125186 L26.9845243,20.4125186 L26.9845243,18 L25.2111059,18 C24.1849741,18 23.4479874,18.2647442 23.0000429,18.7941767 C22.5521499,19.3237772 22.3282549,20.1038137 22.3282549,21.1346502 L22.3282549,22.5872854 L21,22.5872854 L21,25 L22.3282034,25 L22.3282034,32 L24.9923609,32 L24.9923609,25.000028 L26.7656248,25.000028 L27,22.5873134 L24.9923866,22.5873134 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,61 @@
+{% paginate customer.addresses by 5 %}
+
+<header class="page-header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-8 col-sm-offset-2 col-sm-8">
+        <h1>{{ 'customer.addresses.title' | t }}</h1>
+      </div>
+      <div class="col-xs-4 col-sm-2 text-right">
+        <a href="/account/logout" id="account-logout">{{ 'layout.customer.log_out' | t }}</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container-fluid">
+  
+  <nav class="breadcrumbs">
+    <a href="/account">{{ 'customer.account.title' | t }}</a><span class="current">{{ 'customer.addresses.title' | t }}</span>
+  </nav>
+
+  <div class="account">
+    
+     <ul id="address-list">
+        <li id="add-address">
+          <div class="address-item">
+            <button type="button" id="address-new-open" data-title-text="{{ 'customer.addresses.add_new' | t }}">
+              <i class="icon-plus"></i>{{ 'customer.addresses.add_new' | t }}
+            </button>
+          </div>
+        </li>
+        {% for address in customer.addresses %}
+          <li><div class="address-item">
+            <div class="address">
+              {% if address == customer.default_address %}
+                <span class="default-label">{{ 'customer.addresses.default' | t }}</span>{% comment %}use a span here because <p>'s first line is bolded{% endcomment %}
+              {% endif %}
+              {{ address | format_address }}
+            </div>
+          <button type="button" class="btn btn-text address-edit-open" data-title-text="{{ 'customer.addresses.edit_address' | t }}" data-form-id="{{ address.id }}">
+            {{ 'customer.addresses.edit' | t }}
+          </button><span class="sep"></span><button type="button" class="btn btn-text address-delete" data-form-id="{{ address.id }}" data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}">
+            {{ 'customer.addresses.delete' | t }}
+          </button>
+          </div></li>
+       {% endfor %}
+     </ul>
+
+    {% if paginate.pages > 1 %}
+      {% include 'pagination' %}
+    {% endif %}
+    
+    {% comment %} keep this file a little cleaner {% endcomment %}
+    {% include 'address-add-form' %}
+    {% for address in customer.addresses %}
+    {% include 'address-edit-form' %}
+    {% endfor %}
+
+  </div>
+</div>
+{% endpaginate %}

@@ -1,0 +1,173 @@
+{% for block in section.blocks %}
+	<div class="page-block"
+		style="{%- if block.settings.disableBottomMargin -%} margin-bottom: 0;{%- endif -%}"
+		{{ block.shopify_attributes }}>
+		{% case block.type %}
+
+			{% when 'sectionHeading' %}
+			{% include 'section-heading' %}
+
+			{% when 'columns' %}
+			{% include 'builder-columns' %}
+
+		{% endcase %}
+	</div>
+	{% endfor %}
+
+{% schema %}
+{
+	"name": "Content Manager",
+	"blocks": [
+		{
+			"type": "columns",
+			"name": "Two Columns",
+			"settings": [
+				{
+					"id": "image",
+					"type": "image_picker",
+					"label": "Image"
+				},
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title"
+				},
+				{
+					"type": "text",
+					"id": "description",
+					"label": "Description"
+				},
+				{
+					"type": "text",
+					"id": "linkText",
+					"label": "Link A -- Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrl",
+					"label": "Link A -- URL"
+				},
+				{
+					"type": "radio",
+					"id": "linkStyle",
+					"label": "Link A -- Style",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "outline", "label": "Outline" }
+					]
+				},
+				{
+					"type": "text",
+					"id": "linkTextB",
+					"label": "Link B -- Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrlB",
+					"label": "Link B -- URL"
+				},
+				{
+					"type": "radio",
+					"id": "linkStyleB",
+					"label": "Link B -- Style",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "outline", "label": "Outline" }
+					]
+				},
+				{
+					"type": "text",
+					"id": "linkTextC",
+					"label": "Link C -- Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrlC",
+					"label": "Link C -- URL"
+				},
+				{
+					"type": "radio",
+					"id": "linkStyleC",
+					"label": "Link C -- Style",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "outline", "label": "Outline" }
+					]
+				},
+				{
+					"id": "video",
+					"type": "text",
+					"label": "Video",
+					"info": "Image field will be used as video's poster"
+				},
+				{
+					"id": "mobileVideo",
+					"type": "text",
+					"label": "Mobile Video",
+					"info": "Optional"
+				},
+				{
+					"id": "videoRatio",
+					"type": "radio",
+					"label": "Video Ratio",
+					"options": [
+						{ "value": "ratio-1-1", "label": "1:1" },
+						{ "value": "ratio-3-2", "label": "3:2" },
+						{ "value": "ratio-4-3", "label": "4:3" }
+					]
+				},
+				{
+					"type": "checkbox",
+					"id": "autoplay",
+					"default": true,
+					"label": "Autoplay"
+				},
+				{
+					"type": "text",
+					"id": "loops",
+					"label": "Loops",
+					"default": "10"
+				},
+				{
+					"type": "checkbox",
+					"id": "swapOrder",
+					"default": false,
+					"label": "Swap Column Order"
+				},
+				{
+					"type": "checkbox",
+					"id": "disableBottomMargin",
+					"default": false,
+					"label": "Remove Bottom Margin"
+				}
+			]
+		},
+		{
+			"type": "sectionHeading",
+			"name": "Section Heading",
+			"settings": [
+				{
+					"id": "text",
+					"type": "text",
+					"label": "Text"
+				},
+				{
+					"type": "radio",
+					"id": "headingStyle",
+					"label": "Heading Style",
+					"options": [
+						{ "value": "has-bar", "label": "Bar Behind" },
+						{ "value": "has-divider", "label": "Divider Line Below" }
+					]
+				},
+				{
+					"type": "checkbox",
+					"id": "isPageTitle",
+					"default": false,
+					"label": "Use as page title (H1 tag)"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

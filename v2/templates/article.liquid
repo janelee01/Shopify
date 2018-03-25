@@ -1,0 +1,256 @@
+{% include 'shogun-products', content: article %}
+{% comment %}
+  When a comment is submitted, the browser is redirected to a page that includes 
+  the new comment id in its URL.
+  #comments is a required ID and is used as an anchor link by Shopify.
+{% endcomment %} 
+{%- assign number_of_comments = article.comments_count -%}
+{% comment %}
+  If a comment was just submitted but requires moderation, we have an extra comment to count.
+{% endcomment %}
+{%- if comment and comment.status != 'published' -%}
+  {%- assign number_of_comments = article.comments_count | plus: 1 -%}
+{%- endif -%}
+
+{%- assign mobileFeaturedImage = article | img_url: '375x598', crop: 'center' -%}
+{%- if article.metafields["global"]["mobile-image"] != blank -%}
+  {%- assign mobileFeaturedImage = article.metafields["global"]["mobile-image"] -%}
+{%- endif -%}
+
+<article role="article" itemscope itemtype="http://schema.org/Article">
+  
+  <header role="banner" class="entry-header {{ article.metafields["global"]["header-type"] }}">
+    <div id="m-variation">
+      <div class="image" data-image-container style="background-image: url('{{ mobileFeaturedImage }}')"></div>
+      <div class="content" data-content-container></div>
+    </div>
+    <div id="d-variation">
+      {%- case article.metafields["global"]["header-type"] -%}
+        {%- when 'image-behind' -%}
+          <div class="image" data-image-container>
+            <picture>
+              <source srcset="{{ article | img_url: '1680x840', crop: 'center' }}" media="(min-width: 768px)">
+              <img src="{{ mobileFeaturedImage }}" alt="{{ article.title }}">
+            </picture>
+          </div>  
+          <div class="content"> 
+            <div class="container-fluid" data-content-container>
+              <h1 class="title">{{ article.title }}</h1>
+              <div class="excerpt">{{ article.excerpt }}</div>
+              {% if settings.social_sharing_blog %}
+                {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+              {% endif %}
+            </div>
+          </div>
+        {%- when 'image-side-lg' -%}
+          {% comment %} regular row for the image to extend outside of the container {% endcomment %}
+          <div class="row">
+            <div class="col-sm-6 col-sm-push-6">
+              <div class="image" data-image-container>
+                <picture>
+                  <source srcset="{{ article | img_url: '800x800', crop: 'center' }}" media="(min-width: 768px)">
+                  <img src="{{ mobileFeaturedImage }}" alt="{{ article.title }}">
+                </picture>
+              </div>
+            </div>
+          </div>
+          {% comment %} positioned row for the content that aligns to the container {% endcomment %}
+          <div class="content-container">
+            <div class="container-fluid">
+              <div class="row flexed">
+                <div class="col-sm-6">
+                  <div class="content" data-content-container>
+                    <h1 class="title">{{ article.title }}</h1>
+                    <div class="excerpt">{{ article.excerpt }}</div>
+                    {% if settings.social_sharing_blog %}
+                      {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- when 'image-side-sm' -%}
+          <div class="container-fluid">
+            <div class="row flexed">
+              <div class="col-sm-6">
+                <div class="content" data-content-container>
+                  <h1 class="title">{{ article.title }}</h1>
+                  <div class="excerpt">{{ article.excerpt }}</div>
+                  {% if settings.social_sharing_blog %}
+                    {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+                  {% endif %}
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="image" data-image-container>
+                  <picture>
+                    <source srcset="{{ article | img_url: '600x400', crop: 'center' }}" media="(min-width: 768px)">
+                    <img src="{{ mobileFeaturedImage }}" alt="{{ article.title }}">
+                  </picture>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- when 'image-below' -%}
+          <div class="content" data-content-container>
+            <h1 class="title has-divider">{{ article.title }}</h1>
+            <div class="excerpt">{{ article.excerpt }}</div>
+            {% if settings.social_sharing_blog %}
+              {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+            {% endif %}
+          </div>
+          <div class="image" data-image-container>
+            <picture>
+              <source srcset="{{ article | img_url: '1680x840', crop: 'center' }}" media="(min-width: 768px)">
+              <img src="{{ mobileFeaturedImage }}" alt="{{ article.title }}">
+            </picture>
+          </div>
+      {%- endcase -%}
+    </div>
+  </header>
+  
+  <div class="container-fluid">
+    <div id="article-body" itemprop="articleBody">
+      {{ article.content }}
+    </div>
+{% comment %}
+    {% if article.tags.size > 0 %}
+      <ul>
+        {% for tag in article.tags %}
+          <li>
+            <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if settings.social_sharing_blog %}
+      {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+    {% endif %}
+
+    {% if blog.comments_enabled? %}
+      <h3>{{ 'blogs.comments.with_count' | t: count: number_of_comments }}</h3>
+
+      {% paginate article.comments by 5 %}
+
+      <div id="comments">
+        {% if comment and comment.status and paginate.current_page == 1 %}
+          <p class="form-success">
+            {% if blog.moderated? and comment.status != 'published' %}
+              {{ 'blogs.comments.success_moderated' | t }}
+            {% else %}
+              {{ 'blogs.comments.success' | t }}
+            {% endif %}
+          </p>
+        {% endif %}
+
+        {% if number_of_comments > 0 %}
+          <ul>
+            {% if comment and comment.status != 'published' %}
+              <li id="{{ comment.id }}">
+                <div class="rte">
+                  {{ comment.content }}
+                </div>
+                {% capture date %}{{ comment.created_at | time_tag: format: 'month_day_year' }}{% endcapture %}
+                <p>{{ 'blogs.article.comment_meta_html' | t: author: comment.author, date: date }}</p>
+              </li>
+            {% endif %}
+
+            {% for comment in article.comments %}
+              <li id="{{ comment.id }}">
+                <div class="rte">
+                  {{ comment.content }}
+                </div>
+                {% capture date %}{{ comment.created_at | time_tag: format: 'month_day_year' }}{% endcapture %}
+                <p>{{ 'blogs.article.comment_meta_html' | t: author: comment.author, date: date }}</p>
+              </li>
+
+            {% endfor %}
+          </ul>
+
+          {% if paginate.pages > 1 %}
+            {% include 'pagination' %}
+          {% endif %}
+        {% endif %}
+      </div>
+
+      {% endpaginate %}
+
+      {% form 'new_comment', article %}
+        <h3>{{ 'blogs.comments.title' | t }}</h3>
+
+        {{ form.errors | default_errors }}
+
+        <label for="CommentAuthor" class="label-hidden">
+          {{ 'blogs.comments.name' | t }}
+        </label>
+        <input type="text"
+               name="comment[author]"
+               id="CommentAuthor"
+               class="{% if form.errors contains 'author' %}input-error{% endif %}"
+               placeholder="{{ 'blogs.comments.name' | t }}"
+               value="{{ form.author }}"
+               autocapitalize="words">
+
+        <label for="CommentEmail" class="label-hidden">
+          {{ 'blogs.comments.email' | t }}
+        </label>
+        <input type="email"
+               name="comment[email]"
+               id="CommentEmail"
+               class="{% if form.errors contains 'email' %}input-error{% endif %}"
+               placeholder="{{ 'blogs.comments.email' | t }}"
+               value="{{ form.email }}"
+               spellcheck="false"
+               autocomplete="off"
+               autocapitalize="off">
+
+        <label for="CommentBody" class="label-hidden">
+          {{ 'blogs.comments.message' | t }}
+        </label>
+        <textarea
+          name="comment[body]"
+          id="CommentBody"
+          class="{% if form.errors contains 'body' %}input-error{% endif %}"
+          placeholder="{{ 'blogs.comments.message' | t }}">
+          {{ form.body }}
+        </textarea>
+
+        {% if blog.moderated? %}
+          <p>{{ 'blogs.comments.moderated' | t }}</p>
+        {% endif %}
+
+        <input type="submit" class="btn" value="{{ 'blogs.comments.post' | t }}">
+      {% endform %}
+
+    {% endif %}
+
+{% endcomment %}
+
+    <aside id="related-articles">
+      <div class="section-header">
+        <h2 class="header-text">Related stories</h2>  
+      </div>
+      <div class="row">
+        {%- assign postsCount = 0 -%}
+        {% for thisArticle in blog.articles %}
+          {% if postsCount == 4 %}
+            {% break %}
+          {% elsif thisArticle.id == article.id %}
+            {% continue %}
+          {% else %}
+            {%- assign postsCount = postsCount | plus: 1 -%}
+            <div class="col-xs-6 col-sm-3">
+              {%- assign thumbSize = '285x190' -%}
+              {% include 'article-item' %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </aside>
+  </div>
+
+</article>
+
+

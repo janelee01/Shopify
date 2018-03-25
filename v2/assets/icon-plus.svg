@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>+</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="09-12-address-book-option1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-416.000000, -446.000000)">
+        <g id="Your-addresses" transform="translate(229.000000, 338.000000)" fill="#646464">
+            <g id="Add-a-new-address" transform="translate(0.000000, 75.000000)">
+                <g id="Group" transform="translate(155.000000, 0.000000)">
+                    <polygon id="+" points="41.2392578 41.8515625 41.2392578 48.0332031 38.8662109 48.0332031 38.8662109 41.8515625 32.9775391 41.8515625 32.9775391 39.4785156 38.8662109 39.4785156 38.8662109 33.296875 41.2392578 33.296875 41.2392578 39.4785156 47.1279297 39.4785156 47.1279297 41.8515625"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
