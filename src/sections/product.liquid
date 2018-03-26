@@ -327,7 +327,7 @@
 			{%- for siblingProduct in parentCollection.products -%}
 				{%- for variant in siblingProduct.variants -%}
 					{%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
-{{ variant.id }}|
+{{ variant.id }}| 
 					{%- endif -%}
 				{%- endfor -%}
 			{%- endfor -%}

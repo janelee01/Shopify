@@ -222,7 +222,7 @@ $(document).ready(function(){
 
 		/*
 		Sticky filters
-		 */
+		 
 		var $pageHeader = $('.page-header');
 		var $filters = $('[data-filters-wrap]');
 		var siteHeaderHeight = $('#site-header').outerHeight();
@@ -254,6 +254,7 @@ $(document).ready(function(){
 				$('#MainContent').css('padding-top', 0);
 			}
 		});
+		*/
 	
 	} // endif is collection page 
 	
