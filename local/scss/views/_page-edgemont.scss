@@ -34,10 +34,21 @@
         .pb-sm-5 {
             padding-bottom:5vw;
         }
+    }
 
-        .btn-set {
-            position:relative;
-            top: 370px;
+    .btn-set {
+        position:relative;
+
+        &.product-final-item {
+            @media ( max-width: $screen-sm) { top: 700px; }
+            @media ( max-width: 700px ) { top: 640px; }
+            @media ( max-width: 650px ) { top: 590px; }
+            @media ( max-width: 550px ) { top: 510px; }
+            @media ( max-width: 500px ) { top: 430px; }
+            @media ( max-width: 450px ) { top: 390px; }
+            @media ( max-width: 400px ) { top: 350px; }
+            @media ( max-width: 370px ) { top: 330px; }
+            @media ( max-width: 340px ) { top: 300px; }
         }
     }
 
@@ -70,6 +81,24 @@
                 margin-bottom:140px;
             }
         }
+
+        &.no-bottom-margin-mobile {
+            @media ( max-width: 768px ) {
+                margin-bottom: 0;
+            }
+        }
+
+        &.no-bottom-padding-mobile {
+            @media ( max-width: 768px ) {
+                padding-bottom: 0;
+            }
+        }
+
+        &.mobile-padding-for-image {
+            @media ( max-width: $screen-sm ) {
+                margin-bottom: 20px;
+            }
+        }
     }
 
     .row.flexed.full {
@@ -91,6 +120,10 @@
     .image-panel {
         margin-bottom:100px;
 
+        @media ( max-width: 768px ) {
+            margin-bottom: 40px;
+        }
+
         .image-panel-content.text-dark {
             .description,
             .title {
@@ -100,6 +133,11 @@
     }
 
     .section-content {
+        @media ( max-width: 768px ) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
         @media (max-width: $screen-sm) {
             &.sm-left {
                 text-align:left;
@@ -111,10 +149,23 @@
         &.sm-full {
             padding-left:0;
             padding-right:0;
-            padding-bottom:40px;
+            padding-bottom: 0;
+            //padding-bottom:40px;
+
+            @media ( min-width: 769px ) {
+                padding-bottom: 40px;
+            }
+
             @media (min-width: $screen-md) {
                 padding-left: 28px;
                 padding-right: 28px;
+            }
+        }
+
+        &.mobile-breakout {
+            @media ( max-width: 768px ) {
+                padding-left: 0;
+                padding-right: 0;
             }
         }
         
@@ -133,7 +184,18 @@
             @media (min-width: $screen-xl) {
                 font-size: 30px;
             }
-            
+
+            &.top-bordered-mobile {
+                @media ( max-width: 768px ) {
+                    border-top: 1px solid #EAEAEA;
+                    padding-top: 60px;
+                    margin-top: 10px;
+
+                    //@media ( max-width: 500px ) {
+                    //    padding-top: 45px;
+                    //}
+                }
+            }
         }
         .subtitle {
             text-transform: uppercase;
@@ -193,6 +255,51 @@
                 padding-top:10px;
                 padding-left:28px;
                 padding-right:28px;
+            }
+        }
+
+        &.added-bottom-padding-mobile {
+            @media ( max-width: 768px ) {
+                padding-bottom: 20px;
+            }
+        }
+
+        .organized-padded-mobile {
+            @media ( max-width: 768px ) {
+                padding-top: 15px;
+                padding-bottom: 40px;
+            }
+
+            &.last-organized-padded-mobile {
+                @media ( max-width: 768px ) {
+                    padding-bottom: 15px;
+                }
+            }
+        }
+    }
+
+    .suitcase-mobile-only-heading {
+        @media ( max-width: 768px ) {
+            padding-left: 15px;
+            padding-right: 15px;
+
+            .flexer {
+                padding-top: 15px;
+                padding-bottom: 20px;
+            }
+        }
+    }
+
+    .mobile-only-heading {
+        &.with-border {
+            .title {
+                border-top: 1px solid #EAEAEA;
+                padding-top: 60px;
+                margin-top: 10px;
+
+                @media ( max-width: 500px ) {
+                    padding-top: 45px;
+                }
             }
         }
     }

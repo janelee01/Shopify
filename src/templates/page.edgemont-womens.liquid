@@ -29,12 +29,12 @@
                 <!-- [if IE 9]><video style="display: none;"></video><![endif]-->
                 <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/edgemont-desktop-hero-women.jpg?16504140729958675345" media="(min-width: 768px)" />
                 <!-- [if IE 9]><![endif]--><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/edgemont-mobile-hero-women-mobile.jpg?16504140729958675345" alt="" /> </picture>
-            <div class="image-panel-content h-aligned-left v-aligned-m-top v-aligned-d-center">
+            <div class="image-panel-content h-aligned-left v-aligned-m-center v-aligned-d-center">
                 <div class="flexer">
                     <p class="noSwipe subtitle" style="margin-bottom:0;"><span style="font-size: 110%;">Discover</span></p>
                     <p class="noSwipe title"><span style="font-size: 90%;">Edgemont</span></p>
-                    <p class="noSwipe description">A lightweight travel backpack made from the same eco-friendly materials, now with even more space.</p>
-                    <a href="#" data-video-id="1" class="overview-video-trigger">Play Video 
+                    <p class="noSwipe description">A convertible travel backpack made from lightweight eco-friendly materials.</p>
+                    <a href="#" data-video-id="1" class="overview-video-trigger">Play Video
                         <svg width="94px" height="94px" viewBox="0 0 94 94" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <g id="02-1-Discover-Page-women-option1" transform="translate(-476.000000, -535.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -77,8 +77,8 @@
         <div class="row flexed">
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="section-content xlarge">
-                    <p class="title">Travel Seamlessly</p>
-                    <p class="description contain">Lorem ipsum dolor sit amet consectet nibh Proin ultrices nibh interdum</p>
+                    <p class="title">Ultimate Versatility</p>
+                    <p class="description contain">Thoughtfully designed with features that make it adaptable to any situation.</p>
                 </div>
             </div>
         </div>
@@ -89,10 +89,21 @@
         <div class="row flexed">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="section-content is-media sm-full">
-                    <picture>
+                    <div class="inline-video ratio-16-9">
+                        <div class="embed-container"
+                             data-desktop-url="https://cdn.shopify.com/s/files/1/2185/1497/files/strap-versatility-16-9-womens.mp4?4509226733853477760"
+                             data-mobile-url="https://cdn.shopify.com/s/files/1/2185/1497/files/strap-versatility-4-3-womens.mp4?6145645757530884190"
+                             data-autoplay="true"
+                             data-loops="100">
+                            <video id="video-4" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/edgemont-desktop-versatile-women.jpg?6287752918699439630"></video>
+                            <div class="loading"></div>
+                        </div>
+                    </div>
+                    <!-- <picture>
                         <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/edgemont-desktop-versatile-women.jpg?6287752918699439630" media="(min-width: 768px)">
                         <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/edgemont-mobile-versatile-women-mobile.jpg?6287752918699439630" alt="Edgemont">
-                    </picture>
+                    </picture> -->
+                    <!-- TODO : Mobile videos are mens, we were given the incorrect videos -->
                 </div>
             </div>
         </div>
@@ -103,7 +114,7 @@
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="section-content sm-left">
                     <p class="title">Converts from a Backpack to Tote</p>
-                    <p class="description contain">Lorem ipsum dolor sit amet consectet nibh Proin ultrices nibh interdum</p>
+                    <p class="description contain">We combined the best from both worlds so that you can seamlessly go from backpack to tote mode.</p>
                 </div>
             </div>
         </div>
@@ -131,7 +142,7 @@
                 <div class="section-content align-left with-image-overspill sm-full">
                     <div class="flexer">
                         <p class="title">Removable Insert</p>
-                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddoing eusmod tempor incididunt</p>
+                        <p class="description">If you don't need to carry your laptop around all day, quickly just remove the insert to lighten the load.</p>
                         <img src="https://cdn.shopify.com/s/files/1/1952/2557/files/edgemont-desktop-removable-insert-product.jpg?3470238152501459712" alt="Edgemont" style="margin-top:80px">
                     </div>
                 </div>
@@ -139,7 +150,13 @@
         </div>
     </div>
 
-    <div class="page-block">
+    <div class="page-block mobile-padding-for-image">
+        <div class="mobile-only-heading hidden-md hidden-lg section-content align-left sm-full with-border">
+            <div class="flexer">
+                <p class="title">Minimalist Design</p>
+                <p class="description">Clean lines and understated style, the Edgemont can be taken anywhere.</p>
+            </div>
+        </div>
         <div class="row flexed">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="section-content is-media sm-full">
@@ -153,7 +170,7 @@
     </div>
 
 
-    <div class="page-block with-offset">
+    <div class="page-block with-offset mobile-padding-for-image">
         <div class="row flexed full">
             <div class="col-sm-4 col-sm-offset-2">
                 <div class="section-content is-media">
@@ -163,19 +180,30 @@
                     </picture>
                 </div>
             </div>
-            <div class="col-sm-4 offset-vertical">
+            <div class="col-sm-4 offset-vertical hidden-xs hidden-sm">
                 <div class="section-content align-left full">
                     <div class="flexer">
-                        <p class="title">Adaptable for any Situation</p>
-                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddoing eusmod tempor incididunt</p>
-                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/edgemont-adaptable-fabric.jpg?7436827176151389146" alt="Edgemont" style="margin-top:60px;" class="hidden-xs hidden-sm">
+                        <p class="title">Minimalist Design</p>
+                        <p class="description">Clean lines and understated style, the Edgemont can be taken anywhere.</p>
+                        <div class="inline-video">
+                            <div class="embed-container"
+                                 data-desktop-url="https://cdn.shopify.com/s/files/1/2185/1497/files/adaptable-use-4-3-womens.mp4?3311804513744672369"
+                                 data-mobile-url="https://cdn.shopify.com/s/files/1/2185/1497/files/adaptable-use-4-3-womens.mp4?3311804513744672369"
+                                 data-autoplay="true"
+                                 data-loops="10"
+                                 style="padding-bottom: 76%;">
+                                <video id="video-5" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/edgemont-adaptable-fabric.jpg?7436827176151389146"></video>
+                                <div class="loading"></div>
+                            </div>
+                        </div>
+                        <!-- <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/edgemont-adaptable-fabric.jpg?7436827176151389146" alt="Edgemont" style="margin-top:60px;" class="hidden-xs hidden-sm"> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="page-block">
+    <div class="page-block no-bottom-margin-mobile">
         <div class="row flexed">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="section-content is-media sm-full">
@@ -191,9 +219,9 @@
     <div class="page-block with-offset">
         <div class="row flexed full">
             <div class="col-sm-4 col-sm-offset-2">
-                <div class="section-content align-left sm-full pb-5">
+                <div class="section-content align-left sm-full pb-5 added-bottom-padding-mobile">
                     <div class="flexer">
-                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddoing eusmod tempor incididunt</p>
+                        <p class="description">Take it on the train, to a coffee shop, or to the park.</p>
                         <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/edgemont-desktop-adaptable-women-04.jpg?7436827176151389146" alt="Edgemont" style="margin-top:30px">
                     </div>
                 </div>
@@ -214,8 +242,8 @@
         <div class="row flexed">
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="section-content xlarge">
-                    <p class="title">Carry-on Friendly</p>
-                    <p class="description contain">Lorem ipsum dolor sit amet consectet nibh Proin ultrices nibh interdum</p>
+                    <p class="title">Carry-on Effortlessly</p>
+                    <p class="description contain">Fits perfectly as a carry-on personal item.</p>
                 </div>
             </div>
         </div>
@@ -223,7 +251,7 @@
    
 
 
-   <div class="page-block with-offset">
+   <div class="page-block with-offset no-bottom-margin-mobile">
         <div class="row flexed full">
             <div class="col-sm-4 col-sm-offset-2 offset-vertical pb-sm-5">
                 <div class="section-content is-media">
@@ -233,13 +261,19 @@
                     </picture>
                 </div>
             </div>
+            <div class="mobile-only-heading hidden-md hidden-lg section-content align-left suitcase-mobile-only-heading">
+                <div class="flexer">
+                    <p class="title">Suitcase Handle Sleeve</p>
+                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddoing eusmod tempor incididunt</p>
+                </div>
+            </div>
             <div class="col-sm-4">
                 <div class="section-content align-left sm-full">
                     <picture>
                         <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/edgemont-desktop-suitcase-handle-sleeve-women.jpg?7534691200918814672" media="(min-width: 768px)">
                         <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/edgemont-mobile-suitcase-handle-sleeve-women-mobile.jpg?7534691200918814672" alt="Edgemont" class="pb-3">
                     </picture>
-                    <div class="flexer">
+                    <div class="flexer hidden-xs hidden-sm">
                         <p class="title">Suitcase Handle Sleeve</p>
                         <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddoing eusmod tempor incididunt</p>
                     </div>
@@ -294,8 +328,8 @@
         <div class="row flexed">
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="section-content sm-left">
-                    <p class="title">Memory Foam</p>
-                    <p class="description contain">Lorem ipsum dolor sit amet consectet nibh Proin ultrices nibh interdum</p>
+                    <p class="title">Ultra Comfortable</p>
+                    <p class="description contain">Padded with memory foam, the Edgemont is super comfy to carry.</p>
                 </div>
             </div>
         </div>
@@ -344,20 +378,22 @@
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="section-content xlarge">
                     <p class="title">Stay Organized</p>
-                    <p class="description contain">Lorem ipsum dolor sit amet consectet nibh Proin ultrices nibh interdum</p>
+                    <p class="description contain">The Edgemont comes packed with tons of features to help you stay put together on the road.</p>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div class="page-block pb-5">
+    <div class="page-block pb-5 no-bottom-margin-mobile no-bottom-padding-mobile">
         <div class="row">
             <div class="col-sm-4 col-sm-offset-2">
                 <div class="section-content text-left pb-4 sm-full">
                     <img src="https://cdn.shopify.com/s/files/1/1952/2557/files/edgemont-desktop-laptop-storage-women-portrait.jpg?2380292705611309061" alt="Laptop Storage" class="pb-3">
-                    <p class="title sm-inset">Laptop Storage</p>
-                    <p class="description sm-inset">Store and protect a 15-inch laptop in our interior padded computer sleeve.</p>
+                    <div class="organized-padded-mobile">
+                        <p class="title sm-inset">Laptop Storage</p>
+                        <p class="description sm-inset">Protect up to a 15-inch laptop in an interior padded compartment.</p>
+                    </div>
                 </div>
 
                 <div class="section-content text-left pb-4 sm-full">
@@ -372,8 +408,10 @@
                             <div class="loading"></div>
                         </div>
                     </div>
-                    <p class="title sm-inset">Key Leash</p>
-                    <p class="description sm-inset">Never misplace your keys again with our detachable inner key leash.</p>
+                    <div class="organized-padded-mobile">
+                        <p class="title sm-inset">Key Leash</p>
+                        <p class="description sm-inset">Never misplace your keys again with our detachable key leash.</p>
+                    </div>
                 </div>
 
             </div>
@@ -390,13 +428,17 @@
                             <div class="loading"></div>
                         </div>
                     </div>
-                    <p class="title sm-inset">Interior Pockets</p>
-                    <p class="description sm-inset">Keep everything organized with two interior mesh pockets and two padded slip pockets for documents, magazines and papers.</p>
+                    <div class="organized-padded-mobile">
+                        <p class="title sm-inset">Interior Pockets</p>
+                        <p class="description sm-inset">Two interior mesh pockets and two padded slip pockets help keep documents, magazines, tablets, and all your essentials neatly in place.</p>
+                    </div>
                 </div>
-                <div class="section-content text-left pb-4">
+                <div class="section-content text-left pb-4 mobile-breakout no-bottom-padding-mobile">
                     <img src="https://cdn.shopify.com/s/files/1/1952/2557/files/edgemont-desktop-side-pockets-women-portrait.jpg?2380292705611309061" alt="Key Leash" class="pb-3">
-                    <p class="title sm-inset">Side Pockets</p>
-                    <p class="description sm-inset">Store your passport, wallet or headphones in two easy-access slip pockets.</p>
+                    <div class="organized-padded-mobile last-organized-padded-mobile">
+                        <p class="title sm-inset">Stash Pockets</p>
+                        <p class="description sm-inset">Store your passport, wallet, or earphones in two easy to access side pockets.</p>
+                    </div>
                 </div>
 
             </div>
@@ -408,8 +450,8 @@
         <div class="row flexed">
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="section-content xlarge">
-                    <p class="title">High-Quality Materials</p>
-                    <p class="description contain pb-3">Made from 600D Recycled Poly, a high-density polyester made from recycled plastic bottles.</p>
+                    <p class="title top-bordered-mobile">High-Quality Materials</p>
+                    <p class="description contain pb-3">The Edgemont is crafted from premium grade materials that are both durable and eco-friendly.</p>
 
                     <div class="btn-set">
 			            <a class="btn btn-secondary" href="#">Learn More</a>
@@ -438,7 +480,7 @@
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="section-content sm-left">
                     <p class="title">Sustainable</p>
-                    <p class="description contain">Lorem ipsum dolor sit amet consectet nibh Proin ultrices nibh interdum</p>
+                    <p class="description contain">The exterior is crafted from a high density polyester made from recycled plastic bottles.</p>
                 </div>
             </div>
         </div>
@@ -461,9 +503,9 @@
     <div class="page-block">
         <div class="row flexed">
             <div class="col-sm-6 col-sm-offset-3">
-                <div class="section-content">
+                <div class="section-content sm-left">
                     <p class="title">Water-Resistant</p>
-                    <p class="description contain">Our 600D Recycled Poly is water-resistant to both outside elements and internal spills.</p>
+                    <p class="description contain">This 600D recycled poly is built to withstand the elements or just any accidental spills.</p>
                 </div>
             </div>
         </div>
