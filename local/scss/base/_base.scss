@@ -685,6 +685,7 @@ blockquote{
 }
 
 .embed-container { position: relative; height: 0; overflow: hidden; max-width: 100%; }
+.ratio-16-13 .embed-container{ padding-bottom: 81.25%; }
 .ratio-16-9 .embed-container{ padding-bottom: 56.25%; }
 .ratio-1-1 .embed-container{ padding-bottom: 100%; }
 .ratio-3-2 .embed-container{ padding-bottom: 66.6%; }

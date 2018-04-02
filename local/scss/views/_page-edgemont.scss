@@ -1,0 +1,199 @@
+.edgemont {
+    .overview-video-trigger {
+        opacity:1;
+    }
+    .pb-1 {
+        padding-bottom:1vw;
+    }
+    .pb-2 {
+        padding-bottom:2vw;
+    }
+    .pb-3 {
+        padding-bottom:3vw;
+    }
+    .pb-4 {
+        padding-bottom:4vw;
+    }
+    .pb-5 {
+        padding-bottom:5vw;
+    }
+
+    @media (max-width: $screen-sm) {
+        .pb-sm-1 {
+            padding-bottom:1vw;
+        }
+        .pb-sm-2 {
+            padding-bottom:2vw;
+        }
+        .pb-sm-3 {
+            padding-bottom:3vw;
+        }
+        .pb-sm-4 {
+            padding-bottom:4vw;
+        }
+        .pb-sm-5 {
+            padding-bottom:5vw;
+        }
+
+        .btn-set {
+            position:relative;
+            top: 370px;
+        }
+    }
+
+    @media (min-width: $screen-md) {
+        .offset-vertical {
+           position:relative;
+           top:70px;
+        }
+
+    }
+
+    .page-block{
+        // default margins for each block
+        margin: 0 auto 40px;
+        max-width: $site-max-width;
+        @media (min-width: $screen-sm) {
+            margin-bottom: 60px;
+        }
+        @media (min-width: $screen-md) {
+            margin-bottom: 80px;
+        }
+
+        &.with-offset-left {
+            position:relative;
+            left:-30px;
+        }
+
+        &.with-offset {
+            @media (min-width: $screen-md) {
+                margin-bottom:140px;
+            }
+        }
+    }
+
+    .row.flexed.full {
+        .flexer {
+            max-width:100%;
+            @media (min-width: $screen-md) {
+                max-width: 100%;
+
+                p {
+                    width:80%;
+                }
+            }
+
+          
+        }
+    }
+
+
+    .image-panel {
+        margin-bottom:100px;
+
+        .image-panel-content.text-dark {
+            .description,
+            .title {
+                color:$gray-darker;
+            }
+        }
+    }
+
+    .section-content {
+        @media (max-width: $screen-sm) {
+            &.sm-left {
+                text-align:left;
+            }
+
+            
+        }
+
+        &.sm-full {
+            padding-left:0;
+            padding-right:0;
+            padding-bottom:40px;
+            @media (min-width: $screen-md) {
+                padding-left: 28px;
+                padding-right: 28px;
+            }
+        }
+        
+        &.text-left {
+            text-align:left;
+        }
+        .title {
+            font-family: $font-family-bold; 
+            font-size: 30px;
+            line-height: 1.1;
+            margin-bottom: 0.5em;
+            position:relative;
+            @media (min-width: $screen-md) {
+                font-size: 30px;
+            }
+            @media (min-width: $screen-xl) {
+                font-size: 30px;
+            }
+            
+        }
+        .subtitle {
+            text-transform: uppercase;
+            font-family: $font-family-sans-serif;
+            letter-spacing: 2px;
+        }
+        .description {
+            font-size: 19px;
+            font-family: $font-family-sans-serif;
+            position: relative;
+            line-height: 1.315;
+            color: $gray;
+            @media (min-width: $screen-md) {
+                font-size: 20px;
+                &.contain {
+                    max-width:510px;
+                    margin:0 auto;
+                }
+            }
+            @media (min-width: $screen-xl) {
+                font-size: 24px;
+            }
+            
+        }
+
+        &.xlarge {
+            .title{
+                font-family: $font-family-bold; 
+                font-size: 57px;
+                line-height: 1.1;
+                margin-bottom: 0.5em;
+                letter-spacing:-2px;
+                @media (min-width: $screen-md) {
+                    font-size: 64px;
+                }
+                @media (min-width: $screen-xl) {
+                    font-size: 72px;
+                }
+            }
+            .description{
+                font-size: 23px;
+                font-family: $font-family-sans-serif;
+                position: relative;
+                line-height: 1.315;
+                color: $gray;
+                @media (min-width: $screen-md) {
+                    font-size: 26px;
+                }
+                @media (min-width: $screen-xl) {
+                    font-size: 30px;
+                }
+            }
+
+        }
+        @media (max-width: $screen-sm) {
+            .sm-inset {
+                padding-top:10px;
+                padding-left:28px;
+                padding-right:28px;
+            }
+        }
+    }
+}
