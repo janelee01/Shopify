@@ -97,7 +97,6 @@ $(document).ready(function(){
 	});
 	$('body').on('click', '.overview-video-trigger', function(e){
 	    e.preventDefault();
-	    console.log($(this).data('video-id'));
 	    LS.productVideoOpen($(this).data('video-id'));
 	});
 
