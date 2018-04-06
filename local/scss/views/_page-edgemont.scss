@@ -651,6 +651,20 @@
             display: none;
         }
     }
+
+    .memory-foam-container-desktop {
+        @media ( max-width: 768px ) {
+            display: none;
+        }
+    }
+
+    .memory-foam-container-mobile {
+        margin-bottom: 0;
+
+        @media ( min-width: 769px ) {
+            display: none;
+        }
+    }
 }
 
 #main-section-three {
