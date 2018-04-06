@@ -37,6 +37,8 @@ $(document).ready(function(){
 					var playPromise = video.play();
 					if (playPromise !== undefined) {
 						playPromise.then(function() {
+							//hide the loader?
+							$embed.find('.loading').hide();
 							// Automatic playback started, nothing to do
 						}).catch(function(error) {
 							console.log('Playback did not start. Reason: ' + error)
