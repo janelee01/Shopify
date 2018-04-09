@@ -1,51 +1,55 @@
 #newsletter-signup{
-	padding: 65px 0;
+	padding: 75px 0;
 	text-align: center;
-	@media (min-width: $screen-sm) {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		text-align: left;
-	}
+	max-width: 720px;
+	margin: 0 auto;
+
+    @media ( max-width: 768px ) {
+        padding: 35px 0;
+    }
+
 	label{
 		color: $gray-darker;
 		font-weight: 400;
-		font-size: 22px;
-		line-height: calculateEm(34px, 27px);
-		font-family: $font-family-sans-serif;
+		font-size: 20px;
+		font-family: "Circular-Pro-Medium", sans-serif;
 		display: block;
 		margin-bottom: 35px;
+        margin-left: auto;
+        margin-right: auto;
+		letter-spacing: -.4px;
+		line-height: 26px;
+
+		@media ( max-width: 560px ) {
+			max-width: 300px;
+		}
+
 		@media (min-width: $screen-sm) {
-			font-size: 18px;
-			margin: 0;
-			width: 50%;
-			padding-right: $mobile-gutter;
+			font-size: 24px;
+			letter-spacing: -.48px;
+			line-height: 30px;
 		}
 		@media (min-width: $screen-md) {
-			font-size: 19px;
-			width: auto;
+			font-size: 28px;
+			letter-spacing: -.56px;
+			line-height: 34px;
 			padding: 0;
-		}
-		@media (min-width: $screen-lg) {
-			font-size: 25px;
-		}
-		@media (min-width: $screen-xl) {
-			font-size: 27px;
 		}
 		small{
 			display: block;
 			color: $gray;
 			font-size: 75%;
+			margin-top: 7px;
+			font-family: "Circular-Pro-Book", sans-serif;
 		}
 	}
 	.form-group{
 		margin: 0;
 		position: relative;
-		@media (min-width: $screen-sm) {
-			width: 50%;
-		}
 		@media (min-width: $screen-md) {
-			width: 386px;
+			width: 389px;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		.validation-error{
 			display: block; 
@@ -58,14 +62,20 @@
 		border-color: #f8f8f8;
 		padding-right: 72px;
 		padding-left: 25px;
-		height: 58px;
+		height: 55px;
 		width: 100%;
 		font-size: 18px;
 		font-family: $font-family-sans-serif;
+
+        @media ( max-width: $screen-sm ) {
+            border: none;
+            box-shadow: none;
+        }
+
 		@media (min-width: $screen-sm) {
 			border-color: #E6E6E6;
 			background: none;
-			height: 66px;
+			height: 55px;
 		}
 	}
 	.alert{
@@ -88,9 +98,9 @@
 	top: 0;
 	right: 0;
 	padding: 0;
-	@include square(58px);
+	@include square(55px);
 	@media (min-width: $screen-sm) {
-		@include square(66px);
+		@include square(55px);
 		@include transition(all .3s ease-out);
 		&:hover{
 			background-color: $brand-blue-hover;
@@ -98,14 +108,15 @@
 		}	
 	}
 }
+
 #site-footer{
-	border-top: solid 1px #F4F4F4;
-	padding: 70px 0;
+	padding: 10px 0 50px;
 	text-align: center;
 	margin: 0 $mobile-gutter;
 	@media (min-width: $screen-md) {
+		border-top: solid 1px #F4F4F4;
 		text-align: left;
-		padding: 100px 0;
+		padding: 75px 0 0;
 		margin: 0;
 	}
 	.container-fluid{
@@ -138,15 +149,15 @@
 		font-size: 20px;
 		font-family: $font-family-semibold;
 		margin-top: 10px;
-		margin-bottom: 28px;		
+		margin-bottom: 19px;
 	}
 	.menu{
 		@include clean;
 		li{
-			margin-bottom: 14px;
+			margin-bottom: 0;
 		}
 		a{
-			font-size: 17px;
+			font-size: 15px;
 			color: $gray;
 			line-height: 1;
 			@include transition(all .2s ease);
@@ -179,7 +190,7 @@
 #colophon{
 	@media (min-width: $screen-md) {
 		border-top: solid 1px #F4F4F4;
-		padding: 45px 0;
+		padding: 31px 0;
 		.social-menu{
 			display: none;
 		}
@@ -189,7 +200,7 @@
 	font-family: $font-family-sans-serif;
 	color: $gray-darker;
 	font-size: 15px;
-	margin-bottom: 29px;
+	margin-bottom: 0;
 	@media (min-width: $screen-md) {
 		color: $gray;
 	}

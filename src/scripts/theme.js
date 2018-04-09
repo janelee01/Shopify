@@ -30,7 +30,8 @@ window.theme = window.theme || {};
 // =require vendor/jquery.touchSwipe.min.js
 // =require vendor/jquery.film_roll.js
 // =require vendor/lo-and-sons.js
-// =require lo/navigation.js  
+// =require vendor/scrolla.js
+// =require lo/navigation.js
 // =require lo/videos.js  
 // =require lo/collection-filters.js 
 // =require lo/swatches.js  
@@ -40,7 +41,7 @@ window.theme = window.theme || {};
 // =require lo/customers.js
 
 $(document).ready(function() {
-	
+
   var sections = new slate.Sections();
   sections.register('product', theme.Product);
 
@@ -513,5 +514,13 @@ $(document).ready(function() {
 	if( $('body').hasClass('template-product') ){
 		sessionStorage.setItem('lo-back-to', window.location.href); // for use in the cart
 	}
+
+    if($('article.edgemont').length) {
+
+        $('.animate').scrolla({
+			once: true
+		});
+
+    }
 	
 });
