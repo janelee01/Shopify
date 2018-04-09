@@ -46,7 +46,7 @@
 	.form-group{
 		margin: 0;
 		position: relative;
-		@media (min-width: $screen-md) {
+		@media (min-width: 768px ) {
 			width: 389px;
 			margin-left: auto;
 			margin-right: auto;
@@ -67,15 +67,16 @@
 		font-size: 18px;
 		font-family: $font-family-sans-serif;
 
-        @media ( max-width: $screen-sm ) {
+        @media ( max-width: 767px ) {
             border: none;
             box-shadow: none;
         }
 
-		@media (min-width: $screen-sm) {
+		@media (min-width: 768px ) {
 			border-color: #E6E6E6;
 			background: none;
 			height: 55px;
+
 		}
 	}
 	.alert{

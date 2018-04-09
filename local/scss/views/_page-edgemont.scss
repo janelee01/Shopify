@@ -66,7 +66,7 @@
         position:relative;
 
         &.product-final-item {
-            @media ( max-width: $screen-sm) { top: 700px; }
+            @media ( max-width: 767px ) { top: 700px; }
             @media ( max-width: 700px ) { top: 640px; }
             @media ( max-width: 650px ) { top: 590px; }
             @media ( max-width: 550px ) { top: 510px; }
@@ -78,7 +78,7 @@
         }
     }
 
-    @media (min-width: $screen-md) {
+    @media (min-width: 1100px ) {
         .offset-vertical {
            position:relative;
            top:70px;
@@ -260,10 +260,11 @@
             }
 
             &.top-bordered-mobile {
-                @media ( max-width: 768px ) {
+                @media ( max-width: 767px ) {
                     border-top: 1px solid #EAEAEA;
                     padding-top: 60px;
                     margin-top: 10px;
+
 
                     //@media ( max-width: 500px ) {
                     //    padding-top: 45px;
@@ -271,16 +272,17 @@
                 }
             }
         }
+
         .subtitle {
             text-transform: uppercase;
             font-family: $font-family-sans-serif;
             letter-spacing: 2px;
         }
         .description {
-            font-size: 19px;
+            font-size: 16px;
             font-family: $font-family-sans-serif;
             position: relative;
-            line-height: 27px;
+            line-height: 24px;
             letter-spacing: -.34px;
             color: $gray;
             @media (min-width: $screen-md) {
@@ -326,8 +328,8 @@
         &.xlarge {
             .title{
                 font-family: "Circular-Pro-Medium", sans-serif;
-                font-size: 48px;
-                line-height: 52px;
+                font-size: 40px;
+                line-height: 51px;
                 margin-bottom: 25px;
                 letter-spacing:-1.33px;
 
@@ -398,6 +400,13 @@
             }
         }
 
+        &.added-bottom-padding-tablet {
+            @media ( max-width: 768px ) and ( min-width: 767px ) {
+                padding-bottom: 50px;
+            }
+        }
+
+
         .organized-padded-mobile {
             padding-top: 40px;
             padding-bottom: 50px;
@@ -428,6 +437,13 @@
     }
 
     .mobile-only-heading {
+
+        display: none;
+
+        @media ( max-width: 767px ) {
+            display: block;
+        }
+
         &.with-border {
             .title {
                 border-top: 1px solid #EAEAEA;
@@ -474,9 +490,14 @@
     }
 
     .suitcase-handle-container {
-        @media ( min-width: 769px ) {
+        @media ( min-width: 1200px ) {
             padding-right: 120px;
             padding-top: 90px;
+        }
+
+        @media ( min-width: 769px ) {
+            padding-right: 40px;
+            padding-top: 30px;
         }
 
         picture {
@@ -484,8 +505,22 @@
         }
     }
 
+    .minimalist-custom-paragraph {
+        @media ( min-width: 1030px ) {
+            width: 380px !important;
+        }
+    }
+
     .desktop-col-left {
         @media ( min-width: 768px ) {
+            padding-right: 5px !important;
+        }
+
+        @media ( min-width: 769px ) {
+            padding-right: 37px !important;
+        }
+
+        @media ( min-width: 1250px ) {
             padding-right: 57px !important;
         }
 
@@ -496,6 +531,14 @@
 
     .desktop-col-right {
         @media ( min-width: 768px ) {
+            padding-left: 5px !important;
+        }
+
+        @media ( min-width: 769px ) {
+            padding-left: 37px !important;
+        }
+
+        @media ( min-width: 1250px ) {
             padding-left: 57px !important;
         }
 
@@ -518,7 +561,7 @@
         max-width: 940px;
         margin: 0 auto;
 
-        @media ( max-width: 768px ) {
+        @media ( max-width: 767px ) {
             //padding-left: 40px;
             //padding-right: 40px;
 
@@ -535,6 +578,13 @@
 
         @media ( max-width: 768px ) {
             padding-bottom: 0;
+            //padding-left: 0;
+        }
+    }
+
+    .minimalist-offset-tablet {
+        @media ( max-width: 768px ) and ( min-width: 767px ) {
+            padding-right: 5px !important;
         }
     }
 
@@ -543,6 +593,18 @@
 
         @media ( max-width: 1600px ) {
             margin-bottom: -10px;
+        }
+    }
+
+    .minimalist-flexer-on-tablet {
+        @media ( max-width: 768px ) and ( min-width: 767px ) {
+            padding-left: 5px !important;
+        }
+    }
+
+    .minimalist-left-column-tablet {
+        @media ( max-width: 768px ) and ( min-width: 767px ) {
+            padding-right: 12px !important;
         }
     }
 
@@ -665,6 +727,80 @@
             display: none;
         }
     }
+
+    .center-for-tablet {
+        @media ( max-width: 768px ) and ( min-width: 767px ) {
+            margin: 0 auto;
+        }
+    }
+
+    .minimalist-container-one {
+        .section-content {
+            @media ( max-width: 768px ) and ( min-width: 767px ) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        .flexer {
+            @media ( max-width: 768px ) {
+                padding-right: 0 !important;
+            }
+        }
+    }
+
+    .minimalist-flex-top-on-tablet {
+        @media ( max-width: 768px ) and ( min-width: 767px ) {
+            justify-content: start !important;
+        }
+    }
+
+    .title-on-tablet {
+        @media ( max-width: 1024px ) {
+            font-size: 20px !important;
+            line-height: 25px !important;
+            letter-spacing: -.24px;
+        }
+    }
+
+    .removable-insert-image {
+        margin-top: 80px;
+
+        @media ( max-width: 1024px ) {
+            margin-top: 30px
+        }
+    }
+
+    .removable-insert-left-column {
+        @media ( max-width: 1024px ) and ( min-width: 767px ) {
+            padding-right: 20px;
+        }
+    }
+
+    .removable-insert-right-column {
+        @media ( max-width: 1024px ) and ( min-width: 767px ) {
+            padding-left: 20px;
+        }
+    }
+
+    .minimalist-container-two {
+        .section-content {
+            picture, img {
+                display: block;
+                width: 100%;
+            }
+
+            @media ( max-width: 768px ) and ( min-width: 767px ){
+                margin: 0 37px;
+            }
+        }
+    }
+
+    .minimalist-padding-top-for-tablet {
+        @media ( max-width: 768px )  and ( min-width: 767px ) {
+            padding-top: 30px !important;
+        }
+    }
 }
 
 #main-section-three {
@@ -675,10 +811,10 @@
 
 // Animate CSS
 .animate {
-    opacity: 1;
+    opacity: 1 !important;
 
     @media ( min-width: $screen-md ) {
-        opacity: 0;
+        opacity: 0 !important;
     }
 }
 

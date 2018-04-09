@@ -517,9 +517,11 @@ $(document).ready(function() {
 
     if($('article.edgemont').length) {
 
-        $('.animate').scrolla({
-			once: true
-		});
+        if($(window).width() > 1024) {
+            $('.animate').scrolla({
+                once: true
+            });
+		}
 
     }
 	
