@@ -5,9 +5,17 @@ $site-max-width: 1680px;
 
 $screen-xs-landscape: 450px; // not a value based on any device, just where it looks good to start making layout changes
 $screen-picture-switch: 768px; 
-$screen-md: 1030px; 
+$screen-md: 1025px; 
 $screen-xl: 1400px; 
 $grid-float-breakpoint: $screen-md; 
+
+/*
+Proposed new breakpoints
+ */
+ $screen-lg-v2: 1680px; 
+/*
+ 
+ */
  
 $menu-width-sm: 100%;
 $menu-width-md: 400px;

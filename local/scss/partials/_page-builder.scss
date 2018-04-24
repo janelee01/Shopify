@@ -22,15 +22,11 @@
 	.section-content{
 		margin: 0 auto;
 	}
-	// for flexed elements
-	.shg-row{
-		.shg-c{
-			height: 100%;
-		}
-	}
 	&.theme-white{
 		@media (min-width: $screen-sm) {
-			.title{
+			.title,
+			.subtitle,
+			.description{
 				color: #FFF;
 			}
 			.btn-secondary{
@@ -124,6 +120,7 @@
 		}
 	}
 	.title{
+		color: $gray-darker;
 		font-family: $font-family-bold; 
 		font-size: 25px;
 		line-height: 1.1;

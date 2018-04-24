@@ -1,0 +1,112 @@
+.discover{
+	// testing ground for global styles later?
+	.container {
+		padding-left: $mobile-gutter;
+		padding-right: $mobile-gutter;
+		max-width: 100%;
+		@media (min-width: $screen-sm) {
+			max-width: 750px;
+			padding-left: 15px;
+			padding-right: 15px;
+			.row{
+				margin-left: -15px;
+				margin-right: -15px;
+			}
+			[class^="col-"]{
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+		}
+		@media (min-width: $screen-md) {
+			max-width: 971px;
+		}
+		@media (min-width: $screen-lg-v2) {
+			max-width: 1170px;
+		}
+	}
+	.discover-compare{
+		background: #F4F4F4;
+		padding: 100px 0;
+	}
+	.compare-labels{
+		@include clean;
+		li{
+			display: inline-block;
+			vertical-align: top;
+			text-align: left;
+			font-family: $font-family-semibold;
+			font-size: 16px;
+			line-height: calculateEm(20px, 16px);
+			@media (min-width: $screen-md) {
+				font-size: 20px;
+				line-height: calculateEm(28px, 20px);
+			}
+
+			&:nth-child(1){ margin-left: 16%; }
+			&:nth-child(2){ margin-left: 9%; }
+			&:nth-child(3){ margin-left: 7%; }
+			&:nth-child(4){ margin-left: 6%; }
+
+			@media (min-width: $screen-lg-v2) {
+				&:nth-child(1){ margin-left: 16%; }
+				&:nth-child(2){ margin-left: 12%; }
+				&:nth-child(3){ margin-left: 10%; }
+				&:nth-child(4){ margin-left: 8%; }
+			}
+			
+		}
+	}
+	.discover-cta{
+		background: #f8f8f8;
+		padding: 55px 0 65px;
+		text-align: center;
+ 		.row{
+			@media (min-width: $screen-md) {
+				display: flex;
+	 		}
+ 		}
+		.btn-set{
+			padding-top: 0;
+			max-width: 250px;
+			width: 100%;
+			.btn{
+				padding-top: 23px;
+				padding-bottom: 22px;
+			}
+		}
+		.section-content{
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+		picture{
+			display: inline-block;
+			@media (max-width: $screen-sm-max) {
+			    max-width: 285px;
+			    margin-bottom: 45px;
+			}
+		}
+	}
+
+	/*
+	overrides, maybe should be new global defaults
+	 */
+	.overview-video-trigger {
+	    opacity: 1;
+	    width: 60px;
+	}
+	.btn-set p:first-child{
+		margin-bottom: 10px;
+	}
+	.text-center{
+		text-align: center;
+	}
+}
+
+#discover-catalina-compare{
+	width: 822px; // causes sidescrolling on mobile intentially
+	@media (min-width: $screen-sm) {
+		width: auto;
+	}
+}

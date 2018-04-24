@@ -1,0 +1,81 @@
+/*
+Attempting to detatch typography from layout 
+ */
+.page-block{
+	&.theme-white{
+		.block-title,
+		.block-subtitle,
+		.block-description{
+			color: #FFF;
+		}
+	}
+	&.xs-fw{
+		.container{
+			@media (max-width: $screen-xs-max) {
+			    padding-left: 0;
+			    padding-right: 0;
+			}
+		}
+	}
+	.block-title{
+		font-family: $font-family-bold; 
+		font-size: 30px;
+		line-height: calculateEm(40px, 30px);
+		margin-bottom: 10px;
+		color: $gray-darker;
+		@media (min-width: $screen-md) {
+			font-size: 42px;
+			line-height: calculateEm(53px, 42px);
+		}
+	}
+	.block-subtitle{
+		color: $gray-darker;
+		text-transform: uppercase;
+		margin: 0;
+	}
+	.block-description{
+		font-size: 19px;
+		line-height: calculateEm(27px,19px);
+		color: $gray;
+		@media (min-width: $screen-md) {
+			font-size: 20px;
+			line-height: calculateEm(28px,20px);
+		}
+	}
+	.block-price{
+		color: $gray;
+		font-size: 30px;
+		line-height: calculateEm(50px, 30px);
+		margin-bottom: 30px;
+	}
+	.block-heading{
+		font-size: 27px;
+		line-height: calculateEm(30px, 27px);
+		font-family: $font-family-semibold;
+		margin-bottom: 0.5em;
+		@media (min-width: $screen-sm) {
+			font-size: 20px;
+			line-height: calculateEm(25px, 20px);
+		}
+		@media (min-width: $screen-md) {
+			font-size: 22px;
+		}
+		@media (min-width: $screen-lg-v2) {
+			font-size: 28px;
+		}
+	}
+	p{
+		font-size: 19px;
+		line-height: calculateEm(27px, 19px);
+		color: $gray;
+		@media (min-width: $screen-sm) {
+			font-size: 16px;
+		}
+		@media (min-width: $screen-md) {
+			font-size: 18px;
+		}
+		@media (min-width: $screen-lg-v2) {
+			font-size: 22px;
+		}
+	}
+}

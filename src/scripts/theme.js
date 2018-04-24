@@ -207,6 +207,53 @@ $(document).ready(function() {
 	  $loginTitle.text($loginTitle.data('reset-text')).addClass('has-divider');
 	}
 
+	/*
+	Title & Price in Discover pages' CTA can't stack naturally
+	 */
+	var $ctaTitles = $('[data-cta-titles]');
+	var positionCtaTitles = function(){
+		if( $(window).width() < 1025 && $('.discover-cta .section-content').find('[data-cta-titles]').length ){
+			$ctaTitles.detach().prependTo('.discover-cta');
+		}else if( $(window).width() >= 1025 && $('.discover-cta .section-content').find('[data-cta-titles]').length < 1 ){
+			$ctaTitles.detach().prependTo('.discover-cta .section-content');
+		}
+	};
+
+	if( $ctaTitles.length ){
+		positionCtaTitles();
+		$(window).resize(function(){
+			positionCtaTitles();
+		});
+	}
+
+	/*
+	Side scrolling indicators
+	 */
+	// build the element
+	if( $('.overflow-row').length ){
+		$('.overflow-row').each(function(){
+			var $scrollEl = $(this);
+			var $indicators = $( $scrollEl.data('indicators') ).children();
+			
+			// easier to work with
+			var amountToScroll = $scrollEl.find('.overflow-content').width() - $scrollEl.width();
+			var indicatorValue = 100 / $indicators.length;
+
+			$scrollEl.on('scroll', function(){
+				var scrollCompletion = $scrollEl.scrollLeft() / amountToScroll * 100;
+				$indicators.each(function(index){ 
+					// index * indicatorValue creates percentage benchmarks for the scrollCompletion to cross
+					// example: 4 items will create 0/25/50/75
+					if( scrollCompletion >= index * indicatorValue  ){ 
+						$indicators.removeClass('active');
+						$(this).addClass('active');
+					}
+				});
+			});
+		});
+		
+	}
+	
 
 	/* Newsletter Prompt - disabled */
 	// $('#newsletter-prompt .panel-close, #newsletter-prompt .btn').on('click', function(){

@@ -1,0 +1,24 @@
+.overflow-row{
+	overflow-x: scroll;
+	margin-bottom: 40px;
+	@media (min-width: $screen-sm) {
+		margin-bottom: 55px;
+	}
+	-webkit-overflow-scrolling: touch;
+}
+.overflow-position{
+	display: flex;
+	margin-bottom: 40px;
+	@media (min-width: $screen-sm) {
+		display: none;
+	}
+	div{
+		height: 2px;
+		flex: 1;
+		margin: 0 8px;
+		background: #CFCFCF;
+		&.active{
+			background: #979797;
+		}
+	}
+}
