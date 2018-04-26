@@ -6,16 +6,9 @@ $site-max-width: 1680px;
 $screen-xs-landscape: 450px; // not a value based on any device, just where it looks good to start making layout changes
 $screen-picture-switch: 768px; 
 $screen-md: 1025px; 
-$screen-xl: 1400px; 
+$screen-lg: 1400px; 
+$screen-xl: $screen-lg; 
 $grid-float-breakpoint: $screen-md; 
-
-/*
-Proposed new breakpoints
- */
- $screen-lg-v2: 1680px; 
-/*
- 
- */
  
 $menu-width-sm: 100%;
 $menu-width-md: 400px;
@@ -76,7 +69,7 @@ $font-family-sans-serif: "Circular-Pro-Book","Helvetica Neue", Helvetica, Arial,
 $font-family-serif: "Adobe Garamond Pro", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
 
 $font-family-bold: "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-family-semibold: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+$font-family-medium: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; 
 $headings-color: $gray-dark;
 
 $font-size-base:          16px;

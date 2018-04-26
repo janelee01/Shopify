@@ -207,8 +207,12 @@ $(document).ready(function() {
 	  $loginTitle.text($loginTitle.data('reset-text')).addClass('has-divider');
 	}
 
+	if( $('.discover .hero').length ){
+		$('.discover .hero picture').addClass('in');
+	}
+
 	/*
-	Title & Price in Discover pages' CTA can't stack naturally
+	Discover pages: Title & Price in CTA can't stack naturally
 	 */
 	var $ctaTitles = $('[data-cta-titles]');
 	var positionCtaTitles = function(){
@@ -227,13 +231,42 @@ $(document).ready(function() {
 	}
 
 	/*
+	Discover pages: match heights for Press elements
+	 */
+	var getEqualizedHeight = function($elements){
+		var height = 0;
+		$elements.each(function(){
+			if( $(this).outerHeight() > height ){
+				height = $(this).outerHeight();
+			}
+		});
+		return height;
+	}
+	var equalizePr = function(){
+		if( $(window).width() >= 1025 ){
+			$('.pr-logo').height( getEqualizedHeight($('.pr-logo')) );
+		}else{
+			$('.pr-logo').removeAttr('style');
+		}
+	}
+	if( $('.pr-items').length ){
+		equalizePr();
+		$(window).resize(function(){
+			equalizePr();
+		});
+	}
+
+	/*
 	Side scrolling indicators
 	 */
-	// build the element
 	if( $('.overflow-row').length ){
 		$('.overflow-row').each(function(){
 			var $scrollEl = $(this);
 			var $indicators = $( $scrollEl.data('indicators') ).children();
+
+			// scrop out the scrollbar
+			var elHeight = $(this).closest('.overflow-window').height();
+			$(this).closest('.overflow-window').height(elHeight - 20);
 			
 			// easier to work with
 			var amountToScroll = $scrollEl.find('.overflow-content').width() - $scrollEl.width();
@@ -562,14 +595,12 @@ $(document).ready(function() {
 		sessionStorage.setItem('lo-back-to', window.location.href); // for use in the cart
 	}
 
-    if($('article.edgemont').length) {
-
+    if( $('article.edgemont').length || $('article.discover').length ) {
         if($(window).width() > 1024) {
             $('.animate').scrolla({
                 once: true
             });
 		}
-
     }
 	
 });

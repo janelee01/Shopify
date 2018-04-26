@@ -1,159 +1,169 @@
-{%- assign screenLg = '1680px' -%}
-{%- assign screenMd = '1025px' -%}
-{%- assign screenSm = '768px' -%}
-{%- assign screenXs = '375px' -%}
+{% include 'discover-vars' %}
 
 <article class="discover">
     <nav class="page-nav theme-light has-button">
         <div class="container-fluid">
-            <h1 class="page-nav-title">Catalina</h1>
+            <span class="page-nav-title">Catalina</span>
             <a href="#" id="page-nav-items-toggle"></a>
             <ul class="page-nav-actions">
-                <li><a href="/products/edgemont-600d-recycled-poly-onyx" class="btn btn-primary">Buy Now</a></li>
+                <li><a href="/products/catalina-washed-canvas-indigo-colorblock" class="btn btn-primary">Buy Now</a></li>
             </ul>
             <ul class="page-nav-items">
-                <li><a href="#block-target-1" class="page-nav-item">Features</a></li>
-                <li><a href="#block-target-8" class="page-nav-item">See What Fits Inside</a></li>
-                <li><a href="#block-target-11" class="page-nav-item">Material</a></li>
-                <!-- <li><a href="#block-target-14" class="page-nav-item">Compare</a></li> -->
+                <li><a href="#nav-target-1" class="page-nav-item">Materials</a></li>
+                <li><a href="#nav-target-2" class="page-nav-item">Compare</a></li>
+                <li><a href="#nav-target-3" class="page-nav-item">Press</a></li>
             </ul>
         </div>
     </nav>
     
-    <div class="page-block theme-white">
-        <div class="fw-image">
+    <div class="max-container">
+        <div class="theme-white hero">
             <picture>
                 <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-hero-lg.jpg?17123996295315384134" media="(min-width: {{ screenLg }})" />
                 <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-hero-md.jpg?17123996295315384134" media="(min-width: {{ screenMd }})" />
                 <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-hero-sm.jpg?17123996295315384134" media="(min-width: {{ screenSm }})" />
                 <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-hero-xs.jpg?17123996295315384134" alt="TODO" />
             </picture>
-            <div class="section-content right">
-                <div class="flexer">
-                    <p class="block-subtitle">Discover</p>
-                    <p class="block-title">Catalina</p>
-                    <p class="block-description">A lightweight weekend travel bag designed to fit everything you need for a weekend away with room to spare.</p>
-                    <a href="#" data-video-id="1" class="overview-video-trigger">
-                        <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
-                    </a>
-                </div>
+            <div class="hero-content right">
+                <h1 class="block-title"><span class="block-subtitle">Discover</span> Catalina</h1>
+                <p class="block-description">A lightweight weekend travel bag designed to fit everything you need for a weekend away with room to spare.</p>
+                <a href="#" data-video-id="1" class="overview-video-trigger">
+                    <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
+                </a>
             </div>
         </div>
     </div>
-
-    <div class="page-block">
-        <div class="container">
+    
+    <div class="container">
+        <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
-                <div class="col-sm-8 col-sm-offset-2 text-center">                    
+                <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">                    
                     <h2 class="block-title">Smart Design</h2>
                     <p class="block-description">The bottom pocket is perfect for separating shoes, dirty laundry, or toiletries from the rest of your things. The interior zipper pocket and exterior slip pocket help keep your travel essentials organized and easily accessible.</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-10 col-sm-offset-1">
-                    <picture>
+                <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">
+                    <picture id="catalina-bottom-pocket" class="fw-xs">
                         <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-bottom-pocket-md.jpg?13522797054513733584" media="(min-width: {{ screenMd }})" />
                         <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-bottom-pocket-sm.jpg?13522797054513733584" media="(min-width: {{ screenSm }})" />
                         <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-bottom-pocket-xs.jpg?13522797054513733584" alt="TODO" />
                     </picture>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-5 col-lg-offset-1 animate" {{ animateFadeInUp }}>
+                <picture class="fw-xs">
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-front-exterior-pocket-md.jpg?6888975256822772316" media="(min-width: {{ screenMd }})">
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-front-exterior-pocket-sm.jpg?6888975256822772316" media="(min-width: {{ screenSm }})">
+                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-front-exterior-pocket-xs.jpg?6888975256822772316" alt="TODO">
+                </picture>
+                <div class="figure-caption">
+                    <h3 class="title">Front Exterior Pocket</h3>
+                    <p class="description">Lorem ipsum dolor sit amet constur adipiscing elit. Proin ultrices nibh interdum pell.</p>     
+                </div>
+            </div>
+            <div class="col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0 col-lg-5 offset-top animate" {{ animateFadeInUp }}>
+                <picture class="fw-xs">
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-interior-pocket-md.jpg?6888975256822772316" media="(min-width: {{ screenMd }})">
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-interior-pocket-sm.jpg?6888975256822772316" media="(min-width: {{ screenSm }})">
+                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-interior-pocket-xs.jpg?6888975256822772316" alt="TODO">
+                </picture>
+                <div class="figure-caption">
+                    <h3 class="title">Interior Pocket</h3>
+                    <p class="description">Lorem ipsum dolor sit amet constur adipiscing elit. Proin ultrices nibh interdum pell.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row hidden-xs">
+            <div class="col-sm-10 col-sm-offset-1">
+                <hr>
+            </div>
+        </div>
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
+                <h2 class="block-title">Compact</h2>
+                <p class="block-description">When empty, the Catalina can be easily folded and packed in a suitcase for use at your destination or stored away safely at home.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="max-container">
+        <picture id="catalina-compact" class="animate" {{ animateFadeInUp }}>
+            <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-compact-sm.gif?15023891854137734588" media="(min-width: {{ screenSm }})">
+            <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-compact-xs.gif?2555194281534418529" alt="TODO">
+        </picture>
+        <div class="container">
             <div class="row">
-                <div class="col-md-4 col-md-offset-2">
-                    <picture>
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-front-exterior-pocket-md.jpg?6888975256822772316" media="(min-width: {{ screenMd }})">
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-front-exterior-pocket-sm.jpg?6888975256822772316" media="(min-width: {{ screenSm }})">
-                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-front-exterior-pocket-xs.jpg?6888975256822772316" alt="TODO">
+                <div class="col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0">
+                    <div class="figure-caption animate" {{ animateFadeInUp }}>
+                        <h3 class="title">Lorem ipsum</h3>
+                        <p class="description">Lorem ipsum dolor sit amet constur adipiscing elit. Proin ultrices nibh interdum pell.</p>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-3 col-lg-6 col-lg-offset-2">                    
+                    <picture class="topic-end animate" {{ animateFadeInUp }} id="catalina-locker">
+                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-compact-locker-md.jpg?12769037394291334941" media="(min-width: {{ screenMd }})" />
+                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-compact-locker-sm.jpg?12769037394291334941" media="(min-width: {{ screenSm }})" />
+                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-compact-locker-xs.jpg?12769037394291334941" alt="TODO" />
                     </picture>
-                    <h3 class="block-heading">Front Exterior Pocket</h3>
-                    <p>Lorem ipsum dolor sit amet constur adipiscing elit. Proin ultrices nibh interdum pell.</p>
-                </div>
-                <div class="col-md-4 offset-top">
-                    <picture>
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-interior-pocket-md.jpg?6888975256822772316" media="(min-width: {{ screenMd }})">
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-interior-pocket-sm.jpg?6888975256822772316" media="(min-width: {{ screenSm }})">
-                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-interior-pocket-xs.jpg?6888975256822772316" alt="TODO">
-                    </picture>
-                    <h3 class="block-heading">Interior Pocket</h3>
-                    <p>Lorem ipsum dolor sit amet constur adipiscing elit. Proin ultrices nibh interdum pell.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 text-center">                    
-                    <h2 class="block-title">Compact</h2>
-                    <p class="block-description">When empty, the Catalina can be easily folded and packed in a suitcase for use at your destination or stored away safely at home.</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2 text-center">                    
-                    <h2 class="block-title">Spacious</h2>
-                    <p class="block-description">The Catalina's spacious design allows you to pack everything you need for a weekend away.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-10 col-sm-offset-1">
-                    <picture>
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-spacious-md.jpg?18386626769584070751" media="(min-width: {{ screenMd }})" />
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-spacious-sm.jpg?18386626769584070751" media="(min-width: {{ screenSm }})" />
-                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-spacious-xs.jpg?18386626769584070751" alt="TODO" />
-                    </picture>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 text-center">                    
-                    <h2 class="block-title">Lightweight Materials</h2>
-                    <p class="block-description">Lorem ipsum dolor sit amet consectet nibh Proin ultrices nibh interdum</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-5 col-md-offset-1">
-                    <picture>
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/discover-pre-washed-canvas-md.jpg?18150851609509086438" media="(min-width: {{ screenMd }})">
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/discover-pre-washed-canvas-sm.jpg?18150851609509086438" media="(min-width: {{ screenSm }})">
-                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/discover-pre-washed-canvas-xs.jpg?18150851609509086438" alt="TODO">
-                    </picture>
-                    <h3 class="block-heading">Pre-washed Canvas</h3>
-                    <p>We use a high-quality, lightweight, yet strong pre-washed canvas. Despite being a softer and less structured canvas than the typical heavy canvas, it can handle a heavyweight load (even though we always encourage packing light). </p>
-                </div>
-                <div class="col-md-5">
-                    <picture>
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/discover-organic-cotton-canvas-md.jpg?18150851609509086438" media="(min-width: {{ screenMd }})">
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/discover-organic-cotton-canvas-sm.jpg?18150851609509086438" media="(min-width: {{ screenSm }})">
-                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/discover-organic-cotton-canvas-xs.jpg?18150851609509086438" alt="TODO">
-                    </picture>
-                    <h3 class="block-heading">Organic Cotton Canvas</h3>
-                    <p>The material is so natural that you can actually see bits of the seeds on the surface!</p>
                 </div>
             </div>
         </div>
     </div>
+    
+    <div class="container">
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">                    
+                <h2 class="block-title">Spacious</h2>
+                <p class="block-description">The Catalina's spacious design allows you to pack everything you need for a weekend away.</p>
+            </div>
+        </div>
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">
+                <picture class="fw-xs topic-end">
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-spacious-md.jpg?18386626769584070751" media="(min-width: {{ screenMd }})" />
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-spacious-sm.jpg?18386626769584070751" media="(min-width: {{ screenSm }})" />
+                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-spacious-xs.jpg?18386626769584070751" alt="TODO" />
+                </picture>
+            </div>
+        </div>
+        
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">                    
+                <h2 class="block-title"><a id="nav-target-1" class="jumptarget"></a>Lightweight Materials</h2>
+                <p class="block-description">Lorem ipsum dolor sit amet consectet nibh Proin ultrices nibh interdum</p>
+            </div>
+        </div>
 
-    <div class="page-block discover-compare xs-fw">
+        {% include 'discover-materials' %}
+        
+    </div>
+    <a id="nav-target-2" class="jumptarget"></a>
+    <div class="discover-compare fw-xs animate" {{ animateFadeInUp }}>
         <div class="container">
             <div class="text-center">                    
                 <h2 class="block-title">Compare the Collection</h2>
-                <p class="block-description">Find the best Weekender for you.</p>
+                <p class="block-description">Find the best <br class="visible-xs" />Weekender for you.</p>
             </div>
-            <div class="overflow-row" data-indicators="#ofi-1">
-                <div class="overflow-content" id="discover-catalina-compare">
-                    <picture>
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-compare-md.jpg?9819498961148932255" media="(min-width: {{ screenMd }})">
-                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-compare-xs.jpg?9819498961148932255" alt="TODO">
-                    </picture>
-                    <ul class="compare-labels">
-                        <li>Catalina</li>
-                        <li>Catalina<br /> Deluxe Large</li>
-                        <li>Catalina<br /> Deluxe Small</li>
-                        <li>Catalina<br /> Deluxe Tote</li>
-                    </ul>
+            <div class="overflow-window">
+                <div class="overflow-row" data-indicators="#ofi-1">
+                    <div class="overflow-content" id="discover-catalina-compare">
+                        <picture>
+                            <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-compare-md.jpg?9819498961148932255" media="(min-width: {{ screenMd }})">
+                            <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-compare-xs.jpg?9819498961148932255" alt="TODO">
+                        </picture>
+                        <ul class="compare-labels">
+                            <li>Catalina</li>
+                            <li>Catalina<br /> Deluxe Large</li>
+                            <li>Catalina<br /> Deluxe Small</li>
+                            <li>Catalina<br /> Deluxe Tote</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+            
             <div class="row">
                 <div class="col-xs-6 col-xs-offset-3">
                     <div class="overflow-position" id="ofi-1">
@@ -166,42 +176,70 @@
             </div>
             <div class="text-center">  
                 <div class="btn-set">
-                    <p><a class="btn" href="TODO">Compare Collection</a></p>
+                    <p><a class="btn" href="/pages/compare-catalina-collection/">Compare Collection</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="nav-target-3" class="jumptarget"></a>
+    <div class="container pr-items animate" {{ animateFadeInUp }}>
+        <h2 class="block-title text-center">Traveler Approved</h2>
+        <div class="row topic-end">
+            <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-0">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 col-md-offset-0">
+                        <blockquote class="pr">
+                            <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/fodors-travel.png?15430798540328847356" alt="Fodor's Travel logo"></p>
+                            <p class="pr-quote">&ldquo;This bag does double duty with a smart bottom zipper pocket for wet clothes after a day at the beach or shoes if you're using it as a carry-on.&rdquo;</p>
+                        </blockquote>
+                    </div>
+                    <div class="col-sm-6 col-sm-offset-3 col-md-offset-0">
+                        <blockquote class="pr">
+                            <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/theknotlogo.png?15430798540328847356" alt="The Knot logo"></p>
+                            <p class="pr-quote">&ldquo;This canvas weekender is expertly sized for the overhead bin or a mini-moon.&rdquo;</p>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 col-md-offset-0">
+                        <blockquote class="pr">
+                            <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/The_Huffington_Post_logo.png?15023891854137734588" alt="The Huffington Post logo"></p>
+                            <p class="pr-quote">&ldquo;The Catalina had us at the secret bottom pocket. This dapper carrier fits everything that you (or Mary Poppins) could possibly need for a weekend getaway.&rdquo;</p>
+                        </blockquote>
+                    </div>
+                    <div class="col-sm-6 col-sm-offset-3 col-md-offset-0">
+                        <blockquote class="pr">
+                            <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/Refinery29-Logo.png?15023891854137734588" alt="Refinery 29 logo"></p>
+                            <p class="pr-quote">&ldquo;If you don’t already have a weekender, now's the time to get one. If you already have a weekender, now's the time to get this one. The interior organization will let you stow more things than any other option out there.&rdquo;</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 col-md-offset-1 col-lg-4 col-lg-offset-0">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 col-md-offset-0 col-lg-12">
+                        <blockquote class="pr">
+                            <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/foodandwine-logo-black.png?15023891854137734588" alt="Food and Wine logo"></p>
+                            <p class="pr-quote">&ldquo;A zippered bottom compartment and unusually large size (plus a great choice of pretty, subdued colors) set this tote apart from the pack.&rdquo;</p>
+                        </blockquote>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="page-block discover-cta">
-        <div class="row">
-            <div class="col-md-6">
-                <picture>
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-cta-md.jpg?1312692621756025204" media="(min-width: {{ screenSm }})">
-                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-cta-xs.jpg?1312692621756025204" alt="Shop the Catalina weekender">
-                </picture>
-            </div>
-            <div class="col-md-6">
-                <div class="section-content">
-                    <div data-cta-titles>{% comment %} name and price moves above the image on tablet{% endcomment %}
-                        <p class="block-title">Catalina</p>
-                        <p class="block-price">$120 - $130</p>
-                    </div>
-                    <div class="btn-set">
-                        <p><a class="btn btn-secondary" href="/products/catalina-washed-canvas-indigo-colorblock">View colors &amp; sizes</a></p>
-                        <p><a class="btn" href="/products/catalina-washed-canvas-indigo-colorblock">Buy now</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {%- assign ctaTitle = 'Catalina' -%}
+    {%- assign ctaPrice = '$120 - $130' -%}
+    {%- assign ctaLink = '/products/catalina-washed-canvas-indigo-colorblock' -%}
+    {%- assign ctaImgXs = 'https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-cta-xs.jpg?1312692621756025204' -%}
+    {%- assign ctaImgMd = 'https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-cta-md.jpg?1312692621756025204' -%}
+
+    {% include 'discover-cta' %}
 
     <script>// <![CDATA[
     var video1Embed = '<iframe src="//player.vimeo.com/video/170848560?player_id=vimeo-catalina&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-catalina" class="vimeo"></iframe>';
     // ]]></script>
 
-    <div id="product-video">
-        <div id="product-video-container"></div>
-        <a href="#" class="panel-close">Close</a>
-    </div>
+    {% include 'video-modal' %}
 
 </article>

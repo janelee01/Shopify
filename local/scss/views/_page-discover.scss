@@ -1,11 +1,17 @@
 .discover{
 	// testing ground for global styles later?
+	.max-container{
+		max-width: $site-max-width;
+		margin-left: auto;
+		margin-right: auto;
+	}
 	.container {
 		padding-left: $mobile-gutter;
 		padding-right: $mobile-gutter;
 		max-width: 100%;
 		@media (min-width: $screen-sm) {
-			max-width: 750px;
+			width: 100%;
+			max-width: 768px;
 			padding-left: 15px;
 			padding-right: 15px;
 			.row{
@@ -20,13 +26,204 @@
 		@media (min-width: $screen-md) {
 			max-width: 971px;
 		}
-		@media (min-width: $screen-lg-v2) {
+		@media (min-width: $screen-lg) {
 			max-width: 1170px;
 		}
 	}
+	.hero{
+		position: relative;
+		margin-bottom: 100px;
+		@media (min-width: $screen-sm) {
+			margin-bottom: 80px;
+		}
+		@media (min-width: $screen-md) {
+			margin-bottom: 86px;
+		}
+		@media (min-width: $screen-lg) {
+			margin-bottom: 130px;
+		}
+		picture{
+			opacity: 0;
+			@include transition(opacity .4s ease-out);
+			&.in{
+				opacity: 1;
+			}
+		}
+		img{
+			width: 100%;
+		}
+		&.theme-white{
+			.hero-content{
+				.block-title,
+				.block-subtitle,
+				.block-description{
+					color: #FFF;
+				}	
+			}
+		}
+		.hero-content{
+			position: absolute;
+			top: 0;
+			text-align: center;
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			@media (min-width: $screen-md) {
+				width: 50%;	
+				&.right{
+					right: 0;
+					left: auto;
+				}
+			}
+			*{
+				max-width: 330px;
+				@media (min-width: $screen-md) {
+					max-width: 360px;
+				}
+			}
+			.block-title{
+				font-family: $font-family-bold;
+				font-size: 42px;
+				@media (min-width: $screen-lg) {
+					font-size: 40px;
+				}
+			}
+			.block-description{
+				margin-bottom: 26px;
+				color: $gray-darker;
+			}
+			.block-title,
+			.block-description{
+				@media (max-width: $screen-xs-max) {
+					padding-left: $mobile-gutter;
+					padding-right: $mobile-gutter;
+				}
+			}
+		}
+	}
+
+	/*
+	Typography
+	 */
+	.theme-white{
+		.block-title,
+		.block-subtitle,
+		.block-description{
+			color: #FFF;
+		}
+	}
+	.block-title{
+		font-family: $font-family-medium; 
+		font-size: 48px;
+		line-height: calculateEm(52px, 48px);
+		margin-bottom: .3em;
+		color: $gray-darker;
+		@media (min-width: $screen-sm) {
+			font-size: 40px;
+			line-height: calculateEm(51px, 40px);
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 52px;
+		}
+	}
+	.block-subtitle{
+		display: block;
+		font-family: $font-family-base;
+		color: $gray-darker;
+		text-transform: uppercase;
+		margin: 0;
+		font-size: 16px;
+		line-height: calculateEm(20px, 16px);
+	}
+	.block-description{
+		font-size: 19px;
+		line-height: calculateEm(27px,19px);
+		color: $gray;
+		margin-bottom: 50px;
+		@media (min-width: $screen-sm) {
+			font-size: 20px;
+			line-height: calculateEm(28px,20px);
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 24px;
+			line-height: calculateEm(36px,24px);
+			margin-bottom: 80px;
+		}
+	}
+	.block-price{
+		color: $gray;
+		font-size: 24px;
+		line-height: calculateEm(20px, 24px);
+		margin-bottom: 30px;
+		@media (min-width: $screen-md) {
+			font-size: 30px;
+			line-height: calculateEm(50px,30px);
+		}
+	}
+	
+	/*
+	Headling + text pairing, not an actual figure + figcaption
+	 */
+	.figure-caption{
+		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+			text-align: center;
+			max-width: 60%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.title{
+			font-size: 27px;
+			line-height: calculateEm(30px, 27px);
+			font-family: $font-family-medium;
+			margin-top: 1.6em;
+			margin-bottom: 0.5em;
+			@media (min-width: $screen-sm) {
+				font-size: 20px;
+				line-height: calculateEm(25px, 20px);
+			}
+			@media (min-width: $screen-md) {
+				font-size: 22px;
+			}
+			@media (min-width: $screen-lg) {
+				font-size: 28px;
+			}
+		}
+		.description{
+			font-size: 19px;
+			line-height: calculateEm(27px, 19px);
+			color: $gray;
+			margin-bottom: calculateEm(100px, 19px);
+			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+				font-size: 16px;
+				margin-bottom: calculateEm(60px, 16px);
+			}
+			@media (min-width: $screen-md) {
+				font-size: 18px;
+			}
+			@media (min-width: $screen-lg) {
+				font-size: 22px;
+			}
+		}
+	}
+	
+	/*
+	Compare section
+	 */
 	.discover-compare{
 		background: #F4F4F4;
 		padding: 100px 0;
+		.block-title{
+			font-size: 42px;
+			@media (min-width: $screen-sm) and (max-width: $screen-lg - 1) {
+				font-size: 40px;
+			}
+		}
+		.block-description{
+			margin-bottom: 0;
+		}
 	}
 	.compare-labels{
 		@include clean;
@@ -34,7 +231,7 @@
 			display: inline-block;
 			vertical-align: top;
 			text-align: left;
-			font-family: $font-family-semibold;
+			font-family: $font-family-medium;
 			font-size: 16px;
 			line-height: calculateEm(20px, 16px);
 			@media (min-width: $screen-md) {
@@ -47,7 +244,7 @@
 			&:nth-child(3){ margin-left: 7%; }
 			&:nth-child(4){ margin-left: 6%; }
 
-			@media (min-width: $screen-lg-v2) {
+			@media (min-width: $screen-lg) {
 				&:nth-child(1){ margin-left: 16%; }
 				&:nth-child(2){ margin-left: 12%; }
 				&:nth-child(3){ margin-left: 10%; }
@@ -56,6 +253,10 @@
 			
 		}
 	}
+
+	/*
+	CTA footer
+	 */
 	.discover-cta{
 		background: #f8f8f8;
 		padding: 55px 0 65px;
@@ -69,9 +270,11 @@
 			padding-top: 0;
 			max-width: 250px;
 			width: 100%;
-			.btn{
-				padding-top: 23px;
-				padding-bottom: 22px;
+		}
+		.block-title{
+			font-size: 30px;
+			@media (min-width: $screen-md) {
+				font-size: 40px;
 			}
 		}
 		.section-content{
@@ -90,11 +293,81 @@
 	}
 
 	/*
+	Press items
+	 */
+	.pr-items{
+		.block-title{
+			margin: 100px 0;
+			@media (min-width: $screen-sm) {
+				margin: 80px 0;
+			}
+			@media (min-width: $screen-md) {
+				margin: 120px 0 95px;
+			}
+			@media (min-width: $screen-md) {
+				margin: 126px 0 120px;
+			}
+		}
+	}
+	.pr{
+		margin: 0 0 50px;
+		padding: 0;
+	}
+	.pr-logo{
+		margin-bottom: 30px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		@media (min-width: $screen-md) {
+			align-items: flex-start;
+			margin-bottom: 36px;
+		}
+	}
+	.pr-quote{
+		color: $gray;
+		font-size: 15px;
+		line-height: calculateEm(24px, 15px);
+	}
+	
+	/*
+	Some elements break out of the mobile padding
+	 */
+	.fw-xs{
+		@media (max-width: $screen-xs-max) {
+		    margin-left: -$mobile-gutter;
+		    margin-right: -$mobile-gutter;
+		}
+	}
+
+	/*
+	generic name for something that pushes away the next block, eww
+	 */
+	.topic-end{
+		margin-bottom: 100px;
+		@media (min-width: $screen-sm) {
+			margin-bottom: 85px;
+		}
+		@media (min-width: $screen-md) {
+			margin-bottom: 120px;
+		}
+		@media (min-width: $screen-lg) {
+			margin-bottom: 126px;
+		}
+	}
+
+	/*
 	overrides, maybe should be new global defaults
 	 */
+	picture{
+		display: block;
+	}
 	.overview-video-trigger {
 	    opacity: 1;
-	    width: 60px;
+	    width: 80px;
+	    @media (min-width: $screen-sm) {
+	    	width: 60px;
+	    }
 	}
 	.btn-set p:first-child{
 		margin-bottom: 10px;
@@ -102,11 +375,65 @@
 	.text-center{
 		text-align: center;
 	}
+	hr{
+		margin-top: 0;
+		border-top-color: #EAEAEA;
+	}
+	.offset-top{
+		@media (min-width: $screen-md) {
+			margin-top: 50px;
+		}
+	}
 }
 
+
+/*
+Specific things
+ */
 #discover-catalina-compare{
 	width: 822px; // causes sidescrolling on mobile intentially
 	@media (min-width: $screen-sm) {
 		width: auto;
+	}
+}
+#catalina-compact{
+	display: block;
+	img{
+		width: 100%;
+	}
+	@media (min-width: $screen-sm) {
+		width: 610px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	@media (min-width: $screen-md) {
+		width: 874px;
+		margin: 0;
+	}
+	@media (min-width: $screen-lg) {
+		width: 1118px;
+	}
+}
+
+#catalina-locker{
+	display: block;
+	@media (min-width: $screen-md) {
+		margin-top: -110px;
+	}
+	@media (min-width: $screen-lg) {
+		margin-top: -164px;
+	}
+}
+
+#catalina-bottom-pocket{
+	margin-bottom: 10px;
+	@media (min-width: $screen-sm) {
+		margin-bottom: 40px;
+	}
+	@media (min-width: $screen-md) {
+		margin-bottom: 60px;
+	}
+	@media (min-width: $screen-lg) {
+		margin-bottom: 80px;
 	}
 }

@@ -1,10 +1,16 @@
-.overflow-row{
-	overflow-x: scroll;
+.overflow-window{
+	overflow-y: hidden; // js will adjust the height to crop out the scrollbar
 	margin-bottom: 40px;
 	@media (min-width: $screen-sm) {
 		margin-bottom: 55px;
 	}
+}
+.overflow-row{
+	overflow-x: scroll;
 	-webkit-overflow-scrolling: touch;
+}
+.overflow-content{
+	padding-bottom: 20px; // push the scrollbar down
 }
 .overflow-position{
 	display: flex;
