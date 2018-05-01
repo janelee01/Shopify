@@ -216,10 +216,23 @@ $(document).ready(function() {
 	 */
 	var $ctaTitles = $('[data-cta-titles]');
 	var positionCtaTitles = function(){
-		if( $(window).width() < 1025 && $('.discover-cta .section-content').find('[data-cta-titles]').length ){
-			$ctaTitles.detach().prependTo('.discover-cta');
-		}else if( $(window).width() >= 1025 && $('.discover-cta .section-content').find('[data-cta-titles]').length < 1 ){
-			$ctaTitles.detach().prependTo('.discover-cta .section-content');
+		var w = $(window).width();
+		if( $ctaTitles.length == 1 ){
+			if( w < 1025 && $('.discover-cta .section-content').find('[data-cta-titles]').length ){
+				$ctaTitles.detach().prependTo('.discover-cta');
+			}else if( w >= 1025 && $('.discover-cta .section-content').find('[data-cta-titles]').length < 1 ){
+				$ctaTitles.detach().prependTo('.discover-cta .section-content');
+			}
+		}else{
+			$ctaTitles.each(function(){
+				var $topContainer = $(this).closest('.cta-block').find('[data-cta-top]');
+				var $bottomContainer = $(this).closest('.cta-block').find('.overlay .figure-caption');
+				if( w >= 768 && w < 1025 && $(this).closest('.figure-caption').length ){
+					$(this).detach().prependTo($topContainer);
+				}else if( (w < 768 || w >= 1025) && $bottomContainer.find('[data-cta-titles]').length < 1 ){
+					$(this).detach().prependTo($bottomContainer);
+				}
+			});
 		}
 	};
 
@@ -260,31 +273,32 @@ $(document).ready(function() {
 	Side scrolling indicators
 	 */
 	if( $('.overflow-row').length ){
-		$('.overflow-row').each(function(){
-			var $scrollEl = $(this);
-			var $indicators = $( $scrollEl.data('indicators') ).children();
+		$(window).load(function(){ // make sure we have the image
+			$('.overflow-row').each(function(){
+				var $scrollEl = $(this);
+				var $indicators = $( $scrollEl.data('indicators') ).children();
 
-			// scrop out the scrollbar
-			var elHeight = $(this).closest('.overflow-window').height();
-			$(this).closest('.overflow-window').height(elHeight - 20);
-			
-			// easier to work with
-			var amountToScroll = $scrollEl.find('.overflow-content').width() - $scrollEl.width();
-			var indicatorValue = 100 / $indicators.length;
+				// scrop out the scrollbar
+				var elHeight = $(this).closest('.overflow-window').height();
+				$(this).closest('.overflow-window').height(elHeight - 20);
+				
+				// easier to work with
+				var amountToScroll = $scrollEl.find('.overflow-content').width() - $scrollEl.width();
+				var indicatorValue = 100 / $indicators.length;
 
-			$scrollEl.on('scroll', function(){
-				var scrollCompletion = $scrollEl.scrollLeft() / amountToScroll * 100;
-				$indicators.each(function(index){ 
-					// index * indicatorValue creates percentage benchmarks for the scrollCompletion to cross
-					// example: 4 items will create 0/25/50/75
-					if( scrollCompletion >= index * indicatorValue  ){ 
-						$indicators.removeClass('active');
-						$(this).addClass('active');
-					}
+				$scrollEl.on('scroll', function(){
+					var scrollCompletion = $scrollEl.scrollLeft() / amountToScroll * 100;
+					$indicators.each(function(index){ 
+						// index * indicatorValue creates percentage benchmarks for the scrollCompletion to cross
+						// example: 4 items will create 0/25/50/75
+						if( scrollCompletion >= index * indicatorValue  ){ 
+							$indicators.removeClass('active');
+							$(this).addClass('active');
+						}
+					});
 				});
 			});
 		});
-		
 	}
 	
 
@@ -596,11 +610,23 @@ $(document).ready(function() {
 	}
 
     if( $('article.edgemont').length || $('article.discover').length ) {
+    	var srollaEnabled = false;
         if($(window).width() > 1024) {
             $('.animate').scrolla({
                 once: true
             });
+            srollaEnabled = true;
 		}
+		// images will stay missing if you start small and resize large
+		$(window).resize(function(){
+	        if($(window).width() > 1024 && !srollaEnabled) {
+	            $('.animate').scrolla({
+	                once: true
+	            });
+	            srollaEnabled = true;
+			}
+		});
     }
+
 	
 });

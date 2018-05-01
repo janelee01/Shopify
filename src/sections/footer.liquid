@@ -1,6 +1,6 @@
 <div class="container-fluid">
-  <form action="" id="newsletter-signup">
-    <label for="signup-email">Sign up for our email list & get 15% off your first order. <small>*only applies to full-price items</small></label>
+  <form id="newsletter-signup">
+    <label for="signup-email">Sign up for emails &amp; get 15% off your first order. <small>*only applies to full-price items</small></label>
     <div class="form-group">
       <input type="email" id="signup-email" class="form-control" placeholder="Enter email address" />
       <button id="signup-submit"><span class="sr-only">Submit</span></button>
@@ -13,7 +13,7 @@
     <div class="row">
       <img src="{{'ls-logo.svg' | asset_url }}" width="60" alt="{{ shop.name }}" id="footer-logo" />
       <div id="footer-menus">
-        <nav class="footer-menu" role="menu">
+        <nav class="footer-menu">
           <h2 class="menu-title">Support</h2>
           <ul class="menu">
             {% for link in linklists['footer-1'].links %}
@@ -21,7 +21,7 @@
             {% endfor %}
           </ul>
         </nav>
-        <nav class="footer-menu" role="menu">
+        <nav class="footer-menu">
           <h2 class="menu-title">About</h2>
           <ul class="menu">
             {% for link in linklists['footer-2'].links %}
@@ -29,7 +29,7 @@
             {% endfor %}
           </ul>
         </nav>
-        <nav class="footer-menu" role="menu">
+        <nav class="footer-menu">
           <h2 class="menu-title">Terms</h2>
           <ul class="menu">
             {% for link in linklists['footer-3'].links %}
@@ -37,7 +37,7 @@
             {% endfor %}
           </ul>
         </nav>
-        <nav class="footer-menu" role="menu">
+        <nav class="footer-menu">
           <h2 class="menu-title">Connect</h2>
           {%- assign social_accounts = 'Facebook, Twitter, Instagram, Pinterest' | split: ', ' -%}
           <ul class="menu social-menu">

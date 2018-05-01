@@ -1,4 +1,7 @@
 .discover{
+	.blocks-bg{
+		background: $gray-lightest;
+	}
 	// testing ground for global styles later?
 	.max-container{
 		max-width: $site-max-width;
@@ -77,10 +80,30 @@
 					right: 0;
 					left: auto;
 				}
+				&.center{
+					left: 25%;
+				}
+			}
+			@media (min-width: $screen-md) {
+				&.center{
+					*{
+						max-width: 100%;
+					}
+				}
+			}
+			&.theme-medium {
+				.block-title{
+					color: $gray-darker;
+				}
+				.block-description{
+					color: $gray;
+				}
 			}
 			*{
 				max-width: 330px;
+				color: #FFF;
 				@media (min-width: $screen-md) {
+					color: $gray-darker;
 					max-width: 360px;
 				}
 			}
@@ -93,7 +116,6 @@
 			}
 			.block-description{
 				margin-bottom: 26px;
-				color: $gray-darker;
 			}
 			.block-title,
 			.block-description{
@@ -109,6 +131,8 @@
 	Typography
 	 */
 	.theme-white{
+		.title,
+		.discription,
 		.block-title,
 		.block-subtitle,
 		.block-description{
@@ -117,7 +141,7 @@
 	}
 	.block-title{
 		font-family: $font-family-medium; 
-		font-size: 48px;
+		font-size: 44px;
 		line-height: calculateEm(52px, 48px);
 		margin-bottom: .3em;
 		color: $gray-darker;
@@ -148,8 +172,8 @@
 			line-height: calculateEm(28px,20px);
 		}
 		@media (min-width: $screen-lg) {
-			font-size: 24px;
-			line-height: calculateEm(36px,24px);
+			font-size: 23px;
+			line-height: calculateEm(36px,23px);
 			margin-bottom: 80px;
 		}
 	}
@@ -168,12 +192,6 @@
 	Headling + text pairing, not an actual figure + figcaption
 	 */
 	.figure-caption{
-		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-			text-align: center;
-			max-width: 60%;
-			margin-left: auto;
-			margin-right: auto;
-		}
 		.title{
 			font-size: 27px;
 			line-height: calculateEm(30px, 27px);
@@ -255,6 +273,102 @@
 	}
 
 	/*
+	CTA blocks
+	 */
+	.cta-block-divider{
+		background: $gray-lightest;
+		hr{
+			margin-left: $mobile-gutter;
+			margin-right: $mobile-gutter;
+		}
+		@media (min-width: $screen-sm) {
+			display: none;
+		}
+	}
+	.row.cta-block{
+		position: relative;
+		background: $gray-lightest;
+		padding: 75px 0;
+		@media (min-width: $screen-sm) {
+			margin: 0 65px 80px;
+		}
+		@media (min-width: $screen-md) {
+			padding: 0;
+			margin: 0 0 40px;
+		}
+
+		picture{
+			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+				width: 45%;
+				margin: 0 auto 1.3em;
+			} 
+		}
+
+		.figure-caption{
+			.title{
+				@media (min-width: $screen-sm) {
+					margin-top: 0;
+				}
+				@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+					font-size: 26px;
+				}
+			}
+			.description{
+				margin-bottom: 1.3em;
+				@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+					margin-left: 5%;
+					margin-right: 5%;
+				}
+			}
+		}
+		
+		.overlay{
+			.content-col{
+				text-align: center;
+				.description{
+					max-width: 73%;
+					margin-left: auto;
+					margin-right: auto;
+					@media (min-width: $screen-lg) {
+						max-width: 100%;
+					}
+				}
+			}
+			@media (min-width: $screen-sm) {
+				.btn-set{
+					max-width: 100%;
+					margin: 0;
+					.btn{
+						display: inline-block;
+						margin-bottom: 0;
+						min-width: 161px;
+						&:first-child{
+							margin-right: 15px;
+						}
+					}
+				}
+			}
+			@media (min-width: $screen-md) {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				.content-col{
+					height: 100%;
+					display: flex;
+					justify-content: center;
+					flex-direction: column;
+					text-align: left;
+					.description{
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+
+	/*
 	CTA footer
 	 */
 	.discover-cta{
@@ -304,8 +418,23 @@
 			@media (min-width: $screen-md) {
 				margin: 120px 0 95px;
 			}
-			@media (min-width: $screen-md) {
+			@media (min-width: $screen-lg) {
 				margin: 126px 0 120px;
+			}
+		}
+		[class^="col-"]{
+			@media (min-width: $screen-md) {
+				&:nth-child(odd){
+					clear: left;
+				}
+			}
+			@media (min-width: $screen-lg) {
+				&:nth-child(odd){
+					clear: none;
+				}
+				&:nth-child(3n+1){
+					clear: left;
+				}
 			}
 		}
 	}
@@ -331,7 +460,7 @@
 	}
 	
 	/*
-	Some elements break out of the mobile padding
+	Some elements break out of containers
 	 */
 	.fw-xs{
 		@media (max-width: $screen-xs-max) {
@@ -339,11 +468,26 @@
 		    margin-right: -$mobile-gutter;
 		}
 	}
+	.col-lg-14{
+		@media (min-width: $screen-lg) {
+			margin-left: -72px;
+			margin-right: -72px;
+		}
+	}
 
 	/*
 	generic name for something that pushes away the next block, eww
 	 */
-	.topic-end{
+	.topic-end-md{
+		margin-bottom: $mobile-gutter;
+		@media (min-width: $screen-sm) {
+			margin-bottom: 40px;
+		}
+		@media (min-width: $screen-md) {
+			margin-bottom: 60px;
+		}
+	}
+	.topic-end-lg{
 		margin-bottom: 100px;
 		@media (min-width: $screen-sm) {
 			margin-bottom: 85px;
@@ -353,6 +497,149 @@
 		}
 		@media (min-width: $screen-lg) {
 			margin-bottom: 126px;
+		}
+	}
+
+	/*
+	when content center aligns against an image
+	 */
+	.row.align-centers-sm{
+		@media (min-width: $screen-sm) {
+			display: flex;
+			&.reversed{
+				> *{
+					order: 1;
+				}
+				> .content-col{
+					order: 0
+				}
+			}
+			.content-col{
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				.figure-caption{
+					text-align: left;
+					.title{
+						margin-top: 0;
+					}
+					.description{
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+	.row.align-centers-md{
+		@media (min-width: $screen-md) {
+			display: flex;
+			&.bottom-aligned{
+				.content-col{
+					justify-content: flex-end;
+					.figure-caption{
+						.description{
+							margin-bottom: calculateEm(50px, 18px);
+						}
+					}
+				}
+			}
+			&.reversed{
+				> *{
+					order: 1;
+				}
+				> .content-col{
+					order: 0
+				}
+			}
+			.content-col{
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				.figure-caption{
+					text-align: left;
+					.title{
+						margin-top: 0;
+					}
+					.description{
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+
+	/*
+	when content overlays an image
+	mixins only used here
+	 */
+	@mixin overlayRow{
+		position: absolute;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		margin: 0;
+	}
+	@mixin overlayCol{
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		&.left{
+			.figure-caption{
+				text-align: left;
+			}
+		}
+	}
+	.has-overlay-xs{
+		.row{
+			@include overlayRow;
+		}
+		.content-col{
+			@include overlayCol;
+			.figure-caption{
+				.title{
+					margin-top: 0;
+					font-size: 44px;
+					line-height: calculateEm(52px, 48px);
+					@media (min-width: $screen-sm) {
+						font-size: 40px;
+						line-height: calculateEm(51px, 40px);
+					}
+					@media (min-width: $screen-lg) {
+						font-size: 52px;
+					}
+				}
+				.description{
+					margin-bottom: 0;
+				}
+			}
+			
+		}
+	}
+	.has-overlay-sm{
+		.row{
+			@media (min-width: $screen-sm) {
+				@include overlayRow;
+			}
+		}
+		.content-col{
+			@media (min-width: $screen-sm) {
+				@include overlayCol;
+			}
+			.figure-caption{
+				.title{
+					@media (min-width: $screen-sm) {
+						margin-top: 0;
+					}
+				}
+				.description{
+					@media (min-width: $screen-sm) {
+						margin-bottom: 0;
+					}
+				}
+			}
 		}
 	}
 
@@ -368,6 +655,12 @@
 	    @media (min-width: $screen-sm) {
 	    	width: 60px;
 	    }
+	    @media (min-width: $screen-lg) {
+	    	width: 94px;
+	    }
+	    img{
+	    	width: 100%;
+	    }
 	}
 	.btn-set p:first-child{
 		margin-bottom: 10px;
@@ -375,13 +668,31 @@
 	.text-center{
 		text-align: center;
 	}
+	.text-center-sm{
+		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+			text-align: center;
+		}
+	}
+	.text-center-md{
+		@media (min-width: $screen-md) {
+			text-align: center;
+		}
+	}
+	.text-left{
+		text-align: left;
+	}
 	hr{
-		margin-top: 0;
+		margin: 0;
 		border-top-color: #EAEAEA;
 	}
 	.offset-top{
 		@media (min-width: $screen-md) {
 			margin-top: 50px;
+		}
+	}
+	.offset-top-lg{
+		@media (min-width: $screen-sm) {
+			margin-top: 100px;
 		}
 	}
 }
@@ -435,5 +746,59 @@ Specific things
 	}
 	@media (min-width: $screen-lg) {
 		margin-bottom: 80px;
+	}
+}
+
+#catalina-deluxe-tote-lightweight{
+	@media (min-width: $screen-md) {
+		margin-bottom: 50px;
+	}
+	@media (min-width: $screen-lg) {
+		margin-bottom: 80px;
+	}
+}
+
+#catalina-deluxe-tote-what-fits{
+	@media (max-width: $screen-xs-max) {
+		margin-bottom: 0;
+	}
+}
+
+#catalina-deluxe-tote-exterior-pocket,
+#catalina-deluxe-tote-key-leash{
+	@media (max-width: $screen-sm-max) {
+		margin-bottom: 0;
+	}
+}
+
+#catalina-collection-bottom-pocket,
+#catalina-deluxe-tote-materials-description{
+	@media (max-width: $screen-xs-max) {
+		margin-bottom: 0;
+	}
+}
+
+#catalina-collection-bottom-pocket-content{
+	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+		display: flex;
+		flex-direction: column-reverse;
+		.figure-caption{
+			.title{
+				margin-top: 3em;
+			}
+			.description{
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+#catalina-collection-handle-sleeve-content{
+	@media (max-width: $screen-sm-max) {
+		margin-bottom: 0;
+	}
+	@media (min-width: $screen-md) {
+		flex-direction: row-reverse;
+		justify-content: flex-end;
 	}
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02-2-Catalina-macbook-13inch" transform="translate(-871.000000, -378.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="Hero">
+                <g id="Text+button" transform="translate(715.000000, 190.000000)">
+                    <path d="M186,188 C169.5,188 156,201.5 156,218 C156,234.5 169.5,248 186,248 C202.5,248 216,234.5 216,218 C216,201.5 202.5,188 186,188 Z M182.480769,226.25 L182.480769,209.75 L192.980769,218 L182.480769,226.25 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
