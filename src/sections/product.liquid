@@ -252,31 +252,31 @@
 					<div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
 				</div>
 				<script>
-					var body = document.getElementsByTagName("BODY")[0];
-					var siblingsList = '{{ allSiblingsList }}';
-					var siblingIds = siblingsList.split('|');
-					var rawReviewsData = new Array;
-					var dataReceived = 0;
-					window.addEventListener("load", function(event) {
-					    for (var i = siblingIds.length - 1; i >= 0; i--) {
-					    	if( !siblingIds[i] ) continue;
-					    	var data = JSON.stringify(false);
-					    	var xhr = new XMLHttpRequest();
-					    	xhr.withCredentials = true;
-					    	xhr.addEventListener("readystatechange", function () {
-					    	  if (this.readyState === this.DONE) {
-					    	    rawReviewsData.push(JSON.parse(this.responseText));
-					    	    dataReceived++;
-					    	    if (dataReceived == siblingIds.length){
-					    	    	var event = new CustomEvent('reviews-received');
-					    	    	body.dispatchEvent(event);
-					    		}
-					    	  } 
-					    	});
-					    	xhr.open("GET", "https://api.yotpo.com/v1/widget/1BRcvEm4otuzCinl2NlZx7eeyApg3H6EPGJ0Zv74/products/"+siblingIds[i]+"/reviews.json?per_page=100");
-					    	xhr.send(data);
-					    }; 
-				  	});
+					// var body = document.getElementsByTagName("BODY")[0];
+					// var siblingsList = '{{ allSiblingsList }}';
+					// var siblingIds = siblingsList.split('|');
+					// var rawReviewsData = new Array;
+					// var dataReceived = 0;
+					// window.addEventListener("load", function(event) {
+					    // for (var i = siblingIds.length - 1; i >= 0; i--) {
+					    	// if( !siblingIds[i] ) continue;
+					    	// var data = JSON.stringify(false);
+					    	// var xhr = new XMLHttpRequest();
+					    	// xhr.withCredentials = true;
+					    	// xhr.addEventListener("readystatechange", function () {
+					    	  // if (this.readyState === this.DONE) {
+					    	    // rawReviewsData.push(JSON.parse(this.responseText));
+					    	    // dataReceived++;
+					    	    // if (dataReceived == siblingIds.length){
+					    	    	// var event = new CustomEvent('reviews-received');
+					    	    	// body.dispatchEvent(event);
+					    		// }
+					    	  // } 
+					    	// });
+					    	// xhr.open("GET", "https://api.yotpo.com/v1/widget/1BRcvEm4otuzCinl2NlZx7eeyApg3H6EPGJ0Zv74/products/"+siblingIds[i]+"/reviews.json?per_page=100");
+					    	// xhr.send(data);
+					    // }; 
+				  	// });
 				</script>
 			</div>
 		</div>
