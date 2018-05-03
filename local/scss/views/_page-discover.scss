@@ -1,12 +1,13 @@
+// testing ground for global styles later?
+.max-container{
+	max-width: $site-max-width;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
 .discover{
 	.blocks-bg{
 		background: $gray-lightest;
-	}
-	// testing ground for global styles later?
-	.max-container{
-		max-width: $site-max-width;
-		margin-left: auto;
-		margin-right: auto;
 	}
 	.container {
 		padding-left: $mobile-gutter;
@@ -146,8 +147,7 @@
 		margin-bottom: .3em;
 		color: $gray-darker;
 		@media (min-width: $screen-sm) {
-			font-size: 40px;
-			line-height: calculateEm(51px, 40px);
+			@include fslh(40,51);
 		}
 		@media (min-width: $screen-lg) {
 			font-size: 52px;
@@ -159,32 +159,26 @@
 		color: $gray-darker;
 		text-transform: uppercase;
 		margin: 0;
-		font-size: 16px;
-		line-height: calculateEm(20px, 16px);
+		@include fslh(16,20);
 	}
 	.block-description{
-		font-size: 19px;
-		line-height: calculateEm(27px,19px);
+		@include fslh(19,27);
 		color: $gray;
 		margin-bottom: 50px;
 		@media (min-width: $screen-sm) {
-			font-size: 20px;
-			line-height: calculateEm(28px,20px);
+			@include fslh(20,28);
 		}
 		@media (min-width: $screen-lg) {
-			font-size: 23px;
-			line-height: calculateEm(36px,23px);
+			@include fslh(23,36);
 			margin-bottom: 80px;
 		}
 	}
 	.block-price{
 		color: $gray;
-		font-size: 24px;
-		line-height: calculateEm(20px, 24px);
+		@include fslh(24,20);
 		margin-bottom: 30px;
 		@media (min-width: $screen-md) {
-			font-size: 30px;
-			line-height: calculateEm(50px,30px);
+			@include fslh(30,50);
 		}
 	}
 	
@@ -193,14 +187,12 @@
 	 */
 	.figure-caption{
 		.title{
-			font-size: 27px;
-			line-height: calculateEm(30px, 27px);
+			@include fslh(27,30);
 			font-family: $font-family-medium;
 			margin-top: 1.6em;
 			margin-bottom: 0.5em;
 			@media (min-width: $screen-sm) {
-				font-size: 20px;
-				line-height: calculateEm(25px, 20px);
+				@include fslh(20,25);
 			}
 			@media (min-width: $screen-md) {
 				font-size: 22px;
@@ -210,8 +202,7 @@
 			}
 		}
 		.description{
-			font-size: 19px;
-			line-height: calculateEm(27px, 19px);
+			@include fslh(19,27);
 			color: $gray;
 			margin-bottom: calculateEm(100px, 19px);
 			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
@@ -250,11 +241,9 @@
 			vertical-align: top;
 			text-align: left;
 			font-family: $font-family-medium;
-			font-size: 16px;
-			line-height: calculateEm(20px, 16px);
+			@include fslh(16,20);
 			@media (min-width: $screen-md) {
-				font-size: 20px;
-				line-height: calculateEm(28px, 20px);
+				@include fslh(20,28);
 			}
 
 			&:nth-child(1){ margin-left: 16%; }
@@ -604,8 +593,7 @@
 					font-size: 44px;
 					line-height: calculateEm(52px, 48px);
 					@media (min-width: $screen-sm) {
-						font-size: 40px;
-						line-height: calculateEm(51px, 40px);
+						@include fslh(40,51);
 					}
 					@media (min-width: $screen-lg) {
 						font-size: 52px;
