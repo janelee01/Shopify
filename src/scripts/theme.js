@@ -698,7 +698,7 @@ $(document).ready(function() {
         var $form = $(this);
         var numErrors = 0;
         $form.find('.validation-error').remove();
-        $form.find('.form-control').each(function(){
+        $form.find('.form-control.required').each(function(){
         	if( !$(this).val() ){
         		numErrors++;
         		$('<small class="validation-error">This field is required.</small>')
@@ -708,7 +708,7 @@ $(document).ready(function() {
         	}
         });
 
-        if( numErrors > 0 ) return;
+        if( numErrors > 0 ) return; 
         
         var settings = {
             "async": true,
@@ -720,7 +720,7 @@ $(document).ready(function() {
                 "cache-control": "no-cache"
             },
             "data": {
-                "g": "KUBRaR",
+                "g": "Kh3kFv", // KUBRaR main list
                 "$fields": "Sign Up Source, Country",
                 "email": $('#credo-email').val(),
                 "first_name": $('#credo-fname').val(),

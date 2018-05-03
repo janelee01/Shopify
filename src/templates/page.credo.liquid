@@ -12,7 +12,7 @@
                         <div class="col-sm-6 col-sm-offset-6">
                             <h1 class="title">Spring Break Giveaway.</h1>
                             <p class="description"><strong>What you can win</strong></p>
-                            <p class="description">$185 of spring travel essentials from Credo and a Catalina Deluxe weekender bag (either size) in color of winner’s choice. </p>
+                            <p class="description">$185 of spring travel essentials from Credo and a Catalina Deluxe weekender bag (either size) in color of your choice. </p>
                             <div class="sharing hidden-md hidden-lg">
                                 <a href="https://www.facebook.com/sharer.php?u={{ canonical_url | url_encode }}" class="share-btn" data-share-fb>{{'logo-facebook.svg' | asset_url | img_tag }}</a>
                                 <a href="http://twitter.com/share?url={{ canonical_url | url_encode }}" class="share-btn" data-share-tw>{{'logo-twitter.svg' | asset_url | img_tag }}</a>
@@ -53,7 +53,7 @@
             <div class="col-sm-5 col-sm-offset-1 col-md-offset-2 col-lg-6">
                 <picture>
                     <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-catalina-deluxe-md.jpg?16332520148283092311" media="(min-width: {{ screenMd }})" />
-                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-catalina-deluxe-xs.jpg?16332520148283092311" alt="TODO" />
+                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-catalina-deluxe-xs.jpg?16332520148283092311" alt="Catalina Deluxe product photo" />
                 </picture>
             </div>
             <div class="col-sm-4 content-col">
@@ -69,7 +69,7 @@
                     <div class="overflow-content" id="credo-products">
                         <div class="col-sm-4">
                             <div class="partner-product">
-                                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-suntegrity-xs.jpg?12894104399104230321" alt="TODO" />
+                                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-suntegrity-xs.jpg?12894104399104230321" alt="Suntegrity product photo" />
                                 <h3 class="name">Suntegrity</h3>
                                 <p class="price">$ 45.00</p>
                                 <p class="description">Primer Sunscreen</p>
@@ -77,7 +77,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="partner-product">
-                                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-tata-harper-xs.jpg?6398483713818714938" alt="TODO" />
+                                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-tata-harper-xs.jpg?6398483713818714938" alt="Tata Harper product photo" />
                                 <h3 class="name">Tata Harper</h3>
                                 <p class="price">$ 58.00</p>
                                 <p class="description">Resurfacing Mask</p>
@@ -85,15 +85,15 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="partner-product">
-                                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-captain-blankenship-xs.jpg?16467406257500489603" alt="TODO" />
-                                <h3 class="name">Captain Blankenship </h3>
+                                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-captain-blankenship-xs.jpg?16467406257500489603" alt="Captain Blankenship product photo" />
+                                <h3 class="name">Captain Blankenship</h3>
                                 <p class="price">$ 28.00</p>
                                 <p class="description">Ray of Light Sea Salt Sun Spray</p>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="partner-product">
-                                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-juicy-bamboo-xs.jpg?6398483713818714938" alt="TODO" />
+                                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-juicy-bamboo-xs.jpg?6398483713818714938" alt="Juicy Bamboo product photo" />
                                 <h3 class="name">Juicy Bamboo</h3>
                                 <p class="price">$ 16.00</p>
                                 <p class="description">Facial Cleansing Cloths</p>
@@ -101,7 +101,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="partner-product">
-                                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-herbivore-botanicals-xs.jpg?6398483713818714938" alt="TODO" />
+                                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-herbivore-botanicals-xs.jpg?6398483713818714938" alt="Herbivore Botanicals product photo" />
                                 <h3 class="name">Herbivore Botanicals</h3>
                                 <p class="price">$ 20.00</p>
                                 <p class="description">After Sun Body Mist</p>
@@ -109,7 +109,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="partner-product">
-                                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-coola-xs.jpg?6398483713818714938" alt="TODO" />
+                                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/credo-coola-xs.jpg?6398483713818714938" alt="Coola product photo" />
                                 <h3 class="name">Coola</h3>
                                 <p class="price">$ 18.00</p>
                                 <p class="description">Mineral Lip in Summer Crush</p>
@@ -143,23 +143,24 @@
                         <div class="col-sm-6">
                             <div class="form-group floating-label">
                                 <label for="credo-fname">First name</label>
-                                <input name="fname" id="credo-fname" type="text" class="form-control" placeholder="First name">
+                                <input name="fname" id="credo-fname" type="text" class="form-control required" placeholder="First name">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group floating-label">
                                 <label for="credo-lname">Last name</label>
-                                <input name="lname" id="credo-lname" type="text" class="form-control" placeholder="Last name">
+                                <input name="lname" id="credo-lname" type="text" class="form-control required" placeholder="Last name">
                             </div>
                         </div>
                     </div>
                     <div class="form-group floating-label">
                         <label for="credo-email">Email address</label>
-                        <input name="email" id="credo-email" type="email" class="form-control" placeholder="Email address">
+                        <input name="email" id="credo-email" type="email" class="form-control required" placeholder="Email address">
                     </div>
                     <div class="form-group select-wrapper floating-label has-value">
                         <label for="credo-country">Country</label>
                         <select class="form-control" name="country" id="credo-country">
+                            <option value="">Select...</option>
                             <option value="US">United States</option>
                             <option value="AF">Afghanistan</option>
                             <option value="AX">Åland Islands</option>

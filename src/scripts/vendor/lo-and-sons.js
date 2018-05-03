@@ -571,6 +571,7 @@ LS.productVideoOpen = function(videoId){
 	// but only when that size isn't wider than the current window
 	var iframeEmbedWidth = $iframe.attr('width');
 	var ratio = ( $(window).height() * 0.8 ) / $iframe.attr('height');
+	console.log(iframeEmbedWidth * ratio, $(window).width());
 	if( iframeEmbedWidth * ratio > $(window).width() ){
 		$container.css('width', '100%');
 	}else{
