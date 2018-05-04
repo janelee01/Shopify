@@ -40,24 +40,15 @@
 }
 
 @font-face {
-    font-family: "Circular-Pro-Bolditalic";
-    src:url("lineto-circular-pro-bolditalic.eot");
-    src:url("lineto-circular-pro-bolditalic.eot?#iefix") format("embedded-opentype"),
-        url("lineto-circular-pro-bolditalic.woff2") format("woff2"),
-        url("lineto-circular-pro-bolditalic.woff") format("woff");
+    font-family: "Circular-Pro-Bookitalic";
+    src:url("lineto-circular-pro-bookitalic.eot");
+    src:url("lineto-circular-pro-bookitalic.eot?#iefix") format("embedded-opentype"),
+        url("lineto-circular-pro-bookitalic.woff2") format("woff2"),
+        url("lineto-circular-pro-bookitalic.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
-@font-face {
-    font-family: "Circular-Pro-Blackitalic";
-    src:url("lineto-circular-pro-blackitalic.eot");
-    src:url("lineto-circular-pro-blackitalic.eot?#iefix") format("embedded-opentype"),
-        url("lineto-circular-pro-blackitalic.woff2") format("woff2"),
-        url("lineto-circular-pro-blackitalic.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-}
 
 @font-face {
     font-family: "Circular-Pro-Medium";
@@ -75,26 +66,6 @@
     src:url("lineto-circular-pro-mediumitalic.eot?#iefix") format("embedded-opentype"),
         url("lineto-circular-pro-mediumitalic.woff2") format("woff2"),
         url("lineto-circular-pro-mediumitalic.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Circular-Pro-Black";
-    src:url("lineto-circular-pro-black.eot");
-    src:url("lineto-circular-pro-black.eot?#iefix") format("embedded-opentype"),
-        url("lineto-circular-pro-black.woff2") format("woff2"),
-        url("lineto-circular-pro-black.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Circular-Pro-Bookitalic";
-    src:url("lineto-circular-pro-bookitalic.eot");
-    src:url("lineto-circular-pro-bookitalic.eot?#iefix") format("embedded-opentype"),
-        url("lineto-circular-pro-bookitalic.woff2") format("woff2"),
-        url("lineto-circular-pro-bookitalic.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }

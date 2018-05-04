@@ -207,6 +207,144 @@ $(document).ready(function() {
 	  $loginTitle.text($loginTitle.data('reset-text')).addClass('has-divider');
 	}
 
+	if( $('.discover .hero').length ){
+		$('.discover .hero picture').addClass('in');
+	}
+
+	/*
+	Discover pages: Title & Price in CTA can't stack naturally
+	 */
+	var $ctaTitles = $('[data-cta-titles]');
+	var positionCtaTitles = function(){
+		var w = $(window).width();
+		if( $ctaTitles.length == 1 ){
+			if( w < 1025 && $('.discover-cta .section-content').find('[data-cta-titles]').length ){
+				$ctaTitles.detach().prependTo('.discover-cta');
+			}else if( w >= 1025 && $('.discover-cta .section-content').find('[data-cta-titles]').length < 1 ){
+				$ctaTitles.detach().prependTo('.discover-cta .section-content');
+			}
+		}else{
+			$ctaTitles.each(function(){
+				var $topContainer = $(this).closest('.cta-block').find('[data-cta-top]');
+				var $bottomContainer = $(this).closest('.cta-block').find('.overlay .figure-caption');
+				if( w >= 768 && w < 1025 && $(this).closest('.figure-caption').length ){
+					$(this).detach().prependTo($topContainer);
+				}else if( (w < 768 || w >= 1025) && $bottomContainer.find('[data-cta-titles]').length < 1 ){
+					$(this).detach().prependTo($bottomContainer);
+				}
+			});
+		}
+	};
+
+	if( $ctaTitles.length ){
+		positionCtaTitles();
+		$(window).resize(function(){
+			positionCtaTitles();
+		});
+	}
+
+	/*
+	Discover pages: match heights for Press elements
+	 */
+	var getEqualizedHeight = function($elements){
+		var height = 0;
+		$elements.each(function(){
+			if( $(this).outerHeight() > height ){
+				height = $(this).outerHeight();
+			}
+		});
+		return height;
+	}
+	var equalizePr = function(){
+		if( $(window).width() >= 1025 ){
+			$('.pr-logo').height( getEqualizedHeight($('.pr-logo')) );
+		}else{
+			$('.pr-logo').removeAttr('style');
+		}
+	}
+	if( $('.pr-items').length ){
+		equalizePr();
+		$(window).resize(function(){
+			equalizePr();
+		});
+	}
+
+	/*
+	Side scrolling indicators
+	 */
+	if( $('.overflow-row').length ){
+		$(window).load(function(){ // make sure we have the image
+			$('.overflow-row').each(function(){
+				var $scrollEl = $(this);
+				var $indicators = $( $scrollEl.data('indicators') ).children();
+				var $prev = $(this).closest('.overflow-window').find('.overflow-control.prev');
+				var $next = $(this).closest('.overflow-window').find('.overflow-control.next');
+				// scrop out the scrollbar
+				var elHeight = $(this).closest('.overflow-window').height();
+				$(this).closest('.overflow-window').height(elHeight - 20);
+				
+				// easier to work with
+				var amountToScroll = $scrollEl.find('.overflow-content').width() - $scrollEl.width();
+				var indicatorValue = 100 / $indicators.length;
+
+				$scrollEl.on('scroll', function(){
+					var scrollCompletion = $scrollEl.scrollLeft() / amountToScroll * 100;
+					$indicators.each(function(index){ 
+						// index * indicatorValue creates percentage benchmarks for the scrollCompletion to cross
+						// example: 4 items will create 0/25/50/75
+						if( scrollCompletion >= index * indicatorValue  ){ 
+							$indicators.removeClass('active');
+							$(this).addClass('active');
+						}
+					});
+					// if we have controls, maybe enable/disable them when appropriate
+					if( $prev.length && $next.length ){
+						if( scrollCompletion < 10 ){
+							$prev.addClass('disabled').attr('disabled', true);
+						}else if( scrollCompletion > 90) {
+							$next.addClass('disabled').attr('disabled', true);
+						}else{
+							$prev.removeClass('disabled').attr('disabled', false);
+							$next.removeClass('disabled').attr('disabled', false);
+						}
+					}
+				});
+			});
+		});
+		$('.overflow-control').on('click', function(e){ 
+		    e.preventDefault();
+		    var $scrollEl = $(this).closest('.overflow-window').find('.overflow-row');
+		    var $prev = $(this).closest('.overflow-window').find('.overflow-control.prev');
+		    var $next = $(this).closest('.overflow-window').find('.overflow-control.next');
+		    var $indicators = $($scrollEl.data('indicators'));
+		    var numItems = $scrollEl.find('.overflow-content').children().length;
+		    var stepWidth =  $scrollEl.find('.overflow-content').width() / numItems;
+		    var currentIndex = $indicators.children().index( $indicators.find('.active') );
+
+		    // determine where we should scroll to
+		    if( $(this).hasClass('next') ){
+		    	var nextIndex = currentIndex + 1; 
+		    }else{
+		    	var nextIndex = currentIndex - 1; 
+		    }
+
+		    // do it
+		    $scrollEl.animate({
+		    	scrollLeft : nextIndex * stepWidth 
+		    }, 500, 'swing', function(){
+		    	// maybe enable/disable buttons when animation completed
+		    	if( nextIndex - 1 == -1 ){ // at first element
+		    		$prev.addClass('disabled').attr('disabled', true);
+		    	}else if( nextIndex + 1 == numItems ){ // at last element
+		    		$next.addClass('disabled').attr('disabled', true);
+		    	}else{
+		    		$prev.removeClass('disabled').attr('disabled', false);
+		    		$next.removeClass('disabled').attr('disabled', false);
+		    	}
+		    });
+		});
+	}
+	
 
 	/* Newsletter Prompt - disabled */
 	// $('#newsletter-prompt .panel-close, #newsletter-prompt .btn').on('click', function(){
@@ -515,14 +653,97 @@ $(document).ready(function() {
 		sessionStorage.setItem('lo-back-to', window.location.href); // for use in the cart
 	}
 
-    if($('article.edgemont').length) {
-
+    if( $('article.edgemont').length || $('article.discover').length ) {
+    	var srollaEnabled = false;
         if($(window).width() > 1024) {
             $('.animate').scrolla({
                 once: true
             });
+            srollaEnabled = true;
 		}
-
+		// images will stay missing if you start small and resize large
+		$(window).resize(function(){
+	        if($(window).width() > 1024 && !srollaEnabled) {
+	            $('.animate').scrolla({
+	                once: true
+	            });
+	            srollaEnabled = true;
+			}
+		});
     }
+
+    /*
+    Simple Sharing
+     */
+    $('.share-btn').on('click', function(e){
+        if( !$(this).hasClass('email') ){
+            e.preventDefault(); 
+            window.open($(this).attr('href'), 'shareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+        }
+    });
+
+    /*
+    Credo LP
+     */
+    $('[href="#credo-tc"]').on('click', function(e){
+        e.preventDefault();
+        $('#credo-tc').fadeIn();
+    });
+    $('#credo-tc .panel-close').on('click', function(e){
+        e.preventDefault();
+        $('#credo-tc').fadeOut();
+    });
+	$("#credo-subscribe").on('submit', function(e) {
+        e.preventDefault();
+        var $form = $(this);
+        var numErrors = 0;
+        $form.find('.validation-error').remove();
+        $form.find('.form-control.required').each(function(){
+        	if( !$(this).val() ){
+        		numErrors++;
+        		$('<small class="validation-error">This field is required.</small>')
+        			.insertAfter($(this))
+        			.fadeIn()
+        			.css('display','block');
+        	}
+        });
+
+        if( numErrors > 0 ) return; 
+        
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://manage.kmail-lists.com/subscriptions/external/subscribe",
+            "method": "POST",
+            "headers": {
+                "content-type": "application/x-www-form-urlencoded",
+                "cache-control": "no-cache"
+            },
+            "data": {
+                "g": "Kh3kFv", // KUBRaR main list
+                "$fields": "Sign Up Source, Country",
+                "email": $('#credo-email').val(),
+                "first_name": $('#credo-fname').val(),
+                "last_name": $('#credo-lname').val(),
+                "phone_number" : $('#credo-phone').val(),
+                "Sign Up Source": "Credo Giveaway May 2018",
+                "Country" : $('#credo-country').val()
+            }
+        };
+        $.ajax(settings)
+        	.fail(function(jqXHR, textStatus, errorThrown){
+        		$('<small class="validation-error">Something went wrong. Perhaps you\'ve already subscribed to our list? <a href="/pages/support#contact">Contact us</a> for further assistance.</small>')
+        			.appendTo($form)
+        			.fadeIn()
+        			.css('display','block');
+        	})
+        	.done(function (response) {
+	            if( response.success ){
+	            	$form.hide();
+	            	$("#credo-subscribe-success").fadeIn();
+	            }
+	        });
+    });
+
 	
 });

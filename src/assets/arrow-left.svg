@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="15px" viewBox="0 0 19 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="credo-promotion" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01-Credo-promotion-desktop" transform="translate(-805.000000, -574.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="Header" transform="translate(0.000000, 64.000000)">
+                <g id="text" transform="translate(805.000000, 234.000000)">
+                    <g id="arrow" transform="translate(9.500000, 283.500000) rotate(-180.000000) translate(-9.500000, -283.500000) translate(0.000000, 276.000000)">
+                        <path d="M18.6847942,6.78331322 L11.7978717,0.296817969 C11.3776834,-0.0989393229 10.6962224,-0.0989393229 10.2760341,0.296817969 C9.85575963,0.692656341 9.85575963,1.33433288 10.2760341,1.73017126 L15.325956,6.48647498 L1.07608163,6.48647498 C0.48182631,6.48647498 0,6.94028641 0,7.49998986 C0,8.05961224 0.48182631,8.51350475 1.07608163,8.51350475 L15.325956,8.51350475 L10.2762062,13.2698085 C9.8559318,13.6656468 9.8559318,14.3073234 10.2762062,14.7031618 C10.4862574,14.9009188 10.7617343,15 11.0371251,15 C11.3125159,15 11.5879067,14.9009188 11.7980439,14.7031618 L18.6847942,8.21666651 C19.1050686,7.82082814 19.1050686,7.17915159 18.6847942,6.78331322 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

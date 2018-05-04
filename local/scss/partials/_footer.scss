@@ -1,11 +1,11 @@
 #newsletter-signup{
-	padding: 75px 0;
+	padding: 35px 25px;
 	text-align: center;
 	max-width: 720px;
 	margin: 0 auto;
 
-    @media ( max-width: 768px ) {
-        padding: 35px 0;
+    @media ( min-width: $screen-sm ) {
+        padding: 75px 0;
     }
 
 	label{
@@ -19,10 +19,6 @@
         margin-right: auto;
 		letter-spacing: -.4px;
 		line-height: 26px;
-
-		@media ( max-width: 560px ) {
-			max-width: 300px;
-		}
 
 		@media (min-width: $screen-sm) {
 			font-size: 24px;
@@ -46,7 +42,7 @@
 	.form-group{
 		margin: 0;
 		position: relative;
-		@media (min-width: 768px ) {
+		@media (min-width: $screen-sm ) {
 			width: 389px;
 			margin-left: auto;
 			margin-right: auto;
@@ -58,25 +54,17 @@
 		}
 	}
 	.form-control{
-		background: #f8f8f8;
-		border-color: #f8f8f8;
+		background: #fff;
+		border: solid 1px #E6E6E6;
 		padding-right: 72px;
 		padding-left: 25px;
-		height: 55px;
+		height: 50px;
 		width: 100%;
-		font-size: 18px;
+		font-size: 16px;
 		font-family: $font-family-sans-serif;
-
-        @media ( max-width: 767px ) {
-            border: none;
-            box-shadow: none;
-        }
-
-		@media (min-width: 768px ) {
-			border-color: #E6E6E6;
-			background: none;
+		box-shadow: none;
+		@media (min-width: $screen-sm ) {
 			height: 55px;
-
 		}
 	}
 	.alert{
@@ -99,7 +87,7 @@
 	top: 0;
 	right: 0;
 	padding: 0;
-	@include square(55px);
+	@include square(50px);
 	@media (min-width: $screen-sm) {
 		@include square(55px);
 		@include transition(all .3s ease-out);
@@ -148,7 +136,7 @@
 .footer-menu{
 	.menu-title{
 		font-size: 20px;
-		font-family: $font-family-semibold;
+		font-family: $font-family-medium;
 		margin-top: 10px;
 		margin-bottom: 19px;
 	}

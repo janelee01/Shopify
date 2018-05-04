@@ -25,6 +25,9 @@
 	position: relative;
 	top: 50%;
 	z-index: 2;
+	@media (min-width: $screen-sm) {
+		max-width: 80%;
+	}
 }
 #product-galleries{
 	margin-bottom: 25px;
@@ -198,7 +201,7 @@
 		font-size: 30px;
 		display: inline-block;
 		vertical-align: middle;
-		font-family: $font-family-semibold;
+		font-family: $font-family-medium;
 	}
 	[data-compare-price]{
 		color: $gray;
@@ -306,7 +309,7 @@
 		@include collapsing-panel-toggle;
 		margin-bottom: 0;
 		cursor: pointer;
-		font-family: $font-family-semibold;
+		font-family: $font-family-medium;
 		font-size: 18px;
 		@media (min-width: $screen-md) {
 			font-size: 24px;
@@ -393,7 +396,7 @@
 	}
 	dt{
 		font-weight: normal;
-		font-family: $font-family-semibold;
+		font-family: $font-family-medium;
 		font-size: 18px;
 		margin-bottom: 15px;
 		@media (min-width: $screen-md) {
@@ -429,7 +432,7 @@
 		margin: 0;
 		font-size: 18px;
 		line-height: 30px;
-		font-family: $font-family-semibold;
+		font-family: $font-family-medium;
 		@media (min-width: $screen-md) {
 			margin: 0 0 15px;
 			font-size: 22px;
@@ -453,7 +456,7 @@
 		}
 	}
 	.review-date{
-		font-family: $font-family-semibold;
+		font-family: $font-family-medium;
 		color: $gray-darker;
 		@media (max-width: $screen-sm-max) {
 		    font-size: 15px;

@@ -50,7 +50,7 @@
 	margin-bottom: 40px;
 	padding-bottom: 20px;
 	color: $gray-darker;
-	font-family: $font-family-semibold;
+	font-family: $font-family-medium;
 	@media (min-width: $screen-md) {
 		margin-bottom: 45px;
 		padding-bottom: 25px;
@@ -105,4 +105,9 @@
 		color: #fff;
 		background: rgba(255,255,255,.1);
 	}
+}
+
+@mixin fslh($fontSize, $lineHeight){
+	font-size: #{$fontSize}px;
+	line-height: calculateEm($lineHeight, $fontSize);
 }

@@ -61,7 +61,7 @@ h6, .h6 {
 }
 .has-bar{
 	line-height: 1;
-	font-family: $font-family-semibold;
+	font-family: $font-family-medium;
 	font-size: 30px;
 	display: inline-block;
 	position: relative;
@@ -221,7 +221,7 @@ hr.mini-divider{
 	}
 }
 .btn{
-	font-family: $font-family-semibold;
+	font-family: $font-family-medium;
 	background: $brand-blue;
 	border: solid 1px $brand-blue;
 	color: #FFF;

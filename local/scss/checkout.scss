@@ -56,7 +56,7 @@ body{
 }
 .main{
 	h2{
-		font-family: $font-family-semibold;
+		font-family: $font-family-medium;
 	}
 	.input-checkbox{
 		width: 24px;
@@ -117,7 +117,7 @@ body{
 		bottom: 0.5em;
 	}
 	.order-summary__emphasis{
-		font-family: $font-family-semibold;
+		font-family: $font-family-medium;
 		font-weight: normal;
 		font-size: 18px;
 		line-height: 20px;

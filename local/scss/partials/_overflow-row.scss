@@ -1,0 +1,55 @@
+.overflow-window{
+	overflow-y: hidden; // js will adjust the height to crop out the scrollbar
+	margin-bottom: 40px;
+	position: relative;
+	@media (min-width: $screen-sm) {
+		margin-bottom: 55px;
+	}
+}
+.overflow-row{
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+.overflow-content{
+	padding-bottom: 20px; // push the scrollbar down
+}
+.overflow-position{
+	display: flex;
+	margin-bottom: 40px;
+	@media (min-width: $screen-sm) {
+		display: none;
+	}
+	div{
+		height: 2px;
+		flex: 1;
+		margin: 0 8px;
+		background: #CFCFCF;
+		&.active{
+			background: #979797;
+		}
+	}
+}
+.overflow-control{
+	position: absolute;
+	top: 50%;
+	left: 14px;
+	margin-top: -20px;
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: url('arrow-left.svg') no-repeat center center;
+	padding: 0;
+	border: 0;
+	-webkit-appearance: none;
+	&.next{
+		left: auto;
+		right: 14px;
+		background-image: url('arrow-right-black.svg');
+	}
+	&.disabled{
+		opacity: .2;
+	}
+	@media (min-width: $screen-sm) {
+		display: none;
+	}
+}
