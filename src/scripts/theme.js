@@ -725,9 +725,7 @@ $(document).ready(function() {
                 "email": $('#credo-email').val(),
                 "first_name": $('#credo-fname').val(),
                 "last_name": $('#credo-lname').val(),
-                "phone_number" : $('#credo-phone').val(),
-                "Sign Up Source": "Credo Giveaway May 2018",
-                "Country" : $('#credo-country').val()
+                "Sign Up Source": "Credo Giveaway May 2018"
             }
         };
         $.ajax(settings)
