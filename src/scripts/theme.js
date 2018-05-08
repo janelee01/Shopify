@@ -728,7 +728,7 @@ $(document).ready(function() {
                 "Sign Up Source": "Credo Giveaway May 2018"
             }
         };
-        $.ajax(settings)
+        $.ajax(settings) 
         	.fail(function(jqXHR, textStatus, errorThrown){
         		$('<small class="validation-error">Something went wrong. Perhaps you\'ve already subscribed to our list? <a href="/pages/support#contact">Contact us</a> for further assistance.</small>')
         			.appendTo($form)
