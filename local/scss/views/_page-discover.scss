@@ -790,3 +790,20 @@ Specific things
 		justify-content: flex-end;
 	}
 }
+
+#hanover-organized{
+	@media (min-width: $screen-md) {
+		max-width: 1100px;
+		.row{
+			margin-left: -7px;
+			margin-right: -8px;
+		}
+		[class^="col-"]{
+			padding-left: 7px;
+			padding-right: 8px;
+		}
+	}
+	@media (min-width: $screen-lg) {
+		max-width: 1498px;
+	}
+}
