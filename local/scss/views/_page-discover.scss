@@ -489,6 +489,12 @@
 		}
 	}
 
+	.topic-end-negate-sm{
+		@media (max-width: $screen-sm-max) {
+		    margin-bottom: 0;
+		}
+	}
+
 	/*
 	when content center aligns against an image
 	 */
@@ -673,14 +679,19 @@
 		margin: 0;
 		border-top-color: #EAEAEA;
 	}
-	.offset-top{
-		@media (min-width: $screen-md) {
-			margin-top: 50px;
+	.offset-top-sm{
+		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+			margin-top: 60px;
+		}
+	}
+	.offset-top-md{
+		@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+			margin-top: 60px;
 		}
 	}
 	.offset-top-lg{
-		@media (min-width: $screen-sm) {
-			margin-top: 100px;
+		@media (min-width: $screen-lg) {
+			margin-top: 80px;
 		}
 	}
 }
@@ -788,5 +799,12 @@ Specific things
 	@media (min-width: $screen-md) {
 		flex-direction: row-reverse;
 		justify-content: flex-end;
+	}
+}
+
+#waverley-materials-1{
+	margin-bottom: $mobile-gutter;
+	@media (min-width: $screen-sm) {
+		margin-bottom: 0;
 	}
 }

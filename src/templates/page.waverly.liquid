@@ -1,0 +1,263 @@
+{% include 'discover-vars' %}
+
+{%- assign ctaImgCol = 'col-md-7' -%}
+{%- assign ctaContentCol = 'col-md-5' -%}
+{%- assign ctaTitle = 'Waverley' -%}
+{%- assign ctaPrice = '$458' -%}
+{%- assign ctaLink = '/products/waverley-nappa-leather-black-gold-grey' -%}
+{%- assign ctaImgXs = 'https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-cta-xs.jpg?10288560562297052543' -%}
+{%- assign ctaImgMd = 'https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-cta-md.jpg?10302657232829259814' -%}
+
+<article class="discover">
+    <nav class="page-nav theme-light has-button">
+        <div class="container-fluid">
+            <span class="page-nav-title">{{ ctaTitle }}</span>
+            <a href="#" id="page-nav-items-toggle"></a>
+            <ul class="page-nav-actions">
+                <li><a href="{{ ctaLink }}" class="btn btn-primary">Buy Now</a></li>
+            </ul>
+            <ul class="page-nav-items">
+                <li><a href="#nav-target-1" class="page-nav-item">Flexible</a></li>
+                <li><a href="#nav-target-2" class="page-nav-item">Storage</a></li>
+                <li><a href="#nav-target-3" class="page-nav-item">Materials</a></li>
+                <li><a href="#nav-target-4" class="page-nav-item">Press</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="max-container">
+        <div class="theme-white hero">
+            <picture>
+                <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-hero-lg.jpg?1926340266516410134" media="(min-width: {{ screenLg }})" />
+                <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-hero-md.jpg?1926340266516410134" media="(min-width: {{ screenMd }})" />
+                <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-hero-sm.jpg?1926340266516410134" media="(min-width: {{ screenSm }})" />
+                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-hero-xs.jpg?1926340266516410134" alt="woman walking with Waverley at wind farm" />
+            </picture>
+            <div class="hero-content right">
+                <h1 class="block-title"><span class="block-subtitle">Discover</span> Waverley</h1>
+                <p class="block-description">A stylish travel crossbody bag that adapts to any destination.</p>
+                <a href="#" data-video-id="1" class="overview-video-trigger">
+                    <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video" />
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row animate topic-end-lg" {{ animateFadeInUp }}>
+            <div class="col-sm-10 col-sm-offset-1">
+                <picture>
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-product-photo-md.jpg?10288560562297052543" media="(min-width: {{ screenMd }})" />
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-product-photo-sm.jpg?10288560562297052543" media="(min-width: {{ screenSm }})" />
+                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-product-photo-sm.jpg?10288560562297052543" alt="Waverley product shot" />
+                </picture>
+            </div>
+        </div>
+
+        <div class="animate" {{ animateFadeInUp }}>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
+                    <h2 class="block-title"><a id="nav-target-1" class="jumptarget"></a>Wear it 4 Ways</h2>
+                    <p class="block-description">Convert the Waverley from a belt bag to a crossbody, shoulder bag, or a wristlet.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row animate align-centers-md reversed topic-end-md topic-end-negate-sm" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-lg-7">                    
+                <picture class="fw-xs">
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-belt-bag-md.jpg?10288560562297052543" media="(min-width: {{ screenMd }})" />
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-belt-bag-sm.jpg?10288560562297052543" media="(min-width: {{ screenSm }})" />
+                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-belt-bag-xs.jpg?10288560562297052543" alt="Waverley as a belt bag" />
+                </picture>
+            </div>
+            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 col-lg-offset-0 content-col">                    
+                <div class="figure-caption text-center-sm">
+                    <h3 class="title">Belt Bag</h3>
+                    <p class="description">Lorem ipsum dolor sit amet constur adipiscing elit. Proin ultrices nibh interdum pell.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row animate align-centers-md topic-end-md topic-end-negate-sm" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 col-lg-7">                    
+                <picture class="fw-xs">
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-crossbody-bag-md.jpg?10288560562297052543" media="(min-width: {{ screenMd }})" />
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-crossbody-bag-sm.jpg?10288560562297052543" media="(min-width: {{ screenSm }})" />
+                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-crossbody-bag-xs.jpg?10288560562297052543" alt="Waverley as a crossbody bag" />
+                </picture>
+            </div>
+            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
+                <div class="figure-caption text-center-sm">
+                    <h3 class="title">Crossbody Bag</h3>
+                    <p class="description">Lorem ipsum dolor sit amet constur adipiscing elit. Proin ultrices nibh interdum pell.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row animate align-centers-md reversed topic-end-md topic-end-negate-sm" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-lg-7">                    
+                <picture class="fw-xs">
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-shoulder-bag-md.jpg?10288560562297052543" media="(min-width: {{ screenMd }})" />
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-shoulder-bag-sm.jpg?10288560562297052543" media="(min-width: {{ screenSm }})" />
+                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-shoulder-bag-xs.jpg?10288560562297052543" alt="Waverley as a shoulder bag" />
+                </picture>
+            </div>
+            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 col-lg-offset-0 content-col">                    
+                <div class="figure-caption text-center-sm">
+                    <h3 class="title">Shoulder Bag</h3>
+                    <p class="description">Lorem ipsum dolor sit amet constur adipiscing elit. Proin ultrices nibh interdum pell.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row animate align-centers-md topic-end-md topic-end-negate-sm" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 col-lg-7">                    
+                <picture class="fw-xs">
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-wristlet-md.jpg?10288560562297052543" media="(min-width: {{ screenMd }})" />
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-wristlet-sm.jpg?10288560562297052543" media="(min-width: {{ screenSm }})" />
+                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-wristlet-xs.jpg?10288560562297052543" alt="Waverley as a wristlet" />
+                </picture>
+            </div>
+            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
+                <div class="figure-caption text-center-sm">
+                    <h3 class="title">Wristlet</h3>
+                    <p class="description">Lorem ipsum dolor sit amet constur adipiscing elit. Proin ultrices nibh interdum pell.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row visible-sm" style="margin-bottom: 80px">
+            <div class="col-sm-10 col-sm-offset-1">
+                <hr>
+            </div>
+        </div>
+
+        <div class="animate" {{ animateFadeInUp }}>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
+                    <h2 class="block-title"><a id="nav-target-2" class="jumptarget"></a>Easy Access</h2>
+                    <p class="block-description">The Waverley keep your most essential items neatly organized on the road.</p>
+                </div>
+            </div>
+            <div class="row" {{ animateFadeInUp }}>
+                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0">                    
+                    <picture class="fw-xs">
+                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-slip-pocket-md.jpg?10288560562297052543" media="(min-width: {{ screenMd }})" />
+                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-slip-pocket-sm.jpg?10288560562297052543" media="(min-width: {{ screenSm }})" />
+                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-slip-pocket-xs.jpg?10288560562297052543" alt="slip pocket" />
+                    </picture>
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-0">
+                            <div class="figure-caption text-center-sm">
+                                <h3 class="title">1 big slip pocket</h3>
+                                <p class="description">Lorem ipsum dolor sit amet constur adipiscing elit. Proin ultrices nibh interdum pell.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 offset-top-md offset-top-lg">                    
+                    <picture class="fw-xs">
+                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-card-pockets-md.jpg?10288560562297052543" media="(min-width: {{ screenMd }})" />
+                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-card-pockets-sm.jpg?10288560562297052543" media="(min-width: {{ screenSm }})" />
+                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-card-pockets-xs.jpg?10288560562297052543" alt="card pockets" />
+                    </picture>
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-0">
+                            <div class="figure-caption text-center-sm">
+                                <h3 class="title">3 small card pockets</h3>
+                                <p class="description">Lorem ipsum dolor sit amet constur adipiscing elit. Proin ultrices nibh interdum pell.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="max-container has-overlay-xs fw-image topic-end-lg animate" {{ animateFadeInUp }}>
+        <picture>
+            <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-what-fits-inside-md.jpg?17340766614772410027" media="(min-width: {{ screenLg }})" />
+            <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-what-fits-inside-sm.jpg?15866141094851439234" media="(min-width: {{ screenSm }})" />
+            <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-what-fits-inside-xs.jpg?15866141094851439234" alt="video showing how to pack the Waverley" />
+        </picture>
+        <div class="row theme-white text-center">
+            <div class="content-col">
+                <div class="figure-caption">
+                    <h3 class="title">What Fits Inside</h3>
+                    <a href="#" data-video-id="2" class="overview-video-trigger">
+                        <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-6 col-sm-offset-3 text-center">                    
+                <h2 class="block-title"><a id="nav-target-3" class="jumptarget"></a>Premium Materials</h2>
+                <p class="block-description">Designed with thoughtful details and crafted from world class materials.</p>
+            </div>
+        </div>
+
+        <div class="row animate topic-end-md" {{ animateFadeInUp }}>
+            <div class="col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-5 col-lg-offset-1 offset-top-sm offset-top-md offset-top-lg">
+                <picture id="waverley-materials-1" class="fw-xs">
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-materials-1-md.jpg?1273838741384598421" media="(min-width: {{ screenMd }})" />
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-materials-1-sm.jpg?15866141094851439234" media="(min-width: {{ screenSm }})" />
+                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-materials-1-xs.jpg?15866141094851439234" alt="close up of Waverley" />
+                </picture>
+            </div>
+            <div class="col-sm-5 col-md-4 col-lg-5">
+                <picture>
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-materials-2-md.jpg?1273838741384598421" media="(min-width: {{ screenMd }})" />
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-materials-2-sm.jpg?15866141094851439234" media="(min-width: {{ screenSm }})" />
+                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-materials-2-xs.jpg?15866141094851439234" alt="close up of Waverley strap clip" />
+                </picture>
+            </div>
+        </div>
+
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">
+                <picture class="fw-xs">
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-materials-3-md.jpg?13602004761593455619" media="(min-width: {{ screenMd }})" />
+                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-materials-3-sm.jpg?13602004761593455619" media="(min-width: {{ screenSm }})" />
+                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/waverley-materials-3-xs.jpg?13602004761593455619" alt="Waverley on dock with iphone" />
+                </picture>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="container pr-items animate" {{ animateFadeInUp }}>
+        <h2 class="block-title text-center"><a id="nav-target-4" class="jumptarget"></a>Traveler Approved</h2>
+        <div class="row topic-end-md">
+            <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
+                <blockquote class="pr">
+                    <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/travel-channel-logo.svg?15338545032145631141" alt="Travel Channel logo"></p>
+                    <p class="pr-quote">&ldquo;What’s not to love about this sleek, versatile bag? It’s perfect for keeping your phone, passport and credit cards close, without sacrificing style. It comes in four beautiful colors, and can be worn like a crossbody handbag or an updated version of the fanny pack.&rdquo;</p>
+                </blockquote>
+            </div>
+            <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-0 col-lg-4">
+                <blockquote class="pr">
+                    <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/today-logo.svg?15338545032145631141" alt="Today logo"></p>
+                    <p class="pr-quote">&ldquo;The fanny pack is sort of back in a way. For travel it's so smart. I need to be hands free when traveling with two kids. It's great to put your passport and all of your important things without reaching back and getting all twisted up.&rdquo;</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+    {% include 'discover-cta' %}
+
+    <script>// <![CDATA[
+    var video1Embed = '<iframe src="//player.vimeo.com/video/190575966?player_id=vimeo-pearl&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-pearl" class="vimeo"></iframe>';
+    var video2Embed = '<iframe src="//player.vimeo.com/video/190575346?player_id=vimeo-pearl&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-pearl" class="vimeo"></iframe>';
+    // ]]></script>
+
+    {% include 'video-modal' %}
+
+</article>

@@ -1,13 +1,13 @@
 <div class="discover-cta">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="{{ ctaImgCol }}">
                 <picture>
                     <source srcset="{{ ctaImgMd }}" media="(min-width: {{ screenSm }})">
                     <img src="{{ ctaImgXs }}" alt="Shop {{ ctaTitle }}">
                 </picture>
             </div>
-            <div class="col-md-6">
+            <div class="{{ ctaContentCol}}">
                 <div class="section-content">
                     <div data-cta-titles>{% comment %} name and price moves above the image on tablet{% endcomment %}
                         <p class="block-title">{{ ctaTitle }}</p>
