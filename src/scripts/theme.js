@@ -208,12 +208,12 @@ $(document).ready(function() {
 	}
 
 	if( $('.discover .hero').length ){
-		$('.discover .hero picture').addClass('in');
+		$('.discover .hero').addClass('in');
 	}
 
 	/*
 	Discover pages: Title & Price in CTA can't stack naturally
-	 */
+	
 	var $ctaTitles = $('[data-cta-titles]');
 	var positionCtaTitles = function(){
 		var w = $(window).width();
@@ -242,6 +242,7 @@ $(document).ready(function() {
 			positionCtaTitles();
 		});
 	}
+	*/
 
 	/*
 	Discover pages: match heights for Press elements

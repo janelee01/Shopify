@@ -7,7 +7,7 @@
 }
 .discover{
 	.blocks-bg{
-		background: $gray-lightest;
+		background: $gray-lightest; 
 	}
 	.container {
 		padding-left: $mobile-gutter;
@@ -37,6 +37,11 @@
 	.hero{
 		position: relative;
 		margin-bottom: 100px;
+		opacity: 0;
+		@include transition(opacity .4s ease-out);
+		&.in{
+			opacity: 1;
+		}
 		@media (min-width: $screen-sm) {  
 			margin-bottom: 80px;
 		}
@@ -45,13 +50,6 @@
 		}
 		@media (min-width: $screen-lg) {
 			margin-bottom: 130px;
-		}
-		picture{
-			opacity: 0;
-			@include transition(opacity .4s ease-out);
-			&.in{
-				opacity: 1;
-			}
 		}
 		img{
 			width: 100%;
@@ -802,9 +800,80 @@ Specific things
 	}
 }
 
+#hanover-minimalist-1,
 #waverley-materials-1{
 	margin-bottom: $mobile-gutter;
 	@media (min-width: $screen-sm) {
 		margin-bottom: 0;
+	}
+}
+
+#hanover-organized{
+	@media (min-width: $screen-md) {
+		max-width: 1100px;
+		.row{
+			margin-left: -7px;
+			margin-right: -8px;
+		}
+		[class^="col-"]{
+			padding-left: 7px;
+			padding-right: 8px;
+		}
+	}
+	@media (min-width: $screen-lg) {
+		max-width: 1498px;
+	}
+}
+
+#hanover-compare{
+	.block-title{
+		font-size: 30px;
+		@media (min-width: $screen-md) {
+			font-size: 30px;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 40px;
+		}
+	}
+	.block-description{
+		font-size: 19px;
+		@media (min-width: $screen-sm) {
+			font-size: 16px;
+		}
+		@media (min-width: $screen-md) {
+			font-size: 18px;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 28px;
+		}
+	}
+	@media (max-width: $screen-sm-max) {
+		picture{
+			margin-bottom: 55px;
+		}
+	}
+	@media (min-width: $screen-md) {
+		> *{
+			order: 0;
+		}
+		> .content-col{
+			order: 1;
+		}
+		.btn-set{
+			width: 250px;
+			p{
+				margin: 0;
+			}
+		}
+		.block-description{
+			margin-bottom: 1em;
+		}
+	}
+}
+#hanover-cta{
+	picture{
+		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+			max-width: 220px;
+		}
 	}
 }
