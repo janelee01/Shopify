@@ -1,22 +1,24 @@
 <div class="discover-cta">
     <div class="container">
         <div class="row">
+            <div class="{{ ctaContentCol}}">
+                <div class="section-content">
+                    <p class="block-title">{{ ctaTitle }}</p>
+                    <p class="block-price">{{ ctaPrice }}</p>
+                    <div class="btn-set hidden-xs hidden-sm">
+                        <p><a class="btn btn-secondary" href="{{ ctaLink }}">View colors &amp; sizes</a></p>
+                        <p><a class="btn" href="{{ ctaLink }}">Buy now</a></p>
+                    </div>
+                </div>
+            </div>
             <div class="{{ ctaImgCol }}">
                 <picture>
                     <source srcset="{{ ctaImgMd }}" media="(min-width: {{ screenSm }})">
                     <img src="{{ ctaImgXs }}" alt="Shop {{ ctaTitle }}">
                 </picture>
-            </div>
-            <div class="{{ ctaContentCol}}">
-                <div class="section-content">
-                    <div data-cta-titles>{% comment %} name and price moves above the image on tablet{% endcomment %}
-                        <p class="block-title">{{ ctaTitle }}</p>
-                        <p class="block-price">{{ ctaPrice }}</p>
-                    </div>
-                    <div class="btn-set">
-                        <p><a class="btn btn-secondary" href="{{ ctaLink }}">View colors &amp; sizes</a></p>
-                        <p><a class="btn" href="{{ ctaLink }}">Buy now</a></p>
-                    </div>
+                <div class="btn-set hidden-md hidden-lg">
+                    <p><a class="btn btn-secondary" href="{{ ctaLink }}">View colors &amp; sizes</a></p>
+                    <p><a class="btn" href="{{ ctaLink }}">Buy now</a></p>
                 </div>
             </div>
         </div>
