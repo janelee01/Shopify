@@ -1,10 +1,10 @@
 {% include 'discover-vars' %}
 
+{%- assign assetVersion = 10032446425132256139 -%}
 {%- assign ctaTitle = 'Catalina Deluxe Tote' -%}
 {%- assign ctaPrice = '$118 - $128' -%}
 {%- assign ctaLink = '/products/catalina-deluxe-tote-washed-canvas-dove-grey' -%}
-{%- assign ctaImgXs = 'https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-cta-xs.jpg?10032446425132256139' -%}
-{%- assign ctaImgMd = 'https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-cta-md.jpg?10032446425132256139' -%}
+{%- assign ctaImg = 'catalina-deluxe-tote-cta' -%}
 
 <article class="discover">
     <nav class="page-nav theme-light has-button">
@@ -25,11 +25,7 @@
     
     <div class="max-container">
         <div class="hero">
-            <picture>
-                <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-hero-image-md.jpg?11328545794779785905" media="(min-width: {{ screenMd }})" />
-                <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-hero-image-sm.jpg?11328545794779785905" media="(min-width: {{ screenSm }})" />
-                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-hero-image-xs.jpg?11328545794779785905" alt="woman at beach carrying the Catalina Deluxe Tote" />
-            </picture>
+            {% include 'discover-picture', name: 'catalina-deluxe-tote-hero-image', alt: 'woman at beach carrying the Catalina Deluxe Tote', retina: false, fw: false %}
             <div class="hero-content">
                 <h1 class="block-title"><span class="block-subtitle">Discover</span> Catalina <br />Deluxe Tote</h1>
                 <p class="block-description">The most compact addition to our line of Catalina bags.</p>
@@ -46,11 +42,7 @@
     <div class="container">
         <div class="row animate topic-end-lg" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1">
-                <picture>
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-product-photo-md.jpg?18230079624218076516" media="(min-width: {{ screenMd }})" />
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-product-photo-sm.jpg?18230079624218076516" media="(min-width: {{ screenSm }})" />
-                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-product-photo-xs.jpg?18230079624218076516" alt="Catalina Deluxe Tote product shot" />
-                </picture>
+                {% include 'discover-picture', name: 'catalina-deluxe-tote-product-photo', alt: 'Catalina Deluxe Tote product shot', retina: false, fw: false %}
             </div>
         </div>
 
@@ -63,11 +55,7 @@
             </div>
             <div class="row align-centers-md reversed topic-end-md">
                 <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-7 col-lg-offset-1">                    
-                    <picture class="fw-xs">
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-suitcase-handle-sleeve-md.jpg?11918978650349015018" media="(min-width: {{ screenMd }})" />
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-suitcase-handle-sleeve-sm.jpg?11918978650349015018" media="(min-width: {{ screenSm }})" />
-                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-suitcase-handle-sleeve-xs.jpg?11918978650349015018" alt="suitcase handle sleeve" />
-                    </picture>
+                    {% include 'discover-picture', name: 'catalina-deluxe-tote-suitcase-handle-sleeve', alt: 'suitcase handle sleeve', retina: false, fw: true %}
                 </div>
                 <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 col-lg-offset-0 content-col">                    
                     <div class="figure-caption text-center-sm">
@@ -80,11 +68,7 @@
         
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">
-                <picture class="fw-xs">
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-bottom-pocket-md.jpg?7384738400683953263" media="(min-width: {{ screenMd }})" />
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-bottom-pocket-sm.jpg?7384738400683953263" media="(min-width: {{ screenSm }})" />
-                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-bottom-pocket-xs.jpg?7384738400683953263" alt="bottom pocket" />
-                </picture>
+                {% include 'discover-picture', name: 'catalina-deluxe-tote-bottom-pocket', alt: 'bottom pocket', retina: false, fw: true %}
             </div>
         </div>
         <div class="row">
@@ -99,11 +83,7 @@
         <div class="row topic-end-md">
             <div class="col-sm-5 col-sm-offset-1 col-lg-6 col-lg-offset-0">
                 <div class="animate" {{ animateFadeInUp }}>
-                    <picture class="fw-xs">
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-messenger-strap-01-md.jpg?6926992181679804333" media="(min-width: {{ screenMd }})" />
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-messenger-strap-01-sm.jpg?6926992181679804333" media="(min-width: {{ screenSm }})" />
-                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-messenger-strap-01-xs.jpg?6926992181679804333" alt="woman demonstrating messenger strap" />
-                    </picture>
+                    {% include 'discover-picture', name: 'catalina-deluxe-tote-messenger-strap-01', alt: 'woman demonstrating messenger strap', retina: false, fw: true %}
                     <div class="row">
                         <div class="col-md-10 col-lg-8">
                             <div class="figure-caption">
@@ -115,21 +95,15 @@
                 </div>
             </div>
             <div class="col-sm-5 col-lg-6 col-lg-offset-0">
-                <picture class="offset-top-sm offset-top-md offset-top-lg animate" {{ animateFadeInUp }}>
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-messenger-strap-02-md.jpg?6926992181679804333" media="(min-width: {{ screenMd }})" />
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-messenger-strap-02-sm.jpg?6926992181679804333" media="(min-width: {{ screenSm }})" />
-                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-messenger-strap-02-xs.jpg?6926992181679804333" alt="messenger strap close up" />
-                </picture>
+                <div class="offset-top-sm offset-top-md offset-top-lg animate" {{ animateFadeInUp }}>
+                    {% include 'discover-picture', name: 'catalina-deluxe-tote-messenger-strap-02', alt: 'messenger strap close up', retina: false, fw: false %}
+                </div>
             </div>
         </div>
 
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">
-                <picture class="fw-xs">
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-interior-pocket-md.jpg?14306108091008428331" media="(min-width: {{ screenMd }})" />
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-interior-pocket-sm.jpg?14306108091008428331" media="(min-width: {{ screenSm }})" />
-                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-interior-pocket-xs.jpg?14306108091008428331" alt="interior pocket" />
-                </picture>
+                {% include 'discover-picture', name: 'catalina-deluxe-tote-interior-pocket', alt: 'interior pocket', retina: false, fw: true %}
             </div>
         </div>
         <div class="row">
@@ -143,11 +117,7 @@
         
         <div id="catalina-deluxe-tote-key-leash" class="row animate align-centers-md topic-end-md" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-5 col-lg-7 col-lg-offset-0">                    
-                <picture class="fw-xs">
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-key-leash-md.jpg?10084890748703178758" media="(min-width: {{ screenMd }})" />
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-key-leash-sm.jpg?10084890748703178758" media="(min-width: {{ screenSm }})" />
-                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-key-leash-xs.jpg?10084890748703178758" alt="key leash" />
-                </picture>
+                {% include 'discover-picture', name: 'catalina-deluxe-tote-key-leash', alt: 'key leash', retina: false, fw: true %}
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
                 <div class="figure-caption text-center-sm">
@@ -159,11 +129,7 @@
 
         <div id="catalina-deluxe-tote-exterior-pocket" class="row animate align-centers-md reversed topic-end-lg" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-5 col-lg-7 col-lg-offset-1">                    
-                <picture class="fw-xs">
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-exterior-pocket-md.jpg?10084890748703178758" media="(min-width: {{ screenMd }})" />
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-exterior-pocket-sm.jpg?10084890748703178758" media="(min-width: {{ screenSm }})" />
-                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-exterior-pocket-xs.jpg?10084890748703178758" alt="exterior pocket" />
-                </picture>
+                {% include 'discover-picture', name: 'catalina-deluxe-tote-exterior-pocket', alt: 'exterior pocket', retina: false, fw: true %}
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 col-lg-offset-0 content-col">                    
                 <div class="figure-caption text-center-sm">
@@ -183,11 +149,7 @@
     </div>
 
     <div id="catalina-deluxe-tote-what-fits" class="max-container has-overlay-xs fw-image topic-end-md animate" {{ animateFadeInUp }}>
-        <picture>
-            <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-what-fits-inside-md.jpg?16528488875465584195" media="(min-width: {{ screenLg }})" />
-            <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-what-fits-inside-sm.jpg?16528488875465584195" media="(min-width: {{ screenSm }})" />
-            <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-what-fits-inside-xs.jpg?16528488875465584195" alt="video showing how to pack the Catalina Deluxe Tote" />
-        </picture>
+        {% include 'discover-picture', name: 'catalina-deluxe-tote-what-fits-inside', alt: 'video showing how to pack the Catalina Deluxe Tote', retina: false, fw: false %}
         <div class="row text-center">
             <div class="content-col">
                 <div class="figure-caption">
@@ -204,11 +166,7 @@
 
         <div class="row has-overlay-xs topic-end-lg animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">
-                <picture class="fw-xs">
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-how-expands-md.jpg?10589530639773890405" media="(min-width: {{ screenLg }})" />
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-how-expands-sm.jpg?10589530639773890405" media="(min-width: {{ screenSm }})" />
-                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-how-expands-xs.jpg?10589530639773890405" alt="video demonstrating the bottom pocket" />
-                </picture>
+                {% include 'discover-picture', name: 'catalina-deluxe-tote-how-expands', alt: 'video demonstrating the bottom pocket', retina: false, fw: true %}
                 <div class="row theme-white text-center">
                     <div class="content-col">
                         <div class="figure-caption">
@@ -232,11 +190,7 @@
 
             <div class="row align-centers-md reversed topic-end-lg">
                 <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-0">                    
-                    <picture>
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/discover-carry-on-friendly-md.jpg?17340766614772410027" media="(min-width: {{ screenMd }})" />
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/discover-carry-on-friendly-sm.jpg?17340766614772410027" media="(min-width: {{ screenSm }})" />
-                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/discover-carry-on-friendly-xs.jpg?17340766614772410027" alt="sample airline seat" />
-                    </picture>
+                    {% include 'discover-picture', name: 'discover-carry-on-friendly', alt: 'sample airline seat', retina: false, fw: false %}
                 </div>
                 <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-1 content-col">                    
                     <div class="figure-caption text-center-sm">
@@ -256,11 +210,7 @@
 
         <div id="catalina-deluxe-tote-lightweight" class="row align-centers-md animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-6 col-lg-8 col-lg-offset-0">                    
-                 <picture class="fw-xs">
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-lightweight-md.jpg?11361102978949038239" media="(min-width: {{ screenMd }})">
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-lightweight-sm.jpg?11361102978949038239" media="(min-width: {{ screenSm }})">
-                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-lightweight-xs.jpg?11361102978949038239" alt="woman at beach">
-                </picture>
+                 {% include 'discover-picture', name: 'catalina-deluxe-tote-lightweight', alt: 'woman at beach', retina: false, fw: true %}
             </div>
             <div class="col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-0 content-col">                    
                 <div class="figure-caption">
@@ -272,11 +222,7 @@
 
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-6 col-lg-offset-0">
-                <picture class="fw-xs">
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-pre-washed-canvas-md.jpg?5742982612836701704" media="(min-width: {{ screenMd }})">
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-pre-washed-canvas-sm.jpg?5742982612836701704" media="(min-width: {{ screenSm }})">
-                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-pre-washed-canvas-xs.jpg?5742982612836701704" alt="detail of the pre-washed canvas material">
-                </picture>
+                {% include 'discover-picture', name: 'catalina-deluxe-tote-pre-washed-canvas', alt: 'detail of the pre-washed canvas material', retina: false, fw: true %}
                 <div class="row">
                     <div class="col-sm-9 col-md-12 col-lg-10">
                         <div class="figure-caption">
@@ -287,11 +233,7 @@
                 </div>
             </div>
             <div class="col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-0 col-lg-6">
-                <picture class="fw-xs">
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-organic-cotton-canvas-md.jpg?5742982612836701704" media="(min-width: {{ screenMd }})">
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-organic-cotton-canvas-sm.jpg?5742982612836701704" media="(min-width: {{ screenSm }})">
-                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-organic-cotton-canvas-xs.jpg?5742982612836701704" alt="detail of the organic cotton canvas material">
-                </picture>
+                {% include 'discover-picture', name: 'catalina-deluxe-tote-organic-cotton-canvas', alt: 'detail of the organic cotton canvas material', retina: false, fw: true %}
                 <div class="row">
                     <div class="col-sm-7 col-md-12 col-lg-10">
                         <div class="figure-caption">

@@ -670,6 +670,11 @@
 			text-align: center;
 		}
 	}
+	.text-left-xs{
+		@media (max-width: $screen-xs-max) {
+			text-align: left;
+		}
+	}
 	.text-left{
 		text-align: left;
 	}

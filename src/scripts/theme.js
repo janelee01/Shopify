@@ -207,7 +207,7 @@ $(document).ready(function() {
 	  $loginTitle.text($loginTitle.data('reset-text')).addClass('has-divider');
 	}
 
-	if( $('.discover .hero').length ){
+	if( $('.discover .hero').length ){ 
 		$('.discover .hero').addClass('in');
 	}
 
