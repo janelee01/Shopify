@@ -1,170 +1,232 @@
-	        								@media (max-width: 767px) {
-	        								#section-0-item-0 .title,
-	        								#section-0-item-0 .subtitle,
-	        								#section-0-item-0 .description,
-	        								#section-0-item-0 .link a.default{
-	        									color: #000000;
-	        									border-bottom-color: #000000;
-	        								}
-	        								#section-0-item-0 .link a.default:hover{
-	        									border-bottom-color: transparent;
-	        								}
-	        								#section-0-item-0 hr{
-	        									border-top-color: #000000;
-	        								}
-	        							}
-	        										@media (min-width: 768px) {
-	        								#section-0-item-0 .title,
-	        								#section-0-item-0 .subtitle,
-	        								#section-0-item-0 .description,
-	        								#section-0-item-0 .link a.default{
-	        									color: #000000;
-	        									border-bottom-color: #000000;
-	        								}
-	        								#section-0-item-0 .link a.default:hover{
-	        									border-bottom-color: transparent;
-	        								}
-	        								#section-0-item-0 hr{
-	        									border-top-color: #000000;
-	        								}
-	        							}
-	        										@media (max-width: 767px) {
-	        								#section-0-item-0-play-icon{
-	        									fill: #000000;
-	        								}
-	        							}
-	        									@media (min-width: 768px) {
-	        								#section-0-item-0-play-icon{
-	        									fill: #000000;
-	        								}
-	        							}
-	        								@media (max-width: 767px) {
-	        								#section-7-item-0 .title,
-	        								#section-7-item-0 .subtitle,
-	        								#section-7-item-0 .description,
-	        								#section-7-item-0 .link a.default{
-	        									color: #ffffff;
-	        									border-bottom-color: #ffffff;
-	        								}
-	        								#section-7-item-0 .link a.default:hover{
-	        									border-bottom-color: transparent;
-	        								}
-	        								#section-7-item-0 hr{
-	        									border-top-color: #ffffff;
-	        								}
-	        							}
-	        										@media (min-width: 768px) {
-	        								#section-7-item-0 .title,
-	        								#section-7-item-0 .subtitle,
-	        								#section-7-item-0 .description,
-	        								#section-7-item-0 .link a.default{
-	        									color: #ffffff;
-	        									border-bottom-color: #ffffff;
-	        								}
-	        								#section-7-item-0 .link a.default:hover{
-	        									border-bottom-color: transparent;
-	        								}
-	        								#section-7-item-0 hr{
-	        									border-top-color: #ffffff;
-	        								}
-	        							}
-	        										@media (max-width: 767px) {
-	        								#section-7-item-0-play-icon{
-	        									fill: #ffffff;
-	        								}
-	        							}
-	        									@media (min-width: 768px) {
-	        								#section-7-item-0-play-icon{
-	        									fill: #ffffff;
-	        								}
-	        							}
-	        								@media (max-width: 767px) {
-	        								#section-8-item-0 .title,
-	        								#section-8-item-0 .subtitle,
-	        								#section-8-item-0 .description,
-	        								#section-8-item-0 .link a.default{
-	        									color: #000000;
-	        									border-bottom-color: #000000;
-	        								}
-	        								#section-8-item-0 .link a.default:hover{
-	        									border-bottom-color: transparent;
-	        								}
-	        								#section-8-item-0 hr{
-	        									border-top-color: #000000;
-	        								}
-	        							}
-	        										@media (min-width: 768px) {
-	        								#section-8-item-0 .title,
-	        								#section-8-item-0 .subtitle,
-	        								#section-8-item-0 .description,
-	        								#section-8-item-0 .link a.default{
-	        									color: #000000;
-	        									border-bottom-color: #000000;
-	        								}
-	        								#section-8-item-0 .link a.default:hover{
-	        									border-bottom-color: transparent;
-	        								}
-	        								#section-8-item-0 hr{
-	        									border-top-color: #000000;
-	        								}
-	        							}
-	        								@media (max-width: 767px) {
-	        								#section-13-item-0 .title,
-	        								#section-13-item-0 .subtitle,
-	        								#section-13-item-0 .description,
-	        								#section-13-item-0 .link a.default{
-	        									color: #000000;
-	        									border-bottom-color: #000000;
-	        								}
-	        								#section-13-item-0 .link a.default:hover{
-	        									border-bottom-color: transparent;
-	        								}
-	        								#section-13-item-0 hr{
-	        									border-top-color: #000000;
-	        								}
-	        							}
-	        										@media (min-width: 768px) {
-	        								#section-13-item-0 .title,
-	        								#section-13-item-0 .subtitle,
-	        								#section-13-item-0 .description,
-	        								#section-13-item-0 .link a.default{
-	        									color: #000000;
-	        									border-bottom-color: #000000;
-	        								}
-	        								#section-13-item-0 .link a.default:hover{
-	        									border-bottom-color: transparent;
-	        								}
-	        								#section-13-item-0 hr{
-	        									border-top-color: #000000;
-	        								}
-	        							}
-	        								@media (max-width: 767px) {
-	        								#section-14-item-0 .title,
-	        								#section-14-item-0 .subtitle,
-	        								#section-14-item-0 .description,
-	        								#section-14-item-0 .link a.default{
-	        									color: #000000;
-	        									border-bottom-color: #000000;
-	        								}
-	        								#section-14-item-0 .link a.default:hover{
-	        									border-bottom-color: transparent;
-	        								}
-	        								#section-14-item-0 hr{
-	        									border-top-color: #000000;
-	        								}
-	        							}
-	        										@media (min-width: 768px) {
-	        								#section-14-item-0 .title,
-	        								#section-14-item-0 .subtitle,
-	        								#section-14-item-0 .description,
-	        								#section-14-item-0 .link a.default{
-	        									color: #000000;
-	        									border-bottom-color: #000000;
-	        								}
-	        								#section-14-item-0 .link a.default:hover{
-	        									border-bottom-color: transparent;
-	        								}
-	        								#section-14-item-0 hr{
-	        									border-top-color: #000000;
-	        								}
-	        							}
+	        							
+	@media (max-width: 767px) {
+	#section-0-item-0 .title,
+	#section-0-item-0 .subtitle,
+	#section-0-item-0 .description,
+	#section-0-item-0 .link a.default{
+		color: #ffffff;
+		border-bottom-color: #ffffff;
+	}
+	#section-0-item-0 .link a.default:hover{
+		border-bottom-color: transparent;
+	}
+	#section-0-item-0 hr{
+		border-top-color: #ffffff;
+	}
+}
+			@media (min-width: 768px) {
+	#section-0-item-0 .title,
+	#section-0-item-0 .subtitle,
+	#section-0-item-0 .description,
+	#section-0-item-0 .link a.default{
+		color: #0a0a0a;
+		border-bottom-color: #0a0a0a;
+	}
+	#section-0-item-0 .link a.default:hover{
+		border-bottom-color: transparent;
+	}
+	#section-0-item-0 hr{
+		border-top-color: #0a0a0a;
+	}
+}
+			@media (max-width: 767px) {
+	#section-0-item-0-play-icon{
+		fill: #ffffff;
+	}
+}
+		@media (min-width: 768px) {
+	#section-0-item-0-play-icon{
+		fill: #000000;
+	}
+}
+		
+			        							
+			@media (max-width: 767px) {
+			#section-4-item-0 .title,
+			#section-4-item-0 .subtitle,
+			#section-4-item-0 .description,
+			#section-4-item-0 .link a.default{
+				color: #000000;
+				border-bottom-color: #000000;
+			}
+			#section-4-item-0 .link a.default:hover{
+				border-bottom-color: transparent;
+			}
+			#section-4-item-0 hr{
+				border-top-color: #000000;
+			}
+		}
+					@media (min-width: 768px) {
+			#section-4-item-0 .title,
+			#section-4-item-0 .subtitle,
+			#section-4-item-0 .description,
+			#section-4-item-0 .link a.default{
+				color: #000000;
+				border-bottom-color: #000000;
+			}
+			#section-4-item-0 .link a.default:hover{
+				border-bottom-color: transparent;
+			}
+			#section-4-item-0 hr{
+				border-top-color: #000000;
+			}
+		}
+							
+								        							
+								@media (max-width: 767px) {
+								#section-8-item-0 .title,
+								#section-8-item-0 .subtitle,
+								#section-8-item-0 .description,
+								#section-8-item-0 .link a.default{
+									color: #000000;
+									border-bottom-color: #000000;
+								}
+								#section-8-item-0 .link a.default:hover{
+									border-bottom-color: transparent;
+								}
+								#section-8-item-0 hr{
+									border-top-color: #000000;
+								}
+							}
+										@media (min-width: 768px) {
+								#section-8-item-0 .title,
+								#section-8-item-0 .subtitle,
+								#section-8-item-0 .description,
+								#section-8-item-0 .link a.default{
+									color: #000000;
+									border-bottom-color: #000000;
+								}
+								#section-8-item-0 .link a.default:hover{
+									border-bottom-color: transparent;
+								}
+								#section-8-item-0 hr{
+									border-top-color: #000000;
+								}
+							}
+										@media (max-width: 767px) {
+								#section-8-item-0-play-icon{
+									fill: #000000;
+								}
+							}
+									@media (min-width: 768px) {
+								#section-8-item-0-play-icon{
+									fill: #000000;
+								}
+							}
+									
+										        							
+										@media (max-width: 767px) {
+										#section-10-item-0 .title,
+										#section-10-item-0 .subtitle,
+										#section-10-item-0 .description,
+										#section-10-item-0 .link a.default{
+											color: #0a0a0a;
+											border-bottom-color: #0a0a0a;
+										}
+										#section-10-item-0 .link a.default:hover{
+											border-bottom-color: transparent;
+										}
+										#section-10-item-0 hr{
+											border-top-color: #0a0a0a;
+										}
+									}
+												@media (min-width: 768px) {
+										#section-10-item-0 .title,
+										#section-10-item-0 .subtitle,
+										#section-10-item-0 .description,
+										#section-10-item-0 .link a.default{
+											color: #000000;
+											border-bottom-color: #000000;
+										}
+										#section-10-item-0 .link a.default:hover{
+											border-bottom-color: transparent;
+										}
+										#section-10-item-0 hr{
+											border-top-color: #000000;
+										}
+									}
+														
+															        							
+															@media (max-width: 767px) {
+															#section-13-item-0 .title,
+															#section-13-item-0 .subtitle,
+															#section-13-item-0 .description,
+															#section-13-item-0 .link a.default{
+																color: #000000;
+																border-bottom-color: #000000;
+															}
+															#section-13-item-0 .link a.default:hover{
+																border-bottom-color: transparent;
+															}
+															#section-13-item-0 hr{
+																border-top-color: #000000;
+															}
+														}
+																	@media (min-width: 768px) {
+															#section-13-item-0 .title,
+															#section-13-item-0 .subtitle,
+															#section-13-item-0 .description,
+															#section-13-item-0 .link a.default{
+																color: #000000;
+																border-bottom-color: #000000;
+															}
+															#section-13-item-0 .link a.default:hover{
+																border-bottom-color: transparent;
+															}
+															#section-13-item-0 hr{
+																border-top-color: #000000;
+															}
+														}
+																	@media (max-width: 767px) {
+															#section-13-item-0-play-icon{
+																fill: #4dbeee;
+															}
+														}
+																@media (min-width: 768px) {
+															#section-13-item-0-play-icon{
+																fill: #4dbeee;
+															}
+														}
+																
+
+																	@media (max-width: 767px) {
+																	#section-13-item-1 .title,
+																	#section-13-item-1 .subtitle,
+																	#section-13-item-1 .description,
+																	#section-13-item-1 .link a.default{
+																		color: #000000;
+																		border-bottom-color: #000000;
+																	}
+																	#section-13-item-1 .link a.default:hover{
+																		border-bottom-color: transparent;
+																	}
+																	#section-13-item-1 hr{
+																		border-top-color: #000000;
+																	}
+																}
+																			@media (min-width: 768px) {
+																	#section-13-item-1 .title,
+																	#section-13-item-1 .subtitle,
+																	#section-13-item-1 .description,
+																	#section-13-item-1 .link a.default{
+																		color: #000000;
+																		border-bottom-color: #000000;
+																	}
+																	#section-13-item-1 .link a.default:hover{
+																		border-bottom-color: transparent;
+																	}
+																	#section-13-item-1 hr{
+																		border-top-color: #000000;
+																	}
+																}
+																			@media (max-width: 767px) {
+																	#section-13-item-1-play-icon{
+																		fill: #4dbeee;
+																	}
+																}
+																		@media (min-width: 768px) {
+																	#section-13-item-1-play-icon{
+																		fill: #4dbeee;
+																	}
+																}
+																		

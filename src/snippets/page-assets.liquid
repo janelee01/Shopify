@@ -10,6 +10,7 @@
   	{{ 'hanover-deluxe.css' | asset_url | stylesheet_tag }}
   	<script src="{{ 'hanover-deluxe.js' | asset_url }}" defer></script>
   
+{% comment %} 
   {%- when "hanover-womens-travel-laptop-backpack" -%} 
   	{{ 'hanover.css' | asset_url | stylesheet_tag }}
   
@@ -21,12 +22,13 @@
   
   {%- when "catalina-weekender-womens-travel-bag" -%}
   	{{ 'catalina.css' | asset_url | stylesheet_tag }}
-  
+
+  {%- when "waverley-womens-convertible-crossbody-bag" -%}
+    {{ 'waverley.css' | asset_url | stylesheet_tag }}
+{% endcomment %}
+
   {%- when "pearl-womens-leather-travel-crossbody-bag" -%}
   	{{ 'pearl.css' | asset_url | stylesheet_tag }}
-  
-  {%- when "waverley-womens-convertible-crossbody-bag" -%}
-  	{{ 'waverley.css' | asset_url | stylesheet_tag }}
   
   {%- when "seville-womens-laptop-travel-tote" -%}
   	{{ 'seville.css' | asset_url | stylesheet_tag }}
@@ -45,12 +47,15 @@
   	{{ 'rhodes.css' | asset_url | stylesheet_tag }}
   	<script src="{{ 'rhodes.js' | asset_url }}" defer></script>
   
+{% comment %} 
   {%- when "hanover-mens-travel-laptop-backpack" -%}
   	{{ 'hanover-men.css' | asset_url | stylesheet_tag }}
+
   
   {%- when "hanover-deluxe-mens-travel-backpack" -%}
   	{{ 'hanover-deluxe-men.css' | asset_url | stylesheet_tag }}
   	<script src="{{ 'hanover-deluxe-men.js' | asset_url }}" defer></script>
+{% endcomment %}
   
   {%- when "compare-catalina-collection" -%}
   	{{ 'compare-catalina.css' | asset_url | stylesheet_tag }}
