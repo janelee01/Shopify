@@ -883,3 +883,11 @@ Specific things
 		}
 	}
 }
+
+#og-omg-plenty{
+	@media (min-width: $screen-md) {
+		.figure-caption .description{
+			margin-bottom: 0; 
+		}
+	}
+}
