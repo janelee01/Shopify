@@ -1,0 +1,11 @@
+/*
+ Some pages have a transparent nav over the hero
+ */
+.page-weekenders{
+	#site-header{
+		background: none;
+	}
+	.site-content{
+		padding-top: 0;
+	}
+}

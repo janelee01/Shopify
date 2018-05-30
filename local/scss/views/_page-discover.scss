@@ -3,7 +3,7 @@
 	max-width: $site-max-width;
 	margin-left: auto;
 	margin-right: auto;
-	position: relative;
+	position: relative; 
 }
 .discover{
 	.blocks-bg{
@@ -212,6 +212,13 @@
 			}
 			@media (min-width: $screen-lg) {
 				font-size: 22px;
+			}
+		}
+		&.reduced-margin-xs{
+			@media (max-width: $screen-xs-max) {
+				.description{
+					margin-bottom: 40px;	
+				}
 			}
 		}
 	}
@@ -457,6 +464,7 @@
 	}
 	.col-lg-14{
 		@media (min-width: $screen-lg) {
+			width: auto;
 			margin-left: -72px;
 			margin-right: -72px;
 		}
@@ -805,6 +813,7 @@ Specific things
 	}
 }
 
+#og-omg-side-pocket,
 #hanover-deluxe-anywhere-2,
 #hanover-minimalist-1,
 #waverley-materials-1{
@@ -831,6 +840,7 @@ Specific things
 	}
 }
 
+#og-omg-compare,
 #hanover-compare{
 	.block-title{
 		font-size: 30px;
@@ -876,10 +886,86 @@ Specific things
 		}
 	}
 }
-#hanover-cta{
+#og-omg-cta,
+#hanover-cta{ 
 	picture{
 		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
 			max-width: 220px;
+		}
+	}
+}
+
+#og-omg-hero{
+	@media (max-width: $screen-sm-max) {
+	    .block-title,
+	    .block-description{
+	    	padding: 0;
+	    }
+	}
+}
+#og-omg-side-pocket{
+	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+		margin-bottom: 60px;
+	}
+}
+#og-omg-compare{
+	.block-title{
+		font-size: 27px;
+		margin-bottom: 48px;
+		@media (min-width: $screen-sm) {
+			font-size: 20px;
+		}
+		@media (min-width: $screen-md) {
+			font-size: 22px;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 28px;
+			margin-bottom: 30px;
+		}
+	}
+}
+#og-omg-plenty{
+	@media (min-width: $screen-md) {
+		.figure-caption .description{
+			margin-bottom: 0; 
+		}
+	}
+}
+
+#pearl-crossbody,
+#pearl-wristlet{
+	margin-bottom: 87px;
+	@media (min-width: $screen-sm) {
+		margin-bottom: 0;
+	}
+}
+
+#pearl-anywhere-1,
+#pearl-anywhere-2,
+#pearl-anywhere-3,
+#pearl-anywhere-4,
+#pearl-anywhere-5,
+#pearl-anywhere-6{
+	margin-bottom: $mobile-gutter;
+	@media (min-width: $screen-sm) {
+		margin-bottom: 50px;
+	}
+	@media (min-width: $screen-lg) {
+		margin-bottom: 60px;
+	}
+}
+
+#pearl-anywhere-3,
+#pearl-anywhere-4{
+	@media (min-width: $screen-md) {
+		margin-bottom: 30px;
+	}
+}
+
+#pearl-cta{
+	picture{
+		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+			max-width: 455px;
 		}
 	}
 }
