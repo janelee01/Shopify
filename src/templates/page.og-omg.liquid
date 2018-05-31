@@ -17,35 +17,36 @@
                 <li><a href="{{ ctaLink }}" class="btn btn-primary">Buy Now</a></li>
             </ul>
             <ul class="page-nav-items">
-                <li><a href="#nav-target-1" class="page-nav-item">Features</a></li>
-                <li><a href="#nav-target-2" class="page-nav-item">Design</a></li>
+                <li><a href="#nav-target-1" class="page-nav-item">Design</a></li>
+                <li><a href="#nav-target-2" class="page-nav-item">Organization</a></li>
                 <li><a href="#nav-target-3" class="page-nav-item">Materials</a></li>
+                <li><a href="#nav-target-4" class="page-nav-item">Press</a></li>
             </ul>
         </div>
     </nav>
     
     <div class="max-container">
-        <div class="hero">
+        <div class="hero" id="og-omg-hero">
             {% include 'discover-picture', name: 'og-omg-hero-image', alt: 'woman with O.G. on luggage', retina: true, fw: false, lg: true %}
             <div class="hero-content">
                 <h1 class="block-title"><span class="block-subtitle">Discover</span> O.G. &amp; O.M.G.</h1>
-                <p class="block-description">A functional and lightweight carry-all designed from high quality material for the modern traveler.</p>
+                <p class="block-description">A functional and lightweight carry-all made from premium materials.</p>
             </div>
         </div>
     </div>
     
     <div class="container">
         <div class="row animate topic-end-lg" {{ animateFadeInUp }}>
-            <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-                {% include 'discover-picture', name: 'og-omg-product-shot', alt: 'O.G. & O.M.G. product shot', retina: true, fw: false %}
+            <div class="col-md-10 col-md-offset-1">
+              {% include 'discover-picture', name: 'og-omg-product-shot', alt: 'O.G. & O.M.G. product shot', retina: true, fw: false %}
             </div>
         </div>
 
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
-                    <h2 class="block-title"><a id="nav-target-1" class="jumptarget"></a>Thoughtful Design</h2>
-                    <p class="block-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a accumsan metus class aptent taciti.</p>
+                    <h2 class="block-title"><a id="nav-target-1" class="jumptarget"></a>Smart Design</h2>
+                    <p class="block-description">Thoughtful features and a place for all your travel essentials.</p>
                 </div>
             </div>
         </div>
@@ -69,13 +70,15 @@
             <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-pull-4 col-md-offset-0 col-lg-6 col-lg-pull-5">                    
                 <div class="row">
                   <div class="col-lg-8 col-lg-offset-2">
-                    <div class="figure-caption text-center-sm">
+                    <div class="figure-caption text-center-sm reduced-margin-xs">
                         <h3 class="title">Side Pocket</h3>
                         <p class="description">Store your gym shoes for your post work workout or an umbrella for those mornings with a rainy commute.</p>
                     </div>
                   </div>
                 </div>
-                {% include 'discover-picture', name: 'og-omg-side-pocket-2', alt: 'putting umbrella in side pocket', retina: true, fw: true %}                    
+                <div id="og-omg-side-pocket">
+                  {% include 'discover-picture', name: 'og-omg-side-pocket-2', alt: 'putting umbrella in side pocket', retina: true, fw: false %}                      
+                </div>
             </div>
         </div>
 
@@ -91,37 +94,135 @@
             </div>
         </div>
 
+        <div class="row visible-sm topic-end-lg">
+           <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+               <hr>
+           </div>
+       </div>
+
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
                     <h2 class="block-title"><a id="nav-target-2" class="jumptarget"></a>Stay Organized</h2>
-                    <p class="block-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a accumsan metus class aptent taciti.</p>
+                    <p class="block-description">The O.G. and O.M.G. are designed to help you stay put together on the road.</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">
                     {% include 'discover-picture', name: 'og-omg-laptop-storage', alt: 'fits up to 13 inch laptops', retina: true, fw: true %}                    
                 </div>
-                <div class="col-sm-6 col-sm-offset-3">                    
-                    <div class="figure-caption text-center">
+                <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">                    
+                    <div class="figure-caption text-center text-left-xs">
                         <h3 class="title">Laptop Storage</h3>
                         <p class="description">Both the O.G. and O.M.G. are designed to fit up to 13” laptops.</p>
                     </div>
                 </div>
             </div>
         </div>
-       
+
+        <div id="og-omg-plenty" class="row align-centers-md bottom-aligned topic-end-lg animate" {{ animateFadeInUp }}>
+          <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-1 col-lg-6 col-lg-offset-0">
+            {% include 'discover-picture', name: 'og-omg-plenty-of-pockets-1', alt: 'interior pockets', retina: true, fw: true %}   
+            <div class="row">
+              <div class="col-sm-10 col-sm-offset-1">
+                <div class="figure-caption text-center-sm reduced-margin-xs">
+                    <h3 class="title">Plenty of Pockets</h3>
+                    <p class="description">Stay organized with the padded laptop compartment, a pocket for your tablet or work documents, a zipper pocket, and two slips pockets.</p>
+                </div>
+              </div>
+            </div>                 
+          </div>
+          <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-1 col-lg-5 content-col">
+            {% include 'discover-picture', name: 'og-omg-plenty-of-pockets-2', alt: 'interior pockets shown from above', retina: true, fw: false %}     
+          </div>
+        </div>
+
+        <div class="row align-centers-md topic-end-lg topic-end-negate-sm animate" {{ animateFadeInUp }}>
+          <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-1 col-lg-6 col-lg-offset-0">
+            {% include 'discover-picture', name: 'og-omg-key-leash', alt: 'key leash', retina: true, fw: true %}                  
+          </div>
+          <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">
+            <div class="figure-caption text-center-sm">
+                <h3 class="title">Key Leash</h3>
+                <p class="description">Never misplace your keys again with the inner key leash.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="max-container has-overlay-xs fw-image topic-end-lg animate" {{ animateFadeInUp }}>
+        {% include 'discover-picture', name: 'og-omg-what-fits-inside', alt: 'video showing how to pack the O.G. and O.M.G.', retina: true, fw: false %}  
+        <div class="row theme-white text-center">
+            <div class="content-col">
+                <div class="figure-caption">
+                    <h3 class="title">What Fits Inside</h3>
+                    <a href="#" data-video-id="2" class="overview-video-trigger">
+                        <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+    <div class="container">
 
        <div class="animate" {{ animateFadeInUp }}>
            <div class="row">
-               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
+               <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">                    
                    <h2 class="block-title"><a id="nav-target-3" class="jumptarget"></a>High-Quality Materials</h2>
-                   <p class="block-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a accumsan metus class aptent taciti.</p>
+                   <p class="block-description">Constructed from premium grade materials that are chic yet durable and water-resistant.</p>
                </div>
            </div>
        </div>
 
        <div class="animate" {{ animateFadeInUp }}>
+           <div class="row">
+               <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">  
+                    {% include 'discover-picture', name: 'og-omg-water-resistant', alt: '600D Recycled Poly is water-resistant', retina: true, fw: true %}                    
+               </div>
+           </div>
+           <div class="row">
+               <div class="col-sm-6 col-sm-offset-3">                    
+                   <div class="figure-caption text-center text-left-xs">
+                       <h3 class="title">Water-Resistant</h3>
+                       <p class="description">Our 600D Recycled Poly is water-resistant to both outside elements and internal spills.</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <div class="row" {{ animateFadeInUp }}>
+           <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-1">  
+                {% include 'discover-picture', name: 'og-omg-nylon', alt: 'Nylon', retina: true, fw: true %}                    
+                <div class="row">
+                  <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-0">
+                    <div class="figure-caption text-center-sm">
+                         <h3 class="title">Nylon</h3>
+                         <p class="description">Constructed with a lightweight fine weave water-resistant nylon.</p>
+                     </div>
+                  </div>
+                </div>
+           </div>
+           <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-0">  
+                {% include 'discover-picture', name: 'og-omg-cotton-poly-blend', alt: 'Cotton Poly Blend', retina: true, fw: true %}                    
+                <div class="row">
+                  <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-0">
+                    <div class="figure-caption text-center-sm">
+                         <h3 class="title">Cotton Poly Blend</h3>
+                         <p class="description">Made with a blend of high quality cotton and poly with an interlock backing for added durability.</p>
+                     </div>
+                  </div>
+                </div>
+           </div>
+       </div>
+
+       <div class="row visible-xs visible-sm">
+           <div class="col-sm-10 col-sm-offset-1">
+               <hr>
+           </div>
+       </div>
+
+       <div class="pr-items animate" {{ animateFadeInUp }}>
            <div class="row">
                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
                    <h2 class="block-title"><a id="nav-target-4" class="jumptarget"></a>Traveler Approved</h2>
@@ -130,32 +231,38 @@
            <div class="row topic-end-md">
                <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-0">
                    <blockquote class="pr">
-                       <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/fodors-travel.png?15430798540328847356" alt="Fodor's Travel logo"></p>
-                       <p class="pr-quote">&ldquo;This bag does double duty with a smart bottom zipper pocket for wet clothes after a day at the beach or shoes if you're using it as a carry-on.&rdquo;</p>
+                       <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/marie-claire-logo.jpg?1376882258591607478" alt="Marie Claire logo" width="177"></p>
+                       <p class="pr-quote">&ldquo;This is it. This is *the* bag. I kid you not. Some people have called it &lsquo;well-designed,&rsquo; others &lsquo;perfect,&rsquo; and still others the &lsquo;the best carry-on bag out there.&rsquo; I call it genius.&rdquo;</p>
                    </blockquote>
                </div>
                <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-0 col-lg-4">
                    <blockquote class="pr">
-                       <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/theknotlogo.png?15430798540328847356" alt="The Knot logo"></p>
-                       <p class="pr-quote">&ldquo;This canvas weekender is expertly sized for the overhead bin or a mini-moon.&rdquo;</p>
+                       <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/fodors-travel.png?15430798540328847356" alt="Fodor's Travel logo"></p>
+                       <p class="pr-quote">&ldquo;We packed this chic bag for a week and loved its silky lightweight exterior and its abundance of secret zippered pockets and segmented compartments. It fits easily beneath an airplane seat and boasts comfy-on-our-shoulders leather straps.&rdquo;</p>
                    </blockquote>
                </div>
                <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-0">
-                   <blockquote class="pr">
-                       <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/foodandwine-logo-black.png?15023891854137734588" alt="Food and Wine logo"></p>
-                       <p class="pr-quote">&ldquo;A zippered bottom compartment and unusually large size (plus a great choice of pretty, subdued colors) set this tote apart from the pack.&rdquo;</p>
-                   </blockquote>
-               </div>
-               <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-0 col-lg-4">
                    <blockquote class="pr">
                        <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/The_Huffington_Post_logo.png?15023891854137734588" alt="The Huffington Post logo"></p>
-                       <p class="pr-quote">&ldquo;The Catalina had us at the secret bottom pocket. This dapper carrier fits everything that you (or Mary Poppins) could possibly need for a weekend getaway.&rdquo;</p>
+                       <p class="pr-quote">&ldquo;Say goodbye to the days of bags falling off the side of your suitcase and spilling out over the floor (we've all been there) and hello to a less painful carry on experience.&rdquo;</p>
+                   </blockquote>
+               </div>
+               <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-0 col-lg-4">
+                   <blockquote class="pr">
+                       <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/bloomberg.jpg?1376882258591607478" alt="Bloomberg logo" width="153"></p>
+                       <p class="pr-quote">&ldquo;If you’re just getting out of town for a night, try the O.G. from Lo & Sons: The interior shoe pocket will prevent your footwear from dirtying your clothes.&rdquo;</p>
                    </blockquote>
                </div>
                <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-0">
                    <blockquote class="pr">
-                       <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/Refinery29-Logo.png?15023891854137734588" alt="Refinery 29 logo"></p>
-                       <p class="pr-quote">&ldquo;If you don’t already have a weekender, now's the time to get one. If you already have a weekender, now's the time to get this one. The interior organization will let you stow more things than any other option out there.&rdquo;</p>
+                       <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/new-york-logo.jpg?1376882258591607478" alt="New York logo" width="157"></p>
+                       <p class="pr-quote">&ldquo;This is an awesome travel bag created by two brothers who started their business with their mom, which I think is adorable. I’ve had this bag for almost seven years, and it’s completely held up. I use it as a carry-on bag when I fly — it has a sleeve for a laptop and an interior pocket for a book or Kindle, plus an interior pocket on the side for shoes or a wallet. It’s just really genius and well-done, but also simple and not crazy statement-making. I recommend it to anyone who travels.&rdquo;</p>
+                   </blockquote>
+               </div>
+               <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-0 col-lg-4">
+                   <blockquote class="pr">
+                       <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/bustle-logo.jpg?1376882258591607478" alt="Bustle logo" width="118"></p>
+                       <p class="pr-quote">&ldquo;If you go to the gym, then to work, then to after work commitments, then you really know how real the bag struggle can be. This bag has a place for your shoes and gym clothes, plus your laptop, makeup bag, and all that other stuff you need. It looks purse-like, so you don't have to feel like you're dragging around a duffle bag. It's probably a little hefty for that perfect transition into evening, but it's not so un-purse-like that you'd feel super uncomfortable.&rdquo;</p>
                    </blockquote>
                </div>
            </div>
@@ -169,24 +276,24 @@
            </div>
        </div>
 
-       <div id="hanover-compare" class="row animate align-centers-md reversed topic-end-md" {{ animateFadeInUp }}>
-           <div class="col-sm-4 col-sm-offset-4 col-md-5 col-md-offset-0 text-center content-col">                    
+       <div id="og-omg-compare" class="row animate align-centers-md reversed topic-end-md" {{ animateFadeInUp }}>
+           <div class="col-sm-4 col-sm-offset-4 col-md-offset-1 text-center content-col">                    
                <h2 class="block-title">View the similarities and differences between the O.G. and O.M.G.</h2>
                <div class="btn-set hidden-xs hidden-sm">
                    <p><a class="btn btn-secondary" href="/pages/compare-og-omg">Compare</a></p>
                </div>
            </div>
            <div class="col-sm-8 col-sm-offset-2 col-md-7 col-md-offset-0">
-                {% include 'discover-picture', name: 'og-omg-compare', alt: 'two views of woman wearing the Hanover', retina: true, fw: true %}  
+                {% include 'discover-picture', name: 'og-omg-compare', alt: 'two views of woman holding the O.M.G.', retina: true, fw: true %}  
                 <div class="btn-set hidden-md hidden-lg">
-                    <p><a class="btn btn-secondary" href="/pages/compare-hanover-collection-womens">Compare</a></p>
+                    <p><a class="btn btn-secondary" href="/pages/compare-og-omg">Compare</a></p>
                 </div>
            </div>
        </div>
         
     </div>
     
-    <div id="hanover-cta">
+    <div id="og-omg-cta">
     {% include 'discover-cta', retina: true %}
     </div>
 

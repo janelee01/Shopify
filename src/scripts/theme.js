@@ -212,39 +212,6 @@ $(document).ready(function() {
 	}
 
 	/*
-	Discover pages: Title & Price in CTA can't stack naturally
-	
-	var $ctaTitles = $('[data-cta-titles]');
-	var positionCtaTitles = function(){
-		var w = $(window).width();
-		if( $ctaTitles.length == 1 ){
-			if( w < 1025 && $('.discover-cta .section-content').find('[data-cta-titles]').length ){
-				$ctaTitles.detach().prependTo('.discover-cta');
-			}else if( w >= 1025 && $('.discover-cta .section-content').find('[data-cta-titles]').length < 1 ){
-				$ctaTitles.detach().prependTo('.discover-cta .section-content');
-			}
-		}else{
-			$ctaTitles.each(function(){
-				var $topContainer = $(this).closest('.cta-block').find('[data-cta-top]');
-				var $bottomContainer = $(this).closest('.cta-block').find('.overlay .figure-caption');
-				if( w >= 768 && w < 1025 && $(this).closest('.figure-caption').length ){
-					$(this).detach().prependTo($topContainer);
-				}else if( (w < 768 || w >= 1025) && $bottomContainer.find('[data-cta-titles]').length < 1 ){
-					$(this).detach().prependTo($bottomContainer);
-				}
-			});
-		}
-	};
-
-	if( $ctaTitles.length ){
-		positionCtaTitles();
-		$(window).resize(function(){
-			positionCtaTitles();
-		});
-	}
-	*/
-
-	/*
 	Discover pages: match heights for Press elements
 	 */
 	var getEqualizedHeight = function($elements){
@@ -267,6 +234,27 @@ $(document).ready(function() {
 		equalizePr();
 		$(window).resize(function(){
 			equalizePr();
+		});
+	}
+
+	/*
+	Discover Pearl: images need to swap positions in the DOM between tablet and desktop
+	 */
+	var pearlAnywhereLayout = function(){
+		if( $(window).width() < LS.desktopBreakpoint ){
+			if( ! $('#pearl-anywhere-col-1 #pearl-anywhere-4').length ){
+				$('#pearl-anywhere-4').detach().appendTo('#pearl-anywhere-col-1');
+				$('#pearl-anywhere-5').detach().prependTo('#pearl-anywhere-col-2');
+			}
+		}else if( ! $('#pearl-anywhere-col-2 #pearl-anywhere-4').length ){
+			$('#pearl-anywhere-4').detach().prependTo('#pearl-anywhere-col-2');
+			$('#pearl-anywhere-5').detach().appendTo('#pearl-anywhere-col-1');
+		}
+	}
+	if( $('#pearl-anywhere-col-1').length ){
+		pearlAnywhereLayout();
+		$(window).resize(function(){
+			pearlAnywhereLayout();
 		});
 	}
 
