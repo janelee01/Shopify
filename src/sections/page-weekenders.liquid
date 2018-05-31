@@ -1,0 +1,183 @@
+{% include 'discover-vars' %}
+
+{% for block in section.blocks %}
+	<div {{ block.shopify_attributes }}>
+		{% case block.type %}
+
+			{% when 'hero' %}
+			{% include 'discover-category-hero' %}
+
+			{% when 'lead' %}
+			{% include 'discover-category-lead' %}
+
+			{% when 'product' %}
+			{% include 'discover-category-product' %}
+
+		{% endcase %}
+	</div>
+	{% endfor %}
+
+{% schema %}
+{
+	"name": "Content Manager",
+	"blocks": [
+		{
+			"type": "lead",
+			"name": "Page Lead",
+			"settings": [
+				{
+					"id": "title",
+					"type": "text",
+					"label": "Title"
+				},
+				{
+					"id": "description",
+					"type": "text",
+					"label": "Description"
+				}
+			]
+		},
+		{
+			"type": "hero",
+			"name": "Hero",
+			"settings": [
+				{
+					"id": "mobileImage",
+					"type": "image_picker",
+					"label": "Mobile Image"
+				},
+				{
+					"id": "tabletImage",
+					"type": "image_picker",
+					"label": "Tablet Image"
+				},
+				{
+					"id": "desktopImage",
+					"type": "image_picker",
+					"label": "Desktop Image"
+				},
+				{
+					"id": "altText",
+					"type": "text",
+					"label": "Alt Text"
+				},
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title"
+				},
+				{
+					"type": "radio",
+					"id": "xsPos",
+					"label": "Title Position - Mobile",
+					"options": [
+						{ "value": "left-xs", "label": "Left" },
+						{ "value": "center-xs", "label": "Center" },
+						{ "value": "right-xs", "label": "Right" }
+					]
+				},
+				{
+					"type": "radio",
+					"id": "smPos",
+					"label": "Title Position - Tablet",
+					"options": [
+						{ "value": "left-sm", "label": "Left" },
+						{ "value": "center-sm", "label": "Center" },
+						{ "value": "right-sm", "label": "Right" }
+					]
+				},
+				{
+					"type": "radio",
+					"id": "mdPos",
+					"label": "Title Position - Desktop",
+					"options": [
+						{ "value": "left-md", "label": "Left" },
+						{ "value": "center-md", "label": "Center" },
+						{ "value": "right-md", "label": "Right" }
+					]
+				}
+			]
+		},
+		{
+			"type": "product",
+			"name": "Product",
+			"settings": [
+				{
+					"id": "image1",
+					"type": "image_picker",
+					"label": "Image 1",
+					"info": "840px by 1120px"
+				},
+				{
+					"id": "image2",
+					"type": "image_picker",
+					"label": "Image 2"
+				},
+				{
+					"id": "image3",
+					"type": "image_picker",
+					"label": "Image 3"
+				},
+				{
+					"id": "image4",
+					"type": "image_picker",
+					"label": "Image 4"
+				},
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title"
+				},
+				{
+					"type": "text",
+					"id": "description",
+					"label": "Description"
+				},
+				{
+					"type": "text",
+					"id": "price",
+					"label": "Price"
+				},
+				{
+					"type": "text",
+					"id": "linkText",
+					"label": "Link A -- Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrl",
+					"label": "Link A -- URL"
+				},
+				{
+					"type": "radio",
+					"id": "linkStyle",
+					"label": "Link A -- Style",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "outline", "label": "Outline" }
+					]
+				},
+				{
+					"type": "text",
+					"id": "linkTextB",
+					"label": "Link B -- Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrlB",
+					"label": "Link B -- URL"
+				},
+				{
+					"type": "radio",
+					"id": "linkStyleB",
+					"label": "Link B -- Style",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "outline", "label": "Outline" }
+					]
+				}
+			]
+		}
+	]
+}
+{% endschema %}

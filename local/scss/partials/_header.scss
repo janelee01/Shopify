@@ -11,8 +11,6 @@
 // }
 
 #site-header {
-	padding-bottom:12px;
-	padding-top:12px;
 	font-family: $font-family-sans-serif;
 	@include transition(all .25s ease-out);
 	position:fixed;
@@ -24,11 +22,16 @@
 	margin: 0;
 	text-align: center;
 	z-index: 1010;
-	@media (min-width: $screen-md) {
-		padding: 0;
-	}
 	.container-fluid{
 		position: relative;
+	}
+	nav{
+		padding-bottom:12px;
+		padding-top:12px;
+		@media (min-width: $screen-md) {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
 	}
 }
 #site-logo {
@@ -54,7 +57,7 @@
 	border: none;
 	margin: 0;
 	left: 18px;
-	top: 0;
+	top: 10px;
 	@media (min-width: $screen-md) {
 		top: 13px;
 		left: -10px;
@@ -81,7 +84,7 @@
 	display: block;
 	position: absolute;
 	right: $mobile-gutter;
-	top: 0;
+	top: 11px;
 	&:hover{
 		text-decoration: none;
 		.cart-count{

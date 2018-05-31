@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	var addressHeight = 0;
 	var $addresses = $('#address-list .address');
-	if( $(window).width() > LS.desktopBreakpoint ){
+	if( $(window).width() >= LS.desktopBreakpoint ){
 		$addresses.each(function(){
 			if( $(this).outerHeight() > addressHeight ){
 				addressHeight = $(this).outerHeight();

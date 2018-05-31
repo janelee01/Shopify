@@ -4,6 +4,9 @@
 .page-weekenders{
 	#site-header{
 		background: none;
+		&.scrolled{
+			background: #FFF;
+		}
 	}
 	.site-content{
 		padding-top: 0;

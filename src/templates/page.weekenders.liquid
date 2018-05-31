@@ -1,38 +1,9 @@
 {% include 'discover-vars' %}
-{%- assign assetVersion = 7758942327703450306 -%}
 
-<article class="discover">
-    <div class="max-container">
-        <div class="hero">
-            {% include 'discover-picture', name: 'pearl-hero-image', alt: 'woman with O.G. on luggage', retina: true, fw: false, lg: true %}
-            <div class="hero-content">
-                <h1 class="block-title">Weekender<br /> Bags</h1>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-    	<div class="animate" {{ animateFadeInUp }}>
-    	    <div class="row">
-    	        <div class="col-sm-8 col-sm-offset-2 text-center">                    
-    	            <h2 class="block-title">An Option for Every Trip</h2>
-    	            <p class="block-description">Whether it be a European vacation, destination wedding, or weekend excursion to the beach, we have 3 editions that are perfect for any kind of destination.</p>
-    	        </div> 
-    	    </div>
-    	</div>
-    </div>
+<article class="discover discover-category">
+    
+    {% section 'page-weekenders' %}
 
-    <div class="animate" {{ animateFadeInUp }}>
-        
-    </div>
-    <div class="container">
-    	<div class="animate" {{ animateFadeInUp }}>
-    	    <div class="row">
-    	        <div class="col-sm-8 col-sm-offset-2 text-center">                    
-    	            <h2 class="block-title">The Catalina Deluxe</h2>
-    	            <p class="block-description">Our best selling weekender bag, now with even more features.</p>
-    	        </div> 
-    	    </div>
-    	</div>
-    </div>
+    {% include 'discover-catalina-compare' %}
 
 </article>

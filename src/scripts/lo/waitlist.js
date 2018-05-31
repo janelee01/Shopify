@@ -48,7 +48,7 @@ $(document).ready(function(){
 
 	var $img = $('#wl-image');
 	var positionWaitlistImage = function(){
-		if( $(window).width() < LS.tabletBreakpoint ){
+		if( $(window).width() <= LS.tabletBreakpoint ){
 			if( $('#wl-content #wl-img').length < 1 ){
 				$img.detach().insertAfter('#wl-product-name');
 			}

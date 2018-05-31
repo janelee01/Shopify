@@ -37,7 +37,7 @@ $(document).ready(function(){
 		var $nav = $('nav.local');
 		var $bar = $nav.find('.active-bar');
 		var $active = $nav.find('.active');
-		var barOffset = $(window).width() > LS.desktopBreakpoint ? 20 : 11; // margins on the nav items
+		var barOffset = $(window).width() >= LS.desktopBreakpoint ? 20 : 11; // margins on the nav items
 		$bar.css({
 			'left': $active.position().left + barOffset, 
 			'width': $active.outerWidth()
@@ -47,7 +47,7 @@ $(document).ready(function(){
 		setActiveBar();
 		$(window).resize(function(){
 			setActiveBar();
-			if( $(window).width() > LS.desktopBreakpoint ){
+			if( $(window).width() >= LS.desktopBreakpoint ){
 				$('.local-nav-section').show();
 			}
 		});
@@ -68,7 +68,7 @@ $(document).ready(function(){
 		var $targets = $('.jumptarget');
 		var headerHeight = $('#site-header').outerHeight() + $('nav.local').outerHeight();
 		$(window).scroll(function(){
-			if( $(window).width() > LS.desktopBreakpoint ){
+			if( $(window).width() >= LS.desktopBreakpoint ){
 				var activeSectionIndex = 0;
 				var scrollPosition = $(window).scrollTop();
 				$targets.each(function(i){
@@ -109,7 +109,7 @@ $(document).ready(function(){
 			$target = $('body');
 		}
 
-		if( $(window).width() > LS.desktopBreakpoint ){
+		if( $(window).width() >= LS.desktopBreakpoint ){
 			// smooth scroll on desktop 
 			pos = $target.offset().top - $('#site-header').outerHeight() - $('nav.local').outerHeight();
 			$('html,body').animate({scrollTop: pos+'px'});
