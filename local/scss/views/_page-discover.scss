@@ -156,7 +156,8 @@
 		font-family: $font-family-base;
 		color: $gray-darker;
 		text-transform: uppercase;
-		margin: 0;
+		margin: 0 0 .5em;
+		letter-spacing: .125ex;
 		@include fslh(16,20);
 	}
 	.block-description{
