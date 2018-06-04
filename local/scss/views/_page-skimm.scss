@@ -1,0 +1,56 @@
+#skimm-hero{
+	.block-title{
+		font-size: 48px;
+		max-width: 100%;
+		@media (min-width: $screen-sm) {
+		    font-size: 90px;
+		}
+		@media (min-width: $screen-md) {
+		    font-size: 70px;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 90px;
+		}
+	}
+}
+#skimm-code{
+	border: solid 1px #fff;
+	padding: 15px;
+	margin-bottom: 18px;
+	display: flex;
+	align-items: center;
+	max-width: 100%;
+	span{
+		color: #FFF;
+		font-size: 24px;
+		padding: 0 25px 0 10px;
+	}
+	.code{
+		background: #FFF;
+		color: $brand-blue;
+		font-size: 26px;
+		line-height: 1;
+		text-transform: uppercase;
+		padding: 20px 50px;
+		font-family: $font-family-medium;
+	}
+}
+#skimm-code-disclaimer{
+	color: #FFF;
+	font-size: 18px;
+	text-align: left;
+	align-self: flex-start;
+}
+.skimm-lead{
+	color: $gray;
+	@include fslh(24,36);
+	@media (min-width: $screen-sm) {
+	    @include fslh(28,48);
+	}
+	@media (min-width: $screen-md) {
+	    @include fslh(30,50);
+	}
+	@media (min-width: $screen-lg) {
+		@include fslh(38,63);
+	}
+}

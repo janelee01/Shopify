@@ -1,0 +1,68 @@
+{% include 'discover-vars' %}
+{%- assign assetVersion = 6826103209124575142 -%}
+{%- assign skimmCode = 'xyz' -%}
+
+<article class="discover">
+    
+    <div class="max-container">
+        <div class="hero" id="skimm-hero">
+            {% include 'discover-picture', name: 'skimm-hero', alt: 'woman with luggage', retina: true, fw: false %}
+            <div class="hero-content theme-white">
+                <h1 class="block-title">Travel Smart</h1>
+                <div id="skimm-code">
+                  <span>Get 25% OFF with the code</span> <span class="code">{{ skimmCode }}</span>
+                </div>
+                <div id="skimm-code-disclaimer">*only applies to full-price items</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+
+        <div class="row animate topic-end-lg" {{ animateFadeInUp }}>
+            <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center">                    
+                <p class="skimm-lead">We believe that travel shouldn’t be stressful. Getting to your next destination should be as enjoyable as arriving where you want to go. So we design all of our products to make travel as seamless as possible.</p>
+            </div>
+        </div>
+
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
+                <h2 class="block-title">Thoughtful Features</h2>
+                <p class="block-description">Lorem ipsum dolor sit amet consectet nibh proin ultrices nibh interdum</p>
+            </div>
+        </div>
+
+        <div class="row topic-end-md animate" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2 col-md-12 col-md-offset-0">
+                {% include 'discover-picture', name: 'skimm-features', alt: 'Pearl as a crossbody', retina: true, fw: true %}                 
+            </div>
+        </div>
+        
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
+                <h2 class="block-title">Super Spacious</h2>
+                <p class="block-description">Lorem ipsum dolor sit amet consectet nibh proin ultrices nibh interdum</p>
+            </div>
+        </div>
+
+        <div class=" topic-end-lg animate" {{ animateFadeInUp }}>
+            {% include 'discover-picture', name: 'skimm-spacious', alt: 'Pearl as a crossbody', retina: true, fw: true %}  
+        </div>
+
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
+                <h2 class="block-title">High-quality Materials</h2>
+                <p class="block-description">Lorem ipsum dolor sit amet consectet nibh proin ultrices nibh interdum</p>
+            </div>
+        </div>
+
+        <div class="row topic-end-lg animate" {{ animateFadeInUp }}>
+          <div class="col-sm-10 col-sm-offset-1">        
+            {% include 'discover-picture', name: 'skimm-materials', alt: 'Pearl as a crossbody', retina: true, fw: true %}  
+          </div>
+        </div>
+
+        
+    </div>
+
+</article>
