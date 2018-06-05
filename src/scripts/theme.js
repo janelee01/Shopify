@@ -29,6 +29,7 @@ window.theme = window.theme || {};
 // =require vendor/jquery.cookie.js
 // =require vendor/jquery.touchSwipe.min.js
 // =require vendor/jquery.film_roll.js
+// =require vendor/slick.min.js
 // =require vendor/lo-and-sons.js
 // =require vendor/scrolla.js
 // =require lo/navigation.js
@@ -90,7 +91,7 @@ $(document).ready(function() {
 	    }
 	});
 
-	if( $(window).width() > LS.desktopBreakpoint ){
+	if( $(window).width() >= LS.desktopBreakpoint ){
 	  $('[data-collapse-toggle]').removeClass('collapsed');
 	  $('[data-collapse-panel]').addClass('is-shown');
 	}
@@ -100,19 +101,19 @@ $(document).ready(function() {
 
   if( has_sticky_element ){
 	var el_starting_pos = $('.sticky').offset().top;
-	if( $(window).width() > LS.desktopBreakpoint ){
+	if( $(window).width() >= LS.desktopBreakpoint ){
 	  LS.filters.setStickyColumnHeight($('.main'));
 	}
   }
 
   $(window).load( function() { // do this after the load so we have our images
-	if( $(window).width() > LS.desktopBreakpoint && has_sticky_element ){
+	if( $(window).width() >= LS.desktopBreakpoint && has_sticky_element ){
 	  LS.doStickyColumn(el_starting_pos);
 	}
   });
 
   $(window).scroll(function(){
-	if( $(window).width() > LS.desktopBreakpoint && has_sticky_element ){
+	if( $(window).width() >= LS.desktopBreakpoint && has_sticky_element ){
 	  LS.doStickyColumn(el_starting_pos);
 	}
   });
@@ -164,6 +165,34 @@ $(document).ready(function() {
   if( $('nav.local').length ){
   	$('#shopify-section-marquee').hide();
   }
+
+  // move the marquee for pages with transparent header
+  if( $('body').hasClass('page-weekenders') ){
+  	var $marquee = $('#shopify-section-marquee');
+  	var $header = $('#site-header');
+  	var trigger = 75;
+  	$marquee.detach().prependTo('#site-header');
+
+  	// if we're down the page already
+  	if( $(window).scrollTop() > trigger ){
+  		$header.addClass('scrolled');
+  	}
+  	// adjust on scroll
+  	$(window).scroll(function(){
+  		if( $(window).scrollTop() > trigger ){
+  			$header.addClass('scrolled');
+  			if( $marquee.is(':visible') ){
+  				$header.css({
+  					'top' : $marquee.outerHeight() * -1,
+  				});
+  			}
+  		}else{
+  			$header.removeAttr('style').removeClass('scrolled');
+  		}
+  	});
+  }
+
+
 
 
 
@@ -257,6 +286,33 @@ $(document).ready(function() {
 			pearlAnywhereLayout();
 		});
 	}
+	/*
+	Discover category pages
+	 */
+	$('.discover-category-product .image-grid').slick({
+		arrows : false,
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		responsive: [
+	    {
+	      breakpoint: LS.desktopBreakpoint,
+	      settings: {
+	        slidesToShow: 2,
+	        slidesToScroll: 2,
+	        dots : true
+	      }
+	    },
+	    {
+	      breakpoint: 376,
+	      settings: {
+	        slidesToShow: 1,
+	        slidesToScroll: 1,
+	        dots : true
+	      }
+	    }
+	  ]
+	});
+	
 
 	/*
 	Side scrolling indicators
@@ -417,7 +473,7 @@ $(document).ready(function() {
 		var $ = jQuery;
 
 		// sticky sidebars
-		if( $(window).width() > LS.desktopBreakpoint && has_sticky_element ){
+		if( $(window).width() >= LS.desktopBreakpoint && has_sticky_element ){
 			LS.doStickyColumn(el_starting_pos);
 		}
 
@@ -644,7 +700,7 @@ $(document).ready(function() {
 
     if( $('article.edgemont').length || $('article.discover').length ) {
     	var srollaEnabled = false;
-        if($(window).width() > 1024) {
+        if($(window).width() >= LS.desktopBreakpoint) {
             $('.animate').scrolla({
                 once: true
             });
@@ -652,7 +708,7 @@ $(document).ready(function() {
 		}
 		// images will stay missing if you start small and resize large
 		$(window).resize(function(){
-	        if($(window).width() > 1024 && !srollaEnabled) {
+	        if($(window).width() >= LS.desktopBreakpoint && !srollaEnabled) {
 	            $('.animate').scrolla({
 	                once: true
 	            });
@@ -732,5 +788,21 @@ $(document).ready(function() {
 	        });
     });
 
+	/*
+	Skimm LP
+	 */
+	
+	// things are flexed so we need a width on the disclaimer to left-align it with the code box
+	var syncSkimmDisclaimer = function(){
+		if( $(window).width() >= LS.desktopBreakpoint ){
+			$('#skimm-code-disclaimer').width($('#skimm-code').width());
+		}else{
+			$('#skimm-code-disclaimer').removeAttr('style');
+		}
+	}
+	if( $('#skimm-code').length ){
+		syncSkimmDisclaimer();
+		$(window).resize( syncSkimmDisclaimer );
+	}
 	
 });

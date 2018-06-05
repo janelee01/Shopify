@@ -3,7 +3,7 @@
 	max-width: $site-max-width;
 	margin-left: auto;
 	margin-right: auto;
-	position: relative;
+	position: relative; 
 }
 .discover{
 	.blocks-bg{
@@ -453,7 +453,7 @@
 		font-size: 15px;
 		line-height: calculateEm(24px, 15px);
 	}
-	
+
 	/*
 	Some elements break out of containers
 	 */
@@ -705,6 +705,127 @@
 		@media (min-width: $screen-lg) {
 			margin-top: 80px;
 		}
+	}
+}
+
+/*
+Discover category
+ */
+.discover-category{
+	.hero{
+		@media (max-width: $screen-sm-max) {
+		    margin-bottom: 45px;
+		}
+		.hero-content{
+			*{
+				color: $gray-darker;
+			}
+			@media (max-width: $screen-xs-max) {
+				.block-title{
+					font-size: 28px;
+				}
+			    &.right-xs{
+			    	width: 50%;
+			    	left: 50%;
+			    }
+			    &.left-xs{
+			    	width: 50%;
+			    }
+			}
+			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+			    &.right-sm{
+			    	width: 50%;
+			    	left: 50%;
+			    }
+			    &.left-sm{
+			    	width: 50%;
+			    }
+			}
+			@media (min-width: $screen-md) {
+				.block-title{
+					font-size: 48px; 
+				}
+			    &.right-md{
+			    	width: 50%;
+			    	left: 50%;
+			    }
+			    &.left-md{
+			    	width: 50%;
+			    }
+			}
+		}
+	}
+}
+.discover-category-lead{
+	.block-title{
+		@media (max-width: $screen-xs-max) {
+		    font-size: 25px;
+		}
+		@media (min-width: $screen-md) {
+			font-size: 52px;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 64px;
+		}
+	}
+	.block-description{
+		
+		@media (max-width: $screen-xs-max) {
+		    font-size: 19px;
+		}
+		@media (min-width: $screen-sm) {  
+			margin-bottom: 80px;
+		}
+		@media (min-width: $screen-md) {
+			margin-bottom: 86px;
+			@include fslh(25,34);
+		}
+		@media (min-width: $screen-lg) {
+			margin-bottom: 130px;
+		}
+	}
+}
+.discover-category-price{
+	display: block;
+	font-size: 80%;
+}
+.discover-category-product{
+	margin-bottom: 100px;
+	@media (min-width: $screen-md) {
+	    margin-bottom: 150px;
+	}
+	.image-grid{
+		margin-bottom: 30px;
+		@media (min-width: $screen-md) {
+			margin-bottom: 70px;
+			picture{
+				width: 25%;
+			}
+		}
+		picture{
+			img{
+				width: 100%;
+			}
+		}	
+	}
+	.block-description{
+		margin-bottom: calculateEm(43px, 25px);
+	}
+	.btn-set{
+		max-width: 165px;
+		.btn{
+			font-size: 16px;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+	}
+	@media (max-width: $screen-xs-max) {
+	    .block-title{
+	    	font-size: 25px;
+	    }
+	    .block-description{
+	    	font-size: 19px;
+	    }
 	}
 }
 

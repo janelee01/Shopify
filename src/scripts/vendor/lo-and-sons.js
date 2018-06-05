@@ -1,7 +1,7 @@
 var LS = LS || window.LS || {};
 
-LS.tabletBreakpoint = 769;
-LS.desktopBreakpoint = 1030;
+LS.tabletBreakpoint = 768;
+LS.desktopBreakpoint = 1025;
 LS.galleries = [];
 
 LS.checkoutFieldsInit = function(){
@@ -317,7 +317,7 @@ LS.filters = {
 				}
 			}
 
-			if( $(window).width() > LS.desktopBreakpoint ){
+			if( $(window).width() >= LS.desktopBreakpoint ){
 				if( $('#category-filters').outerHeight() > $('.main').outerHeight() ){
 					LS.filters.setStickyColumnHeight( $('#category-filters') );
 				}else{
