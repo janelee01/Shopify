@@ -48,8 +48,12 @@
 	}
 	@media (min-width: $screen-md) {
 		padding: 0;
+		margin: 0 30px;
 		background: none;
 		position: static; 
+	}
+	@media (min-width: $screen-md) {
+		margin: 0 40px;
 	}
 	*{
 		max-width: 100%;
@@ -74,9 +78,12 @@
 			font-size: 40px;
 		}
 		@media (min-width: $screen-md) {
-			font-size: 24px;
+			font-size: 22px;
 			padding: 0 25px 0 10px;
 			margin-bottom: 0;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 24px;
 		}
 		small{
 			display: block;
@@ -100,21 +107,25 @@
 		display: block;
 		font-family: $font-family-medium;
 		@media (min-width: $screen-md) {
-			font-size: 26px;
-			padding: 20px 30px;
+			font-size: 20px;
+			padding: 15px 20px;
 			width: auto;
 			margin: 0;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 26px;
+			padding: 20px 30px;
 		}
 	}
 }
 #skimm-code-disclaimer{
 	color: #FFF;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 1;
 	@media (min-width: $screen-md) {
 	    padding-left: 25px;
 	    text-align: left;
-	    font-size: 18px;
+	    font-size: 15px;
 	}
 }
 .skimm-lead{
