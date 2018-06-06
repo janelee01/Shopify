@@ -81,15 +81,54 @@
 				}
 				&.center{
 					left: 25%;
-				}
-			}
-			@media (min-width: $screen-md) {
-				&.center{
 					*{
 						max-width: 100%;
 					}
 				}
 			}
+			@media (max-width: $screen-xs-max) {
+			    &.left-xs{
+			    	width: 50%;	
+			    }
+			    &.center-xs{
+			    	width: 50%;	
+			    	left: 25%;
+			    }
+			    &.right-xs{
+			    	width: 50%;
+			    	right: 0;
+			    	left: auto;	
+			    }
+			}
+			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+			    &.left-sm{
+			    	width: 50%;	
+			    }
+			    &.center-sm{
+			    	width: 50%;	
+			    	left: 25%;
+			    }
+			    &.right-sm{
+			    	width: 50%;
+			    	right: 0;
+			    	left: auto;	
+			    }
+			}
+			@media (min-width: $screen-md) {
+			    &.left-md{
+			    	width: 50%;	
+			    }
+			    &.center-md{
+			    	width: 50%;	
+			    	left: 25%;
+			    }
+			    &.right-md{
+			    	width: 50%;
+			    	right: 0;
+			    	left: auto;	
+			    }
+			}
+			
 			&.theme-medium {
 				.block-title{
 					color: $gray-darker;
@@ -713,6 +752,7 @@ Discover category
  */
 .discover-category{
 	.hero{
+		opacity: 1;
 		@media (max-width: $screen-sm-max) {
 		    margin-bottom: 45px;
 		}
