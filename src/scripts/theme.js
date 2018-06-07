@@ -173,6 +173,13 @@ $(document).ready(function() {
   	var trigger = 75;
   	$marquee.detach().prependTo('#site-header');
 
+  	if( $marquee.is(':visible') ){
+  		$('.site-content').css('padding-top', $marquee.outerHeight());
+  	}
+  	$('body').on('click', '.marquee .panel-close', function(e){
+  		$('.site-content').removeAttr('style');
+  	});
+
   	// if we're down the page already
   	if( $(window).scrollTop() > trigger ){
   		$header.removeClass('showing-alternate');
@@ -187,6 +194,7 @@ $(document).ready(function() {
   				$header.css({
   					'top' : $marquee.outerHeight() * -1,
   				});
+  				
   			}
   		}
   	});
