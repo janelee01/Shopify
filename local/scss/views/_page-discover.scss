@@ -149,7 +149,7 @@
 				font-family: $font-family-bold;
 				font-size: 42px;
 				@media (min-width: $screen-lg) {
-					font-size: 40px;
+					font-size: 56px;
 				}
 			}
 			.block-description{
@@ -764,9 +764,9 @@ Discover category
 				font-family: $font-family-medium;
 			}
 			@media (max-width: $screen-xs-max) {
-				.block-title{
-					font-size: 28px;
-				}
+				// .block-title{
+				// 	font-size: 28px;
+				// }
 			    &.right-xs{
 			    	width: 50%;
 			    	left: 50%;
@@ -785,9 +785,9 @@ Discover category
 			    }
 			}
 			@media (min-width: $screen-md) {
-				.block-title{
-					font-size: 48px; 
-				}
+				// .block-title{
+				// 	font-size: 48px; 
+				// }
 			    &.right-md{
 			    	width: 50%;
 			    	left: 50%;
@@ -800,33 +800,33 @@ Discover category
 	}
 }
 .discover-category-lead{
-	.block-title{
-		@media (max-width: $screen-xs-max) {
-		    font-size: 25px;
-		}
-		@media (min-width: $screen-md) {
-			font-size: 52px;
-		}
-		@media (min-width: $screen-lg) {
-			font-size: 64px;
-		}
-	}
-	.block-description{
+	// .block-title{
+	// 	@media (max-width: $screen-xs-max) {
+	// 	    font-size: 25px;
+	// 	}
+	// 	@media (min-width: $screen-md) {
+	// 		font-size: 52px;
+	// 	}
+	// 	@media (min-width: $screen-lg) {
+	// 		font-size: 64px;
+	// 	}
+	// }
+	// .block-description{
 		
-		@media (max-width: $screen-xs-max) {
-		    font-size: 19px;
-		}
-		@media (min-width: $screen-sm) {  
-			margin-bottom: 80px;
-		}
-		@media (min-width: $screen-md) {
-			margin-bottom: 86px;
-			@include fslh(25,34);
-		}
-		@media (min-width: $screen-lg) {
-			margin-bottom: 130px;
-		}
-	}
+	// 	@media (max-width: $screen-xs-max) {
+	// 	    font-size: 19px;
+	// 	}
+	// 	@media (min-width: $screen-sm) {  
+	// 		margin-bottom: 80px;
+	// 	}
+	// 	@media (min-width: $screen-md) {
+	// 		margin-bottom: 86px;
+	// 		@include fslh(25,34);
+	// 	}
+	// 	@media (min-width: $screen-lg) {
+	// 		margin-bottom: 130px;
+	// 	}
+	// }
 }
 .discover-category-price{
 	display: block;
@@ -856,6 +856,13 @@ Discover category
 	}
 	.btn-set{
 		max-width: 165px;
+		@media (min-width: $screen-md) {
+			max-width: 100%;
+			p{
+				display: inline-block;
+				margin: 0 3px;
+			}
+		}
 		.btn{
 			font-size: 16px;
 			padding-top: 1em;

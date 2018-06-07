@@ -1,5 +1,5 @@
 <div class="max-container">
-    <div class="hero">
+    <div class="hero {% if page.metafields['global']['header-theme'] == 'has-tw-header' %}theme-white{% endif %}">
         <picture>
             <source srcset="{{ block.settings.desktopImage | img_url: 'master' }}" media="(min-width: {{ screenMd }})" />
             <source srcset="{{ block.settings.tabletImage | img_url: 'master' }}" media="(min-width: {{ screenSm }})" />

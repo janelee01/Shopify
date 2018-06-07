@@ -8,7 +8,13 @@
         <div class="hero" id="skimm-hero">
             {% include 'discover-picture', name: 'skimm-hero', alt: 'woman with luggage', retina: true, fw: false %}
             <div class="hero-content theme-white">
-                <h1 class="block-title">Travel Smart</h1>
+                <div class="block-title">
+                    <picture>
+                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/LSxSKIMM-md.png?14233646419525235457, https://cdn.shopify.com/s/files/1/2185/1497/files/LSxSKIMM-md2x.png?14233646419525235457 2x" media="(min-width: 1025px)">
+                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/LSxSKIMM-sm.png?14233646419525235457" media="(min-width: 768px)">
+                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/LSxSKIMM-xs.png?14233646419525235457" alt="Lo &amp; Sons and The Skimm logos">
+                    </picture>
+                </div>
                 <div id="skimm-offer">
                     <div id="skimm-code">
                       <span>Get 25% OFF <small>with the code</small></span> <span class="code">{{ skimmCode }}</span>
@@ -22,7 +28,7 @@
     <div class="container">
 
         <div class="row skimm-topic-end animate" {{ animateFadeInUp }}>
-            <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center text-left-xs">                    
+            <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center text-left-xs">   
                 <p class="skimm-lead">We believe that travel shouldn’t be stressful. So we design all of our products with thoughtful features and elements to make travel as smooth as possible. Translation: less fumbling, more globetrotting.</p>
             </div>
         </div>
