@@ -91,7 +91,7 @@
 			border-color: $brand-blue;
 		}
 		.cart-icon{
-			background-position: right center;
+			background-position: right 4px;
 		}
 	}
 	@media (min-width: $screen-md) {
@@ -107,8 +107,8 @@
 		display: inline-block;
 		width: 19px;
 		height: 32px;
-		background: url('sprite-icon-cart-v2.svg') no-repeat left center;
-		background-size: auto 23px;
+		background: url('sprite-icon-cart-v5.svg') no-repeat left 4px;
+		background-size: 38px auto;
 		vertical-align: middle;
 	}
 	.cart-count{

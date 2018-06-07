@@ -167,7 +167,7 @@ $(document).ready(function() {
   }
 
   // move the marquee for pages with transparent header
-  if( $('body').hasClass('page-weekenders') ){
+  if( $('body').hasClass('has-tw-header') || $('body').hasClass('has-tb-header') ){
   	var $marquee = $('#shopify-section-marquee');
   	var $header = $('#site-header');
   	var trigger = 75;
@@ -175,19 +175,19 @@ $(document).ready(function() {
 
   	// if we're down the page already
   	if( $(window).scrollTop() > trigger ){
-  		$header.addClass('scrolled');
+  		$header.removeClass('showing-alternate');
   	}
   	// adjust on scroll
   	$(window).scroll(function(){
-  		if( $(window).scrollTop() > trigger ){
-  			$header.addClass('scrolled');
+  		if( $(window).scrollTop() < trigger ){
+  			$header.addClass('showing-alternate').removeAttr('style');
+  		}else{
+  			$header.removeClass('showing-alternate');
   			if( $marquee.is(':visible') ){
   				$header.css({
   					'top' : $marquee.outerHeight() * -1,
   				});
   			}
-  		}else{
-  			$header.removeAttr('style').removeClass('scrolled');
   		}
   	});
   }

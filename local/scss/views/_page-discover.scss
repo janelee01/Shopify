@@ -760,6 +760,9 @@ Discover category
 			*{
 				color: $gray-darker;
 			}
+			.block-title{
+				font-family: $font-family-medium;
+			}
 			@media (max-width: $screen-xs-max) {
 				.block-title{
 					font-size: 28px;

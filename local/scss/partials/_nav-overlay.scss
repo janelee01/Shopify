@@ -1,14 +1,46 @@
 /*
  Some pages have a transparent nav over the hero
  */
-.page-weekenders{
-	#site-header{
+body.has-tw-header,
+body.has-tb-header{
+	#site-header.showing-alternate{
 		background: none;
-		&.scrolled{
-			background: #FFF;
-		}
 	}
 	.site-content{
 		padding-top: 0;
+	}
+}
+
+body.has-tw-header{
+	#site-header.showing-alternate{
+		.navbar-toggle .icon-bar{
+			background-color: #fff;
+		}
+		#site-logo {
+			background-image: url(ls-logo-white.svg);
+		}
+		.cart-link{
+			&:hover{
+				.cart-count{
+					border-color: $brand-blue;
+					color: $brand-blue; 
+				}
+				.cart-icon{
+					background-position: right 4px;
+				}
+			}
+			&.empty{
+				.cart-count{
+					color: #fff;
+				}
+			}
+			.cart-icon{
+				background-position: left -29px;
+			}
+			.cart-count{
+				border-color: #fff;
+				color: #fff;
+			}
+		}
 	}
 }

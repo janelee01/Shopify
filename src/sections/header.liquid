@@ -1,6 +1,6 @@
 <div data-section-id="{{ section.id }}" data-section-type="header-section">
   
-  <header id="site-header">
+  <header id="site-header" class="{% unless page.metafields['global']['header-theme'] == 'default' %}showing-alternate{% endunless %}">
     <div class="container-fluid">
         <nav>
           {% if template.name == 'index' %}
