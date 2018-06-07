@@ -18,12 +18,16 @@
 		max-width: 100%;
 	}
 	.block-title{
+		padding: 0;
 		width: 330px;
 		@media (min-width: $screen-sm) {
 			width: 510px;
 		}
+		@media (min-width: $screen-md) {
+			width: 410px;
+		}
 		@media (min-width: $screen-lg) {
-			width: 630px;
+			width: 590px;
 		}
 		@media (max-width: $screen-sm-max) {
 		    margin-bottom: 150px;
