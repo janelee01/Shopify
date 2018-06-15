@@ -33,6 +33,12 @@
 		@media (min-width: $screen-lg) {
 			max-width: 1170px;
 		}
+		.row.fw-sm{
+			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+			    margin-left: -30px;
+			    margin-right: -30px;
+			}
+		}
 	}
 	.hero{
 		position: relative;
@@ -1139,6 +1145,64 @@ Specific things
 	picture{
 		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
 			max-width: 455px;
+		}
+	}
+}
+
+#catalina-rose-yucca{
+	margin-top: $mobile-gutter;
+	margin-bottom: $mobile-gutter;
+	@media (min-width: $screen-sm) {
+		margin-top: 70px;
+		margin-bottom: 70px;
+	}
+	@media (min-width: $screen-md) {
+		margin-top: 0;
+		margin-bottom: 30px;
+	}
+}
+#catalina-rose-getaway{
+	@media (min-width: $screen-md) {
+		.title{
+			margin-top: 0;
+		}
+	}
+}
+.discover.catalina-rose{
+	.hero{
+		@media (max-width: $screen-xs-max) {
+		    margin-bottom: $mobile-gutter;
+		}
+	}
+	.row.cta-block{
+		padding: 70px 0;
+		@media (max-width: $screen-sm-max) {
+		    .content-col{
+		    	text-align: center;
+		    }
+		}
+		@media (min-width: $screen-sm) {
+			padding: 100px 0;
+		    .btn-set{
+		    	max-width: 100%;
+		    	.btn{
+		    		display: inline-block;
+		    		margin: 0;
+		    		min-width: 161px;
+		    		&:first-child{
+		    			margin-right: 15px;
+		    		}
+		    	}
+		    }
+		}
+		@media (min-width: $screen-md) {
+			padding: 70px 0;
+			display: flex;
+			.content-col{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
 		}
 	}
 }
