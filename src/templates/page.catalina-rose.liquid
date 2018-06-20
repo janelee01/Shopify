@@ -21,15 +21,25 @@
         </div>
 
         <div class="row topic-end-lg animate" {{ animateFadeInUp }}>
-            <div class="col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-0">                    
-                {% include 'discover-picture', name: 'catalina-rose-easy-breezy', alt: 'exterior view of building and palm trees', retina: true, fw: false, lg: true %}
+            <div class="col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-0"> 
+                <div class="hidden-md hidden-lg"> 
+                    {% include 'discover-picture', name: 'catalina-rose-summer-getaway', alt: 'catalina in rose next to pool', retina: true, fw: false, lg: true %}
+                </div>
+                <div class="hidden-xs hidden-sm">
+                    {% include 'discover-picture', name: 'catalina-rose-easy-breezy', alt: 'exterior view of building and palm trees', retina: true, fw: false, lg: true %}
+                </div>
             </div>
             <div class="col-sm-10 col-sm-offset-1 col-md-7 col-md-offset-0">   
                 <div id="catalina-rose-getaway" class="figure-caption">
                     <h3 class="title">Easy and Breezy</h3>
                     <p class="description">Add a gentle warmth to this season’s travels.</p>
-                </div>                 
-                {% include 'discover-picture', name: 'catalina-rose-summer-getaway', alt: 'catalina in rose next to pool', retina: true, fw: false, lg: true %}
+                </div>   
+                <div class="hidden-md hidden-lg">
+                    {% include 'discover-picture', name: 'catalina-rose-easy-breezy', alt: 'exterior view of building and palm trees', retina: true, fw: false, lg: true %}
+                </div>
+                <div class="hidden-xs hidden-sm">
+                    {% include 'discover-picture', name: 'catalina-rose-summer-getaway', alt: 'catalina in rose next to pool', retina: true, fw: false, lg: true %}
+                </div>
             </div>
         </div>
 
