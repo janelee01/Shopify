@@ -148,6 +148,7 @@ $(document).ready(function() {
   $('body').on('click', '.marquee .panel-close', function(e){
 	e.preventDefault();
 	$('#shopify-section-marquee').fadeOut('fast', function(){
+		$('.site-content').removeAttr('style');
 		$('body').trigger('marquee-hidden');
 	});
 	sessionStorage.setItem("lo-marquee-dismissed", "1");
@@ -166,19 +167,35 @@ $(document).ready(function() {
   	$('#shopify-section-marquee').hide();
   }
 
-  // move the marquee for pages with transparent header
-  if( $('body').hasClass('has-tw-header') || $('body').hasClass('has-tb-header') ){
-  	var $marquee = $('#shopify-section-marquee');
-  	var $header = $('#site-header');
-  	var trigger = 75;
-  	$marquee.detach().prependTo('#site-header');
+  // slide the marquee out of the way on scroll
+  var $marquee = $('#shopify-section-marquee');
+  var $header = $('#site-header');
+  var trigger = 75;
 
+  if( $marquee.is(':visible') ){
+  	$('.site-content').css('padding-top', $header.outerHeight());
+  }
+
+  // adjust on scroll
+  $(window).scroll(function(){
+  	if( $(window).scrollTop() < trigger ){
+  		$header.removeAttr('style');
+  	}else{
+  		if( $marquee.is(':visible') ){
+  			$header.css({
+  				'top' : $marquee.outerHeight() * -1,
+  			});
+  		}
+  	}
+  });
+
+  // untransparentize header
+  if( $('body').hasClass('has-tw-header') || $('body').hasClass('has-tb-header') ){
+
+  	// don't use the entire header height when it's overlayed
   	if( $marquee.is(':visible') ){
   		$('.site-content').css('padding-top', $marquee.outerHeight());
   	}
-  	$('body').on('click', '.marquee .panel-close', function(e){
-  		$('.site-content').removeAttr('style');
-  	});
 
   	// if we're down the page already
   	if( $(window).scrollTop() > trigger ){
@@ -187,22 +204,12 @@ $(document).ready(function() {
   	// adjust on scroll
   	$(window).scroll(function(){
   		if( $(window).scrollTop() < trigger ){
-  			$header.addClass('showing-alternate').removeAttr('style');
+  			$header.addClass('showing-alternate');
   		}else{
   			$header.removeClass('showing-alternate');
-  			if( $marquee.is(':visible') ){
-  				$header.css({
-  					'top' : $marquee.outerHeight() * -1,
-  				});
-  				
-  			}
   		}
   	});
   }
-
-
-
-
 
   	// swipable bs carousels
   	$(".carousel").swipe({
