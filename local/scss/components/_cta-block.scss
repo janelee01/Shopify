@@ -1,0 +1,94 @@
+/*
+Footer block
+ */
+.discover-cta{
+	background: #f8f8f8;
+	padding: 55px 0 65px;
+	text-align: center;
+	@media (min-width: $screen-md) {
+		.row{
+			display: flex;
+		}
+	}
+	picture{
+		display: inline-block;
+		@media (max-width: $screen-sm-max) {
+		    max-width: 285px;
+		    margin-bottom: 45px;
+		}
+	}
+	.topic-block{
+		margin: 0;
+		.btn-set{
+			margin-left: auto;
+			@media (min-width: $screen-md) {
+				width: auto;
+			}
+		}
+	}
+	.topic-content{
+		padding: 0;
+		.title{
+			font-size: 2em;
+		}
+	}
+}
+
+/*
+In page blocks
+ */
+
+.cta-block{
+	position: relative;
+	background: $gray-lightest;
+	padding: 70px 0;
+	@include mb();
+	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+		width: 83.3333%;
+		margin-left: 8.333333%;
+		margin-right: 0;
+		picture{
+			width: 45%;
+			margin: 0 auto;
+		}
+	}
+	@media (min-width: $screen-md) {
+		display: flex;
+		&.has-overlay{
+			display: block;
+			padding: 0;
+			.overlay{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
+			.content-col{
+				display: flex;
+				height: 100%;
+			}
+		}
+	}
+	.topic-content{
+		padding-bottom: 0;
+		@media (max-width: $screen-sm-max) {
+		    text-align: center;
+		    padding-left: $mobile-gutter;
+		    padding-right: $mobile-gutter;
+		}
+		@media (min-width: $screen-md) {
+			padding: 0;
+		}
+	}
+	.btn-set{
+		@media (min-width: $screen-sm) {
+			width: 100%;
+			.btn{
+				display: inline-block;
+				margin-right: 10px;
+				margin-bottom: 0;
+			}	
+		}
+	}
+}

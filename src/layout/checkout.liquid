@@ -7,11 +7,10 @@
     <meta name="referrer" content="origin">
 
     {% include 'google-tag-manager' %}
-    {%- assign titleWords = page_title | split: ' ' -%}
-    {% capture page_title %}{% for word in titleWords %}{{ word | capitalize }} {% endfor %}{% endcapture %}
-    <title>{{ shop.name }} - {{ page_title | rstrip }}</title>
 
-    {{ content_for_header }}
+    <title>{{ page_title }}</title>
+
+    {{ content_for_header }} 
   
     {{ checkout_stylesheets }}
     {{ 'checkout.scss.css' | asset_url | stylesheet_tag }} 
@@ -19,7 +18,8 @@
     {{ checkout_scripts }}
   </head>
   <body>
-    
+    {{ skip_to_content_link }}
+
     {% include 'body-before-start' %}
 
     <div class="banner" data-header>
@@ -32,14 +32,6 @@
 
     <div class="content" data-content>
       <div class="wrap">
-        <div class="sidebar" role="complementary">
-          <div class="sidebar__header">
-            {{ content_for_logo }}
-          </div>
-          <div class="sidebar__content">
-            {{ content_for_order_summary }}
-          </div>
-        </div>
         <div class="main" role="main">
           <div class="main__header">
             {{ content_for_logo }}
@@ -53,8 +45,17 @@
             {{ content_for_footer }}
           </div>
         </div>
+        <div class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content">
+            {{ content_for_order_summary }}
+          </div>
+        </div>
       </div>
     </div>
+    
     {{ tracking_code }}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>

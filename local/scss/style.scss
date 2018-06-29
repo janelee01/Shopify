@@ -1,51 +1,38 @@
-@import 'base/fonts';
 @import 'base/variables';
-@import 'bootstrap';
 @import 'base/mixins'; 
-@import 'base/base';
+@import 'base/fonts';
 
-@import 'partials/forms';
-@import 'partials/header';
-@import 'partials/footer';
-@import 'partials/feature';
-@import 'partials/product-grid';
-@import 'partials/carousels';
-@import 'partials/image-panel';
-@import 'partials/comparison';
-@import 'partials/story-blocks';
-@import 'partials/side-by-side';
-@import 'partials/modal';
-@import 'partials/nav-overlay';
-@import 'partials/pagination';
-@import 'partials/page-builder';
-@import 'partials/newsletter';
-@import 'partials/search';
-@import 'partials/section-title';
-@import 'partials/sharing';
-@import 'partials/slick';
-@import 'partials/tabs';
-@import 'partials/tables';
-@import 'partials/overflow-row';
+@import 'vendor/animate'; 
+@import 'vendor/bootstrap';  // do this before defaults since some bootstrap mixins are referenced
+@import 'vendor/film-roll';  
+@import 'vendor/slick';  
 
-@import 'views/blog';
-@import 'views/page';
-@import 'views/page-discover';
-@import 'views/home';
-// @import 'views/category';
-@import 'views/collection';
-@import 'views/product';
-@import 'views/cart';
-@import 'views/press-reviews';
+@import 'base/defaults';
+
+@import 'components/buttons';
+@import 'components/cta-block';
+@import 'components/discover-compare';
+@import 'components/footer';
+@import 'components/forms';
+@import 'components/header';
+@import 'components/hero';
+@import 'components/marquee';
+@import 'components/navigation';
+@import 'components/overflow-row';
+@import 'components/page-header';
+@import 'components/product-grid';
+@import 'components/search';
+@import 'components/section-heading';
+@import 'components/tables';
+@import 'components/tabs';
+@import 'components/topic-block';
+
+@import 'views/cart'; 
+@import 'views/category'; // theme-managed layout
+@import 'views/collection'; // default product grid
 @import 'views/customer';
+@import 'views/page-custom';
+@import 'views/press-reviews';
+@import 'views/product';
 @import 'views/returns';
-@import 'views/cancel';
-@import 'views/search';
 @import 'views/support';
-@import 'views/password-wall';
-@import 'views/gift-card';
-
-@import 'views/page-edgemont';
-@import 'views/page-credo';
-@import 'views/page-skimm';
-
-@import 'partials/ie'; 

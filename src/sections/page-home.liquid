@@ -1,21 +1,18 @@
+{% include 'vars' %}
 {% for block in section.blocks %}
-	<div class="page-block theme-{{ block.settings.textColor }}"
-		style="{%- if block.settings.disableBottomMargin -%} margin-bottom: 0;{%- endif -%}"
-		{{ block.shopify_attributes }}>
-		{% case block.type %}
+	{% case block.type %}
 
-			{% when 'sectionHeading' %}
-			{% include 'section-heading' %}
+		{% when 'hero' %}
+		{% include 'hero' %}
 
-			{% when 'hero' %}
-			{% include 'builder-hero' %}
+		{% when 'sectionHeading' %}
+		{% include 'section-heading' %}
 
-			{% when 'columns' %}
-			{% include 'builder-columns' %}
+		{% when 'columns' %}
+		{% include 'side-by-side' %}
 
-		{% endcase %}
-	</div>
-	{% endfor %}
+	{% endcase %}
+{% endfor %}
 
 {% schema %}
 {
@@ -150,18 +147,14 @@
 			"name": "Section Heading",
 			"settings": [
 				{
-					"id": "text",
+					"id": "title",
 					"type": "text",
-					"label": "Text"
+					"label": "Title"
 				},
 				{
-					"type": "radio",
-					"id": "headingStyle",
-					"label": "Heading Style",
-					"options": [
-						{ "value": "has-bar", "label": "Bar Behind" },
-						{ "value": "has-divider", "label": "Divider Line Below" }
-					]
+					"id": "description",
+					"type": "text",
+					"label": "Description"
 				}
 			]
 		},
@@ -173,6 +166,11 @@
 					"id": "mobileImage",
 					"type": "image_picker",
 					"label": "Mobile Image"
+				},
+				{
+					"id": "tabletImage",
+					"type": "image_picker",
+					"label": "Tablet Image"
 				},
 				{
 					"id": "desktopImage",
@@ -188,6 +186,35 @@
 					"type": "text",
 					"id": "title",
 					"label": "Title"
+				},
+				{
+					"type": "text",
+					"id": "subtitle",
+					"label": "Subtitle"
+				},
+				{
+					"type": "text",
+					"id": "description",
+					"label": "Description"
+				},
+				{
+					"type": "radio",
+					"id": "textPosition",
+					"label": "Desktop Text Position",
+					"options": [
+						{ "value": "left", "label": "Left" },
+						{ "value": "center", "label": "Center" },
+						{ "value": "right", "label": "Right" }
+					]
+				},
+				{
+					"type": "radio",
+					"id": "textColor",
+					"label": "Text Color",
+					"options": [
+						{ "value": "black", "label": "Black" },
+						{ "value": "white", "label": "White" }
+					]
 				},
 				{
 					"type": "text",
@@ -228,25 +255,6 @@
 					]
 				},
 				{
-					"type": "radio",
-					"id": "overlayTextPos",
-					"label": "Text Position",
-					"options": [
-						{ "value": "left", "label": "Left" },
-						{ "value": "center", "label": "Center" },
-						{ "value": "right", "label": "Right" }
-					]
-				},
-				{
-					"type": "radio",
-					"id": "textColor",
-					"label": "Text Color",
-					"options": [
-						{ "value": "black", "label": "Black" },
-						{ "value": "white", "label": "White" }
-					]
-				},
-				{
 					"id": "video",
 					"type": "text",
 					"label": "Video",
@@ -282,12 +290,6 @@
 					"id": "loops",
 					"label": "Loops",
 					"default": "10"
-				},
-				{
-					"type": "checkbox",
-					"id": "disableBottomMargin",
-					"default": false,
-					"label": "Remove Bottom Margin"
 				}
 			]
 		}

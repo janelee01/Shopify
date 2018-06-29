@@ -1,4 +1,4 @@
-{% include 'discover-vars' %}
+{% include 'vars' %}
 
 {%- assign assetVersion = 14674944765238624509 -%}
 {%- assign ctaImgCol = 'col-md-7 col-md-pull-5' -%}
@@ -10,7 +10,7 @@
 
 <article class="discover">
     <nav class="page-nav theme-light has-button">
-        <div class="container-fluid">
+        <div class="container">
             <span class="page-nav-title">{{ ctaTitle }}</span>
             <a href="#" id="page-nav-items-toggle"></a>
             <ul class="page-nav-actions">
@@ -26,12 +26,12 @@
     </nav> 
     
     <div class="max-container">
-        <div class="theme-white hero">
+        <div class="hero">
             {% include 'discover-picture', name: 'waverley-hero', alt: 'woman walking with Waverley at wind farm', retina: true, fw: false, lg: true %}
-            <div class="hero-content right">
-                <h1 class="block-title"><span class="block-subtitle">Discover</span> Waverley</h1>
-                <p class="block-description">A stylish travel crossbody bag that adapts to any destination.</p>
-                <a href="#" data-video-id="1" class="overview-video-trigger">
+            <div class="hero-content white right">
+                <h1 class="title"><span class="subtitle">Discover</span> Waverley</h1>
+                <p class="description">A stylish travel crossbody bag that adapts to any destination.</p>
+                <a href="#" data-video-id="1" class="video-trigger">
                     <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video" />
                 </a>
             </div>
@@ -39,7 +39,7 @@
     </div>
     
     <div class="container">
-        <div class="row animate topic-end-lg" {{ animateFadeInUp }}>
+        <div class="row animate mb-large" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1">
                 {% include 'discover-picture', name: 'waverley-product-photo', alt: 'Waverley product shot', retina: true, fw: false %}
             </div>
@@ -47,80 +47,78 @@
 
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
-                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
-                    <h2 class="block-title"><a id="nav-target-1" class="jumptarget"></a>Wear it 4 Ways</h2>
-                    <p class="block-description">Convert the Waverley from a belt bag to a crossbody, shoulder bag, or a wristlet.</p>
+                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">                    
+                    <div class="section-heading">
+                        <h2 class="title"><a id="nav-target-1" class="jumptarget"></a>Wear it 4 Ways</h2>
+                        <p class="description">Convert the Waverley from a belt bag to a crossbody, shoulder bag, or a wristlet.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="row animate align-centers-md reversed topic-end-md topic-end-negate-sm" {{ animateFadeInUp }}>
+        <div class="row animate topic-block mb-negate-xs mb-negate-sm aligned-md reversed" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-lg-7">   
                 {% include 'discover-picture', name: 'waverley-belt-bag', alt: 'Waverley as a belt bag', retina: true, fw: true %}                 
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 col-lg-offset-0 content-col">                    
-                <div class="figure-caption text-center-sm">
+                <div class="topic-content text-center-sm">
                     <h3 class="title">Belt Bag</h3>
                     <p class="description">Wear it fanny pack style for hands free travel.</p>
                 </div>
             </div>
         </div>
 
-        <div class="row animate align-centers-md topic-end-md topic-end-negate-sm" {{ animateFadeInUp }}>
+        <div class="row animate topic-block mb-negate-xs mb-negate-sm aligned-md" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 col-lg-7">  
                 {% include 'discover-picture', name: 'waverley-crossbody-bag', alt: 'Waverley as a crossbody bag', retina: true, fw: true %}                  
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
-                <div class="figure-caption text-center-sm">
+                <div class="topic-content text-center-sm">
                     <h3 class="title">Crossbody Bag</h3>
                     <p class="description">Use the adjustable strap to wear it across your body any length you want.</p>
                 </div>
             </div>
         </div>
 
-        <div class="row animate align-centers-md reversed topic-end-md topic-end-negate-sm" {{ animateFadeInUp }}>
+        <div class="row animate topic-block mb-negate-xs mb-negate-sm aligned-md reversed" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-lg-7">   
                 {% include 'discover-picture', name: 'waverley-shoulder-bag', alt: 'Waverley as a shoulder bag', retina: true, fw: true %}                 
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 col-lg-offset-0 content-col">                    
-                <div class="figure-caption text-center-sm">
+                <div class="topic-content text-center-sm">
                     <h3 class="title">Shoulder Bag</h3>
                     <p class="description">The adjustable strap is also two-piece so you can shorten the strap length even further and wear it over the shoulder.</p>
                 </div>
             </div>
         </div>
 
-        <div class="row animate align-centers-md topic-end-md topic-end-negate-sm" {{ animateFadeInUp }}>
+        <div class="row animate topic-block aligned-md mb-large" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 col-lg-7">   
                 {% include 'discover-picture', name: 'waverley-wristlet', alt: 'Waverley as a wristlet', retina: true, fw: true %}                 
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
-                <div class="figure-caption text-center-sm">
+                <div class="topic-content text-center-sm">
                     <h3 class="title">Wristlet</h3>
                     <p class="description">The two-piece strap allows you to also convert the bag to a wristlet.</p>
                 </div>
             </div>
         </div>
 
-        <div class="row visible-sm" style="margin-bottom: 80px">
-            <div class="col-sm-10 col-sm-offset-1">
-                <hr>
-            </div>
-        </div>
-
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
-                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
-                    <h2 class="block-title"><a id="nav-target-2" class="jumptarget"></a>Easy Access</h2>
-                    <p class="block-description">The Waverley keep your most essential items neatly organized on the road.</p>
+                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">                    
+                    <div class="section-heading">
+                        <h2 class="title"><a id="nav-target-2" class="jumptarget"></a>Easy Access</h2>
+                        <p class="description">The Waverley keep your most essential items neatly organized on the road.</p>
+                    </div>
                 </div>
             </div>
-            <div class="row" {{ animateFadeInUp }}>
+            <div class="row mb-default" {{ animateFadeInUp }}>
                 <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0">   
                     {% include 'discover-picture', name: 'waverley-slip-pocket', alt: 'slip pocket', retina: true, fw: true %}                 
                     <div class="row">
                         <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-0">
-                            <div class="figure-caption text-center-sm">
+                            <div class="topic-content text-center-sm">
                                 <h3 class="title">1 big slip pocket</h3>
                                 <p class="description">Fit your passport and cash neatly together while globe trotting.</p>
                             </div>
@@ -132,7 +130,7 @@
                     {% include 'discover-picture', name: 'waverley-card-pockets', alt: 'card pockets', retina: true, fw: true %}                  
                     <div class="row">
                         <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-0">
-                            <div class="figure-caption text-center-sm">
+                            <div class="topic-content text-center-sm">
                                 <h3 class="title">3 small card pockets</h3>
                                 <p class="description">Keep your most essential cards organized and easily accessible.</p>
                             </div>
@@ -144,30 +142,28 @@
         </div>
     </div>
     
-    <div class="max-container has-overlay-xs fw-image topic-end-lg animate" {{ animateFadeInUp }}>
+    <div class="max-container topic-block mb-large has-overlay-xs animate" {{ animateFadeInUp }}>
         {% include 'discover-picture', name: 'waverley-what-fits-inside', alt: 'video showing how to pack the Waverley', retina: true, fw: false %}
-        <div class="row theme-white text-center">
-            <div class="content-col">
-                <div class="figure-caption">
-                    <h3 class="title">What Fits Inside</h3>
-                    <a href="#" data-video-id="2" class="overview-video-trigger">
-                        <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
-                    </a>
-                </div>
-            </div>
+        <div class="topic-content">
+            <h3 class="title">What Fits Inside</h3>
+            <a href="#" data-video-id="2" class="video-trigger">
+                <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
+            </a>
         </div>
     </div>
 
     <div class="container">
 
         <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-6 col-sm-offset-3 text-center">                    
-                <h2 class="block-title"><a id="nav-target-3" class="jumptarget"></a>Premium Materials</h2>
-                <p class="block-description">Designed with thoughtful details and crafted from world class materials.</p>
+            <div class="col-sm-6 col-sm-offset-3">                    
+                <div class="section-heading">
+                    <h2 class="title"><a id="nav-target-3" class="jumptarget"></a>Premium Materials</h2>
+                    <p class="description">Designed with thoughtful details and crafted from world class materials.</p>
+                </div>
             </div>
         </div>
 
-        <div class="row animate topic-end-md" {{ animateFadeInUp }}>
+        <div class="row animate mb-default" {{ animateFadeInUp }}>
             <div class="col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-5 col-lg-offset-1 offset-top-sm offset-top-md offset-top-lg">
                 <div id="waverley-materials-1">
                     {% include 'discover-picture', name: 'waverley-materials-1', alt: 'close up of Waverley', retina: true, fw: true %}    
@@ -178,7 +174,7 @@
             </div>
         </div>
 
-        <div class="row animate" {{ animateFadeInUp }}>
+        <div class="row animate mb-large" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">
                 {% include 'discover-picture', name: 'waverley-materials-3', alt: 'Waverley on dock with iphone', retina: true, fw: true %}
             </div>
@@ -186,9 +182,11 @@
         
     </div>
 
-    <div class="container pr-items animate" {{ animateFadeInUp }}>
-        <h2 class="block-title text-center"><a id="nav-target-4" class="jumptarget"></a>Traveler Approved</h2>
-        <div class="row topic-end-md">
+    <div class="container pr-items animate mb-default" {{ animateFadeInUp }}>
+        <div class="section-heading">
+            <h2 class="title"><a id="nav-target-4" class="jumptarget"></a>Traveler Approved</h2>
+        </div>
+        <div class="row">
             <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
                 <blockquote class="pr">
                     <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/travel-channel-logo.svg?15338545032145631141" alt="Travel Channel logo"></p>

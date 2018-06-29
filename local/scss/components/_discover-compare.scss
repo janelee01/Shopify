@@ -1,0 +1,31 @@
+.discover-compare{
+	background: #F4F4F4;
+	padding: 100px 0;
+	.section-heading{
+		margin-bottom: 0;
+		padding: 0 $mobile-gutter;
+		@media (min-width: $screen-sm) {
+			margin: 0;
+		}
+	} 
+	.btn-set{
+		width: auto;
+		.btn{
+			display: inline-block;
+		}
+	}
+}
+.compare-labels{
+	@include resetList;
+	text-align: center;
+	li{
+		display: inline-block;
+		vertical-align: top;
+		font-family: $font-family-medium;
+		width: 20%;
+		@include fslh(16,20);
+		@media (min-width: $screen-md) {
+			@include fslh(20,28);
+		}
+	}
+}

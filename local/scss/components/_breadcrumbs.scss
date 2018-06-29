@@ -1,0 +1,37 @@
+.breadcrumbs{
+	line-height: 26px;
+	// these padding values are for the account area. will need to refactor if breadcrumbs get used elsewhere some day
+	padding-top: 15px;
+	padding-bottom: 10px;
+	font-size: 12px;
+	@media (min-width: $screen-md) {
+		padding-top: 40px;
+		font-size: $font-size-base;
+	}
+	a{
+		color: #888;
+		margin-right: 7px;
+		@include transition(all .2s ease);
+		@media (min-width: $screen-md) {
+			margin-right: 15px;
+		}
+		&:focus,
+		&:hover{
+			text-decoration: none;
+			color: $gray-darker;
+		}
+		&:after{
+			content: '';
+			display: inline-block;
+			background: url('navigate-right-gray.svg') no-repeat right center;
+			width: 16px;
+			height: 9px;
+			@media (min-width: $screen-md) {
+				width: 24px;
+			}
+		}
+	}
+	span{
+		color: $brand-blue;
+	}
+}

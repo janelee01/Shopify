@@ -70,7 +70,7 @@ $(document).ready(function(){
 			// catching the start of the video is tricky with the loop, so see if the current time is the last time we saved ?>
 			if( video.currentTime < lastTime ){
 				playCount++;
-				lastTime = 0;
+				lastTime = 0; 
 			}else{
 				lastTime = video.currentTime;
 			}
@@ -95,7 +95,7 @@ $(document).ready(function(){
 	    e.preventDefault();
 	    LS.productVideoOpen($(this).data('video-id'));
 	});
-	$('body').on('click', '.overview-video-trigger', function(e){
+	$('body').on('click', '.video-trigger', function(e){
 	    e.preventDefault();
 	    LS.productVideoOpen($(this).data('video-id'));
 	});

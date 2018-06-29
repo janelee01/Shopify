@@ -1,21 +1,19 @@
-{% include 'discover-vars' %}
+{% include 'vars' %}
 
 {% for block in section.blocks %}
-	<div {{ block.shopify_attributes }}>
-		{% case block.type %}
+	{% case block.type %}
 
-			{% when 'hero' %}
-			{% include 'discover-category-hero' %}
+		{% when 'hero' %}
+		{% include 'hero' %}
 
-			{% when 'lead' %}
-			{% include 'discover-category-lead' %}
+		{% when 'lead' %}
+		{% include 'section-heading' %}
 
-			{% when 'product' %}
-			{% include 'discover-category-product' %}
+		{% when 'product' %}
+		{% include 'category-product' %}
 
-		{% endcase %}
-	</div>
-	{% endfor %}
+	{% endcase %}
+{% endfor %}
 
 {% schema %}
 {
@@ -68,32 +66,21 @@
 				},
 				{
 					"type": "radio",
-					"id": "xsPos",
-					"label": "Title Position - Mobile",
+					"id": "textPosition",
+					"label": "Desktop Text Position",
 					"options": [
-						{ "value": "left-xs", "label": "Left" },
-						{ "value": "center-xs", "label": "Center" },
-						{ "value": "right-xs", "label": "Right" }
+						{ "value": "left", "label": "Left" },
+						{ "value": "center", "label": "Center" },
+						{ "value": "right", "label": "Right" }
 					]
 				},
 				{
 					"type": "radio",
-					"id": "smPos",
-					"label": "Title Position - Tablet",
+					"id": "textColor",
+					"label": "Text Color",
 					"options": [
-						{ "value": "left-sm", "label": "Left" },
-						{ "value": "center-sm", "label": "Center" },
-						{ "value": "right-sm", "label": "Right" }
-					]
-				},
-				{
-					"type": "radio",
-					"id": "mdPos",
-					"label": "Title Position - Desktop",
-					"options": [
-						{ "value": "left-md", "label": "Left" },
-						{ "value": "center-md", "label": "Center" },
-						{ "value": "right-md", "label": "Right" }
+						{ "value": "black", "label": "Black" },
+						{ "value": "white", "label": "White" }
 					]
 				}
 			]

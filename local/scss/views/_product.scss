@@ -1,5 +1,5 @@
 #product-thumbnails{
-	@include clean;
+	@include resetList;
 	li{
 		display: inline-block;
 	}
@@ -236,7 +236,7 @@
 	}
 }
 .swatches{
-	@include clean;
+	@include resetList;
 	@include clearfix;
 	margin-bottom: 20px;
 	li{

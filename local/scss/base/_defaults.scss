@@ -1,0 +1,230 @@
+html{
+	&.supports-cookies{
+		.supports-no-cookies{
+			display: none;
+		}
+	}
+}
+body{
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	&.menu-open{
+		#site-nav-panel{
+			left: 0;
+			box-shadow: 2px 0 8px rgba(0,0,0,.1);
+		}
+	}
+	&.page-print{
+		padding-top: 0;
+	}
+}
+.max-container{
+	max-width: $site-max-width;
+	margin-left: auto;
+	margin-right: auto;
+}
+.container{
+	@media (max-width: $screen-xs-max) {
+	    padding-left: $mobile-gutter;
+	    padding-right: $mobile-gutter;
+	}
+}
+.site-window{
+	overflow: hidden;
+}
+.site-content{
+	position: relative;
+	left: 0;
+	@include transition(left .25s ease-out);
+	padding-top: $ls-navbar-height-xs;
+	@media (min-width: $screen-md) {
+	    padding-top: $ls-navbar-height;
+	}
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	margin-top: 0;
+	margin-bottom: .5em;
+ 	color: $brand-black;
+}
+
+b, strong{
+	font-weight: normal;
+	font-family: $font-family-bold; 
+}
+
+p {
+  margin: 0 0 $mb-base;
+}
+ul, ol{
+	margin-bottom: $mb-base;
+}
+img {
+	max-width: 100%;
+}
+dl.faqs{
+	margin: 0 10px;
+	padding: 0;
+	font-family: $font-family-sans-serif;
+	@media (min-width: $screen-md) {
+		margin: 0;
+	}
+	dt{
+		font-family: $font-family-bold;
+		font-size: $font-size-h4; 
+		color: $brand-black;
+		font-weight: 400;
+		margin-bottom: 1.5em;
+		@media (min-width: $screen-md) {
+			font-size: 24px;
+		}
+	}
+	dd{
+		margin-bottom: 4em;
+		font-size: 18px;
+		line-height: 1.5;
+	}
+}
+hr{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	&.reset{
+		margin: 0;
+	}
+}
+hr.mini-divider{
+	width: 54px;
+	border-top-color: $gray-dark;
+	@media (min-width: $screen-sm) {
+		margin-left: 0;
+	}
+}
+
+.jumptarget:focus{
+	outline: none;
+}
+.jumptarget:before {
+  content: "";
+  display: block;
+  height: $ls-navbar-height-xs;
+  margin: -$ls-navbar-height-xs 0 0;
+  @media (min-width: $screen-md) {
+  	height: $ls-navbar-height;
+  	margin: -$ls-navbar-height 0 0;
+  }
+}
+.jumptarget.page-has-nav:before{
+	height: $ls-navbar-height-xs + $page-nav-height-xs;
+	margin: -($ls-navbar-height-xs + $page-nav-height-xs) 0 0;
+	@media (min-width: $screen-md) {
+		height: $ls-navbar-height + $page-nav-height;
+		margin: -($ls-navbar-height + $page-nav-height) 0 0;
+	}
+}
+
+.has-divider{
+	@include divider-title; 
+}
+
+.flush-top{
+	margin-top: 0;
+}
+picture{
+	display: block;
+}
+blockquote{
+	font-size: $font-size-small;
+	border: none;
+	padding: 15px 0;
+	margin: 0;
+	@media (min-width: $screen-sm) {
+	    padding: 25px 0 30px;
+	}
+	.quote-title{
+		text-transform: uppercase;
+		font-family: $font-family-sans-serif;
+	}
+	.quote-footer{
+		font-size: $font-size-small;
+		font-family: $font-family-sans-serif;
+		color: $gray-dark;
+		text-transform: uppercase;
+		&:before{
+			display: none;
+			text-transform: uppercase;
+		}
+	}
+	.author-title{
+		text-transform: none;
+		display: block;
+		color: $text-color; 
+		padding-top: 5px;
+		letter-spacing: 0;
+	}
+}
+
+.shopify-challenge__container{
+	padding: 160px 0;
+	.shopify-challenge__button{
+		margin-top: 20px;	
+	}
+}
+
+.mb-default{
+	@include mb();
+}
+.mb-large{
+	@include mb('lg');
+}
+.mb-negate-xs{
+	@media (max-width: $screen-xs-max) {
+	    margin-bottom: 0 !important;
+	}
+}
+.mb-negate-sm{
+	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+	    margin-bottom: 0 !important;
+	}
+}
+
+
+.fw-xs{
+	@media (max-width: $screen-xs-max) {
+	    margin-left: -$mobile-gutter;
+	    margin-right: -$mobile-gutter;
+	}
+}
+.fw-sm{
+	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+	    margin-left: -40px;
+	    margin-right: -40px;
+	}
+}
+
+.offset-top-sm{
+	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+		margin-top: 60px;
+	}
+}
+.offset-top-md{
+	@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+		margin-top: 60px;
+	}
+}
+.offset-top-lg{
+	@media (min-width: $screen-lg) {
+		margin-top: 80px;
+	}
+}
+
+.text-left-xs{
+	@media (max-width: $screen-xs-max) {
+	    text-align: left;
+	}
+}

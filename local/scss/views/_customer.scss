@@ -78,7 +78,7 @@
 }
 
 #address-list{
-	@include clean;
+	@include resetList;
 	@media (min-width: $screen-sm) {
 		display: flex;
 		flex-wrap: wrap;

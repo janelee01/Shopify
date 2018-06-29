@@ -1,0 +1,123 @@
+
+#reviews-page-container blockquote,
+#press-page-container .article,
+#press-container .article{
+	text-align: center;
+	padding: 15px 0 30px;
+	margin: 0 auto;
+	@media (min-width: $screen-sm) {
+		max-width: 100%;
+		padding: 20px;
+	}
+	@media (min-width: $screen-md) {
+		padding: 35px 30px 40px;
+	}
+} 
+
+#reviews-page-container,
+#press-page-container{
+	h2{
+		@media (min-width: $screen-sm) {
+			margin-left: 20px;
+		}
+		@media (min-width: $screen-md) {
+			margin-left: 30px;
+		}
+	}
+}
+
+#reviews-page-container blockquote,
+#press-page-container .article-excerpt{
+	text-align: left;
+	font-size: $font-size-base;
+	line-height: calculateEm(24px,$font-size-base);
+	color: $gray; 
+}
+#press-page-container .article{
+	@media (min-width: $screen-md) {
+		text-align: left;
+	}
+}
+
+#press-page-container,
+#press-container{
+	.col-sm-6:nth-child(odd){
+		clear: left;
+		@media (min-width: $screen-md) {
+			clear: none;
+		}
+	}
+	.col-md-4:nth-child(3n+1){
+		@media (min-width: $screen-md) {
+			clear: left;
+		}
+	}
+}
+#press-page-container{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid $gray-lighter;
+	@media (min-width: $screen-md) {
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+}
+#reviews-page-container{
+	padding-top: 30px;
+	padding-bottom: 40px;
+	@media (min-width: $screen-md) {
+		padding-top: 120px;
+	}
+	.col-sm-6:nth-child(odd){
+		clear: left;
+		@media (min-width: $screen-md) {
+			clear: none;
+		}
+	}
+	.col-md-4:nth-child(3n+1){
+		@media (min-width: $screen-md) {
+			clear: left;
+		}
+	}
+	.author{
+		font-size: 21px;
+		margin-bottom: 0;
+	}
+	.author, .title{
+		color: $text-color;
+	}
+}
+
+.article-title{
+	text-transform: uppercase;
+	font-size: $font-size-small;
+	padding: 0 10px;
+	font-family: $font-family-sans-serif;
+	@include bs-margins-lg;
+	font-style: normal;
+	display: none;
+}
+.article-excerpt{
+	padding: 20px 0;
+	margin: 0;
+}
+
+.press-item{
+	font-size: 18px;
+	color: $gray;
+	@media (min-width: $screen-sm) {
+		text-align: center;
+	}
+	// I'll probably regret this later, but...
+	p{
+		max-width: 670px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	p:nth-child(even){
+		margin-bottom: 50px;
+		@media (min-width: $screen-md) {
+			margin-bottom: 100px;
+		}
+	}
+}

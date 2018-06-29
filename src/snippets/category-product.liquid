@@ -1,0 +1,36 @@
+<section class="category-product">
+    <div class="max-container">
+        <div class="image-grid">
+            <picture>
+                <img src="{{ block.settings.image1 | img_url: 'master'}}" alt="{{ block.settings.title }} image 1" />
+            </picture>
+            <picture>
+                <img src="{{ block.settings.image2 | img_url: 'master'}}" alt="{{ block.settings.title }} image 2" />
+            </picture>
+            <picture>
+                <img src="{{ block.settings.image3 | img_url: 'master'}}" alt="{{ block.settings.title }} image 3" />
+            </picture>
+            <picture>
+                <img src="{{ block.settings.image4 | img_url: 'master'}}" alt="{{ block.settings.title }} image 4" />
+            </picture>
+        </div>    
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="topic-content">
+                    <h2 class="title">{{ block.settings.title }}</h2>
+                    <p class="description">{{ block.settings.description }} <span class="category-price">{{ block.settings.price }}</span></p>
+                    <div class="btn-set">
+                        {% unless block.settings.linkText == blank %}
+                            <a class="btn{% if block.settings.linkStyle == 'outline' %} btn-secondary{% endif %}" href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
+                        {% endunless %}
+                        {% unless block.settings.linkTextB == blank %}
+                            <a class="btn{% if block.settings.linkStyleB == 'outline' %} btn-secondary{% endif %}" href="{{ block.settings.linkUrlB }}">{{ block.settings.linkTextB }}</a>
+                        {% endunless %}
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section>

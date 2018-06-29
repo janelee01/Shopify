@@ -10,7 +10,7 @@
 {%- assign parentProducts = productNames | split: '|' | uniq -%}
 
   <header class="page-header is-collection" data-collection="{{ collection.id }}">
-    <h1 class="has-bar">{{ collection.title | remove: "Shop " }}</h1>
+    <h1>{{ collection.title | remove: "Shop " }}</h1>
     <div data-filters-wrap>{% comment%} both .has-bar and #filters are inline-block, so we need a newline somehow {% endcomment %}
       <div id="filters">
         <ul>
@@ -55,10 +55,12 @@
     </div>
   </header>
 
-  <div class="container-fluid">
+  <div class="container">
     {%- for parentProductName in parentProducts -%}
     <div class="product-family" data-family-name="{{ parentProductName | handleize }}">
-      <h2 class="has-divider">{{ parentProductName | remove: "The " }}</h2>
+      <div class="section-heading">
+        <h2 class="title">{{ parentProductName | remove: "The " }}</h2>
+      </div>
       <div class="product-grid">
         <div class="row">
           {% for product in collection.products %}

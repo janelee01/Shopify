@@ -1,9 +1,11 @@
-@import 'base/fonts';
 @import 'base/variables';
 @import 'base/mixins'; 
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
-@import 'base/base';
+
+@import "vendor/bootstrap/variables";
+@import "vendor/bootstrap/mixins";
+
+@import 'base/fonts';
+@import 'base/defaults';
 
 body{
 	font-size: $font-size-base;

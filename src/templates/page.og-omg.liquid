@@ -1,4 +1,4 @@
-{% include 'discover-vars' %}
+{% include 'vars' %}
 {%- assign assetVersion = 12085351176056253477 -%}
 {%- assign ctaImgCol = 'col-md-6' -%}
 {%- assign ctaContentCol = 'col-md-6' -%} 
@@ -10,7 +10,7 @@
 
 <article class="discover">
     <nav class="page-nav theme-light has-button">
-        <div class="container-fluid">
+        <div class="container">
             <span class="page-nav-title">{{ ctaTitle }}</span>
             <a href="#" id="page-nav-items-toggle"></a>
             <ul class="page-nav-actions">
@@ -28,15 +28,15 @@
     <div class="max-container">
         <div class="hero" id="og-omg-hero">
             {% include 'discover-picture', name: 'og-omg-hero-image', alt: 'woman with O.G. on luggage', retina: true, fw: false, lg: true %}
-            <div class="hero-content">
-                <h1 class="block-title"><span class="block-subtitle">Discover</span> O.G. &amp; O.M.G.</h1>
-                <p class="block-description">A functional and lightweight carry-all made from premium materials.</p>
+            <div class="hero-content left">
+                <h1 class="title"><span class="subtitle">Discover</span> O.G. &amp; O.M.G.</h1>
+                <p class="description">A functional and lightweight carry-all made from premium materials.</p>
             </div>
         </div>
     </div>
     
     <div class="container">
-        <div class="row animate topic-end-lg" {{ animateFadeInUp }}>
+        <div class="row animate mb-large" {{ animateFadeInUp }}>
             <div class="col-md-10 col-md-offset-1">
               {% include 'discover-picture', name: 'og-omg-product-shot', alt: 'O.G. & O.M.G. product shot', retina: true, fw: false %}
             </div>
@@ -45,32 +45,34 @@
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
-                    <h2 class="block-title"><a id="nav-target-1" class="jumptarget"></a>Smart Design</h2>
-                    <p class="block-description">Thoughtful features and a place for all your travel essentials.</p>
+                    <div class="section-heading">
+                      <h2 class="title"><a id="nav-target-1" class="jumptarget"></a>Smart Design</h2>
+                      <p class="description">Thoughtful features and a place for all your travel essentials.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="row animate align-centers-md topic-end-md topic-end-negate-sm" {{ animateFadeInUp }}>
+        <div class="row topic-block aligned-md mb-negate-xs mb-negate-sm animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-1 col-lg-6 col-lg-offset-0">
                 {% include 'discover-picture', name: 'og-omg-suitcase-handle-sleeve', alt: 'Suitcase Handle Sleeve', retina: true, fw: true %}                    
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
-                <div class="figure-caption text-center-sm">
+                <div class="topic-content text-center-sm">
                     <h3 class="title">Suitcase Handle Sleeve</h3>
                     <p class="description">Travel seamlessly with a convenient pass-through sleeve that slides onto any roller bag.</p>
                 </div>
             </div>
         </div>
 
-        <div class="row animate topic-end-md topic-end-negate-sm" {{ animateFadeInUp }}>
+        <div class="row animate topic-block mb-negate-xs" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-push-6 col-md-offset-0 col-lg-push-7">
                 {% include 'discover-picture', name: 'og-omg-side-pocket-1', alt: 'putting shoe in side pocket', retina: true, fw: true %}                    
             </div>
             <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-pull-4 col-md-offset-0 col-lg-6 col-lg-pull-5">                    
                 <div class="row">
                   <div class="col-lg-8 col-lg-offset-2">
-                    <div class="figure-caption text-center-sm reduced-margin-xs">
+                    <div class="topic-content text-center-sm">
                         <h3 class="title">Side Pocket</h3>
                         <p class="description">Store your gym shoes for your post work workout or an umbrella for those mornings with a rainy commute.</p>
                     </div>
@@ -82,29 +84,25 @@
             </div>
         </div>
 
-        <div class="row animate align-centers-md reversed topic-end-lg topic-end-negate-sm" {{ animateFadeInUp }}>
+        <div class="row animate topic-block aligned-md reversed mb-large" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-1 col-lg-6">
                 {% include 'discover-picture', name: 'og-omg-messenger-strap', alt: 'Removable messenger strap', retina: true, fw: true %}                    
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 col-lg-5 col-lg-offset-0 content-col">                    
-                <div class="figure-caption text-center-sm">
+                <div class="topic-content text-center-sm">
                     <h3 class="title">Messenger Strap</h3>
                     <p class="description">Attach the removable messenger strap for extra comfort when on the go.</p>
                 </div>
             </div>
         </div>
 
-        <div class="row visible-sm topic-end-lg">
-           <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-               <hr>
-           </div>
-       </div>
-
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
-                    <h2 class="block-title"><a id="nav-target-2" class="jumptarget"></a>Stay Organized</h2>
-                    <p class="block-description">The O.G. and O.M.G. are designed to help you stay put together on the road.</p>
+                    <div class="section-heading">
+                      <h2 class="title"><a id="nav-target-2" class="jumptarget"></a>Stay Organized</h2>
+                      <p class="block-description">The O.G. and O.M.G. are designed to help you stay put together on the road.</p>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -112,7 +110,7 @@
                     {% include 'discover-picture', name: 'og-omg-laptop-storage', alt: 'fits up to 13 inch laptops', retina: true, fw: true %}                    
                 </div>
                 <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">                    
-                    <div class="figure-caption text-center text-left-xs">
+                    <div class="topic-content text-center text-left-xs">
                         <h3 class="title">Laptop Storage</h3>
                         <p class="description">Both the O.G. and O.M.G. are designed to fit up to 13” laptops.</p>
                     </div>
@@ -120,12 +118,12 @@
             </div>
         </div>
 
-        <div id="og-omg-plenty" class="row align-centers-md bottom-aligned topic-end-lg animate" {{ animateFadeInUp }}>
+        <div id="og-omg-plenty" class="row animate" {{ animateFadeInUp }}>
           <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-1 col-lg-6 col-lg-offset-0">
             {% include 'discover-picture', name: 'og-omg-plenty-of-pockets-1', alt: 'interior pockets', retina: true, fw: true %}   
             <div class="row">
               <div class="col-sm-10 col-sm-offset-1">
-                <div class="figure-caption text-center-sm reduced-margin-xs">
+                <div class="topic-content text-center-sm ">
                     <h3 class="title">Plenty of Pockets</h3>
                     <p class="description">Stay organized with the padded laptop compartment, a pocket for your tablet or work documents, a zipper pocket, and two slips pockets.</p>
                 </div>
@@ -137,12 +135,12 @@
           </div>
         </div>
 
-        <div class="row align-centers-md topic-end-lg topic-end-negate-sm animate" {{ animateFadeInUp }}>
+        <div class="row topic-block aligned-md mb-large mb-negate-xs animate" {{ animateFadeInUp }}>
           <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-1 col-lg-6 col-lg-offset-0">
             {% include 'discover-picture', name: 'og-omg-key-leash', alt: 'key leash', retina: true, fw: true %}                  
           </div>
           <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">
-            <div class="figure-caption text-center-sm">
+            <div class="topic-content text-center-sm">
                 <h3 class="title">Key Leash</h3>
                 <p class="description">Never misplace your keys again with the inner key leash.</p>
             </div>
@@ -150,17 +148,13 @@
         </div>
     </div>
 
-    <div class="max-container has-overlay-xs fw-image topic-end-lg animate" {{ animateFadeInUp }}>
+    <div class="max-container has-overlay-xs topic-block mb-large animate" {{ animateFadeInUp }}>
         {% include 'discover-picture', name: 'og-omg-what-fits-inside', alt: 'video showing how to pack the O.G. and O.M.G.', retina: true, fw: false %}  
-        <div class="row theme-white text-center">
-            <div class="content-col">
-                <div class="figure-caption">
-                    <h3 class="title">What Fits Inside</h3>
-                    <a href="#" data-video-id="2" class="overview-video-trigger">
-                        <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
-                    </a>
-                </div>
-            </div>
+        <div class="topic-content">
+            <h3 class="title">What Fits Inside</h3>
+            <a href="#" data-video-id="2" class="video-trigger">
+                <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
+            </a>
         </div>
     </div> 
     
@@ -169,8 +163,10 @@
        <div class="animate" {{ animateFadeInUp }}>
            <div class="row">
                <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">                    
-                   <h2 class="block-title"><a id="nav-target-3" class="jumptarget"></a>High-Quality Materials</h2>
-                   <p class="block-description">Constructed from premium grade materials that are chic yet durable and water-resistant.</p>
+                   <div class="section-heading">
+                    <h2 class="title"><a id="nav-target-3" class="jumptarget"></a>High-Quality Materials</h2>
+                    <p class="block-description">Constructed from premium grade materials that are chic yet durable and water-resistant.</p>
+                  </div>
                </div>
            </div>
        </div>
@@ -183,7 +179,7 @@
            </div>
            <div class="row">
                <div class="col-sm-6 col-sm-offset-3">                    
-                   <div class="figure-caption text-center text-left-xs">
+                   <div class="topic-content text-center text-left-xs">
                        <h3 class="title">Water-Resistant</h3>
                        <p class="description">Our 600D Recycled Poly is water-resistant to both outside elements and internal spills.</p>
                    </div>
@@ -191,12 +187,12 @@
            </div>
        </div>
 
-       <div class="row" {{ animateFadeInUp }}>
+       <div class="row mb-default" {{ animateFadeInUp }}>
            <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-1">  
                 {% include 'discover-picture', name: 'og-omg-nylon', alt: 'Nylon', retina: true, fw: true %}                    
                 <div class="row">
                   <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-0">
-                    <div class="figure-caption text-center-sm">
+                    <div class="topic-content text-center-sm">
                          <h3 class="title">Nylon</h3>
                          <p class="description">Constructed with a lightweight fine weave water-resistant nylon.</p>
                      </div>
@@ -207,7 +203,7 @@
                 {% include 'discover-picture', name: 'og-omg-cotton-poly-blend', alt: 'Cotton Poly Blend', retina: true, fw: true %}                    
                 <div class="row">
                   <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-0">
-                    <div class="figure-caption text-center-sm">
+                    <div class="topic-content text-center-sm">
                          <h3 class="title">Cotton Poly Blend</h3>
                          <p class="description">Made with a blend of high quality cotton and poly with an interlock backing for added durability.</p>
                      </div>
@@ -216,16 +212,12 @@
            </div>
        </div>
 
-       <div class="row visible-xs visible-sm">
-           <div class="col-sm-10 col-sm-offset-1">
-               <hr>
-           </div>
-       </div>
-
        <div class="pr-items animate" {{ animateFadeInUp }}>
            <div class="row">
                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
-                   <h2 class="block-title"><a id="nav-target-4" class="jumptarget"></a>Traveler Approved</h2>
+                   <div class="section-heading">
+                    <h2 class="title"><a id="nav-target-4" class="jumptarget"></a>Traveler Approved</h2>
+                  </div>
                </div>
            </div>
            <div class="row topic-end-md">
@@ -276,12 +268,14 @@
            </div>
        </div>
 
-       <div id="og-omg-compare" class="row animate align-centers-md reversed topic-end-md" {{ animateFadeInUp }}>
+       <div id="og-omg-compare" class="row animate topic-block aligned-md reversed" {{ animateFadeInUp }}>
            <div class="col-sm-4 col-sm-offset-4 col-md-offset-1 text-center content-col">                    
-               <h2 class="block-title">View the similarities and differences between the O.G. and O.M.G.</h2>
-               <div class="btn-set hidden-xs hidden-sm">
-                   <p><a class="btn btn-secondary" href="/pages/compare-og-omg">Compare</a></p>
-               </div>
+              <div class="topic-content">
+                <h2 class="title">View the similarities and differences between the O.G. and O.M.G.</h2>
+                <div class="btn-set hidden-xs hidden-sm">
+                    <p><a class="btn btn-secondary" href="/pages/compare-og-omg">Compare</a></p>
+                </div>
+              </div>
            </div>
            <div class="col-sm-8 col-sm-offset-2 col-md-7 col-md-offset-0">
                 {% include 'discover-picture', name: 'og-omg-compare', alt: 'two views of woman holding the O.M.G.', retina: true, fw: true %}  

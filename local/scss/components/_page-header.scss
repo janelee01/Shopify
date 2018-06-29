@@ -1,0 +1,23 @@
+.page-header{
+	text-align: center;
+	background: #fafafa;
+	margin: 0;
+	padding: 1em $mobile-gutter;
+	border: none;
+	line-height: 1;
+	font-size: 18px;
+	@media (min-width: $screen-md) {
+		padding: 2em 0;
+	}
+	h1, h2{
+		font-size: 1.5em;
+		margin: 0;
+		font-family: $font-family-medium;
+		@media (min-width: $screen-md) {
+			font-size: 2.3em;
+		}
+	}
+	.container{
+		padding: 0; 
+	}
+}

@@ -1,4 +1,4 @@
-{% include 'discover-vars' %}
+{% include 'vars' %}
 
 {%- assign assetVersion = 18132754112649490934 -%}
 {%- assign ctaTitle = 'Catalina Deluxe' -%}
@@ -8,7 +8,7 @@
 
 <article class="discover">
     <nav class="page-nav theme-light has-button">
-        <div class="container-fluid">
+        <div class="container">
             <span class="page-nav-title">{{ ctaTitle }}</span>
             <a href="#" id="page-nav-items-toggle"></a>
             <ul class="page-nav-actions">
@@ -26,10 +26,10 @@
     <div class="max-container">
         <div class="hero">
             {% include 'discover-picture', name: 'catalina-deluxe-discover-hero', alt: 'woman next to Catalina Deluxe attached to luggage handle', retina: false, fw: false %}
-            <div class="hero-content">
-                <h1 class="block-title"><span class="block-subtitle">Discover</span> Catalina Deluxe</h1>
-                <p class="block-description">An updated edition of the Catalina weekender with additional features. Available in 2 sizes.</p>
-                <a href="#" data-video-id="1" class="overview-video-trigger">
+            <div class="hero-content left">
+                <h1 class="title"><span class="subtitle">Discover</span> Catalina Deluxe</h1>
+                <p class="description">An updated edition of the Catalina weekender with additional features. Available in 2 sizes.</p>
+                <a href="#" data-video-id="1" class="video-trigger">
                     <picture>
                         <source srcset="{{ 'play-black-v2.svg' | asset_url }}" media="(min-width: {{ screenMd }})" />
                         <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video" />
@@ -40,7 +40,7 @@
     </div>
     
     <div class="container">
-        <div class="row animate topic-end-lg" {{ animateFadeInUp }}>
+        <div class="row animate mb-large" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1">
                 {% include 'discover-picture', name: 'catalina-deluxe-product-photo', alt: 'Catalina Deluxe product shot', retina: false, fw: false %}
             </div>
@@ -48,17 +48,19 @@
 
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 text-center">                    
-                    <h2 class="block-title"><a id="nav-target-1" class="jumptarget"></a>Smart Design</h2>
-                    <p class="block-description">Thoughtful features and a place for all your essentials, the Catalina Deluxe is designed for life on the road.</p>
+                <div class="col-sm-6 col-sm-offset-3">                    
+                    <div class="section-heading">
+                        <h2 class="title"><a id="nav-target-1" class="jumptarget"></a>Smart Design</h2>
+                        <p class="description">Thoughtful features and a place for all your essentials, the Catalina Deluxe is designed for life on the road.</p>
+                    </div>
                 </div>
             </div>
-            <div class="row align-centers-sm topic-end-md">
+            <div class="row topic-block aligned-sm mb-negate-xs">
                 <div class="col-sm-5 col-sm-offset-1 col-lg-6 col-lg-offset-0">                    
                     {% include 'discover-picture', name: 'catalina-deluxe-back-sleeve-pocket', alt: 'suitcase handle sleeve', retina: false, fw: true %}
                 </div>
                 <div class="col-sm-4 col-sm-offset-1 content-col">                    
-                    <div class="figure-caption">
+                    <div class="topic-content">
                         <h3 class="title">Suitcase Handle Sleeve</h3>
                         <p class="description">Travel seamlessly with a convenient pass through sleeve that secures your bag to a suitcase.</p>
                     </div>
@@ -66,7 +68,7 @@
             </div>
         </div>
         
-        <div class="row animate topic-end-md" {{ animateFadeInUp }}>
+        <div class="row animate mb-default" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
                 <div class="col-lg-14">
                     {% include 'discover-picture', name: 'catalina-deluxe-lifestyle-photo', alt: 'woman sitting on boat', retina: false, fw: true %}
@@ -74,46 +76,42 @@
             </div>
         </div>
 
-        <div class="row animate topic-end-lg" {{ animateFadeInUp }}>
+        <div class="row animate mb-large" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1">
                 {% include 'discover-picture', name: 'catalina-deluxe-bottom-pocket-01', alt: 'packing the bottom pocket', retina: false, fw: false %}
             </div>
         </div>
         
-        <div class="row animate align-centers-sm topic-end-md" {{ animateFadeInUp }}>
+        <div class="row animate topic-block aligned-sm mb-negate-xs" {{ animateFadeInUp }}>
             <div class="col-sm-6 col-sm-offset-1 col-md-7 col-md-offset-0">                    
                 {% include 'discover-picture', name: 'catalina-deluxe-bottom-pocket-02', alt: 'bottom pocket', retina: false, fw: true %}
             </div>
             <div class="col-sm-4 content-col">                    
-                <div class="figure-caption">
+                <div class="topic-content">
                     <h3 class="title">Bottom Pocket</h3>
                     <p class="description">Designed to keep your shoes or dirty clothes separate from clean clothes.</p>
                 </div>
             </div>
         </div>
 
-        <div class="row animate has-overlay-sm topic-end-md" {{ animateFadeInUp }}>
+        <div id="catalina-deluxe-straps" class="row animate topic-block mb-negate-xs" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
                 <div class="col-lg-14">
                     {% include 'discover-picture', name: 'catalina-deluxe-messenger-strap', alt: 'messenger strap', retina: false, fw: true %}
                 </div>
-                <div class="row overlay">
-                    <div class="col-sm-5 col-sm-offset-1 col-md-4 content-col left">
-                        <div class="figure-caption">
-                            <h3 class="title">Messenger Strap</h3>
-                            <p class="description">Comes with memory foam padding for extra comfort.</p>
-                        </div>
-                    </div>
+                <div class="topic-content">
+                    <h3 class="title">Messenger Strap</h3>
+                    <p class="description">Comes with memory foam padding for extra comfort.</p>
                 </div>
             </div>
         </div>
 
-        <div class="row animate align-centers-md topic-end-lg" {{ animateFadeInUp }}>
+        <div class="row animate topic-block aligned-md mb-large mb-negate-xs" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-6 col-lg-offset-0">                    
                 {% include 'discover-picture', name: 'catalina-deluxe-exterior-interior-pocket', alt: 'exterior pocket', retina: false, fw: true %}
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
-                <div class="figure-caption text-center-sm">
+                <div class="topic-content text-center-sm">
                     <h3 class="title">Exterior &amp; Interior Pockets</h3>
                     <p class="description">Easy to access pockets on the outside and multiple pockets on the inside to keep your essentials securely stored.</p>
                 </div>
@@ -122,41 +120,41 @@
    
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">                    
-                <h2 class="block-title"><a id="nav-target-2" class="jumptarget"></a>Super Spacious</h2>
-                <p class="block-description">Available in 2 sizes, The Catalina Deluxe will fit everything you need for the next big vacation.</p>
+                <div class="section-heading">
+                    <h2 class="title"><a id="nav-target-2" class="jumptarget"></a>Super Spacious</h2>
+                    <p class="description">Available in 2 sizes, The Catalina Deluxe will fit everything you need for the next big vacation.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="max-container has-overlay-xs fw-image topic-end-lg animate" {{ animateFadeInUp }}>
+    <div class="max-container topic-block has-overlay-xs mb-large animate" {{ animateFadeInUp }}>
         {% include 'discover-picture', name: 'catalina-deluxe-what-fits-inside', alt: 'video showing how to pack the Catalina Deluxe', retina: false, fw: false %}
-        <div class="row theme-white text-center">
-            <div class="content-col">
-                <div class="figure-caption">
-                    <h3 class="title">What Fits Inside</h3>
-                    <a href="#" data-video-id="2" class="overview-video-trigger">
-                        <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
-                    </a>
-                </div>
-            </div>
+        <div class="topic-content">
+            <h3 class="title">What Fits Inside</h3>
+            <a href="#" data-video-id="2" class="video-trigger">
+                <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
+            </a>
         </div>
     </div>
 
     <div class="container">
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 text-center">                    
-                    <h2 class="block-title">Carry-on Friendly</h2>
-                    <p class="block-description">While it doesn't qualify as a personal item, depending on the airline it does qualify as a carry-on item and fits in most airplane overhead compartments.</p>
+                <div class="col-sm-6 col-sm-offset-3">                    
+                    <div class="section-heading">
+                        <h2 class="title">Carry-on Friendly</h2>
+                        <p class="description">While it doesn't qualify as a personal item, depending on the airline it does qualify as a carry-on item and fits in most airplane overhead compartments.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="row align-centers-md reversed topic-end-lg">
+            <div class="row topic-block aligned-md reversed mb-large mb-negate-xs">
                 <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-0">                    
                     {% include 'discover-picture', name: 'discover-carry-on-friendly', alt: 'sample airline seat', retina: false, fw: false %}
                 </div>
                 <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
-                    <div class="figure-caption text-center-sm">
+                    <div class="topic-content text-center-sm">
                         <h3 class="title">Airline Seats</h3>
                         <p class="description">When not fully packed, fits underneath airline seats.</p>
                     </div>
@@ -165,9 +163,11 @@
         </div>
 
         <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">                    
-                <h2 class="block-title"><a id="nav-target-3" class="jumptarget"></a>High-Quality Materials</h2>
-                <p class="block-description">Available in 2 premium quality durable yet lightweight canvas options.</p>
+            <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">                    
+                <div class="section-heading">
+                    <h2 class="title"><a id="nav-target-3" class="jumptarget"></a>High-Quality Materials</h2>
+                    <p class="description">Available in 2 premium quality durable yet lightweight canvas options.</p>
+                </div>
             </div>
         </div>
 
@@ -177,8 +177,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3 text-center">
-                <div class="figure-caption">
+            <div class="col-sm-6 col-sm-offset-3 text-center text-left-xs">
+                <div class="topic-content">
                     <h3 class="title">Lightweight</h3>
                     <p class="description">Crafted from materials that balance durability with comfort to make your trip easy on the back and shoulders.</p>
                 </div>
@@ -187,16 +187,18 @@
 
         {% include 'discover-materials' %}
 
-        <div class="row hidden-xs">
+        <div class="row mb-large">
             <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">
-                <hr>
+                <hr class="reset">
             </div>
         </div>
 
     </div>
     
     <div class="container pr-items animate" {{ animateFadeInUp }}>
-        <h2 class="block-title text-center"><a id="nav-target-4" class="jumptarget"></a>Traveler Approved</h2>
+        <div class="section-heading">
+            <h2 class="title"><a id="nav-target-4" class="jumptarget"></a>Traveler Approved</h2>
+        </div>
         <div class="row topic-end-md">
             <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-0">
                 <blockquote class="pr">
