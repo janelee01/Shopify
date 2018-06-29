@@ -155,6 +155,30 @@
 		justify-content: center;
 	}
 }
+#sev-m-1,
+#sev-m-2{
+	top: auto;
+	bottom: 30px;
+}
+#catalina-deluxe-tote-compara-cta{
+	@media (max-width: $screen-xs-max) {
+	    top: auto;
+	    bottom: 30px;
+	}
+}
+#compare-hanover-hero{
+	.hero-content{
+		padding-top: $mobile-gutter;
+		height: auto;
+		@media (min-width: $screen-sm) {
+			padding: 40px $mobile-gutter 0;
+		}
+		@media (min-width: $screen-md) {
+			padding-left: 0;
+			margin-right: 0;
+		}
+	}
+}
 
 #og-omg-compare,
 #hanover-compare{
@@ -272,5 +296,30 @@
 	@media (min-width: $screen-md) {
 		margin-top: 0;
 		margin-bottom: $grid-gutter-width;
+	}
+}
+
+#edgemont-hero{
+	@media (min-width: $screen-sm) {
+		.hero-content{
+			left: 0;
+			width: 50%;
+			padding: 0 10%;
+		}
+	}
+}
+#edgemont-cta{
+	picture{
+		@media (max-width: $screen-sm-max) {
+		    max-width: 200px;
+		}
+	}
+}
+
+#edgemont-intro-video{
+	@media (max-width: $screen-sm-max) {
+	    .embed-container{
+	    	padding-bottom: 100%;
+	    }
 	}
 }

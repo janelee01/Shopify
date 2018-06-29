@@ -20,3 +20,18 @@
 		}
 	}	
 }
+
+.inline-video{
+	video{ 
+		object-fit: contain;
+	}
+	.loading{
+		display: block; 
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		background-color: transparent;
+		background-image: url('oval.svg');
+		background-size: 75px;
+	}
+}
