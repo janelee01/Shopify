@@ -299,6 +299,15 @@
 	}
 }
 
+#rhodes-hero{
+	@media (max-width: $screen-xs-max) {
+		.hero-content{
+			height: 50%;
+		}
+	}
+}
+
+#rhodes-hero,
 #edgemont-hero{
 	@media (min-width: $screen-sm) {
 		.hero-content{
@@ -320,6 +329,30 @@
 	@media (max-width: $screen-sm-max) {
 	    .embed-container{
 	    	padding-bottom: 100%;
+	    }
+	}
+}
+
+#organic-canvas-hero{
+	.hero-content{
+		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+		    width: 50%;
+		    right: 0;
+		    left: auto;
+		    padding: 0 3%;
+		}
+	}
+}
+.legacy-has-overlay.organic-canvas-better{
+	.image-panel-content{
+		height: 70%;
+	}
+}
+
+#claremont-cta{
+	@media (max-width: $screen-xs-max) {
+	    .title, .final-price{
+	    	color: #FFF;
 	    }
 	}
 }

@@ -24,15 +24,18 @@
 @import 'components/product-grid';
 @import 'components/search';
 @import 'components/section-heading';
+@import 'components/sharing';
 @import 'components/tables';
 @import 'components/tabs';
 @import 'components/topic-block';
 
+@import 'views/blog'; 
 @import 'views/cart'; 
 @import 'views/category'; // theme-managed layout
 @import 'views/collection'; // default product grid
 @import 'views/customer';
 @import 'views/page-custom';
+@import 'views/password-wall';
 @import 'views/press-reviews';
 @import 'views/product';
 @import 'views/returns';
