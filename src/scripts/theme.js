@@ -170,6 +170,7 @@ $(document).ready(function() {
   // slide the marquee out of the way on scroll
   var $marquee = $('#shopify-section-marquee');
   var $header = $('#site-header');
+  var $pageNav = $('.page-nav');
   var trigger = 75;
 
   if( $marquee.is(':visible') ){
@@ -180,12 +181,18 @@ $(document).ready(function() {
   $(window).scroll(function(){
   	if( $(window).scrollTop() < trigger ){
   		$header.removeAttr('style');
+  		$pageNav.removeClass('is-shown');
   	}else{
-  		if( $marquee.is(':visible') ){
+  		if( $marquee.is(':visible') && $pageNav.length ){ 
+  			$header.css({
+  				'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1,
+  			});
+  		}else if( $marquee.is(':visible') ){
   			$header.css({
   				'top' : $marquee.outerHeight() * -1,
   			});
   		}
+  		$pageNav.addClass('is-shown');
   	}
   });
 
@@ -477,6 +484,9 @@ $(document).ready(function() {
 	    $('.page-nav').removeClass('open');
 	});
 
+	// move a page nav into the header for less fixed position conflicts
+	$('.page-nav').detach().appendTo('#site-header');
+
 	var lastScrollTop = 0;
 	var lowestScrollPos = 0;
 	var $pageNav = $('.page-nav');
@@ -524,32 +534,32 @@ $(document).ready(function() {
 	  //   }
 
 		// shift main nav out of the way when we have a page nav
-		if( $pageNav.length ){
-			var currentScrollTop = $(this).scrollTop();
-			if (currentScrollTop > lastScrollTop){
-				// scrolling down
-				if( currentScrollTop > headerOffset ){
-					$header.css('top', -headerOffset);
-					$pageNav.css('margin-top', -headerOffset); // "top" value set by css, so shift it with margin
-					$pageNav.addClass('is-shown'); // on mobile this makes it visible
-				}
-				// set our furthest point down the page
-				lowestScrollPos = currentScrollTop;
-			} else {
-				// scrolling up, with a buffer so the header isn't shown immediately
-				if( currentScrollTop + headerOffset < lowestScrollPos ){
-					$header.attr('style', '');
-					$pageNav.attr('style', '');
-				}
-			}
+		// if( $pageNav.length ){
+		// 	var currentScrollTop = $(this).scrollTop();
+		// 	if (currentScrollTop > lastScrollTop){
+		// 		// scrolling down
+		// 		if( currentScrollTop > headerOffset ){
+		// 			$header.css('top', -headerOffset);
+		// 			$pageNav.css('margin-top', -headerOffset); // "top" value set by css, so shift it with margin
+		// 			$pageNav.addClass('is-shown'); // on mobile this makes it visible
+		// 		}
+		// 		// set our furthest point down the page
+		// 		lowestScrollPos = currentScrollTop;
+		// 	} else {
+		// 		// scrolling up, with a buffer so the header isn't shown immediately
+		// 		if( currentScrollTop + headerOffset < lowestScrollPos ){
+		// 			$header.attr('style', '');
+		// 			$pageNav.attr('style', '');
+		// 		}
+		// 	}
 
-			// hides the page nav on mobile when we're at the top of the page
-			if( currentScrollTop < headerOffset ){
-				$pageNav.removeClass('is-shown');
-			}
+		// 	// hides the page nav on mobile when we're at the top of the page
+		// 	if( currentScrollTop < headerOffset ){
+		// 		$pageNav.removeClass('is-shown');
+		// 	}
 
-			lastScrollTop = currentScrollTop;
-		}
+		// 	lastScrollTop = currentScrollTop;
+		// }
 	});
 
 	/*

@@ -6,19 +6,21 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	background: #FFF;
-	line-height: 0; // fixes weird space below items ¯\_(ツ)_/¯
 	margin: 0;
-	text-align: center;
 	z-index: 1010;
-	nav{
-		position: relative;
-		padding-bottom:12px;
-		padding-top:12px;
-		@media (min-width: $screen-md) {
-			padding-top: 0;
-			padding-bottom: 0;
-		}
+}
+#site-header-items{
+	background: #FFF;
+	padding-bottom:12px;
+	padding-top:12px;
+	text-align: center;
+	line-height: 0; // fixes weird space below items ¯\_(ツ)_/¯
+	@media (min-width: $screen-md) {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	.container{
+		position: relative;	
 	}
 }
 
@@ -91,10 +93,13 @@ body.has-tw-header{
 	position: absolute;
 	border: none;
 	margin: 0;
-	left: 0;
+	left: $mobile-gutter;
 	top: 50%;
 	transform: translateY(-50%);
 	padding-left: 0;
+	@media (min-width: $screen-md) {
+		left: $grid-gutter-width/2;
+	}
 	.icon-bar{
 		background-color: $brand-black;
 		width: 20px;
@@ -116,9 +121,12 @@ body.has-tw-header{
 .cart-link{
 	display: block;
 	position: absolute;
-	right: 0;
+	right: $mobile-gutter;
 	top: 50%;
 	transform: translateY(-50%);
+	@media (min-width: $screen-md) {
+		right: $grid-gutter-width/2;
+	}
 	&:hover{
 		text-decoration: none;
 		.cart-count{

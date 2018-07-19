@@ -32,17 +32,21 @@ nav.local{
 }
 
 .page-nav{
-	position: fixed;
-	left: 0;
-	right: 0;
-	top: $ls-navbar-height-xs;
-	margin-top: 0;
-	z-index: 900;
+	// position: fixed;
+	// left: 0;
+	// right: 0;
+	// top: $ls-navbar-height-xs;
+	// margin-top: 0;
+	// z-index: 900;
+	position: relative;
 	background: rgba(#000, 0.3);
 	color: #FFF;
-	height: $page-nav-height-xs;
 	opacity: 0;
+	padding: 14px 0;
 	@include transition(all .25s ease-out);
+	@media (min-width: $screen-md) {
+		padding: 23px 0;
+	}
 	&.theme-light{
 		background: rgba(255,255,255, 0.7);
 		#page-nav-items-toggle{
@@ -77,10 +81,6 @@ nav.local{
 			@include transition-off;
 		}
 	}
-	@media (min-width: $screen-md) {
-		top: $ls-navbar-height;
-		height: $page-nav-height;
-	}
 	.btn{
 		padding: 6px 12px;
 		font-size: 10px;
@@ -106,51 +106,14 @@ nav.local{
 			padding-right: 15px;
 		}
 	}
-	ul{
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		float: right;
-		font-size: 12px;
-		&.page-nav-items{ 
-			@media (max-width: $screen-xs-max) {
-				display: none;
-				float: none;
-				background: #000;
-				position: absolute;
-				left: 0;
-				right: 0;
-				top: $page-nav-height-xs;
-				padding: 0 55px 55px;
-				text-transform: none;
-				margin: 0;
-				li{
-					display: block;
-					border-bottom: 1px solid #fff;
-					padding: 0;
-					a{
-						padding: 16px 0 14px;
-						margin: 0;
-					}
-				}
-			}
-		}
-	}
-	li{
-		display: inline-block;
-		padding-top: 8px;
-		@media (min-width: $screen-md) {
-			padding-top: 22px;
-		}
-	}
 }
 #page-nav-items-toggle{
 	display: block;
 	position: absolute;
-	top: 0;
+	top: 14px;
 	left: 50%;
-	margin-left: -$page-nav-height-xs/2;
-	@include square($page-nav-height-xs);
+	margin-left: -15px;
+	@include square(30px);
 	background: url('down.png') center center no-repeat;
 	background-size: 20px auto;
 	@include transition-off;
@@ -158,30 +121,61 @@ nav.local{
 		display: none;
 	}
 }
-
+.page-nav-items{ 
+	@include resetList;
+	float: right;
+	font-size: 12px;
+	li{
+		display: inline-block;
+	}
+	@media (max-width: $screen-xs-max) {
+		display: none;
+		float: none;
+		background: #000;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: $page-nav-height-xs;
+		padding: 0 55px 55px;
+		text-transform: none;
+		margin: 0;
+		li{
+			display: block;
+			border-bottom: 1px solid #fff;
+			padding: 0;
+			a{
+				padding: 16px 0 14px;
+				margin: 0;
+			}
+		}
+	}
+}
 .page-nav-item{
 	display: block;
 	margin: 0 5px;
-	padding: 2px 7px;
+	padding: 7px;
 	text-transform: none;
 	color: #FFF;
 	&:hover,
 	&:focus{
 		color: #FFF;
 	}
-	@media (min-width: $screen-md) {
-		margin: 2px 5px;
-	}
 }
 .page-nav-title{
 	font-size: 10px;
+	line-height: 30px;
 	margin: 0;
-	line-height: $page-nav-height-xs;
-	display: inline;
 	color: #FFF;
 	font-family: $font-family-medium;
 	@media (min-width: $screen-md) {
-		line-height: $page-nav-height;
 		font-size: $font-size-base;
+	}
+}
+.page-nav-actions{
+	@include resetList;
+	float: right;
+	font-size: 12px;
+	li{
+		display: inline-block;
 	}
 }

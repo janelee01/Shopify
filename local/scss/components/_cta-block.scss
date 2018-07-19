@@ -147,4 +147,12 @@ In page blocks
 			font-size: 1.4em;
 		}
 	}
+	.btn-set{
+		@media (min-width: $screen-sm) {
+			width: 204px;
+		}
+		@media (min-width: $screen-lg) {
+			width: 240px;
+		}
+	}
 }
