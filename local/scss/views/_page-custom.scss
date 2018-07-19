@@ -359,6 +359,11 @@
 	    	color: #FFF;
 	    }
 	}
+	@media (min-width: $screen-md) {
+		.btn-set{
+			width: auto;
+		}
+	}
 }
 
 #pearl-comparison-hero{
@@ -390,6 +395,50 @@
 			left: 0;
 			width: 56%;
 			padding: 0 5%;
+		}
+	}
+}
+
+#seville-discover-hero{
+	@media (max-width: $screen-xs-max) {
+		.hero-content{
+			height: 50%;
+		}
+	}
+	@media (min-width: $screen-sm) {
+		.hero-content{
+			left: 0;
+			width: 50%;
+			padding: 0 5%;
+		}
+	}
+}
+#seville-addtional-colors{
+	@media (max-width: $screen-xs-max) {
+		position: static;
+	}
+}
+.topic-block.has-overlay-xs .topic-content.seville-overlay-block{
+	@media (max-width: $screen-xs-max) {
+		height: 60%;
+		padding-left: $mobile-gutter;
+		padding-right: $mobile-gutter;
+		.title{
+			font-size: 1.5em;
+		}
+		.description{
+			font-size: .9em;
+		}
+	}
+	@media (max-width: $screen-sm-max) {
+		.title{
+			font-size: 1.3em;
+		}
+		.description{
+			font-size: .7em;
+		}
+		.btn-set{
+			margin-left: auto;
 		}
 	}
 }

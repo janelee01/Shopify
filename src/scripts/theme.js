@@ -282,7 +282,9 @@ $(document).ready(function() {
 		}
 	}
 	if( $('.pr-items').length ){
-		equalizePr();
+		$(window).load(function(){
+			equalizePr();
+		});
 		$(window).resize(function(){
 			equalizePr();
 		});
