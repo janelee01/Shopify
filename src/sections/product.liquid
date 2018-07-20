@@ -168,7 +168,7 @@
 											{%- if variant.id == current_variant.id -%}
 												{%- assign selected = ' selected' -%}
 											{%- endif -%}
-											<a href="#" data-inventory="{{ variant.inventory_quantity }}" class="btn btn-secondary variant-option{{ selected }}">{{ variant.title }}</a>
+											<a href="#" data-id="{{ variant.id }}" class="btn btn-secondary variant-option{{ selected }}">{{ variant.title }}</a>
 										{%- endfor -%}
 									</div>
 								{%- endunless -%}
@@ -341,10 +341,25 @@
 			{%- endfor -%}
 		{%- endcapture -%}
 
+		{% comment %} expected instock information can vary between variants {% endcomment %}
+		{%- capture variantStockData -%}
+		{
+			{%- for siblingProduct in parentCollection.products -%}
+				{%- for variant in siblingProduct.variants -%}
+					"{{ variant.id }}" : {
+						"stockLevel" : {{ variant.inventory_quantity }},
+						"restockMessage" : "{{ variant.metafields['global']['restock-expected'] }}"
+					},
+				{%- endfor -%}
+			{%- endfor -%}
+		}
+		{%- endcapture -%}
+
 		<script>
 			var siblingsJson = {{ siblingsJson }};
 			var siblingsSupplimentalJson = {{ siblingsSupplimentalJson }};
 			var hiddenVariants = "{{ hiddenVariants }}";
+			var variantStockData = {{ variantStockData }};
 		</script>
 
 	</div>
@@ -368,6 +383,7 @@
 				<p id="wl-product-name">{{ parentCollection.title }}<br />
 				<span data-wl-meta></span></p>
 				<p>{{ 'products.waitlist.content' | t }}</p>
+				<p data-wl-expected></p>
 				<div id="wl-error" class="validation-error"></div>
 				<div class="form-group floating-label">
 					<label for="wl-email">{{ 'products.waitlist.email_label' | t }}</label>

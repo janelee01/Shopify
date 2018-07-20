@@ -261,8 +261,8 @@
 		},
 		"waitlist": {
 			"title": "Join waitlist",
-			"content": "Register your email address below to receive an email as soon as this becomes available again.",
-			"confirmation": "Your notification has been registered. We’ll notice you when this product is in stock.",
+			"content": "Register your email below to be notified as soon as this becomes available again.",
+			"confirmation": "Your email has been registered. We’ll notify you when this product is in stock.",
 			"confirmation_title": "Confirmation",
 			"email_label": "Email address",
 			"submit": "Join",
