@@ -8,6 +8,22 @@
 			opacity: 1;
 		}
 	}
+	&.without-image{
+		background: $gray-lightest;
+		padding: 160px 0;
+		.hero-content{
+			position: static;
+			margin-left: auto;
+			margin-right: auto;
+			@media (min-width: $screen-sm) {
+				padding: 0;
+				width: 400px;
+			}
+			@media (min-width: $screen-lg) {
+				width: 500px;
+			}
+		}
+	}
 	picture{
 		img{
 			width: 100%;
