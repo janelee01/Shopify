@@ -31,6 +31,7 @@
 	var dataLayer = window.dataLayer || [];
 	dataLayer.push({
 		'storeCurrency' : '{{ shop.currency }}',
+		'cartTotal' : '{{ cart.total_price | money_without_currency }}',
 		'cartItemCount' : '{{ cart.item_count }}', {% comment %} added as string as it will be empty during checkout {% endcomment %} 
 		'cartItems' : [
 			{%- for item in cart.items -%}

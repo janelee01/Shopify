@@ -56,6 +56,13 @@
 	<meta itemprop="brand" content="{{ product.vendor }}">
 	<meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
 	<meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+	{% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
+		<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+			<meta itemprop="ratingValue" content="{{ product.metafields.yotpo.reviews_average }}">
+			<meta itemprop="ratingCount" content="{{ product.metafields.yotpo.reviews_count }}">
+    	</div>
+    {% endif %}
+	 
 	<div class="gallery-container is-loading" id="product-galleries">
 		{% for siblingProduct in parentCollection.products %}
 			{% if siblingsList contains siblingProduct.id %}
