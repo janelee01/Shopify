@@ -77,8 +77,19 @@ $(document).ready(function(){
 		};
 	};
 
+	var updateLowStockWarning = function(){
+		var inventoryLevel = $('.variant-option.selected').data('inventory');
+		var $warning = $('.low-stock-warning');
+		if( inventoryLevel > 0 && inventoryLevel <= 20 ){
+			$warning.addClass('shown');
+		}else{
+			$warning.removeClass('shown')
+		}
+	}
+
 	// on page load
 	updateWaitlistMeta();
+	updateLowStockWarning();
 
 	$('.swatch').on('click', function(e){
 		e.preventDefault();
@@ -101,7 +112,7 @@ $(document).ready(function(){
 	    		// build our hidden select
 	    		$('[data-product-select]').append('<option value="'+newVariants[i].id+'">'+newVariants[i].title+'</option>');
 	    		// build our buttons
-	    		$('#variant-buttons').append('<a href="#" class="btn btn-secondary variant-option">'+newVariants[i].title+'</a>');
+	    		$('#variant-buttons').append('<a href="#" data-inventory="'+newVariants[i].inventory_quantity+'" class="btn btn-secondary variant-option">'+newVariants[i].title+'</a>');
 	    	}
 	    };
 
@@ -164,6 +175,9 @@ $(document).ready(function(){
 	      sessionStorage.setItem('lo-back-to', newurl); // for use in the cart
 	    }
 
+	    // maybe show low stock messaging
+	    updateLowStockWarning();
+
 	});
 
 	$('body').on('click', '.variant-option', function(e){
@@ -182,6 +196,7 @@ $(document).ready(function(){
 	    updateCta();
 	    updateDataLayer();
 	    updateWaitlistMeta();
+	    updateLowStockWarning();
 	});
 
 	$('[data-product-select]').on('change', function(){

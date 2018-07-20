@@ -74,7 +74,7 @@
 		{%- assign current_variant = product.selected_or_first_available_variant -%}
 		'productData' :{
 			'price' : {{ current_variant.price | money_without_currency }},
-			'comparePrice' : {{ current_variant.compare_at_price | money_without_currency }},
+			'comparePrice' : '{{ current_variant.compare_at_price | money_without_currency }}',
 			'sku' : '{{ current_variant.sku }}',
 			'name' : '{{ product.title }}',
 			'type' : '{{ product.type }}',

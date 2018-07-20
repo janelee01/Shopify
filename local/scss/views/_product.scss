@@ -191,6 +191,15 @@
 	@media (min-width: $screen-md) {
 		margin-left: 90px;
 	}
+	.low-stock-warning{
+		text-align: center;
+		padding-top: 10px;
+		opacity: 0;
+		transition: .3s;
+		&.shown{
+			opacity: 1;
+		}
+	}
 }
 #price-wrapper{
 	padding-bottom: 25px;
@@ -299,6 +308,7 @@
 		flex: 1;
 	}
 }
+
 .product-detail-panel{
 	border-top: solid 1px #e6e6e6;
 	padding: 20px 0;

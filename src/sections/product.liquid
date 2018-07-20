@@ -161,7 +161,7 @@
 											{%- if variant.id == current_variant.id -%}
 												{%- assign selected = ' selected' -%}
 											{%- endif -%}
-											<a href="#" class="btn btn-secondary variant-option{{ selected }}">{{ variant.title }}</a>
+											<a href="#" data-inventory="{{ variant.inventory_quantity }}" class="btn btn-secondary variant-option{{ selected }}">{{ variant.title }}</a>
 										{%- endfor -%}
 									</div>
 								{%- endunless -%}
@@ -191,6 +191,7 @@
 									id="waitlist-open"
 									{% if current_variant.available %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</a>
 							</div>
+							<div class="low-stock-warning">{{ 'products.product.low_stock' | t }}</div>
 				        </form>
 					</div>
 
