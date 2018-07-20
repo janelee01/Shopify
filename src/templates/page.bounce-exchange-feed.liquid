@@ -1,0 +1,16 @@
+{% layout none %}
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+{% paginate collections.all-products.products by 1000 %}{% for product in collections.all-products.products %}
+  <!-- Item #{{ forloop.index }} -->
+  <product>
+    <title>{{ product.title | escape }}</title>
+    <display_name>{{product.type | escape }}</display_name>
+    <id>{{product.id}}</id>
+    <image>{{product.featured_image | product_img_url: 'large'}}</image>
+    <link>{{shop.url}}{{product.url}}</link>
+    <price>{{product.price | money_without_currency}}</price>
+    <quantity>1</quantity>
+  </product>
+{% endfor %}{% endpaginate %}
+</products>
