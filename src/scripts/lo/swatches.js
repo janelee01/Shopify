@@ -77,8 +77,19 @@ $(document).ready(function(){
 		};
 	};
 
+	var updateLowStockWarning = function(){
+		var inventoryLevel = $('.variant-option.selected').data('inventory');
+		var $warning = $('.low-stock-warning');
+		if( inventoryLevel > 0 && inventoryLevel <= 20 ){
+			$warning.addClass('shown');
+		}else{
+			$warning.removeClass('shown')
+		}
+	}
+
 	// on page load
 	updateWaitlistMeta();
+	updateLowStockWarning();
 
 	$('.swatch').on('click', function(e){
 		e.preventDefault();
@@ -182,6 +193,7 @@ $(document).ready(function(){
 	    updateCta();
 	    updateDataLayer();
 	    updateWaitlistMeta();
+	    updateLowStockWarning();
 	});
 
 	$('[data-product-select]').on('change', function(){
