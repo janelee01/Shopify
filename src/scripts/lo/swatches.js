@@ -7,7 +7,7 @@ $(document).ready(function(){
 				selectedVariant = siblingsJson[siblingId].variants[i];
 			}
 		};
-		
+
 		// sale pricing
 		if( selectedVariant.compare_at_price && selectedVariant.compare_at_price > 0 ){
 			comparePrice = slate.Currency.formatMoney(selectedVariant.compare_at_price, theme.moneyFormat);
@@ -52,8 +52,20 @@ $(document).ready(function(){
 	};
 
 	var updateWaitlistMeta = function(){
-		var wlMeta = [$('#current-option span').text(), $('#variant-buttons .selected').text()];
+		var wlMeta = [$('#current-option span').text()];
+		if( $('#variant-buttons ').length ){
+			wlMeta.push($('#variant-buttons .selected').text());
+		}
 		$('[data-wl-meta]').text(wlMeta.join(' - '));
+
+		var variant = $('[data-product-select]').val();
+		var wlExpected = variantStockData[variant].restockMessage;
+		if( wlExpected != '' ){
+			$('[data-wl-expected]').text('Expected in stock: ' + wlExpected);
+		}else{
+			$('[data-wl-expected]').text('');
+		}
+		
 	};
 
 	var updateDataLayer = function(){
@@ -78,7 +90,8 @@ $(document).ready(function(){
 	};
 
 	var updateLowStockWarning = function(){
-		var inventoryLevel = $('.variant-option.selected').data('inventory');
+		var variant = $('[data-product-select]').val();
+		var inventoryLevel = variantStockData[variant].stockLevel;
 		var $warning = $('.low-stock-warning');
 		if( inventoryLevel > 0 && inventoryLevel <= 20 ){
 			$warning.addClass('shown');
@@ -88,8 +101,10 @@ $(document).ready(function(){
 	}
 
 	// on page load
-	updateWaitlistMeta();
-	updateLowStockWarning();
+	if( $('body').hasClass('template-product') ){
+		updateWaitlistMeta();
+		updateLowStockWarning();
+	}
 
 	$('.swatch').on('click', function(e){
 		e.preventDefault();
@@ -112,7 +127,7 @@ $(document).ready(function(){
 	    		// build our hidden select
 	    		$('[data-product-select]').append('<option value="'+newVariants[i].id+'">'+newVariants[i].title+'</option>');
 	    		// build our buttons
-	    		$('#variant-buttons').append('<a href="#" data-inventory="'+newVariants[i].inventory_quantity+'" class="btn btn-secondary variant-option">'+newVariants[i].title+'</a>');
+	    		$('#variant-buttons').append('<a href="#" data-id="'+newVariants[i].id+'" class="btn btn-secondary variant-option">'+newVariants[i].title+'</a>');
 	    	}
 	    };
 
