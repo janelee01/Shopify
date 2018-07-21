@@ -174,7 +174,7 @@
 								{%- endunless -%}
 								<select name="id" id="variant-selector" class="hidden" data-product-select>
 									{%- for variant in product.variants -%}
-										<option value="{{ variant.id }}"{% if variant.id == product.selected_variant.id %} selected="selected"{% endif %}>{{ variant.title }}</option>
+										<option value="{{ variant.id }}"{% if variant.id == product.selected_variant.id or variant.id == current_variant.id %} selected="selected"{% endif %}>{{ variant.title }}</option>
 									{%- endfor -%}
 								</select>
 							</div>
@@ -347,7 +347,7 @@
 			{%- for siblingProduct in parentCollection.products -%}
 				{%- for variant in siblingProduct.variants -%}
 					"{{ variant.id }}" : {
-						"stockLevel" : {{ variant.inventory_quantity }},
+						"stockLevel" : "{{ variant.inventory_quantity }}",
 						"restockMessage" : "{{ variant.metafields['global']['restock-expected'] }}"
 					},
 				{%- endfor -%}

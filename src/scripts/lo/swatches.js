@@ -7,7 +7,7 @@ $(document).ready(function(){
 				selectedVariant = siblingsJson[siblingId].variants[i];
 			}
 		};
-		
+
 		// sale pricing
 		if( selectedVariant.compare_at_price && selectedVariant.compare_at_price > 0 ){
 			comparePrice = slate.Currency.formatMoney(selectedVariant.compare_at_price, theme.moneyFormat);
@@ -52,10 +52,14 @@ $(document).ready(function(){
 	};
 
 	var updateWaitlistMeta = function(){
-		var wlMeta = [$('#current-option span').text(), $('#variant-buttons .selected').text()];
+		var wlMeta = [$('#current-option span').text()];
+		if( $('#variant-buttons ').length ){
+			wlMeta.push($('#variant-buttons .selected').text());
+		}
 		$('[data-wl-meta]').text(wlMeta.join(' - '));
 
-		var wlExpected = variantStockData[$('.variant-option.selected').data('id')].restockMessage;
+		var variant = $('[data-product-select]').val();
+		var wlExpected = variantStockData[variant].restockMessage;
 		if( wlExpected != '' ){
 			$('[data-wl-expected]').text('Expected in stock: ' + wlExpected);
 		}else{
@@ -86,7 +90,7 @@ $(document).ready(function(){
 	};
 
 	var updateLowStockWarning = function(){
-		var variant = $('.variant-option.selected').data('id');
+		var variant = $('[data-product-select]').val();
 		var inventoryLevel = variantStockData[variant].stockLevel;
 		var $warning = $('.low-stock-warning');
 		if( inventoryLevel > 0 && inventoryLevel <= 20 ){
@@ -97,8 +101,10 @@ $(document).ready(function(){
 	}
 
 	// on page load
-	updateWaitlistMeta();
-	updateLowStockWarning();
+	if( $('body').hasClass('template-product') ){
+		updateWaitlistMeta();
+		updateLowStockWarning();
+	}
 
 	$('.swatch').on('click', function(e){
 		e.preventDefault();
