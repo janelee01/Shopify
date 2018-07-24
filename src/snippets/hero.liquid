@@ -28,21 +28,19 @@
             <img src="{{ block.settings.mobileImage | img_url: 'master' }}" alt="{{ block.settings.altText }}" />
         </picture>
         <div class="hero-content {{ block.settings.textPosition }} {{ block.settings.textColor }}">
-            <div class="hero-content-inner">
-                {% unless block.settings.title == blank %}
-                    <h1 class="title"><span class="subtitle">{{ block.settings.subtitle }} </span>{{ block.settings.title }}</h1>
+            {% unless block.settings.title == blank %}
+                <h1 class="title"><span class="subtitle">{{ block.settings.subtitle }} </span>{{ block.settings.title }}</h1>
+            {% endunless %}
+            {% unless block.settings.description == blank %}
+                <p class="description">{{ block.settings.description }}</p>
+            {% endunless %}
+            <div class="btn-set">
+                {% unless block.settings.linkText == blank %}
+                    <a class="btn{% if block.settings.linkStyle == 'outline' %} btn-secondary{% if block.settings.textColor == 'white' %} inverted{% endif %}{% endif %}" href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
                 {% endunless %}
-                {% unless block.settings.description == blank %}
-                    <p class="description">{{ block.settings.description }}</p>
+                {% unless block.settings.linkTextB == blank %}
+                    <a class="btn{% if block.settings.linkStyleB == 'outline' %} btn-secondary{% if block.settings.textColor == 'white' %} inverted{% endif %}{% endif %}" href="{{ block.settings.linkUrlB }}">{{ block.settings.linkTextB }}</a>
                 {% endunless %}
-                <div class="btn-set">
-                    {% unless block.settings.linkText == blank %}
-                        <a class="btn{% if block.settings.linkStyle == 'outline' %} btn-secondary{% if block.settings.textColor == 'white' %} inverted{% endif %}{% endif %}" href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
-                    {% endunless %}
-                    {% unless block.settings.linkTextB == blank %}
-                        <a class="btn{% if block.settings.linkStyle == 'outline' %} btn-secondary{% if block.settings.textColor == 'white' %} inverted{% endif %}{% endif %}" href="{{ block.settings.linkUrlB }}">{{ block.settings.linkTextB }}</a>
-                    {% endunless %}
-                </div>
             </div>
         </div>
 	</div>

@@ -1,3 +1,4 @@
+{% include 'vars' %}
 {% for block in section.blocks %}
 	<div class="page-block theme-{{ block.settings.textColor }}"
 		style="{%- if block.settings.disableBottomMargin -%} margin-bottom: 0;{%- endif -%}"
@@ -9,9 +10,9 @@
 
 			{% when 'hero' %}
 			{% include 'builder-hero' %}
-
+			
 			{% when 'columns' %}
-			{% include 'builder-columns' %}
+			{% include 'side-by-side' %}
 
 		{% endcase %}
 	</div>
@@ -150,18 +151,9 @@
 			"name": "Section Heading",
 			"settings": [
 				{
-					"id": "text",
+					"id": "title",
 					"type": "text",
 					"label": "Text"
-				},
-				{
-					"type": "radio",
-					"id": "headingStyle",
-					"label": "Heading Style",
-					"options": [
-						{ "value": "has-bar", "label": "Bar Behind" },
-						{ "value": "has-divider", "label": "Divider Line Below" }
-					]
 				},
 				{
 					"type": "checkbox",
@@ -241,7 +233,7 @@
 				{
 					"type": "radio",
 					"id": "overlayTextPos",
-					"label": "Text Position",
+					"label": "Desktop Text Position",
 					"options": [
 						{ "value": "left", "label": "Left" },
 						{ "value": "center", "label": "Center" },
@@ -256,18 +248,6 @@
 						{ "value": "black", "label": "Black" },
 						{ "value": "white", "label": "White" }
 					]
-				},
-				{
-					"type": "checkbox",
-					"id": "disableBottomMargin",
-					"default": false,
-					"label": "Remove Bottom Margin"
-				},
-				{
-					"type": "checkbox",
-					"id": "isSecondary",
-					"default": false,
-					"label": "Use standard block font sizes"
 				}
 			]
 		}

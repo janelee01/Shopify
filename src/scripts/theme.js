@@ -318,14 +318,6 @@ $(document).ready(function() {
 		slidesToShow: 4,
 		slidesToScroll: 1,
 		responsive: [
-	    // {
-	    //   breakpoint: LS.desktopBreakpoint,
-	    //   settings: {
-	    //     slidesToShow: 2,
-	    //     slidesToScroll: 2,
-	    //     dots : true
-	    //   }
-	    // },
 	    {
 	      breakpoint: 376,
 	      settings: {

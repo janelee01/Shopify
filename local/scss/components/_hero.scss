@@ -102,7 +102,34 @@
 		font-family: $font-family-base;
 	}
 }
-.hero-content-inner{
-	max-width: 360px;
-	margin: 0 auto;
+
+.hero.legacy-hero{
+	.hero-content{
+		@media (max-width: $screen-xs-max) {
+		    position: static;
+		    padding-top: $mobile-gutter;
+		}
+		@media (min-width: $screen-sm) {
+			width: 50%;
+			left: 25%;
+			padding: 0 10%;
+			color: $brand-black;
+			&.right{
+				right: 0;
+				left: auto;
+			}
+			&.left{
+				left: 0;
+			}
+		}
+		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+			font-size: 18px;
+		}
+		.title{
+			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+				font-size: 1.6em;
+			}
+		}
+		
+	}
 }

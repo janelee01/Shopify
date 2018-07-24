@@ -3,7 +3,7 @@
 	{% case block.type %}
 
 		{% when 'hero' %}
-		{% include 'hero' %}
+		{% include 'builder-hero' %}
 
 		{% when 'sectionHeading' %}
 		{% include 'section-heading' %}
@@ -199,7 +199,7 @@
 				},
 				{
 					"type": "radio",
-					"id": "textPosition",
+					"id": "overlayTextPos",
 					"label": "Desktop Text Position",
 					"options": [
 						{ "value": "left", "label": "Left" },

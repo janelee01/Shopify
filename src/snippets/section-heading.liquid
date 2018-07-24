@@ -1,8 +1,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8 col-sm-offset-2">
-			<div class="section-heading">
+			<div class="section-heading {% if block.settings.isPageTitle %}is-page-title{% endif %}">
+				{% if block.settings.isPageTitle %}
+				<h1 class="title">{{ block.settings.title }}</h1>
+				{% else %}
 				<h2 class="title">{{ block.settings.title }}</h2>
+				{% endif %}
 				{% unless block.settings.description == blank %}
 				<p class="description">{{ block.settings.description }}</p>
 				{% endunless %}
