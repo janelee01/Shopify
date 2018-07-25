@@ -148,6 +148,7 @@ $(document).ready(function() {
   $('body').on('click', '.marquee .panel-close', function(e){
 	e.preventDefault();
 	$('#shopify-section-marquee').fadeOut('fast', function(){
+		$('.site-content').removeAttr('style');
 		$('body').trigger('marquee-hidden');
 	});
 	sessionStorage.setItem("lo-marquee-dismissed", "1");
@@ -166,19 +167,42 @@ $(document).ready(function() {
   	$('#shopify-section-marquee').hide();
   }
 
-  // move the marquee for pages with transparent header
-  if( $('body').hasClass('has-tw-header') || $('body').hasClass('has-tb-header') ){
-  	var $marquee = $('#shopify-section-marquee');
-  	var $header = $('#site-header');
-  	var trigger = 75;
-  	$marquee.detach().prependTo('#site-header');
+  // slide the marquee out of the way on scroll
+  var $marquee = $('#shopify-section-marquee');
+  var $header = $('#site-header');
+  var $pageNav = $('.page-nav');
+  var trigger = 75;
 
+  if( $marquee.is(':visible') ){
+  	$('.site-content').css('padding-top', $header.outerHeight());
+  }
+
+  // adjust on scroll
+  $(window).scroll(function(){
+  	if( $(window).scrollTop() < trigger ){
+  		$header.removeAttr('style');
+  		$pageNav.removeClass('is-shown');
+  	}else{
+  		if( $marquee.is(':visible') && $pageNav.length ){ 
+  			$header.css({
+  				'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1,
+  			});
+  		}else if( $marquee.is(':visible') ){
+  			$header.css({
+  				'top' : $marquee.outerHeight() * -1,
+  			});
+  		}
+  		$pageNav.addClass('is-shown');
+  	}
+  });
+
+  // untransparentize header
+  if( $('body').hasClass('has-tw-header') || $('body').hasClass('has-tb-header') ){
+
+  	// don't use the entire header height when it's overlayed
   	if( $marquee.is(':visible') ){
   		$('.site-content').css('padding-top', $marquee.outerHeight());
   	}
-  	$('body').on('click', '.marquee .panel-close', function(e){
-  		$('.site-content').removeAttr('style');
-  	});
 
   	// if we're down the page already
   	if( $(window).scrollTop() > trigger ){
@@ -187,22 +211,12 @@ $(document).ready(function() {
   	// adjust on scroll
   	$(window).scroll(function(){
   		if( $(window).scrollTop() < trigger ){
-  			$header.addClass('showing-alternate').removeAttr('style');
+  			$header.addClass('showing-alternate');
   		}else{
   			$header.removeClass('showing-alternate');
-  			if( $marquee.is(':visible') ){
-  				$header.css({
-  					'top' : $marquee.outerHeight() * -1,
-  				});
-  				
-  			}
   		}
   	});
   }
-
-
-
-
 
   	// swipable bs carousels
   	$(".carousel").swipe({
@@ -268,7 +282,9 @@ $(document).ready(function() {
 		}
 	}
 	if( $('.pr-items').length ){
-		equalizePr();
+		$(window).load(function(){
+			equalizePr();
+		});
 		$(window).resize(function(){
 			equalizePr();
 		});
@@ -297,19 +313,11 @@ $(document).ready(function() {
 	/*
 	Discover category pages
 	 */
-	$('.discover-category-product .image-grid').slick({
+	$('.category-product .image-grid').slick({
 		arrows : false,
 		slidesToShow: 4,
 		slidesToScroll: 1,
 		responsive: [
-	    {
-	      breakpoint: LS.desktopBreakpoint,
-	      settings: {
-	        slidesToShow: 2,
-	        slidesToScroll: 2,
-	        dots : true
-	      }
-	    },
 	    {
 	      breakpoint: 376,
 	      settings: {
@@ -470,6 +478,9 @@ $(document).ready(function() {
 	    $('.page-nav').removeClass('open');
 	});
 
+	// move a page nav into the header for less fixed position conflicts
+	$('.page-nav').detach().appendTo('#site-header');
+
 	var lastScrollTop = 0;
 	var lowestScrollPos = 0;
 	var $pageNav = $('.page-nav');
@@ -517,32 +528,32 @@ $(document).ready(function() {
 	  //   }
 
 		// shift main nav out of the way when we have a page nav
-		if( $pageNav.length ){
-			var currentScrollTop = $(this).scrollTop();
-			if (currentScrollTop > lastScrollTop){
-				// scrolling down
-				if( currentScrollTop > headerOffset ){
-					$header.css('top', -headerOffset);
-					$pageNav.css('margin-top', -headerOffset); // "top" value set by css, so shift it with margin
-					$pageNav.addClass('is-shown'); // on mobile this makes it visible
-				}
-				// set our furthest point down the page
-				lowestScrollPos = currentScrollTop;
-			} else {
-				// scrolling up, with a buffer so the header isn't shown immediately
-				if( currentScrollTop + headerOffset < lowestScrollPos ){
-					$header.attr('style', '');
-					$pageNav.attr('style', '');
-				}
-			}
+		// if( $pageNav.length ){
+		// 	var currentScrollTop = $(this).scrollTop();
+		// 	if (currentScrollTop > lastScrollTop){
+		// 		// scrolling down
+		// 		if( currentScrollTop > headerOffset ){
+		// 			$header.css('top', -headerOffset);
+		// 			$pageNav.css('margin-top', -headerOffset); // "top" value set by css, so shift it with margin
+		// 			$pageNav.addClass('is-shown'); // on mobile this makes it visible
+		// 		}
+		// 		// set our furthest point down the page
+		// 		lowestScrollPos = currentScrollTop;
+		// 	} else {
+		// 		// scrolling up, with a buffer so the header isn't shown immediately
+		// 		if( currentScrollTop + headerOffset < lowestScrollPos ){
+		// 			$header.attr('style', '');
+		// 			$pageNav.attr('style', '');
+		// 		}
+		// 	}
 
-			// hides the page nav on mobile when we're at the top of the page
-			if( currentScrollTop < headerOffset ){
-				$pageNav.removeClass('is-shown');
-			}
+		// 	// hides the page nav on mobile when we're at the top of the page
+		// 	if( currentScrollTop < headerOffset ){
+		// 		$pageNav.removeClass('is-shown');
+		// 	}
 
-			lastScrollTop = currentScrollTop;
-		}
+		// 	lastScrollTop = currentScrollTop;
+		// }
 	});
 
 	/*

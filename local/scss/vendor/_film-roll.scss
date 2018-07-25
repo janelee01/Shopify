@@ -1,0 +1,194 @@
+.film_roll_wrapper {
+   display: block;
+   text-align: center;
+   float: none;
+   position: relative;
+   top: auto;
+   right: auto;
+   bottom: auto;
+   left: auto;
+   z-index: auto;
+   width: 100%;
+   margin: 0 !important;
+   padding: 0 !important;
+   overflow: hidden;
+   width: 100%;
+   .item{
+     figure{
+       margin: 0 1px;
+     }
+   }
+ }
+.film_roll_shuttle {
+   text-align: left;
+   float: none;
+   position: relative;
+   top: 0;
+   left: 0;
+   right: auto;
+   bottom: auto;
+   margin: 0 !important;
+   padding: 0 !important;
+   z-index: auto;
+ }
+ .film_roll_shuttle.vertical_center:before {
+   content: '';
+   display: inline-block;
+   height: 100%;
+   vertical-align: middle;
+   margin-right: -0.25em;
+ }
+.film_roll_child {
+  position: relative;
+  display: inline-block;
+  *display:inline;
+  vertical-align:middle;
+  zoom:1;
+}
+.film_roll_prev, .film_roll_next {
+   position: absolute;
+   top: 48%;
+   left: 15px;
+   width: 40px;
+   height: 40px;
+   margin: -20px 0 0 0;
+   padding: 0;
+   font-size: 60px;
+   font-weight: 100;
+   line-height: 30px;
+   color: white;
+   text-align: center;
+   background: #222;
+   border: 3px solid white;
+   border-radius: 23px;
+   opacity: 0.5;
+ }
+.film_roll_prev:hover, .film_roll_next:hover {
+   color: white;
+   text-decoration: none;
+   opacity: 0.9;
+ }
+.film_roll_next {
+   left: auto;
+   right: 15px;
+ }
+.film_roll_pager {
+   text-align: center;
+ }
+.film_roll_pager a {
+   width: 5px;
+   height: 5px;
+   border: 2px solid #333;
+   border-radius: 5px;
+   display: inline-block;
+   margin: 0 5px 0 0;
+   // transition: all 1s ease;
+ }
+.film_roll_pager a:hover {
+   background: #666;
+ }
+.film_roll_pager a.active {
+   background: #333;
+ }
+.film_roll_pager span {
+   display: none;
+ }
+ .film_roll_pager a, a.film_roll_prev, a.film_roll_next {
+   -webkit-box-sizing: content-box;
+   -moz-box-sizing: content-box;
+   box-sizing: content-box;
+ }
+
+
+.gallery-control.prev,
+.gallery-control.next,
+.carousel-control.left,
+.carousel-control.right{
+  display: none;
+  background: #000;
+  opacity: 1;
+  @include square(57px);
+  position: absolute;
+  bottom: 0;
+  right: 57px;
+  top: auto;
+  left: auto;
+  z-index: 20;
+  background-image: none; // IE
+  filter: none; // IE
+  @include transition-off;
+  @media (min-width: $screen-md) {
+    display: block;
+  }
+  &:after{
+    content: '';
+    display: block;
+    @include size(100%, 100%);
+    @include transition-off;
+    background: url('slide-prev-white.png') no-repeat center center;
+    background-size: auto 32px;
+  }
+  &:hover{
+    opacity: .8;
+    @include transition-on;
+  }
+}
+.carousel-control.right,
+.gallery-control.next{
+  right: 0;
+  &:after{
+    background-image: url('slide-next-white.png');
+  }
+}
+
+.film_roll_pager{
+   position: absolute;
+   bottom: 10px;
+   left: 0;
+   right: 0;
+   padding-top: 0;
+}
+
+
+.film_roll_pager a,
+.carousel-indicators li,
+.carousel-indicators li.active{
+  @include square(15px);
+  background: #D1CDCD;
+  border: solid 1px #fff;
+  margin: 0 3px;
+  border-radius: 50%;
+  display: inline-block;
+  @include transition-off;
+  @media (min-width: $screen-md) {
+      @include square(8px);
+       margin: 0 1px;
+  }
+}
+
+.film_roll_pager a,
+.carousel-indicators li{
+  &:hover{
+    @include transition-on;
+    background: $gray;
+  }
+  &.active{
+    background: #424141;
+  }
+}
+
+.film_roll_pager{
+  padding-top: 20px;
+  a{
+    margin: 0 4px;
+  }
+}
+.carousel-indicators{
+  left: 0;
+  right: 0;
+  width: auto;
+  margin: 0;
+  text-align: center;
+}
+
+

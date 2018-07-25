@@ -1,0 +1,39 @@
+.marquee {
+	padding: 10px 45px 11px;
+	background: $brand-blue;
+	font-size: $font-size-small;
+	line-height: 1.3;
+	z-index: 1000;
+	color: #FFF;
+	position: relative;
+	a{
+		color: #FFF;
+	}
+	@media (min-width: $screen-sm) {
+	    padding: 10px 15px;
+	}
+	@media (min-width: $screen-md) {
+		padding: 12px 0;
+	}
+	&::selection{
+		background: $brand-blue-dark;
+	}
+	.panel-close{
+		left: auto;
+		right: 0;
+		top: 50%;
+		margin-top: -20px;
+		&:before,
+		&:after{
+			background: $brand-blue-light;
+		}
+		@media (min-width: $screen-md) {
+			&:hover{
+				&:before,
+				&:after{
+					background: #FFF;
+				}
+			}
+		}
+	}
+}

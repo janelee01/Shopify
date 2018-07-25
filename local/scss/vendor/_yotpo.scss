@@ -1,0 +1,119 @@
+.template-product{
+	.yotpo,
+	.yotpo.yotpo-main-widget,
+	.yotpo.yotpo-lightbox{
+		*{
+			font-family: $font-family-base;
+		}
+		.main-widget .yotpo-label:first-child,
+		.yotpo-lightbox-container .yotpo-label:last-child{
+			display: none;
+		}
+		.yotpo-regular-box{
+			padding-top: 40px;
+			padding-bottom: 40px;
+			border: 0;
+		}
+		.y-label, label.y-label{
+			color: $gray-light; 
+		}
+		.yotpo-nav ul{
+			.yotpo-nav-tab.yotpo-active *{
+				font-weight: 400;
+				font-family: $font-family-bold;
+			}
+			.yotpo-nav-tab:hover span{
+				color: $brand-blue;
+			}
+		} 
+		input[type="button"].yotpo-default-button,
+		input[type="button"].primary-color-btn,
+		.yotpo-icon-btn,
+		.yotpo-default-button{
+			color: #FFF;
+			font-size: 16px;
+			padding: 1em 1.5em;
+			text-transform: capitalize;
+			background: $brand-blue;
+			font-family: $font-family-medium;
+			line-height: 1;
+			@media (min-width: $screen-md) {
+			    @include transition-off;
+			    &:focus,
+			    &:hover{
+			    	background: $brand-blue-hover !important;
+			    	color: #fff;
+			    	@include transition-on;
+			    }
+			}
+			span{
+				font-family: $font-family-medium;
+			}
+			&.yotpo-disabled{
+				background: $gray-lighter;
+				@media (min-width: $screen-md) {
+				    &:focus,
+				    &:hover{
+				    	background: $gray-lighter !important;
+				    }
+				}
+			}
+		}
+		.yotpo-bottomline.yotpo-bottomline-2-boxes .yotpo-default-button.write-question-button{
+			top: 90px;
+		}
+		.yotpo-question,
+		.yotpo-review{
+			.yotpo-footer .y-label{
+				text-transform: none;
+			}
+			.yotpo-header{
+				.yotpo-header-element .y-label{
+					font-size: $font-size-base;
+					font-weight: 400;
+					&.yotpo-user-title{
+						font-size: .8em;
+					}
+				}
+				.yotpo-icon-profile{
+					background: $brand-blue;
+				}
+			} 
+			.yotpo-comments-box{
+				border-left-color: $brand-blue;
+			}
+			.yotpo-main{
+				.content-question.yotpo-font-bold,
+				.content-title{
+					font-family: $font-family-medium;
+					font-size: 19px;
+					font-weight: 400;
+					line-height: 1.4;
+					color: $text-color;
+				}
+				.content-question,
+				.content-review,
+				.content-review .rest-content-collapsed{ 
+					line-height: 1.4;
+					color: $gray;
+					font-size: $font-size-base;
+				}
+			}
+		}
+		.write-review{
+			.yotpo-header .yotpo-header-title{
+				font-family: $font-family-medium;
+				font-size: 19px;
+				font-weight: 400;
+				line-height: 1.4;
+				color: $text-color;
+			}
+			.y-label, label.y-label{
+				font-family: $font-family-medium;
+				font-weight: 400;
+				color: $text-color;
+			}
+		} 
+		
+	} 
+}

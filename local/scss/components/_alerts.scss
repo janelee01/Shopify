@@ -1,0 +1,21 @@
+.alert{
+	border-radius: 2px;
+	padding: 40px 30px;
+	font-size: 18px;
+	line-height: 1;
+	text-align: center;
+	a{
+		color: #FFF;
+		text-decoration: underline;
+		&:hover{
+			text-decoration: none;
+		}
+	}
+	&.alert-muted{
+		background: #FDFDFD;
+		border: solid 1px #DEDEDE;
+		a{
+			color: $gray; 
+		}
+	}
+}

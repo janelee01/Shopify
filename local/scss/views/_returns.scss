@@ -1,5 +1,5 @@
 ul.messages {
-    @include clean;
+    @include resetList;
     text-align: center;
 }
 

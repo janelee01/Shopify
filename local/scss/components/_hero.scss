@@ -1,0 +1,135 @@
+.hero{
+	position: relative;
+	@include mb('lg');
+	&.soft-load{
+		opacity: 0;
+		@include transition(opacity .4s ease-out);
+		&.in{
+			opacity: 1;
+		}
+	}
+	&.without-image{
+		background: $gray-lightest;
+		padding: 160px 0;
+		.hero-content{
+			position: static;
+			margin-left: auto;
+			margin-right: auto;
+			@media (min-width: $screen-sm) {
+				padding: 0;
+				width: 400px;
+			}
+			@media (min-width: $screen-lg) {
+				width: 500px;
+			}
+		}
+	}
+	picture{
+		img{
+			width: 100%;
+		}
+	}
+}
+.hero-content{
+	position: absolute;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	font-size: 18px;
+	text-align: center;
+	padding: 0 $mobile-gutter;
+	color: #FFF;
+	@media (min-width: $screen-sm) {
+		font-size: 20px;
+		padding: 0 25%;
+	}
+	@media (min-width: $screen-md) {
+		width: 50%;
+		left: 25%;
+		padding: 0 10%;
+		color: $brand-black;
+		&.right{
+			right: 0;
+			left: auto;
+		}
+		&.left{
+			left: 0;
+		}
+	}
+	@media (min-width: $screen-lg) {
+		font-size: 23px;
+	}
+	&.black{
+		color: $brand-black;
+		.title{
+			color: $brand-black;
+		}
+	}
+	&.white{
+		color: #FFF;
+		.title{
+			color: #FFF;
+		}
+	}
+	&.medium{
+		.title{
+			color: $brand-black;
+		}
+		.description{
+			color: $gray;
+		}
+	}
+	.title{
+		color: #FFF;
+		font-size: 2.3em;
+		font-family: $font-family-medium;	
+		@media (min-width: $screen-md) {
+		    color: $brand-black;
+		}
+	}
+	.subtitle{
+		display: block;
+		font-size: 40%;
+		text-transform: uppercase;
+		letter-spacing: .125ex;
+		margin: 0 0 .5em;
+		line-height: 1.25;
+		font-family: $font-family-base;
+	}
+}
+
+.hero.legacy-hero{
+	.hero-content{
+		@media (max-width: $screen-xs-max) {
+		    position: static;
+		    padding-top: $mobile-gutter;
+		}
+		@media (min-width: $screen-sm) {
+			width: 50%;
+			left: 25%;
+			padding: 0 10%;
+			color: $brand-black;
+			&.right{
+				right: 0;
+				left: auto;
+			}
+			&.left{
+				left: 0;
+			}
+		}
+		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+			font-size: 18px;
+		}
+		.title{
+			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+				font-size: 1.6em;
+			}
+		}
+		
+	}
+}

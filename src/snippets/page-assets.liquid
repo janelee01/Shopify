@@ -72,11 +72,13 @@
   {%- when "compare-pearl-materials" -%}
 	  {{ 'compare-pearl-materials.css' | asset_url | stylesheet_tag }}
   
+{% comment %} 
   {%- when "compare-hanover-collection-mens" -%}
 	  {{ 'compare-hanover-men.css' | asset_url | stylesheet_tag }}
   
   {%- when "compare-hanover-collection-womens" -%}
     {{ 'compare-hanover-women.css' | asset_url | stylesheet_tag }}
+{% endcomment %}
       
   {%- when "featured-material-recycled-poly" -%}
     {{ 'recycled-poly.css' | asset_url | stylesheet_tag }}

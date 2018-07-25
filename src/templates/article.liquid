@@ -33,7 +33,7 @@
             </picture>
           </div>  
           <div class="content"> 
-            <div class="container-fluid" data-content-container>
+            <div class="container" data-content-container>
               <h1 class="title">{{ article.title }}</h1>
               <div class="excerpt">{{ article.excerpt }}</div>
               {% if settings.social_sharing_blog %}
@@ -55,7 +55,7 @@
           </div>
           {% comment %} positioned row for the content that aligns to the container {% endcomment %}
           <div class="content-container">
-            <div class="container-fluid">
+            <div class="container">
               <div class="row flexed">
                 <div class="col-sm-6">
                   <div class="content" data-content-container>
@@ -70,7 +70,7 @@
             </div>
           </div>
         {%- when 'image-side-sm' -%}
-          <div class="container-fluid">
+          <div class="container">
             <div class="row flexed">
               <div class="col-sm-6">
                 <div class="content" data-content-container>
@@ -109,7 +109,7 @@
     </div>
   </header>
   
-  <div class="container-fluid">
+  <div class="container">
     <div id="article-body" itemprop="articleBody">
       {{ article.content }}
     </div>

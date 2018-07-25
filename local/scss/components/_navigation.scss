@@ -1,0 +1,181 @@
+nav.local{
+	background: #fafafa;
+	line-height: 1;
+	padding: 18px 0;
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	z-index: 1010;
+	width: 100%;
+	top: $ls-navbar-height-xs;
+	@media (min-width: $screen-md) {
+		padding: 32px 0;
+		top: $ls-navbar-height;
+	}
+	a{
+		color: $gray;
+		margin: 0 11px;
+		font-size: 13px;
+		@media (min-width: $screen-md) {
+			margin: 0 20px;
+			font-size: $font-size-base;
+		}
+		&:focus,
+		&:hover{
+			text-decoration: none;
+			color: $gray-darker;
+		}
+		&.active{
+			color: $gray-darker;
+		}
+	}	
+}
+
+.page-nav{
+	// position: fixed;
+	// left: 0;
+	// right: 0;
+	// top: $ls-navbar-height-xs;
+	// margin-top: 0;
+	// z-index: 900;
+	position: relative;
+	background: rgba(#000, 0.3);
+	color: #FFF;
+	opacity: 0;
+	padding: 14px 0;
+	@include transition(all .25s ease-out);
+	@media (min-width: $screen-md) {
+		padding: 23px 0;
+	}
+	&.theme-light{
+		background: rgba(255,255,255, 0.7);
+		#page-nav-items-toggle{
+			background-image: url("down-dark.png");
+		}
+		.page-nav-title,
+		.page-nav-item,
+		.page-nav-item:hover,
+		.page-nav-item:focus{
+			color: #000;
+		}
+		&.open{
+			background: #FFF;
+			ul.page-nav-items{
+				background: #FFF;
+				li{ 
+					border-bottom-color: #000;
+				}
+			}
+		}
+	}
+	&.is-shown{
+		opacity: 1;
+	}
+	&.open{
+		background: #000;
+		.page-nav-items{
+			display: block;
+		}
+		#page-nav-items-toggle{
+			@include rotate(180deg);
+			@include transition-off;
+		}
+	}
+	.btn{
+		padding: 6px 12px;
+		font-size: 10px;
+		line-height: 1.4;
+		letter-spacing: 0;
+		@media (min-width: $screen-md) {
+		    font-size: 12px;
+		    width: 90px;
+		}
+	}
+	
+	.container-fluid{
+		padding-left:20px; // little more on the left to align with the menu icon bars
+	}
+
+	&.has-button{
+		ul.page-nav-items{
+			@media (min-width: $screen-sm) {
+				margin-right: 15px; 
+			}
+		}
+		.container-fluid{
+			padding-right: 15px;
+		}
+	}
+}
+#page-nav-items-toggle{
+	display: block;
+	position: absolute;
+	top: 14px;
+	left: 50%;
+	margin-left: -15px;
+	@include square(30px);
+	background: url('down.png') center center no-repeat;
+	background-size: 20px auto;
+	@include transition-off;
+	@media (min-width: $screen-sm) {
+		display: none;
+	}
+}
+.page-nav-items{ 
+	@include resetList;
+	float: right;
+	font-size: 12px;
+	li{
+		display: inline-block;
+	}
+	@media (max-width: $screen-xs-max) {
+		display: none;
+		float: none;
+		background: #000;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: $page-nav-height-xs;
+		padding: 0 55px 55px;
+		text-transform: none;
+		margin: 0;
+		li{
+			display: block;
+			border-bottom: 1px solid #fff;
+			padding: 0;
+			a{
+				padding: 16px 0 14px;
+				margin: 0;
+			}
+		}
+	}
+}
+.page-nav-item{
+	display: block;
+	margin: 0 5px;
+	padding: 7px;
+	text-transform: none;
+	color: #FFF;
+	&:hover,
+	&:focus{
+		color: #FFF;
+	}
+}
+.page-nav-title{
+	font-size: 10px;
+	line-height: 30px;
+	margin: 0;
+	color: #FFF;
+	font-family: $font-family-medium;
+	@media (min-width: $screen-md) {
+		font-size: $font-size-base;
+	}
+}
+.page-nav-actions{
+	@include resetList;
+	float: right;
+	font-size: 12px;
+	li{
+		display: inline-block;
+	}
+}

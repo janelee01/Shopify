@@ -89,8 +89,31 @@
 
     <div class="site-window" id="site-window">
         <div class="site-content">
-            {% section 'header' %}
-            {% section 'marquee' %}
+            <header id="site-header" class="{% unless page.metafields['global']['header-theme'] == 'default' %}showing-alternate{% endunless %}">
+              {% section 'marquee' %}
+              <nav id="site-header-items">
+                <div class="container">
+                  {% if template.name == 'index' %}
+                    <h1 id="site-logo" itemscope itemtype="http://schema.org/Organization">{{ shop.name }}</h1>
+                  {% else %}
+                    <a href="/" id="site-logo" itemscope itemtype="http://schema.org/Organization">{{ shop.name }}</a>
+                  {% endif %}
+                  
+                  <a href="#" class="navbar-toggle">
+                    <span class="sr-only">Menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </a>
+
+                  <a href="/cart" class="cart-link {% if cart.item_count < 1 %}empty{% endif %}">
+                    <span class="cart-icon">
+                      <span class="sr-only">{{ 'layout.cart.title' | t }}</span>
+                    </span><span class="cart-count">{{ cart.item_count }}</span>
+                  </a>
+                </div>
+              </nav>
+            </header>
             <main id="MainContent">
                 {{ content_for_layout }}
             </main>
@@ -98,7 +121,7 @@
         </div>
         {% comment %}
         <div class="closed" id="newsletter-prompt">
-          <div class="container-fluid">
+          <div class="container">
             <div class="col-md-10">
               <p>Get <strong>15% OFF</strong> your next order just for signing up.</p>
             </div>

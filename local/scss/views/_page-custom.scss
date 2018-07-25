@@ -1,0 +1,444 @@
+.blocks-bg{
+	background: $gray-lightest; 
+}
+
+/*
+ Specific Overrides
+ */
+#catalina-compact{
+	display: block;
+	img{
+		width: 100%;
+	}
+	@media (min-width: $screen-sm) {
+		width: 610px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	@media (min-width: $screen-md) {
+		width: 874px;
+		margin: 0;
+	}
+	@media (min-width: $screen-lg) {
+		width: 1118px;
+	}
+}
+
+#catalina-locker{
+	display: block;
+	@media (min-width: $screen-md) {
+		margin-top: -110px;
+	}
+	@media (min-width: $screen-lg) {
+		margin-top: -164px;
+	}
+}
+
+#catalina-bottom-pocket{
+	margin-bottom: 10px;
+	@media (min-width: $screen-sm) {
+		margin-bottom: 40px;
+	}
+	@media (min-width: $screen-md) {
+		margin-bottom: 60px;
+	}
+	@media (min-width: $screen-lg) {
+		margin-bottom: 80px;
+	}
+}
+
+#catalina-deluxe-straps{
+	position: relative;
+	.topic-content{
+		@media (min-width: $screen-sm) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 41.66667%;
+			margin-left: 8.33333%;
+			height: 100%;
+			padding: 0;
+		}
+		@media (min-width: $screen-md) {
+			width: 33.33333%;
+		}
+	}
+}
+#catalina-deluxe-tote-what-fits{
+	@media (max-width: $screen-xs-max) {
+		margin-bottom: 0;
+	}
+}
+
+#catalina-deluxe-tote-exterior-pocket,
+#catalina-deluxe-tote-key-leash{
+	@media (max-width: $screen-sm-max) {
+		margin-bottom: 0;
+	}
+}
+
+#catalina-collection-bottom-pocket,
+#catalina-deluxe-tote-materials-description{
+	@media (max-width: $screen-xs-max) {
+		margin-bottom: 0;
+	}
+}
+
+#catalina-collection-bottom-pocket-content{
+	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+		display: flex;
+		flex-direction: column-reverse;
+		.figure-caption{
+			.title{
+				margin-top: 3em;
+			}
+			.description{
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+#catalina-collection-handle-sleeve-content{
+	@media (max-width: $screen-sm-max) {
+		margin-bottom: 0;
+	}
+	@media (min-width: $screen-md) {
+		flex-direction: row-reverse;
+		justify-content: flex-end;
+	}
+}
+
+#hanover-deluxe-m-anywhere,
+#hanover-deluxe-anywhere-1{
+	@media (max-width: $screen-xs-max) {
+	    margin-bottom: $mobile-gutter;
+	}
+}
+
+#hanover-deluxe-anywhere-2,
+#hanover-minimalist-1,
+#waverley-materials-1{
+	margin-bottom: $mobile-gutter;
+	@media (min-width: $screen-sm) {
+		margin-bottom: 0;
+	}
+}
+
+#hanover-organized{
+	@media (min-width: $screen-md) {
+		max-width: 1100px;
+		.row{
+			margin-left: -7px;
+			margin-right: -8px;
+		}
+		[class^="col-"]{
+			padding-left: 7px;
+			padding-right: 8px;
+		}
+	}
+	@media (min-width: $screen-lg) {
+		max-width: 1498px;
+	}
+}
+
+#hanover-m-removable{
+	position: relative;
+	.content-col{
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+#sev-m-1,
+#sev-m-2{
+	top: auto;
+	bottom: 30px;
+}
+#catalina-deluxe-tote-compara-cta{
+	@media (max-width: $screen-xs-max) {
+	    top: auto;
+	    bottom: 30px;
+	}
+}
+#compare-og-hero,
+#compare-hanover-hero{
+	.hero-content{
+		padding-top: $mobile-gutter;
+		height: auto;
+		@media (min-width: $screen-sm) {
+			padding: 40px $mobile-gutter 0;
+		}
+		@media (min-width: $screen-md) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+		@media (min-width: $screen-lg) {
+			padding-top: 60px;
+		}
+	}
+}
+
+#og-omg-compare,
+#hanover-compare{
+	@media (max-width: $screen-sm-max) {
+		picture{
+			margin-bottom: 55px;
+		}
+	}
+	@media (min-width: $screen-md) {
+		> *{
+			order: 0;
+		}
+		> .content-col{
+			order: 1;
+		}
+	}
+	.btn-set{
+		margin-left: auto;
+	}
+}
+#og-omg-cta,
+#hanover-cta{ 
+	picture{
+		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+			max-width: 220px;
+		}
+	}
+}
+
+#og-omg-hero{
+	@media (max-width: $screen-sm-max) {
+	    .block-title,
+	    .block-description{
+	    	padding: 0;
+	    }
+	}
+}
+#og-omg-side-pocket{
+	margin-bottom: $mobile-gutter;
+	@media (min-width: $screen-md) {
+		margin-bottom: 0;
+	}
+}
+#og-omg-compare{
+	.block-title{
+		font-size: 27px;
+		margin-bottom: 48px;
+		@media (min-width: $screen-sm) {
+			font-size: 20px;
+		}
+		@media (min-width: $screen-md) {
+			font-size: 22px;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 28px;
+			margin-bottom: 30px;
+		}
+	}
+}
+#og-omg-plenty{
+	margin-bottom: $mobile-gutter;
+	@media (min-width: $screen-md) {
+		margin-bottom: 0;
+		display: flex;
+		align-items: center;
+	}
+}
+
+#pearl-anywhere-1,
+#pearl-anywhere-2,
+#pearl-anywhere-3,
+#pearl-anywhere-4,
+#pearl-anywhere-5,
+#pearl-anywhere-6{
+	margin-bottom: $mobile-gutter;
+	@media (min-width: $screen-sm) {
+		margin-bottom: 50px;
+	}
+	@media (min-width: $screen-lg) {
+		margin-bottom: 60px;
+	}
+}
+
+#pearl-anywhere-3,
+#pearl-anywhere-4{
+	@media (min-width: $screen-md) {
+		margin-bottom: 30px;
+	}
+}
+
+#pearl-cta{
+	picture{
+		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+			max-width: 455px;
+		}
+	}
+}
+
+#catalina-rose-getaway{
+	@media (min-width: $screen-md) {
+		padding: 0;
+		margin-bottom: $mb-large-md;
+		.description{
+			margin: 0;
+		}
+	}
+}
+#catalina-rose-yucca{
+	margin-top: $mobile-gutter;
+	margin-bottom: $mobile-gutter;
+	@media (min-width: $screen-sm) {
+		margin-top: 70px;
+		margin-bottom: 70px;
+	}
+	@media (min-width: $screen-md) {
+		margin-top: 0;
+		margin-bottom: $grid-gutter-width;
+	}
+}
+
+#rhodes-hero{
+	@media (max-width: $screen-xs-max) {
+		.hero-content{
+			height: 50%;
+		}
+	}
+}
+
+#rhodes-hero,
+#edgemont-hero{
+	@media (min-width: $screen-sm) {
+		.hero-content{
+			left: 0;
+			width: 50%;
+			padding: 0 10%;
+		}
+	}
+}
+#edgemont-cta{
+	picture{
+		@media (max-width: $screen-sm-max) {
+		    max-width: 200px;
+		}
+	}
+}
+
+#edgemont-intro-video{
+	@media (max-width: $screen-sm-max) {
+	    .embed-container{
+	    	padding-bottom: 100%;
+	    }
+	}
+}
+
+#organic-canvas-hero{
+	.hero-content{
+		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+		    width: 50%;
+		    right: 0;
+		    left: auto;
+		    padding: 0 3%;
+		}
+	}
+}
+.legacy-has-overlay.organic-canvas-better{
+	.image-panel-content{
+		height: 70%;
+	}
+}
+
+#claremont-cta{
+	@media (max-width: $screen-xs-max) {
+	    .title, .final-price{
+	    	color: #FFF;
+	    }
+	}
+	@media (min-width: $screen-md) {
+		.btn-set{
+			width: auto;
+		}
+	}
+}
+
+#pearl-comparison-hero{
+	.hero-content{
+		@media (min-width: $screen-sm) {
+			padding: 0 6%;
+		}
+		@media (min-width: $screen-md) {
+			padding: 0 1%;	
+		}
+	}
+}
+
+#seville-comparison-hero{
+	@media (max-width: $screen-xs-max) {
+		.hero-content{
+			height: 50%;
+		}
+	}
+	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+		.hero-content{
+			.title{
+				font-size: 1.9em;
+			}
+		}
+	}
+	@media (min-width: $screen-sm) and (max-width: $screen-md-max) {
+		.hero-content{
+			left: 0;
+			width: 56%;
+			padding: 0 5%;
+		}
+	}
+}
+
+#seville-discover-hero{
+	@media (max-width: $screen-xs-max) {
+		.hero-content{
+			height: 50%;
+		}
+	}
+	@media (min-width: $screen-sm) {
+		.hero-content{
+			left: 0;
+			width: 50%;
+			padding: 0 5%;
+		}
+	}
+}
+#seville-addtional-colors{
+	@media (max-width: $screen-xs-max) {
+		position: static;
+	}
+}
+.topic-block.has-overlay-xs .topic-content.seville-overlay-block{
+	@media (max-width: $screen-xs-max) {
+		height: 60%;
+		padding-left: $mobile-gutter;
+		padding-right: $mobile-gutter;
+		.title{
+			font-size: 1.5em;
+		}
+		.description{
+			font-size: .9em;
+		}
+	}
+	@media (max-width: $screen-sm-max) {
+		.title{
+			font-size: 1.3em;
+		}
+		.description{
+			font-size: .7em;
+		}
+		.btn-set{
+			margin-left: auto;
+		}
+	}
+}

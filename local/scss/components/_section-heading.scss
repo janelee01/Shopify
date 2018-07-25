@@ -1,0 +1,38 @@
+.section-heading{
+	@include mb();
+	text-align: center;
+	font-size: 18px;
+	color: $gray;
+	@media (min-width: $screen-sm) {
+		font-size: 20px;
+	}
+	@media (min-width: $screen-lg) {
+		font-size: 23px;
+	}
+	&.is-page-title{
+		margin-top: $mb-default-xs / 2;
+		margin-bottom: $mb-default-xs / 2;
+		@media (min-width: $screen-sm) {
+			margin-top: $mb-default-sm / 2;
+			margin-bottom: $mb-default-sm / 2;
+		}
+		@media (min-width: $screen-md) {
+			margin-top: $mb-default-md / 2;
+			margin-bottom: $mb-default-md / 2;
+		}
+		@media (min-width: $screen-lg) {
+			margin-top: $mb-default-lg / 2;
+			margin-bottom: $mb-default-lg / 2;
+		}
+	}
+	.title{
+		font-size: 2em;
+		font-family: $font-family-medium;
+		color: $brand-black;
+		margin-bottom: .3em;
+	}
+	.description{
+		margin-bottom: 0;
+	}
+}
+

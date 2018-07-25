@@ -1,0 +1,112 @@
+$md-max-width: 940px;
+$lg-max-width: 1140px;
+$xl-max-width: 1200px;
+$site-max-width: 1680px;
+
+$screen-xs-landscape: 450px; // not a value based on any device, just where it looks good to start making layout changes
+$screen-picture-switch: 768px; 
+$screen-md: 1025px; 
+$screen-lg: 1400px; 
+$screen-xl: $screen-lg; 
+$grid-float-breakpoint: $screen-md; 
+ 
+$menu-width-sm: 100%;
+$menu-width-md: 400px;
+
+$cart-width-md: 370px;
+$checkout-width-md: 710px;
+
+$ls-navbar-height-xs: 54px;
+$ls-navbar-height: 64px;
+$page-nav-height-xs: 46px;
+$page-nav-height: 77px;
+$local-nav-height-xs: 60px;
+$local-nav-height: 90px;
+
+$mobile-gutter: 28px;
+
+$gray-darker:            #111; 
+$gray-dark:              #414B56;   
+$gray:                   #646464;  
+$gray-light:             #808080; 
+$gray-lighter:           #d6d6d6; 
+$gray-lightest:          #f8f8f8; 
+
+$brand-primary:         #45ADD9;
+$brand-success:         #5cb85c;
+$brand-info:            #5bc0de;
+$brand-warning:         #f0ad4e;
+$brand-danger:          #d9534f;
+
+$text-color: $gray-darker;
+
+$brand-blue-dark: #30A6D8;
+$brand-blue: #00AEEF;
+$brand-blue-hover: #30a6d8;
+$brand-blue-light: #DDF2FC;
+
+$brand-yellow: #E3CD6E; 
+
+$link-color:            $gray-dark;
+
+$state-success-text:             #fff;
+$state-success-bg:               $brand-success;
+$state-success-border:           $brand-success;
+
+$state-info-text:                #fff;
+$state-info-bg:                  $brand-info;
+$state-info-border:              $brand-info;
+
+$state-warning-text:             #fff;
+$state-warning-bg:               $brand-warning;
+$state-warning-border:           $brand-warning;
+
+$state-danger-text:              #fff;
+$state-danger-bg:                $brand-danger;
+$state-danger-border:            $brand-danger; 
+
+$font-family-sans-serif: "Circular-Pro-Book","Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif: "Adobe Garamond Pro", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+
+$font-family-bold: "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-medium: "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+$headings-color: $gray-dark;
+
+$font-size-base:          16px;
+$font-family-base: $font-family-sans-serif;
+$line-height-base:        1.875;
+
+$font-size-huge:         ceil(($font-size-base * 4.5)); // 72px
+$font-size-large:         ceil(($font-size-base * 1.25)); // 20px
+$font-size-small:         ceil(($font-size-base * 0.85)); // 14px
+$font-size-xs:         floor(($font-size-base * 0.75)); // 12px
+
+$font-size-h1:           40px;
+$font-size-h2:            floor(($font-size-base * 1.5)); // ~24px
+$font-size-h3:            ceil(($font-size-base * 1.375)); // ~22px
+$font-size-h4:            $font-size-large; 
+$font-size-h5:            $font-size-base;
+$font-size-h6:            $font-size-small; 
+
+$ls-xs: 1px;
+$ls-sm: 2px;
+$ls-lg: 4px;
+
+$navbar-default-link-color:                #4A4A4A;
+$navbar-default-link-hover-color:          $gray-dark;
+$navbar-default-link-hover-bg:             #E9E8E8;
+$navbar-default-link-active-color:         $gray-dark;
+
+$caret-width-base:          5px;
+$caret-width-large:         7px;
+
+$dropdown-caret-color: $navbar-default-link-color;
+
+$mm_transitionDuration: 0.5s !default;
+
+$block-padding-big-sm: 40px;
+$block-padding-small-sm: 20px;
+$block-padding-big-md: 60px;
+$block-padding-small-md: 30px;
+$block-padding-big-lg: 90px;
+$block-padding-small-lg: 45px;
