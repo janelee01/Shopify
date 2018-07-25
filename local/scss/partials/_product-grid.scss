@@ -73,6 +73,7 @@
 			vertical-align: middle;
 		}
 	}
+	.discount-label,
 	.old-price{
 		font-family: $font-family-base;
 		font-size: 11px;
@@ -84,6 +85,11 @@
 			line-height: 20px;
 			margin-left: 10px;
 		}
+	}
+	.discount-label{
+		font-family: $font-family-bold;
+		color: #963b3b;
+		opacity: 0;
 	}
 	.low-stock-warning{
 		margin-left: 5px;

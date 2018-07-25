@@ -36,6 +36,9 @@
           {{ 'products.product.sold_out' | t }}
         </span>
         {%- endunless -%}
+        {%- if product.compare_at_price > product.price -%}
+          <span class="discount-label">{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round: 0 }}% off</span>
+        {%- endif -%}
     </div>
   </a>
 </article>
