@@ -81,9 +81,11 @@ $(document).ready(function(){
 					'productData.sku' : siblingsJson[selectedSibling].variants[i].sku,
 					'productData.name' : siblingsJson[selectedSibling].title,
 					'productData.variant' : siblingsJson[selectedSibling].variants[i].title,
+					'productData.variantId' : selectedVariantID,
 					'productData.url' : siblingsSupplimentalJson[selectedSibling].url,
 					'productData.imageUrl' : siblingsSupplimentalJson[selectedSibling].featuredImage,
-					'productData.collections' : siblingsSupplimentalJson[selectedSibling].collections
+					'productData.collections' : siblingsSupplimentalJson[selectedSibling].collections,
+					'pinterestPage' : siblingsJson[selectedSibling].title
 				});
 			}
 		};
@@ -188,6 +190,10 @@ $(document).ready(function(){
 	      var newurl = window.location.protocol + '//' + window.location.host + $(this).data('url');
 	      window.history.replaceState({path: newurl}, '', newurl);
 	      sessionStorage.setItem('lo-back-to', newurl); // for use in the cart
+
+	      dataLayer.push({
+	      	'event' : 'afterUrlUpdate'
+	      });
 	    }
 
 	    // maybe show low stock messaging
