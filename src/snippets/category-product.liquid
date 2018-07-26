@@ -21,7 +21,7 @@
                 <div class="topic-content">
                     <h2 class="title">{{ block.settings.title }}</h2>
                     <p class="description">{{ block.settings.description }} <span class="category-price">{{ block.settings.price }}</span></p>
-                    <div class="btn-set">
+                    <div class="btn-set inlined"> 
                         {% unless block.settings.linkText == blank %}
                             <a class="btn{% if block.settings.linkStyle == 'outline' %} btn-secondary{% endif %}" href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
                         {% endunless %}

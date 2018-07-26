@@ -176,6 +176,9 @@ blockquote{
 	}
 }
 
+.mb-small{
+	@include mb('sm');
+}
 .mb-default{
 	@include mb();
 }

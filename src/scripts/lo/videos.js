@@ -9,6 +9,8 @@ $(document).ready(function(){
 		var videoUrl = $embed.data('desktop-url');
 		var mobileVideoUrl = $embed.data('mobile-url');
 
+		if( !videoId ) return; 
+
 		if ( $(window).width() < LS.desktopBreakpoint && mobileVideoUrl ) {
 	        $('#'+videoId).append('<source src="' + mobileVideoUrl + '" type="video/mp4" />');
 	    } else {

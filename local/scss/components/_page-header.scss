@@ -2,6 +2,7 @@
 	text-align: center;
 	background: #fafafa;
 	margin: 0;
+	@include mb;
 	padding: 1em $mobile-gutter;
 	border: none;
 	line-height: 1;

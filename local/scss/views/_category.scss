@@ -20,13 +20,4 @@
 		padding: 0;
 		text-align: center;
 	}
-	.btn-set{
-		@media (min-width: $screen-sm) {
-			width: 100%;
-			.btn{
-				display: inline-block;
-				margin: 0 3px;
-			}
-		}
-	}
 }

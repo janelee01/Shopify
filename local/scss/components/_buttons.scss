@@ -2,6 +2,16 @@
 	width: 190px;
 	margin-left: auto;
 	margin-right: auto;
+	&.inlined{
+		@media (min-width: $screen-sm) {
+			width: 100%;
+			text-align: center; 
+			.btn{
+				display: inline-block;
+				margin: 0 3px;
+			}
+		}
+	}
 	.btn{
 		display: block;
 		margin-bottom: 10px;
