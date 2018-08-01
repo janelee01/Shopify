@@ -2,7 +2,7 @@
 {%- if placeholder != blank -%}
   {%- assign ph = placeholder -%}
 {%- endif -%}
-<form action="/search" method="get" role="search">
+<form action="/search" method="get" role="search" class="ui-front">
   <label for="{{ fieldId }}" class="sr-only">
     {{ 'general.search.placeholder' | t }}
   </label>
