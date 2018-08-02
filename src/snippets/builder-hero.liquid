@@ -27,7 +27,7 @@
 		</picture>
         <div class="hero-content {{ block.settings.overlayTextPos }} {{ block.settings.textColor }}">
             {% unless block.settings.title == blank %}
-                <h2 class="title">{{ block.settings.title }}</h2>
+                <h2 class="title"><span class="subtitle">{{ block.settings.subtitle }} </span>{{ block.settings.title }}</h2>
             {% endunless %}
             {% unless block.settings.description == blank %}
                 <p class="description">{{ block.settings.description }}</p>
