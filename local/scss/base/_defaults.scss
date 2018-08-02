@@ -234,8 +234,8 @@ blockquote{
 
 // google optimize will swap these opacities
 .experiment-wrapper-baseline{
-	opacity: 0;
+	opacity: 1;
 }
 .experiment-wrapper-alternate{
-	opacity: 1;
+	opacity: 0;
 }
