@@ -12,18 +12,18 @@ $(document).ready(function(){
 		if( selectedVariant.compare_at_price && selectedVariant.compare_at_price > 0 ){
 			comparePrice = slate.Currency.formatMoney(selectedVariant.compare_at_price, theme.moneyFormat);
 			$('[data-discount-amount]').text( Math.round( 100*(selectedVariant.compare_at_price - selectedVariant.price) / selectedVariant.compare_at_price ) );
-			$('.discount-badge').removeClass('is-hidden');
+			$('.discount-badge, .discount-label').removeClass('is-hidden');
 		}else{
 			comparePrice = '';
-			$('.discount-badge').addClass('is-hidden');
+			$('.discount-badge, .discount-label').addClass('is-hidden');
 		}
 		
-		// update the regular price element
-		$('[data-compare-price]').html(comparePrice);
+		// update the regular price element 
 		if( comparePrice == '' ){
-			$('[data-compare-price]').hide();
+			$('[data-compare-price]').addClass('is-hidden');
 		}else{
-			$('[data-compare-price]').fadeIn();
+			$('[data-compare-price]').html(comparePrice);
+			$('[data-compare-price]').removeClass('is-hidden');
 		}
 
 		// current price
