@@ -46,9 +46,9 @@
 		font-size: 19px;
 	}
 	&.btn-secondary{
-		color: $gray-dark; 
+		color: $gray-darker; 
 		background: transparent;
-		border-color: #A0A4A6;
+		border-color: $gray-darker;
 		&:focus{
 			box-shadow: none;
 		}

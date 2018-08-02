@@ -75,6 +75,9 @@
 		.title{
 			color: #FFF;
 		}
+		.btn.btn-secondary{
+			@include invertedSecondaryBtn;
+		}
 	}
 	&.medium{
 		.title{
@@ -113,7 +116,6 @@
 			width: 50%;
 			left: 25%;
 			padding: 0 10%;
-			color: $brand-black;
 			&.right{
 				right: 0;
 				left: auto;
