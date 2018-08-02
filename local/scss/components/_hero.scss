@@ -111,6 +111,16 @@
 		@media (max-width: $screen-xs-max) {
 		    position: static;
 		    padding-top: $mobile-gutter;
+		    // don't allow white text on mobile since the content drops blow the image 
+		    &.white{
+		    	.title, .description{
+		    		color: $brand-black;
+		    	}
+		    	.btn.btn-secondary{
+		    		color: $brand-black;
+		    		border-color: $brand-black;
+		    	}
+		    }
 		}
 		@media (min-width: $screen-sm) {
 			width: 50%;
