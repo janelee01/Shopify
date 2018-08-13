@@ -1,11 +1,15 @@
 <!-- autocomplete -->
 <script>
 	var autocompletedata = [
-		{% for page in linklists.autocomplete-pages.links %} { label: "{{ page.title }}", category: "Pages", value: "{{ page.url }}" }, {% endfor %}
-		{% for article in blogs['news'].articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
-		{% for article in blogs['product-design'].articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
-		{% for article in blogs['travel-inspiration'].articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
-		{% for article in blogs['travel-style'].articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
-		{% for article in blogs['travel-tips-guides'].articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+		{% for page in linklists.autocomplete-products.links %} { label: "{{ page.title }}", category: "Products", value: "{{ page.url }}" }, {% endfor %}
+		{% for page in linklists.autocomplete-discover.links %} { label: "{{ page.title }}", category: "Discover", value: "{{ page.url }}" }, {% endfor %}
+		{% for page in linklists.autocomplete-compare.links %} { label: "{{ page.title }}", category: "Compare", value: "{{ page.url }}" }, {% endfor %}
+		{% for page in linklists.autocomplete-featured.links %} { label: "{{ page.title }}", category: "Featured", value: "{{ page.url }}" }, {% endfor %}
+		{% for page in linklists.autocomplete-uses.links %} { label: "{{ page.title }}", category: "Uses", value: "{{ page.url }}" }, {% endfor %}
+		{% for article in blogs.news.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+		{% for article in blogs.product-design.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+		{% for article in blogs.travel-inspiration.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+		{% for article in blogs.travel-style.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+		{% for article in blogs.travel-tips-guides.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
 	];
 </script>

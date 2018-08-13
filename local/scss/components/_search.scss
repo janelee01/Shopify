@@ -44,10 +44,13 @@
 	background: #FFF;
 	border-left: solid 2px $brand-blue;
 	box-shadow: 0 4px 5px rgba(0,0,0,.05);
-	max-height: 200px;
+	max-height: 195px; // shorter on mobile so the keyboard doesn't cover the lower items
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding-bottom: .8em;
+	@media (min-width: $screen-md) {
+		max-height: 400px;
+	}
 	.ui-menu-item{
 		list-style: none;
 	}
