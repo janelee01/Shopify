@@ -16,7 +16,7 @@
     <div class="image">
       {{ product.featured_image.src | img_url: '360x360' | img_tag: product.featured_image.alt }}
       {%- if product.compare_at_price > product.price -%}
-      <span class="experiment-wrapper-baseline">
+      <span class="experiment-wrapper-alternate">
         <span class="discount-badge">{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round: 0 }}%<br />OFF</span>
       </span>
       {%- endif -%}
@@ -39,7 +39,7 @@
         </span>
         {%- endunless -%}
         {%- if product.compare_at_price > product.price -%}
-          <span class="experiment-wrapper-alternate">
+          <span class="experiment-wrapper-baseline">
             <span class="discount-label">{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round: 0 }}% off</span>
           </span>
         {%- endif -%}
