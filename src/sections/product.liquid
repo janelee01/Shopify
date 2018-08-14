@@ -121,7 +121,7 @@
 					        {%- assign discountAmount = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0 -%}
 					      {%- endif -%}
 					    </s>
-					    <span class="experiment-wrapper-baseline">
+					    <span class="experiment-wrapper-baseline"> 
 					    	<span class="discount-label{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>% off</span>	
 					    </span>
 					    <span class="experiment-wrapper-alternate">
