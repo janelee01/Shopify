@@ -100,9 +100,12 @@ $(document).ready(function() {
     }
   });
    
-  $( "#in-menu-search" ).catcomplete({
+  $("#in-menu-search").catcomplete({
     delay: 0,
-    source: window.autocompletedata,
+	source: window.autocompletedata,
+	focus: function( event, ui){
+		event.preventDefault(); // default is to show the value of the item, which will be the page path
+	},
     select: function( event, ui ) {
     	event.preventDefault();
     	window.location = window.location.protocol + '//' + window.location.hostname + ui.item.value;
@@ -483,7 +486,7 @@ $(document).ready(function() {
                 "cache-control": "no-cache"
             },
             "data": {
-				"g": "KUBRaR", // KUBRaR main list, KDKe8m shopify test list
+				"g": "KDKe8m", // KUBRaR main list, KDKe8m shopify test list
                 "$fields": "Sign Up Source",
                 "email": email,
                 "Sign Up Source": "footer"
