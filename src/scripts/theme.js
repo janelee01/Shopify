@@ -103,7 +103,12 @@ $(document).ready(function() {
   $("#in-menu-search").catcomplete({
     delay: 0,
 	source: window.autocompletedata,
-	focus: function( event, ui){
+	open: function ( event, ui ) {
+		if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+			$('.ui-autocomplete').off('menufocus hover mouseover');
+		}
+	},
+	focus: function( event, ui ){
 		event.preventDefault(); // default is to show the value of the item, which will be the page path
 	},
     select: function( event, ui ) {

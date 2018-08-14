@@ -42,8 +42,7 @@
 
 .ui-autocomplete{
 	background: #FFF;
-	// border-left: solid 2px $brand-blue;
-	box-shadow: 0 4px 5px rgba(0,0,0,.05);
+	box-shadow: 0 4px 5px rgba(0,0,0,.1);
 	max-height: 195px; // shorter on mobile so the keyboard doesn't cover the lower items
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -55,7 +54,7 @@
 		list-style: none;
 	}
 	.ui-menu-item-wrapper{
-		padding: 3px 15px;
+		padding: 3px 15px 3px 30px;
 		&.ui-state-active{
 			margin: 0;
 			color: $brand-blue;
@@ -66,4 +65,5 @@
 	font-family: $font-family-medium;
 	font-weight: 400;
 	padding-left: 15px;
+	color: #aaa;
 }
