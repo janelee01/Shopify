@@ -7,9 +7,11 @@
 @import 'vendor/film-roll';  
 @import 'vendor/slick';  
 @import 'vendor/yotpo';  
+@import 'vendor/jquery-ui';  
 
-@import 'base/defaults';
+@import 'base/defaults'; 
 
+@import 'components/breadcrumbs';
 @import 'components/buttons';
 @import 'components/cta-block';
 @import 'components/discover-compare';
@@ -22,6 +24,7 @@
 @import 'components/navigation';
 @import 'components/overflow-row';
 @import 'components/page-header';
+@import 'components/pagination';
 @import 'components/product-grid';
 @import 'components/search';
 @import 'components/section-heading';

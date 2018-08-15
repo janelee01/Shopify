@@ -24,6 +24,7 @@ window.theme = window.theme || {};
 // =require vendor/picturefill.min.js
 // =require vendor/bootstrap.min.js
 // =require vendor/jquery-ui-1.10.4.custom.min.js
+// =require vendor/jquery-ui.min.js
 // =require vendor/moment.min.js
 // =require vendor/jquery.fitvids.js
 // =require vendor/jquery.cookie.js
@@ -75,6 +76,46 @@ $(document).ready(function() {
   if (slate.cart.cookiesEnabled()) {
 	document.documentElement.className = document.documentElement.className.replace('supports-no-cookies', 'supports-cookies');
   }
+
+  // Autocomplete search
+  $.widget( "custom.catcomplete", $.ui.autocomplete, {
+    _create: function() {
+      this._super();
+      this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+    },
+    _renderMenu: function( ul, items ) {
+      var that = this,
+        currentCategory = "";
+      $.each( items, function( index, item ) {
+        var li;
+        if ( item.category != currentCategory ) {
+          ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+          currentCategory = item.category;
+        }
+        li = that._renderItemData( ul, item );
+        if ( item.category ) {
+          li.attr( "aria-label", item.category + " : " + item.label );
+        }
+      });
+    }
+  });
+   
+  $("#in-menu-search").catcomplete({
+    delay: 0,
+	source: window.autocompletedata,
+	open: function ( event, ui ) {
+		if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+			$('.ui-autocomplete').off('menufocus hover mouseover');
+		}
+	},
+	focus: function( event, ui ){
+		event.preventDefault(); // default is to show the value of the item, which will be the page path
+	},
+    select: function( event, ui ) {
+    	event.preventDefault();
+    	window.location = window.location.protocol + '//' + window.location.hostname + ui.item.value;
+    }
+  });
 
   $('#article-body').fitVids();
 
@@ -450,7 +491,7 @@ $(document).ready(function() {
                 "cache-control": "no-cache"
             },
             "data": {
-                "g": "KUBRaR",
+				"g": "KUBRaR", // KUBRaR main list, KDKe8m shopify test list
                 "$fields": "Sign Up Source",
                 "email": email,
                 "Sign Up Source": "footer"

@@ -1,0 +1,14 @@
+<!-- autocomplete -->
+<script>
+	var autocompletedata = [
+		{% for page in linklists.autocomplete-products.links %} { label: "{{ page.title }}", category: "Products", value: "{{ page.url }}" }, {% endfor %}
+		{% for page in linklists.autocomplete-collections.links %} { label: "{{ page.title }}", category: "Collections", value: "{{ page.url }}" }, {% endfor %}
+		{% comment %} 
+		{% for article in blogs.news.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+		{% for article in blogs.product-design.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+		{% for article in blogs.travel-inspiration.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+		{% for article in blogs.travel-style.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+		{% for article in blogs.travel-tips-guides.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+		{% endcomment %}
+	];
+</script>
