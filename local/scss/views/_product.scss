@@ -124,12 +124,12 @@
 		padding-right: 20px;
 		margin-bottom: 5px;
 		margin-right: 10px;
-		background: url('navigate-right.svg') right 5px top 12px no-repeat; 
+		background: url('navigate-right.svg') right 3px center no-repeat; 
 		@include transition(all .2s ease);
 		&:hover{
 			text-decoration: none;
 			color: $brand-blue-dark;
-			background-position: right 0 top 12px;
+			background-position: right 0 center;
 		}
 	}
 	#product-video-trigger{

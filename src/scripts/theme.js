@@ -259,6 +259,27 @@ $(document).ready(function() {
   	});
   }
 
+  	// header shadow
+	var $localNav = $('nav.local');
+	if( $localNav.length ){
+		$('body').addClass('has-local-nav');
+	}
+  	var scrolledClass = 'after-scroll';
+	if ($(window).scrollTop() > trigger) {
+		$header.addClass(scrolledClass);
+		$localNav.addClass(scrolledClass);
+	}
+	// adjust on scroll
+	$(window).scroll(function () {
+		if ($(window).scrollTop() < trigger) {
+			$header.removeClass(scrolledClass);
+			$localNav.removeClass(scrolledClass);
+		} else {
+			$header.addClass(scrolledClass);
+			$localNav.addClass(scrolledClass);
+		}
+	});
+
   	// swipable bs carousels
   	$(".carousel").swipe({
   		allowPageScroll:"auto",
