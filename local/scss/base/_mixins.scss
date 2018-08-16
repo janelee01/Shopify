@@ -133,3 +133,10 @@
 	}
 	
 }
+
+@mixin headerShadow(){
+	box-shadow: 0 0 20px rgba($gray-darker,.15);
+	@media (min-width: $screen-md) {
+		box-shadow: 0 0 60px rgba($gray-darker,.15);
+	}
+}

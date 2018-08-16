@@ -7,7 +7,15 @@
 	left: 0;
 	right: 0;
 	margin: 0;
-	z-index: 1010;
+	z-index: 1020;
+	&.after-scroll{
+		@include headerShadow;
+	}
+}
+body.has-local-nav{
+	#site-header.after-scroll{
+		box-shadow: none; // local nav will get the shadow
+	}
 }
 #site-header-items{
 	background: #FFF;
@@ -160,104 +168,5 @@ body.has-tw-header{
 		margin-left: 10px;
 		line-height: 29px;
 		vertical-align: middle;
-	}
-}
-
-#site-nav-panel{
-	position: fixed;
-	left: -100%;
-	top: 0;
-	bottom: 0;
-	overflow: hidden;
-	z-index: 10001;
-	width: 100%;
-	background: #fff;
-	@include transition(left .25s ease-out);
-	@media (min-width: $screen-sm) {
-		left: -$menu-width-md;
-		width: $menu-width-md;
-	}
-	.panel-close{
-		left: auto;
-		right: 31px;
-		top: 15px;
-	}
-}
-#site-nav-body{
-	position: relative;
-	height: 100%;
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
-    padding: 75px $mobile-gutter 30px;
-	nav{
-		ul{
-			@include resetList;
-			padding-right: 15px;
-			padding-left: 15px;
-			font-size: 20px;
-			a{
-				color: $gray-dark;
-			}
-			ul{
-				font-size: 15px;
-				padding: 0;
-				li{
-					&:last-child{
-						border: 0;
-						padding-bottom: 0;
-					}
-				}
-				a{
-					color: $gray;
-					&.menu-toggle{
-						&:before{
-							display: none;
-						}
-						&:after{
-							background: url('icon-expandable.svg');
-							width: 8px;
-							height: 5px;
-							margin-top: -3px;
-							@include rotate(-180deg);
-						}
-						&.collapsed{
-							&:after{
-								@include rotate(0deg);
-							}
-						}
-					}
-				}
-				ul{
-					font-size: 14px;
-					padding-left: 30px;
-					padding-top: 10px;
-					li{
-						padding: 15px 0;
-					}
-				}
-			}
-			&#account-menu-items li{
-				border-bottom: 0;
-			}
-		}
-		li{
-			border-bottom: solid 1px #ededed;
-			padding: 20px 0;
-		}
-		a{
-			display: block;
-			&:hover,
-			&:focus{
-				color: $brand-blue;
-				text-decoration: none;
-			}
-		}
-		.menu-toggle{
-			@include collapsing-panel-toggle;
-		}
-		// force capitalize top level items
-		> ul > li > a{
-			text-transform: capitalize;
-		}
 	}
 }
