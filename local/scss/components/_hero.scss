@@ -24,6 +24,11 @@
 			}
 		}
 	}
+	&.has-slides{
+		.slide{
+			position: relative;
+		}
+	}
 	picture{
 		img{
 			width: 100%;
@@ -69,6 +74,9 @@
 		.title{
 			color: $brand-black;
 		}
+		.btn.btn-secondary{
+			@include secondaryBtn;
+		}
 	}
 	&.white{
 		color: #FFF;
@@ -103,6 +111,11 @@
 		margin: 0 0 .5em;
 		line-height: 1.25;
 		font-family: $font-family-base;
+	}
+	.btn.btn-secondary{
+		@media (max-width: $screen-sm-max) {
+			@include invertedSecondaryBtn;
+		}
 	}
 }
 

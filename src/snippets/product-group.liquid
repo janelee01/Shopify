@@ -1,0 +1,34 @@
+<div class="max-container product-group">
+    <div class="hero">
+		<picture>
+            {% unless block.settings.image == blank %}<source srcset="{{ block.settings.image | img_url: 'master' }}" media="(min-width: {{ screenMd }})" />{% endunless %}
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ block.settings.altText }}" />
+        </picture>
+        <div class="hero-content {{ block.settings.textPosition }} {{ block.settings.textColor }}">
+            {% unless block.settings.title == blank %}
+                <h2 class="title"><span class="subtitle">{{ block.settings.subtitle }} </span>{{ block.settings.title }}</h2>
+            {% endunless %}
+            {% unless block.settings.description == blank %}
+                <p class="description">{{ block.settings.description }}</p>
+            {% endunless %}
+        </div>
+	</div>
+    <div class="products">
+        <a href="{{ block.settings.imageLink1 }}" class="product">
+            <img src="{{ block.settings.image1 | img_url: 'master' }}" alt="">
+            <span class="product-name">{{ block.settings.imageLabel1 }}</span>
+        </a>
+        <a href="{{ block.settings.imageLink2 }}" class="product">
+            <img src="{{ block.settings.image2 | img_url: 'master' }}" alt="">
+            <span class="product-name">{{ block.settings.imageLabel2 }}</span>
+        </a>
+        <a href="{{ block.settings.imageLink3 }}" class="product">
+            <img src="{{ block.settings.image3 | img_url: 'master' }}" alt="">
+            <span class="product-name">{{ block.settings.imageLabel3 }}</span>
+        </a>
+        <a href="{{ block.settings.imageLink4 }}" class="product">
+            <img src="{{ block.settings.image4 | img_url: 'master' }}" alt="">
+            <span class="product-name">{{ block.settings.imageLabel4 }}</span>
+        </a>
+    </div>
+</div>

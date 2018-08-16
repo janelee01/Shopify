@@ -1,15 +1,29 @@
 {% include 'vars' %}
+
+<div class="max-container">
+	<div class="hero has-slides">
+		{% for block in section.blocks %}
+			{% if block.type == 'heroSlide' %}
+	 			{% include 'hero-slide' %}
+			{% endif %}
+		{% endfor %}
+	</div>
+</div>
+
 {% for block in section.blocks %}
 	{% case block.type %}
-
-		{% when 'hero' %}
-		{% include 'builder-hero' %}
 
 		{% when 'sectionHeading' %}
 		{% include 'section-heading' %}
 
-		{% when 'columns' %}
-		{% include 'side-by-side' %}
+		{% when 'productGroup' %}
+		{% include 'product-group' %}
+
+		{% when 'feature' %}
+		{% include 'feature-single' %}
+
+		{% when 'features' %}
+		{% include 'feature-single' %}
 
 	{% endcase %}
 {% endfor %}
@@ -19,13 +33,31 @@
 	"name": "Content Manager",
 	"blocks": [
 		{
-			"type": "columns",
-			"name": "Two Columns",
-			"settings": [
+			"type": "heroSlide",
+			"name": "Hero Slide",
+			"settings":[
 				{
-					"id": "image",
 					"type": "image_picker",
-					"label": "Image"
+					"id": "mobileImage",
+					"label": "Mobile Image",
+					"info": "750px by 1334px, medium quality"
+				},
+				{
+					"type": "image_picker",
+					"id": "tabletImage",
+					"label": "Tablet Image",
+					"info": "1536px by 1926px, medium quality"
+				},
+				{
+					"type": "image_picker",
+					"id": "desktopImage",
+					"label": "Desktop Image",
+					"info": "1680px by 660px, high quality"
+				},
+				{
+					"type": "text",
+					"id": "altText",
+					"label": "Alt Text"
 				},
 				{
 					"type": "text",
@@ -40,173 +72,26 @@
 				{
 					"type": "text",
 					"id": "linkText",
-					"label": "Link A -- Text"
+					"label": "Link -- Text"
 				},
 				{
 					"type": "url",
 					"id": "linkUrl",
-					"label": "Link A -- URL"
+					"label": "Link -- URL"
 				},
 				{
 					"type": "radio",
 					"id": "linkStyle",
-					"label": "Link A -- Style",
+					"label": "Link -- Style",
 					"options": [
 						{ "value": "default", "label": "Default" },
 						{ "value": "outline", "label": "Outline" }
 					]
 				},
 				{
-					"type": "text",
-					"id": "linkTextB",
-					"label": "Link B -- Text"
-				},
-				{
-					"type": "url",
-					"id": "linkUrlB",
-					"label": "Link B -- URL"
-				},
-				{
 					"type": "radio",
-					"id": "linkStyleB",
-					"label": "Link B -- Style",
-					"options": [
-						{ "value": "default", "label": "Default" },
-						{ "value": "outline", "label": "Outline" }
-					]
-				},
-				{
-					"type": "text",
-					"id": "linkTextC",
-					"label": "Link C -- Text"
-				},
-				{
-					"type": "url",
-					"id": "linkUrlC",
-					"label": "Link C -- URL"
-				},
-				{
-					"type": "radio",
-					"id": "linkStyleC",
-					"label": "Link C -- Style",
-					"options": [
-						{ "value": "default", "label": "Default" },
-						{ "value": "outline", "label": "Outline" }
-					]
-				},
-				{
-					"id": "video",
-					"type": "text",
-					"label": "Video",
-					"info": "Image field will be used as video's poster"
-				},
-				{
-					"id": "mobileVideo",
-					"type": "text",
-					"label": "Mobile Video",
-					"info": "Optional"
-				},
-				{
-					"id": "videoRatio",
-					"type": "radio",
-					"label": "Video Ratio",
-					"options": [
-						{ "value": "ratio-1-1", "label": "1:1" },
-						{ "value": "ratio-3-2", "label": "3:2" },
-						{ "value": "ratio-4-3", "label": "4:3" }
-					]
-				},
-				{
-					"type": "checkbox",
-					"id": "autoplay",
-					"default": true,
-					"label": "Autoplay"
-				},
-				{
-					"type": "text",
-					"id": "loops",
-					"label": "Loops",
-					"default": "10"
-				},
-				{
-					"type": "checkbox",
-					"id": "swapOrder",
-					"default": false,
-					"label": "Swap Column Order"
-				},
-				{
-					"type": "checkbox",
-					"id": "disableBottomMargin",
-					"default": false,
-					"label": "Remove Bottom Margin"
-				}
-			]
-		},
-		{
-			"type": "sectionHeading",
-			"name": "Section Heading",
-			"settings": [
-				{
-					"id": "title",
-					"type": "text",
-					"label": "Title"
-				},
-				{
-					"id": "description",
-					"type": "text",
-					"label": "Description"
-				},
-				{
-					"type": "checkbox",
-					"id": "isPageTitle",
-					"default": false,
-					"label": "Use as page title (H1 tag)"
-				}
-			]
-		},
-		{
-			"type": "hero",
-			"name": "Hero",
-			"settings": [
-				{
-					"id": "mobileImage",
-					"type": "image_picker",
-					"label": "Mobile Image"
-				},
-				{
-					"id": "tabletImage",
-					"type": "image_picker",
-					"label": "Tablet Image"
-				},
-				{
-					"id": "desktopImage",
-					"type": "image_picker",
-					"label": "Desktop Image"
-				},
-				{
-					"id": "altText",
-					"type": "text",
-					"label": "Alt Text"
-				},
-				{
-					"type": "text",
-					"id": "title",
-					"label": "Title"
-				},
-				{
-					"type": "text",
-					"id": "subtitle",
-					"label": "Subtitle"
-				},
-				{
-					"type": "text",
-					"id": "description",
-					"label": "Description"
-				},
-				{
-					"type": "radio",
-					"id": "overlayTextPos",
-					"label": "Desktop Text Position",
+					"id": "textPosition",
+					"label": "Text Position",
 					"options": [
 						{ "value": "left", "label": "Left" },
 						{ "value": "center", "label": "Center" },
@@ -218,85 +103,273 @@
 					"id": "textColor",
 					"label": "Text Color",
 					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "black", "label": "Black" },
+						{ "value": "white", "label": "White" }
+					]
+				}
+			]
+		},
+		{
+			"type": "productGroup",
+			"name": "Product Group",
+			"settings":[
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image",
+					"info": "1680px by 600px, high quality"
+				},
+				{
+					"type": "text",
+					"id": "altText",
+					"label": "Alt Text"
+				},
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title"
+				},
+				{
+					"type": "text",
+					"id": "description",
+					"label": "Description"
+				},
+				{
+					"type": "radio",
+					"id": "textPosition",
+					"label": "Text Position",
+					"options": [
+						{ "value": "left", "label": "Left" },
+						{ "value": "center", "label": "Center" },
+						{ "value": "right", "label": "Right" }
+					]
+				},
+				{
+					"type": "radio",
+					"id": "textColor",
+					"label": "Text Color",
+					"options": [
+						{ "value": "default", "label": "Default" },
 						{ "value": "black", "label": "Black" },
 						{ "value": "white", "label": "White" }
 					]
 				},
 				{
+					"type": "image_picker",
+					"id": "image1",
+					"label": "Image 1",
+					"info": "750px by 1000px, medium quality"
+				},
+				{
+					"type": "text",
+					"id": "imageLabel1",
+					"label": "Image 1 -- Label"
+				},
+				{
+					"type": "url",
+					"id": "imageLink1",
+					"label": "Image 1 -- Link"
+				},
+				{
+					"type": "image_picker",
+					"id": "image2",
+					"label": "Image 2"
+				},
+				{
+					"type": "text",
+					"id": "imageLabel2",
+					"label": "Image 2 -- Label"
+				},
+				{
+					"type": "url",
+					"id": "imageLink2",
+					"label": "Image 2 -- Link"
+				},
+				{
+					"type": "image_picker",
+					"id": "image3",
+					"label": "Image 3"
+				},
+				{
+					"type": "text",
+					"id": "imageLabel3",
+					"label": "Image 3 -- Label"
+				},
+				{
+					"type": "url",
+					"id": "imageLink3",
+					"label": "Image 3 -- Link"
+				},
+				{
+					"type": "image_picker",
+					"id": "image4",
+					"label": "Image 4"
+				},
+				{
+					"type": "text",
+					"id": "imageLabel4",
+					"label": "Image 4 -- Label"
+				},
+				{
+					"type": "url",
+					"id": "imageLink4",
+					"label": "Image 4 -- Link"
+				}
+				
+			] 
+		},
+		{
+			"type": "feature",
+			"name": "Full Width Feature",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "mobileImage",
+					"label": "Mobile Image"
+				},
+				{
+					"type": "image_picker",
+					"id": "desktopImage",
+					"label": "Desktop Image"
+				},
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title"
+				},
+				{
 					"type": "text",
 					"id": "linkText",
-					"label": "Link A -- Text"
+					"label": "Link Text"
 				},
 				{
 					"type": "url",
 					"id": "linkUrl",
-					"label": "Link A -- URL"
+					"label": "Link URL"
 				},
 				{
 					"type": "radio",
 					"id": "linkStyle",
-					"label": "Link A -- Style",
+					"label": "Link Style",
 					"options": [
 						{ "value": "default", "label": "Default" },
 						{ "value": "outline", "label": "Outline" }
 					]
+				}
+			]
+		},
+		{
+			"type": "features",
+			"name": "Half Width Features",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "mobileImageA",
+					"label": "Feature A - Mobile Image"
+				},
+				{
+					"type": "image_picker",
+					"id": "desktopImageA",
+					"label": "Feature A - Desktop Image"
+				},
+				{
+					"type": "text",
+					"id": "titleA",
+					"label": "Feature A - Title"
+				},
+				{
+					"type": "text",
+					"id": "linkTextA",
+					"label": "Feature A - Link Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrlA",
+					"label": "Feature A - Link URL"
+				},
+				{
+					"type": "radio",
+					"id": "linkStyleA",
+					"label": "Feature A - Link Style",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "outline", "label": "Outline" }
+					]
+				},
+				{
+					"type": "image_picker",
+					"id": "mobileImageB",
+					"label": "Feature B - Mobile Image"
+				},
+				{
+					"type": "image_picker",
+					"id": "desktopImageB",
+					"label": "Feature B - Desktop Image"
+				},
+				{
+					"type": "text",
+					"id": "titleB",
+					"label": "Feature B - Title"
 				},
 				{
 					"type": "text",
 					"id": "linkTextB",
-					"label": "Link B -- Text"
+					"label": "Feature B - Link Text"
 				},
 				{
 					"type": "url",
 					"id": "linkUrlB",
-					"label": "Link B -- URL"
+					"label": "Feature B - Link URL"
 				},
 				{
 					"type": "radio",
 					"id": "linkStyleB",
-					"label": "Link B -- Style",
+					"label": "Feature B - Link Style",
 					"options": [
 						{ "value": "default", "label": "Default" },
 						{ "value": "outline", "label": "Outline" }
 					]
-				},
-				{
-					"id": "video",
-					"type": "text",
-					"label": "Video",
-					"info": "Desktop image will be used as video's poster"
-				},
-				{
-					"id": "mobileVideo",
-					"type": "text",
-					"label": "Mobile Video",
-					"info": "Optional"
-				},
-				{
-					"id": "videoRatio",
-					"type": "radio",
-					"label": "Video Ratio",
-					"default": "ratio-16-9",
-					"info": "Only applies to mobile version",
-					"options": [
-						{ "value": "ratio-1-1", "label": "1:1" },
-						{ "value": "ratio-3-2", "label": "3:2" },
-						{ "value": "ratio-4-3", "label": "4:3" },
-						{ "value": "ratio-16-9", "label": "16:9" }
-					]
-				},
-				{
-					"type": "checkbox",
-					"id": "autoplay",
-					"default": true,
-					"label": "Autoplay"
-				},
-				{
-					"type": "text",
-					"id": "loops",
-					"label": "Loops",
-					"default": "10"
 				}
+			]
+		},
+		{
+			"type": "sectionHeading",
+			"name": "Section Heading",
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title"
+				},
+				{
+					"type": "text",
+					"id": "description",
+					"label": "Description"
+				}
+			]
+		},
+		{
+			"type": "review",
+			"name": "Review",
+			"settings":[
+				{
+					"type": "image_picker",
+					"id": "logo",
+					"label": "Logo"
+				},
+				{
+					"type": "text",
+					"id": "altText",
+					"label": "Publication Name"
+				},
+				{
+					"type": "textarea",
+					"id": "content",
+					"label": "Review Content",
+					"info": "Don't include the opening and closing quotation marks."
+				}
+				
 			]
 		}
 	]

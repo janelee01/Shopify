@@ -304,6 +304,41 @@ $(document).ready(function() {
 	}
 
 	/*
+	Home page: hero slider
+	*/
+	var $hero = $('.hero.has-slides');
+	var setHeaderUi = function(){
+		var $slideContent = $hero.find('.slick-active .hero-content');
+		var alternateHeader = $('#site-header').hasClass('showing-alternate');
+		if ($slideContent.hasClass('default') || $slideContent.hasClass('black')) {
+			$hero.addClass('ui-black');
+			if (alternateHeader ){
+				$('body').addClass('has-tb-header');
+				$('body').removeClass('has-tw-header');
+			}
+		} else {
+			$hero.removeClass('ui-black');
+			if (alternateHeader) {
+				$('body').addClass('has-tw-header');
+				$('body').removeClass('has-tb-header');
+			}
+		}
+	};
+	$hero
+		.on('init', function (slick) {
+			setHeaderUi();
+		})
+		.on('afterChange', function (slick, currentSlide) {
+			setHeaderUi();
+		});
+
+	$hero.slick({
+		arrows : false,
+		dots : true
+	});
+	
+
+	/*
 	Discover pages: match heights for Press elements
 	 */
 	var getEqualizedHeight = function($elements){

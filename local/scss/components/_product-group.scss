@@ -1,0 +1,28 @@
+.product-group{
+    .hero{
+        margin-bottom: 2px;
+        background-attachment: $gray-lightest;
+    }
+    .products{
+        margin-left: -1px;
+        margin-right: -1px;
+        @include clearfix;
+    }
+    .product{
+        margin: 0 1px;
+        color: $gray;
+        text-align: center;
+        background: $gray-lightest;
+        display: block;
+        width: 375px;
+        float: left;
+        padding-bottom: 60px;
+        &:hover{
+            text-decoration: none;
+            color: $brand-blue;
+        }
+        img, .product-name{
+            display: block;
+        }
+    }
+}
