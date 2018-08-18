@@ -1,0 +1,29 @@
+.press-slider{
+    .row{
+        padding-top: 45px;
+        padding-bottom: 70px;
+        @media (min-width: $screen-md) {
+            padding-top: 110px;
+            padding-bottom: 100px;
+        }
+    }
+    .press-item{
+        text-align: center;
+        padding-left: $mobile-gutter;
+        padding-right: $mobile-gutter;
+        @media (min-width: $screen-md) {
+            padding: 0 13% 0 0;
+            text-align: left;
+        }
+        p{
+            @include fslh(18,28);
+        }
+        p:nth-child(even){
+            margin-bottom: 0;
+        }
+        img{
+            @include mb('sm');
+            display: inline-block;
+        }   
+    }
+}

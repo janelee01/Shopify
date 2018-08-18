@@ -8,7 +8,7 @@
 			{% endif %}
 		{% endfor %}
 	</div>
-</div>
+</div> 
 
 {% for block in section.blocks %}
 	{% case block.type %}
@@ -23,10 +23,23 @@
 		{% include 'feature-single' %}
 
 		{% when 'features' %}
-		{% include 'feature-single' %}
+		{% include 'feature-double' %}
 
 	{% endcase %}
 {% endfor %}
+
+<div class="container">
+	<div class="press-slider mb-default fw-xs">
+		<div class="row ui-black">
+		{% for block in section.blocks %}
+			{% if block.type == 'review' %}
+	 			{% include 'press-item-slide' %}
+			{% endif %}
+		{% endfor %}
+		</div>
+	</div>
+</div>
+
 
 {% schema %}
 {
@@ -215,8 +228,67 @@
 					"type": "url",
 					"id": "imageLink4",
 					"label": "Image 4 -- Link"
+				},
+				{
+					"type": "image_picker",
+					"id": "image5",
+					"label": "Image 5"
+				},
+				{
+					"type": "text",
+					"id": "imageLabel5",
+					"label": "Image 5 -- Label"
+				},
+				{
+					"type": "url",
+					"id": "imageLink5",
+					"label": "Image 5 -- Link"
+				},
+				{
+					"type": "image_picker",
+					"id": "image6",
+					"label": "Image 6"
+				},
+				{
+					"type": "text",
+					"id": "imageLabel6",
+					"label": "Image 6 -- Label"
+				},
+				{
+					"type": "url",
+					"id": "imageLink6",
+					"label": "Image 6 -- Link"
+				},
+				{
+					"type": "image_picker",
+					"id": "image7",
+					"label": "Image 7"
+				},
+				{
+					"type": "text",
+					"id": "imageLabel7",
+					"label": "Image 7 -- Label"
+				},
+				{
+					"type": "url",
+					"id": "imageLink7",
+					"label": "Image 7 -- Link"
+				},
+				{
+					"type": "image_picker",
+					"id": "image8",
+					"label": "Image 8"
+				},
+				{
+					"type": "text",
+					"id": "imageLabel8",
+					"label": "Image 8 -- Label"
+				},
+				{
+					"type": "url",
+					"id": "imageLink8",
+					"label": "Image 8 -- Link"
 				}
-				
 			] 
 		},
 		{
@@ -232,6 +304,11 @@
 					"type": "image_picker",
 					"id": "desktopImage",
 					"label": "Desktop Image"
+				},
+				{
+					"type": "text",
+					"id": "altText",
+					"label": "Alt Text"
 				},
 				{
 					"type": "text",
@@ -256,6 +333,16 @@
 						{ "value": "default", "label": "Default" },
 						{ "value": "outline", "label": "Outline" }
 					]
+				},
+				{
+					"type": "radio",
+					"id": "textColor",
+					"label": "Text Color",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "black", "label": "Black" },
+						{ "value": "white", "label": "White" }
+					]
 				}
 			]
 		},
@@ -272,6 +359,11 @@
 					"type": "image_picker",
 					"id": "desktopImageA",
 					"label": "Feature A - Desktop Image"
+				},
+				{
+					"type": "text",
+					"id": "altTextA",
+					"label": "Feature A - Alt Text"
 				},
 				{
 					"type": "text",
@@ -298,6 +390,16 @@
 					]
 				},
 				{
+					"type": "radio",
+					"id": "textColorA",
+					"label": "Feature A - Text Color",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "black", "label": "Black" },
+						{ "value": "white", "label": "White" }
+					]
+				},
+				{
 					"type": "image_picker",
 					"id": "mobileImageB",
 					"label": "Feature B - Mobile Image"
@@ -306,6 +408,11 @@
 					"type": "image_picker",
 					"id": "desktopImageB",
 					"label": "Feature B - Desktop Image"
+				},
+				{
+					"type": "text",
+					"id": "altTextB",
+					"label": "Feature B - Alt Text"
 				},
 				{
 					"type": "text",
@@ -329,6 +436,16 @@
 					"options": [
 						{ "value": "default", "label": "Default" },
 						{ "value": "outline", "label": "Outline" }
+					]
+				},
+				{
+					"type": "radio",
+					"id": "textColorB",
+					"label": "Feature B - Text Color",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "black", "label": "Black" },
+						{ "value": "white", "label": "White" }
 					]
 				}
 			]

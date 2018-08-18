@@ -1,4 +1,4 @@
-<div class="max-container product-group">
+<div class="max-container product-group mb-large">
     <div class="hero">
 		<picture>
             {% unless block.settings.image == blank %}<source srcset="{{ block.settings.image | img_url: 'master' }}" media="(min-width: {{ screenMd }})" />{% endunless %}
@@ -14,21 +14,112 @@
         </div>
 	</div>
     <div class="products">
-        <a href="{{ block.settings.imageLink1 }}" class="product">
-            <img src="{{ block.settings.image1 | img_url: 'master' }}" alt="">
-            <span class="product-name">{{ block.settings.imageLabel1 }}</span>
-        </a>
-        <a href="{{ block.settings.imageLink2 }}" class="product">
-            <img src="{{ block.settings.image2 | img_url: 'master' }}" alt="">
-            <span class="product-name">{{ block.settings.imageLabel2 }}</span>
-        </a>
-        <a href="{{ block.settings.imageLink3 }}" class="product">
-            <img src="{{ block.settings.image3 | img_url: 'master' }}" alt="">
-            <span class="product-name">{{ block.settings.imageLabel3 }}</span>
-        </a>
-        <a href="{{ block.settings.imageLink4 }}" class="product">
-            <img src="{{ block.settings.image4 | img_url: 'master' }}" alt="">
-            <span class="product-name">{{ block.settings.imageLabel4 }}</span>
-        </a>
+        <div class="overflow-window">
+            <div class="overflow-row">
+                <div class="overflow-content">
+                    {% unless block.settings.image1 == blank %}
+                        <a href="{{ block.settings.imageLink1 }}" class="product">
+                            <img src="{{ block.settings.image1 | img_url: 'master' }}" alt="">
+                            <span class="product-name">{{ block.settings.imageLabel1 }}</span>
+                        </a>
+                    {% endunless %}
+                    {% unless block.settings.image2 == blank %}
+                        <a href="{{ block.settings.imageLink2 }}" class="product">
+                            <img src="{{ block.settings.image2 | img_url: 'master' }}" alt="">
+                            <span class="product-name">{{ block.settings.imageLabel2 }}</span>
+                        </a>
+                    {% endunless %}
+                    {% unless block.settings.image3 == blank %}
+                        <a href="{{ block.settings.imageLink3 }}" class="product">
+                            <img src="{{ block.settings.image3 | img_url: 'master' }}" alt="">
+                            <span class="product-name">{{ block.settings.imageLabel3 }}</span>
+                        </a>
+                    {% endunless %}
+                    {% unless block.settings.image4 == blank %}
+                        <a href="{{ block.settings.imageLink4 }}" class="product">
+                            <img src="{{ block.settings.image4 | img_url: 'master' }}" alt="">
+                            <span class="product-name">{{ block.settings.imageLabel4 }}</span>
+                        </a>
+                    {% endunless %}
+                    {% unless block.settings.image5 == blank %}
+                        <a href="{{ block.settings.imageLink5 }}" class="product">
+                            <img src="{{ block.settings.image5 | img_url: 'master' }}" alt="">
+                            <span class="product-name">{{ block.settings.imageLabel5 }}</span>
+                        </a>
+                    {% endunless %}
+                    {% unless block.settings.image6 == blank %}
+                        <a href="{{ block.settings.imageLink6 }}" class="product">
+                            <img src="{{ block.settings.image6 | img_url: 'master' }}" alt="">
+                            <span class="product-name">{{ block.settings.imageLabel6 }}</span>
+                        </a>
+                    {% endunless %}
+                    {% unless block.settings.image7 == blank %}
+                        <a href="{{ block.settings.imageLink7 }}" class="product">
+                            <img src="{{ block.settings.image7 | img_url: 'master' }}" alt="">
+                            <span class="product-name">{{ block.settings.imageLabel7 }}</span>
+                        </a>
+                    {% endunless %}
+                    {% unless block.settings.image8 == blank %}
+                        <a href="{{ block.settings.imageLink8 }}" class="product">
+                            <img src="{{ block.settings.image8 | img_url: 'master' }}" alt="">
+                            <span class="product-name">{{ block.settings.imageLabel8 }}</span>
+                        </a>
+                    {% endunless %}
+                </div>
+            </div>
+        </div>
+        <div class="overflow-bar">
+            <div class="overflow-handle"></div>
+        </div>
+    </div>
+    <div class="products-slider ui-black">
+        {% unless block.settings.image1 == blank %}
+            <a href="{{ block.settings.imageLink1 }}" class="product">
+                <img src="{{ block.settings.image1 | img_url: 'master' }}" alt="">
+                <span class="product-name">{{ block.settings.imageLabel1 }}</span>
+            </a>
+        {% endunless %}
+        {% unless block.settings.image2 == blank %}
+            <a href="{{ block.settings.imageLink2 }}" class="product">
+                <img src="{{ block.settings.image2 | img_url: 'master' }}" alt="">
+                <span class="product-name">{{ block.settings.imageLabel2 }}</span>
+            </a>
+        {% endunless %}
+        {% unless block.settings.image3 == blank %}
+            <a href="{{ block.settings.imageLink3 }}" class="product">
+                <img src="{{ block.settings.image3 | img_url: 'master' }}" alt="">
+                <span class="product-name">{{ block.settings.imageLabel3 }}</span>
+            </a>
+        {% endunless %}
+        {% unless block.settings.image4 == blank %}
+            <a href="{{ block.settings.imageLink4 }}" class="product">
+                <img src="{{ block.settings.image4 | img_url: 'master' }}" alt="">
+                <span class="product-name">{{ block.settings.imageLabel4 }}</span>
+            </a>
+        {% endunless %}
+        {% unless block.settings.image5 == blank %}
+            <a href="{{ block.settings.imageLink5 }}" class="product">
+                <img src="{{ block.settings.image5 | img_url: 'master' }}" alt="">
+                <span class="product-name">{{ block.settings.imageLabel5 }}</span>
+            </a>
+        {% endunless %}
+        {% unless block.settings.image6 == blank %}
+            <a href="{{ block.settings.imageLink6 }}" class="product">
+                <img src="{{ block.settings.image6 | img_url: 'master' }}" alt="">
+                <span class="product-name">{{ block.settings.imageLabel6 }}</span>
+            </a>
+        {% endunless %}
+        {% unless block.settings.image7 == blank %}
+            <a href="{{ block.settings.imageLink7 }}" class="product">
+                <img src="{{ block.settings.image7 | img_url: 'master' }}" alt="">
+                <span class="product-name">{{ block.settings.imageLabel7 }}</span>
+            </a>
+        {% endunless %}
+        {% unless block.settings.image8 == blank %}
+            <a href="{{ block.settings.imageLink8 }}" class="product">
+                <img src="{{ block.settings.image8 | img_url: 'master' }}" alt="">
+                <span class="product-name">{{ block.settings.imageLabel8 }}</span>
+            </a>
+        {% endunless %}
     </div>
 </div>

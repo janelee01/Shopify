@@ -357,7 +357,25 @@ $(document).ready(function() {
 		arrows : false,
 		dots : true
 	});
-	
+
+	/*
+	 Home page reviews
+	*/
+	$('.press-slider .row').slick({
+		arrows : false,
+		dots: true,
+		slidesToShow: 2,
+		slidesToScroll: 2,
+		responsive: [
+	    {
+	      breakpoint: 769,
+	      settings: {
+	        slidesToShow: 1,
+	        slidesToScroll: 1
+	      }
+	    }
+	  ]
+	});
 
 	/*
 	Discover pages: match heights for Press elements
@@ -425,13 +443,72 @@ $(document).ready(function() {
 	    }
 	  ]
 	});
+
+	/*
+		Home page reviews
+	*/
+	$('.products-slider').slick({
+		arrows: false,
+		dots: true,
+		slidesToShow: 1,
+		slidesToScroll: 1
+	});
 	
 
 	/*
-	Side scrolling indicators
+	Side scrolling areas
 	 */
-	if( $('.overflow-row').length ){
-		$(window).load(function(){ // make sure we have the image
+	if ($('.overflow-row').length) {
+
+		// map the element scrolling to handle drags
+		$(".product-group .overflow-handle").draggable({
+			containment: "parent",
+			drag: function (event, ui) {
+				var $bar = ui.helper.closest('.overflow-bar');
+				var $content = ui.helper.closest('.products').find('.overflow-row');
+				var percentScrolled = ui.position.left / $bar.outerWidth();
+				// the amount of content scrolling maps to the amount the handle moves since they're sized proportionately below
+				$content.scrollLeft(percentScrolled * $content.find('.overflow-content').width());
+			}
+		});
+
+		// map the handle position to element scrolling
+		$(".product-group .overflow-row").scroll(function(){
+			var percentScrolled = $(this).scrollLeft() / $(this).find('.overflow-content').width();
+			var $handle = $(this).closest('.products').find('.overflow-handle');
+			// same as above, we scroll proportionately
+			$handle.css('left', percentScrolled * 100 + '%');
+		});
+
+		var setHandleWidth = function(){
+			$('.product-group').each(function () {
+				var $products = $(this).find('.products .product');
+				var $handle = $(this).find('.overflow-handle');
+				var $bar = $(this).find('.overflow-bar');
+				var trackWidth = $products.first().outerWidth() * $products.length;
+				var handleWidth = $(this).outerWidth() / trackWidth * 100;
+				if (handleWidth > 100) {
+					$bar.hide();
+				} else {
+					$handle.width(handleWidth + '%');
+					$bar.show();
+				}
+			});
+		}
+	
+		$(window).load(function(){ // make sure we have images
+			
+			// set the content width to trigger side scrolling, and define our handle
+			$('.product-group').each(function(){
+				var $products = $(this).find('.products .product');
+				var $track = $(this).find('.overflow-content');
+				var trackWidth = $products.first().outerWidth() * $products.length;
+				$track.width(trackWidth);
+			});
+
+			// size the handle based on how much scrolling will be necessary like normal scrollbars
+			setHandleWidth();
+			
 			$('.overflow-row').each(function(){
 				var $scrollEl = $(this);
 				var $indicators = $( $scrollEl.data('indicators') ).children();
@@ -501,33 +578,10 @@ $(document).ready(function() {
 		    	}
 		    });
 		});
+		$(window).resize(function(){
+			setHandleWidth();
+		});
 	}
-	
-
-	/* Newsletter Prompt - disabled */
-	// $('#newsletter-prompt .panel-close, #newsletter-prompt .btn').on('click', function(){
-	// 	$('#newsletter-prompt').addClass('closed');
-	// 	$.cookie('lo-nl-prompt-dismissed', '1', { path: '/' });
-	// });
-
-	// var displayNewsletterPrompt = function() {
-
-	// 	// Not on the /sale page
-	// 	if (window.location.pathname.match(/^\/sale/)) {
-	// 		return;
-	// 	}
-
-	// 	// Not on the cart or checkout pages
-	// 	if (window.location.pathname.match(/^\/checkout/)) {
-	// 		return;
-	// 	}
-
-	// 	if ( ! $.cookie('lo-nl-prompt-dismissed') ) {
-	// 		$('#newsletter-prompt').removeClass('closed');
-	// 	}
-
-	// };
-	// var newletterTimeout = setTimeout(displayNewsletterPrompt, 30000);
 
 	$("#newsletter-signup").on('submit', function(e) {
         e.preventDefault();
@@ -547,7 +601,7 @@ $(document).ready(function() {
                 "cache-control": "no-cache"
             },
             "data": {
-				"g": "KUBRaR", // KUBRaR main list, KDKe8m shopify test list
+				"g": "KDKe8m", // KUBRaR main list, KDKe8m shopify test list
                 "$fields": "Sign Up Source",
                 "email": email,
                 "Sign Up Source": "footer"
