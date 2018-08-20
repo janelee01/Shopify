@@ -328,29 +328,44 @@ $(document).ready(function() {
 	Home page: hero slider
 	*/
 	var $hero = $('.hero.has-slides');
-	var setHeaderUi = function(){
-		var $slideContent = $hero.find('.slick-active .hero-content');
-		var alternateHeader = $('#site-header').hasClass('showing-alternate');
-		if ($slideContent.hasClass('default') || $slideContent.hasClass('black')) {
-			$hero.addClass('ui-black');
-			if (alternateHeader ){
-				$('body').addClass('has-tb-header');
-				$('body').removeClass('has-tw-header');
-			}
-		} else {
+	var setHeaderUiColor = function(color){
+		var isAlternateHeader = $('#site-header').hasClass('showing-alternate');
+		if( color == 'white' ){
 			$hero.removeClass('ui-black');
-			if (alternateHeader) {
+			if (isAlternateHeader) {
 				$('body').addClass('has-tw-header');
 				$('body').removeClass('has-tb-header');
 			}
+		}else{
+			$hero.addClass('ui-black');
+			if (isAlternateHeader) {
+				$('body').addClass('has-tb-header');
+				$('body').removeClass('has-tw-header');
+			}
+		}
+	};
+	var updateHeaderUi = function(){
+		var $slideContent = $hero.find('.slick-active .hero-content');
+		
+		if ($slideContent.hasClass('default') ){
+			// use white UI on mobile when an explicit color isn't chosen
+			if ($(window).width() < LS.desktopBreakpoint) {
+				setHeaderUiColor('white');
+			}else{
+				setHeaderUiColor('black');
+			}
+		} else if ($slideContent.hasClass('black')) {
+			setHeaderUiColor('black');
+		} else {
+			setHeaderUiColor('white');
 		}
 	};
 	$hero
 		.on('init', function (slick) {
-			setHeaderUi();
+			updateHeaderUi();
 		})
 		.on('afterChange', function (slick, currentSlide) {
-			setHeaderUi();
+			updateHeaderUi();
 		});
 
 	$hero.slick({
