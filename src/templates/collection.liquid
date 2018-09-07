@@ -99,7 +99,7 @@
     JS pulls this text into a master list of all skus after the AJAX is done getting subsequent pages
     The final list is pushed to GTM for a ViewContent facebook event
   {% endcomment %}
-  <div id="collection-skus" style="display: none">
+  <div id="content-ids" style="display: none"> 
     {%- for product in collection.products -%}{{ product.variants.first.sku }},{%- endfor -%}
   </div>
 {% endpaginate %}

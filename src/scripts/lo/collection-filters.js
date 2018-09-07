@@ -40,6 +40,9 @@ $(document).ready(function(){
 			}
 		};
 
+		// setup content IDs for GTM
+		var contentIds = $('#content-ids').text();
+
 		// go get other pages so we can filter everything at once
 
 		if( $('.ajax-pagination').length ){
@@ -51,6 +54,7 @@ $(document).ready(function(){
 						// insert the product families from the requested page
 						var $productFamilies = $(data).find('#MainContent .product-family');
 						$productFamilies.insertBefore('#filter-alert');
+						contentIds += $(data).find('#content-ids').text();
 					},
 					complete : function(){
 						/*
@@ -92,6 +96,11 @@ $(document).ready(function(){
 				});
 			});
 		}
+		var dataLayer = window.dataLayer || [];
+		dataLayer.push({
+		  'event' : 'View Collection',
+		  'contentIds' : contentIds.replace(/,\s*$/, "") 
+		});
 
 		// setup filter options
 		setFilterOptions();
