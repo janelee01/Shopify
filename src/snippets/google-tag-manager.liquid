@@ -29,10 +29,33 @@
 	{%- assign pinterestPage = 'Success Page' -%}
 	{%- assign pinterestCategory = 'Checkout Flow' -%}
 {%- endif -%}
+
+{%- if template contains "discover" -%}
+	{%- assign contentType = 'Discover' -%}
+{%- elsif template contains "compare" -%}
+	{%- assign contentType = 'Compare' -%}
+{%- elsif template contains "category" -%}
+	{%- assign contentType = 'Category' -%}
+{%- elsif template contains "product" -%}
+	{%- assign contentType = 'Product' -%}
+{%- elsif template contains "collection" -%}
+	{%- assign contentType = 'Collection' -%}
+{%- elsif template contains "cart" -%}
+	{%- assign contentType = 'Cart' -%}
+{%- elsif template contains "article" -%}
+	{%- assign contentType = 'Story' -%}
+{%- elsif template contains "index" -%}
+	{%- assign contentType = 'Home' -%}
+{%- else -%}
+	{%- assign contentType = 'Other' -%}
+{%- endif -%}
+
+
 <!-- Google Tag Manager -->
 <script>
 	var dataLayer = window.dataLayer || [];
 	dataLayer.push({
+		'contentGroup' : '{{ contentType }}',
 		'storeCurrency' : '{{ shop.currency }}',
 		'cartTotal' : '{{ cart.total_price | money_without_currency }}',
 		'cartItemCount' : '{{ cart.item_count }}', {% comment %} added as string as it will be empty during checkout {% endcomment %} 
