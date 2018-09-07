@@ -57,6 +57,8 @@
       },
       moneyFormat: {{ shop.money_format | json }}
     };
+
+    var kListId = '{{ shop.metafields["global"]["klaviyo-list-id"] }}';
   </script>
 
   {% include 'autocomplete-data' %}
