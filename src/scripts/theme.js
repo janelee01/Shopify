@@ -512,7 +512,7 @@ $(document).ready(function() {
                 "cache-control": "no-cache"
             },
             "data": {
-				"g": "KUBRaR", // KUBRaR main list, KDKe8m shopify test list
+				"g": "KUBRaR", // KUBRaR main list, KDKe8m shopify test list  
                 "$fields": "Sign Up Source",
                 "email": email,
                 "Sign Up Source": "footer"
