@@ -42,9 +42,18 @@ $(document).ready(function(){
 
 		// setup content IDs for GTM
 		var contentIds = $('#content-ids').text();
+		var allContentCategories = [];
 
-		// go get other pages so we can filter everything at once
+		var reportCollection = function(ids, categories){
+			var dataLayer = window.dataLayer || [];
+			dataLayer.push({
+			  'event' : 'View Collection',
+			  'contentIds' : ids,
+			  'contentCategories' : categories.join(',')
+			});
+		}
 
+		// go get other pages so we can filter everything at once 
 		if( $('.ajax-pagination').length ){
 			$('.ajax-pagination a').each(function(){
 				$.ajax({
@@ -65,6 +74,7 @@ $(document).ready(function(){
 						var allFamilyNames = [];
 						$('.product-family').each(function(){
 							allFamilyNames.push($(this).data('family-name'));
+							allContentCategories.push($(this).data('content-category'));
 						});
 
 						// find duplicates, this indicates a split
@@ -95,12 +105,24 @@ $(document).ready(function(){
 					}
 				});
 			});
+			// report the final list to GTM
+			var contentCategories = [];
+			allContentCategories.forEach(function(element, index) {
+				if (contentCategories.indexOf(element) === -1) {
+					contentCategories.push(element);
+				}
+			});
+			contentIds = contentIds.replace(/,\s*$/, ""); // remove the last comma
+			reportCollection(contentIds,contentCategories);
+		}else{
+			// no pagination, so send the list right away
+			$('.product-family').each(function(){
+				allContentCategories.push($(this).data('content-category'));
+			});
+			contentIds = contentIds.replace(/,\s*$/, ""); // remove the last comma
+			reportCollection(contentIds,allContentCategories);
 		}
-		var dataLayer = window.dataLayer || [];
-		dataLayer.push({
-		  'event' : 'View Collection',
-		  'contentIds' : contentIds.replace(/,\s*$/, "") 
-		});
+	
 
 		// setup filter options
 		setFilterOptions();

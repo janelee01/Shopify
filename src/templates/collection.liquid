@@ -57,7 +57,7 @@
 
   <div class="container">
     {%- for parentProductName in parentProducts -%}
-    <div class="product-family" data-family-name="{{ parentProductName | handleize }}">
+    <div class="product-family" data-family-name="{{ parentProductName | handleize }}" data-content-category="{{ parentProductName }}">
       <div class="section-heading">
         <h2 class="title">{{ parentProductName | remove: "The " }}</h2>
       </div>
