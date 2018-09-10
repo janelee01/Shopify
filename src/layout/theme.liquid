@@ -140,6 +140,32 @@
 
  {% include 'sweettooth-initializer' %}
  {% include 'sweettooth-tab-widget' %}
+
+  {% comment %}For any page, admin can define products shown on the page to report back to GTM for remarking pixels {% endcomment %}
+  {%- unless page.metafields["global"]["gtm-products"] == blank -%}
+    {%- assign productslist = page.metafields["global"]["gtm-products"] | split: ',' -%}
+    {%- capture contentCategories -%}
+      {%- for item in productslist -%}
+        {%- assign itemParts = item | split: ':' -%}
+        {{ itemParts[0] }}{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+    {%- capture contentIds -%}
+      {%- for item in productslist -%}
+        {%- assign itemParts = item | split: ':' -%}
+        {{ itemParts[1] }}{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+    <!-- GTM Content Reporting -->
+    <script>
+      var dataLayer = window.dataLayer || [];
+      dataLayer.push({
+        'event' : 'View Content',
+        'contentIds' : '{{ contentIds | strip }}',
+        'contentCategories' : '{{ contentCategories | strip }}'
+      });
+    </script>
+  {% endunless -%}
  
 </body>
 </html>
