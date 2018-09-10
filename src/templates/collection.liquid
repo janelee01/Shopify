@@ -57,7 +57,7 @@
 
   <div class="container">
     {%- for parentProductName in parentProducts -%}
-    <div class="product-family" data-family-name="{{ parentProductName | handleize }}">
+    <div class="product-family" data-family-name="{{ parentProductName | handleize }}" data-content-category="{{ parentProductName }}">
       <div class="section-heading">
         <h2 class="title">{{ parentProductName | remove: "The " }}</h2>
       </div>
@@ -96,16 +96,10 @@
     {% endif %}
   </div>
   {% comment %}
-    collectionSkus is used by GTM. doing this here instead of the GTM snippet so pagination values are used
+    JS pulls this text into a master list of all skus after the AJAX is done getting subsequent pages
+    The final list is pushed to GTM for a ViewContent facebook event
   {% endcomment %}
-  {%- capture collectionSkus -%}
-    [
-    {%- for product in collection.products -%}
-      "{{ product.first_available_variant.sku }}"{% unless forloop.last %},{% endunless %}
-    {%- endfor -%}
-    ]
-  {%- endcapture -%}
-  <script>
-    var collectionSkus = {{ collectionSkus }};
-  </script>
+  <div id="content-ids" style="display: none"> 
+    {%- for product in collection.products -%}{{ product.variants.first.sku }},{%- endfor -%}
+  </div>
 {% endpaginate %}

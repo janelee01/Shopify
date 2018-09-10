@@ -1,31 +1,31 @@
-{%- case template -%}
-	{%- when "collection" -%}
-		{%- assign pinterestPage = collection.title -%}
-		{%- assign pinterestCategory = 'Category Page' -%}
-	{%- when "product" -%}
-		{%- assign pinterestPage = product.title -%}
-		{%- assign pinterestCategory = 'Product Page' -%}
-	{%- when "customers/order" -%}
-		{%- assign pinterestPage = 'customer.order.breadcrumb_title' | t -%}
-		{%- assign pinterestCategory = 'Account Pages' -%}
-	{%- when "customers/account" -%}
-		{%- assign pinterestPage = 'customer.account.title' | t -%}
-		{%- assign pinterestCategory = 'Account Pages' -%}
-	{%- when "customers/addresses" -%}
-		{%- assign pinterestPage = 'customer.addresses.title' | t -%}
-		{%- assign pinterestCategory = 'Account Pages' -%}
-	{%- else -%}
-		{%- assign pinterestPage = '' -%}
-		{%- assign pinterestCategory = '' -%}
-{%- endcase -%}
+{%- if template contains "discover" -%}
+	{%- assign contentGroup = 'Discover' -%}
+{%- elsif template contains "compare" -%}
+	{%- assign contentGroup = 'Compare' -%}
+{%- elsif template contains "category" -%}
+	{%- assign contentGroup = 'Category' -%}
+{%- elsif template contains "product" -%}
+	{%- assign contentGroup = 'Product' -%}
+{%- elsif template contains "collection" -%}
+	{%- assign contentGroup = 'Collection' -%}
+{%- elsif template contains "cart" -%}
+	{%- assign contentGroup = 'Cart' -%}
+{%- elsif template contains "article" -%}
+	{%- assign contentGroup = 'Story' -%}
+{%- elsif template contains "index" -%}
+	{%- assign contentGroup = 'Home' -%}
+{%- else -%}
+	{%- assign contentGroup = 'Other' -%}
+{%- endif -%}
+
 {% comment %} checkout doesn't have a template, so check for items {% endcomment %}
 {%- if checkout.line_items != blank -%}
-	{%- assign pinterestPage = 'Checkout Page' -%}
-	{%- assign pinterestCategory = 'Checkout Flow' -%}
+	{%- assign contentGroup = 'Checkout Flow' -%}
 {%- elsif checkout.order_id != blank -%}
-	{%- assign pinterestPage = 'Success Page' -%}
-	{%- assign pinterestCategory = 'Checkout Flow' -%}
+	{%- assign contentGroup = 'Checkout Success' -%}
 {%- endif -%}
+
+
 <!-- Google Tag Manager -->
 <script>
 	var dataLayer = window.dataLayer || [];
@@ -91,9 +91,8 @@
 		'emailEncoded' : '{{ customer.email | sha256 }}',
 		'uid' : '{{ customer.id }}',
 		{%- endunless -%}
-		'template' : '{{ template }}',
-		'pinterestCategory' : '{{ pinterestCategory }}',
-		'pinterestPage' : '{{ pinterestPage }}'
+		'contentGroup' : '{{ contentGroup }}',
+		'template' : '{{ template }}' 
 	})
 </script>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

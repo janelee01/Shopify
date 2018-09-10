@@ -262,7 +262,7 @@
 		margin-bottom: 50px;
 	}
 	@media (min-width: $screen-lg) {
-		margin-bottom: 60px;
+		margin-bottom: 60px; 
 	}
 }
 
@@ -281,26 +281,8 @@
 	}
 }
 
-#catalina-rose-getaway{
-	@media (min-width: $screen-md) {
-		padding: 0;
-		margin-bottom: $mb-large-md;
-		.description{
-			margin: 0;
-		}
-	}
-}
-#catalina-rose-yucca{
-	margin-top: $mobile-gutter;
-	margin-bottom: $mobile-gutter;
-	@media (min-width: $screen-sm) {
-		margin-top: 70px;
-		margin-bottom: 70px;
-	}
-	@media (min-width: $screen-md) {
-		margin-top: 0;
-		margin-bottom: $grid-gutter-width;
-	}
+.catalina-rose-mb{
+	margin-bottom: $grid-gutter-width;
 }
 
 #rhodes-hero{

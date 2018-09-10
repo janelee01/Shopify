@@ -616,7 +616,7 @@ $(document).ready(function() {
                 "cache-control": "no-cache"
             },
             "data": {
-				"g": "KDKe8m", // KUBRaR main list, KDKe8m shopify test list
+				"g": kListId, // set in theme.liquid
                 "$fields": "Sign Up Source",
                 "email": email,
                 "Sign Up Source": "footer"
