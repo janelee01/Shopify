@@ -1,53 +1,28 @@
-{%- case template -%}
-	{%- when "collection" -%}
-		{%- assign pinterestPage = collection.title -%}
-		{%- assign pinterestCategory = 'Category Page' -%}
-	{%- when "product" -%}
-		{%- assign pinterestPage = product.title -%}
-		{%- assign pinterestCategory = 'Product Page' -%}
-	{%- when "customers/order" -%}
-		{%- assign pinterestPage = 'customer.order.breadcrumb_title' | t -%}
-		{%- assign pinterestCategory = 'Account Pages' -%}
-	{%- when "customers/account" -%}
-		{%- assign pinterestPage = 'customer.account.title' | t -%}
-		{%- assign pinterestCategory = 'Account Pages' -%}
-	{%- when "customers/addresses" -%}
-		{%- assign pinterestPage = 'customer.addresses.title' | t -%}
-		{%- assign pinterestCategory = 'Account Pages' -%}
-	{%- when "customers/page.category-backpacks" -%}
-		{%- assign pinterestPage = 'customer.addresses.title' | t -%}
-		{%- assign pinterestCategory = 'Category Page' -%}
-	{%- else -%}
-		{%- assign pinterestPage = '' -%}
-		{%- assign pinterestCategory = '' -%}
-{%- endcase -%}
-{% comment %} checkout doesn't have a template, so check for items {% endcomment %}
-{%- if checkout.line_items != blank -%}
-	{%- assign pinterestPage = 'Checkout Page' -%}
-	{%- assign pinterestCategory = 'Checkout Flow' -%}
-{%- elsif checkout.order_id != blank -%}
-	{%- assign pinterestPage = 'Success Page' -%}
-	{%- assign pinterestCategory = 'Checkout Flow' -%}
+{%- if template contains "discover" -%}
+	{%- assign contentGroup = 'Discover' -%}
+{%- elsif template contains "compare" -%}
+	{%- assign contentGroup = 'Compare' -%}
+{%- elsif template contains "category" -%}
+	{%- assign contentGroup = 'Category' -%}
+{%- elsif template contains "product" -%}
+	{%- assign contentGroup = 'Product' -%}
+{%- elsif template contains "collection" -%}
+	{%- assign contentGroup = 'Collection' -%}
+{%- elsif template contains "cart" -%}
+	{%- assign contentGroup = 'Cart' -%}
+{%- elsif template contains "article" -%}
+	{%- assign contentGroup = 'Story' -%}
+{%- elsif template contains "index" -%}
+	{%- assign contentGroup = 'Home' -%}
+{%- else -%}
+	{%- assign contentGroup = 'Other' -%}
 {%- endif -%}
 
-{%- if template contains "discover" -%}
-	{%- assign contentType = 'Discover' -%}
-{%- elsif template contains "compare" -%}
-	{%- assign contentType = 'Compare' -%}
-{%- elsif template contains "category" -%}
-	{%- assign contentType = 'Category' -%}
-{%- elsif template contains "product" -%}
-	{%- assign contentType = 'Product' -%}
-{%- elsif template contains "collection" -%}
-	{%- assign contentType = 'Collection' -%}
-{%- elsif template contains "cart" -%}
-	{%- assign contentType = 'Cart' -%}
-{%- elsif template contains "article" -%}
-	{%- assign contentType = 'Story' -%}
-{%- elsif template contains "index" -%}
-	{%- assign contentType = 'Home' -%}
-{%- else -%}
-	{%- assign contentType = 'Other' -%}
+{% comment %} checkout doesn't have a template, so check for items {% endcomment %}
+{%- if checkout.line_items != blank -%}
+	{%- assign contentGroup = 'Checkout Flow' -%}
+{%- elsif checkout.order_id != blank -%}
+	{%- assign contentGroup = 'Checkout Success' -%}
 {%- endif -%}
 
 
@@ -55,7 +30,6 @@
 <script>
 	var dataLayer = window.dataLayer || [];
 	dataLayer.push({
-		'contentGroup' : '{{ contentType }}',
 		'storeCurrency' : '{{ shop.currency }}',
 		'cartTotal' : '{{ cart.total_price | money_without_currency }}',
 		'cartItemCount' : '{{ cart.item_count }}', {% comment %} added as string as it will be empty during checkout {% endcomment %} 
@@ -117,9 +91,8 @@
 		'emailEncoded' : '{{ customer.email | sha256 }}',
 		'uid' : '{{ customer.id }}',
 		{%- endunless -%}
-		'template' : '{{ template }}',
-		'pinterestCategory' : '{{ pinterestCategory }}',
-		'pinterestPage' : '{{ pinterestPage }}'
+		'contentGroup' : '{{ contentGroup }}',
+		'template' : '{{ template }}'
 	})
 </script>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
