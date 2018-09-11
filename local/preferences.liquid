@@ -59,7 +59,7 @@
         <!-- <input type="hidden" name="$unsubscribed_url" value="/p/preferences_updated" /> -->
         <!-- <input type="hidden" name="$updated_profile_url" value="/p/preferences_updated" /> -->
 
-        <div class="form-group floating-label has-value">
+        <div class="form-group floating-label {% if request.POST|lookup:'$email' or person|lookup:'email' %}has-value{% endif %}">
           <label for="email">Email Address<span class="required">*</span></label>
           <input type="email"
             class="form-control required"
@@ -92,13 +92,13 @@
             value="{% if request.POST|lookup:'$email' %}{{ request.POST|lookup:'$last_name' }}{% else %}{{ person.last_name|default:'' }}{% endif %}">
           <div class="validation-error">This field is required.</div>
         </div>
-        
-        <input type="hidden" id="birthday" name="Birthday" value="{% if request.POST|lookup:'$email' %}{{ request.POST|lookup:'Birthday' }}{% else %}{{ person.Birthday|default:'01/01/1950' }}{% endif %}" />
+
         <div class="row">
           <div class="col-sm-5">
-            <div class="form-group select-wrapper floating-label has-value">
+            <div class="form-group select-wrapper floating-label {% if person.Birthday %}has-value{% endif %}">
               <label for="birthday_month">Birth Month</label>
               <select id="birthday_month" class="form-control" name="Birthday_month">
+                <option value="">Birth Month</option>
                 <option value="01" {% if request.POST|lookup:'Birthday_month' == '01' or person.Birthday|split:'/'|lookup:0 == '01' %}selected="selected"{% endif %}>January</option>
                 <option value="02" {% if request.POST|lookup:'Birthday_month' == '02' or person.Birthday|split:'/'|lookup:0 == '02' %}selected="selected"{% endif %}>February</option>
                 <option value="03" {% if request.POST|lookup:'Birthday_month' == '03' or person.Birthday|split:'/'|lookup:0 == '03' %}selected="selected"{% endif %}>March</option>
@@ -115,9 +115,10 @@
             </div>
           </div>
           <div class="col-sm-3">
-            <div class="form-group select-wrapper floating-label has-value">
+            <div class="form-group select-wrapper floating-label {% if person.Birthday %}has-value{% endif %}">
               <label for="birthday_day">Day</label>
               <select id="birthday_day" class="form-control" name="Birthday_day">
+                <option value="">Day</option>
                 <option value="01"{% if request.POST|lookup:'Birthday_day' == '01' or person.Birthday|split:'/'|lookup:1 == '01' %}selected="selected"{% endif %}>1</option>
                 <option value="02"{% if request.POST|lookup:'Birthday_day' == '02' or person.Birthday|split:'/'|lookup:1 == '02' %}selected="selected"{% endif %}>2</option>
                 <option value="03"{% if request.POST|lookup:'Birthday_day' == '03' or person.Birthday|split:'/'|lookup:1 == '03' %}selected="selected"{% endif %}>3</option>
@@ -159,7 +160,7 @@
                 class="form-control"
                 name="Birthday_year"
                 id="birthday_year"
-                placeholder="Year"
+                placeholder="Year (YYYY)"
                 pattern="\d*"
                 minlength="4"
                 maxlength="4"
@@ -168,6 +169,9 @@
             </div>
           </div>
         </div>
+          
+        <input type="hidden" id="birthday" name="Birthday" value="{% if request.POST|lookup:'$email' %}{{ request.POST|lookup:'Birthday' }}{% else %}{{ person.Birthday|default:'' }}{% endif %}" />
+        <div id="birthday-error" class="validation-error form-group">Please fill in all fields for your birthday.</div>
 
         <div class="form-group floating-label {% if request.POST|lookup:'StreetAddress' or person|lookup:'StreetAddress' %}has-value{% endif %}">
           <label for="street-address">Street Address</label>
@@ -191,9 +195,10 @@
 
         <div class="row">
           <div class="col-sm-8">
-            <div class="form-group select-wrapper floating-label has-value">
+            <div class="form-group select-wrapper floating-label {% if person|lookup:'$region' %}has-value{% endif %}">
               <label for="state">State</label>
               <select id="state" class="form-control" name="$region">
+                <option value="">State</option>
                 <option value="Alabama" {% if request.POST|lookup:'$region' == 'Alabama' or person|lookup:'$region' == 'Alabama' %}selected="selected"{% endif %}>Alabama</option>
                 <option value="Alaska" {% if request.POST|lookup:'$region' == 'Alaska' or person|lookup:'$region' == 'Alaska' %}selected="selected"{% endif %}>Alaska</option>
                 <option value="American Samoa" {% if request.POST|lookup:'$region' == 'American Samoa' or person|lookup:'$region' == 'American Samoa' %}selected="selected"{% endif %}>American Samoa</option>
@@ -349,11 +354,11 @@
   function addError(element){
     element.addClass('has-error');
     element.next('.validation-error').show();
-  };
+  }
   function removeError(element){
     element.removeClass('has-error');
     element.next('.validation-error').hide();
-  };
+  }
   function validateCheckboxGroup(elements,errorElement){
     var numChecked = 0;
       elements.each(function(){
@@ -368,6 +373,14 @@
         errorElement.hide();
         return true;
       }
+  }
+  function validateBirthday(element,errorElement){
+    var v = element.val();
+    if( !v ){
+      return true; // nothing to match against, so pass it
+    }else{
+      return v.match(/^(((0)[0-9])|((1)[0-2]))(\/)([0-2][0-9]|(3)[0-1])(\/)\d{4}$/i);
+    }
   }
 
   $('#preferences_form').on('submit', function(e){
@@ -401,8 +414,20 @@
         numErrors++;
       }
 
+      var $birthday = $('#birthday');
+      // if they clear out their selections
+      if( $birthday.val() == '//'){
+        $birthday.val('');
+      }
+      if( !validateBirthday( $birthday ) ){
+        numErrors++; 
+        $('#birthday-error').show();
+      }else{
+        $('#birthday-error').hide();
+      }
+
     }
-  // console.log(numErrors);
+    // console.log(numErrors);
     if( numErrors > 0 ){
       e.preventDefault();
     }
@@ -423,23 +448,38 @@
     }
   });
 
+  function getBirthday(){
+    var birthday = $('#birthday').val();
+    if( !birthday ){
+      return ['','','']; // nothing set yet, so give us something to .join() below. doing this here so birthday can be sent blank if no edits are made
+    }else{
+      return birthday.split('/');
+    }
+  };
+
   // update the hidden birthday field as mm/dd/yyyy
   $('#birthday_month').on('change', function(){
-    var birthday = $('#birthday').val().split('/');
+    var birthday = getBirthday();
     var newBirthday = [$('#birthday_month').val(), birthday[1], birthday[2]];
     $('#birthday').val( newBirthday.join('/') );
   });
 
   $('#birthday_day').on('change', function(){
-    var birthday = $('#birthday').val().split('/');
+    var birthday = getBirthday();
     var newBirthday = [birthday[0], $('#birthday_day').val(), birthday[2]];
     $('#birthday').val( newBirthday.join('/') );
   });
 
   $('#birthday_year').on('change', function(){
-    var birthday = $('#birthday').val().split('/');
+    var birthday = getBirthday();
     var newBirthday = [birthday[0], birthday[1], $('#birthday_year').val()];
     $('#birthday').val( newBirthday.join('/') );
+  });
+
+  $('select').on('change', function(){
+    if( $(this).val() ){
+      $(this).closest('.floating-label').addClass('has-value');
+    }
   });
 
  });
