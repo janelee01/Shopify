@@ -23,10 +23,10 @@
                     <p class="description">{{ block.settings.description }} <span class="category-price">{{ block.settings.price }}</span></p>
                     <div class="btn-set inlined"> 
                         {% unless block.settings.linkText == blank %}
-                            <a class="btn{% if block.settings.linkStyle == 'outline' %} btn-secondary{% endif %}" href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
+                            <a class="btn{% if block.settings.linkStyle == 'outline' %} btn-secondary{% endif %} btn-gtm-trk" data-gtm-a="6" href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
                         {% endunless %}
                         {% unless block.settings.linkTextB == blank %}
-                            <a class="btn{% if block.settings.linkStyleB == 'outline' %} btn-secondary{% endif %}" href="{{ block.settings.linkUrlB }}">{{ block.settings.linkTextB }}</a>
+                            <a class="btn{% if block.settings.linkStyleB == 'outline' %} btn-secondary{% endif %} btn-gtm-trk" data-gtm-a="6" href="{{ block.settings.linkUrlB }}">{{ block.settings.linkTextB }}</a>
                         {% endunless %}
                     </div>
                 </div>

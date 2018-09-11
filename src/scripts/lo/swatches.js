@@ -166,10 +166,12 @@ $(document).ready(function(){
 	    		$(this).addClass('active');
 	    		var $active_slide = $(this).find('.film_roll_pager a.active');
 	    		var active_slide_position = $(this).find('.film_roll_pager a').index( $active_slide ) + 1; // using the pager here because film role adjusts the index of slides with each animation
-    			dataLayer.push({
-    				'event' : 'galleryNavigation',
-    				'productImage' : active_slide_position
-    			});
+	    		if( active_slide_position > 1 ){ // we only care about navigation to secondary images
+	    			dataLayer.push({
+	    				'event' : 'galleryNavigation',
+	    				'productImage' : active_slide_position
+	    			});
+	    		}
 	    	}
 	    });
 
