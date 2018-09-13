@@ -659,7 +659,7 @@ $(document).ready(function() {
 
 		// sticky sidebars
 		if( $(window).width() >= LS.desktopBreakpoint && has_sticky_element ){
-			LS.doStickyColumn(el_starting_pos);
+			LS.doStickyColumn(el_starting_pos); 
 		}
 
 		var $el = $('.page-header-image, #overview-block-0');
