@@ -233,3 +233,14 @@ blockquote{
 .experiment-wrapper-alternate{
 	opacity: 0;
 }
+
+.final-sale-warning{
+	color: $brand-red;
+	font-size: $font-size-xs;
+	text-align: center;
+	padding-top: 10px;
+	display: none;
+	&.shown{
+		display: block;
+	}
+} 

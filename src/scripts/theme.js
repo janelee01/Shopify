@@ -690,6 +690,12 @@ $(document).ready(function() {
 		$(window).resize(function(){
 			setCartQtyInputLocation();
 		});
+
+		$('.final-sale-warning').each(function(){
+			if( discontinued.includes( String($(this).data('variant-id')) ) ){
+				$(this).addClass('shown');
+			}
+		});
 	}
 
 	$('#cart-continue').on('click', function(e){

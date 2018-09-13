@@ -48,7 +48,7 @@
                 {% assign productNameParts = item.product.title | split: '-' %}
                 <a class="product-name" href="{{ item.url }}">{{ productNameParts[0] | trim | replace: "The " }}</a>
                 <p class="item-options">{{ productNameParts[1] | trim }} / {{ productNameParts[2] | trim }}{% unless item.product.has_only_default_variant %} / {{ item.variant.title }}{% endunless %}</p>
-
+                <div class="final-sale-warning" data-variant-id="{{ item.variant.id }}">{{ 'products.product.final_sale_html' | t }}</div>
                 {% comment %}
                 <p>{{ item.vendor }}</p> 
                 {%- assign property_size = item.properties | size -%} 

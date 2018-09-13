@@ -194,13 +194,13 @@
 	.low-stock-warning{
 		text-align: center;
 		padding-top: 10px;
-		opacity: 0;
-		transition: .3s;
+		display: none;
 		&.shown{
-			opacity: 1;
+			display: block;
 		}
 	}
 }
+
 #price-wrapper{
 	padding-bottom: 25px;
 	border-bottom: 1px solid #e6e6e6;
