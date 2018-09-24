@@ -240,6 +240,7 @@ blockquote{
 	text-align: center;
 	padding-top: 10px;
 	display: none;
+	text-transform: uppercase;
 	&.shown{
 		display: block;
 	}
