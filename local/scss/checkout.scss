@@ -148,6 +148,12 @@ body{
 			box-shadow: 0 0 0 1px #c8c8c8;
 		}
 	} 
+	.product__description{
+		.final-sale-warning{
+			text-align: left;
+			padding: 0;
+		}
+	}
 }
 .sidebar:after{
 	background: #f8f8f8;

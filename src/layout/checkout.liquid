@@ -9,6 +9,7 @@
     {% include 'optimize-page-hiding' %}
     {% include 'google-tag-manager' %}
     {% include 'optimize-tag' %}
+    {% include 'discontinued-ids' %}
 
     <title>{{ page_title }}</title>
 
@@ -67,12 +68,16 @@
           $('.product__description__name').each(function(){
             var name = $(this).text();
             var nameParts = name.split(' - ');
+            var variant = String($(this).closest('.product').data('variant-id'));
             $(this).text(nameParts[0].replace('The ', ''));
             var options = [nameParts[1], nameParts[2]];
             if( $(this).next('.product__description__variant').text() != '' ){
               options.push($(this).next('.product__description__variant').text());
             }
             $(this).next('.product__description__variant').text(options.join(' / '));
+            if( discontinued.includes(variant) ){
+              $('<div class="final-sale-warning shown">{{ "products.product.final_sale_html" | t }}</div>').appendTo($(this).closest('.product__description'));
+            }
           });
           $('table.product-table').addClass('in');
         }
