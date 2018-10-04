@@ -12,6 +12,9 @@
 			}
 		}
 	}
+	&.aligned-left{
+		margin-left: 0;
+	}
 	.btn{
 		display: block;
 		margin-bottom: 10px;
@@ -46,16 +49,7 @@
 		font-size: 19px;
 	}
 	&.btn-secondary{
-		color: $gray-darker; 
-		background: transparent;
-		border-color: $gray-darker;
-		&:focus{
-			box-shadow: none;
-		}
-		&:hover{
-			border-color: $brand-blue;
-			color: $brand-blue;
-		}
+		@include secondaryBtn;
 		&.inverted{
 			@include invertedSecondaryBtn;
 		}

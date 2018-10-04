@@ -79,7 +79,18 @@
 		bottom: 0;
 	}
 }
-
+@mixin secondaryBtn{
+	color: $gray-darker; 
+	background: transparent;
+	border-color: $gray-darker;
+	&:focus{
+		box-shadow: none;
+	}
+	&:hover{
+		border-color: $brand-blue;
+		color: $brand-blue;
+	}
+}
 @mixin invertedSecondaryBtn{
 	color: #fff;
 	border-color: #fff;

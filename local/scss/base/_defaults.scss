@@ -18,6 +18,21 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 }
+.large-container{
+	max-width: $site-large-width;
+	@media (min-width: $screen-sm) {
+		margin-left: $grid-gutter-width;
+		margin-right: $grid-gutter-width;	
+	}
+	@media (min-width: $screen-md) {
+		margin-left: 50px;
+		margin-right: 50px;	
+	}
+	@media (min-width: $site-large-width + 100) {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
 .container{
 	@media (max-width: $screen-xs-max) {
 	    padding-left: $mobile-gutter;
@@ -170,6 +185,9 @@ blockquote{
 	}
 }
 
+.mb-gutter{
+	margin-bottom: $grid-gutter-width;
+}
 .mb-small{
 	@include mb('sm');
 }
@@ -187,6 +205,12 @@ blockquote{
 .mb-negate-sm{
 	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
 	    margin-bottom: 0 !important;
+	}
+}
+
+.pb-negate-sm-up{
+	@media (min-width: $screen-sm) {
+	    padding-bottom: 0 !important;
 	}
 }
 

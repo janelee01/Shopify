@@ -1,0 +1,20 @@
+<div class="slide">
+    <picture>
+        {% unless block.settings.desktopImage == blank %}<source srcset="{{ block.settings.desktopImage | img_url: 'master' }}" media="(min-width: {{ screenMd }})" />{% endunless %}
+        {% unless block.settings.tabletImage == blank %}<source srcset="{{ block.settings.tabletImage | img_url: 'master' }}" media="(min-width: {{ screenSm }})" />{% endunless %}
+        <img src="{{ block.settings.mobileImage | img_url: 'master' }}" alt="{{ block.settings.altText }}" />
+    </picture>
+    <div class="hero-content {{ block.settings.textPosition }} {{ block.settings.textColor }}">
+        {% unless block.settings.title == blank %}
+            <h2 class="title"><span class="subtitle">{{ block.settings.subtitle }} </span>{{ block.settings.title }}</h2>
+        {% endunless %}
+        {% unless block.settings.description == blank %}
+            <p class="description">{{ block.settings.description }}</p>
+        {% endunless %}
+        <div class="btn-set">
+            {% unless block.settings.linkText == blank %}
+                <a class="btn{% if block.settings.linkStyle == 'outline' %} btn-secondary{% if block.settings.textColor == 'white' %} inverted{% endif %}{% endif %}" href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
+            {% endunless %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,93 @@
+.product-group{
+    .hero{
+        margin-bottom: 2px;
+        background-attachment: $gray-lightest;
+        @media (max-width: $screen-sm-max) {
+            margin: 0;
+            .description,
+            picture{
+                display: none;
+            }
+            .title{
+                background: $gray-lightest;
+                color: $gray-darker;
+                margin: 0;
+                padding-top: 50px;
+            }
+            .hero-content{
+                display: block;
+                position: static;
+                padding: 0;
+            }
+        }
+    }
+    .product{
+        color: $gray;
+        text-align: center;
+        background: $gray-lightest;
+        display: block;
+        img, .product-name{
+            display: block;
+        }
+        .product-name{
+            font-size: 20px;
+        }
+    }
+    .products{
+        margin-left: -1px;
+        margin-right: -1px;
+        position: relative;
+        @include clearfix;
+        @media (max-width: $screen-xs-max) {
+            display: none
+        }
+        .product{
+            border-left: solid 1px #fff;
+            border-right: solid 1px #fff; // using borders so js can get the accurate outer width
+            display: block;
+            width: 375px;
+            float: left;
+            padding-bottom: 80px; // js will crop out 20px of this
+            &:hover{
+                text-decoration: none;
+                color: $brand-blue;
+            }
+        }
+    }
+    .products-slider{
+        padding-bottom: 60px;
+        background: $gray-lightest;
+        @media (min-width: $screen-sm) {
+            display: none;
+        }
+    }
+    
+    .overflow-window{
+        margin: 0;
+    }
+    .overflow-content{
+        position: relative;
+    }
+    .overflow-bar{
+        height: 20px;
+        position: absolute;
+        bottom: 0;
+        left: 40px;
+        right: 40px;
+        &:before{
+            content: '';
+            height: 2px;
+            background: rgba($gray-darker,.1);
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+    }
+    .overflow-handle{
+        cursor: pointer;
+        border-top: solid 2px $gray-darker;
+        height: 100%;
+        position: relative;
+    }
+}
