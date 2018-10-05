@@ -33,6 +33,7 @@
             font-size: 20px;
         }
     }
+    // sidescrolling area
     .products{
         margin-left: -1px;
         margin-right: -1px;
@@ -48,12 +49,19 @@
             width: 375px;
             float: left;
             padding-bottom: 80px; // js will crop out 20px of this
+            @media (min-width: $screen-lg) {
+                width: 420px;
+            }
             &:hover{
                 text-decoration: none;
                 color: $brand-blue;
             }
+            img{
+                margin: 0 auto;
+            }
         }
     }
+    // one at a time on mobile
     .products-slider{
         padding-bottom: 60px;
         background: $gray-lightest;
