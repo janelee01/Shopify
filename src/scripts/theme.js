@@ -361,16 +361,23 @@ $(document).ready(function() {
 		}
 	};
 	$hero
-		.on('init', function (slick) {
+		.on('init', function (event, slick) {
 			updateHeaderUi();
 		})
-		.on('afterChange', function (slick, currentSlide) {
+		.on('afterChange', function (event, slick, currentSlide) {
 			updateHeaderUi();
+			// pause when we return to the first slide
+			if( currentSlide === 0 ){
+				$hero.slick('slickPause');
+			}
 		});
 
 	$hero.slick({
 		arrows : false,
-		dots : true
+		dots : true,
+		autoplay : true,
+		autoplaySpeed : 2000,
+		speed : 600
 	});
 
 	/*
