@@ -497,29 +497,25 @@ $(document).ready(function() {
 
 		var setHandleWidth = function(){
 			$('.product-group').each(function () {
+
 				var $products = $(this).find('.products .product');
+				var $track = $(this).find('.overflow-content');
+				var trackWidth = $products.first().outerWidth() * $products.length;
+				$track.width(trackWidth);
+
 				var $handle = $(this).find('.overflow-handle');
 				var $bar = $(this).find('.overflow-bar');
-				var trackWidth = $products.first().outerWidth() * $products.length;
 				var handleWidth = $(this).outerWidth() / trackWidth * 100;
-				if (handleWidth > 100) {
+				if (handleWidth >= 100) {
 					$bar.hide();
 				} else {
 					$handle.width(handleWidth + '%');
 					$bar.show();
 				}
 			});
-		}
+		};
 	
 		$(window).load(function(){ // make sure we have images
-			
-			// set the content width to trigger side scrolling, and define our handle
-			$('.product-group').each(function(){
-				var $products = $(this).find('.products .product');
-				var $track = $(this).find('.overflow-content');
-				var trackWidth = $products.first().outerWidth() * $products.length;
-				$track.width(trackWidth);
-			});
 
 			// size the handle based on how much scrolling will be necessary like normal scrollbars
 			setHandleWidth();
