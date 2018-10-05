@@ -185,6 +185,9 @@ blockquote{
 	}
 }
 
+.mb-gutter{
+	margin-bottom: $grid-gutter-width;
+}
 .mb-small{
 	@include mb('sm');
 }
@@ -202,6 +205,12 @@ blockquote{
 .mb-negate-sm{
 	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
 	    margin-bottom: 0 !important;
+	}
+}
+
+.pb-negate-sm-up{
+	@media (min-width: $screen-sm) {
+	    padding-bottom: 0 !important;
 	}
 }
 

@@ -281,10 +281,6 @@
 	}
 }
 
-.catalina-rose-mb{
-	margin-bottom: $grid-gutter-width;
-}
-
 #rhodes-hero{
 	@media (max-width: $screen-xs-max) {
 		.hero-content{
@@ -348,6 +344,19 @@
 	}
 }
 
+#pearl-colors-hero{
+	.hero-content{
+		@media (max-width: $screen-xs-max) {
+			height: 50%;
+		}
+		@media (min-width: $screen-sm) {
+			padding: 0 15%;
+		}
+		@media (min-width: $screen-md) {
+			padding: 0;
+		}
+	}
+}
 #pearl-comparison-hero{
 	.hero-content{
 		@media (min-width: $screen-sm) {

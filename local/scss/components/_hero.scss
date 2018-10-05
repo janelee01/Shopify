@@ -29,6 +29,26 @@
 			position: relative;
 		}
 	}
+	&.has-black-arrow,
+	&.has-arrow{
+		&:after{
+			content:  '';
+			display: block;
+			width: 32px;
+			height: 40px;
+			background: url('hero-arrow.svg') no-repeat center top;
+			background-size: 100% auto;
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+	&.has-black-arrow{
+		&:after{
+			background-image: url('hero-arrow-black.svg');
+		}
+	}
 	picture{
 		img{
 			width: 100%;
