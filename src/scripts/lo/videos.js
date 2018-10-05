@@ -1,5 +1,31 @@
 $(document).ready(function(){
 	var $videos = $('.embed-container');
+
+	var startStopVideo = function($embed,video){
+		var videoId = $embed.find('video').attr('id');
+		if( LS.isElementInViewport(video) && $embed.data('autoplay') ){
+			console.log('playing ' + videoId);
+			var playPromise = video.play();
+			if (playPromise !== undefined) {
+				playPromise.then(function() {
+					// Automatic playback started, nothing to do
+				}).catch(function(error) {
+					console.log('Playback did not start. Reason: ' + error)
+				});
+			}
+		}else if( !video.paused ){
+			console.log('pausing ' + videoId);
+			var pausePromise = video.pause();
+			if (pausePromise !== undefined) {
+				pausePromise.then(function() {
+					// Paused, nothing to do
+				}).catch(function(error) {
+					console.log('Pause error. Reason: ' + error)
+				});
+			}
+		}
+	};
+
 	$videos.each(function(){
 		var $embed = $(this);
 		var videoId = $(this).find('video').attr('id');
@@ -20,43 +46,12 @@ $(document).ready(function(){
 		video.oncanplay = function() {
 			$embed.find('.loading').fadeOut();
 			// play it if we can see it 
-			if( LS.isElementInViewport(video) && $embed.data('autoplay') ){
-				var playPromise = video.play();
-				if (playPromise !== undefined) {
-					playPromise.then(function() {
-						// Automatic playback started, nothing to do
-					}).catch(function(error) {
-						console.log('Playback did not start. Reason: ' + error)
-					});
-				}
-			}
+			startStopVideo($embed, video);
 		};
 
 		// play/pause based on visibility
 		$(window).scroll(function(){
-			if( LS.isElementInViewport(video) ){
-				if( !$embed.hasClass('ended') && $embed.data('autoplay') ){
-					var playPromise = video.play();
-					if (playPromise !== undefined) {
-						playPromise.then(function() {
-							//hide the loader?
-							$embed.find('.loading').hide();
-							// Automatic playback started, nothing to do
-						}).catch(function(error) {
-							console.log('Playback did not start. Reason: ' + error)
-						});
-					}
-				}
-			}else{
-				var pausePromise = video.pause();
-				if (pausePromise !== undefined) {
-					pausePromise.then(function() {
-						// Paused, nothing to do
-					}).catch(function(error) {
-						console.log('Pause error. Reason: ' + error)
-					});
-				}
-			}
+			startStopVideo($embed, video);
 		});
 
 		// limit number of plays and maybe hide overlay text
