@@ -1,24 +1,22 @@
 $(document).ready(function(){
-	var $videos = $('.embed-container');
+	var $videos = $('.embed-container'); 
 
 	var startStopVideo = function($embed,video){
 		var videoId = $embed.find('video').attr('id');
 		if( LS.isElementInViewport(video) && $embed.data('autoplay') ){
-			console.log('playing ' + videoId);
 			var playPromise = video.play();
 			if (playPromise !== undefined) {
 				playPromise.then(function() {
-					// Automatic playback started, nothing to do
+					// successfully started
 				}).catch(function(error) {
 					console.log('Playback did not start. Reason: ' + error)
 				});
 			}
 		}else if( !video.paused ){
-			console.log('pausing ' + videoId);
 			var pausePromise = video.pause();
 			if (pausePromise !== undefined) {
 				pausePromise.then(function() {
-					// Paused, nothing to do
+					// sucessfully paused
 				}).catch(function(error) {
 					console.log('Pause error. Reason: ' + error)
 				});
@@ -55,13 +53,19 @@ $(document).ready(function(){
 		});
 
 		// limit number of plays and maybe hide overlay text
-		var playCount= 0;
+		var playCount = 0;
 		var lastTime = 0;
 		video.addEventListener("timeupdate", function() {
 			if( playCount === loops ){
 				video.pause();
 				$embed.addClass('ended');
 				$embed.find('.video-trigger').fadeIn('slow');
+			}
+
+			// watch the first loop to see how long the user watches it
+			// the video will only be playing while in the viewport so can assume they're seeing it intentially (in theory)
+			if( playCount == 0 ){
+				LS.reportVideoProgress(video.currentTime, video.duration);
 			}
 
 			// catching the start of the video is tricky with the loop, so see if the current time is the last time we saved ?>
