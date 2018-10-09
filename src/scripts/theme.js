@@ -44,6 +44,9 @@ window.theme = window.theme || {};
 
 $(document).ready(function() {
 
+	var $pageNav = LS.getPageNav();
+	var $header = LS.getHeader();
+
   var sections = new slate.Sections();
   sections.register('product', theme.Product);
 
@@ -137,28 +140,6 @@ $(document).ready(function() {
 	  $('[data-collapse-panel]').addClass('is-shown');
 	}
 
-  // sticky sidebar
-  var has_sticky_element = $('.sticky').length > 0;
-
-  if( has_sticky_element ){
-	var el_starting_pos = $('.sticky').offset().top;
-	if( $(window).width() >= LS.desktopBreakpoint ){
-	  LS.filters.setStickyColumnHeight($('.main'));
-	}
-  }
-
-  $(window).load( function() { // do this after the load so we have our images
-	if( $(window).width() >= LS.desktopBreakpoint && has_sticky_element ){
-	  LS.doStickyColumn(el_starting_pos);
-	}
-  });
-
-  $(window).scroll(function(){
-	if( $(window).width() >= LS.desktopBreakpoint && has_sticky_element ){
-	  LS.doStickyColumn(el_starting_pos);
-	}
-  });
-
   // Smooth scrolling
   $('body').on('click', '.smoothscroll, .nav-local a, .page-nav-item, .scroll-down-indicator', function(e){
 	e.preventDefault();
@@ -210,23 +191,27 @@ $(document).ready(function() {
 
   // slide the marquee out of the way on scroll
   var $marquee = $('#shopify-section-marquee');
-  var $header = $('#site-header');
-  var $pageNav = $('.page-nav');
   var trigger = 75;
 
   if( $marquee.is(':visible') ){
-  	$('.site-content').css('padding-top', $header.outerHeight());
+  	$('.site-content').css('padding-top', $header.outerHeight() - $pageNav.outerHeight());
   }
 
   // adjust on scroll
   $(window).scroll(function(){
   	if( $(window).scrollTop() < trigger ){
   		$header.removeAttr('style');
-  		$pageNav.removeClass('is-shown');
+  		if( !$pageNav.hasClass('persistent') ){
+  			$pageNav.removeClass('is-shown');
+  		}
   	}else{
   		if( $marquee.is(':visible') && $pageNav.length ){ 
   			$header.css({
   				'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1,
+  			});
+  		}else if( !$marquee.is(':visible') && $pageNav.length ){
+  			$header.css({
+  				'top' : $('#site-header-items').outerHeight() * -1,
   			});
   		}else if( $marquee.is(':visible') ){
   			$header.css({
@@ -260,23 +245,19 @@ $(document).ready(function() {
   }
 
   	// header shadow
-	var $localNav = $('nav.local');
-	if( $localNav.length ){
-		$('body').addClass('has-local-nav');
+	if( $('.page-nav').length ){
+		$('body').addClass('has-page-nav');
 	}
   	var scrolledClass = 'after-scroll';
 	if ($(window).scrollTop() > trigger) {
 		$header.addClass(scrolledClass);
-		$localNav.addClass(scrolledClass);
 	}
 	// adjust on scroll
 	$(window).scroll(function () {
 		if ($(window).scrollTop() < trigger) {
 			$header.removeClass(scrolledClass);
-			$localNav.removeClass(scrolledClass);
 		} else {
 			$header.addClass(scrolledClass);
-			$localNav.addClass(scrolledClass);
 		}
 	});
 
@@ -329,7 +310,7 @@ $(document).ready(function() {
 	*/
 	var $hero = $('.hero.has-slides');
 	var setHeaderUiColor = function(color){
-		var isAlternateHeader = $('#site-header').hasClass('showing-alternate');
+		var isAlternateHeader = $header.hasClass('showing-alternate');
 		if( color == 'white' ){
 			$hero.removeClass('ui-black');
 			if (isAlternateHeader) {
@@ -637,94 +618,6 @@ $(document).ready(function() {
 	        });
     });
 
-	// page nav
-	$('#page-nav-items-toggle').on('click', function(e){
-	    e.preventDefault();
-	    $('.page-nav').toggleClass('open');
-	});
-	$('.page-nav-item').on('click', function(e){
-	    e.preventDefault();
-	    $('.page-nav').removeClass('open');
-	});
-
-	// move a page nav into the header for less fixed position conflicts
-	$('.page-nav').detach().appendTo('#site-header');
-
-	var lastScrollTop = 0;
-	var lowestScrollPos = 0;
-	var $pageNav = $('.page-nav');
-	var $header = $('#site-header');
-	var headerOffset = $header.outerHeight();
-
-	$(window).scroll(function(){
-
-		var $ = jQuery;
-
-		// sticky sidebars
-		if( $(window).width() >= LS.desktopBreakpoint && has_sticky_element ){
-			LS.doStickyColumn(el_starting_pos); 
-		}
-
-		var $el = $('.page-header-image, #overview-block-0');
-		if( $el.length > 0 ){
-			var container_bottom = $el.offset().top + $el.outerHeight() - $(window).scrollTop();
-			var	indicator_bottom = $('.scroll-down-indicator').offset().top + $('.scroll-down-indicator').outerHeight() - $(window).scrollTop();
-			var window_height = $(window).height();
-
-			// deactivate the stick when the image is not below the window
-			if( container_bottom < window_height ){
-				$('.scroll-down-indicator').addClass('pinned');
-			}
-			// stick to the window when the indicator hits the bottom
-			if( indicator_bottom > window_height ){
-				$('.scroll-down-indicator').removeClass('pinned');
-			}
-		}
-
-		// hide the back to top when at the top of the page
-		var $totop = $('.back-to-top.persistent'),
-			window_pos = $(window).scrollTop();
-
-		if( window_pos > 240 ){
-			$totop.addClass('active');
-		}else{
-			$totop.removeClass('active');
-		}
-
-		// trigger the newsletter prompt
-	  //   if ( window_pos > $('body').height() * 0.7 ) {
-			// displayNewsletterPrompt();
-	  //   }
-
-		// shift main nav out of the way when we have a page nav
-		// if( $pageNav.length ){
-		// 	var currentScrollTop = $(this).scrollTop();
-		// 	if (currentScrollTop > lastScrollTop){
-		// 		// scrolling down
-		// 		if( currentScrollTop > headerOffset ){
-		// 			$header.css('top', -headerOffset);
-		// 			$pageNav.css('margin-top', -headerOffset); // "top" value set by css, so shift it with margin
-		// 			$pageNav.addClass('is-shown'); // on mobile this makes it visible
-		// 		}
-		// 		// set our furthest point down the page
-		// 		lowestScrollPos = currentScrollTop;
-		// 	} else {
-		// 		// scrolling up, with a buffer so the header isn't shown immediately
-		// 		if( currentScrollTop + headerOffset < lowestScrollPos ){
-		// 			$header.attr('style', '');
-		// 			$pageNav.attr('style', '');
-		// 		}
-		// 	}
-
-		// 	// hides the page nav on mobile when we're at the top of the page
-		// 	if( currentScrollTop < headerOffset ){
-		// 		$pageNav.removeClass('is-shown');
-		// 	}
-
-		// 	lastScrollTop = currentScrollTop;
-		// }
-	});
-
 	/*
 	Rebuild article headers for mobile
 	 */
@@ -749,7 +642,7 @@ $(document).ready(function() {
 				.append($postSharing);
 		}
 		if( $(window).width() < 768 ){
-			$('#m-variation [data-image-container]').css( 'height', $(window).outerHeight() - $('#site-header').outerHeight() + 2 ); // the +2 fixes a white line at the bottom
+			$('#m-variation [data-image-container]').css( 'height', $(window).outerHeight() - $header.outerHeight() + 2 ); // the +2 fixes a white line at the bottom
 		}
 	}
 	if( $('body').hasClass('template-article') ){
@@ -808,7 +701,7 @@ $(document).ready(function() {
 	$('#cart-continue').on('click', function(e){
 	    e.preventDefault();
 	    var previousPage = sessionStorage.getItem('lo-back-to');
-	    console.log(previousPage);
+	    // console.log(previousPage);
 	    if( previousPage ){
 	    	window.location = previousPage;
 	    }else{

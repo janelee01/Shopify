@@ -12,11 +12,6 @@
 		@include headerShadow;
 	}
 }
-body.has-local-nav{
-	#site-header.after-scroll{
-		box-shadow: none; // local nav will get the shadow
-	}
-}
 #site-header-items{
 	background: #FFF;
 	padding-bottom:12px;

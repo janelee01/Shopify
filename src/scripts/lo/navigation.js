@@ -1,4 +1,19 @@
 $(document).ready(function(){
+
+	var $pageNav = LS.getPageNav();
+	var $header = LS.getHeader();
+	var $topics = $pageNav.find('.items a');
+	var $targets = $('.jumptarget');
+	var spacer = 30;
+	var trigger = $pageNav.outerHeight();
+
+	var getScrollTo = function(el){
+		return el.offset().top - trigger - 30;
+	};
+
+	// move a page nav into the header for less fixed position conflicts
+	$pageNav.detach().appendTo($header);
+
 	// reload nav state
 	var savedState = sessionStorage.getItem('lo-main-menu');
 	if( savedState ){
@@ -34,7 +49,7 @@ $(document).ready(function(){
  	// local nav for updated shopify designs,
  	// other local navs exist for transferred WP pages
 	var setActiveBar = function(){
-		var $nav = $('nav.local');
+		var $nav = $('.page-nav .items');
 		var $bar = $nav.find('.active-bar');
 		var $active = $nav.find('.active');
 		var barOffset = $(window).width() >= LS.desktopBreakpoint ? 20 : 11; // margins on the nav items
@@ -43,7 +58,13 @@ $(document).ready(function(){
 			'width': $active.outerWidth()
 		});
 	};
-	if( $('nav.local').length ){
+
+	var setActiveText = function(){
+		$('#items-toggle').text($('nav.items a.active').text());
+	};
+
+	if( $('.page-nav .items').length ){
+
 		setActiveBar();
 		$(window).resize(function(){
 			setActiveBar();
@@ -52,51 +73,50 @@ $(document).ready(function(){
 			}
 		});
 
-		// jump to/show a section
+		// jump to/show a section 
 		if( location.hash ){
-			$('nav.local a').removeClass('active')
+			$topics.removeClass('active');
 			$('[href="'+location.hash+'"]').addClass('active');
 			setActiveBar();
-			if( $(window).width() <= LS.desktopBreakpoint ){
-				$('.local-nav-section').hide();
-				$($('nav.local .active').attr('href')).next('.local-nav-section').fadeIn();
-			}
+			$('html,body').animate({scrollTop:  getScrollTo( $(location.hash) )  });
+			setActiveText();
 		}
 
 		// scroll spy
-		var $topics = $('nav.local a');
-		var $targets = $('.jumptarget');
-		var headerHeight = $('#site-header').outerHeight() + $('nav.local').outerHeight();
 		$(window).scroll(function(){
-			if( $(window).width() >= LS.desktopBreakpoint ){
-				var activeSectionIndex = 0;
-				var scrollPosition = $(window).scrollTop();
-				$targets.each(function(i){
-					var sectionTopPosition = Math.floor($(this).offset().top) - scrollPosition;
-					if( sectionTopPosition <= headerHeight ){
-						if( i > activeSectionIndex ){
-							activeSectionIndex = i;
-							$topics.removeClass('active');
-							$topics.eq(activeSectionIndex).addClass('active');
-							setActiveBar();
-						}
+			var activeSectionIndex = -1; // reset the active section when we scroll, start at -1 so we can be less than an index of 0
+			var scrollPosition = $(window).scrollTop();
+			$targets.each(function(i){
+				var sectionTopPosition = Math.floor($(this).offset().top) - scrollPosition;
+				// section has scrolled past header
+				if( sectionTopPosition <= trigger + spacer ){
+					// we're only updating the next section down the page since this is true for other sections further up too
+					if( i > activeSectionIndex ){
+						activeSectionIndex = i;
+						$topics.removeClass('active');
+						$topics.eq(activeSectionIndex).addClass('active');
+						setActiveBar();
 					}
-				});
-				if( scrollPosition < headerHeight ){
-					$topics.removeClass('active');
-					$topics.eq(0).addClass('active');
-					setActiveBar();
 				}
+			});
+			// reset for top of page
+			if( scrollPosition < trigger ){
+				$topics.removeClass('active');
+				$topics.eq(0).addClass('active');
+				setActiveBar();
 			}
+			// update toggle text for current section
+			setActiveText();
 		});
 			
 	}
-	$('body').on('click', 'nav.local a', function(e){
+
+	// jump to section
+	$topics.on('click', function(e){
 		e.preventDefault();
 
-		var $btn = $(this),
-		selector = $btn.attr('href'),
-		pos = 0;
+		var $btn = $(this); 
+		var selector = $btn.attr('href');
 
 		// If the target isn't an on-page anchor, treat it like a normal link
 		if (!selector.match(/^#/)) {
@@ -111,19 +131,24 @@ $(document).ready(function(){
 
 		if( $(window).width() >= LS.desktopBreakpoint ){
 			// smooth scroll on desktop 
-			pos = $target.offset().top - $('#site-header').outerHeight() - $('nav.local').outerHeight();
-			$('html,body').animate({scrollTop: pos+'px'});
+			$('html,body').animate({scrollTop: getScrollTo($target)});
 			// scroll spy will update current state
 		}else{
-			// act like tabs on mobile
-			if( !$(this).hasClass('active') ){
-				$('nav.local a').removeClass('active');
-				$('.local-nav-section').hide().removeClass('active');
-				$(this).addClass('active');
-				$($(this).attr('href')).next('.local-nav-section').fadeIn();
-				$('html,body').animate({scrollTop: 0});
-				setActiveBar();
-			}
+			// quick jump on mobile
+			$(window).scrollTop( getScrollTo($target) );
+			$('nav.items').removeClass('active');
+			$topics.removeClass('active');
+			$btn.addClass('active');
+			setActiveText();
 		}
+
+		$('#items-toggle').removeClass('active');
+	});
+
+	// open the items on mobile
+	$('#items-toggle').on('click', function(e){
+	    e.preventDefault();
+	    $(this).toggleClass('active');
+	    $('nav.items').toggleClass('active');
 	});
 });
