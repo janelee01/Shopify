@@ -58,6 +58,9 @@
 		font-size: 16px;
 		padding: 11px 28px;
 		@media (min-width: $screen-md) {
+			padding: 16px 36px;
+		}
+		@media (min-width: $screen-lg) {
 			padding: 16px 50px;
 		}
 	}

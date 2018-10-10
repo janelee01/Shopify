@@ -1,5 +1,5 @@
 {% assign navLabels = labels | split: ',' %}
-<div class="page-nav">
+<div class="page-nav{% if ctaLink == blank %} without-actions{% endif %}">
     <div class="container">
         <span class="title">{{ ctaTitle }}</span>
         <button id="items-toggle">{{ navLabels[0] }}</button>
@@ -9,9 +9,11 @@
             {% endfor %}
             <span class="active-bar"></span>
         </nav>
+        {% unless ctaLink == blank %}
         <ul class="actions">
             <li>{{ ctaPrice }}</li>
             <li><a href="{{ ctaLink }}" class="btn btn-primary btn-md btn-gtm-trk" data-gtm-a="5">Buy now</a></li>
         </ul>
+        {% endunless %}
     </div>
 </div>

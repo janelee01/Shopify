@@ -7,21 +7,8 @@
 {%- assign ctaImg = 'catalina-deluxe-cta' -%}
 
 <article class="discover">
-    <nav class="page-nav theme-light has-button">
-        <div class="container">
-            <span class="page-nav-title">{{ ctaTitle }}</span>
-            <a href="#" id="page-nav-items-toggle"></a>
-            <ul class="page-nav-actions">
-                <li><a href="{{ ctaLink }}" class="btn btn-primary btn-gtm-trk" data-gtm-a="5">Buy Now</a></li>
-            </ul>
-            <ul class="page-nav-items">
-                <li><a href="#nav-target-1" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Features</a></li>
-                <li><a href="#nav-target-2" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Size</a></li>
-                <li><a href="#nav-target-3" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Materials</a></li>
-                <li><a href="#nav-target-4" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Press</a></li>
-            </ul>
-        </div>
-    </nav>
+
+    {% include 'discover-nav', labels:'Features,Size,Materials,Press' %}
     
     <div class="max-container">
         <div class="hero has-black-arrow">
@@ -45,12 +32,12 @@
                 {% include 'discover-picture', name: 'catalina-deluxe-product-photo', alt: 'Catalina Deluxe product shot', retina: false, fw: false %}
             </div>
         </div>
-
+<a id="nav-target-1" class="jumptarget"></a>
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">                    
                     <div class="section-heading">
-                        <h2 class="title"><a id="nav-target-1" class="jumptarget"></a>Smart Design</h2>
+                        <h2 class="title">Smart Design</h2>
                         <p class="description">Thoughtful features and a place for all your essentials, the Catalina Deluxe is designed for life on the road.</p>
                     </div>
                 </div>
@@ -117,11 +104,11 @@
                 </div>
             </div>
         </div>
-   
+   <a id="nav-target-2" class="jumptarget"></a>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">                    
                 <div class="section-heading">
-                    <h2 class="title"><a id="nav-target-2" class="jumptarget"></a>Super Spacious</h2>
+                    <h2 class="title">Super Spacious</h2>
                     <p class="description">Available in 2 sizes, The Catalina Deluxe will fit everything you need for the next big vacation.</p>
                 </div>
             </div>
@@ -161,11 +148,11 @@
                 </div>
             </div>
         </div>
-
+<a id="nav-target-3" class="jumptarget"></a>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">                    
                 <div class="section-heading">
-                    <h2 class="title"><a id="nav-target-3" class="jumptarget"></a>High-Quality Materials</h2>
+                    <h2 class="title">High-Quality Materials</h2>
                     <p class="description">Available in 2 premium quality durable yet lightweight canvas options.</p>
                 </div>
             </div>
@@ -194,10 +181,10 @@
         </div>
 
     </div>
-    
+    <a id="nav-target-4" class="jumptarget"></a>
     <div class="container pr-items animate" {{ animateFadeInUp }}>
         <div class="section-heading">
-            <h2 class="title"><a id="nav-target-4" class="jumptarget"></a>Traveler Approved</h2>
+            <h2 class="title">Traveler Approved</h2>
         </div>
         <div class="row topic-end-md">
             <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-0">

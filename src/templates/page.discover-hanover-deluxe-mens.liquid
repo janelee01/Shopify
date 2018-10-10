@@ -9,20 +9,8 @@
 
 
 <article class="discover">
-    <nav class="page-nav theme-light has-button">
-        <div class="container">
-            <span class="page-nav-title">{{ ctaTitle }}</span>
-            <a href="#" id="page-nav-items-toggle"></a>
-            <ul class="page-nav-actions">
-                <li><a href="{{ ctaLink }}" class="btn btn-primary btn-gtm-trk" data-gtm-a="5">Buy Now</a></li>
-            </ul>
-            <ul class="page-nav-items">
-                <li><a href="#nav-target-1" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Features</a></li>
-                <li><a href="#nav-target-2" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Design</a></li>
-                <li><a href="#nav-target-3" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Materials</a></li>
-            </ul>
-        </div>
-    </nav>
+
+    {% include 'discover-nav', labels:'Features,Design,Materials' %}
     
     <div class="max-container">
         <div class="hero has-arrow">
@@ -40,12 +28,12 @@
                 {% include 'discover-picture', name: 'hanover-deluxe-product-shot', alt: 'Hanover Deluxe product shot', retina: true, fw: false %}
             </div>
         </div>
-
+<a id="nav-target-1" class="jumptarget"></a>
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
                     <div class="section-heading">
-                      <h2 class="title"><a id="nav-target-1" class="jumptarget"></a>Travel Effortlessly</h2>
+                      <h2 class="title">Travel Effortlessly</h2>
                       <p class="description">Thoughtfully designed with features that make traveling as easy and stress-free as possible.</p>
                     </div>
                     
@@ -115,12 +103,12 @@
                 <hr class="reset">
             </div>
         </div>
-
+<a id="nav-target-2" class="jumptarget"></a>
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">                    
                     <div class="section-heading">
-                      <h2 class="title"><a id="nav-target-2" class="jumptarget"></a>Thoughtfully Organized</h2>
+                      <h2 class="title">Thoughtfully Organized</h2>
                       <p class="description">The Hanover comes packed with tons of features to help you stay put together on the road.</p>
                     </div>
                    
@@ -248,12 +236,12 @@
            </div>
        </div>
        
-
+<a id="nav-target-3" class="jumptarget"></a>
        <div class="animate" {{ animateFadeInUp }}>
            <div class="row">
                <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">                    
                    <div class="section-heading">
-                    <h2 class="title"><a id="nav-target-3" class="jumptarget"></a>High-Quality Materials</h2>
+                    <h2 class="title">High-Quality Materials</h2>
                     <p class="description">The Hanover Deluxe is crafted from premium grade materials that are both durable and eco-friendly.  </p>
                   </div>
                </div>

@@ -7,20 +7,8 @@
 {%- assign ctaImg = 'catalina-discover-cta' -%}
 
 <article class="discover">
-    <nav class="page-nav theme-light has-button">
-        <div class="container">
-            <span class="page-nav-title">{{ ctaTitle }}</span>
-            <a href="#" id="page-nav-items-toggle"></a>
-            <ul class="page-nav-actions">
-                <li><a href="{{ ctaLink }}" class="btn btn-primary btn-gtm-trk" data-gtm-a="5">Buy Now</a></li>
-            </ul>
-            <ul class="page-nav-items">
-                <li><a href="#nav-target-1" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Materials</a></li>
-                <li><a href="#nav-target-2" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Compare</a></li>
-                <li><a href="#nav-target-3" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Press</a></li>
-            </ul>
-        </div>
-    </nav>
+
+    {% include 'discover-nav', labels:'Features,Materials,Compare,Press' %}
     
     <div class="max-container">
         <div class="hero has-arrow">
@@ -34,7 +22,7 @@
             </div>
         </div>
     </div>
-    
+    <a id="nav-target-1" class="jumptarget"></a>
     <div class="container">
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
@@ -133,28 +121,28 @@
                 </div>
             </div>
         </div>
-        
+        <a id="nav-target-2" class="jumptarget"></a>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">                    
                 <div class="section-heading">
-                    <h2 class="title"><a id="nav-target-1" class="jumptarget"></a>Lightweight</h2>
+                    <h2 class="title">Lightweight</h2>
                     <p class="description">Crafted from materials that balance durability with comfort to make your trip easy on the back and shoulders.</p>
                 </div>
                 
             </div>
         </div>
-
+        
         {% include 'discover-materials' %}
         
     </div>
 
-    <a id="nav-target-2" class="jumptarget"></a>
-
+    
+    <a id="nav-target-3" class="jumptarget"></a>
     <div class="mb-large">
         {% include 'discover-catalina-compare' %}
     </div>
 
-    <a id="nav-target-3" class="jumptarget"></a>
+    <a id="nav-target-4" class="jumptarget"></a>
     <div class="container pr-items animate" {{ animateFadeInUp }}>
         <div class="section-heading">
             <h2 class="title">Traveler Approved</h2>

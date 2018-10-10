@@ -18,6 +18,7 @@ var reported100 = false;
 
 LS.tabletBreakpoint = 768;
 LS.desktopBreakpoint = 1025;
+LS.largeBreakpoint = 1400;
 LS.galleries = [];
 
 LS.reportVideoProgress = function(currentTime, duration){

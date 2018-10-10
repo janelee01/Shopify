@@ -52,7 +52,7 @@ $(document).ready(function(){
 		var $nav = $('.page-nav .items');
 		var $bar = $nav.find('.active-bar');
 		var $active = $nav.find('.active');
-		var barOffset = $(window).width() >= LS.desktopBreakpoint ? 20 : 11; // margins on the nav items
+		var barOffset = $(window).width() >= LS.largeBreakpoint ? 20 : 11; // margins on the nav items
 		$bar.css({
 			'left': $active.position().left + barOffset, 
 			'width': $active.outerWidth()
