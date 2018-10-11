@@ -38,7 +38,7 @@
 
 	    <div class="animate" {{ animateFadeInUp }}>
 	        <div class="row topic-block">
-	            <div class="col-sm-6">                    
+	            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">                    
 	                <div class="fw-xs">
 	                    <div class="inline-video ratio-9-16 product-video" id="seville-inlined-1">
 	                        <div class="embed-container"
@@ -56,7 +56,7 @@
 	                    <p class="description">Transform your bag seamlessly without having to unpack everything. The entire interior organizer slips out of one shell and into another in under a minute.</p>
 	                </div>
 	            </div>
-	            <div class="col-sm-6">                    
+	            <div class="col-sm-5 col-md-6">                    
 	                {% include 'discover-picture', name: 'seville-2-in-1', alt: 'Seville on luggage', retina: true, fw: true, lg: true %}
 	                <div class="topic-content">
 	                    <h3 class="title">Lightweight Travel Shell Included</h3>
@@ -78,7 +78,7 @@
 		</div>
 
 		<div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-			<div class="col-sm-6">
+			<div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
 				{% include 'discover-picture', name: 'seville-organized-1', alt: 'Seville padded laptop sleeve', retina: true, fw: false, lg: true %}
 			</div>
 			<div class="col-sm-5 content-col">
@@ -89,7 +89,7 @@
 			</div>
 		</div>
 		<div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-			<div class="col-sm-6">
+			<div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
 				{% include 'discover-picture', name: 'seville-organized-2', alt: 'Seville interior pockets', retina: true, fw: false, lg: true %}
 			</div>
 			<div class="col-sm-5 content-col">
@@ -100,7 +100,7 @@
 			</div>
 		</div>
 		<div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-			<div class="col-sm-6">
+			<div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
 				{% include 'discover-picture', name: 'seville-organized-3', alt: 'Seville key leash', retina: true, fw: false, lg: true %}
 			</div>
 			<div class="col-sm-5 content-col">
@@ -111,7 +111,7 @@
 			</div>
 		</div>
 		<div class="row topic-block animate aligned-sm mb-negate-xs" {{ animateFadeInUp }}>
-			<div class="col-sm-6">
+			<div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
 				{% include 'discover-picture', name: 'seville-organized-4', alt: 'Seville zipper closure', retina: true, fw: false, lg: true %}
 			</div>
 			<div class="col-sm-5 content-col">
@@ -150,8 +150,10 @@
 		</div>
 		
 		<div class="animate" {{ animateFadeInUp }}>
-			{% include 'discover-picture', name: 'seville-saffiano', alt: 'Seville saffiano leather', retina: true, fw: true, lg: true %}
 			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+					{% include 'discover-picture', name: 'seville-saffiano', alt: 'Seville saffiano leather', retina: true, fw: true, lg: true %}
+				</div>
 				<div class="col-sm-8 col-sm-offset-2">
 					<div class="topic-content text-center">
 					    <h3 class="title">Saffiano Leather Exterior</h3>
@@ -163,30 +165,33 @@
 		<div class="animate" {{ animateFadeInUp }}>
 			<style>
 			#comparison figure{
-				background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-smooth-xs.jpg?2031193603981326058');
+				background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-smooth-xs.jpg?3168812252590863496');
 			}
 			#comparison-divisor{
-				background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-wrinkled-xs.jpg?2031193603981326058');
+				background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-wrinkled-xs.jpg?3168812252590863496');
 			}
 			@media (min-width: {{screenSm}}) {
 				#comparison figure{
-					background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-smooth.jpg?12380852301277665447');
+					background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-smooth.jpg?3168812252590863496');
 				}
 				#comparison-divisor{
-					background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-wrinkled.jpg?12380852301277665447');
+					background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-wrinkled.jpg?3168812252590863496');
 				}
 			}
 			</style>
-			<div class="fw-xs">
-				<div id="comparison">
-					<figure>
-						<div id="comparison-handle"></div>
-						<div id="comparison-divisor"></div>
-					</figure>
-					<input type="range" min="0" max="100" value="50" id="comparison-slider" oninput="moveDivisor()">
-				</div>
-			</div>
+			
 			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+					<div class="fw-xs">
+						<div id="comparison">
+							<figure>
+								<div id="comparison-handle"></div>
+								<div id="comparison-divisor"></div>
+							</figure>
+							<input type="range" min="0" max="100" value="50" id="comparison-slider" oninput="moveDivisor()">
+						</div>
+					</div>
+				</div>
 				<div class="col-sm-8 col-sm-offset-2">
 					<div class="topic-content text-center">
 					    <h3 class="title">Memory Yarn</h3>
@@ -196,8 +201,10 @@
 			</div>
 		</div>
 		<div class="animate" {{ animateFadeInUp }}>
-			{% include 'discover-picture', name: 'seville-jacquard', alt: 'Seville jacquard lining', retina: true, fw: true, lg: true %}
 			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+					{% include 'discover-picture', name: 'seville-jacquard', alt: 'Seville jacquard lining', retina: true, fw: true, lg: true %}
+				</div>
 				<div class="col-sm-8 col-sm-offset-2">
 					<div class="topic-content text-center">
 					    <h3 class="title">Signature Jacquard Lining</h3>
@@ -207,8 +214,10 @@
 			</div>
 		</div>
 		<div class="animate" {{ animateFadeInUp }}>
-			{% include 'discover-picture', name: 'seville-buttons', alt: 'Seville Italian buttons', retina: true, fw: true, lg: true %}
 			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+					{% include 'discover-picture', name: 'seville-buttons', alt: 'Seville Italian buttons', retina: true, fw: true, lg: true %}
+				</div>
 				<div class="col-sm-8 col-sm-offset-2">
 					<div class="topic-content text-center">
 					    <h3 class="title">Italian Buttons</h3>
@@ -231,12 +240,12 @@
 		
 	    <div class="animate" {{ animateFadeInUp }}>
 	        <div class="row">
-	            <div class="col-sm-6"> 
+	            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0"> 
 	            	<div class="mb-gutter">
 	            		{% include 'discover-picture', name: 'seville-included-1', alt: 'Seville shell included with purchase', retina: true, fw: false, lg: true %}
 	            	</div>
 	            </div>
-	            <div class="col-sm-6">                    
+	            <div class="col-sm-5 col-md-6">                    
 	                {% include 'discover-picture', name: 'seville-included-2', alt: 'Seville dust bag', retina: true, fw: false, lg: true %}
 	            </div>
 	        </div>
@@ -268,8 +277,8 @@
 		            <h3 class="title">Seville Tote</h3>
 		            <p class="description">$398 - $448</p>
 		            <div class="btn-set">
-		               <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="1" href="#">View colors &amp; sizes</a>
-		               <a class="btn btn-gtm-trk" data-gtm-a="1" href="#">Buy now</a>
+		               <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="1" href="/products/seville-tote-saffiano-leather-black-gold-grey">View colors &amp; sizes</a>
+		               <a class="btn btn-gtm-trk" data-gtm-a="1" href="/products/seville-tote-saffiano-leather-black-gold-grey">Buy now</a>
 		            </div>
 		        </div>
 		    </div>
@@ -283,8 +292,8 @@
 		            <h3 class="title">Seville Shell</h3>
 		            <p class="description">$168 - $228</p>
 		            <div class="btn-set">
-		               <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="1" href="#">View colors &amp; sizes</a>
-		               <a class="btn btn-gtm-trk" data-gtm-a="1" href="#">Buy now</a>
+		               <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="1" href="/products/seville-shell-saffiano-leather-white-gold-black">View colors &amp; sizes</a>
+		               <a class="btn btn-gtm-trk" data-gtm-a="1" href="/products/seville-shell-saffiano-leather-white-gold-black">Buy now</a>
 		            </div>
 		        </div>
 		    </div>
