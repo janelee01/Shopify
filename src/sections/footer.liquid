@@ -10,7 +10,7 @@
 </div>
 <footer id="site-footer">
   <div class="container">
-    <div class="row">
+
       <img src="{{'ls-logo.svg' | asset_url }}" width="60" alt="{{ shop.name }}" id="footer-logo" />
       <div id="footer-menus">
         <nav class="footer-menu">
@@ -57,26 +57,36 @@
           </ul>
         </nav>
       </div>
-    </div>
+
   </div>
   <div id="colophon">
     <div class="container">
-      <p id="copyright">&copy;{{ 'now' | date: "%Y" }}. {{ shop.name }}. All rights reserved.</p>
-      <ul class="menu social-menu">
-        {% for social in social_accounts %}
-          {%- assign social_handle = social | handleize -%}
-          {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
-          {% capture social_icon %}logo-{{ social_handle }}.svg{% endcapture %}
-          {% if settings[social_link] != blank %}
-            <li>
-              <a href="{{ settings[social_link] }}" target="_blank">
-                {{social_icon | asset_url | img_tag }}
-                <span class="sr-only">{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}</span>
-              </a>
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+      <div class="row">
+        <div class="col-md-6 col-md-push-6">
+          <ul class="menu contact-menu">
+            <li><a id="contact-menu-email" href="mailto:info@loandsons.com">Email</a></li>
+            <li><a id="contact-menu-message" href="javascript:void(0);" onclick="olark('api.box.expand')">Chat</a></li>
+          </ul>
+        </div>
+        <ul class="menu social-menu">
+          {% for social in social_accounts %}
+            {%- assign social_handle = social | handleize -%}
+            {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+            {% capture social_icon %}logo-{{ social_handle }}.svg{% endcapture %}
+            {% if settings[social_link] != blank %}
+              <li>
+                <a href="{{ settings[social_link] }}" target="_blank">
+                  {{social_icon | asset_url | img_tag }}
+                  <span class="sr-only">{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}</span>
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        <div class="col-md-6 col-md-pull-6">
+          <p id="copyright">&copy;{{ 'now' | date: "%Y" }}. {{ shop.name }}. All rights reserved.</p>
+        </div>
+      </div>
     </div>
   </div>
 </footer>

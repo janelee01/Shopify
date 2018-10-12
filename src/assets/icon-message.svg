@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="77px" height="74px" viewBox="0 0 77 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-speech</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="22" y="28" width="27" height="3" rx="1.5"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-speech" transform="translate(2.000000, 2.000000)">
+            <path d="M34.8363106,70 C43.5270999,70 51.4745873,66.8025927 57.5769727,61.5147555 C59.9725543,59.4389368 71.0793193,65.9713319 72.8395586,63.3181818 C74.2062915,61.2581508 66.365891,50.1139146 67.2782089,47.7775491 C68.8239033,43.8191626 69.6726212,39.5091614 69.6726212,35 C69.6726212,15.6700338 54.0758737,0 34.8363106,0 C15.5967475,0 0,15.6700338 0,35 C0,54.3299662 15.5967475,70 34.8363106,70 Z" id="Oval-4" stroke="#979797" stroke-width="4"></path>
+            <g id="Rectangle-4">
+                <use fill="#979797" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <use stroke="#979797" stroke-width="1" xlink:href="#path-1"></use>
+                <use stroke="#979797" stroke-width="2" xlink:href="#path-1"></use>
+            </g>
+            <rect id="Rectangle-4-Copy" stroke="#979797" stroke-width="2" fill="#979797" x="22" y="39" width="17" height="3" rx="1.5"></rect>
+        </g>
+    </g>
+</svg>

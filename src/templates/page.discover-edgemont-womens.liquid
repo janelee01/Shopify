@@ -7,20 +7,8 @@
 {%- assign ctaImg = 'edgemont-cta' -%}
 
 <article class="discover">
-    <nav class="page-nav theme-light has-button">
-        <div class="container">
-            <span class="page-nav-title">Edgemont</span>
-            <a href="#" id="page-nav-items-toggle"></a>
-            <ul class="page-nav-actions">
-                <li><a href="/products/edgemont-600d-recycled-poly-onyx" class="btn btn-primary btn-gtm-trk" data-gtm-a="5">Buy Now</a></li>
-            </ul>
-            <ul class="page-nav-items">
-                <li><a href="#nav-target-1" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Features</a></li>
-                <li><a href="#nav-target-2" class="page-nav-item btn-gtm-trk" data-gtm-a="4">See What Fits Inside</a></li>
-                <li><a href="#nav-target-3" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Materials</a></li>
-            </ul>
-        </div>
-    </nav>
+
+    {% include 'discover-nav', labels:'Features,See What Fits Inside,Materials' %}
 
     <div class="max-container">
         <div class="hero has-arrow" id="edgemont-hero">
@@ -54,11 +42,11 @@
                 </div>
             </div>
         </div>
-
+<a id="nav-target-1" class="jumptarget"></a>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">                    
                 <div class="section-heading">
-                  <h2 class="title"><a id="nav-target-1" class="jumptarget"></a>Ultimate Versatility</h2>
+                  <h2 class="title">Ultimate Versatility</h2>
                   <p class="description">Thoughtfully designed with features that make it adaptable to any situation.</p>
                 </div>
             </div>

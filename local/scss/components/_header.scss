@@ -12,11 +12,6 @@
 		@include headerShadow;
 	}
 }
-body.has-local-nav{
-	#site-header.after-scroll{
-		box-shadow: none; // local nav will get the shadow
-	}
-}
 #site-header-items{
 	background: #FFF;
 	padding-bottom:12px;
@@ -106,7 +101,7 @@ body.has-tw-header{
 	top: 50%;
 	transform: translateY(-50%);
 	padding-left: 0;
-	@media (min-width: $screen-md) {
+	@media (min-width: $screen-sm) {
 		left: $grid-gutter-width/2;
 	}
 	.icon-bar{
@@ -133,7 +128,7 @@ body.has-tw-header{
 	right: $mobile-gutter;
 	top: 50%;
 	transform: translateY(-50%);
-	@media (min-width: $screen-md) {
+	@media (min-width: $screen-sm) {
 		right: $grid-gutter-width/2;
 	}
 	&:hover{

@@ -9,21 +9,8 @@
 {%- assign ctaImg = 'waverley-cta' -%}
 
 <article class="discover">
-    <nav class="page-nav theme-light has-button">
-        <div class="container">
-            <span class="page-nav-title">{{ ctaTitle }}</span>
-            <a href="#" id="page-nav-items-toggle"></a>
-            <ul class="page-nav-actions">
-                <li><a href="{{ ctaLink }}" class="btn btn-primary btn-gtm-trk" data-gtm-a="5">Buy Now</a></li>
-            </ul>
-            <ul class="page-nav-items">
-                <li><a href="#nav-target-1" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Convertibility</a></li>
-                <li><a href="#nav-target-2" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Organization</a></li>
-                <li><a href="#nav-target-3" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Materials</a></li>
-                <li><a href="#nav-target-4" class="page-nav-item btn-gtm-trk" data-gtm-a="4">Press</a></li>
-            </ul>
-        </div>
-    </nav> 
+
+    {% include 'discover-nav', labels:'Convertibility,Organization,Materials,Press' %}
     
     <div class="max-container">
         <div class="hero has-arrow">
@@ -39,17 +26,17 @@
     </div>
     
     <div class="container">
-        <div class="row animate mb-large" {{ animateFadeInUp }}>
+        <div class="row animate mb-large" {{ animateZoomIn }}>
             <div class="col-sm-10 col-sm-offset-1">
                 {% include 'discover-picture', name: 'waverley-product-photo', alt: 'Waverley product shot', retina: true, fw: false %}
             </div>
         </div>
-
+<a id="nav-target-1" class="jumptarget"></a>
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">                    
                     <div class="section-heading">
-                        <h2 class="title"><a id="nav-target-1" class="jumptarget"></a>Wear it 4 Ways</h2>
+                        <h2 class="title">Wear it 4 Ways</h2>
                         <p class="description">Convert the Waverley from a belt bag to a crossbody, shoulder bag, or a wristlet.</p>
                     </div>
                 </div>
@@ -103,12 +90,12 @@
                 </div>
             </div>
         </div>
-
+<a id="nav-target-2" class="jumptarget"></a>
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">                    
                     <div class="section-heading">
-                        <h2 class="title"><a id="nav-target-2" class="jumptarget"></a>Easy Access</h2>
+                        <h2 class="title">Easy Access</h2>
                         <p class="description">The Waverley keep your most essential items neatly organized on the road.</p>
                     </div>
                 </div>
@@ -153,11 +140,11 @@
     </div>
 
     <div class="container">
-
+<a id="nav-target-3" class="jumptarget"></a>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-6 col-sm-offset-3">                    
                 <div class="section-heading">
-                    <h2 class="title"><a id="nav-target-3" class="jumptarget"></a>Premium Materials</h2>
+                    <h2 class="title">Premium Materials</h2>
                     <p class="description">Designed with thoughtful details and crafted from world class materials.</p>
                 </div>
             </div>
@@ -181,10 +168,10 @@
         </div>
         
     </div>
-
+<a id="nav-target-4" class="jumptarget"></a>
     <div class="container pr-items animate mb-default" {{ animateFadeInUp }}>
         <div class="section-heading">
-            <h2 class="title"><a id="nav-target-4" class="jumptarget"></a>Traveler Approved</h2>
+            <h2 class="title">Traveler Approved</h2>
         </div>
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">

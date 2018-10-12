@@ -1,7 +1,7 @@
 .support{
-	padding-top: $local-nav-height-xs;
+	padding-top: $page-nav-height-xs + $grid-gutter-width;
 	@media (min-width: $screen-md) {
-		padding-top: $local-nav-height;
+		padding-top: $page-nav-height + 80px;
 	}
 	nav.local{
 		.active-bar{
@@ -9,16 +9,17 @@
 		}
 	}
 	.local-nav-section{
-		padding: 50px 0 44px;
+		padding-bottom:  44px;
+		margin-bottom: $grid-gutter-width;
 		@include clearfix;
-		display: none;
-		&.active{
-			display: block;
-		}
+		// display: none;
+		// &.active{
+		// 	display: block;
+		// }
 		@media (min-width: $screen-md) {
-			padding: 80px 0 72px;
+			padding-bottom: 72px;
 			border-bottom: solid 1px #e6e6e6;
-			display: block;
+			margin-bottom: 80px;
 		}
 		&:last-child{
 			border: 0;
@@ -59,14 +60,14 @@
 			}
 		}
 	}
-	.jumptarget:before{
-		height: $ls-navbar-height-xs + $local-nav-height-xs;
-		margin: -($ls-navbar-height-xs + $local-nav-height-xs) 0 0;
-		@media (min-width: $screen-md) {
-			height: $ls-navbar-height + $local-nav-height;
-			margin: -($ls-navbar-height + $local-nav-height) 0 0;
-		}
-	}
+	// .jumptarget:before{
+	// 	height: $ls-navbar-height-xs + $local-nav-height-xs;
+	// 	margin: -($ls-navbar-height-xs + $local-nav-height-xs) 0 0;
+	// 	@media (min-width: $screen-md) {
+	// 		height: $ls-navbar-height + $local-nav-height;
+	// 		margin: -($ls-navbar-height + $local-nav-height) 0 0;
+	// 	}
+	// }
 }
 .contact-method{
 	margin-bottom: 35px;
