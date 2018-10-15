@@ -1,3 +1,5 @@
+{%- assign social_accounts = 'Facebook, Twitter, Instagram, Pinterest' | split: ', ' -%}
+
 <div class="container">
   <form id="newsletter-signup">
     <label for="signup-email">Sign up for emails &amp; get 15% off your first order. <small>*only applies to full-price items</small></label>
@@ -39,22 +41,7 @@
         </nav>
         <nav class="footer-menu">
           <h2 class="menu-title">Connect</h2>
-          {%- assign social_accounts = 'Facebook, Twitter, Instagram, Pinterest' | split: ', ' -%}
-          <ul class="menu social-menu">
-            {% for social in social_accounts %}
-              {%- assign social_handle = social | handleize -%}
-              {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
-              {% capture social_icon %}logo-{{ social_handle }}.svg{% endcapture %}
-              {% if settings[social_link] != blank %}
-                <li>
-                  <a class="footer-menu-item" href="{{ settings[social_link] }}" target="_blank" rel="nofollow noreferrer">
-                    {{social_icon | asset_url | img_tag }}
-                    <span class="sr-only">{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}</span>
-                  </a>
-                </li>
-              {% endif %}
-            {% endfor %}
-          </ul>
+          {% include 'connect-menus' %}
         </nav>
       </div>
 
@@ -63,26 +50,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-push-6">
-          <ul class="menu contact-menu">
-            <li><a id="contact-menu-email" href="mailto:info@loandsons.com">Email</a></li>
-            <li><a id="contact-menu-message" href="javascript:void(0);" onclick="olark('api.box.expand')">Chat</a></li>
-          </ul>
+          {% include 'connect-menus' %}
         </div>
-        <ul class="menu social-menu">
-          {% for social in social_accounts %}
-            {%- assign social_handle = social | handleize -%}
-            {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
-            {% capture social_icon %}logo-{{ social_handle }}.svg{% endcapture %}
-            {% if settings[social_link] != blank %}
-              <li>
-                <a href="{{ settings[social_link] }}" target="_blank">
-                  {{social_icon | asset_url | img_tag }}
-                  <span class="sr-only">{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}</span>
-                </a>
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
         <div class="col-md-6 col-md-pull-6">
           <p id="copyright">&copy;{{ 'now' | date: "%Y" }}. {{ shop.name }}. All rights reserved.</p>
         </div>
