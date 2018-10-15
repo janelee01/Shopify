@@ -155,64 +155,48 @@
 		}
 	}
 }
-.social-menu{
-	li{
-		display: inline-block;
-		margin-right: 25px;
-	}
-	a{
-		display: block;
-		height: 18px;
-		background-size: 100% auto;
-		background-position: left center;
-		background-repeat: no-repeat;
-		@media (min-width: $screen-md) {
-			opacity: .65;
-			&:hover{
-				opacity: 1;
-			}
-		}
-	}
-}
-#colophon{
+.connect-menus{
 	@media (min-width: $screen-md) {
-		border-top: solid 1px #F4F4F4;
-		padding: 31px 0;
+		display: flex;
+		flex-direction: column-reverse;
 	}
 	.menu{
 		@include resetList;
-		text-align: center;
-		padding-bottom: 12px;
-		@media (min-width: $screen-md) {
-			padding-bottom: 0;
-			text-align: right;
-		}
-		li{
-			margin: 0 10px;
-			display: inline-block;
-		}
-	}
-	.social-menu{
-		opacity: .4;
 		padding-bottom: 18px;
-		@media (min-width: $screen-md) {
-			display: none;
-		}
-	}
-	.contact-menu{
 		li{
+			display: inline-block;
+			margin: 0 10px;
 			@media (min-width: $screen-md) {
-				margin: 0 0 0 20px;
+				margin: 0 25px 0 0;
 			}
 		}
 		a{
 			display: block;
-			padding: 4px 0 4px 25px;
+			line-height: $line-height-base;
+		}
+	}
+
+	.social-menu{
+		opacity: .4;
+		@media (min-width: $screen-md) {
+			opacity: 1;
+		}
+		a{
+			@media (min-width: $screen-md) {
+				opacity: .65;
+				&:hover{
+					opacity: 1;
+				}
+			}
+		}
+	}
+	.contact-menu{
+		a{
+			padding: 0 0 0 25px;
 			color: $gray-darker;
-			background: url('icon-message.svg') no-repeat left center;
+			background: no-repeat left center;
 			background-size: 20px auto;
 			@media (min-width: $screen-md) {
-				padding: 0 0 0 25px;
 				color: $gray;
 				&:hover{
 					color: $gray-darker;
@@ -220,10 +204,23 @@
 				}
 			}
 		}
-		#contact-menu-email{
+		[contact-menu-message]{
+			background-image: url('icon-message.svg');
+		}
+		[contact-menu-email]{
 			background-image: url('icon-email-v3.svg');
 		}
 	} 
+}
+
+#colophon{
+	@media (min-width: $screen-md) {
+		border-top: solid 1px #F4F4F4;
+		padding: 31px 0;
+		.connect-menus{
+			display: none;
+		}
+	}
 }
 #copyright{
 	font-family: $font-family-sans-serif;
