@@ -47,28 +47,13 @@ body.has-tw-header{
 			background-color: #fff;
 		}
 		#site-logo {
-			background-image: url(ls-logo-white.svg);
+			background-image: url(lo-and-sons-white.svg);
 		}
 		.cart-link{
-			&:hover{
-				.cart-count{
-					border-color: $brand-blue;
-					color: $brand-blue; 
-				}
-				.cart-icon{
-					background-position: right 4px;
-				}
-			}
-			&.empty{
-				.cart-count{
-					color: #fff;
-				}
-			}
 			.cart-icon{
-				background-position: left -29px;
+				background-image: url('icon-cart-v2-white.svg');
 			}
 			.cart-count{
-				border-color: #fff;
 				color: #fff;
 			}
 		}
@@ -78,15 +63,15 @@ body.has-tw-header{
 #site-logo {
 	@include text-hide;
 	overflow:hidden;
-	background: url(ls-logo.svg) no-repeat transparent center center;
-	@include size(52px, 30px);
-	background-size: 52px auto;
+	background: url(lo-and-sons.svg) no-repeat transparent center center;
+	@include size(182px, 20px);
+	background-size: auto 12px;
 	margin:0 auto;
 	padding:0;
 	display: block;
 	@media only screen and (min-width: $screen-md) {
-		@include size(70px, $ls-navbar-height);
-		background-size: auto 36px;
+		height: $ls-navbar-height;
+		background-size: auto 16px;
 	    position: relative;
 	    z-index: 10;
 	}
@@ -115,53 +100,42 @@ body.has-tw-header{
 	&:focus{
 		background: none;
 	}
-	&:focus{
-		.icon-bar{
-			background-color: $brand-blue;
-		}
-	}
+// &:focus{
+// 	.icon-bar{
+// 		background-color: $brand-blue;
+// 	}
+// }
 }
 
 .cart-link{
-	display: block;
+	display: flex;
+	align-items: center;
 	position: absolute;
 	right: $mobile-gutter;
 	top: 50%;
 	transform: translateY(-50%);
+	color: $brand-black;
+	height: 30px;
 	@media (min-width: $screen-sm) {
 		right: $grid-gutter-width/2;
 	}
 	&:hover{
 		text-decoration: none;
-		.cart-count{
-			border-color: $brand-blue;
-		}
-		.cart-icon{
-			background-position: right 4px;
-		}
+		color: $brand-black;
 	}
 	&.empty{
 		.cart-count{
-			color: $brand-black;
+			display: none;
 		}
 	}
 	.cart-icon{
-		display: inline-block;
-		width: 19px;
-		height: 32px;
-		background: url('sprite-icon-cart-v5.svg') no-repeat left 4px;
-		background-size: 38px auto;
-		vertical-align: middle;
+		display: block;
+		width: 16px;
+		height: 100%;
+		background: url('icon-cart-v2.svg') no-repeat left center;
+		background-size: 100% auto;
 	}
 	.cart-count{
-		display: inline-block;
-		width: 32px;
-		height: 32px;
-		border-radius: 50%;
-		border: solid 1px $brand-black;
-		color: $brand-blue;
-		margin-left: 10px;
-		line-height: 29px;
-		vertical-align: middle;
+		margin-left: 5px;
 	}
 }
