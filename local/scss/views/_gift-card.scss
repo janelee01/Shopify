@@ -1,0 +1,64 @@
+/*
+Product view
+ */
+.giftcard{
+	background: $gray-lightest;
+	padding: $mobile-gutter 0;
+	color: $gray;
+	@media (min-width: $screen-sm) {
+		padding: 44px 0;
+	}
+	@media (min-width: $screen-md) {
+		padding: 100px 0;
+	}
+	@media (min-width: $screen-lg) {
+		padding: 120px 0;
+	}
+	.description{
+		text-align: center;
+		@media (min-width: $screen-md) {
+			text-align: left;
+		}
+	}
+	[data-product-featured-image]{
+		@include mb('sm'); 
+	}
+}
+/*
+Recipient LP
+ */
+ main.giftcard{
+ 	.description{
+ 		text-align: center;
+ 	}	
+ 	h1, .h1{
+ 		font-family: $font-family-medium;
+ 	}
+ }
+.giftcard-code{
+	background: $gray-lightest;
+	.giftcard__code{
+		font-size: 1.2em;
+		font-family: $font-family-medium;
+		cursor: pointer;
+		color: $text-color;
+		@media (min-width: $screen-sm) {
+			font-size: 1.5em;
+		}
+	}
+	small{
+		display: block;
+		color: $gray;
+	}
+}
+.giftcard-balance{
+	font-size: 1.2em;
+	color: $text-color;
+}
+.giftcard-qr{
+	display: none;
+	img{
+		margin-left: auto;
+		margin-right: auto;	
+	}
+}

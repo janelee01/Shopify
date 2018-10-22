@@ -8,7 +8,8 @@
   var config = {
     qrCode: '#QrCode',
     printButton: '#PrintGiftCard',
-    giftCardCode: '.giftcard__code'
+    giftCardCode: '.giftcard__code',
+    instructions: '.giftcard__instructions'
   };
 
   var $qrCode = $(config.qrCode);
@@ -40,6 +41,9 @@
       range.selectNodeContents(text);
       selection.removeAllRanges();
       selection.addRange(range);
+    }
+    if( document.execCommand("copy") ){
+      $(config.instructions).text('Copied!');
     }
   }
 })();

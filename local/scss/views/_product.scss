@@ -291,6 +291,9 @@
 		margin-bottom: 10px;
 	}
 }
+.variant-buttons{
+	font-size: 0; // removes extra whitespace betwen buttons
+}
 #current-option{
 	margin-bottom: 25px;
 	padding-bottom: 16px;

@@ -258,7 +258,7 @@
 			"on_sale_from_html": "{{ price }}",
 			"from_text_html": "{{ price }}",
 			"quantity": "Quantity",
-			"add_to_cart": "Add to Cart"
+			"add_to_cart": "Add to cart"
 		},
 		"waitlist": {
 			"title": "Join waitlist",
@@ -273,13 +273,13 @@
 	},
 	"gift_cards": {
 		"issued": {
-			"title": "Here's your {{ value }} gift card for {{ shop }}!",
+			"title": "Digital Gift Card",
 			"subtext": "Here's your gift card!",
 			"disabled": "Disabled",
 			"expired": "Expired on {{ expiry }}",
 			"active": "Expires on {{ expiry }}",
-			"redeem": "Use the code below at checkout to redeem your gift card:",
-			"shop_link": "Start shopping",
+			"redeem": "Use this code at checkout to redeem your digital gift card.",
+			"shop_link": "Shop now",
 			"print": "Print",
 			"balance": "Balance: {{ balance }}",
 			"remaining_html": "{{ balance }} left",
