@@ -164,7 +164,7 @@
 							<div class="selector-wrapper">
 								{%- unless product.has_only_default_variant -%} 
 									<label for="variant-selector">Size</label>
-									<div id="variant-buttons">
+									<div id="variant-buttons" class="variant-buttons">
 										{%- for variant in product.variants -%}
 											{%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
 												{%- continue -%}

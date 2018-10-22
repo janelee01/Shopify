@@ -154,6 +154,9 @@ body{
 			padding: 0;
 		}
 	}
+	.product__description__property{ // gift card image, passed along to recipient LP
+		display: none;
+	}
 }
 .sidebar:after{
 	background: #f8f8f8;

@@ -1,9 +1,12 @@
 $(document).ready(function(){
+
+	var $variants = $('[data-product-select]');
+
 	var updatePricing = function(siblingId){
 		var selectedVariant;
 		var comparePrice;
 		for (var i = siblingsJson[siblingId].variants.length - 1; i >= 0; i--) {
-			if( siblingsJson[siblingId].variants[i].id == $('[data-product-select]').val() ){
+			if( siblingsJson[siblingId].variants[i].id == $variants.val() ){
 				selectedVariant = siblingsJson[siblingId].variants[i];
 			}
 		};
@@ -32,7 +35,7 @@ $(document).ready(function(){
 	};
 
 	var updateCta = function(){
-		var selectedVariantID = $('[data-product-select]').val();
+		var selectedVariantID = $variants.val();
 		var $addToCartBtn = $('[data-add-to-cart]');
 		var $addToWaitlistBtn = $('[data-add-to-waitlist]');
 		var siblingId = $('.swatch.active').data('sibling');
@@ -58,7 +61,7 @@ $(document).ready(function(){
 		}
 		$('[data-wl-meta]').text(wlMeta.join(' - '));
 
-		var variant = $('[data-product-select]').val();
+		var variant = $variants.val();
 		var wlExpected = variantStockData[variant].restockMessage;
 		if( wlExpected != '' ){
 			$('[data-wl-expected]').text('Expected in stock: ' + wlExpected);
@@ -71,7 +74,7 @@ $(document).ready(function(){
 	var updateDataLayer = function(){
 		var dataLayer = window.dataLayer || [];
 		var selectedSibling = $('.swatch.active').data('sibling');
-		var selectedVariantID = $('[data-product-select]').val();
+		var selectedVariantID = $variants.val();
 		for (var i = 0; i < siblingsJson[selectedSibling].variants.length; i++) {
 			if( siblingsJson[selectedSibling].variants[i].id == selectedVariantID ){
 				dataLayer.push({
@@ -92,7 +95,7 @@ $(document).ready(function(){
 	};
 
 	var updateLowStockWarning = function(){
-		var variant = $('[data-product-select]').val();
+		var variant = $variants.val();
 		var inventoryLevel = variantStockData[variant].stockLevel;
 		var $warning = $('.low-stock-warning');
 		if( inventoryLevel > 0 && inventoryLevel <= 20 ){
@@ -103,7 +106,7 @@ $(document).ready(function(){
 	};
 
 	var updateFinalSaleMessage = function(){
-		var variant = $('[data-product-select]').val();
+		var variant = $variants.val();
 		var $warning = $('.final-sale-warning');
 		if( discontinued.includes(variant) ){
 			$warning.addClass('shown');
@@ -111,6 +114,20 @@ $(document).ready(function(){
 			$warning.removeClass('shown')
 		}
 	};
+
+	var getSelectedString = function(){
+		var selectedText = [];
+		$('.variant-option').each(function(){
+			if( $(this).hasClass('selected') ){ // selected status get set in swatches.js
+				selectedText.push($(this).text().trim());
+			}
+		});
+		return selectedText.join(' / ');
+	}
+
+	if( $('[data-product-json]').length ){
+		var productJson = JSON.parse($('[data-product-json]').text().trim());	
+	}
 
 	// on page load
 	if( $('body').hasClass('template-product') ){
@@ -134,10 +151,10 @@ $(document).ready(function(){
 	    // replace options in our Size selector. hard coded for single option variants
 	    var newVariants = siblingsJson[siblingId].variants;
 	    $('#variant-buttons').html('');
-	    $('[data-product-select]').html('');
+	    $variants.html('');
 	    for (var i = 0; i <= newVariants.length - 1; i++) {
 	    	// build our hidden select
-	    	$('[data-product-select]').append('<option value="'+newVariants[i].id+'">'+newVariants[i].title+'</option>');
+	    	$variants.append('<option value="'+newVariants[i].id+'">'+newVariants[i].title+'</option>');
 
 	    	// build our buttons, hiding some based on their out-of-stock-policy metafield
 	    	if( hiddenVariants.indexOf(newVariants[i].id) == -1 ){
@@ -215,33 +232,51 @@ $(document).ready(function(){
 	    updateFinalSaleMessage();
 
 	});
-
+	
+	
 	$('body').on('click', '.variant-option', function(e){
 	    e.preventDefault();
 	    var $btn = $(this);
-	    $('#variant-buttons .validation-error').remove();
-	    $('.variant-option').removeClass('selected');
+	    $('.variant-buttons .validation-error').remove();
+	    $btn.closest('.variant-buttons').find('.variant-option').removeClass('selected');
 	    $btn.addClass('selected');
-	    $('[data-product-select] option').each(function(){
-	    	if( $(this).text().trim() == $btn.text() ){
-	    		$('[data-product-select]').val($(this).attr('value'));
-	    		$('[data-product-select]').trigger('change');
-	    	}
-	    });
-	    $('#wl-variant').val($('[data-product-select]').val());
-	    updateCta();
-	    updateDataLayer();
-	    updateWaitlistMeta();
-	    updateLowStockWarning();
-	    updateFinalSaleMessage();
+	   	if( !$(this).hasClass('gc-option') ){ // size attributes
+		    $variants.find('option').each(function(){
+		    	if( $(this).text().trim() == $btn.text() ){
+		    		$variants.val($(this).attr('value'));
+		    		$variants.trigger('change');
+		    	}
+		    });
+	    	$('#wl-variant').val($variants.val());
+	    	updateCta();
+	    	updateDataLayer();
+	    	updateWaitlistMeta();
+	    	updateLowStockWarning();
+	    	updateFinalSaleMessage();
+	    }else{ // gift card options
+    	    var selectedString = getSelectedString();
+    		$variants.find('option').each(function(){
+    			if( $(this).text().trim() == selectedString ){
+    				$variants.val($(this).attr('value'));
+    			}
+    		});  
+    		// update the featured image and hidden image field
+    		for (var i = 0; i < productJson.variants.length; i++) {
+    			if( productJson.variants[i].id == $variants.val() ){
+    				var variantImage = productJson.variants[i].featured_image.src;
+    				$('[data-product-featured-image]').attr('src', variantImage); 		
+    				$('[data-variant-image]').val(variantImage); 		
+    			}
+    		};
+	    }
 	});
 
-	$('[data-product-select]').on('change', function(){
+	$variants.on('change', function(){
 		updatePricing($('.swatch.active').data('sibling'));
 	});
 
 	$('[data-add-to-cart]').on('click', function(e){
-	    if( !$('[data-product-select]').val() ){
+	    if( !$variants.val() ){
 	    	$('#variant-buttons').append('<div class="validation-error">Please select a size</div>');
 	    	return false;
 	    }

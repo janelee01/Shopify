@@ -82,11 +82,12 @@
 	}
 	&.variant-option{
 		padding: 12px 26px 11px;
-		margin-right: 10px;
+		margin: 0 10px 10px 0;
 		font-size: 15px;
 		color: $gray;
 		border-color: #e6e6e6;
 		font-family: $font-family-base;
+		background: #FFF;
 		&.selected{
 			border-color: $brand-blue;
 			color: $brand-blue;

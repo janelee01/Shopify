@@ -67,17 +67,24 @@
         var formatProductNames = function(){
           $('.product__description__name').each(function(){
             var name = $(this).text();
-            var nameParts = name.split(' - ');
-            var variant = String($(this).closest('.product').data('variant-id'));
-            $(this).text(nameParts[0].replace('The ', ''));
-            var options = [nameParts[1], nameParts[2]];
-            if( $(this).next('.product__description__variant').text() != '' ){
-              options.push($(this).next('.product__description__variant').text());
+            if( name.includes('Gift Card') ){
+              var $variantLabel = $(this).next('.product__description__variant');
+              var variantText = $variantLabel.text().split('/');
+              $variantLabel.text(variantText[0].trim());
+            }else{
+              var nameParts = name.split(' - ');
+              var variant = String($(this).closest('.product').data('variant-id'));
+              $(this).text(nameParts[0].replace('The ', ''));
+              var options = [nameParts[1], nameParts[2]];
+              if( $(this).next('.product__description__variant').text() != '' ){
+                options.push($(this).next('.product__description__variant').text());
+              }
+              $(this).next('.product__description__variant').text(options.join(' / '));
+              if( discontinued.includes(variant) ){
+                $('<div class="final-sale-warning shown">{{ "products.product.final_sale_html" | t }}</div>').appendTo($(this).closest('.product__description'));
+              }
             }
-            $(this).next('.product__description__variant').text(options.join(' / '));
-            if( discontinued.includes(variant) ){
-              $('<div class="final-sale-warning shown">{{ "products.product.final_sale_html" | t }}</div>').appendTo($(this).closest('.product__description'));
-            }
+            
           });
           $('table.product-table').addClass('in');
         }
