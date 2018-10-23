@@ -12,12 +12,14 @@
                 </div>
             </div>
             <div class="{{ ctaImgCol }}">
-                <picture>
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-md.jpg?{{ assetVersion }}{% if (retina) %}, https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-md2x.jpg?{{ assetVersion }} 2x{% endif %}" media="(min-width: {{ screenSm }})">
-                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-xs.jpg?{{ assetVersion }}" alt="Shop {{ ctaTitle }}">
-                </picture>
+                <a href="{{ ctaLink }}">
+                    <picture>
+                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-md.jpg?{{ assetVersion }}{% if (retina) %}, https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-md2x.jpg?{{ assetVersion }} 2x{% endif %}" media="(min-width: {{ screenSm }})">
+                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-xs.jpg?{{ assetVersion }}" alt="Shop {{ ctaTitle }}">
+                    </picture>
+                </a>
                 <div class="btn-set hidden-md hidden-lg">
-                    <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">View colors &amp; sizes</a>
+                    <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ ctaLink }}">View colors &amp; sizes</a>
                     <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">Buy now</a>
                 </div>
             </div>

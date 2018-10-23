@@ -15,6 +15,9 @@
             {% unless block.settings.linkText == blank %}
                 <a class="btn{% if block.settings.linkStyle == 'outline' %} btn-secondary{% if block.settings.textColor == 'white' %} inverted{% endif %}{% endif %}" href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
             {% endunless %}
+            {% unless block.settings.linkBText == blank %}
+                <a class="btn{% if block.settings.linkBStyle == 'outline' %} btn-secondary{% if block.settings.textColor == 'white' %} inverted{% endif %}{% endif %}" href="{{ block.settings.linkBUrl }}">{{ block.settings.linkBText }}</a>
+            {% endunless %}
         </div>
     </div>
 </div>

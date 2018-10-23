@@ -192,6 +192,7 @@ $(document).ready(function() {
   // slide the marquee out of the way on scroll
   var $marquee = $('#shopify-section-marquee');
   var trigger = 75;
+  var lastScrollPos = 0;
 
   if( $marquee.is(':visible') ){
   	$('.site-content').css('padding-top', $header.outerHeight() - $pageNav.outerHeight());
@@ -205,20 +206,32 @@ $(document).ready(function() {
   			$pageNav.removeClass('is-shown');
   		}
   	}else{
-  		if( $marquee.is(':visible') && $pageNav.length ){ 
+  		if( $(window).scrollTop() > lastScrollPos ){
+  			// going down
+  			if( $marquee.is(':visible') && $pageNav.length ){ 
+  				$header.css({
+  					'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1,
+  				});
+  			}else if( !$marquee.is(':visible') && $pageNav.length ){
+  				$header.css({
+  					'top' : $('#site-header-items').outerHeight() * -1,
+  				});
+  			}else if( $marquee.is(':visible') ){
+  				$header.css({
+  					'top' : $marquee.outerHeight() * -1,
+  				});
+  			}
+  			window.setTimeout(function(){ // add a delay so the header position change can finish before we animate the fade in (fixes weird flickering)
+  				$pageNav.addClass('is-shown');	
+  			}, 250);
+  		}else{
+  			// going up, show the navbar again, but not the marquee
   			$header.css({
-  				'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1,
-  			});
-  		}else if( !$marquee.is(':visible') && $pageNav.length ){
-  			$header.css({
-  				'top' : $('#site-header-items').outerHeight() * -1,
-  			});
-  		}else if( $marquee.is(':visible') ){
-  			$header.css({
-  				'top' : $marquee.outerHeight() * -1,
+  				'top' : 0 - $marquee.outerHeight(),
   			});
   		}
-  		$pageNav.addClass('is-shown');
+  		lastScrollPos = $(window).scrollTop();
+  		
   	}
   });
 

@@ -3,6 +3,7 @@
     <div class="container">
         <span class="title">{{ ctaTitle }}</span>
         <button id="items-toggle">{{ navLabels[0] }}</button>
+        <span id="price-xs">{{ ctaPrice }}</span>
         <nav class="items">
             {% for label in navLabels %}
             <a href="#nav-target-{{ forloop.index }}" class="btn-gtm-trk {% if forloop.first == true %}active{% endif %}" data-gtm-a="4">{{ label }}</a>
@@ -11,8 +12,9 @@
         </nav>
         {% unless ctaLink == blank %}
         <ul class="actions">
-            <li>{{ ctaPrice }}</li>
-            <li><a href="{{ ctaLink }}" class="btn btn-primary btn-md btn-gtm-trk" data-gtm-a="5">Buy now</a></li>
+            <li id="price-md">{{ ctaPrice }}</li>
+            <li class="hidden-md hidden-lg"><a href="{{ ctaLink }}" class="btn btn-secondary btn-md btn-gtm-trk" data-gtm-a="9">View colors</a></li>
+            <li><a href="{{ ctaLink }}" class="btn btn-md btn-gtm-trk" data-gtm-a="5">Buy now</a></li>
         </ul>
         {% endunless %}
     </div>

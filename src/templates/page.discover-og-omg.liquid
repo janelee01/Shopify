@@ -274,14 +274,16 @@
         </div>
         <div class="row fw-xs cta-block">
             <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-push-6 col-md-offset-0">
-                {% include 'discover-picture', name: 'ogomg-cta', alt: 'O.G. product shot', retina: true, fw: false %}
+                <a class="btn-gtm-trk" data-gtm-a="7" href="{{ ctaLink }}">
+                  {% include 'discover-picture', name: 'ogomg-cta', alt: 'Shop O.G. and O.M.G.', retina: true, fw: false %}
+                </a>
             </div>
             <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-5 col-md-pull-5 col-md-offset-0 content-col">
                 <div class="topic-content">
                     <h3 class="title">{{ ctaTitle }}</h3>
                     <p class="description">{{ ctaPrice }}</p>
                     <div class="btn-set">
-                       <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">View colors &amp; sizes</a>
+                       <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ ctaLink }}">View colors &amp; sizes</a>
                        <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">Buy now</a>
                     </div>
                 </div>

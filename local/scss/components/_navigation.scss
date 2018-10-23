@@ -108,6 +108,7 @@ body.menu-open{
 .page-nav{
 	position: relative;
 	background: #fff;
+	border-top: solid 1px #f4f4f4;
 	opacity: 0;
 	@include transition(all .25s ease-out);
 	&.is-shown{
@@ -230,6 +231,20 @@ body.menu-open{
 			@include fslh(28,28);
 		}
 	}
+	#price-xs{
+		display: block;
+		position: absolute;
+		right: $grid-gutter-width;
+		top: 50%;
+		transform: translateY(-50%);
+		color: $gray;
+		@media (min-width: $screen-sm) {
+			right: $grid-gutter-width/2;
+		}
+		@media (min-width: $screen-md) {
+			display: none;
+		}
+	}
 	.actions{
 		@include resetList;
 		color: $gray;
@@ -239,10 +254,10 @@ body.menu-open{
 		bottom: 0;
 		width: 100%;
 		background: #FFF;
-		padding: 15px $grid-gutter-width;
+		padding: 15px 0;
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: center;
 		@include headerShadow;
 		@media (min-width: $screen-md) {
 			position: absolute;
@@ -260,8 +275,14 @@ body.menu-open{
 		li{
 			display: inline-block;
 			vertical-align: middle;
+			margin: 0 8px;
 			@media (min-width: $screen-md) {
 				margin-left: 18px;
+			}
+			&#price-md{
+				@media (max-width: $screen-sm-max) {
+				    display: none;
+				}
 			}
 		}
 	}
@@ -277,8 +298,13 @@ body.menu-open{
 	border: 0;
 	background: 0;
 	-webkit-appearance: none;
+	// disabled
+	display: none;
 	@media (min-width: $screen-sm) {
 		right: $grid-gutter-width/2;
+	}
+	@media (min-width: $screen-md) {
+		display: none;
 	}
 	&:focus,
 	&:hover{
@@ -302,8 +328,6 @@ body.menu-open{
 			transform: translateY(-50%) rotate(180deg);
 		}
 	}
-	@media (min-width: $screen-md) {
-		display: none;
-	}
+	
 }
 
