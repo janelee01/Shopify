@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="side-scroll">
+        <div class="row">
+            {% unless block.settings.linkA == blank %}
+            <div class="col-xs-3">
+                <article class="entry">
+                  <a href="{{ block.settings.linkA }}">
+                      <div class="entry-image">
+                        <img src="{{ block.settings.imageA | img_url: 'master' }}" alt="">
+                      </div>
+                    <div class="entry-content">
+                      <h3 class="entry-title">
+                        {{ block.settings.titleA }}
+                      </h3>
+                    </div>
+                  </a>
+                </article>
+            </div>
+            {% endunless %}
+            {% unless block.settings.linkB == blank %}
+            <div class="col-xs-3">
+                <article class="entry">
+                  <a href="{{ block.settings.linkB }}">
+                      <div class="entry-image">
+                        <img src="{{ block.settings.imageB | img_url: 'master' }}" alt="">
+                      </div>
+                    <div class="entry-content">
+                      <h3 class="entry-title">
+                        {{ block.settings.titleB }}
+                      </h3>
+                    </div>
+                  </a>
+                </article>
+            </div>
+            {% endunless %}
+            {% unless block.settings.linkC == blank %}
+            <div class="col-xs-3">
+                <article class="entry">
+                  <a href="{{ block.settings.linkC }}">
+                      <div class="entry-image">
+                        <img src="{{ block.settings.imageC | img_url: 'master' }}" alt="">
+                      </div>
+                    <div class="entry-content">
+                      <h3 class="entry-title">
+                        {{ block.settings.titleC }}
+                      </h3>
+                    </div>
+                  </a>
+                </article>
+            </div>
+            {% endunless %}
+            {% unless block.settings.linkD == blank %}
+            <div class="col-xs-3">
+                <article class="entry">
+                  <a href="{{ block.settings.linkD }}">
+                      <div class="entry-image">
+                        <img src="{{ block.settings.imageD | img_url: 'master' }}" alt="">
+                      </div>
+                    <div class="entry-content">
+                      <h3 class="entry-title">
+                        {{ block.settings.titleD }}
+                      </h3>
+                    </div>
+                  </a>
+                </article>
+            </div>
+            {% endunless %}
+        </div> 
+    </div>
+</div>
