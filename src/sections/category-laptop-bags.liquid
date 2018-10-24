@@ -1,6 +1,6 @@
 {% include 'vars' %}
 
-{% for block in section.blocks %}
+{% for block in section.blocks %} 
 	{% case block.type %}
 
 		{% when 'hero' %}
@@ -9,8 +9,14 @@
 		{% when 'lead' %}
 		{% include 'section-heading' %}
 
-		{% when 'product' %}
-		{% include 'category-product' %}
+		{% when 'feature' %}
+		{% include 'feature-single' %}
+
+		{% when 'features' %}
+		{% include 'feature-double' %}
+
+		{% when 'features4' %}
+		{% include 'feature-quadruple' %}
 
 	{% endcase %}
 {% endfor %}
@@ -21,16 +27,16 @@
 	"blocks": [
 		{
 			"type": "lead",
-			"name": "Page Lead",
+			"name": "Section Heading",
 			"settings": [
 				{
-					"id": "title",
 					"type": "text",
+					"id": "title",
 					"label": "Title"
 				},
 				{
-					"id": "description",
 					"type": "text",
+					"id": "description",
 					"label": "Description"
 				},
 				{
@@ -92,29 +98,23 @@
 			]
 		},
 		{
-			"type": "product",
-			"name": "Product",
+			"type": "feature",
+			"name": "Full Width Feature",
 			"settings": [
 				{
-					"id": "image1",
 					"type": "image_picker",
-					"label": "Image 1",
-					"info": "840px by 1120px"
+					"id": "mobileImage",
+					"label": "Mobile Image"
 				},
 				{
-					"id": "image2",
 					"type": "image_picker",
-					"label": "Image 2"
+					"id": "desktopImage",
+					"label": "Desktop Image"
 				},
 				{
-					"id": "image3",
-					"type": "image_picker",
-					"label": "Image 3"
-				},
-				{
-					"id": "image4",
-					"type": "image_picker",
-					"label": "Image 4"
+					"type": "text",
+					"id": "altText",
+					"label": "Alt Text"
 				},
 				{
 					"type": "text",
@@ -128,23 +128,18 @@
 				},
 				{
 					"type": "text",
-					"id": "price",
-					"label": "Price"
-				},
-				{
-					"type": "text",
 					"id": "linkText",
-					"label": "Link A -- Text"
+					"label": "Link A Text"
 				},
 				{
 					"type": "url",
 					"id": "linkUrl",
-					"label": "Link A -- URL"
+					"label": "Link A URL"
 				},
 				{
 					"type": "radio",
 					"id": "linkStyle",
-					"label": "Link A -- Style",
+					"label": "Link A Style",
 					"options": [
 						{ "value": "default", "label": "Default" },
 						{ "value": "outline", "label": "Outline" }
@@ -153,21 +148,269 @@
 				{
 					"type": "text",
 					"id": "linkTextB",
-					"label": "Link B -- Text"
+					"label": "Link B Text"
 				},
 				{
 					"type": "url",
 					"id": "linkUrlB",
-					"label": "Link B -- URL"
+					"label": "Link B URL"
 				},
 				{
 					"type": "radio",
 					"id": "linkStyleB",
-					"label": "Link B -- Style",
+					"label": "Link B Style",
 					"options": [
 						{ "value": "default", "label": "Default" },
 						{ "value": "outline", "label": "Outline" }
 					]
+				},
+				{
+					"type": "radio",
+					"id": "textColor",
+					"label": "Text Color",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "black", "label": "Black" },
+						{ "value": "white", "label": "White" }
+					]
+				}
+			]
+		},
+		{
+			"type": "features",
+			"name": "Half Width Features",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "mobileImageA",
+					"label": "Feature A - Mobile Image"
+				},
+				{
+					"type": "image_picker",
+					"id": "desktopImageA",
+					"label": "Feature A - Desktop Image"
+				},
+				{
+					"type": "text",
+					"id": "altTextA",
+					"label": "Feature A - Alt Text"
+				},
+				{
+					"type": "text",
+					"id": "titleA",
+					"label": "Feature A - Title"
+				},
+				{
+					"type": "text",
+					"id": "descriptionA",
+					"label": "Feature A - Description"
+				},
+				{
+					"type": "text",
+					"id": "linkTextA",
+					"label": "Feature A - Link A Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrlA",
+					"label": "Feature A - Link A URL"
+				},
+				{
+					"type": "radio",
+					"id": "linkStyleA",
+					"label": "Feature A - Link A Style",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "outline", "label": "Outline" }
+					]
+				},
+				{
+					"type": "text",
+					"id": "linkTextAB",
+					"label": "Feature A - Link B Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrlAb",
+					"label": "Feature A - Link B URL"
+				},
+				{
+					"type": "radio",
+					"id": "linkStyleAB",
+					"label": "Feature A - Link B Style",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "outline", "label": "Outline" }
+					]
+				},
+				{
+					"type": "radio",
+					"id": "textColorA",
+					"label": "Feature A - Text Color",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "black", "label": "Black" },
+						{ "value": "white", "label": "White" }
+					]
+				},
+				{
+					"type": "image_picker",
+					"id": "mobileImageB",
+					"label": "Feature B - Mobile Image"
+				},
+				{
+					"type": "image_picker",
+					"id": "desktopImageB",
+					"label": "Feature B - Desktop Image"
+				},
+				{
+					"type": "text",
+					"id": "altTextB",
+					"label": "Feature B - Alt Text"
+				},
+				{
+					"type": "text",
+					"id": "titleB",
+					"label": "Feature B - Title"
+				},
+				{
+					"type": "text",
+					"id": "descriptionB",
+					"label": "Feature B - Description"
+				},
+				{
+					"type": "text",
+					"id": "linkTextB",
+					"label": "Feature B - Link A Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrlB",
+					"label": "Feature B - Link A URL"
+				},
+				{
+					"type": "radio",
+					"id": "linkStyleB",
+					"label": "Feature B - Link A Style",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "outline", "label": "Outline" }
+					]
+				},
+				{
+					"type": "text",
+					"id": "linkTextBB",
+					"label": "Feature B - Link B Text"
+				},
+				{
+					"type": "url",
+					"id": "linkUrlBB",
+					"label": "Feature B - Link B URL"
+				},
+				{
+					"type": "radio",
+					"id": "linkStyleBB",
+					"label": "Feature B - Link B Style",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "outline", "label": "Outline" }
+					]
+				},
+				{
+					"type": "radio",
+					"id": "textColorB",
+					"label": "Feature B - Text Color",
+					"options": [
+						{ "value": "default", "label": "Default" },
+						{ "value": "black", "label": "Black" },
+						{ "value": "white", "label": "White" }
+					]
+				}
+			]
+		},
+		{
+			"type": "features4",
+			"name": "Quarter Width Features",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "imageA",
+					"label": "Feature A - Image"
+				},
+				{
+					"type": "text",
+					"id": "titleA",
+					"label": "Feature A - Title"
+				},
+				{
+					"type": "text",
+					"id": "descriptionA",
+					"label": "Feature A - Description"
+				},
+				{
+					"type": "url",
+					"id": "linkA",
+					"label": "Feature A - Link"
+				},
+				{
+					"type": "image_picker",
+					"id": "imageB",
+					"label": "Feature B - Image"
+				},
+				{
+					"type": "text",
+					"id": "titleB",
+					"label": "Feature B - Title"
+				},
+				{
+					"type": "text",
+					"id": "descriptionB",
+					"label": "Feature B - Description"
+				},
+				{
+					"type": "url",
+					"id": "linkB",
+					"label": "Feature B - Link"
+				},
+				{
+					"type": "image_picker",
+					"id": "imageC",
+					"label": "Feature C - Image"
+				},
+				{
+					"type": "text",
+					"id": "titleC",
+					"label": "Feature C - Title"
+				},
+				{
+					"type": "text",
+					"id": "descriptionC",
+					"label": "Feature C - Description"
+				},
+				{
+					"type": "url",
+					"id": "linkC",
+					"label": "Feature C - Link"
+				},
+				{
+					"type": "image_picker",
+					"id": "imageD",
+					"label": "Feature D - Image"
+				},
+				{
+					"type": "text",
+					"id": "titleD",
+					"label": "Feature D - Title"
+				},
+				{
+					"type": "text",
+					"id": "descriptionD",
+					"label": "Feature D - Description"
+				},
+				{
+					"type": "url",
+					"id": "linkD",
+					"label": "Feature D - Link"
 				}
 			]
 		}
