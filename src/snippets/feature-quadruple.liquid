@@ -1,17 +1,18 @@
-<div class="container">
+<div class="container topic-block">
     <div class="side-scroll">
         <div class="row">
             {% unless block.settings.linkA == blank %}
             <div class="col-xs-3">
-                <article class="entry">
+                <article>
                   <a href="{{ block.settings.linkA }}">
-                      <div class="entry-image">
-                        <img src="{{ block.settings.imageA | img_url: 'master' }}" alt="">
-                      </div>
-                    <div class="entry-content">
-                      <h3 class="entry-title">
+                    <img src="{{ block.settings.imageA | img_url: 'master' }}" alt="">
+                    <div class="topic-content">
+                      <h3 class="title">
                         {{ block.settings.titleA }}
                       </h3>
+                      {% unless block.settings.descriptionA == blank %}
+                      <p class="description">{{ block.settings.descriptionA }}</p>
+                      {% endunless %}
                     </div>
                   </a>
                 </article>
@@ -19,15 +20,16 @@
             {% endunless %}
             {% unless block.settings.linkB == blank %}
             <div class="col-xs-3">
-                <article class="entry">
+                <article>
                   <a href="{{ block.settings.linkB }}">
-                      <div class="entry-image">
-                        <img src="{{ block.settings.imageB | img_url: 'master' }}" alt="">
-                      </div>
-                    <div class="entry-content">
-                      <h3 class="entry-title">
+                    <img src="{{ block.settings.imageB | img_url: 'master' }}" alt="">
+                    <div class="topic-content">
+                      <h3 class="title">
                         {{ block.settings.titleB }}
                       </h3>
+                      {% unless block.settings.descriptionB == blank %}
+                      <p class="description">{{ block.settings.descriptionB }}</p>
+                      {% endunless %}
                     </div>
                   </a>
                 </article>
@@ -35,15 +37,16 @@
             {% endunless %}
             {% unless block.settings.linkC == blank %}
             <div class="col-xs-3">
-                <article class="entry">
+                <article>
                   <a href="{{ block.settings.linkC }}">
-                      <div class="entry-image">
-                        <img src="{{ block.settings.imageC | img_url: 'master' }}" alt="">
-                      </div>
-                    <div class="entry-content">
-                      <h3 class="entry-title">
+                    <img src="{{ block.settings.imageC | img_url: 'master' }}" alt="">
+                    <div class="topic-content">
+                      <h3 class="title">
                         {{ block.settings.titleC }}
                       </h3>
+                      {% unless block.settings.descriptionC == blank %}
+                      <p class="description">{{ block.settings.descriptionC }}</p>
+                      {% endunless %}
                     </div>
                   </a>
                 </article>
@@ -51,15 +54,16 @@
             {% endunless %}
             {% unless block.settings.linkD == blank %}
             <div class="col-xs-3">
-                <article class="entry">
+                <article>
                   <a href="{{ block.settings.linkD }}">
-                      <div class="entry-image">
-                        <img src="{{ block.settings.imageD | img_url: 'master' }}" alt="">
-                      </div>
-                    <div class="entry-content">
-                      <h3 class="entry-title">
+                    <img src="{{ block.settings.imageD | img_url: 'master' }}" alt="">
+                    <div class="topic-content">
+                      <h3 class="title">
                         {{ block.settings.titleD }}
                       </h3>
+                      {% unless block.settings.descriptionD == blank %}
+                      <p class="description">{{ block.settings.descriptionD }}</p>
+                      {% endunless %}
                     </div>
                   </a>
                 </article>

@@ -36,12 +36,12 @@
 /* side-scrolling elements on mobile */
 @media (max-width: $screen-xs-max) {
     .side-scroll{
-    	margin-left: -28px;
-    	margin-right: -38px;
+    	margin-left: -$grid-gutter-width;
+    	margin-right: -$grid-gutter-width;
     	overflow-y: scroll;
     	.row{
-    		padding-left: $mobile-gutter;
-    		padding-right: $mobile-gutter;
+    		padding-left: $grid-gutter-width;
+    		padding-right: $grid-gutter-width;
     		width: 916px; // makes the images 200px wide per the mockup
     	}
     }
@@ -52,10 +52,14 @@
 		margin-bottom: 80px;
 	}
 	a{
+		color: $gray;
 		&:hover{
 			text-decoration: none;
 			.entry-title{
 				color: $brand-blue;
+			}
+			.description{
+				color: $gray;
 			}
 		}
 	}
@@ -78,6 +82,14 @@
 	@include transition(all .2s ease);
 	@media (min-width: $screen-md) {
 		font-size: 22px;
+	}
+}
+.entry-content{
+	.description{
+		font-size: 12px;
+		@media (min-width: $screen-md) {
+			font-size: $font-size-base;
+		}
 	}
 }
 .entry-image{

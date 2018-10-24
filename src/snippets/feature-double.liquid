@@ -8,6 +8,9 @@
                 </picture>
                 <div class="topic-content {{ block.settings.textColorA }}">
                     <h3 class="title">{{ block.settings.titleA }}</h3>
+                    {% unless block.settings.descriptionA == blank %}
+                    <p class="description">{{ block.settings.descriptionA }}</p>
+                    {% endunless %}
                     {% unless block.settings.linkTextA == blank %}
                     <div class="btn-set">
                         <a class="btn{% if block.settings.linkStyleA == 'outline' %} btn-secondary{% if block.settings.textColorA == 'white' %} inverted{% endif %}{% endif %}" href="{{ block.settings.linkUrlA }}">{{ block.settings.linkTextA }}</a>
@@ -20,13 +23,16 @@
             </div>
         </div>
         <div class="col-sm-6">
-            <div class="topic-block has-overlay-xs fw-xs">
+            <div class="topic-block has-overlay-xs mb-xs-tiny fw-xs">
                 <picture>
                     <source srcset="{{ block.settings.desktopImageB | img_url: 'master' }}" media="(min-width: {{ screenMd }})" />
                     <img src="{{ block.settings.mobileImageB | img_url: 'master' }}" alt="{{ block.settings.altTextB }}" />
                 </picture>
                 <div class="topic-content {{ block.settings.textColorB }}">
                     <h3 class="title">{{ block.settings.titleB }}</h3>
+                    {% unless block.settings.descriptionB == blank %}
+                    <p class="description">{{ block.settings.descriptionB }}</p>
+                    {% endunless %}
                     {% unless block.settings.linkTextB == blank %}
                     <div class="btn-set">
                         <a class="btn{% if block.settings.linkStyleB == 'outline' %} btn-secondary{% if block.settings.textColorB == 'white' %} inverted{% endif %}{% endif %}" href="{{ block.settings.linkUrlB }}">{{ block.settings.linkTextB }}</a>
