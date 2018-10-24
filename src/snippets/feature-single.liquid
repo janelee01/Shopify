@@ -1,4 +1,4 @@
-<div class="max-container topic-block has-overlay-xs mb-small mb-xs-tiny">
+<div class="max-container topic-block has-overlay-xs mb-small">
     <picture>
         <source srcset="{{ block.settings.desktopImage | img_url: 'master' }}" media="(min-width: {{ screenSm }})" />
         <img src="{{ block.settings.mobileImage | img_url: 'master' }}" alt="{{ block.settings.altText }}" />
@@ -6,8 +6,11 @@
     <div class="topic-content {{ block.settings.textColor }}">
         <h2 class="title">{{ block.settings.title }}</h2>
         {% unless block.settings.linkText == blank %}
-        <div class="btn-set">
+        <div class="btn-set inlined">
             <a class="btn{% if block.settings.linkStyle == 'outline' %} btn-secondary{% if block.settings.textColor == 'white' %} inverted{% endif %}{% endif %}" href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
+            {% unless block.settings.linkTextB == blank %}
+            <a class="btn{% if block.settings.linkStyleB == 'outline' %} btn-secondary{% if block.settings.textColor == 'white' %} inverted{% endif %}{% endif %}" href="{{ block.settings.linkUrlB }}">{{ block.settings.linkTextB }}</a>
+            {% endunless %}
         </div>
         {% endunless %}
     </div>

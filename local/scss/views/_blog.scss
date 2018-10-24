@@ -32,19 +32,19 @@
 			}	
 		}
 	}
-	/* side-scrolling elements on mobile */
-	@media (max-width: $screen-xs-max) {
-	    .side-scroll{
-	    	margin-left: -28px;
-	    	margin-right: -38px;
-	    	overflow-y: scroll;
-	    	.row{
-	    		padding-left: $mobile-gutter;
-	    		padding-right: $mobile-gutter;
-	    		width: 916px; // makes the images 200px wide per the mockup
-	    	}
-	    }
-	}
+}
+/* side-scrolling elements on mobile */
+@media (max-width: $screen-xs-max) {
+    .side-scroll{
+    	margin-left: -28px;
+    	margin-right: -38px;
+    	overflow-y: scroll;
+    	.row{
+    		padding-left: $mobile-gutter;
+    		padding-right: $mobile-gutter;
+    		width: 916px; // makes the images 200px wide per the mockup
+    	}
+    }
 }
 .entry{
 	margin-bottom: 37px;

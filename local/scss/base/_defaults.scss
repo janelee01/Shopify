@@ -20,17 +20,8 @@ body{
 }
 .large-container{
 	max-width: $site-large-width;
-	@media (min-width: $screen-sm) {
-		margin-left: $grid-gutter-width;
-		margin-right: $grid-gutter-width;	
-	}
-	@media (min-width: $screen-md) {
-		margin-left: 50px;
-		margin-right: 50px;	
-	}
-	@media (min-width: $site-large-width + 100) {
-		margin-left: auto;
-		margin-right: auto;
+	@media (min-width: 1500px) {
+		width: auto;
 	}
 }
 .container{
