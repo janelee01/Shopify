@@ -76,6 +76,9 @@
 				width: auto; 
 				margin: 0 auto;
 			}
+			.btn-set + .description{ // extra line below buttons
+				margin-top: $mb-base;
+			}
 			.btn.btn-secondary{
 				@include invertedSecondaryBtn;
 			}

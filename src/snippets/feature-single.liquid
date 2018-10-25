@@ -16,5 +16,8 @@
             {% endunless %}
         </div>
         {% endunless %}
+        {% unless block.settings.price == blank %}
+        <p class="description">{{ block.settings.price }}</p>
+        {% endunless %}
     </div>
 </div>

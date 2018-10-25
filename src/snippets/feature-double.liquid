@@ -19,6 +19,9 @@
                         {% endunless %}
                     </div>
                     {% endunless %}
+                    {% unless block.settings.priceA == blank %}
+                    <p class="description">{{ block.settings.priceA }}</p>
+                    {% endunless %}
                 </div>
             </div>
         </div>
@@ -40,6 +43,9 @@
                         <a class="btn{% if block.settings.linkStyleBB == 'outline' %} btn-secondary{% if block.settings.textColorA == 'white' %} inverted{% endif %}{% endif %} btn-gtm-trk" data-gtm-a="6" href="{{ block.settings.linkUrlBB }}">{{ block.settings.linkTextBB }}</a>
                         {% endunless %}
                     </div>
+                    {% endunless %}
+                    {% unless block.settings.priceB == blank %}
+                    <p class="description">{{ block.settings.priceB }}</p>
                     {% endunless %}
                 </div>
             </div>
