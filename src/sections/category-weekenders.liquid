@@ -3,9 +3,6 @@
 {% for block in section.blocks %}
 	{% case block.type %}
 
-		{% when 'hero' %}
-		{% include 'hero' %}
-
 		{% when 'lead' %}
 		{% include 'section-heading' %}
 
@@ -44,56 +41,6 @@
 					"id": "isPageTitle",
 					"default": false,
 					"label": "Use as page title (H1 tag)"
-				}
-			]
-		},
-		{
-			"type": "hero",
-			"name": "Hero",
-			"settings": [
-				{
-					"id": "mobileImage",
-					"type": "image_picker",
-					"label": "Mobile Image"
-				},
-				{
-					"id": "tabletImage",
-					"type": "image_picker",
-					"label": "Tablet Image"
-				},
-				{
-					"id": "desktopImage",
-					"type": "image_picker",
-					"label": "Desktop Image"
-				},
-				{
-					"id": "altText",
-					"type": "text",
-					"label": "Alt Text"
-				},
-				{
-					"type": "text",
-					"id": "title",
-					"label": "Title"
-				},
-				{
-					"type": "radio",
-					"id": "textPosition",
-					"label": "Desktop Text Position",
-					"options": [
-						{ "value": "left", "label": "Left" },
-						{ "value": "center", "label": "Center" },
-						{ "value": "right", "label": "Right" }
-					]
-				},
-				{
-					"type": "radio",
-					"id": "textColor",
-					"label": "Text Color",
-					"options": [
-						{ "value": "black", "label": "Black" },
-						{ "value": "white", "label": "White" }
-					]
 				}
 			]
 		},
@@ -165,6 +112,11 @@
 					]
 				},
 				{
+					"type": "text",
+					"id": "price",
+					"label": "Price"
+				},
+				{
 					"type": "radio",
 					"id": "textColor",
 					"label": "Text Color",
@@ -172,6 +124,16 @@
 						{ "value": "default", "label": "Default" },
 						{ "value": "black", "label": "Black" },
 						{ "value": "white", "label": "White" }
+					]
+				},
+				{
+					"type": "radio",
+					"id": "textPosition",
+					"label": "Desktop Text Position",
+					"options": [
+						{ "value": "left", "label": "Left" },
+						{ "value": "center", "label": "Center" },
+						{ "value": "right", "label": "Right" }
 					]
 				}
 			]
@@ -242,6 +204,11 @@
 						{ "value": "default", "label": "Default" },
 						{ "value": "outline", "label": "Outline" }
 					]
+				},
+				{
+					"type": "text",
+					"id": "priceA",
+					"label": "Feature A - Price"
 				},
 				{
 					"type": "radio",
@@ -315,6 +282,11 @@
 						{ "value": "default", "label": "Default" },
 						{ "value": "outline", "label": "Outline" }
 					]
+				},
+				{
+					"type": "text",
+					"id": "priceB",
+					"label": "Feature B - Price"
 				},
 				{
 					"type": "radio",

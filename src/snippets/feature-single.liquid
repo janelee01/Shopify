@@ -3,7 +3,7 @@
         <source srcset="{{ block.settings.desktopImage | img_url: 'master' }}" media="(min-width: {{ screenSm }})" />
         <img src="{{ block.settings.mobileImage | img_url: 'master' }}" alt="{{ block.settings.altText }}" />
     </picture>
-    <div class="topic-content {{ block.settings.textColor }}">
+    <div class="topic-content {{ block.settings.textPosition }} {{ block.settings.textColor }}">
         <h2 class="title">{{ block.settings.title }}</h2>
         {% unless block.settings.description == blank %}
         <p class="description">{{ block.settings.description }}</p>
