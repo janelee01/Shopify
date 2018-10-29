@@ -7,6 +7,9 @@
 	&.mb-small{
 		@include mb('sm');
 	}
+	&.mb-gutter{
+		margin-bottom: $grid-gutter-width;
+	}
 	&.mb-negate-xs{
 		@media (max-width: $screen-xs-max) {
 		    margin-bottom: 0;
