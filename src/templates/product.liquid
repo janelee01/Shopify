@@ -74,8 +74,8 @@
 			      			        </option>
 			      			      {% endfor %}
 			      			    </select>
-
-			      			    <input type="hidden" name="properties[Image]" value="{{ featured_image | img_url: 'master' }}" data-variant-image>
+								
+			      			    <input type="hidden" name="properties[Image]" value="https:{{ featured_image | img_url: 'master' }}" data-variant-image>
 								
 								<div class="hidden">
 									<label for="Quantity">{{ 'products.product.quantity' | t }}</label>
