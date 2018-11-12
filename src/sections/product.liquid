@@ -258,6 +258,16 @@
 	  	  </div>
 	  	</div>
 
+		{% comment %}TODO: this could potentially need to be overwritten at the product level {% endcomment %}
+		{% unless shop.metafields["global"]["warranty"] == blank %}
+	  	<div class="product-detail-panel">
+	  	  <h2 data-collapse-toggle class="panel-toggle collapsed">Warranty</h2>
+	  	  <div data-collapse-panel class="panel-content">
+	  	  {{ shop.metafields["global"]["warranty"] }}
+	  	  </div>
+	  	</div>
+	  	{% endunless %}
+
 		<div class="product-detail-panel">
 			<h2 data-collapse-toggle class="panel-toggle">Customer Reviews</h2>
 			<div data-collapse-panel class="panel-content is-shown" style="display: block;">

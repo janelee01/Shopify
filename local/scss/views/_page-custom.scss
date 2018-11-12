@@ -433,3 +433,20 @@
 		}
 	}
 }
+
+#camo-hero{
+	&::after{
+		@media (max-width: $screen-sm-max) {
+		    height: 26px;
+		}
+	}
+	.hero-content{
+		width: 100%;
+		left: 0;
+		height: 64%;
+		@media (min-width: $screen-sm) {
+			padding: 0;
+			height: 50%;
+		}
+	}
+}

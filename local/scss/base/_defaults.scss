@@ -183,6 +183,12 @@ blockquote{
 .mb-gutter{
 	margin-bottom: $grid-gutter-width;
 }
+.mb-gutter-xs{
+	@media (max-width: $screen-xs-max) {
+	    margin-bottom: $grid-gutter-width;
+	}
+}
+
 .mb-small{
 	@include mb('sm');
 }
@@ -202,13 +208,11 @@ blockquote{
 	    margin-bottom: 0 !important;
 	}
 }
-
-.pb-negate-sm-up{
-	@media (min-width: $screen-sm) {
-	    padding-bottom: 0 !important;
+.mb-negate-md-up{
+	@media (max-width: $screen-xs-max) {
+	    margin-bottom: 0 !important;
 	}
 }
-
 
 .fw-xs{
 	@media (max-width: $screen-xs-max) {

@@ -42,7 +42,7 @@ In page blocks
 	position: relative;
 	background: $gray-lightest;
 	padding: 70px 0;
-	@include mb();
+	margin-bottom: $grid-gutter-width;
 	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
 		width: 83.3333%;
 		margin-left: 8.333333%;
