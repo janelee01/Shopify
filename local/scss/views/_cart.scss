@@ -81,7 +81,7 @@
 } 
 
 #cart-items,
-#cart-totals{
+#shipping-at-checkout{
 	margin-bottom: 28px;
 	@media (min-width: $screen-md) {
 		margin-bottom: 46px;
@@ -102,17 +102,22 @@
 		}
 	}
 }
-
-#checkout-message{
+#shipping-at-checkout{
+	font-size: 12px;
+	@media (min-width: $screen-sm) {
+		padding-right: 10px;
+	}
+	@media (min-width: $screen-md) {
+		padding-right: 20px;
+		font-size: $font-size-base;
+	}
+}
+.checkout-message{
 	text-align: right;
 	color: $gray;
 	line-height: 1;
-	p:first-child{
-		margin-bottom: 20px;
-	}
 	@media (max-width: $screen-xs-max) {
 	    text-align: center;
-	    font-size: 12px;
 	    padding-top: 10px;
 	}
 }

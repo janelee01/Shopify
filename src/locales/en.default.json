@@ -78,7 +78,7 @@
 			"remove": "Remove",
 			"note": "Special instructions for seller",
 			"subtotal": "Subtotal",
-			"shipping_at_checkout": "Shipping & taxes calculated at checkout",
+			"shipping_at_checkout": "Discounts, shipping, and taxes calculated at checkout",
 			"update": "Update cart",
 			"checkout": "Checkout",
 			"empty": "Your cart is currently empty.",

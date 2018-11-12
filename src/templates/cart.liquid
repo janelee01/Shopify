@@ -142,15 +142,18 @@
           </tr>
           </tbody>
       </table>
+
+      <div id="shipping-at-checkout" class="checkout-message">
+        <p>{{ 'cart.general.shipping_at_checkout' | t }}</p>
+      </div>
       
       <div id="cart-actions">
         <input type="submit" name="update" class="btn btn-secondary" id="cart-update" value="{{ 'cart.general.update' | t }}">
         <input type="submit" name="checkout" class="btn" id="cart-proceed" value="{{ 'cart.general.checkout' | t }}">
       </div>
 
-      <div id="checkout-message">
+      <div class="checkout-message">
         <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
-        <p>{{ 'cart.general.shipping_at_checkout' | t }}</p>
       </div>
 
     </form>

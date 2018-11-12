@@ -110,7 +110,7 @@
 		}
 		&:last-child{
 			text-align: left;
-			@media (min-width: $screen-md) {
+			@media (min-width: $screen-sm) {
 				text-align: right;
 			}
 		}
