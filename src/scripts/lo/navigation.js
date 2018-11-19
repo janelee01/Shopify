@@ -7,10 +7,6 @@ $(document).ready(function(){
 	var spacer = 30;
 	var trigger = $pageNav.outerHeight();
 
-	var getScrollTo = function(el){
-		return el.offset().top - trigger - 30;
-	};
-
 	// move a page nav into the header for less fixed position conflicts
 	$pageNav.detach().appendTo($header);
 
@@ -78,7 +74,9 @@ $(document).ready(function(){
 			$topics.removeClass('active');
 			$('[href="'+location.hash+'"]').addClass('active');
 			setActiveBar();
-			$('html,body').animate({scrollTop:  getScrollTo( $(location.hash) )  });
+			$('html,body').animate({
+				scrollTop: LS.getScrollTo( $(location.hash), trigger )
+			});
 			setActiveText();
 		}
 
@@ -131,11 +129,12 @@ $(document).ready(function(){
 
 		if( $(window).width() >= LS.desktopBreakpoint ){
 			// smooth scroll on desktop 
-			$('html,body').animate({scrollTop: getScrollTo($target)});
+			$('html,body').animate({
+				scrollTop: LS.getScrollTo( $target, trigger )});
 			// scroll spy will update current state
 		}else{
 			// quick jump on mobile
-			$(window).scrollTop( getScrollTo($target) );
+			$(window).scrollTop( LS.getScrollTo( $target, trigger ) );
 			$('nav.items').removeClass('active');
 			$topics.removeClass('active');
 			$btn.addClass('active');

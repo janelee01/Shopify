@@ -20,10 +20,11 @@
                     <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
                 </a>
             </div>
+            {% include 'hero-jump-btn' %}
         </div>
     </div>
     <a id="nav-target-1" class="jumptarget"></a>
-    <div class="container">
+    <div class="container">{% include 'hero-jump-target' %}
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">                    

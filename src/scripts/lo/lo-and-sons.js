@@ -9,6 +9,9 @@ LS.getPageNav = function(){
 	var $ = jQuery;
 	return $('.page-nav');
 }
+LS.getScrollTo = function(el, offset){
+	return el.offset().top - offset - 30; // offset added to accomodate fixed header plus a little extra for space below header after the scroll
+};
 
 // we only want to report video watched events once per page to not over-report
 var reported25 = false;

@@ -19,10 +19,11 @@
                 <h1 class="title"><span class="subtitle">Discover</span> Hanover</h1>
                 <p class="description">A super lightweight and minimal travel backpack made from eco-friendly materials.</p>
             </div>
+            {% include 'hero-jump-btn' %}
         </div>
     </div>
     
-    <div class="container">
+    <div class="container">{% include 'hero-jump-target' %}
         <div class="row animate mb-large" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
                 {% include 'discover-picture', name: 'hanover-product-intro', alt: 'Hanover product shot', retina: true, fw: false %}

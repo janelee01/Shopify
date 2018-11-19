@@ -16,10 +16,11 @@
                 <h1 class="title"><span class="subtitle">Discover</span> Seville</h1>
                 <p class="description">An innovative leather laptop tote that goes from business mode to airplane mode in a snap.</p>
             </div>
+            {% include 'hero-jump-btn' %}
         </div>
     </div>
 
-    <div class="container">
+    <div class="container">{% include 'hero-jump-target' %}
         <div class="row animate mb-large" {{ animateZoomIn }}>
             <div class="col-sm-6 col-sm-offset-3">
                 {% include 'discover-picture', name: 'seville-product-image', alt: 'Seville product shot', retina: true, fw: false, lg: true %}

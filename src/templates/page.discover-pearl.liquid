@@ -19,10 +19,11 @@
                 <h1 class="title"><span class="subtitle">Discover</span> Pearl</h1>
                 <p class="description">A practical yet stylish crossbody bag that's perfect for any trip.</p>
             </div>
+            {% include 'hero-jump-btn' %}
         </div>
     </div>
     
-    <div class="container">
+    <div class="container">{% include 'hero-jump-target' %}
         <div class="row animate mb-large" {{ animateFadeInUp }}>
             <div class="col-md-10 col-md-offset-1">
               {% include 'discover-picture', name: 'pearl-product-shot', alt: 'Pearl product shot', retina: true, fw: true %}

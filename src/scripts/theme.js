@@ -144,9 +144,10 @@ $(document).ready(function() {
   $('body').on('click', '.smoothscroll, .nav-local a, .page-nav-item, .scroll-down-indicator', function(e){
 	e.preventDefault();
 
-	var $btn = $(this),
-	  selector = $btn.attr('href'),
-	  pos = 0;
+	var $btn = $(this);
+	var trigger = $('#site-header').outerHeight();
+	var selector = $btn.attr('href');
+	var pos = 0;
 
 	// If the target isn't an on-page anchor, treat it like a normal link
 	if (!selector.match(/^#/)) {
@@ -159,8 +160,7 @@ $(document).ready(function() {
 	  $target = $('body');
 	}
 
-	pos = $target.offset().top;
-	$('html,body').animate({scrollTop: pos+'px'});
+	$('html,body').animate({scrollTop: LS.getScrollTo($target,trigger)});
 
   });
 

@@ -19,10 +19,11 @@
                 <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
                 <p class="description">A functional and lightweight carry-all made from premium materials.</p>
             </div>
+            {% include 'hero-jump-btn' %}
         </div>
     </div>
 
-    <div class="container">
+    <div class="container">{% include 'hero-jump-target' %}
         <div class="row animate mb-large" {{ animateZoomIn }}>
             <div class="col-sm-6 col-sm-offset-3">
                 {% include 'discover-picture', name: 'ogomg-product-shot', alt: 'O.G. product shot', retina: true, fw: false, lg: true %}

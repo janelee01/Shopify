@@ -31,8 +31,7 @@
 	}
 	&.has-black-arrow,
 	&.has-arrow{
-		&:after{
-			content:  '';
+		.scroll-down-indicator{
 			display: block;
 			width: 32px;
 			height: 40px;
@@ -45,7 +44,7 @@
 		}
 	}
 	&.has-black-arrow{
-		&:after{
+		.scroll-down-indicator{
 			background-image: url('hero-arrow-black.svg');
 		}
 	}
