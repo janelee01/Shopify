@@ -259,6 +259,7 @@ body.menu-open{
 		align-items: center;
 		justify-content: center;
 		@include headerShadow;
+		display: none;
 		@media (min-width: $screen-md) {
 			position: absolute;
 			right: $grid-gutter-width/2;
