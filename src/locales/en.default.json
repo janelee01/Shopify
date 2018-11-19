@@ -289,5 +289,12 @@
 	},
 	"date_formats": {
 		"month_day_year": "%B %d, %Y"
+	},
+	"shopify":{
+		"checkout":{
+			"shipping":{
+				"shipping_method_notice":"*EDITEDOrders require one business day for processing. Please add one business day to all estimates below, and kindly note we do not ship or process on Saturdays, Sundays, or Holidays."
+			}
+		}
 	}
 }
