@@ -13,10 +13,10 @@ $(document).ready(function(){
 	// reload nav state
 	var savedState = sessionStorage.getItem('lo-main-menu');
 	if( savedState ){
-		$('#site-menu-items').html(savedState);
+		$('#mega-menu__nav').html(savedState);
 	}
-	$('#site-menu a').on('click', function(){
-		sessionStorage.setItem('lo-main-menu', $('#site-menu-items').html());
+	$('#mega-menu a').on('click', function(){
+		sessionStorage.setItem('lo-main-menu', $('#mega-menu__nav').html());
 	});
 
 	// off canvas nav
