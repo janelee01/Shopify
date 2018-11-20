@@ -3,12 +3,12 @@
     {% assign fieldId = 'in-menu-search' %}
     {% include 'search-form' with fieldId %}
   	<nav role="navigation" id="mega-menu">
-      <ul id="mega-menu__nav"> 
+      <ul class="mega-menu__nav" id="mega-menu__nav"> 
   	    {% for link in linklists[section.settings.main_linklist].links %}
   	      {%- assign child_list_handle = link.title | handleize -%}
   	      {% if menus[child_list_handle].links != blank %}
-            <li class="has-children{% if link.active %} active-child{% endif %}">
-  	          <a href="#child-menu-{{ forloop.index0 }}" class="menu-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="child-menu-{{ forloop.index0 }}">
+            <li class="mega-menu__nav__item has-children{% if link.active %} active-child{% endif %}">
+  	          <a href="#child-menu-{{ forloop.index0 }}" class="mega-menu__nav__item__link menu-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="child-menu-{{ forloop.index0 }}">
   	            {{ link.title }}
   	          </a>
               <div class="collapse" id="child-menu-{{ forloop.index0 }}">
@@ -16,30 +16,30 @@
     	            {% for childlink in menus[child_list_handle].links %}
                         {%- assign grandchild_list_handle = childlink.title | handleize -%}
                         {% if menus[grandchild_list_handle].links != blank %}
-                        <li class="has-children{% if childlink.active %} active-child{% endif %}">
-                            {{ childlink.title }}
-                            <div class="collapse" id="grandchild-menu-{{ forloop.index0 }}">
-                            <ul>
-                                {% for grandchildlink in menus[grandchild_list_handle].links %}
-                                <li {% if grandchildlink.active %}class="active"{% endif %}>
-                                    <a class="btn-gtm-trk" data-gtm-a="3" href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                            </div>
-                        </li>
+                            <li class="has-children{% if childlink.active %} active-child{% endif %}">
+                                {{ childlink.title }}
+                                <div>
+                                <ul>
+                                    {% for grandchildlink in menus[grandchild_list_handle].links %}
+                                    <li {% if grandchildlink.active %}class="active"{% endif %}>
+                                        <a class="btn-gtm-trk" data-gtm-a="3" href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                </div>
+                            </li>
                         {% else %}
-                        <li {% if childlink.active %}class="active"{% endif %}>
-                            <a class="btn-gtm-trk" data-gtm-a="3" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-                        </li>
+                            <li {% if childlink.active %}class="active"{% endif %}>
+                                <a class="btn-gtm-trk" data-gtm-a="3" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                            </li>
                         {% endif %}
     	            {% endfor %}
     	          </ul>
               </div>
   	        </li>
   	      {% else %}
-  	        <li {% if link.active %}class="active"{% endif %}>
-  	          <a class="btn-gtm-trk" data-gtm-a="3" href="{{ link.url }}">{{ link.title }}</a>
+  	        <li class="mega-menu__nav__item {% if link.active %} active {% endif %}">
+  	          <a class="mega-menu__nav__item__link btn-gtm-trk" data-gtm-a="3" href="{{ link.url }}">{{ link.title }}</a>
   	        </li>
   	      {% endif %}
   	    {% endfor %}

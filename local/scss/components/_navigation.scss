@@ -25,87 +25,47 @@ body.menu-open{
 	}
 }
 
-
+/* --- MEGA MENU --- */
 .mega-menu{
 	position: relative;
 	height: 100%;
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
     padding: 75px $mobile-gutter 30px;
-	nav{
-		ul{
-			@include resetList;
-			// padding-right: 15px;
-			// padding-left: 15px;
-			font-size: 20px;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
-			position: relative;
-			a{
-				color: $gray-dark;
-			}
-			ul{
-				font-size: 15px;
-				padding: 0;
-				li{
-					&:last-child{
-						border: 0;
-						padding-bottom: 0;
-					}
-				}
-				a{
-					color: $gray;
-					&.menu-toggle{
-						&:before{
-							display: none;
-						}
-						&:after{
-							background: url('icon-expandable.svg');
-							width: 8px;
-							height: 5px;
-							margin-top: -3px;
-							@include rotate(-180deg);
-						}
-						&.collapsed{
-							&:after{
-								@include rotate(0deg);
-							}
-						}
-					}
-				}
-				ul{
-					font-size: 14px;
-					padding-left: 30px;
-					padding-top: 10px;
-					li{
-						padding: 15px 0;
-					}
-				}
-			}
-			&#account-menu-items li{
-				border-bottom: 0;
-			}
-		}
-		li{
-			margin-bottom: 10px;
-			width: 30%;
-			padding: 10px;
-		}
-		a{
-			display: block;
-			&:hover,
-			&:focus{
-				color: $brand-blue;
-				text-decoration: none;
-			}
-		}
-		// force capitalize top level items
-		> ul > li > a{
-			text-transform: capitalize;
-		}
-	}
 }
+.mega-menu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.mega-menu__nav {
+	@include resetList;
+	font-size: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	position: relative;
+}
+.mega-menu__nav__item {
+	width: 30%;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid $gray-dark;
+	text-align: center;
+}
+.mega-menu__nav__item__link {
+	text-transform: uppercase;
+	font-size: 12px;
+}
+.mega-menu__subnav {
+	position: absolute;
+	top: 100%;
+	text-align: left;
+}
+
+
+
+
 
 .page-nav{
 	position: relative;
