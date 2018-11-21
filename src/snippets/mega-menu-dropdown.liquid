@@ -1,0 +1,102 @@
+{%- assign links = links | default: false -%}
+
+{%- assign columns = 1 -%}
+{%- assign column_1 = '' -%}
+{%- assign column_2 = '' -%}
+{%- assign column_3 = '' -%}
+
+{% comment %}Aggregate all left column links{% endcomment %}
+{%- for tier_2 in links -%}
+{%- if tier_2.links == blank -%}
+    {%- assign row = tier_2.title | append: ':' | append: tier_2.url -%}
+    {%- assign column_1 = column_1 | append: '|' | append: row -%}
+    {%- assign row = nil -%}
+{%- endif -%}
+{%- endfor -%}
+
+{% comment %}Aggregate all middle column links{% endcomment %}
+{%- for tier_2 in links -%}
+{%- if tier_2.links != blank -%}
+    {%- assign columns = 2 -%}
+    {%- assign row = tier_2.title | append: ':' | append: tier_2.url -%}
+    {%- assign column_2 = column_2 | append: '|' | append: row -%}
+    {%- for tier_3 in tier_2.links -%}
+        {%- assign row = tier_3.title | append: ':' | append: tier_3.url -%}
+        {%- assign column_2 = column_2 | append: '|' | append: row -%}
+        {%- assign row = nil -%}
+    {%- endfor -%}
+{%- endif -%}
+{%- endfor -%}
+
+{% comment %}Aggregate all carousel links{% endcomment %}
+{%- for tier_2 in links -%}
+{%- if tier_2.title contains 'eatured' -%}
+    {%- assign columns = 3 -%}
+    {%- for tier_3 in tier_2.links -%}
+        {%- assign row = tier_3.title | append: ':' | append: tier_3.object.handle -%}
+        {%- assign column_3 = column_3 | append: '|' | append: row -%}
+        {%- assign row = nil -%}
+    {%- endfor -%}
+{%- endif -%}
+{%- endfor -%}
+
+<div>
+  {%- if columns == 1 -%}
+  <div class="col-1">
+    {%- assign rows = column_1 | remove_first: '|' | split: '|' -%}
+    <ul>
+    {%- for row in rows -%}
+      {%- assign link_details = row | split: ':' -%}
+      <li>
+        {% comment %}If one column only, you'll want to show an image{% endcomment %}
+        <a href="{{link_details[1]}}">{{link_details[0]}}</a>
+      </li>
+      {%- assign link_details = nil -%}
+    {%- endfor -%}
+    </ul>
+    {%- assign rows = nil -%}
+  </div>
+  {%- elsif columns > 1 -%}
+  <div class="col-1">{{column_1}}</div>
+  <div class="col-2">{{column_2}}</div>
+    {%- if columns > 3 -%}
+      <div class="col-3">{{column_3}}</div>
+    {%- endif -%}
+  {%- endif -%}
+</div>
+
+{%- assign links = nil -%}
+{%- assign columns = nil -%}
+{%- assign column_1 = nil -%}
+{%- assign column_2 = nil -%}
+{%- assign column_3 = nil -%}
+
+{% comment %}
+<ul class="mega-menu__subnav {% if link.title == 'About'%}mega-menu__subnav--about{% endif %}" id="child-menu-{{ forloop.index0 }}">
+    {% for childlink in menus[child_list_handle].links %}
+        {%- assign grandchild_list_handle = childlink.title | handleize -%}
+        {% if menus[grandchild_list_handle].links != blank %}
+            <li class="mega-menu__subnav__item__header has-children{% if childlink.active %} active-child{% endif %}">
+                <p class="mega-menu__subnav__item-title">{{ childlink.title }}</p>
+                <ul>
+                    {% for grandchildlink in menus[grandchild_list_handle].links %}
+                        {% if childlink.title == 'Featured' %}
+
+                        {% endif %}    
+                        <li class="mega-menu__subnav__item__child">
+                            <a class="mega-menu__subnav__item__child__link btn-gtm-trk" data-gtm-a="3" href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% else %}
+            {% if link.title == 'About' %}
+                {{ blog.metafields["global"]["menu-image"] }}
+            {% endif %}
+            <li class="mega-menu__subnav__item {% if childlink.active %}active{% endif %}">
+                <a class="mega-menu__subnav__item__link btn-gtm-trk" data-gtm-a="3" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endcomment %}
