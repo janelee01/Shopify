@@ -6,8 +6,7 @@
         <ul class="mega-menu__nav" id="mega-menu__nav"> 
             {% for link in linklists[section.settings.main_linklist].links %}
             {%- assign child_list_handle = link.title | handleize -%}
-            {% if menus[child_list_handle].links != blank %}
-                
+                {% if menus[child_list_handle].links != blank %}
                 <li class="mega-menu__nav__item has-children{% if link.active %} active-child{% endif %}">
                     <a href="#child-menu-{{ forloop.index0 }}" class="mega-menu__nav__item__link menu-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="child-menu-{{ forloop.index0 }}">
                         {{ link.title }}
@@ -21,6 +20,7 @@
                                         <p class="mega-menu__subnav__item-title">{{ childlink.title }}</p>
                                         <ul>
                                             {% for grandchildlink in menus[grandchild_list_handle].links %}
+
                                             <li class="mega-menu__subnav__item__child">
                                                 <a class="mega-menu__subnav__item__child__link btn-gtm-trk" data-gtm-a="3" href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
                                             </li>
@@ -37,12 +37,11 @@
                         </ul>
                     </div>
                 </li>
-
-            {% else %}
+                {% else %}
                 <li class="mega-menu__nav__item {% if link.active %} active {% endif %}">
                     <a class="mega-menu__nav__item__link btn-gtm-trk" data-gtm-a="3" href="{{ link.url }}">{{ link.title }}</a>
                 </li>
-            {% endif %}
+                {% endif %}
             {% endfor %}
         </ul>
   	</nav>
