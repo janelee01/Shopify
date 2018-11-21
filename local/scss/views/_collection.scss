@@ -154,3 +154,49 @@ body.fixed-filters{
 	margin: 0 auto 30px;
 	width: 230px;
 }
+
+#product-families{
+	@media (max-width: $screen-sm-max) {
+		padding-left: 0;
+		padding-right: 0;
+		.row{
+			margin: 0;
+			padding-left: 23px;
+			padding-right: 23px;
+			display: flex;
+			flex-wrap: nowrap;
+			overflow-x: scroll;
+			overflow-y: hidden;
+			-webkit-overflow-scrolling: touch;	
+			&::before,
+			&::after{
+				display: none;
+			}
+			&::after{
+				content: '';
+				display: block;
+				width: 23px;
+				flex: 0 0 auto; // extra element at the end to fake the side gutters
+			}
+		}
+		[class^="col-"]{
+			flex: 0 0 auto;
+			width: 30%;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+		.section-heading{
+			text-align: left;
+			margin-bottom: 28px;
+			padding-left: $mobile-gutter;
+			.title{
+				font-size: 1.5em;
+			}
+		}
+	}
+	@media (max-width: $screen-xs-max) {
+		[class^="col-"]{
+			width: 70%;
+		}
+	}
+}
