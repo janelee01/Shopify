@@ -12,10 +12,19 @@
 		left: -$menu-width-md;
 		width: $menu-width-md;
 	}
+	@media (min-width: $screen-sm) {
+		position: relative;
+		z-index: 0;
+		left: unset;
+		width: 100%;
+	}
 	.panel-close{
 		left: auto;
 		right: 31px;
 		top: 15px;
+		@media (min-width: $screen-sm) {
+			display: none;
+		}
 	}
 }
 body.menu-open{
@@ -31,7 +40,10 @@ body.menu-open{
 	height: 100%;
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
-    padding: 75px $mobile-gutter 30px;
+	padding: 75px $mobile-gutter 30px;
+	@media (min-width: $screen-sm) {
+		padding: 30px 0 0 30px;
+	}
 }
 .mega-menu ul {
 	list-style: none;
@@ -86,6 +98,20 @@ body.menu-open{
 	left: 0;
 	text-align: left;
 }
+.mega-menu__subnav--about {
+	display: flex;
+    flex-wrap: wrap;
+	justify-content: space-between;
+	.mega-menu__subnav__item {
+		width: 50%;
+		text-align: center;
+	}
+	.mega-menu__subnav__item:first-child {
+		padding-top: 0;
+	}
+}
+
+
 .mega-menu__subnav__item {
 	font-size: 12px;
 	text-transform: uppercase;
@@ -116,6 +142,13 @@ body.menu-open{
 	font-size: 13px;
 }
 
+.mega-menu__nav__item div ul {
+	visibility: hidden;
+}
+
+.mega-menu__nav__item.isActive div ul {
+	visibility: visible;
+}
 
 
 .page-nav{

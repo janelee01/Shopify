@@ -1,6 +1,9 @@
 .header-search {
 	position: relative;
 	margin-bottom: 20px;
+	@media (min-width: $screen-sm) {
+		display: none;
+	}
 	.header-search__input {
 		border: 1px solid $gray-lighter;
 		border-radius: 2px;
@@ -10,10 +13,6 @@
 		font-size: 14px;
 		padding-left: 15px;
 		box-shadow: none;
-		@media (min-width: $screen-md) {
-			height: 66px;
-			font-size: 19px;
-		}
 		&::-webkit-input-placeholder {
 			color: $gray-light;
 		}

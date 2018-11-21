@@ -6,6 +6,7 @@ $(document).ready(function(){
 	var $targets = $('.jumptarget');
 	var spacer = 30;
 	var trigger = $pageNav.outerHeight();
+	var menuBreakpoint = 800;
 
 	// move a page nav into the header for less fixed position conflicts
 	$pageNav.detach().appendTo($header);
@@ -20,6 +21,8 @@ $(document).ready(function(){
 	});
 
 	// off canvas nav
+	
+
 	$('body').on('click', '.navbar-toggle', function(e){
 		e.preventDefault();
 		$('body').toggleClass('menu-open');
@@ -39,7 +42,7 @@ $(document).ready(function(){
 	});
 	$('body').on('click', '.menu-toggle', function(e){
 		e.preventDefault();
-		$(this).closest('li').toggleClass('open');
+		$(this).closest('li').toggleClass('isActive');
 	});
 
  	// local nav for updated shopify designs,

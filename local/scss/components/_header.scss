@@ -88,6 +88,7 @@ body.has-tw-header{
 	padding-left: 0;
 	@media (min-width: $screen-sm) {
 		left: $grid-gutter-width/2;
+		display: none;
 	}
 	.icon-bar{
 		background-color: $brand-black;
