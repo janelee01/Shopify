@@ -1,13 +1,13 @@
-[role="search"]{
+.header-search {
 	position: relative;
 	margin-bottom: 20px;
-	.form-control{
-		border: 0;
+	.header-search__input {
+		border: 1px solid $gray-lighter;
+		border-radius: 2px;
 		padding-right: 60px;
-		height: 58px;
-		background: $gray-lightest;
+		height: 50px;
 		font-family: $font-family-sans-serif;
-		font-size: 16px;
+		font-size: 14px;
 		padding-left: 15px;
 		box-shadow: none;
 		@media (min-width: $screen-md) {
@@ -15,20 +15,21 @@
 			font-size: 19px;
 		}
 		&::-webkit-input-placeholder {
-		  color: #868686;
+			color: $gray-light;
 		}
 		&::-moz-placeholder {
-		  color: #868686;
+			color: $gray-light;
 		}
 		&:-ms-input-placeholder {
-		  color: #868686;
+			color: $gray-light;
 		}
 		&:-moz-placeholder { 
-		  color: #868686;
+			color: $gray-light;
 		}
 	}
 	.btn{
 		background: url('icon-search.svg') no-repeat center center;
+		filter: brightness(0.2);
 		background-size: 15px auto;
 		position: absolute;
 		right: 0;

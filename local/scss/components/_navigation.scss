@@ -37,6 +37,9 @@ body.menu-open{
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	a {
+		text-decoration: none;
+	}
 }
 .mega-menu__nav {
 	@include resetList;
@@ -47,23 +50,71 @@ body.menu-open{
 	position: relative;
 }
 .mega-menu__nav__item {
-	width: 30%;
+	width: 32%;
 	margin-bottom: 10px;
-	padding: 10px;
-	border: 1px solid $gray-dark;
+	border: 1px solid $gray-lighter;
+	border-radius: 2px;
 	text-align: center;
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: $brand-blue;
+		border: 1px solid $brand-blue;
+	}
+}
+.mega-menu__nav__item.open .mega-menu__nav__item__link {
+	color: white;
+	background-color: $brand-blue;
 }
 .mega-menu__nav__item__link {
+	font-family: $font-family-medium;
+	display: inline-block;
+	line-height: 40px;
+	width: 100%;
 	text-transform: uppercase;
-	font-size: 12px;
+	color: $gray;
+	font-size: 10px;
+	letter-spacing: 1px;
+	&:hover {
+		color: white;
+	}
 }
 .mega-menu__subnav {
+	font-size: 12px;
 	position: absolute;
 	top: 100%;
+	left: 0;
 	text-align: left;
 }
+.mega-menu__subnav__item {
+	font-size: 12px;
+	text-transform: uppercase;
+	padding-bottom: 15px;
+	&:first-child {
+		padding-top: 20px;
+	}
+}
 
+.mega-menu__subnav__item__link{
+	color: $gray-darker;
+}
 
+.mega-menu__subnav__item__header {
+	margin-top: 30px;
+	color: $gray-darker;
+}
+.mega-menu__subnav__item-title {
+	text-transform: uppercase;
+	color: $gray-darker;
+	margin-bottom: 10px;
+}
+.mega-menu__subnav__item__child {
+	padding-bottom: 10px;
+}
+.mega-menu__subnav__item__child__link {
+	color: $gray-light;
+	font-size: 13px;
+}
 
 
 

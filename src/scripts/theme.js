@@ -129,9 +129,9 @@ $(document).ready(function() {
 	$('[data-collapse-toggle]').on('click', function(e){
 	    $(this).toggleClass('collapsed');
 	    if( !$(this).hasClass('collapsed') ){
-	    	$(this).next('[data-collapse-panel]').slideDown().addClass('is-shown');
+	    	$(this).next('[data-collapse-panel]').fadeIn().addClass('is-shown');
 	    }else{
-	    	$(this).next('[data-collapse-panel]').slideUp().removeClass('is-shown');
+	    	$(this).next('[data-collapse-panel]').fadeOut().removeClass('is-shown');
 	    }
 	});
 

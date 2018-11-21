@@ -2,14 +2,14 @@
 {%- if placeholder != blank -%}
   {%- assign ph = placeholder -%}
 {%- endif -%}
-<form action="/search" method="get" role="search" class="ui-front">
+<form action="/search" method="get" role="search" class="header-search ui-front">
   <label for="{{ fieldId }}" class="sr-only">
     {{ 'general.search.placeholder' | t }}
   </label>
   <input type="search"
          name="q"
          id="{{ fieldId }}"
-         class="form-control"
+         class="form-control header-search__input"
          value=""
          placeholder="{{ ph }}">
   <input type="hidden" name="type" value="product" />
