@@ -1,28 +1,34 @@
+#shopify-section-mega-menu {
+	@media (min-width: $screen-md) {
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		left: 0;
+	}
+}
+
 #site-nav-panel{
 	position: fixed;
-	left: -100%;
-	top: 0;
+	top: -100%;
+	left: 0;
 	bottom: 0;
 	overflow: hidden;
 	z-index: 10001;
+	height: 100%;
 	width: 100%;
 	background: #fff;
-	@include transition(left .25s ease-out);
-	@media (min-width: $screen-sm) {
-		left: -$menu-width-md;
-		width: $menu-width-md;
+	@include transition(top .25s ease-out);
+	@media (min-width: $screen-md) {
+		background: none;
 	}
-	@media (min-width: $screen-sm) {
+	@media (min-width: $screen-md) {
 		position: relative;
-		z-index: 0;
-		left: unset;
-		width: 100%;
 	}
 	.panel-close{
 		left: auto;
 		right: 31px;
 		top: 15px;
-		@media (min-width: $screen-sm) {
+		@media (min-width: $screen-md) {
 			display: none;
 		}
 	}
@@ -30,6 +36,7 @@
 body.menu-open{
 	#site-nav-panel{ 
 		left: 0;
+		top: 0;
 		box-shadow: 0 0 60px rgba(0,0,0,.1);
 	}
 }
@@ -41,8 +48,13 @@ body.menu-open{
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
 	padding: 75px $mobile-gutter 30px;
-	@media (min-width: $screen-sm) {
-		padding: 30px 0 0 30px;
+	@media (min-width: $screen-md) {
+		// position: absolute;
+		// left: 0;
+		// top: 50%;
+		// transform: translate(0, -50%);
+		display: inline-block;
+		padding: 0;
 	}
 }
 .mega-menu ul {
@@ -60,18 +72,28 @@ body.menu-open{
 	flex-wrap: wrap;
 	justify-content: space-between;
 	position: relative;
+	@media (min-width: $screen-md) {
+		padding-top: 5px;
+	}
 }
 .mega-menu__nav__item {
 	width: 32%;
 	margin-bottom: 10px;
-	border: 1px solid $gray-lighter;
 	border-radius: 2px;
-	text-align: center;
-	&:hover,
-	&:active,
-	&:focus {
-		background-color: $brand-blue;
-		border: 1px solid $brand-blue;
+	@media (min-width: $screen-md) {
+		&:hover,
+		&:focus,
+		&:active { 
+			.mega-menu__layout {
+				visibility: visible;
+				position: fixed;
+				background-color: $gray-lightest;
+			}
+		}
+	}
+	@media (min-width: $screen-md) {
+		width: auto;
+		padding-right: 10px;
 	}
 }
 .mega-menu__nav__item.open .mega-menu__nav__item__link {
@@ -81,43 +103,184 @@ body.menu-open{
 .mega-menu__nav__item__link {
 	font-family: $font-family-medium;
 	display: inline-block;
+	border: 1px solid $gray-lighter;
+	border-radius: 2px;
 	line-height: 40px;
 	width: 100%;
 	text-transform: uppercase;
 	color: $gray;
 	font-size: 10px;
 	letter-spacing: 1px;
-	&:hover {
+	&:hover,
+	&:active,
+	&:focus {
 		color: white;
+		background-color: $brand-blue;
+		border: 1px solid $brand-blue;
+		@media (min-width: $screen-md) {
+			background-color: transparent;
+			border-radius: 0;
+			border: none;
+			border-bottom: 1px solid $gray-darker;
+			color: $gray-darker;
+		}
+	}
+	@media (min-width: $screen-md) {
+		border: none;
+		border-bottom: 1px solid transparent;
+		line-height: 23px;
+		font-size: 12px;
+		color: $gray-darker;
 	}
 }
-.mega-menu__subnav {
-	font-size: 12px;
+
+.mega-menu__container--desktop {
+	@media (min-width: $screen-md) {
+		width: 970px;
+		margin: 0 auto;
+		display: flex;
+	}    
+	@media (min-width: $screen-lg) {
+		width: 1170px;
+	}
+}
+
+.mega-menu__layout {
 	position: absolute;
-	top: 100%;
 	left: 0;
+	top: 65px;
+	width: 100%;
+	@media (min-width: $screen-md) {
+		padding: 50px 0;
+	}
+}
+
+.mega-menu__subnav {
+	width: 100%;
+	font-size: 12px;
 	text-align: left;
+	&.navcol-1,
+	&.navcol-2 {
+		@media (min-width: $screen-md) {
+			width: 21%;
+		}
+	}
+	&.navcol-3 {
+		@media (min-width: $screen-md) {
+			width: 58%;
+		}
+	}
 }
 .mega-menu__subnav--about {
 	display: flex;
     flex-wrap: wrap;
 	justify-content: space-between;
+	padding-top: 20px;
 	.mega-menu__subnav__item {
-		width: 50%;
+		width: 47%;
 		text-align: center;
+		padding-bottom: 20px;
 	}
 	.mega-menu__subnav__item:first-child {
-		padding-top: 0;
+		// padding-top: 0;
+	}
+	.mega-menu__subnav__item__link {
+		color: $gray;
+		text-transform: capitalize;
+	}
+	@media (min-width: $screen-md) {
+		justify-content: space-evenly;
+		.mega-menu__subnav__item {
+			width: 22%;
+		}
 	}
 }
 
+// Carousel
+
+.mega-menu__featured__carousel {
+	display: flex;
+	flex-wrap: wrap;
+	.mega-menu__subnav__item__header {
+		width: 100%;
+	}
+	.mega-menu__subnav__item__child {
+		padding-right: 20px;
+	}
+}
+
+.mega-menu-carousel-prev {
+	position: absolute;
+	right: 60px;
+	top: 15px;
+	height: 25px;
+	width: 25px;
+	background-image: url('arrow-left.svg');
+	background-repeat: no-repeat;
+	content: '';
+	cursor: pointer;
+}
+
+.mega-menu-carousel-next {
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	height: 25px;
+	width: 25px;
+	background-image: url('arrow-right-black.svg');
+	background-repeat: no-repeat;
+	content: '';
+	cursor: pointer;
+}
+
+
+// About Images
+.ratio {
+	position: relative;
+	&:before {
+	  content: '';
+	  display: block;
+	  width: 100%;
+	}
+}
+.img {
+	bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+.img.fit-cover .img__el {
+	object-fit: cover;
+	bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+.mega-menu__image {
+	overflow: hidden;
+	&:before {
+		padding-top: 70%;
+	}
+}
+
+  
+.mega-menu_subnav__item__img {
+	padding-bottom: 10px;
+}
 
 .mega-menu__subnav__item {
 	font-size: 12px;
 	text-transform: uppercase;
 	padding-bottom: 15px;
-	&:first-child {
-		padding-top: 20px;
+	@media (min-width: $screen-md) {
+		padding-top: 10px;
 	}
 }
 
@@ -128,6 +291,10 @@ body.menu-open{
 .mega-menu__subnav__item__header {
 	margin-top: 30px;
 	color: $gray-darker;
+	@media (min-width: $screen-md) {
+		margin-top: 0;
+		padding-top: 10px;
+	}
 }
 .mega-menu__subnav__item-title {
 	text-transform: uppercase;
@@ -136,17 +303,32 @@ body.menu-open{
 }
 .mega-menu__subnav__item__child {
 	padding-bottom: 10px;
+	@media (min-width: $screen-md) {
+		padding: 6px 0;
+	}
 }
+
 .mega-menu__subnav__item__child__link {
-	color: $gray-light;
+	color: $gray;
 	font-size: 13px;
 }
 
-.mega-menu__nav__item div ul {
-	visibility: hidden;
+.mega-menu__subnav__item__child__featured--link {
+	color: $gray-darker;
 }
 
-.mega-menu__nav__item.isActive div ul {
+.mega-menu__subnav__item__child__featured--description {
+	color: $gray;
+}
+
+.mega-menu__nav__item div {
+	visibility: hidden;
+	@media (min-width: $screen-md) {
+		visibility: visible;
+	}
+}
+
+.mega-menu__nav__item.isActive div {
 	visibility: visible;
 }
 

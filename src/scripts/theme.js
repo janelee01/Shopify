@@ -375,6 +375,36 @@ $(document).ready(function() {
 	});
 
 	/*
+	 mega-menu featured pages
+	*/
+
+	$('.mega-menu__featured__carousel--slick-carousel').slick ({
+		arrows : true,
+		dots: false,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		prevArrow: $('.mega-menu-carousel-prev'),
+		nextArrow: $('.mega-menu-carousel-next'),
+		slide: '.mega-menu__subnav__item__child',
+		responsive: [
+			{
+			  breakpoint: 768,
+			  settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1,
+			  }
+			},
+			{
+				breakpoint: 320,
+				settings: {
+				  slidesToShow: 1.5,
+				  slidesToScroll: 1,
+				}
+			  }
+		]
+	});
+
+	/*
 	 Home page reviews
 	*/
 	$('.press-slider .row').slick({

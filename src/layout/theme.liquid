@@ -88,8 +88,6 @@
   {% include 'body-before-start' %} 
 
     <a class="in-page-link skip-link sr-only" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
-    
-    {% section 'mega-menu' %} 
 
     <div class="site-window" id="site-window">
         <div class="site-content">
@@ -97,24 +95,37 @@
               {% section 'marquee' %}
               <nav id="site-header-items">
                 <div class="container">
+                  {% section 'mega-menu' %} 
+
                   {% if template.name == 'index' %}
                     <h1 id="site-logo" itemscope itemtype="http://schema.org/Organization">{{ shop.name }}</h1>
                   {% else %}
                     <a href="/" id="site-logo" itemscope itemtype="http://schema.org/Organization">{{ shop.name }}</a>
                   {% endif %}
                   
-                  <a href="#" class="navbar-toggle">
-                    <span class="sr-only">Menu</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </a>
-
-                  <a href="/cart" class="cart-link {% if cart.item_count < 1 %}empty{% endif %}">
-                    <span class="cart-icon">
-                      <span class="sr-only">{{ 'layout.cart.title' | t }}</span>
-                    </span><span class="cart-count">{{ cart.item_count }}</span>
-                  </a>
+                  <div class="site-header-icons">
+                    <a href="/help" class="site-header-icons__icon help-link">
+                      <span class="icon help-icon">
+                        <span class="sr-only">{{ 'layout.help.title' | t }}</span>
+                      </span>
+                    </a>
+                    <a href="/account/login" class="site-header-icons__icon login-link">
+                      <span class="icon login-icon">
+                        <span class="sr-only">{{ 'layout.login.title' | t }}</span>
+                      </span>
+                    </a>
+                    <a href="/cart" class="cart-link site-header-icons__icon {% if cart.item_count < 1 %}empty{% endif %}">
+                      <span class="icon cart-icon">
+                        <span class="sr-only">{{ 'layout.cart.title' | t }}</span>
+                      </span><span class="cart-count">{{ cart.item_count }}</span>
+                    </a>
+                    <a href="#" class="site-header-icons__icon navbar-toggle">
+                      <span class="sr-only">Menu</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </a>
+                  </div>
                 </div>
               </nav>
             </header>

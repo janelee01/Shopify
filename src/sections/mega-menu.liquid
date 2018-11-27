@@ -1,29 +1,31 @@
 <div id="site-nav-panel">
   <div class="mega-menu">
-    {% assign fieldId = 'in-menu-search' %}
-    {% include 'search-form' with fieldId %}
+    {%- assign fieldId = 'in-menu-search' -%}
+    {%- include 'search-form' with fieldId -%}
+    
   	<nav role="navigation" id="mega-menu">
         <ul class="mega-menu__nav" id="mega-menu__nav"> 
-            {% for link in linklists[section.settings.main_linklist].links %}
+            {%- for link in linklists[section.settings.main_linklist].links -%}
                 {%- assign child_list_handle = link.title | handleize -%}
-                {% if link.links != blank %}
+                {%- if link.links != blank -%}
                     <li class="mega-menu__nav__item has-children{% if link.active %} active-child{% endif %}">
                         <a href="#child-menu-{{ forloop.index0 }}" class="mega-menu__nav__item__link menu-toggle" aria-expanded="false" aria-controls="child-menu-{{ forloop.index0 }}">
                             {{ link.title }}
                         </a>
                         {% include 'mega-menu-dropdown' with links: link.links %}
                     </li>
-                {% else %}
+                {%- else -%}
                 <div>
                     <li class="mega-menu__nav__item {% if link.active %} active {% endif %}">
                         <a class="mega-menu__nav__item__link btn-gtm-trk" data-gtm-a="3" href="{{ link.url }}">{{ link.title }}</a>
                     </li>
                 </div>
-                {% endif %}
-            {% endfor %}
+                {%- endif -%}
+            {%- endfor -%}
         </ul>
   	</nav>
-    <button id="nav-panel-close" class="panel-close"><span class="sr-only">Close</span></button>
+    
+    {% comment %} <button id="nav-panel-close" class="panel-close"><span class="sr-only">Close</span></button> {% endcomment %}
   </div>
 </div>
 

@@ -14,7 +14,7 @@ $(document).ready(function(){
 	// reload nav state
 	var savedState = sessionStorage.getItem('lo-main-menu');
 	if( savedState ){
-		$('#mega-menu__nav').html(savedState);
+		// $('#mega-menu__nav').html(savedState);
 	}
 	$('#mega-menu a').on('click', function(){
 		sessionStorage.setItem('lo-main-menu', $('#mega-menu__nav').html());
@@ -24,22 +24,23 @@ $(document).ready(function(){
 	
 
 	$('body').on('click', '.navbar-toggle', function(e){
+		$header.hasClass('showing-alternate');
 		e.preventDefault();
 		$('body').toggleClass('menu-open');
 		LS.overlay.open();
 	});
-	$('body').on('click', '#nav-panel-close', function(e){
-		e.preventDefault();
-		$('body').removeClass('menu-open');
-		LS.overlay.close();
-	});
-	$('.site-content').on('click', function(e){
-		if( $('body').hasClass('menu-open') ){
-			e.stopPropagation();
-			$('body').removeClass('menu-open');
-			LS.overlay.close();
-		}
-	});
+	// $('body').on('click', '#nav-panel-close', function(e){
+	// 	e.preventDefault();
+	// 	$('body').removeClass('menu-open');
+	// 	LS.overlay.close();
+	// });
+	// $('.site-content').on('click', function(e){
+	// 	if( $('body').hasClass('menu-open') ){
+	// 		e.stopPropagation();
+	// 		$('body').removeClass('menu-open');
+	// 		LS.overlay.close();
+	// 	}
+	// });
 	$('body').on('click', '.menu-toggle', function(e){
 		e.preventDefault();
 		$(this).closest('li').toggleClass('isActive');

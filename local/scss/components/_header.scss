@@ -7,24 +7,39 @@
 	left: 0;
 	right: 0;
 	margin: 0;
-	z-index: 1020;
+	z-index: 10002;
 	&.after-scroll{
-		@include headerShadow;
+		background-color: #fff;
 	}
 }
 #site-header-items{
-	background: #FFF;
 	padding-bottom:12px;
 	padding-top:12px;
 	text-align: center;
-	line-height: 0; // fixes weird space below items ¯\_(ツ)_/¯
+	// line-height: 0; // fixes weird space below items ¯\_(ツ)_/¯
 	@include transition(all .25s ease-out);
 	@media (min-width: $screen-md) {
 		padding-top: 0;
 		padding-bottom: 0;
+		text-align: left;
+
 	}
 	.container{
 		position: relative;	
+	}
+}
+
+.site-header-icons {
+	float: right;
+    padding-right:5px;
+    padding-top: 5px;
+	display: inline-block;
+	@media (min-width: $screen-md) {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translate;
+		transform: translate(0, -50%);
 	}
 }
 
@@ -34,28 +49,51 @@
 body.has-tw-header,
 body.has-tb-header{
 	#site-header.showing-alternate #site-header-items{
-		background: none;
+		// background: none;
 	}
 	.site-content{
 		padding-top: 0;
 	}
 }
 
+
+
 body.has-tw-header{
-	#site-header.showing-alternate{
+	#site-header{
 		.navbar-toggle .icon-bar{
-			background-color: #fff;
+			background-color: #000;
 		}
 		#site-logo {
-			background-image: url(lo-and-sons-white.svg);
+			background-image: url('lo-and-sons.svg');
 		}
 		.cart-link{
 			.cart-icon{
-				background-image: url('icon-cart-v2-white.svg');
+				background-image: url('icon-cart-v3.svg');
 			}
 			.cart-count{
 				color: #fff;
 			}
+		}
+		.login-link {
+			.login-icon {
+				background-image: url('icon-account.svg');
+			}
+		}
+		.help-link {
+			.help-icon {
+				background-image: url('icon-help.svg');
+			}
+		}
+	}
+}
+
+body.has-tw-header{
+	#site-header.showing-alternate {
+		#site-logo {
+			background-image: url('lo-and-sons-white.svg');
+		}
+		.navbar-toggle .icon-bar {
+			background-color: #fff;
 		}
 	}
 }
@@ -63,33 +101,27 @@ body.has-tw-header{
 #site-logo {
 	@include text-hide;
 	overflow:hidden;
-	background: url(lo-and-sons.svg) no-repeat transparent center center;
-	@include size(182px, 20px);
-	background-size: auto 12px;
-	margin:0 auto;
+	background: url('lo-and-sons.svg') no-repeat transparent center center;
+	@include size(152px, 40px);
+	background-size: auto 15px;
+	margin:0;
 	padding:0;
-	display: block;
+	display: inline-block;
 	@media only screen and (min-width: $screen-md) {
 		height: $ls-navbar-height;
 		background-size: auto 16px;
 	    position: relative;
-	    z-index: 10;
+		z-index: 10;
+		display: block;
+		margin: 0 auto;
 	}
 }
 
 .navbar-toggle{
 	display: block;
-	position: absolute;
 	border: none;
 	margin: 0;
-	left: $mobile-gutter;
-	top: 50%;
-	transform: translateY(-50%);
 	padding-left: 0;
-	@media (min-width: $screen-sm) {
-		left: $grid-gutter-width/2;
-		display: none;
-	}
 	.icon-bar{
 		background-color: $brand-black;
 		width: 20px;
@@ -101,23 +133,14 @@ body.has-tw-header{
 	&:focus{
 		background: none;
 	}
-// &:focus{
-// 	.icon-bar{
-// 		background-color: $brand-blue;
-// 	}
-// }
 }
 
-.cart-link{
-	display: flex;
-	align-items: center;
-	position: absolute;
-	right: $mobile-gutter;
-	top: 50%;
-	transform: translateY(-50%);
+.site-header-icons__icon {
+	display: inline-block;
 	color: $brand-black;
 	height: 30px;
-	@media (min-width: $screen-sm) {
+	padding-right: 10px;
+	@media (min-width: $screen-md) {
 		right: $grid-gutter-width/2;
 	}
 	&:hover{
@@ -129,14 +152,20 @@ body.has-tw-header{
 			display: none;
 		}
 	}
-	.cart-icon{
+	.icon{
 		display: block;
-		width: 16px;
+		width: 20px;
 		height: 100%;
-		background: url('icon-cart-v2.svg') no-repeat left center;
+		background-repeat: no-repeat;
 		background-size: 100% auto;
+		background-position: left center;
 	}
-	.cart-count{
-		margin-left: 5px;
+	&:last-child {
+		padding-right: 0;
+	}
+	&.navbar-toggle {
+		@media (min-width: $screen-md) {
+			display: none;
+		}
 	}
 }
