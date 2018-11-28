@@ -44,7 +44,7 @@
   }
 
 
-  [data-header-dropdown-toggle]:hover &{
+  .toggle-menu:hover &{
     @media (min-width: $screen-md) {
       @include help-menu-active;
     }
@@ -117,10 +117,16 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+  .primary-link-inner * {
+    transition: all 300ms;
+  }
+  .primary-link-inner:hover * {
+    color: $brand-blue;
+  }
   .primary-icon{
     max-height: 20px;
   }
-  .primary-icon svg {
+  .primary-icon svg{
     width: 20px;
     height: 20px;
   }

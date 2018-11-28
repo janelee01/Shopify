@@ -41,6 +41,7 @@ window.theme = window.theme || {};
 // =require lo/product-reviews.js  
 // =require lo/product-gallery.js  
 // =require lo/customers.js
+// =require lo/toggle-menu.js
 
 $(document).ready(function() {
 
@@ -103,8 +104,8 @@ $(document).ready(function() {
     }
   });
    
-  $("#in-menu-search").catcomplete({
-    delay: 0,
+  $(".js-autocomplete").catcomplete({
+  delay: 0,
 	source: window.autocompletedata,
 	open: function ( event, ui ) {
 		if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {

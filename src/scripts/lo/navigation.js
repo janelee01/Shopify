@@ -57,11 +57,7 @@ $(document).ready(function(){
 		$('body').removeClass('isActive');
 	});
 
-	$('[data-header-dropdown-toggle]').click(function(e) {
-		$(this).toggleClass('is-active')
-	})
-
- 	// local nav for updated shopify designs,
+	// local nav for updated shopify designs,
  	// other local navs exist for transferred WP pages
 	var setActiveBar = function(){
 		var $nav = $('.page-nav .items');

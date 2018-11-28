@@ -104,17 +104,20 @@
                   {% endif %}
                   
                   <div class="site-header-icons">
-                    <div class="site-header-icons__icon help-link" data-header-dropdown-toggle>
+                    <div class="site-header-icons__icon help-link js-toggle-menu toggle-menu">
                       <a href="#help">
                         {% include 'header-icons', icon: 'help' %}
                         <span class="sr-only">{{ 'layout.help.title' | t }}</span>
                       </a>
                       {% section 'help-menu' %}
                     </div>
-                    <div class="site-header-icons__icon search-link" data-header-dropdown-toggle>
+                    <div class="site-header-icons__icon search-link js-toggle-menu toggle-menu">
                       <a href="#search">
                         {% include 'header-icons', icon: 'search' %}
                         <span class="sr-only">{{ 'layout.help.search' | t }}</span>
+                        {%- assign placeholder = 'general.search.placeholder' | t -%}
+                        {% include 'search-form', field_id: 'in-menu-search', class: 'is-desktop js-toggle-menu-overlay', placeholder: placeholder %}
+                        {%- assign placeholder = nil -%}
                       </a>
                     </div>
                     <div class="site-header-icons__icon">

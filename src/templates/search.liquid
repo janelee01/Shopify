@@ -17,11 +17,11 @@
 
     {% if search.performed == false or search.performed and search.results_count == 0 %}
       <div id="in-page-search-container">
-        {%- assign fieldId = 'in-page-search' -%}
+        {%- assign field_id= 'in-page-search' -%}
         {%- if search.performed -%}
           {%- assign placeholder = 'Search products again' -%}
         {%- endif -%}
-        {% include 'search-form' with fieldId, placeholder %}
+        {% include 'search-form' with field_id, placeholder, auto_complete: false, class: "is-search-template" %}
       </div>
     {% endif %}
 

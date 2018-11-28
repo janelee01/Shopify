@@ -191,8 +191,18 @@ body.has-tw-header{
 	
 	&.search-link {
 		display: none;
+		
+
 		@media (min-width: $screen-md) {
 			display: inline-block;
+		}
+
+		> a {
+			transition: color 300ms;
+		}
+
+		&.is-active > a{
+			color: $brand-blue;
 		}
 	}
 

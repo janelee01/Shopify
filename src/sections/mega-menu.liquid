@@ -1,8 +1,8 @@
 <div id="site-nav-panel">
   <div class="mega-menu">
-    {%- assign fieldId = 'in-menu-search' -%}
-    {%- include 'search-form' with fieldId -%}
-    
+    {%- assign placeholder = 'general.search.placeholder' | t -%}
+    {% include 'search-form', field_id: 'in-menu-search', class: 'is-mobile', placeholder: placeholder %}
+    {%- assign placeholder = nil -%}
   	<nav role="navigation" id="mega-menu">
         <ul class="mega-menu__nav" id="mega-menu__nav"> 
             {%- for link in linklists[section.settings.main_linklist].links -%}
