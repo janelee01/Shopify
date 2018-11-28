@@ -359,9 +359,8 @@ body.menu-open{
 
 .mega-menu__nav__item div {
 	visibility: hidden;
-	opacity: 0;
 	transform: translateY(1.5rem);
-	transition: opacity .5s linear,transform .5s cubic-bezier(0,0,0,1),-webkit-transform .5s cubic-bezier(0,0,0,1);
+	transition: visibility 1ms linear 300ms, transform 300ms;
 	@media (min-width: $screen-md) {
 		visibility: visible;
 		opacity: 1;
@@ -379,7 +378,7 @@ body.menu-open{
 		div {
 			visibility: visible;
 			transform: translateY(0);
-			opacity: 1;
+			transition: visibility 1ms linear, transform 300ms ease-in-out 1ms;
 		}
 	}
 }

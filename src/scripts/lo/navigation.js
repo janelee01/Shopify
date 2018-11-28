@@ -58,7 +58,7 @@ $(document).ready(function(){
 
 	$('body').on('click', '.menu-close', function(e){
 		e.preventDefault();
-		$('body').removeClass('isActive');
+		$(this).closest('li').toggleClass('isActive');
 	});
 
 	// local nav for updated shopify designs,
