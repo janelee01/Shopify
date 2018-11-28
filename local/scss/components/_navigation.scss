@@ -2,7 +2,7 @@
 	@media (min-width: $screen-md) {
 		display: inline-block;
 		position: absolute;
-		top: 50%;
+		top: 19px;
 		left: 0;
 	}
 }
@@ -78,6 +78,11 @@ body.menu-open{
 		padding-top: 5px;
 	}
 }
+
+.mega-menu__nav .mega-menu__nav__item .mega-menu__nav__item__link {
+	color: $gray-darker;
+}
+
 .mega-menu__nav__item {
 	width: 32%;
 	margin-bottom: 10px;
@@ -85,21 +90,29 @@ body.menu-open{
 	text-align: center;
 	@media (min-width: $screen-md) {
 		text-align: left;
-		&:hover,
-		&:focus,
-		&:active { 
-			.mega-menu__layout {
-				visibility: visible;
-				position: fixed;
-				background-color: $gray-lightest;
-			}
-		}
-	}
-	@media (min-width: $screen-md) {
+		padding-right: 32px;
+		margin-bottom: 0;
+		height: 47px;
 		width: auto;
-		padding-right: 10px;
 	}
 }
+
+.mega-menu__nav__item:hover,
+.mega-menu__nav__item:focus,
+.mega-menu__nav__item:active {
+	@media (min-width: $screen-md) {
+		.mega-menu__nav__item__link {
+			border-bottom: 1px solid $gray-darker;
+			border-radius: 0;
+		}
+		.mega-menu__layout {
+			visibility: visible;
+			position: fixed;
+			background-color: $gray-lightest;
+		}
+	}
+}
+
 .mega-menu__nav__item.open .mega-menu__nav__item__link {
 	color: white;
 	background-color: $brand-blue;
@@ -123,9 +136,7 @@ body.menu-open{
 		border: 1px solid $brand-blue;
 		@media (min-width: $screen-md) {
 			background-color: transparent;
-			border-radius: 0;
 			border: none;
-			border-bottom: 1px solid $gray-darker;
 			color: $gray-darker;
 		}
 	}
@@ -152,7 +163,7 @@ body.menu-open{
 .mega-menu__layout {
 	position: absolute;
 	left: 0;
-	top: 65px;
+	top: 62px;
 	width: 100%;
 	@media (min-width: $screen-md) {
 		padding: 50px 0;
@@ -228,7 +239,7 @@ body.menu-open{
 	@media (min-width: $screen-sm) {
 		position: absolute;
 		right: 60px;
-		top: 15px;
+		top: 5px;
 		height: 25px;
 		width: 25px;
 		background-image: url('arrow-left.svg');
@@ -243,7 +254,7 @@ body.menu-open{
 	@media (min-width: $screen-sm) {
 		position: absolute;
 		right: 15px;
-		top: 15px;
+		top: 5px;
 		height: 25px;
 		width: 25px;
 		background-image: url('arrow-right-black.svg');
@@ -313,7 +324,7 @@ body.menu-open{
 	color: $gray-darker;
 	@media (min-width: $screen-md) {
 		margin-top: 0;
-		padding-top: 10px;
+		// padding-top: 10px;
 	}
 }
 .mega-menu__subnav__item-title {
@@ -324,7 +335,7 @@ body.menu-open{
 .mega-menu__subnav__item__child {
 	padding-bottom: 10px;
 	@media (min-width: $screen-md) {
-		padding: 6px 0;
+		padding-bottom: 10px;
 	}
 }
 
@@ -353,10 +364,13 @@ body.menu-open{
 }
 
 .mega-menu__layout__footer {
-	border-top: 1px solid $gray;
-	color: $gray;
+	border-top: 1px solid $gray-lighter;
+	color: $gray-darker;
 	padding: 10px 0 30px;
 	font-size: 14px;
+	@media (min-width: $screen-md) {
+		display: none;
+	}	
 }
 
 

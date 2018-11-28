@@ -29,6 +29,11 @@ $(document).ready(function(){
 		$('body').toggleClass('menu-open');
 		LS.overlay.open();
 	});
+	$('body').on('mouseover', '.mega-menu__nav__item', function(e){
+		$header.removeClass('showing-alternate');
+		$header.addClass('after-scroll');
+	});
+
 	// $('body').on('click', '#nav-panel-close', function(e){
 	// 	e.preventDefault();
 	// 	$('body').removeClass('menu-open');
@@ -45,6 +50,11 @@ $(document).ready(function(){
 		$('.menu-toggle').not(this).closest('li').removeClass('isActive');
 		e.preventDefault();
 		$(this).closest('li').toggleClass('isActive');
+	});
+
+	$('body').on('click', '.menu-close', function(e){
+		e.preventDefault();
+		$('body').removeClass('isActive');
 	});
 
 	$('[data-header-dropdown-toggle]').click(function(e) {

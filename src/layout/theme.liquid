@@ -117,15 +117,19 @@
                         <span class="sr-only">{{ 'layout.help.search' | t }}</span>
                       </a>
                     </div>
-                    <a href="/account/login" class="site-header-icons__icon login-link">
-                      {% include 'header-icons', icon: 'login' %}
-                      <span class="sr-only">{{ 'layout.login.title' | t }}</span>
-                    </a>
-                    <a href="/cart" class="cart-link site-header-icons__icon {% if cart.item_count < 1 %}empty{% endif %}">
-                      {% include 'header-icons', icon: 'cart' %}
-                      <span class="sr-only">{{ 'layout.cart.title' | t }}</span>
-                      <span class="cart-count">{{ cart.item_count }}</span>
-                    </a>
+                    <div class="site-header-icons__icon">
+                      <a href="/account/login" class="login-link">
+                        {% include 'header-icons', icon: 'login' %}
+                        <span class="sr-only">{{ 'layout.login.title' | t }}</span>
+                      </a>
+                    </div>
+                    <div class="site-header-icons__icon">
+                      <a href="/cart" class="cart-link {% if cart.item_count < 1 %}empty{% endif %}">
+                        {% include 'header-icons', icon: 'cart' %}
+                        <span class="sr-only">{{ 'layout.cart.title' | t }}</span>
+                        <span class="cart-count">{{ cart.item_count }}</span>
+                      </a>
+                    </div>
                     <a href="#" class="site-header-icons__icon navbar-toggle">
                       <span class="sr-only">Menu</span>
                       <span class="icon-bar"></span>
