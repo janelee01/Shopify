@@ -104,20 +104,27 @@
                   {% endif %}
                   
                   <div class="site-header-icons">
-                    <a href="/help" class="site-header-icons__icon help-link">
-                      <span class="icon help-icon">
+                    <div class="site-header-icons__icon help-link" data-header-dropdown-toggle>
+                      <a href="#help">
+                        {% include 'header-icons', icon: 'help' %}
                         <span class="sr-only">{{ 'layout.help.title' | t }}</span>
-                      </span>
-                    </a>
+                      </a>
+                      {% section 'help-menu' %}
+                    </div>
+                    <div class="site-header-icons__icon search-link" data-header-dropdown-toggle>
+                      <a href="#search">
+                        {% include 'header-icons', icon: 'search' %}
+                        <span class="sr-only">{{ 'layout.help.search' | t }}</span>
+                      </a>
+                    </div>
                     <a href="/account/login" class="site-header-icons__icon login-link">
-                      <span class="icon login-icon">
-                        <span class="sr-only">{{ 'layout.login.title' | t }}</span>
-                      </span>
+                      {% include 'header-icons', icon: 'login' %}
+                      <span class="sr-only">{{ 'layout.login.title' | t }}</span>
                     </a>
                     <a href="/cart" class="cart-link site-header-icons__icon {% if cart.item_count < 1 %}empty{% endif %}">
-                      <span class="icon cart-icon">
-                        <span class="sr-only">{{ 'layout.cart.title' | t }}</span>
-                      </span><span class="cart-count">{{ cart.item_count }}</span>
+                      {% include 'header-icons', icon: 'cart' %}
+                      <span class="sr-only">{{ 'layout.cart.title' | t }}</span>
+                      <span class="cart-count">{{ cart.item_count }}</span>
                     </a>
                     <a href="#" class="site-header-icons__icon navbar-toggle">
                       <span class="sr-only">Menu</span>
