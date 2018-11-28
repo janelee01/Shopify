@@ -6,7 +6,6 @@ $(document).ready(function(){
 	var $targets = $('.jumptarget');
 	var spacer = 30;
 	var trigger = $pageNav.outerHeight();
-	var menuBreakpoint = 800;
 
 	// move a page nav into the header for less fixed position conflicts
 	$pageNav.detach().appendTo($header);
@@ -22,14 +21,13 @@ $(document).ready(function(){
 
 	// off canvas nav
 	
-
 	$('body').on('click', '.navbar-toggle', function(e){
 		$header.hasClass('showing-alternate');
 		e.preventDefault();
 		$('body').toggleClass('menu-open');
 		LS.overlay.open();
 	});
-	$('body').on('mouseover', '.mega-menu__nav__item', function(e){
+	$('body').on('mouseenter mouseleave', '.mega-menu__nav__item', function(e){
 		$header.removeClass('showing-alternate');
 		$header.addClass('after-scroll');
 	});

@@ -192,12 +192,21 @@ $(document).ready(function() {
 
   // slide the marquee out of the way on scroll
   var $marquee = $('#shopify-section-marquee');
-  var trigger = 75;
+  var trigger = 1;
   var lastScrollPos = 0;
 
   if( $marquee.is(':visible') ){
   	$('.site-content').css('padding-top', $header.outerHeight() - $pageNav.outerHeight());
   }
+
+  // remove menu-open class on window resize
+  $(window).resize(function () {
+	var viewportWidth = $(window).width();
+	var megaMenuBreakpoint = 1024;
+	if (viewportWidth > megaMenuBreakpoint) {
+		$(".has-tw-header").removeClass("menu-open");
+	}
+  });
 
   // adjust on scroll
   $(window).scroll(function(){
@@ -255,7 +264,7 @@ $(document).ready(function() {
   		}else{
   			$header.removeClass('showing-alternate');
   		}
-  	});
+	});
   }
 
   	// header shadow
