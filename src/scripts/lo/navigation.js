@@ -42,6 +42,7 @@ $(document).ready(function(){
 	// 	}
 	// });
 	$('body').on('click', '.menu-toggle', function(e){
+		$('.menu-toggle').not(this).closest('li').removeClass('isActive');
 		e.preventDefault();
 		$(this).closest('li').toggleClass('isActive');
 	});

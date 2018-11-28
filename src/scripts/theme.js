@@ -383,6 +383,7 @@ $(document).ready(function() {
 		dots: false,
 		slidesToShow: 3,
 		slidesToScroll: 1,
+		centerPadding: 0,
 		prevArrow: $('.mega-menu-carousel-prev'),
 		nextArrow: $('.mega-menu-carousel-next'),
 		slide: '.mega-menu__subnav__item__child',
@@ -395,8 +396,9 @@ $(document).ready(function() {
 			  }
 			},
 			{
-				breakpoint: 320,
+				breakpoint: 380,
 				settings: {
+				  centerMode: true,
 				  slidesToShow: 1.5,
 				  slidesToScroll: 1,
 				}
