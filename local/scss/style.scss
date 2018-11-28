@@ -49,3 +49,7 @@
 @import 'views/product';
 @import 'views/returns';
 @import 'views/support'; 
+
+#preview-bar-iframe{
+  display: none;
+}

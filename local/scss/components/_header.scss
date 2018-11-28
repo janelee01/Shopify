@@ -17,6 +17,8 @@
 #site-header-items{
 	padding-bottom:12px;
 	padding-top:12px;
+	position: relative;
+	z-index: $header-z-index;
 	// line-height: 0; // fixes weird space below items ¯\_(ツ)_/¯
 	@include transition(all .25s ease-out);
 	@media (min-width: $screen-md) {
@@ -137,6 +139,12 @@ body.has-tw-header{
 		.site-header-icons__icon {
 			color: #fff;
 		}
+	}
+}
+
+body.menu-open{
+	@media (max-width: ($screen-md - 1px)) {
+		overflow: hidden;
 	}
 }
 
