@@ -204,7 +204,8 @@ $(document).ready(function() {
 	var viewportWidth = $(window).width();
 	var megaMenuBreakpoint = 1024;
 	if (viewportWidth > megaMenuBreakpoint) {
-		$(".has-tw-header").removeClass("menu-open");
+		$('body').removeClass('menu-open');
+		$('.navbar-toggle').removeClass('mega-menu-active');
 	}
   });
 

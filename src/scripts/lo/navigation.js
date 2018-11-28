@@ -22,10 +22,16 @@ $(document).ready(function(){
 	// off canvas nav
 	
 	$('body').on('click', '.navbar-toggle', function(e){
-		$header.hasClass('showing-alternate');
+		if ($header.hasClass('showing-alternate')) {
+			$header.removeClass('showing-alternate');
+		}
 		e.preventDefault();
 		$('body').toggleClass('menu-open');
 		LS.overlay.open();
+	});
+
+	$('body').on('click', '.navbar-toggle', function(e){
+		$(this).toggleClass('mega-menu-active');
 	});
 	$('body').on('mouseenter mouseleave', '.mega-menu__nav__item', function(e){
 		$header.removeClass('showing-alternate');

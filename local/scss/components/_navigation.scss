@@ -202,6 +202,7 @@ body.menu-open{
 	padding-top: 20px;
 	.mega-menu__subnav__item {
 		width: 47%;
+		font-size: $font-size-sm;
 		text-align: center;
 		padding-bottom: 20px;
 	}
@@ -227,7 +228,6 @@ body.menu-open{
 	flex-wrap: wrap;
 	.mega-menu__subnav__item__header {
 		width: 100%;
-		padding-bottom: 10px;
 	}
 	.mega-menu__subnav__item__child {
 		padding-right: 20px;
@@ -238,14 +238,12 @@ body.menu-open{
 	display: none;
 	@media (min-width: $screen-sm) {
 		position: absolute;
-		right: 60px;
+		right: 45px;
 		top: 5px;
-		height: 25px;
-		width: 25px;
-		background-image: url('arrow-left.svg');
-		background-repeat: no-repeat;
-		content: '';
+		height: 13px;
+		width: 13px;
 		cursor: pointer;
+		transform: rotate(180deg);
 	}
 }
 
@@ -253,13 +251,10 @@ body.menu-open{
 	display: none;
 	@media (min-width: $screen-sm) {
 		position: absolute;
-		right: 15px;
+		right: 18px;
 		top: 5px;
-		height: 25px;
-		width: 25px;
-		background-image: url('arrow-right-black.svg');
-		background-repeat: no-repeat;
-		content: '';
+		height: 13px;
+		width: 13px;
 		cursor: pointer;
 	}
 }
@@ -324,9 +319,15 @@ body.menu-open{
 	color: $gray-darker;
 	@media (min-width: $screen-md) {
 		margin-top: 0;
-		// padding-top: 10px;
+		padding-top: 20px;
 	}
 }
+.mega-menu__subnav__item__header:first-child {
+	@media (min-width: $screen-md) {
+		padding-top: 0;
+	}
+}
+
 .mega-menu__subnav__item-title {
 	text-transform: uppercase;
 	color: $gray-darker;
@@ -354,14 +355,29 @@ body.menu-open{
 
 .mega-menu__nav__item div {
 	visibility: hidden;
+	opacity: 0;
+	transform: translateY(1.5rem);
+	transition: opacity .5s linear,transform .5s cubic-bezier(0,0,0,1),-webkit-transform .5s cubic-bezier(0,0,0,1);
 	@media (min-width: $screen-md) {
 		visibility: visible;
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
 
-.mega-menu__nav__item.isActive div {
-	visibility: visible;
-	transition: visibility 1ms ease-in 300ms, transform 300ms;
+.mega-menu__nav__item.isActive {
+	@media (max-width: $screen-md) {
+		background-color: $brand-blue;
+		.mega-menu__nav__item__link {
+			color: white;
+			border: 1px solid $brand-blue;
+		}
+		div {
+			visibility: visible;
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
 }
 
 .mega-menu__layout__footer {

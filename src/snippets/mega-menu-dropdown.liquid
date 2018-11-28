@@ -8,7 +8,7 @@
 {% comment %}Aggregate all left column links{% endcomment %}
 {%- for tier_2 in links -%}
 {%- if tier_2.links == blank -%}
-    {%- assign row = tier_2.title | append: ':' | append: tier_2.url | append: ':'  | append: tier_2.object.handle -%}
+    {%- assign row = tier_2.title | append: ':' | append: tier_2.url | append: ':'  | append: tier_2.object.handle | append: ':' | append: tier_2.type -%}
     {%- assign column_1 = column_1 | append: '|' | append: row -%}
     {%- assign row = nil -%}
 {%- endif -%}
@@ -17,14 +17,16 @@
 {% comment %}Aggregate all middle column links{% endcomment %}
 {%- for tier_2 in links -%}
 {%- if tier_2.links != blank -%}
+  {%- unless tier_2.title contains 'eatured' -%}
     {%- assign columns = 2 -%}
-    {%- assign row = tier_2.title | append: ':' | append: tier_2.url | append: ':' | append: tier_2.object.handle-%}
+    {%- assign row = tier_2.title | append: ':' | append: tier_2.url | append: ':' | append: tier_2.object.handle | append: ':' | append: tier_2.type -%}
     {%- assign column_2 = column_2 | append: '|' | append: row -%}
     {%- for tier_3 in tier_2.links -%}
-        {%- assign row = tier_3.title | append: ':' | append: tier_3.url | append: ':' | append: tier_3.object.handle -%}
+        {%- assign row = tier_3.title | append: ':' | append: tier_3.url | append: ':' | append: tier_3.object.handle | append: ':' | append: tier_3.type -%}
         {%- assign column_2 = column_2 | append: '|' | append: row -%}
         {%- assign row = nil -%}
     {%- endfor -%}
+  {%- endunless -%}
 {%- endif -%}
 {%- endfor -%}
 
@@ -32,10 +34,10 @@
 {%- for tier_2 in links -%}
 {%- if tier_2.title contains 'eatured' -%}
     {%- assign columns = 3 -%}
-    {%- assign row = tier_2.title | append: ':' | append: tier_2.url | append: ':' | append: tier_2.object.handle -%}
+    {%- assign row = tier_2.title | append: ':' | append: tier_2.url | append: ':' | append: tier_2.object.handle | append: ':' | append: tier_2.type -%}
     {%- assign column_3 = column_3 | append: '|' | append: row -%}
     {%- for tier_3 in tier_2.links -%}
-        {%- assign row = tier_3.title | append: ':' | append: tier_3.url | append: ':' | append: tier_3.object.handle -%}
+        {%- assign row = tier_3.title | append: ':' | append: tier_3.url | append: ':' | append: tier_3.object.handle | append: ':' | append: tier_3.type -%}
         {%- assign column_3 = column_3 | append: '|' | append: row -%}
         {%- assign row = nil -%}
     {%- endfor -%}
@@ -54,13 +56,17 @@
         <li class="mega-menu__subnav__item">
           {% comment %}If one column only, you'll want to show an image{% endcomment %}
           {%- assign _handle = link_details[2] -%}
-          {%- assign _blog = blogs[_handle] -%}
-          {%- assign _page = pages[_handle] -%}
+          {%- assign _type = link_details[3] -%}
+          {%- if _type == 'blog_link' -%}
+            {%- assign _object = blogs[_handle] -%}
+          {%- elsif _type == 'page_link' -%}
+            {%- assign _object = pages[_handle] -%}
+          {%- endif -%}
           
           <a class="mega-menu__subnav__item__link" href="{{link_details[1]}}">
             <div class="ratio mega-menu__image">
               <div class="img fit-cover">
-                <img class="img__el mega-menu_subnav__item__img" src="{{_blog.metafields["global"]["menu-image"]}}">
+                <img class="img__el mega-menu_subnav__item__img" src="{{_object.metafields["global"]["menu-image"]}}">
               </div>
             </div>
             <div>
@@ -68,10 +74,10 @@
             </div>
           </a>
         </li>
-        {%- assign _blog = nil -%}
+        {%- assign _object = nil -%}
+        {%- assign _type = nil -%}
+        {%- assign _handle = nil -%}
         {%- assign link_details = nil -%}
-        {%- assign _article = nil -%}
-        {%- assign _page = nil -%}
       {%- endfor -%}
       </ul>
       {%- assign rows = nil -%}
@@ -96,11 +102,11 @@
 
     <div class="mega-menu__subnav navcol-2">
       {%- assign rows = column_2 | remove_first: '|' | split: '|' -%}
-      
       <ul>
         {%- for row in rows -%}
           {%- assign link_details = row | split: ':' -%}
-          {%- if forloop.first == true -%}
+          {%- assign _title_handle = link_details[0] | handleize -%}
+          {%- if _title_handle contains 'shop-by' -%}
             <li class="mega-menu__subnav__item__header">
               <p class="mega-menu__subnav__item-title">
                 {{ link_details[0] }}
@@ -113,6 +119,7 @@
               </a>
             </li>
           {%- endif -%}
+          {%- assign _title_handle = nil -%}
           {%- assign link_details = nil -%}
         {%- endfor -%}
       </ul>
@@ -150,8 +157,12 @@
             {%- assign product_handle = nil -%}
             {%- assign _page = nil -%}
           {%- endfor -%}
-          <span class="mega-menu-carousel-prev"></span>
-          <span class="mega-menu-carousel-next"></span>
+          <span class="mega-menu-carousel-prev">
+            {% include 'header-icons', icon: 'arrow' %}
+          </span>
+          <span class="mega-menu-carousel-next">
+            {% include 'header-icons', icon: 'arrow' %}
+          </span>
         </ul>
         {%- assign rows = nil -%}  
       </div>

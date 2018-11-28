@@ -45,6 +45,25 @@
 	}
 }
 
+.cart-link{
+	position: relative;
+	.cart-icon{
+		background-image: url('icon-cart-v3.svg');
+	}
+	.cart-count{
+		color: #fff;
+		position: absolute;
+		top: -9px;
+		right: -8px;
+		background-color: $brand-blue;
+		border-radius: 50%;
+		height: 14px;
+		width: 14px;
+		font-size: 10px;
+		text-align: center;
+	}
+}
+
 /*
  Some pages have a transparent nav over the hero
  */
@@ -62,28 +81,20 @@ body.has-tb-header{
 
 body.has-tw-header{
 	#site-header{
-		.navbar-toggle .icon-bar{
-			background-color: #000;
+		.navbar-toggle {
+			.icon-bar1, .icon-bar2, .icon-bar3 {
+				background-color: #000;
+			}
 		}
 		#site-logo {
 			background-image: url('lo-and-sons.svg');
 		}
 		.cart-link{
-			position: relative;
 			.cart-icon{
 				background-image: url('icon-cart-v3.svg');
 			}
 			.cart-count{
 				color: #fff;
-				position: absolute;
-				top: -9px;
-				right: -8px;
-				background-color: $brand-blue;
-				border-radius: 50%;
-				height: 14px;
-				width: 14px;
-				font-size: 10px;
-				text-align: center;
 			}
 		}
 		.login-link {
@@ -104,8 +115,10 @@ body.has-tw-header{
 		#site-logo {
 			background-image: url('lo-and-sons-white.svg');
 		}
-		.navbar-toggle .icon-bar {
-			background-color: #fff;
+		.navbar-toggle {
+			.icon-bar1, .icon-bar2, .icon-bar3 {
+				background-color: #fff;
+			}
 		}
 		.mega-menu__nav .mega-menu__nav__item .mega-menu__nav__item__link {
 			@media (min-width: $screen-md) {
@@ -151,26 +164,30 @@ body.has-tw-header{
 	display: block;
 	border: none;
 	margin: 0;
-	padding-left: 0;
-	.icon-bar{
+	padding-left: 12px;
+	.icon-bar1, .icon-bar2, .icon-bar3 {
 		background-color: $brand-black;
 		width: 18px;
-		@media only screen and (min-width: $screen-md) {
-			.icon-bar {
-				width: 20px;
-				margin-top: 5px;
-			}
-		}
+		transition: 0.4s;
 	}
 	.icon-bar + .icon-bar{
 		margin-top: 4px;
-		@media only screen and (min-width: $screen-md) {
-			margin-top: 5px;
-		}
 	}
 	&:hover,
 	&:focus{
 		background: none;
+	}
+}
+
+.navbar-toggle {
+	&.mega-menu-active .icon-bar1 {
+		transform: rotate(-45deg) translate(-6px, 5px);
+	}
+	&.mega-menu-active .icon-bar2 {
+		opacity: 0;
+	}
+	&.mega-menu-active .icon-bar3 {
+		transform: rotate(45deg) translate(-3px, -3px);
 	}
 }
 
@@ -209,7 +226,10 @@ body.has-tw-header{
 	}
 
   & + .site-header-icons__icon {
-		padding-left: 10px;
+		padding-left: 8px;
+		&.navbar-toggle {
+			padding-left: 12px;
+		}
 		@media (min-width: $screen-md) {
 			padding-left: 17px;
 		}
