@@ -1,21 +1,22 @@
+{%- assign social_accounts = 'facebook,twitter,instagram,pinterest' | split: ',' -%}
+
 <div class="connect-menus">
-  <ul class="menu contact-menu">
-    <li><a contact-menu-email href="mailto:info@loandsons.com">Email</a></li>
-    <li><a contact-menu-message href="javascript:void(0);" onclick="olark('api.box.expand')">Chat</a></li>
-  </ul>
   <ul class="menu social-menu">
     {% for social in social_accounts %}
       {%- assign social_handle = social | handleize -%}
-      {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
-      {% capture social_icon %}logo-{{ social_handle }}.svg{% endcapture %}
-      {% if settings[social_link] != blank %}
+      {%- capture social_link %}social_{{ social_handle }}_link{% endcapture -%}
+      {%- capture social_icon %}icon-{{ social_handle }}{% endcapture -%}
+      {%- if settings[social_link] != blank -%}
         <li>
           <a href="{{ settings[social_link] }}" target="_blank">
-            {{social_icon | asset_url | img_tag }}
+            {%- include 'header-icons', icon: social_icon -%}
+
             <span class="sr-only">{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}</span>
           </a>
         </li>
-      {% endif %}
-    {% endfor %}
+      {%- endif -%}
+    {%- endfor -%}
   </ul>
 </div>
+
+{%- assign social_accounts = false -%}

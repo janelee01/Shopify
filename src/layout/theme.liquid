@@ -83,7 +83,7 @@
   <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/1BRcvEm4otuzCinl2NlZx7eeyApg3H6EPGJ0Zv74/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
 </head>
 
-<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }} {{ template | handle }} {{ page.metafields['global']['header-theme'] }}">
+<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }} {{ template | handle }} {{ page.metafields['global']['header-theme'] }} js-mega-menu">
 
   {% include 'body-before-start' %} 
 
@@ -91,7 +91,7 @@
 
     <div class="site-window" id="site-window">
         <div class="site-content">
-            <header id="site-header" class="{% unless page.metafields['global']['header-theme'] == 'default' %}showing-alternate{% endunless %}">
+            <header id="site-header" class="js-header {% unless page.metafields['global']['header-theme'] == 'default' %}showing-alternate{% endunless %}">
               {% section 'marquee' %}
               <nav id="site-header-items">
                 <div class="container">

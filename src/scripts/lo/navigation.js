@@ -19,48 +19,6 @@ $(document).ready(function(){
 		sessionStorage.setItem('lo-main-menu', $('#mega-menu__nav').html());
 	});
 
-	// off canvas nav
-	
-	$('body').on('click', '.navbar-toggle', function(e){
-		if ($header.hasClass('showing-alternate')) {
-			$header.removeClass('showing-alternate');
-		}
-		e.preventDefault();
-		$('body').toggleClass('menu-open');
-		LS.overlay.open();
-	});
-
-	$('body').on('click', '.navbar-toggle', function(e){
-		$(this).toggleClass('mega-menu-active');
-	});
-	$('body').on('mouseenter mouseleave', '.mega-menu__nav__item', function(e){
-		$header.removeClass('showing-alternate');
-		$header.addClass('after-scroll');
-	});
-
-	// $('body').on('click', '#nav-panel-close', function(e){
-	// 	e.preventDefault();
-	// 	$('body').removeClass('menu-open');
-	// 	LS.overlay.close();
-	// });
-	// $('.site-content').on('click', function(e){
-	// 	if( $('body').hasClass('menu-open') ){
-	// 		e.stopPropagation();
-	// 		$('body').removeClass('menu-open');
-	// 		LS.overlay.close();
-	// 	}
-	// });
-	$('body').on('click', '.menu-toggle', function(e){
-		$('.menu-toggle').not(this).closest('li').removeClass('isActive');
-		e.preventDefault();
-		$(this).closest('li').toggleClass('isActive');
-	});
-
-	$('body').on('click', '.menu-close', function(e){
-		e.preventDefault();
-		$(this).closest('li').toggleClass('isActive');
-	});
-
 	// local nav for updated shopify designs,
  	// other local navs exist for transferred WP pages
 	var setActiveBar = function(){

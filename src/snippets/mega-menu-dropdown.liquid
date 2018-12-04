@@ -70,7 +70,7 @@
               </div>
             </div>
             <div>
-              <span>{{link_details[0]}}</span>
+              <p class="mega-menu_subnav__item__img__caption">{{link_details[0]}}</p>
             </div>
           </a>
         </li>
@@ -91,7 +91,7 @@
         {%- for row in rows -%}
           {%- assign link_details = row | split: ':' -%}
           <li class="mega-menu__subnav__item__child">
-            <a class="mega-menu__subnav__item__link btn-gtm-trk" data-gtm-a="3" href="{{link_details[1]}}">{{link_details[0]}}</a>
+            <a class="mega-menu__subnav__item__link {% if link_details[0] == 'Sale' %} mega-menu__subnav__item__link--sale {% endif %} btn-gtm-trk" data-gtm-a="3" href="{{link_details[1]}}">{{link_details[0]}}</a>
           </li>
           {%- assign link_details = nil -%}
         {%- endfor -%}
@@ -127,8 +127,9 @@
     </div>
     
     {%- if columns >= 3 -%}
-      <div class="mega-menu__subnav navcol-3">
         {%- assign rows = column_3 | remove_first: '|' | split: '|' -%}
+      <div class="mega-menu__subnav mega-menu__carousel navcol-3">
+
         <ul class="mega-menu__featured__carousel mega-menu__featured__carousel--slick-carousel">
           {%- for row in rows -%}
             {%- assign link_details = row | split: ':' -%}
@@ -148,7 +149,7 @@
                       <img class="img__el mega-menu_subnav__item__img" src="{{_page.metafields["global"]["menu-image"]}}">
                     </div>
                   </div>
-                  {{link_details[0]}}
+                  <p class="mega-menu__subnav__item__child__featured__caption">{{link_details[0]}}</p>
                 </a>
                 <p class="mega-menu__subnav__item__child__featured--description">{{_page.metafields["global"]["menu-image-description"]}}</p>
               </li>
@@ -170,10 +171,12 @@
     {%- endif -%}
   </div>
   <div class="mega-menu__layout__footer">
-    <a href="#close" class="site-header-icons__icon site-header-icons__icon--sm menu-close">
-      {% include 'header-icons', icon: 'close' %}
-      <span>close</span>
-    </a>
+    <div class="menu-close-wrapper">
+      <a href="#close" class="site-header-icons__icon site-header-icons__icon--sm js-menu-close">
+        {% include 'header-icons', icon: 'close' %}
+        <span>close</span>
+      </a>
+    </div>
   </div>
 </div>
 

@@ -42,6 +42,7 @@ window.theme = window.theme || {};
 // =require lo/product-gallery.js  
 // =require lo/customers.js
 // =require lo/toggle-menu.js
+// =require lo/header.js
 
 $(document).ready(function() {
 
@@ -172,6 +173,7 @@ $(document).ready(function() {
 	e.preventDefault();
 	$('#shopify-section-marquee').fadeOut('fast', function(){
 		$('.site-content').removeAttr('style');
+		$('.mega-menu__layout').removeAttr('style');
 		$('body').trigger('marquee-hidden');
 	});
 	sessionStorage.setItem("lo-marquee-dismissed", "1");
@@ -196,7 +198,8 @@ $(document).ready(function() {
   var lastScrollPos = 0;
 
   if( $marquee.is(':visible') ){
-  	$('.site-content').css('padding-top', $header.outerHeight() - $pageNav.outerHeight());
+	  $('.site-content').css('padding-top', $header.outerHeight() - $pageNav.outerHeight());
+	  $('.mega-menu__layout').css('top', $header.outerHeight() - $pageNav.outerHeight());
   }
 
   // remove menu-open class on window resize
@@ -226,11 +229,13 @@ $(document).ready(function() {
   			}else if( !$marquee.is(':visible') && $pageNav.length ){
   				$header.css({
   					'top' : $('#site-header-items').outerHeight() * -1,
-  				});
+				});
+				$('.mega-menu__layout').css('top', $header.outerHeight());  
   			}else if( $marquee.is(':visible') ){
   				$header.css({
   					'top' : $marquee.outerHeight() * -1,
-  				});
+				  });
+				$('.mega-menu__layout').css('top', $header.outerHeight() - $pageNav.outerHeight() - $marquee.outerHeight());
   			}
   			window.setTimeout(function(){ // add a delay so the header position change can finish before we animate the fade in (fixes weird flickering)
   				$pageNav.addClass('is-shown');	
@@ -238,8 +243,9 @@ $(document).ready(function() {
   		}else{
   			// going up, show the navbar again, but not the marquee
   			$header.css({
-  				'top' : 0 - $marquee.outerHeight(),
-  			});
+				'top' : 0 - $marquee.outerHeight(),  
+			});
+			$('.mega-menu__layout').css('top', $header.outerHeight() - $pageNav.outerHeight());  
   		}
   		lastScrollPos = $(window).scrollTop();
   		
@@ -247,43 +253,18 @@ $(document).ready(function() {
   });
 
   // untransparentize header
-  if( $('body').hasClass('has-tw-header') || $('body').hasClass('has-tb-header') ){
+  if( LS.isTransparentHeader() ){
 
   	// don't use the entire header height when it's overlayed
   	if( $marquee.is(':visible') ){
-  		$('.site-content').css('padding-top', $marquee.outerHeight());
-  	}
-
-  	// if we're down the page already
-  	if( $(window).scrollTop() > trigger ){
-  		$header.removeClass('showing-alternate');
-  	}
-  	// adjust on scroll
-  	$(window).scroll(function(){
-  		if( $(window).scrollTop() < trigger ){
-  			$header.addClass('showing-alternate');
-  		}else{
-  			$header.removeClass('showing-alternate');
-  		}
-	});
+		$('.site-content').css('padding-top', $marquee.outerHeight());
+	}
   }
 
   	// header shadow
 	if( $('.page-nav').length ){
 		$('body').addClass('has-page-nav');
 	}
-  	var scrolledClass = 'after-scroll';
-	if ($(window).scrollTop() > trigger) {
-		$header.addClass(scrolledClass);
-	}
-	// adjust on scroll
-	$(window).scroll(function () {
-		if ($(window).scrollTop() < trigger) {
-			$header.removeClass(scrolledClass);
-		} else {
-			$header.addClass(scrolledClass);
-		}
-	});
 
   	// swipable bs carousels
   	$(".carousel").swipe({
@@ -389,33 +370,43 @@ $(document).ready(function() {
 	 mega-menu featured pages
 	*/
 
-	$('.mega-menu__featured__carousel--slick-carousel').slick ({
-		arrows : true,
-		dots: false,
-		slidesToShow: 3,
-		slidesToScroll: 1,
-		centerPadding: 0,
-		prevArrow: $('.mega-menu-carousel-prev'),
-		nextArrow: $('.mega-menu-carousel-next'),
-		slide: '.mega-menu__subnav__item__child',
-		responsive: [
-			{
-			  breakpoint: 768,
-			  settings: {
-				slidesToShow: 2,
-				slidesToScroll: 1,
-			  }
-			},
-			{
-				breakpoint: 380,
-				settings: {
-				  centerMode: true,
-				  slidesToShow: 1.5,
-				  slidesToScroll: 1,
-				}
-			  }
-		]
+	$('.mega-menu__featured__carousel--slick-carousel').each(function(){
+		const $carousel = $(this)
+		const $rightArrow = $(this).find('.mega-menu-carousel-next');
+		const $leftArrow = $(this).find('.mega-menu-carousel-prev');
+
+		$carousel.slick ({
+			arrows : true,
+			dots: false,
+			infinite: false,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			prevArrow: $leftArrow,
+			nextArrow: $rightArrow,
+			slide: '.mega-menu__subnav__item__child',
+			responsive: [
+				{
+				  breakpoint: 768,
+				  settings: {
+					slidesToShow: 2.5,
+					slidesToScroll: 1,
+				  }
+				},
+				{
+					breakpoint: 480,
+					settings: {
+					  slidesToShow: 1.5,
+					  slidesToScroll: 1,
+					}
+				  }
+			]
+		});
+	
+
 	});
+
+
+	
 
 	/*
 	 Home page reviews

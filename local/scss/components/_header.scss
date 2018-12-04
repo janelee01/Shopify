@@ -11,14 +11,16 @@
 	&.after-scroll{
 		#site-header-items {
 			background-color: #fff;
+			border-bottom: 1px solid $gray-lighter;
 		}
 	}
 }
 #site-header-items{
-	padding-bottom:12px;
-	padding-top:12px;
+	padding-bottom: 5px;
+	padding-top: 5px;
 	position: relative;
 	z-index: $header-z-index;
+	border: 1px solid transparent;
 	// line-height: 0; // fixes weird space below items ¯\_(ツ)_/¯
 	@include transition(all .25s ease-out);
 	@media (min-width: $screen-md) {
@@ -28,7 +30,11 @@
 
 	}
 	.container{
-		position: relative;	
+		position: relative;
+		@media (max-width: $screen-md) {
+			width: 100%;
+			padding: 0 28px;
+		}
 	}
 }
 
@@ -72,7 +78,7 @@
 body.has-tw-header,
 body.has-tb-header{
 	#site-header.showing-alternate #site-header-items{
-		// background: none;
+		background: transparent;
 	}
 	.site-content{
 		padding-top: 0;
@@ -150,18 +156,18 @@ body.menu-open{
 
 #site-logo {
 	@include text-hide;
+	position: relative;
 	overflow:hidden;
 	background: url('lo-and-sons.svg') no-repeat transparent center center;
-	@include size(130px, 40px);
+	@include size(130px, 43px);
 	background-size: auto 14px;
 	margin:0;
 	padding:0;
 	display: inline-block;
 	@media only screen and (min-width: $screen-md) {
 		height: $ls-navbar-height;
-		@include size(152px, 64px);
-		background-size: auto 16px;
-	    position: relative;
+		@include size(168px, 64px);
+		background-size: auto 18px;
 		z-index: 10;
 		display: block;
 		margin: 0 auto;
@@ -179,7 +185,7 @@ body.menu-open{
 		transition: 0.4s;
 	}
 	.icon-bar + .icon-bar{
-		margin-top: 4px;
+		margin-top: 5px;
 	}
 	&:hover,
 	&:focus{
@@ -189,13 +195,13 @@ body.menu-open{
 
 .navbar-toggle {
 	&.mega-menu-active .icon-bar1 {
-		transform: rotate(-45deg) translate(-6px, 5px);
+		transform: rotate(-45deg) translate(-6px, 4.5px);
 	}
 	&.mega-menu-active .icon-bar2 {
 		opacity: 0;
 	}
 	&.mega-menu-active .icon-bar3 {
-		transform: rotate(45deg) translate(-3px, -3px);
+		transform: rotate(45deg) translate(-5px, -4px);
 	}
 }
 
@@ -219,13 +225,8 @@ body.menu-open{
 	&.search-link {
 		display: none;
 		
-
 		@media (min-width: $screen-md) {
 			display: inline-block;
-		}
-
-		> a {
-			transition: color 300ms;
 		}
 
 		&.is-active > a{
@@ -265,12 +266,8 @@ body.menu-open{
     }
   }
   svg {
-    width: 18px;
-		height: 18px;
-		@media (min-width: $screen-md) {
-			width: 22px;
-			height: 22px;
-		}
+		width: 22px;
+		height: 22px;
   }
   &:last-child {
     padding-right: 0;

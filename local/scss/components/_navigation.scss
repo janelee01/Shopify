@@ -64,6 +64,12 @@ body.menu-open{
 	}
 	a {
 		text-decoration: none;
+		&:hover,
+		&:focus,
+		&:active
+		 {
+			color: $brand-blue;
+		}
 	}
 }
 .mega-menu__nav {
@@ -75,10 +81,6 @@ body.menu-open{
 	@media (min-width: $screen-md) {
 		padding-top: 5px;
 	}
-}
-
-.mega-menu__nav .mega-menu__nav__item .mega-menu__nav__item__link {
-	color: $gray-darker;
 }
 
 .mega-menu__nav__item {
@@ -100,17 +102,13 @@ body.menu-open{
 .mega-menu__nav__item:active {
 	@media (min-width: $screen-md) {
 		.mega-menu__nav__item__link {
-			border-bottom: 1px solid $gray-darker;
+			border-bottom: 1.5px solid $gray-darker;
 			border-radius: 0;
 		}
 	}
 }
 
-.mega-menu__nav__item.open .mega-menu__nav__item__link {
-	color: white;
-	background-color: $brand-blue;
-}
-.mega-menu__nav__item__link {
+.mega-menu__nav__item .mega-menu__nav__item__link {
 	font-family: $font-family-medium;
 	display: inline-block;
 	border: 1px solid $gray-lighter;
@@ -122,6 +120,13 @@ body.menu-open{
 	font-size: $font-size-xxs;
 	letter-spacing: 1px;
 	
+	@media (min-width: $screen-md) {
+		border: none;
+		border-bottom: 1px solid transparent;
+		line-height: 23px;
+		font-size: 13px;
+		color: $gray-darker;
+	}
 	&:hover,
 	&:active,
 	&:focus {
@@ -132,14 +137,9 @@ body.menu-open{
 			background-color: transparent;
 			border: none;
 			color: $gray-darker;
+			border-bottom: 1.5px solid $gray-darker;
+			border-radius: 0;
 		}
-	}
-	@media (min-width: $screen-md) {
-		border: none;
-		border-bottom: 1px solid transparent;
-		line-height: 23px;
-		font-size: $font-size-xs;
-		color: $gray-darker;
 	}
 }
 
@@ -148,6 +148,7 @@ body.menu-open{
 		width: 970px;
 		margin: 0 auto;
 		display: flex;
+		justify-content: space-between;
 	}    
 	@media (min-width: $screen-lg) {
 		width: 1170px;
@@ -160,16 +161,19 @@ body.menu-open{
 	top: 62px;
 	width: 100%;
 	@media (min-width: $screen-md) {
-		padding: 50px 0;
+		padding: 30px 0 10px;;
+		visibility: hidden;
 	}
 
 	.mega-menu__nav__item:hover &,
 	.mega-menu__nav__item:focus &,
 	.mega-menu__nav__item:active &,
 	.mega-menu__nav__item:focus-within &{
-		visibility: visible;
-		position: fixed;
-		background-color: $gray-lightest;
+		@media (min-width: $screen-md) {
+			visibility: visible;
+			position: fixed;
+			background-color: $gray-lightest;
+		}
 	}
 }
 
@@ -179,18 +183,18 @@ body.menu-open{
 	text-align: left;
 	&.navcol-1 {
 		@media (min-width: $screen-md) {
-			width: 21%;
+			width: 15%;
 		}
 	}
 	&.navcol-2 {
 		padding-bottom: 25px;
 		@media (min-width: $screen-md) {
-			width: 21%;
+			width: 20%;
 			padding-bottom: 0;
 		}
 	}
 	&.navcol-3 {
-		border-top: 1px solid $gray;
+		border-top: 1px solid $gray-lighter;
 		padding-top: 5px;
 		@media (min-width: $screen-md) {
 			width: 58%;
@@ -226,6 +230,12 @@ body.menu-open{
 }
 
 // Carousel
+.mega-menu__subnav.mega-menu__carousel {
+	padding-top: 36px;
+	@media (min-width: $screen-md) {
+		padding-top: 0;
+	}
+}
 
 .mega-menu__featured__carousel {
 	display: flex;
@@ -234,12 +244,24 @@ body.menu-open{
 		width: 100%;
 	}
 	.mega-menu__subnav__item__child {
-		padding-right: 20px;
+		padding-right: 30px;
+	}
+	.slick-list {
+		@media (max-width: $screen-md) {
+			margin-left: calc(-50vw + 50%);
+			margin-right: calc(-50vw + 50%);
+			.mega-menu__subnav__item__child:first-child {
+				margin-left: 30px;
+			}  
+		}
 	}
 }
 
 .mega-menu-carousel-prev {
 	display: none;
+	&.slick-disabled {
+		fill: $gray-lighter;
+	}
 	@media (min-width: $screen-sm) {
 		position: absolute;
 		right: 45px;
@@ -253,6 +275,9 @@ body.menu-open{
 
 .mega-menu-carousel-next {
 	display: none;
+	&.slick-disabled {
+		fill: $gray-lighter;
+	}
 	@media (min-width: $screen-sm) {
 		position: absolute;
 		right: 18px;
@@ -296,13 +321,17 @@ body.menu-open{
 .mega-menu__image {
 	overflow: hidden;
 	&:before {
-		padding-top: 70%;
+		padding-top: 75%;
 	}
 }
-
   
 .mega-menu_subnav__item__img {
-	padding-bottom: 10px;
+	border-radius: 2px;
+}
+
+.mega-menu_subnav__item__img__caption {
+	padding-top: 10px;
+	letter-spacing: normal;
 }
 
 .mega-menu__subnav__item {
@@ -316,11 +345,21 @@ body.menu-open{
 
 .mega-menu__subnav__item__link{
 	color: $gray-darker;
+	font-size: 13px;
+	letter-spacing: 1px;
+	&--sale {
+		color: #ee5250;
+	}
 }
 
 .mega-menu__subnav__item__header {
 	margin-top: 30px;
+	font-size: 13px;
+	letter-spacing: 1px;
 	color: $gray-darker;
+	.mega-menu__featured__carousel & {
+		margin-top: 0;
+	}
 	@media (min-width: $screen-md) {
 		margin-top: 0;
 		padding-top: 20px;
@@ -351,16 +390,33 @@ body.menu-open{
 
 .mega-menu__subnav__item__child__featured--link {
 	color: $gray-darker;
+	font-size: $font-size-sm;
+}
+
+.mega-menu__subnav__item__link,
+.mega-menu__subnav__item__child__featured--link {
+	opacity: 1;
+	&:hover .mega-menu_subnav__item__img{
+		opacity: 0.9;
+		transition: opacity 0.6s ease;
+	}
+}
+
+.mega-menu__subnav__item__child__featured__caption {
+	padding-top: 10px;
+	margin-bottom: 0;
 }
 
 .mega-menu__subnav__item__child__featured--description {
 	color: $gray;
+	line-height: 1.5;
+	padding-top: 5px;
 }
 
 .mega-menu__nav__item div {
 	visibility: hidden;
 	transform: translateY(1.5rem);
-	transition: visibility 1ms linear 300ms, transform 300ms;
+	transition: opacity .5s linear, transform .5s cubic-bezier(0,0,0,1);
 	@media (min-width: $screen-md) {
 		visibility: visible;
 		opacity: 1;
@@ -378,19 +434,29 @@ body.menu-open{
 		div {
 			visibility: visible;
 			transform: translateY(0);
-			transition: visibility 1ms linear, transform 300ms ease-in-out 1ms;
 		}
 	}
 }
 
 .mega-menu__layout__footer {
+	display: flex;
+	justify-content: center;
 	border-top: 1px solid $gray-lighter;
 	color: $gray-darker;
 	padding: 10px 0 30px;
 	font-size: 14px;
 	@media (min-width: $screen-md) {
 		display: none;
-	}	
+	}
+	.menu-close-wrapper {
+		overflow: visible;
+		text-transform: none;
+		outline: 0;
+		border: none;
+		background: transparent;
+		display: flex;
+		align-items: center;
+	}
 }
 
 

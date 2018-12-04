@@ -36,8 +36,9 @@
     width: 200px;
     height: auto;
     padding-top: 0;
-    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.24);
+    box-shadow: 0 2px 10px 0 rgba(203,203,203,0.50);
     border: 1px solid $gray-lighter;
+    border-radius: 2px;
     transform: none;
     opacity: 0;
     transition: visibility 1ms linear 300ms, opacity 300ms;
@@ -121,7 +122,10 @@
     transition: all 300ms;
   }
   .primary-link-inner:hover * {
-    color: $brand-blue;
+    color: #fff;
+    @media (min-width: $screen-md) {
+      color: $brand-blue;
+    }
   }
   .primary-icon{
     max-height: 20px;
@@ -134,6 +138,11 @@
     text-align: center;
     width: 100%;
     margin: 5px 0 0;
+  }
+  .secondary-link a:hover {
+    @media (min-width: $screen-md) {
+      color: $brand-blue;
+    }
   }
   .secondary-links{
     @include resetList;

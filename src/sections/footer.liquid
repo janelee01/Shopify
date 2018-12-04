@@ -1,61 +1,47 @@
-{%- assign social_accounts = 'Facebook, Twitter, Instagram, Pinterest' | split: ', ' -%}
-
 <div class="container">
-  <form id="newsletter-signup">
-    <label for="signup-email">Sign up for emails &amp; get 15% off your first order. <small>*only applies to full-price items</small></label>
-    <div class="form-group">
-      <input type="email" id="signup-email" class="form-control" placeholder="Enter email address" />
-      <button id="signup-submit"><span class="sr-only">Submit</span></button>
-    </div>
-    <div class="alert alert-muted"><strong>Thanks for subscribing!</strong> Please check your inbox to confirm sign-up. Once you confirm, you'll then receive a welcome email with your unique promo code on your next purchase (discount will only apply to full price items).</div>
-  </form>
+  <div class="newsletter-signup-wrapper">
+    <form id="newsletter-signup">
+      <label for="signup-email">
+        <span class="signup-heading">Sign up for emails</span>
+        <span class="signup-subheading">Get 15% off your first order.</span>
+        <span class="signup-subheading">Only applies to full-price items</span>
+      </label>
+      <div class="form-group">
+        <input type="email" id="signup-email" class="form-control" placeholder="Enter email address" />
+        <button id="signup-submit">
+          <span class="sr-only">Submit</span>
+          {% include 'header-icons', icon: 'arrow' %}
+        </button>
+      </div>
+      <div class="alert alert-muted">
+        <span class="signup-heading">Thanks for subscribing!</span>
+        <span class="signup-subheading">Please check your inbox to confirm sign-up. Once you confirm, you'll then receive a welcome email with your unique promo code on your next purchase (discount will only apply to full price items).</span>
+      </div>
+    </form>
+  </div>
 </div>
 <footer id="site-footer">
   <div class="container">
-
-      <img src="{{'ls-logo.svg' | asset_url }}" width="60" alt="{{ shop.name }}" id="footer-logo" />
-      <div id="footer-menus">
-        <nav class="footer-menu">
-          <h2 class="menu-title">Support</h2>
-          <ul class="menu">
-            {% for link in linklists['footer-1'].links %}
-              <li><a class="btn-gtm-trk" data-gtm-a="2" href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endfor %}
-          </ul>
-        </nav>
-        <nav class="footer-menu">
-          <h2 class="menu-title">About</h2>
-          <ul class="menu">
-            {% for link in linklists['footer-2'].links %}
-              <li><a class="btn-gtm-trk" data-gtm-a="2" href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endfor %}
-          </ul>
-        </nav>
-        <nav class="footer-menu">
-          <h2 class="menu-title">Terms</h2>
-          <ul class="menu">
-            {% for link in linklists['footer-3'].links %}
-              <li><a class="btn-gtm-trk" data-gtm-a="2" href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endfor %}
-          </ul>
-        </nav>
-        <nav class="footer-menu">
-          <h2 class="menu-title">Connect</h2>
-          {% include 'connect-menus' %}
-        </nav>
+    <div class="footer-menu-wrapper">
+      <div class="footer-menu-logo">
+        <img src="{{'ls-logo.svg' | asset_url }}" width="60" alt="{{ shop.name }}" id="footer-logo" />
       </div>
-
+      <nav class="footer-menu-links">
+        <ul class="menu">
+          {% for link in linklists['footer-v2'].links %}
+            <li><a class="btn-gtm-trk" data-gtm-a="2" href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+      <nav class="footer-menu-social">
+        {% include 'connect-menus' %}
+      </nav>
+    </div>
   </div>
   <div id="colophon">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-push-6">
-          {% include 'connect-menus' %}
-        </div>
-        <div class="col-md-6 col-md-pull-6">
-          <p id="copyright">&copy;{{ 'now' | date: "%Y" }}. {{ shop.name }}. All rights reserved.</p>
-        </div>
-      </div>
+      <p id="copyright">&copy;{{ 'now' | date: "%Y" }}. {{ shop.name }} All rights reserved.</p>
+      <a href="{{section.settings.footer_link}}">Privacy Terms</a>
     </div>
   </div>
 </footer>
@@ -73,22 +59,9 @@
         "default": "footer"
       },
       {
-        "type": "link_list",
-        "id": "footer_linklist_2",
-        "label": "Second menu",
-        "default": "footer"
-      },
-      {
-        "type": "link_list",
-        "id": "footer_linklist_3",
-        "label": "Third menu",
-        "default": "footer"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_payment_icons",
-        "label": "Show payment icons",
-        "default": false
+        "type": "url",        
+        "id": "footer_link",
+        "label": "Privacy Terms Link"
       }
     ]
   }

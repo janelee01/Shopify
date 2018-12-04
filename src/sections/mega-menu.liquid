@@ -8,8 +8,8 @@
             {%- for link in linklists[section.settings.main_linklist].links -%}
                 {%- assign child_list_handle = link.title | handleize -%}
                 {%- if link.links != blank -%}
-                    <li class="mega-menu__nav__item has-children {% if forloop.first == true %} isActive {% endif %} {% if link.active %} active-child{% endif %}">
-                        <a href="#child-menu-{{ forloop.index0 }}" class="mega-menu__nav__item__link menu-toggle" aria-expanded="false" aria-controls="child-menu-{{ forloop.index0 }}">
+                    <li class="mega-menu__nav__item has-children">
+                        <a href="#child-menu-{{ forloop.index0 }}" class="mega-menu__nav__item__link js-mega-toggle" aria-expanded="false" aria-controls="child-menu-{{ forloop.index0 }}">
                             {{ link.title }}
                         </a>
                         {% include 'mega-menu-dropdown' with links: link.links %}
@@ -24,8 +24,6 @@
             {%- endfor -%}
         </ul>
   	</nav>
-    
-    {% comment %} <button id="nav-panel-close" class="panel-close"><span class="sr-only">Close</span></button> {% endcomment %}
   </div>
 </div>
 
