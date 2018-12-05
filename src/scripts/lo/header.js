@@ -59,15 +59,22 @@
         var $toggle = $(e.currentTarget)
         var $allLinks = this.$el.find('.'+this.megaToggle)
         var $menuLinkFirst = this.$el.find('.'+this.megaToggleFirstClass)
-        var $marquee = this.$el.find('#'+this.isMarqueeVisible)
         var isScrolled = $(window).scrollTop() > this.scrollThreshold
         var isOverBreakpoint = $(window).width() > this.breakpoint
 
-        if ( !this.isActive ) {
+        if ( !this.isActive && !isOverBreakpoint ) {
             $toggle.addClass(this.hamburgerActive)
             $mega.addClass(this.menuOpen)
-            $header.addClass(this.borderClass)
             $header.removeClass(this.transparentBgClass)
+            $allLinks.closest('li').removeClass(this.megaToggles)
+            $menuLinkFirst.closest('li').addClass(this.megaToggles, 350)
+            this.isActive = true;
+            return false; 
+        } else if ( !this.isActive && isOverBreakpoint ) {
+            $toggle.addClass(this.hamburgerActive)
+            $mega.addClass(this.menuOpen)
+            $header.removeClass(this.transparentBgClass)
+            $header.addClass(this.borderClass)
             $allLinks.closest('li').removeClass(this.megaToggles)
             $menuLinkFirst.closest('li').addClass(this.megaToggles, 350)
             this.isActive = true;
@@ -76,7 +83,6 @@
             $toggle.removeClass(this.hamburgerActive)
             $mega.removeClass(this.menuOpen)
             if (isScrolled) {
-                // $('#site-nav-panel').css('top', '')
                 $header.removeClass(this.transparentBgClass)
                 $header.addClass(this.borderClass)
             } else {
@@ -102,7 +108,6 @@
     }
 
     Header.prototype.onMenuClose = function onMenuClose (e) {
-        // var $closeMenu = $(e.currentTarget)
         var $header = this.$el
         var $mega = $header.parents('.'+this.megaClass)
         var $toggle = $header.find('.'+this.hamburgerActive)
@@ -141,96 +146,3 @@
         })
     })
 })()
-
-/**
- $('body').on('click', '.menu-toggle', function(e){
-		$('.menu-toggle').not(this).closest('li').removeClass('isActive');
-		e.preventDefault();
-		$(this).closest('li').addClass('isActive');
-	});
-
-
-  	var scrolledClass = 'after-scroll';
-	// if ($(window).scrollTop() > trigger) {
-	// 	$header.addClass(scrolledClass);
-	// }
-	// adjust on scroll
-	$(window).scroll(function () {
-		if ($(window).scrollTop() < trigger) {
-			$header.removeClass(scrolledClass);
-		} else {
-			$header.addClass(scrolledClass);
-		}
-	});
-
-// untransparentize header
-  if( $('body').hasClass('has-tw-header') || $('body').hasClass('has-tb-header') ){
-
-  	// if we're down the page already
-  	if( $(window).scrollTop() > trigger ){
-  		$header.removeClass('showing-alternate');
-  	}
-  	// adjust on scroll
-  	$(window).scroll(function(){
-  		if( $(window).scrollTop() < trigger ){
-  			$header.addClass('showing-alternate');
-  		}else{
-  			$header.removeClass('showing-alternate');
-  		}
-	});
-  }
-
-$('body').on('click', '.navbar-toggle', function(e){
-		if ($header.hasClass('showing-alternate')) {
-			$header.removeClass('showing-alternate');
-		}
-		e.preventDefault();
-		$('body').toggleClass('menu-open');
-		$('.mega-menu').scrollTop(0);
-		LS.overlay.open();
-	});
-
-	$('body').on('click', '.menu-close', function(e){
-		e.preventDefault();
-		$('body').toggleClass('menu-open');
-		$('.navbar-toggle').toggleClass('mega-menu-active');
-		$('.mega-menu').scrollTop(0);
-	});
-
-	$('body').on('click', '.navbar-toggle', function(e){
-		$('.mega-menu__nav__item').removeClass('isActive');
-		$(this).toggleClass('mega-menu-active');
-		$('.mega-menu__nav__item:first-child').addClass('isActive');
-	});
-
-	// these should only apply at breakpoint
-	$('body').on('mouseenter', '#site-header-items', function(e){
-		$header.removeClass('showing-alternate');
-		$header.addClass('after-scroll');
-	});
-	
-	// $('body').on('mouseleave', '#site-header-items', function(e){
-	// 	$header.addClass('showing-alternate');
-	// 	$header.removeClass('after-scroll');
-	// });
-
-	// $('body').on('click', '#nav-panel-close', function(e){
-	// 	e.preventDefault();
-	// 	$('body').removeClass('menu-open');
-	// 	LS.overlay.close();
-	// });
-	// $('.site-content').on('click', function(e){
-	// 	if( $('body').hasClass('menu-open') ){
-	// 		e.stopPropagation();
-	// 		$('body').removeClass('menu-open');
-	// 		LS.overlay.close();
-	// 	}
-	// });
-	$('body').on('click', '.menu-toggle', function(e){
-		$('.menu-toggle').not(this).closest('li').removeClass('isActive');
-		e.preventDefault();
-		$(this).closest('li').addClass('isActive');
-	});
-
-
-*/
