@@ -194,12 +194,13 @@ $(document).ready(function() {
 
   // slide the marquee out of the way on scroll
   var $marquee = $('#shopify-section-marquee');
-  var trigger = 1;
+  var trigger = 100;
   var lastScrollPos = 0;
 
   if( $marquee.is(':visible') ){
-	  $('.site-content').css('padding-top', $header.outerHeight() - $pageNav.outerHeight());
-	  $('.mega-menu__layout').css('top', $header.outerHeight() - $pageNav.outerHeight());
+	  $('.js-marque-push-down').css({'marginTop': $marquee.outerHeight()})
+	//   $('.site-content').css('padding-top', $header.outerHeight() - $pageNav.outerHeight());
+	//   $('.mega-menu__layout').css('top', $header.outerHeight() - $pageNav.outerHeight());
   }
 
   // remove menu-open class on window resize
@@ -212,54 +213,110 @@ $(document).ready(function() {
 	}
   });
 
-  // adjust on scroll
-  $(window).scroll(function(){
+  function LSOnScroll (e = false, firstTime = false) {
+	var isPastTrigger = $(window).scrollTop() > trigger
+	var isMovingDown = $(window).scrollTop() > lastScrollPos
+	var marqueeheight = $marquee.outerHeight()
+	var isPageNav = $pageNav.length
+	var isMarquee = $marquee.is(':visible')
+	
+	if (firstTime) {
+		// add a delay so the header position change can finish before we animate the fade in (fixes weird flickering)
+		window.setTimeout(function(){ 
+			$pageNav.addClass('is-shown');	
+		}, 250);
+	}
+	
+	if (!$marquee.is(':visible')) {
+		return
+	}
+
+	if (isMarquee && isPastTrigger && isMovingDown && !isPageNav) {
+		// $header.css({'top' : $marquee.outerHeight() * -1});
+		$('.js-marque-push-down').removeAttr('style');
+	}
+
+	if (isMarquee && isPastTrigger && isMovingDown && isPageNav) {
+		$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
+		$('.js-marque-push-down').removeAttr('style');
+	}
+
+	if (!isMarquee && isPastTrigger && isMovingDown && isPageNav) {
+		$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
+		$('.js-marque-push-down').removeAttr('style');
+	}
+
+	if (isMarquee && !isMovingDown && isPageNav) {
+		$header.removeAttr('style');
+		$('.js-marque-push-down').css({'marginTop': marqueeheight})
+	}
+
+	if (!isMarquee && !isMovingDown && isPageNav) {
+		$header.removeAttr('style');
+		$('.js-marque-push-down').removeAttr('style');
+	}
+
+	if (isMarquee && !isPastTrigger && !isMovingDown) {
+		$header.removeAttr('style');
+		$('.js-marque-push-down').css({'marginTop': marqueeheight})
+		$('.site-content').css({'marginTop': marqueeheight})
+	}
+
+	if (!isMarquee && isPastTrigger && isMovingDown && isPageNav) {
+		header.css({'top' : $('#site-header-items').outerHeight() * -1});
+	}
+
   	if( $(window).scrollTop() < trigger ){
-  		$header.removeAttr('style');
-  		if( !$pageNav.hasClass('persistent') ){
-  			$pageNav.removeClass('is-shown');
-  		}
+		//   $header.removeAttr('style');
+		  
+  		// if( !$pageNav.hasClass('persistent') ){
+  		// 	$pageNav.removeClass('is-shown');
+  		// }
   	}else{
   		if( $(window).scrollTop() > lastScrollPos ){
-  			// going down
+			// going down
   			if( $marquee.is(':visible') && $pageNav.length ){ 
-  				$header.css({
-  					'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1,
-  				});
+  				// $header.css({
+  				// 	'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1,
+  				// });
   			}else if( !$marquee.is(':visible') && $pageNav.length ){
-  				$header.css({
-  					'top' : $('#site-header-items').outerHeight() * -1,
-				});
-				$('.mega-menu__layout').css('top', $header.outerHeight());  
+  				// $header.css({
+  				// 	'top' : $('#site-header-items').outerHeight() * -1,
+				// });
+				// $('.mega-menu__layout').css('top', $header.outerHeight());  
   			}else if( $marquee.is(':visible') ){
-  				$header.css({
-  					'top' : $marquee.outerHeight() * -1,
-				  });
-				$('.mega-menu__layout').css('top', $header.outerHeight() - $pageNav.outerHeight() - $marquee.outerHeight());
+  				// $header.css({'top' : $marquee.outerHeight() * -1});
+				// $('.js-marque-push-down').css({'marginTop': 0})
+
+				// $('.mega-menu__layout').css('top', $header.outerHeight() - $pageNav.outerHeight() - $marquee.outerHeight());
   			}
-  			window.setTimeout(function(){ // add a delay so the header position change can finish before we animate the fade in (fixes weird flickering)
-  				$pageNav.addClass('is-shown');	
-  			}, 250);
+  			// window.setTimeout(function(){ // add a delay so the header position change can finish before we animate the fade in (fixes weird flickering)
+  			// 	$pageNav.addClass('is-shown');	
+  			// }, 250);
   		}else{
   			// going up, show the navbar again, but not the marquee
-  			$header.css({
-				'top' : 0 - $marquee.outerHeight(),  
-			});
-			$('.mega-menu__layout').css('top', $header.outerHeight() - $pageNav.outerHeight());  
+  			// $header.css({
+			// 	'top' : 0 - $marquee.outerHeight(),  
+			// });
+			// $('.mega-menu__layout').css('top', $header.outerHeight() - $pageNav.outerHeight());  
   		}
   		lastScrollPos = $(window).scrollTop();
   		
   	}
-  });
+  }
+
+  // adjust on scroll
+  $(window).scroll(LSOnScroll);
+  LSOnScroll(false, true)
 
   // untransparentize header
-  if( LS.isTransparentHeader() ){
+//   if( LS.isTransparentHeader() ){
 
-  	// don't use the entire header height when it's overlayed
-  	if( $marquee.is(':visible') ){
-		$('.site-content').css('padding-top', $marquee.outerHeight());
-	}
-  }
+//   	// don't use the entire header height when it's overlayed
+//   	if( $marquee.is(':visible') ){
+// 		$('.site-content').css('padding-top', $marquee.outerHeight());
+// 	}
+//   }
 
   	// header shadow
 	if( $('.page-nav').length ){
@@ -631,10 +688,12 @@ $(document).ready(function() {
 
 	$("#newsletter-signup").on('submit', function(e) {
         e.preventDefault();
-        $('#newsletter-signup .form-group .validation-error').remove();
+		$('#newsletter-signup .form-group .validation-error').remove();
+		$('#newsletter-signup').removeClass("has-errors");		
         var email = $('#signup-email').val();
         if( !email ){
-        	$('#newsletter-signup .form-group').append('<small class="validation-error">Please enter your email.</small>');
+			$('#newsletter-signup .form-group').append('<small class="validation-error">Please enter your email.</small>');
+			$('#newsletter-signup').addClass("has-errors");
         	return;
         }
         var settings = {

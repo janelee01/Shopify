@@ -72,20 +72,21 @@
 	}
 }
 
-/*
- Some pages have a transparent nav over the hero
- */
-body.has-tw-header,
-body.has-tb-header{
-	#site-header.showing-alternate #site-header-items{
+.showing-alternate #site-header-items{
+	background: white;
+
+	body.has-tw-header &,
+	body.has-tb-header & {
 		background: transparent;
-	}
-	.site-content{
+	} 
+}
+
+.site-content{
+	body.has-tw-header &,
+	body.has-tb-header & {
 		padding-top: 0;
 	}
 }
-
-
 
 body.has-tw-header{
 	#site-header{

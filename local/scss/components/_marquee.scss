@@ -36,4 +36,8 @@
 			}
 		}
 	}
+
+	.menu-open & {
+		display: none;
+	}
 }

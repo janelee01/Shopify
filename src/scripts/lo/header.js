@@ -63,19 +63,7 @@
         var isScrolled = $(window).scrollTop() > this.scrollThreshold
         var isOverBreakpoint = $(window).width() > this.breakpoint
 
-        // console.log($marquee.outerHeight())
-        // if ( '$marquee:visible' && !isOverBreakpoint ) {
-        //     console.log($marquee)
-        //     $('#site-nav-panel').css('top', $marquee.outerHeight());
-        // }
-
         if ( !this.isActive ) {
-            if ( '$marquee:visible' && !isOverBreakpoint ) {
-                console.log($marquee)
-                $('#site-nav-panel').css('top', $marquee.outerHeight())
-            } if ( isScrolled ) {
-                $('#site-nav-panel').css('top', 0)                
-            }
             $toggle.addClass(this.hamburgerActive)
             $mega.addClass(this.menuOpen)
             $header.addClass(this.borderClass)
@@ -85,14 +73,10 @@
             this.isActive = true;
             return false; 
         } else {
-            if ( '$marquee:visible' && !isOverBreakpoint ) {
-                console.log('is visible')
-                $('#site-nav-panel').css('top', '-100%')
-            }
             $toggle.removeClass(this.hamburgerActive)
             $mega.removeClass(this.menuOpen)
             if (isScrolled) {
-                $('#site-nav-panel').css('top', '')
+                // $('#site-nav-panel').css('top', '')
                 $header.removeClass(this.transparentBgClass)
                 $header.addClass(this.borderClass)
             } else {
@@ -138,8 +122,6 @@
         if ( isOverBreakpoint && !isScrolled ) {
             $header.removeClass(this.transparentBgClass)
             $header.addClass(this.borderClass)
-        } else {
-            return
         }
     }
 
@@ -151,8 +133,6 @@
         if ( isOverBreakpoint && !isScrolled ) {
             $header.addClass(this.transparentBgClass)
             $header.removeClass(this.borderClass)
-        } else {
-            return
         }
     }
     $(document).ready(function(){

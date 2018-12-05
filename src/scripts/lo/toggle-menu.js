@@ -7,7 +7,7 @@ function ToggleMenu (el) {
 
   $('.js-toggle-menu-overlay').on('click', this.stopPropagation);
   
-  $('body').on('click', this.onClick);
+  $(this.el).on('click', this.onClick);
   $('body').on('keyup', this.onKeyUp);
 }
 

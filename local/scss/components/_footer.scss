@@ -28,13 +28,13 @@
 		&.signup-subheading {
 			font-family: $font-family-medium;
 			font-weight: 300;
+			max-width: 400px;
+			margin: 0 auto;
 		}
 	}
 	.form-group{
 		margin: 0;
 		position: relative;
-		box-shadow: 0 0 0 1.5px #fff;
-		border-radius: 2px;
 		@media (min-width: $screen-sm ) {
 			width: 389px;
 			margin-left: auto;
@@ -44,9 +44,12 @@
 			display: block; 
 			text-align: center;
 			line-height: 1.3;
+			color: $gray-darker;
 		}
 	}
 	.form-control{
+		box-shadow: 0 0 0 1.5px #fff;
+		border-radius: 2px;
 		background: $brand-blue;
 		padding-right: 72px;
 		padding-left: 25px;
@@ -54,7 +57,7 @@
 		width: 100%;
 		font-size: 16px;
 		font-family: $font-family-sans-serif;
-		box-shadow: none;
+		color: #fff;
 		&::-webkit-input-placeholder {
 			color: #fff;
 			text-transform: capitalize;
@@ -71,14 +74,18 @@
 			color: #fff;
 			text-transform: capitalize;
 		}
-		&:focus {
-			color: #fff;
-		}
 	}
 	.alert{
 		display: none;
 	}
 }
+
+.form-group .form-control {
+	#newsletter-signup.has-errors & {
+		box-shadow: 0 0 0 1.5px $gray-darker;
+	}
+}
+
 #signup-submit{
 	background-color: #fff;
 	background-size: 22px auto;
@@ -89,6 +96,7 @@
 	padding: 0;
 	svg {
 		fill: $brand-blue;
+		padding-top: 2px;
 		width: 18px;
 		height: 18px;
 	}
@@ -96,8 +104,11 @@
 	@media (min-width: $screen-sm) {
 		@include transition(all .3s ease-out);
 		&:hover{
-			background-color: $brand-blue-hover;
+			background-color: #fff;
 			background-position: 60% center;
+			svg {
+				fill: $gray-darker;
+			}
 		}	
 	}
 }
