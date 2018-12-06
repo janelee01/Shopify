@@ -197,11 +197,11 @@ $(document).ready(function() {
   var trigger = 100;
   var lastScrollPos = 0;
 
-  if( $marquee.is(':visible') ){
-	  $('.js-marque-push-down').css({'marginTop': $marquee.outerHeight()})
+//   if( $marquee.is(':visible') ){
+	//   $('.js-marque-push-down').css({'marginTop': $marquee.outerHeight()})
 	//   $('.site-content').css('padding-top', $header.outerHeight() - $pageNav.outerHeight());
 	//   $('.mega-menu__layout').css('top', $header.outerHeight() - $pageNav.outerHeight());
-  }
+//   }
 
   // remove menu-open class on window resize
   $(window).resize(function () {
@@ -232,38 +232,55 @@ $(document).ready(function() {
 	}
 
 	if (isMarquee && isPastTrigger && isMovingDown && !isPageNav) {
-		// $header.css({'top' : $marquee.outerHeight() * -1});
+		if ($(window).width() > LS.desktopBreakpoint) {
+			$header.css({'top' : $marquee.outerHeight() * -1});
+		}
 		$('.js-marque-push-down').removeAttr('style');
+		console.log('its me')
 	}
 
 	if (isMarquee && isPastTrigger && isMovingDown && isPageNav) {
 		$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
 		$('.js-marque-push-down').removeAttr('style');
+		console.log('its me 2')
+
 	}
 
 	if (!isMarquee && isPastTrigger && isMovingDown && isPageNav) {
 		$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
 		$('.js-marque-push-down').removeAttr('style');
+		console.log('its me3')
+
 	}
 
 	if (isMarquee && !isMovingDown && isPageNav) {
 		$header.removeAttr('style');
 		$('.js-marque-push-down').css({'marginTop': marqueeheight})
+		console.log('its me 3')
+
 	}
 
 	if (!isMarquee && !isMovingDown && isPageNav) {
 		$header.removeAttr('style');
 		$('.js-marque-push-down').removeAttr('style');
+		console.log('its me 4')
+
 	}
 
 	if (isMarquee && !isPastTrigger && !isMovingDown) {
 		$header.removeAttr('style');
-		$('.js-marque-push-down').css({'marginTop': marqueeheight})
+		if ($(window).width() > LS.desktopBreakpoint) {
+			$('.js-marque-push-down').css({'marginTop': marqueeheight })
+		}
 		$('.site-content').css({'marginTop': marqueeheight})
+		console.log('its me 5')
+
 	}
 
 	if (!isMarquee && isPastTrigger && isMovingDown && isPageNav) {
 		header.css({'top' : $('#site-header-items').outerHeight() * -1});
+		console.log('its me 6')
+
 	}
 
   	if( $(window).scrollTop() < trigger ){

@@ -59,9 +59,11 @@
 
   * {
     color: white;
+    fill: white;
     font-size: 1.4rem;
     @media (min-width: $screen-md) {
       color: $gray;
+      fill: $gray;
     }
   }
 
@@ -168,8 +170,8 @@
     align-items: center;
   }
   .bottom-close-button svg{
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     margin-right: 5px;
   }
   

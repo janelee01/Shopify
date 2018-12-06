@@ -80,6 +80,8 @@
             this.isActive = true;
             return false; 
         } else {
+            $header.find('.mega-menu').scrollTop(0);
+            $header.find('.mega-menu__featured__carousel--slick-carousel').slick('slickGoTo', 0);
             $toggle.removeClass(this.hamburgerActive)
             $mega.removeClass(this.menuOpen)
             if (isScrolled) {
@@ -111,8 +113,20 @@
         var $header = this.$el
         var $mega = $header.parents('.'+this.megaClass)
         var $toggle = $header.find('.'+this.hamburgerActive)
+        var isScrolled = $(window).scrollTop() > this.scrollThreshold
 
-        if ( this.isActive ) {
+        if ( this.isActive && !isScrolled ) {
+            console.log('its me')
+            $header.find('.mega-menu').scrollTop(0);
+            $header.find('.mega-menu__featured__carousel--slick-carousel').slick('slickGoTo', 0);
+            $header.addClass(this.transparentBgClass)
+            $header.removeClass(this.borderClass)
+            $toggle.removeClass(this.hamburgerActive)
+            $mega.removeClass(this.menuOpen)
+            this.isActive = false
+        } else {
+            $header.find('.mega-menu').scrollTop(0);
+            $header.find('.mega-menu__featured__carousel--slick-carousel').slick('slickGoTo', 0);
             $toggle.removeClass(this.hamburgerActive)
             $mega.removeClass(this.menuOpen)
             this.isActive = false

@@ -29,6 +29,7 @@ ToggleMenu.prototype.onClick = function onClick (e) {
   }
 }
 
+
 ToggleMenu.prototype.onKeyUp = function onKeyUp (e) {
   if (e.which !== 27) {
     return
