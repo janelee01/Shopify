@@ -8,7 +8,7 @@ function ToggleMenu (el) {
 
   $('.js-toggle-menu-overlay').on('click', this.stopPropagation);
   
-  $(this.el).on('click', this.onClick);
+  $('body').on('click', this.onClick);
   $('body').on('keyup', this.onKeyUp);
   $('header .mega-menu__nav__item').on('mouseover', this.onMouseover);
   $('header .help-link').on('mouseover', this.onMouseover);
@@ -19,8 +19,8 @@ ToggleMenu.prototype.onClick = function onClick (e) {
 
   if (
     !this.isActive && (
-      $target.hasClass(this.triggerClass) || 
-      $target.parents('.'+this.triggerClass).length
+      $target.is(this.el) || 
+      $target.parents().is(this.el)
     )) {
       this.addActiveClass();
       return

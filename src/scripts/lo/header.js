@@ -43,6 +43,10 @@
     }
 
     Header.prototype.onScroll = function onScroll(e) {
+        if (this.isActive) {
+            return
+        }
+        
         var isScrolled = $(window).scrollTop() > this.scrollThreshold
         this.$el[isScrolled ? 'addClass' : 'removeClass'](this.borderClass)
         
@@ -134,25 +138,39 @@
     }
 
     Header.prototype.onMouseenter = function onMouseenter (e) {
+        var isOverBreakpoint = $(window).width() > this.breakpoint
+        
+        if (!isOverBreakpoint) {
+            return
+        }
+        
         var $header = this.$el
         var isScrolled = $(window).scrollTop() > this.scrollThreshold
-        var isOverBreakpoint = $(window).width() > this.breakpoint
-
-        if ( isOverBreakpoint && !isScrolled ) {
+        
+        if ( !isScrolled ) {
             $header.removeClass(this.transparentBgClass)
             $header.addClass(this.borderClass)
         }
+
+        this.isActive = true
     }
 
     Header.prototype.onMouseleave = function onMouseleave (e) {
+        var isOverBreakpoint = $(window).width() > this.breakpoint
+        
+        if (!isOverBreakpoint) {
+            return
+        }
+
         var $header = this.$el
         var isScrolled = $(window).scrollTop() > this.scrollThreshold
-        var isOverBreakpoint = $(window).width() > this.breakpoint
-
-        if ( isOverBreakpoint && !isScrolled ) {
+        
+        if ( isScrolled ) {
             $header.addClass(this.transparentBgClass)
             $header.removeClass(this.borderClass)
         }
+
+        this.isActive = false
     }
 
     $(document).ready(function(){

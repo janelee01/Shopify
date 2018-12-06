@@ -162,8 +162,12 @@ body.menu-open{
 	top: 62px;
 	width: 100%;
 	@media (min-width: $screen-md) {
+		position: fixed;
 		padding: 50px 0;
 		visibility: hidden;
+		opacity: 0;
+		background-color: $gray-lightest;
+		transition: visibility 1ms linear 300ms, opacity 300ms ease-in-out;
 	}
 
 	.mega-menu__nav__item:hover &,
@@ -172,8 +176,8 @@ body.menu-open{
 	.mega-menu__nav__item:focus-within &{
 		@media (min-width: $screen-md) {
 			visibility: visible;
-			position: fixed;
-			background-color: $gray-lightest;
+			opacity: 1;
+			transition: opacity 300ms ease-in-out 1ms, visibility 1ms;
 		}
 	}
 }
@@ -441,13 +445,10 @@ body.menu-open{
 }
 
 .mega-menu__nav__item div {
-	visibility: hidden;
-	transform: translateY(1.5rem);
-	transition: opacity .5s linear, transform .5s cubic-bezier(0,0,0,1);
-	@media (min-width: $screen-md) {
-		visibility: visible;
-		opacity: 1;
-		transform: translateY(0);
+	@media (max-width: ($screen-md - 1px)) {
+		visibility: hidden;
+		transform: translateY(1.5rem);
+		transition: opacity .5s linear, transform .5s cubic-bezier(0,0,0,1);
 	}
 }
 
