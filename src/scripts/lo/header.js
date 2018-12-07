@@ -165,7 +165,7 @@
         var $header = this.$el
         var isScrolled = $(window).scrollTop() > this.scrollThreshold
         
-        if ( isScrolled ) {
+        if ( !isScrolled ) {
             $header.addClass(this.transparentBgClass)
             $header.removeClass(this.borderClass)
         }
