@@ -45,6 +45,9 @@
 			text-align: center;
 			line-height: 1.3;
 			color: $gray-darker;
+			a {
+				color: $gray-darker;
+			}
 		}
 	}
 	.form-control{
@@ -194,14 +197,18 @@
 				&:last-child {
 					padding-right: 0;
 				}
+				.social-icon-wrapper {
+					box-shadow: 0 0 0 1px #646464;
+					border-radius: 50%;
+					height: 40px;
+					width: 40px;
+				}
 			}
 		}
 		svg {
-			box-shadow: 0 0 0 1px $gray;
-			fill: $gray;
-			border-radius: 50%;
 			height: 40px;
 			width: 40px;
+			fill: $gray;
 			padding: 10px;
 			&:hover,
 			&:focus,

@@ -69,6 +69,7 @@ body.menu-open{
 		&:active
 		 {
 			color: $brand-blue;
+			fill: $brand-blue;
 		}
 	}
 }
@@ -117,7 +118,7 @@ body.menu-open{
 	width: 100%;
 	text-transform: uppercase;
 	color: $gray;
-	font-size: $font-size-xxs;
+	font-size: $font-size-xs;
 	letter-spacing: 1px;
 	
 	@media (min-width: $screen-md) {
@@ -179,11 +180,13 @@ body.menu-open{
 
 .mega-menu__subnav {
 	width: 100%;
-	font-size: $font-size-xs;
+	font-size: 13px;
 	text-align: left;
 	&.navcol-1 {
+		margin-top: 20px;
 		@media (min-width: $screen-md) {
 			width: 15%;
+			margin-top: 0;
 		}
 	}
 	&.navcol-2 {
@@ -269,8 +272,11 @@ body.menu-open{
 		top: 5px;
 		height: 13px;
 		width: 13px;
-		cursor: pointer;
 		transform: rotate(180deg);
+		cursor: pointer;
+		&.slick-disabled {
+			cursor: default;
+		}
 	}
 }
 
@@ -282,10 +288,13 @@ body.menu-open{
 	@media (min-width: $screen-sm) {
 		position: absolute;
 		right: 0;
-		top: 5px;
+		top: 3px;
 		height: 13px;
 		width: 13px;
 		cursor: pointer;
+		&.slick-disabled {
+			cursor: default;
+		}
 	}
 }
 
@@ -341,7 +350,7 @@ body.menu-open{
 
 .mega-menu__subnav__item__link {
 	color: $gray-darker;
-	font-size: 13px;
+	font-size: $font-size-sm;
 	letter-spacing: 1px;
 	&--sale {
 		color: #ee5250;
@@ -354,15 +363,19 @@ body.menu-open{
 }
 
 .mega-menu_subnav__item__img__caption {
+	margin-bottom: 10px;
 	padding-top: 10px;
-	letter-spacing: normal;
+	font-size: 15px;
 	color: $gray-darker;
-	font-size: $font-size-sm;
+	letter-spacing: normal;
+	@media (min-width: $screen-md) {
+		margin-bottom: 0;
+	}
 }
 
 .mega-menu__subnav__item__header {
 	margin-top: 30px;
-	font-size: 13px;
+	font-size: $font-size-sm;
 	letter-spacing: 1px;
 	color: $gray-darker;
 	.mega-menu__featured__carousel & {
@@ -396,12 +409,12 @@ body.menu-open{
 
 .mega-menu__subnav__item__child__link {
 	color: $gray;
-	font-size: $font-size-sm;
+	font-size: 15px;;
 }
 
 .mega-menu__subnav__item__child__featured--link {
 	color: $gray-darker;
-	font-size: $font-size-sm;
+	font-size: 15px;
 }
 
 .mega-menu__subnav__item__link,
@@ -457,8 +470,8 @@ body.menu-open{
 	justify-content: center;
 	border-top: 1px solid $gray-lighter;
 	color: $gray-darker;
-	padding: 10px 0 30px;
-	font-size: 14px;
+	padding: 20px 0 30px;
+	font-size: 15px;
 	@media (min-width: $screen-md) {
 		display: none;
 	}

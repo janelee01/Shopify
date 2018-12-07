@@ -32,11 +32,10 @@
         // Attach any event handler
 
         this.$el.find('.navbar-toggle').on('click', this.onClick);
-        this.$el.find('.js-mega-toggle').on('click', this.onActiveMenu);
+        this.$el.find('.js-mega-toggle').on('mousedown', this.onActiveMenu);
         this.$el.find('.js-menu-close').on('click', this.onMenuClose);
         this.$el.on('mouseenter', this.onMouseenter);
         this.$el.on('mouseleave', this.onMouseleave);
-
 
         $(window).on('scroll', this.onScroll);
 
@@ -99,10 +98,11 @@
     Header.prototype.onActiveMenu = function onActiveMenu (e) {
         var $allLinks = this.$el.find('.'+this.megaToggle)
         var $menuLink = $(e.currentTarget).closest('li')
+        var $isOverBreakpoint = $(window).width() > this.breakpoint
 
-        if ( $menuLink.hasClass('isActive') ) {
-            return
-        } else {
+        e.preventDefault();
+        if ( !$menuLink.hasClass('isActive') && !$isOverBreakpoint ) {
+            console.log('hi')
             $allLinks.closest('li').removeClass(this.megaToggles)
             $menuLink.addClass(this.megaToggles)
             console.log('does not have is active')
@@ -154,6 +154,7 @@
             $header.removeClass(this.borderClass)
         }
     }
+
     $(document).ready(function(){
         $('.js-header').each(function(){
             new Header(this)

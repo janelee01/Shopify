@@ -9,8 +9,9 @@
       {%- if settings[social_link] != blank -%}
         <li>
           <a href="{{ settings[social_link] }}" target="_blank">
-            {%- include 'header-icons', icon: social_icon -%}
-
+            <div class="social-icon-wrapper">
+              {%- include 'header-icons', icon: social_icon -%}
+            </div>
             <span class="sr-only">{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}</span>
           </a>
         </li>

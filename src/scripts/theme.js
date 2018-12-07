@@ -731,7 +731,8 @@ $(document).ready(function() {
         };
         $.ajax(settings)
         	.fail(function(jqXHR, textStatus, errorThrown){
-        		$('#newsletter-signup .form-group').append('<small class="validation-error">Something went wrong. Perhaps you\'ve already subscribed to our list? <a href="/pages/support#contact">Contact us</a> for further assistance.</small>');
+				$('#newsletter-signup .form-group').append('<small class="validation-error">Something went wrong. Perhaps you\'ve already subscribed to our list? <a href="/pages/support#contact">Contact us</a> for further assistance.</small>');
+				$('#newsletter-signup').addClass("has-errors");			
         	})
         	.done(function (response) {
 	            if( response.success ){
