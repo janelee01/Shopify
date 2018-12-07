@@ -4,11 +4,14 @@ function ToggleMenu (el) {
   this.isActive = false;
   this.onClick = this.onClick.bind(this);
   this.onKeyUp = this.onKeyUp.bind(this);
+  this.onMouseover = this.onMouseover.bind(this);
 
   $('.js-toggle-menu-overlay').on('click', this.stopPropagation);
   
   $(this.el).on('click', this.onClick);
   $('body').on('keyup', this.onKeyUp);
+  $('header .mega-menu__nav__item').on('mouseover', this.onMouseover);
+  $('header .help-link').on('mouseover', this.onMouseover);
 }
 
 ToggleMenu.prototype.onClick = function onClick (e) {
@@ -29,13 +32,17 @@ ToggleMenu.prototype.onClick = function onClick (e) {
   }
 }
 
-
 ToggleMenu.prototype.onKeyUp = function onKeyUp (e) {
   if (e.which !== 27) {
     return
   }
 
   this.removeActiveClass()
+}
+
+ToggleMenu.prototype.onMouseover = function onMouseover () {
+  this.isActive = false
+  $(this.el).removeClass('is-active')
 }
 
 ToggleMenu.prototype.removeActiveClass = function removeActiveClass () {

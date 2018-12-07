@@ -230,8 +230,13 @@ body.menu-open{
 			display: inline-block;
 		}
 
-		&.is-active > a{
-			color: $gray-darker;
+		&.is-active {
+			.search-icon + svg {
+				color: $brand-blue
+			}
+			form {
+				color: $gray-darker;
+			}
 		}
 	}
 
