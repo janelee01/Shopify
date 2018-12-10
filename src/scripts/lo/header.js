@@ -10,7 +10,7 @@
         this.borderClass = 'after-scroll';
         this.hamburgerActive ='mega-menu-active';
         this.menuOpen = 'menu-open'
-        this.megaToggles = 'isActive'
+        this.megaToggles = 'is-active'
 
         // Outline any constants
         this.triggerClass = 'js-header';
@@ -19,7 +19,6 @@
         this.megaToggle = 'js-mega-toggle';
         this.menuClose = 'js-menu-close';
         this.isActive = false;
-        // this.isScrolled = false;
         
         // bind any event handler
         this.onClick = this.onClick.bind(this);
@@ -105,7 +104,7 @@
         var $isOverBreakpoint = $(window).width() > this.breakpoint
 
         e.preventDefault();
-        if ( !$menuLink.hasClass('isActive') && !$isOverBreakpoint ) {
+        if ( !$menuLink.hasClass('is-active') && !$isOverBreakpoint ) {
             $allLinks.closest('li').removeClass(this.megaToggles)
             $menuLink.addClass(this.megaToggles)
         }
