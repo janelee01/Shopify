@@ -197,12 +197,6 @@ $(document).ready(function() {
   var trigger = 100;
   var lastScrollPos = 0;
 
-//   if( $marquee.is(':visible') ){
-	//   $('.js-marque-push-down').css({'marginTop': $marquee.outerHeight()})
-	//   $('.site-content').css('padding-top', $header.outerHeight() - $pageNav.outerHeight());
-	//   $('.mega-menu__layout').css('top', $header.outerHeight() - $pageNav.outerHeight());
-//   }
-
   // remove menu-open class on window resize
   $(window).resize(function () {
 	var viewportWidth = $(window).width();
@@ -213,7 +207,10 @@ $(document).ready(function() {
 	}
   });
 
-  function LSOnScroll (e = false, firstTime = false) {
+  function LSOnScroll (e, firstTime) {
+	if (!firstTime) {
+		firstTime = false
+	}
 	var isPastTrigger = $(window).scrollTop() > trigger
 	var isMovingDown = $(window).scrollTop() > lastScrollPos
 	var marqueeheight = $marquee.outerHeight()
@@ -236,35 +233,26 @@ $(document).ready(function() {
 			$header.css({'top' : $marquee.outerHeight() * -1});
 		}
 		$('.js-marque-push-down').removeAttr('style');
-		console.log('its me')
 	}
 
 	if (isMarquee && isPastTrigger && isMovingDown && isPageNav) {
 		$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
 		$('.js-marque-push-down').removeAttr('style');
-		console.log('its me 2')
-
 	}
 
 	if (!isMarquee && isPastTrigger && isMovingDown && isPageNav) {
 		$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
 		$('.js-marque-push-down').removeAttr('style');
-		console.log('its me3')
-
 	}
 
 	if (isMarquee && !isMovingDown && isPageNav) {
 		$header.removeAttr('style');
 		$('.js-marque-push-down').css({'marginTop': marqueeheight})
-		console.log('its me 3')
-
 	}
 
 	if (!isMarquee && !isMovingDown && isPageNav) {
 		$header.removeAttr('style');
 		$('.js-marque-push-down').removeAttr('style');
-		console.log('its me 4')
-
 	}
 
 	if (isMarquee && !isPastTrigger && !isMovingDown) {
@@ -273,67 +261,16 @@ $(document).ready(function() {
 			$('.js-marque-push-down').css({'marginTop': marqueeheight })
 		}
 		$('.site-content').css({'marginTop': marqueeheight})
-		console.log('its me 5')
-
 	}
 
 	if (!isMarquee && isPastTrigger && isMovingDown && isPageNav) {
 		header.css({'top' : $('#site-header-items').outerHeight() * -1});
-		console.log('its me 6')
-
 	}
-
-  	if( $(window).scrollTop() < trigger ){
-		//   $header.removeAttr('style');
-		  
-  		// if( !$pageNav.hasClass('persistent') ){
-  		// 	$pageNav.removeClass('is-shown');
-  		// }
-  	}else{
-  		if( $(window).scrollTop() > lastScrollPos ){
-			// going down
-  			if( $marquee.is(':visible') && $pageNav.length ){ 
-  				// $header.css({
-  				// 	'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1,
-  				// });
-  			}else if( !$marquee.is(':visible') && $pageNav.length ){
-  				// $header.css({
-  				// 	'top' : $('#site-header-items').outerHeight() * -1,
-				// });
-				// $('.mega-menu__layout').css('top', $header.outerHeight());  
-  			}else if( $marquee.is(':visible') ){
-  				// $header.css({'top' : $marquee.outerHeight() * -1});
-				// $('.js-marque-push-down').css({'marginTop': 0})
-
-				// $('.mega-menu__layout').css('top', $header.outerHeight() - $pageNav.outerHeight() - $marquee.outerHeight());
-  			}
-  			// window.setTimeout(function(){ // add a delay so the header position change can finish before we animate the fade in (fixes weird flickering)
-  			// 	$pageNav.addClass('is-shown');	
-  			// }, 250);
-  		}else{
-  			// going up, show the navbar again, but not the marquee
-  			// $header.css({
-			// 	'top' : 0 - $marquee.outerHeight(),  
-			// });
-			// $('.mega-menu__layout').css('top', $header.outerHeight() - $pageNav.outerHeight());  
-  		}
-  		lastScrollPos = $(window).scrollTop();
-  		
-  	}
   }
 
-  // adjust on scroll
-  $(window).scroll(LSOnScroll);
-  LSOnScroll(false, true)
-
-  // untransparentize header
-//   if( LS.isTransparentHeader() ){
-
-//   	// don't use the entire header height when it's overlayed
-//   	if( $marquee.is(':visible') ){
-// 		$('.site-content').css('padding-top', $marquee.outerHeight());
-// 	}
-//   }
+	// adjust on scroll
+	$(window).scroll(LSOnScroll);
+	LSOnScroll(false, true)
 
   	// header shadow
 	if( $('.page-nav').length ){
@@ -346,11 +283,9 @@ $(document).ready(function() {
   		threshold: 40,
   		excludedElements: "label, button, input, select, textarea, .noSwipe",
   		swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
-          	// $(this).find('.item a').on('click', function(){ return false; }); interfering with custom layout blocks, doesn't seem to be applicable anywhere else
           	$(this).carousel('next');
           },
   		swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
-  			// $(this).find('.item a').on('click', function(){ return false; }); interfering with custom layout blocks, doesn't seem to be applicable anywhere else
           	$(this).carousel('prev');
           }
   	});
@@ -467,20 +402,16 @@ $(document).ready(function() {
 				  }
 				},
 				{
-					breakpoint: 480,
+					breakpoint: 569,
 					settings: {
+					  arrows : false,
 					  slidesToShow: 1.5,
 					  slidesToScroll: 1,
 					}
 				  }
 			]
 		});
-	
-
 	});
-
-
-	
 
 	/*
 	 Home page reviews
@@ -825,7 +756,6 @@ $(document).ready(function() {
 	$('#cart-continue').on('click', function(e){
 	    e.preventDefault();
 	    var previousPage = sessionStorage.getItem('lo-back-to');
-	    // console.log(previousPage);
 	    if( previousPage ){
 	    	window.location = previousPage;
 	    }else{

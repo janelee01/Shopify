@@ -202,6 +202,12 @@
 					border-radius: 50%;
 					height: 40px;
 					width: 40px;
+					&:hover,
+					&:focus,
+					&:active {
+						fill: $brand-blue;
+						box-shadow: 0 0 0 1px $brand-blue;
+					}
 				}
 			}
 		}
@@ -214,7 +220,6 @@
 			&:focus,
 			&:active {
 				fill: $brand-blue;
-				box-shadow: 0 0 0 1px $brand-blue;
 			}
 		}
 	}

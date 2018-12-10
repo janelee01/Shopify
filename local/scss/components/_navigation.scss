@@ -45,7 +45,6 @@ body.menu-open{
 	position: relative;
 	height: calc(100% - 75px);
 	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
 	padding: 0 $mobile-gutter 30px;
 	margin-top: 75px;
 	@media (min-width: $screen-md) {
@@ -221,17 +220,20 @@ body.menu-open{
 		text-align: center;
 		padding-bottom: 20px;
 	}
-	.mega-menu__subnav__item:first-child {
-		// padding-top: 0;
-	}
 	.mega-menu__subnav__item__link {
 		color: $gray;
 		text-transform: capitalize;
 	}
 	@media (min-width: $screen-md) {
-		justify-content: space-evenly;
+		justify-content: center;
+		flex-wrap: nowrap;
+
 		.mega-menu__subnav__item {
 			width: 22%;
+			margin-right: 30px;
+			&:last-child {
+				margin-right: 0;
+			}
 		}
 	}
 }

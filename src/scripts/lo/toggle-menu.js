@@ -2,6 +2,7 @@ function ToggleMenu (el) {
   this.el = el;
   this.triggerClass = 'js-toggle-menu';
   this.isActive = false;
+  this.breakpoint = 1024;
   this.onClick = this.onClick.bind(this);
   this.onKeyUp = this.onKeyUp.bind(this);
   this.onMouseover = this.onMouseover.bind(this);
@@ -41,8 +42,12 @@ ToggleMenu.prototype.onKeyUp = function onKeyUp (e) {
 }
 
 ToggleMenu.prototype.onMouseover = function onMouseover () {
-  this.isActive = false
-  $(this.el).removeClass('is-active')
+  var isOverBreakpoint = $(window).width() > this.breakpoint
+
+  if ( isOverBreakpoint ) {
+    this.isActive = false
+    $(this.el).removeClass('is-active')
+  }
 }
 
 ToggleMenu.prototype.removeActiveClass = function removeActiveClass () {

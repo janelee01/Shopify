@@ -21,19 +21,21 @@
 	position: relative;
 	z-index: $header-z-index;
 	border: 1px solid transparent;
-	// line-height: 0; // fixes weird space below items ¯\_(ツ)_/¯
 	@include transition(all .25s ease-out);
 	@media (min-width: $screen-md) {
 		padding-top: 0;
 		padding-bottom: 0;
 		text-align: left;
-
 	}
 	.container{
 		position: relative;
+		
 		@media (max-width: $screen-md) {
 			width: 100%;
 			padding: 0 28px;
+		}
+		@media (max-width: $screen-xs) {
+			padding: 0 20px;
 		}
 	}
 }
@@ -93,6 +95,7 @@ body.has-tw-header{
 		.navbar-toggle {
 			.icon-bar1, .icon-bar2, .icon-bar3 {
 				background-color: #000;
+				cursor: pointer;
 			}
 		}
 		#site-logo {

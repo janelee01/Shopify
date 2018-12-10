@@ -32,9 +32,9 @@
         // Attach any event handler
 
         this.$el.find('.navbar-toggle').on('click', this.onClick);
-        this.$el.find('.js-mega-toggle').on('mousedown', this.onActiveMenu);
+        this.$el.find('.js-mega-toggle').on('mousedown touch', this.onActiveMenu);
         this.$el.find('.js-menu-close').on('click', this.onMenuClose);
-        this.$el.on('mouseenter', this.onMouseenter);
+        this.$el.on('mouseenter touch', this.onMouseenter);
         this.$el.on('mouseleave', this.onMouseleave);
 
         $(window).on('scroll', this.onScroll);
@@ -106,10 +106,8 @@
 
         e.preventDefault();
         if ( !$menuLink.hasClass('isActive') && !$isOverBreakpoint ) {
-            console.log('hi')
             $allLinks.closest('li').removeClass(this.megaToggles)
             $menuLink.addClass(this.megaToggles)
-            console.log('does not have is active')
         }
     }
 
@@ -120,7 +118,6 @@
         var isScrolled = $(window).scrollTop() > this.scrollThreshold
 
         if ( this.isActive && !isScrolled ) {
-            console.log('its me')
             $header.find('.mega-menu').scrollTop(0);
             $header.find('.mega-menu__featured__carousel--slick-carousel').slick('slickGoTo', 0);
             $header.addClass(this.transparentBgClass)
