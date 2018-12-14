@@ -1,0 +1,188 @@
+@mixin help-menu-active{
+  visibility: visible;
+  transition: visibility 1ms linear, transform 300ms ease-in-out 1ms;
+  transform: translateX(0);
+
+  @media (min-width: $screen-md) {
+    transform: none;
+    opacity: 1;
+    transition: visibility 1ms linear, opacity 300ms ease-in-out 1ms;
+  }
+}
+
+.help-menu{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  padding-top: 80px;
+  background: $brand-blue;
+  max-width: 280px;
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.24);
+  z-index: 999;
+  visibility: hidden;
+  transform: translateX(280px);
+  transition: visibility 1ms linear 300ms, transform 300ms;
+
+  @media (min-width: $screen-md) {
+    background: white;
+    position: absolute;
+    top: 30px;
+    left: 100%;
+    right: auto;
+    margin-left: -120px;
+    width: 200px;
+    height: auto;
+    padding-top: 0;
+    box-shadow: 0 2px 10px 0 rgba(203,203,203,0.50);
+    border: 1px solid $gray-lighter;
+    border-radius: 2px;
+    transform: none;
+    opacity: 0;
+    transition: visibility 1ms linear 300ms, opacity 300ms;
+  }
+
+
+  .toggle-menu:hover &{
+    @media (min-width: $screen-md) {
+      @include help-menu-active;
+    }
+  }
+
+  .is-active & {
+    @media (max-width: ($screen-md - 1)) {
+      @include help-menu-active;
+    }
+  }
+
+  * {
+    color: white;
+    fill: white;
+    font-size: 1.4rem;
+    @media (min-width: $screen-md) {
+      color: $gray;
+      fill: $gray;
+    }
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .top-close-button{
+    @include resetButton;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    margin: auto;
+    width: 15px;
+    height: 15px;
+    padding: 0;
+
+    @media (min-width: $screen-md) {
+      display: none;
+    }
+  }
+
+  .top-close-button svg{
+    width: 15px;
+    height: 15px;
+    margin: 0;
+  }
+
+  .primary-links{
+    @include resetList;
+    display: flex;
+    min-height: 80px;
+    
+    @media (min-width: $screen-md) {
+      border-bottom: 1px solid $gray-lighter;
+    }
+    
+  }
+  .primary-link{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .primary-link + .primary-link{
+    border-left: 1px solid white;
+
+    @media (min-width: $screen-md) {
+      border-color: $gray-lighter;
+    }
+  }
+  .primary-link-inner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .primary-link-inner * {
+    transition: all 300ms;
+  }
+  .primary-link-inner:hover * {
+    color: #fff;
+    @media (min-width: $screen-md) {
+      color: $brand-blue;
+    }
+  }
+  .primary-icon{
+    max-height: 20px;
+  }
+  .primary-icon svg{
+    width: 20px;
+    height: 20px;
+  }
+  .primary-link-text{
+    text-align: center;
+    width: 100%;
+    margin: 5px 0 0;
+  }
+  .secondary-link a:hover {
+    @media (min-width: $screen-md) {
+      color: $brand-blue;
+    }
+  }
+  .secondary-links{
+    @include resetList;
+    padding: 25px 0;
+    text-align: center;
+  }
+  .secondary-link + .secondary-link{
+    padding-top: 5px;
+  }
+  .bottom-close-container{
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid white;
+    margin: 0 30px;
+    padding: 10px;
+    @media (min-width: $screen-md) {
+      display: none;
+    }
+  }
+  .bottom-close-button{
+    @include resetButton;
+    display: flex;
+    align-items: center;
+  }
+  .bottom-close-button svg{
+    width: 8px;
+    height: 8px;
+    margin-right: 5px;
+  }
+  
+  /* add to _icons */
+  .chat-icon{
+    background-image: url('icon-chat.svg');
+  }
+  .email-icon{
+    background-image: url('icon-email-v4.svg');
+  }
+  .close-icon{
+    background-image: url('icon-close.svg');
+  }
+}

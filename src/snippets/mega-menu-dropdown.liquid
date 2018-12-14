@@ -1,0 +1,187 @@
+{%- assign links = links | default: false -%}
+
+{%- assign columns = 1 -%}
+{%- assign column_1 = '' -%}
+{%- assign column_2 = '' -%}
+{%- assign column_3 = '' -%}
+
+{% comment %}Aggregate all left column links{% endcomment %}
+{%- for tier_2 in links -%}
+{%- if tier_2.links == blank -%}
+    {%- assign row = tier_2.title | append: ':' | append: tier_2.url | append: ':'  | append: tier_2.object.handle | append: ':' | append: tier_2.type -%}
+    {%- assign column_1 = column_1 | append: '|' | append: row -%}
+    {%- assign row = nil -%}
+{%- endif -%}
+{%- endfor -%}
+
+{% comment %}Aggregate all middle column links{% endcomment %}
+{%- for tier_2 in links -%}
+{%- if tier_2.links != blank -%}
+  {%- unless tier_2.title contains 'eatured' -%}
+    {%- assign columns = 2 -%}
+    {%- assign row = tier_2.title | append: ':' | append: tier_2.url | append: ':' | append: tier_2.object.handle | append: ':' | append: tier_2.type -%}
+    {%- assign column_2 = column_2 | append: '|' | append: row -%}
+    {%- for tier_3 in tier_2.links -%}
+        {%- assign row = tier_3.title | append: ':' | append: tier_3.url | append: ':' | append: tier_3.object.handle | append: ':' | append: tier_3.type -%}
+        {%- assign column_2 = column_2 | append: '|' | append: row -%}
+        {%- assign row = nil -%}
+    {%- endfor -%}
+  {%- endunless -%}
+{%- endif -%}
+{%- endfor -%}
+
+{% comment %}Aggregate all carousel links{% endcomment %}
+{%- for tier_2 in links -%}
+{%- if tier_2.title contains 'eatured' -%}
+    {%- assign columns = 3 -%}
+    {%- assign row = tier_2.title | append: ':' | append: tier_2.url | append: ':' | append: tier_2.object.handle | append: ':' | append: tier_2.type -%}
+    {%- assign column_3 = column_3 | append: '|' | append: row -%}
+    {%- for tier_3 in tier_2.links -%}
+        {%- assign row = tier_3.title | append: ':' | append: tier_3.url | append: ':' | append: tier_3.object.handle | append: ':' | append: tier_3.type -%}
+        {%- assign column_3 = column_3 | append: '|' | append: row -%}
+        {%- assign row = nil -%}
+    {%- endfor -%}
+{%- endif -%}
+{%- endfor -%}
+
+<div class="mega-menu__layout js-marque-push-down">
+  <div class="mega-menu__container--desktop">
+    {%- if columns == 1 -%}
+    <div class="mega-menu__subnav col-1">
+      {%- assign rows = column_1 | remove_first: '|' | split: '|' -%}
+
+      <ul class="{% if link.title == 'About'%}mega-menu__subnav--about{% endif %}">
+      {%- for row in rows -%}
+        {%- assign link_details = row | split: ':' -%}
+        <li class="mega-menu__subnav__item">
+          {% comment %}If one column only, you'll want to show an image{% endcomment %}
+          {%- assign _handle = link_details[2] -%}
+          {%- assign _type = link_details[3] -%}
+          {%- if _type == 'blog_link' -%}
+            {%- assign _object = blogs[_handle] -%}
+          {%- elsif _type == 'page_link' -%}
+            {%- assign _object = pages[_handle] -%}
+          {%- endif -%}
+          
+          <a class="mega-menu__subnav__item__link" href="{{link_details[1]}}">
+            <div class="ratio mega-menu__image">
+              <div class="img fit-cover">
+                <img class="img__el mega-menu_subnav__item__img" src="{{_object.metafields["global"]["menu-image"]}}">
+              </div>
+            </div>
+            <div>
+              <p class="mega-menu_subnav__item__img__caption">{{link_details[0]}}</p>
+            </div>
+          </a>
+        </li>
+        {%- assign _object = nil -%}
+        {%- assign _type = nil -%}
+        {%- assign _handle = nil -%}
+        {%- assign link_details = nil -%}
+      {%- endfor -%}
+      </ul>
+      {%- assign rows = nil -%}
+    </div>
+
+    {%- elsif columns > 1 -%}
+
+    <div class="mega-menu__subnav navcol-1">
+      {%- assign rows = column_1 | remove_first: '|' | split: '|' -%}
+      <ul class="mega-menu__subnav__item">
+        {%- for row in rows -%}
+          {%- assign link_details = row | split: ':' -%}
+          <li class="mega-menu__subnav__item__child">
+            <a class="mega-menu__subnav__item__link {% if link_details[0] == 'Sale' %} mega-menu__subnav__item__link--sale {% endif %} btn-gtm-trk" data-gtm-a="3" href="{{link_details[1]}}">{{link_details[0]}}</a>
+          </li>
+          {%- assign link_details = nil -%}
+        {%- endfor -%}
+      </ul>
+      {%- assign rows = nil -%}  
+    </div>
+
+
+    <div class="mega-menu__subnav navcol-2">
+      {%- assign rows = column_2 | remove_first: '|' | split: '|' -%}
+      <ul>
+        {%- for row in rows -%}
+          {%- assign link_details = row | split: ':' -%}
+          {%- assign _title_handle = link_details[0] | handleize -%}
+          {%- if _title_handle contains 'shop-by' -%}
+            <li class="mega-menu__subnav__item__header">
+              <p class="mega-menu__subnav__item-title">
+                {{ link_details[0] }}
+              </p>
+            </li>
+            {%- else -%}
+            <li class="mega-menu__subnav__item__child">
+              <a class="mega-menu__subnav__item__child__link btn-gtm-trk" data-gtm-a="3" href="{{link_details[1]}}">
+                {{ link_details[0] }}
+              </a>
+            </li>
+          {%- endif -%}
+          {%- assign _title_handle = nil -%}
+          {%- assign link_details = nil -%}
+        {%- endfor -%}
+      </ul>
+      {%- assign rows = nil -%}  
+    </div>
+    
+    {%- if columns >= 3 -%}
+        {%- assign rows = column_3 | remove_first: '|' | split: '|' -%}
+      <div class="mega-menu__subnav mega-menu__carousel navcol-3">
+
+        <ul class="mega-menu__featured__carousel mega-menu__featured__carousel--slick-carousel">
+          {%- for row in rows -%}
+            {%- assign link_details = row | split: ':' -%}
+            {%- if forloop.first == true -%}
+              <li class="mega-menu__subnav__item__header">
+                <p class="mega-menu__subnav__item-title">
+                  {{ link_details[0] }}
+                </p>
+              </li>
+              {%- else -%}
+              <li class="mega-menu__subnav__item__child">
+                {%- assign page_handle = link_details[2] -%}
+                {%- assign _page = pages[page_handle] -%}
+                <a class="mega-menu__subnav__item__child__featured--link btn-gtm-trk" data-gtm-a="3" href="{{link_details[1]}}">
+                  <div class="ratio mega-menu__image">
+                    <div class="img fit-cover">
+                      <img class="img__el mega-menu_subnav__item__img" src="{{_page.metafields["global"]["menu-image"]}}">
+                    </div>
+                  </div>
+                  <p class="mega-menu__subnav__item__child__featured__caption">{{link_details[0]}}</p>
+                </a>
+                <p class="mega-menu__subnav__item__child__featured--description">{{_page.metafields["global"]["menu-image-description"]}}</p>
+              </li>
+            {%- endif -%}
+            {%- assign link_details = nil -%}
+            {%- assign product_handle = nil -%}
+            {%- assign _page = nil -%}
+          {%- endfor -%}
+          <span class="mega-menu-carousel-prev">
+            {% include 'header-icons', icon: 'arrow' %}
+          </span>
+          <span class="mega-menu-carousel-next">
+            {% include 'header-icons', icon: 'arrow' %}
+          </span>
+        </ul>
+        {%- assign rows = nil -%}  
+      </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+  <div class="mega-menu__layout__footer">
+    <div class="menu-close-wrapper">
+      <a href="#close" class="site-header-icons__icon site-header-icons__icon--sm js-menu-close">
+        {% include 'header-icons', icon: 'close' %}
+        <span>close</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+{%- assign links = nil -%}
+{%- assign columns = nil -%}
+{%- assign column_1 = nil -%}
+{%- assign column_2 = nil -%}
+{%- assign column_3 = nil -%}

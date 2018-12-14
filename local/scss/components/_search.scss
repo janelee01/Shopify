@@ -1,69 +1,109 @@
-[role="search"]{
-	position: relative;
-	margin-bottom: 20px;
-	.form-control{
-		border: 0;
-		padding-right: 60px;
-		height: 58px;
-		background: $gray-lightest;
-		font-family: $font-family-sans-serif;
-		font-size: 16px;
-		padding-left: 15px;
-		box-shadow: none;
-		@media (min-width: $screen-md) {
-			height: 66px;
-			font-size: 19px;
-		}
-		&::-webkit-input-placeholder {
-		  color: #868686;
-		}
-		&::-moz-placeholder {
-		  color: #868686;
-		}
-		&:-ms-input-placeholder {
-		  color: #868686;
-		}
-		&:-moz-placeholder { 
-		  color: #868686;
-		}
+.header-search {
+  position: relative;
+  margin-bottom: 20px;
+  
+
+  &.is-mobile {
+    @media (min-width: $screen-md) {
+      display: none;
+    }
+  }
+
+  &.is-desktop {
+    display: none;
+    position: absolute;
+    min-width: 290px;
+    margin-left: -135px;
+    top: 30px;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1ms linear 300ms, opacity 300ms;
+
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
+
+    .is-active & {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 1ms linear, opacity 300ms ease-in-out 1ms;
+    }
+  }
+
+  &.is-search-template{
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+  .header-search__input {
+    border: 1px solid $gray-lighter;
+    border-radius: 2px;
+    padding-right: 60px;
+    height: 50px;
+    font-family: $font-family-sans-serif;
+    font-size: 16px;
+    padding-left: 15px;
+    color: $gray-darker;
+    @media (min-width: $screen-md) {
+      box-shadow: 0 2px 10px 0 rgba(203,203,203,0.50);
+      font-size: $font-size-sm;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $gray-light;
+    }
+    &::-moz-placeholder {
+      color: $gray-light;
+    }
+    &:-ms-input-placeholder {
+      color: $gray-light;
+    }
+    &:-moz-placeholder { 
+      color: $gray-light;
+    }
+  }
+  .btn{
+	background: transparent;
+    position: absolute;
+    right: 0;
+    top: 1px;
+    height: 100%;
+    padding: 0;
+    width: 46px;
+	border: 0;
+	svg {
+		height: 20px;
+		width: 20px;
+		color: $gray-light;
 	}
-	.btn{
-		background: url('icon-search.svg') no-repeat center center;
-		background-size: 15px auto;
-		position: absolute;
-		right: 0;
-		top: 0;
-		height: 100%;
-		padding: 0;
-		width: 46px;
-		border: 0;
-	}
+  }
 }
 
 .ui-autocomplete{
-	background: #FFF;
-	box-shadow: 0 4px 5px rgba(0,0,0,.1);
-	max-height: 195px; // shorter on mobile so the keyboard doesn't cover the lower items
-	overflow-y: auto;
-	overflow-x: hidden;
-	padding-bottom: .8em;
-	@media (min-width: $screen-md) {
-		max-height: 400px;
-	}
-	.ui-menu-item{
-		list-style: none;
-	}
-	.ui-menu-item-wrapper{
-		padding: 3px 15px 3px 30px;
-		&.ui-state-active{
-			margin: 0;
-			color: $brand-blue;
-		}
-	}
+  background: #FFF;
+  box-shadow: 0 4px 5px rgba(0,0,0,.1);
+  max-height: 195px; // shorter on mobile so the keyboard doesn't cover the lower items
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: .8em;
+  @media (min-width: $screen-md) {
+    max-height: 400px;
+  }
+  .ui-menu-item{
+    list-style: none;
+  }
+  .ui-menu-item-wrapper{
+    padding: 3px 15px 3px 30px;
+    &.ui-state-active{
+      margin: 0;
+      color: $brand-blue;
+    }
+  }
 }
 .ui-autocomplete-category{
-	font-family: $font-family-medium;
-	font-weight: 400;
-	padding-left: 15px;
-	color: #aaa;
+  font-family: $font-family-medium;
+  font-weight: 400;
+  padding-left: 15px;
+  color: #aaa;
 }

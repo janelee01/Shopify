@@ -1,49 +1,42 @@
+.newsletter-signup-wrapper {
+	margin-left: calc(-50vw + 50%);
+	margin-right: calc(-50vw + 50%);
+	background-color: $brand-blue;
+}
+
 #newsletter-signup{
-	padding: 35px 25px;
+	padding: 25px 40px 30px;
 	text-align: center;
 	max-width: 720px;
 	margin: 0 auto;
-
     @media ( min-width: $screen-sm ) {
-        padding: 75px 0;
-    }
-
-	label{
-		color: $gray-darker;
-		font-weight: 400;
-		font-size: 20px;
-		font-family: "Circular-Pro-Medium", sans-serif;
+        padding: 50px 0;
+	}
+	label {
+		margin-bottom: 20px;
+	}
+	span {
 		display: block;
-		margin-bottom: 35px;
-        margin-left: auto;
-        margin-right: auto;
-		letter-spacing: -.4px;
-		line-height: 26px;
-
-		@media (min-width: $screen-sm) {
-			font-size: 24px;
-			letter-spacing: -.48px;
-			line-height: 30px;
+		color: #fff;
+		font-size: $font-size-sm;
+		&.signup-heading {
+			padding-bottom: 10px;
+			text-transform: uppercase;
+			font-family: $font-family-bold;
+			letter-spacing: 1px;
 		}
-		@media (min-width: $screen-md) {
-			font-size: 28px;
-			letter-spacing: -.56px;
-			line-height: 34px;
-			padding: 0;
-		}
-		small{
-			display: block;
-			color: $gray;
-			font-size: 75%;
-			margin-top: 7px;
-			font-family: "Circular-Pro-Book", sans-serif;
+		&.signup-subheading {
+			font-family: $font-family-medium;
+			font-weight: 300;
+			max-width: 400px;
+			margin: 0 auto;
 		}
 	}
 	.form-group{
 		margin: 0;
 		position: relative;
 		@media (min-width: $screen-sm ) {
-			width: 389px;
+			max-width: 300px;
 			margin-left: auto;
 			margin-right: auto;
 		}
@@ -51,85 +44,187 @@
 			display: block; 
 			text-align: center;
 			line-height: 1.3;
+			color: $gray-darker;
+			a {
+				color: $gray-darker;
+			}
 		}
 	}
 	.form-control{
-		background: #fff;
-		border: solid 1px #E6E6E6;
+		box-shadow: 0 0 0 1.5px #fff;
+		border-radius: 2px;
+		background: $brand-blue;
 		padding-right: 72px;
 		padding-left: 25px;
 		height: 50px;
 		width: 100%;
 		font-size: 16px;
 		font-family: $font-family-sans-serif;
-		box-shadow: none;
-		@media (min-width: $screen-sm ) {
-			height: 55px;
+		color: #fff;
+		&::-webkit-input-placeholder {
+			color: #fff;
+			text-transform: capitalize;
+		}
+		&::-moz-placeholder {
+			color: #fff;
+			text-transform: capitalize;
+		}
+		&:-ms-input-placeholder {
+			color: #fff;
+			text-transform: capitalize;
+		}
+		&:-moz-placeholder { 
+			color: #fff;
+			text-transform: capitalize;
 		}
 	}
 	.alert{
-		line-height: 1.4;
-		color: $gray;
-		font-size: $font-size-base;
 		display: none;
-		strong{
-			color: $brand-blue;
-			font-size: 18px;
-			display: block;
-		}
+		margin-bottom: 0;
 	}
 }
+
+.form-group .form-control {
+	#newsletter-signup.has-errors & {
+		box-shadow: 0 0 0 1.5px $gray-darker;
+	}
+}
+
 #signup-submit{
-	background: $brand-blue url('arrow-right.svg') no-repeat center center;
+	background-color: #fff;
 	background-size: 22px auto;
 	border: 0;
 	position: absolute;
 	top: 0;
 	right: 0;
 	padding: 0;
+	svg {
+		fill: $brand-blue;
+		padding-top: 2px;
+		width: 18px;
+		height: 18px;
+	}
 	@include square(50px);
 	@media (min-width: $screen-sm) {
-		@include square(55px);
 		@include transition(all .3s ease-out);
 		&:hover{
-			background-color: $brand-blue-hover;
+			background-color: #fff;
 			background-position: 60% center;
+			svg {
+				fill: $gray-darker;
+			}
 		}	
 	}
 }
 
 #site-footer{
-	padding: 0 0 75px;
+	padding: 0 0 25px;
 	text-align: center;
-	@media (min-width: $screen-md) {
-		border-top: solid 1px #F4F4F4;
-		text-align: left;
-		padding: 75px 0 0;
-	}
 	.container-fluid{
 		padding: 0;
 	}
 }
-#footer-logo{
-	display: none;
+.footer-menu-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	max-width: 500px;
+	margin: 0 auto;
+	padding-top: 30px;
 	@media (min-width: $screen-md) {
-		display: block;
-		float: left;
+		flex-direction: row;
+		max-width: 100%;
+		padding-top: 20px;
+	}
+	.footer-menu-logo {
+		@media (min-width: $screen-md) {
+			width: 20%;
+			text-align: left;
+			padding-top: 3px;
+		}
+	}
+	.footer-menu-links {
+		padding-top: 30px;
+		@media (min-width: $screen-md) {
+			padding-top: 0;
+			width: 50%;
+		}
+		.menu {
+			margin-bottom: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			@media (min-width: $screen-md) {
+				display: block;
+				padding-top: 8px;
+			}
+		}
+		ul li{
+			list-style: none;
+			display: inline-block;
+			padding-right: 27px;
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+		a {
+			color: $gray-light;
+			&:hover,
+			&:focus {
+				text-decoration: none;
+				color: $brand-blue;
+			}
+		}
+	}
+	.footer-menu-social {
+		padding-top: 30px;
+		@media (min-width: $screen-md) {
+			padding-top: 0;
+			width: 20%;
+		}
+		.social-menu {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			margin: 0 auto 20px;
+			list-style: none;
+			padding: 0;
+			@media (min-width: $screen-md) {
+				margin-bottom: 14px;
+			}
+			li {
+				padding-right: 20px;
+				&:last-child {
+					padding-right: 0;
+				}
+				.social-icon-wrapper {
+					box-shadow: 0 0 0 1px #646464;
+					border-radius: 50%;
+					height: 40px;
+					width: 40px;
+					&:hover,
+					&:focus,
+					&:active {
+						fill: $brand-blue;
+						box-shadow: 0 0 0 1px $brand-blue;
+					}
+				}
+			}
+		}
+		svg {
+			height: 40px;
+			width: 40px;
+			fill: $gray;
+			padding: 10px;
+			&:hover,
+			&:focus,
+			&:active {
+				fill: $brand-blue;
+			}
+		}
 	}
 }
-#footer-menus{
-	display: none;
-	@media (min-width: $screen-md) {
-		display: flex;
-		float: right;
-		width: 81%;
-		margin-bottom: 80px;
-		justify-content: space-between;
-	}
-	@media (min-width: $screen-md) {
-		width: 71%;
-	}
-}
+
 .footer-menu{
 	line-height: $line-height-lg;
 	.menu-title{
@@ -148,86 +243,40 @@
 			color: $gray;
 			line-height: 1;
 			@include transition(all .2s ease);
-			&:hover{
+			&:hover,
+			&:focus,
+			&:active {
 				color: $brand-blue;
 				text-decoration: none;
 			}
 		}
 	}
 }
-.connect-menus{
-	@media (min-width: $screen-md) {
-		display: flex;
-		flex-direction: column-reverse;
-	}
-	.menu{
-		@include resetList;
-		padding-bottom: 18px;
-		li{
-			display: inline-block;
-			margin: 0 10px;
-			@media (min-width: $screen-md) {
-				margin: 0 25px 0 0;
-			}
-		}
-		a{
-			display: block;
-			line-height: $line-height-base;
-		}
-	}
-
-	.social-menu{
-		opacity: .4;
-		@media (min-width: $screen-md) {
-			opacity: 1;
-		}
-		a{
-			@media (min-width: $screen-md) {
-				opacity: .65;
-				&:hover{
-					opacity: 1;
-				}
-			}
-		}
-	}
-	.contact-menu{
-		a{
-			padding: 0 0 0 25px;
-			color: $gray-darker;
-			background: no-repeat left center;
-			background-size: 20px auto;
-			@media (min-width: $screen-md) {
-				color: $gray;
-				&:hover{
-					color: $gray-darker;
-					text-decoration: none;
-				}
-			}
-		}
-		[contact-menu-message]{
-			background-image: url('icon-message.svg');
-		}
-		[contact-menu-email]{
-			background-image: url('icon-email-v3.svg');
-		}
-	} 
-}
 
 #colophon{
-	@media (min-width: $screen-md) {
-		border-top: solid 1px #F4F4F4;
-		padding: 31px 0;
-		.connect-menus{
-			display: none;
+	border-top: solid 1px $gray-lighter;
+	color: $gray;
+	padding-top: 28px;
+	p {
+		margin: 0;
+		@media (min-width: $screen-md) {
+			display: inline-block;
 		}
 	}
-}
-#copyright{
-	font-family: $font-family-sans-serif;
-	color: $gray-darker;
-	font-size: 15px;
-	margin-bottom: 0;
-	@media (min-width: $screen-md) {
+	a {
 		color: $gray;
+		text-decoration: none;
+		@media (min-width: $screen-md) {
+			display: inline-block;
+		}
+		&:hover,
+		&:focus,
+		&:active {
+			color: $brand-blue;
+			text-decoration: none;
+		}
+	}
+	.connect-menus{
+		display: none;
 	}
 }

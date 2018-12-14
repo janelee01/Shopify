@@ -10,16 +10,16 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "gulp": "latest",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "latest",
     "gulp-concat": "latest",
     "gulp-livereload": "latest",
-    "gulp-load-plugins": "latest",
+    "gulp-load-plugins": "^1.5.0",
     "gulp-plumber": "latest",
-    "gulp-sass": "latest",
-    "gulp-size": "latest",
     "gulp-rev": "latest",
-    "run-sequence": "latest",
-    "rev-del": "latest"
+    "gulp-sass": "^4.0.2",
+    "gulp-size": "latest",
+    "rev-del": "^1.0.5",
+    "run-sequence": "^2.2.1"
   }
 }

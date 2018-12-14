@@ -20,6 +20,7 @@
 @import 'components/footer';
 @import 'components/forms';
 @import 'components/header';
+@import 'components/help-menu';
 @import 'components/hero';
 @import 'components/marquee';
 @import 'components/navigation';
@@ -48,3 +49,7 @@
 @import 'views/product';
 @import 'views/returns';
 @import 'views/support'; 
+
+#preview-bar-iframe{
+  display: none;
+}
