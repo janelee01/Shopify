@@ -46,6 +46,7 @@ body.menu-open{
 	position: relative;
 	height: calc(100% - 75px);
 	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
 	padding: 0 $mobile-gutter 30px;
 	margin-top: 75px;
 	

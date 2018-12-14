@@ -15,6 +15,7 @@
         // Outline any constants
         this.triggerClass = 'js-header';
         this.megaClass = 'js-mega-menu';
+        this.megaElementClass = 'js-mega-menu-container'
         this.megaToggleFirstClass = 'mega-menu__nav__item:first-child';
         this.megaToggle = 'js-mega-toggle';
         this.menuClose = 'js-menu-close';
@@ -70,7 +71,8 @@
             $header.removeClass(this.transparentBgClass)
             $allLinks.closest('li').removeClass(this.megaToggles)
             $menuLinkFirst.closest('li').addClass(this.megaToggles, 350)
-            this.isActive = true;
+            
+            this.toggleActiveState(true)
             return false; 
         } else if ( !this.isActive && isOverBreakpoint ) {
             $toggle.addClass(this.hamburgerActive)
@@ -79,7 +81,8 @@
             $header.addClass(this.borderClass)
             $allLinks.closest('li').removeClass(this.megaToggles)
             $menuLinkFirst.closest('li').addClass(this.megaToggles, 350)
-            this.isActive = true;
+            
+            this.toggleActiveState(true)
             return false; 
         } else {
             $header.find('.mega-menu').scrollTop(0);
@@ -93,18 +96,23 @@
                 $header.addClass(this.transparentBgClass)
                 $header.removeClass(this.borderClass)
             }
-            this.isActive = false;
+
+            this.toggleActiveState(false)
             return false; 
         }
+    }
+
+    Header.prototype.isOverBreakpoint = function isOverBreakpoint () {
+        return $(window).width() > this.breakpoint
     }
 
     Header.prototype.onActiveMenu = function onActiveMenu (e) {
         var $allLinks = this.$el.find('.'+this.megaToggle)
         var $menuLink = $(e.currentTarget).closest('li')
-        var $isOverBreakpoint = $(window).width() > this.breakpoint
+        var isOverBreakpoint = this.isOverBreakpoint()
 
         e.preventDefault();
-        if ( !$menuLink.hasClass('is-active') && !$isOverBreakpoint ) {
+        if ( !$menuLink.hasClass('is-active') && !isOverBreakpoint ) {
             $allLinks.closest('li').removeClass(this.megaToggles)
             $menuLink.addClass(this.megaToggles)
         }
@@ -123,18 +131,18 @@
             $header.removeClass(this.borderClass)
             $toggle.removeClass(this.hamburgerActive)
             $mega.removeClass(this.menuOpen)
-            this.isActive = false
+            this.toggleActiveState(false)
         } else {
             $header.find('.mega-menu').scrollTop(0);
             $header.find('.mega-menu__featured__carousel--slick-carousel').slick('slickGoTo', 0);
             $toggle.removeClass(this.hamburgerActive)
             $mega.removeClass(this.menuOpen)
-            this.isActive = false
+            this.toggleActiveState(false)
         }
     }
 
     Header.prototype.onMouseenter = function onMouseenter (e) {
-        var isOverBreakpoint = $(window).width() > this.breakpoint
+        var isOverBreakpoint = this.isOverBreakpoint()
         
         if (!isOverBreakpoint) {
             return
@@ -148,11 +156,11 @@
             $header.addClass(this.borderClass)
         }
 
-        this.isActive = true
+        this.toggleActiveState(true)
     }
 
     Header.prototype.onMouseleave = function onMouseleave (e) {
-        var isOverBreakpoint = $(window).width() > this.breakpoint
+        var isOverBreakpoint = this.isOverBreakpoint()
         
         if (!isOverBreakpoint) {
             return
@@ -166,7 +174,24 @@
             $header.removeClass(this.borderClass)
         }
 
-        this.isActive = false
+        this.toggleActiveState(false)
+    }
+
+    Header.prototype.toggleActiveState = function toggleActiveState (isActive) {
+        var megaMenu = $('.'+this.megaElementClass)[0]
+        var isOverBreakpoint = this.isOverBreakpoint()
+        
+        if (isActive) {
+            if (!isOverBreakpoint) {
+                bodyScrollLock.disableBodyScroll(megaMenu)
+            }
+            this.isActive = true
+        } else {
+            if (!isOverBreakpoint) {
+                bodyScrollLock.enableBodyScroll(megaMenu)
+            }
+            this.isActive = false
+        }
     }
 
     $(document).ready(function(){
