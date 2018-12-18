@@ -1,19 +1,25 @@
-{%- assign ph = 'general.search.placeholder' | t -%}
-{%- if placeholder != blank -%}
-  {%- assign ph = placeholder -%}
-{%- endif -%}
-<form action="/search" method="get" role="search" class="ui-front">
-  <label for="{{ fieldId }}" class="sr-only">
-    {{ 'general.search.placeholder' | t }}
-  </label>
+{%- assign placeholder = placeholder | default: '' -%}
+{%- assign class = class | default: '' -%}
+{%- assign field_id = field_id | default: '' -%}
+{%- assign auto_complete = auto_complete | default: true -%}
+
+<form action="/search" method="get" role="search" class="header-search ui-front {{class}}">
+  <label for="{{ field_id }}" class="sr-only">{{placeholder}}</label>
   <input type="search"
          name="q"
-         id="{{ fieldId }}"
-         class="form-control"
+         id="{{ field_id }}"
+         class="form-control header-search__input{% if auto_complete %} js-autocomplete{% endif %}"
          value=""
-         placeholder="{{ ph }}">
+         placeholder="{{placeholder}}">
   <input type="hidden" name="type" value="product" />
   <button type="submit" class="btn">
     <span class="sr-only">{{ 'general.search.submit' | t }}</span>
+      {% include 'header-icons', icon: 'search' %}
+
   </button>
 </form> 
+
+{%- assign placeholder = nil -%}
+{%- assign class = nil -%}
+{%- assign field_id = nil -%}
+{%- assign auto_complete = nil -%}

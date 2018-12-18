@@ -1,6 +1,7 @@
 $site-max-width:          1680px;
-$site-large-width:       1400px;
+$site-large-width:        1400px;
  
+$screen-xs:               345px;
 $screen-md:               1025px; 
 $screen-lg:               1400px; 
 
@@ -23,7 +24,7 @@ $mobile-gutter:           28px;
  
 $gray-darker:             #111; 
 $gray-dark:               #414B56;   
-$gray:                    #646464;  
+$gray:                    #646464;
 $gray-light:              #808080; 
 $gray-lighter:            #d6d6d6; 
 $gray-lightest:           #f8f8f8; 
@@ -75,6 +76,7 @@ $font-size-xl:            60px;
 $font-size-lg:            32px;
 $font-size-sm:            14px;
 $font-size-xs: 	          12px;
+$font-size-xxs: 	      10px;
 
 $mb-base:                 1.4em;
 
@@ -92,3 +94,6 @@ $mb-large-xs:             75px;
 $mb-large-sm:             90px;
 $mb-large-md:             105px;
 $mb-large-lg:             120px;
+
+$header-z-index: 1000;
+$page-nav-z-index: 999;

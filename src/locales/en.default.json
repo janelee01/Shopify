@@ -245,6 +245,13 @@
 			"social_platform": "{{ name }} on {{ platform }}",
 			"copyright": "Copyright",
 			"payment_methods": "Payment methods accepted"
+		},
+		"help": {
+			"title": "Help",
+			"search": "Search",
+			"chat": "Chat",
+			"email": "Email",
+			"close": "close"
 		}
 	},
 	"products": {
