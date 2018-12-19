@@ -180,6 +180,9 @@ body.menu-open{
 	left: 0;
 	top: 62px;
 	width: 100%;
+	@media (max-width: $screen-md - 1) {
+		margin-top: 0 !important;
+	}
 	@media (min-width: $screen-md) {
 		position: fixed;
 		padding: 50px 0;
