@@ -196,7 +196,7 @@ $(document).ready(function() {
   // slide the marquee out of the way on scroll
   var $marquee = $('#shopify-section-marquee');
   var trigger = 100;
-  var lastScrollPos = 0;
+  var lastScrollPos = 0
 
   // remove menu-open class on window resize
   $(window).resize(function () {
@@ -208,68 +208,80 @@ $(document).ready(function() {
 	}
   });
 
-  function LSOnScroll (e, firstTime) {
-	if (!firstTime) {
-		firstTime = false
-	}
-	var isPastTrigger = $(window).scrollTop() > trigger
-	var isMovingDown = $(window).scrollTop() > lastScrollPos
-	var marqueeheight = $marquee.outerHeight()
-	var isPageNav = $pageNav.length
-	var isMarquee = $marquee.is(':visible')
-	
-	if (firstTime) {
-		// add a delay so the header position change can finish before we animate the fade in (fixes weird flickering)
-		window.setTimeout(function(){ 
-			$pageNav.addClass('is-shown');	
-		}, 250);
-	}
-	
-	if (!$marquee.is(':visible')) {
-		return
-	}
+	function LSOnScroll (e, firstTime) {
+		if (!firstTime) {
+			firstTime = false
+		}
 
-	if (isMarquee && isPastTrigger && isMovingDown && !isPageNav) {
-		if ($(window).width() > LS.desktopBreakpoint) {
-			$header.css({'top' : $marquee.outerHeight() * -1});
+		var isPastTrigger = $(window).scrollTop() > trigger
+		var isMovingDown = $(window).scrollTop() > lastScrollPos
+		var isMovingUp = $(window).scrollTop() < lastScrollPos
+		var marqueeheight = $marquee.outerHeight()
+		var isPageNav = $pageNav.length
+		var isMarquee = $marquee.is(':visible')
+
+		if (firstTime) {
+			// add a delay so the header position change can finish before we animate the fade in (fixes weird flickering)
+			window.setTimeout(function(){ 
+				$pageNav.addClass('is-shown');	
+			}, 250);
+		}
+		
+		if (!$marquee.is(':visible')) {
+			return
+		}
+
+		if (isMarquee && isPastTrigger && isMovingDown && !isPageNav) {
+			if ($(window).width() > LS.desktopBreakpoint) {
+				$header.css({'top' : $marquee.outerHeight() * -1});
+				$('.js-marque-push-down').removeAttr('style');
+			}
+		}
+
+		if (isMarquee && isPastTrigger && isMovingDown && isPageNav) {
+			$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
 			$('.js-marque-push-down').removeAttr('style');
 		}
-	}
 
-	if (isMarquee && isPastTrigger && isMovingDown && isPageNav) {
-		$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
-		$('.js-marque-push-down').removeAttr('style');
-	}
-
-	if (!isMarquee && isPastTrigger && isMovingDown && isPageNav) {
-		$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
-		$('.js-marque-push-down').removeAttr('style');
-	}
-
-	if (isMarquee && !isMovingDown && isPageNav) {
-		$header.removeAttr('style');
-		if ($(window).width() > LS.desktopBreakpoint) {
-			$('.js-marque-push-down').css({'marginTop': marqueeheight})
+		if (!isMarquee && isPastTrigger && isMovingDown && isPageNav) {
+			$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
+			$('.js-marque-push-down').removeAttr('style');
 		}
-	}
 
-	if (!isMarquee && !isMovingDown && isPageNav) {
-		$header.removeAttr('style');
-		$('.js-marque-push-down').removeAttr('style');
-	}
-
-	if (isMarquee && !isPastTrigger && !isMovingDown) {
-		$header.removeAttr('style');
-		if ($(window).width() > LS.desktopBreakpoint) {
-			$('.js-marque-push-down').css({'marginTop': marqueeheight })
+		if (!isMarquee && isMovingUp && isPageNav) {
+			$header.removeAttr('style');
+			if ($(window).width() > LS.desktopBreakpoint) {
+				$('.js-marque-push-down').css({'marginTop': marqueeheight})
+			}
 		}
-		$('.site-content').css({'marginTop': marqueeheight})
-	}
 
-	if (!isMarquee && isPastTrigger && isMovingDown && isPageNav) {
-		header.css({'top' : $('#site-header-items').outerHeight() * -1});
+		if (isMarquee && isMovingUp && isPageNav) {
+			$header.removeAttr('style');
+			$header.css({'top' : $marquee.outerHeight() * -1});
+			if ($(window).width() > LS.desktopBreakpoint) {
+				$('.js-marque-push-down').css({'marginTop': marqueeheight})
+			}
+		}
+
+		if (!isMarquee && isMovingUp && isPageNav) {
+			$header.removeAttr('style');
+			$('.js-marque-push-down').removeAttr('style');
+		}
+
+		if (isMarquee && !isPastTrigger && isMovingUp) {
+			$header.removeAttr('style');
+			if ($(window).width() > LS.desktopBreakpoint) {
+				$('.js-marque-push-down').css({'marginTop': marqueeheight })
+			}
+			$('.site-content').css({'marginTop': marqueeheight})
+		}
+
+		if (!isMarquee && isPastTrigger && isMovingDown && isPageNav) {
+			header.css({'top' : $('#site-header-items').outerHeight() * -1});
+		}
+
+		lastScrollPos = $(window).scrollTop()
 	}
-  }
 
 	// adjust on scroll
 	$(window).scroll(LSOnScroll);
