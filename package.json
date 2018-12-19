@@ -1,6 +1,6 @@
 {
   "name": "lo-and-sons",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "devDependencies": {
     "@shopify/slate-tools": "0.13.0"
   },

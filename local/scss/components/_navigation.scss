@@ -45,8 +45,6 @@ body.menu-open{
 .mega-menu{
 	position: relative;
 	height: calc(100% - 75px);
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
 	padding: 0 $mobile-gutter 30px;
 	margin-top: 75px;
 	
@@ -55,6 +53,11 @@ body.menu-open{
 		display: inline-block;
 		padding: 0;
 		margin: 0;
+	}
+
+	@media (max-width: $screen-md - 1) {
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
 	}
 }
 
@@ -191,16 +194,29 @@ body.menu-open{
 		background-color: $gray-lightest;
 		transition: visibility 1ms linear 300ms, opacity 300ms ease-in-out;
 	}
+}
 
-	.mega-menu__nav__item:hover &,
-	.mega-menu__nav__item:focus &,
-	.mega-menu__nav__item:active &,
-	.mega-menu__nav__item:focus-within &{
-		@media (min-width: $screen-md) {
-			visibility: visible;
-			opacity: 1;
-			transition: opacity 300ms ease-in-out 1ms, visibility 1ms;
-		}
+.mega-menu__nav__item:hover .mega-menu__layout{
+	@media (min-width: $screen-md) {
+		visibility: visible;
+		opacity: 1;
+		transition: opacity 300ms ease-in-out 1ms, visibility 1ms;
+	}
+}
+
+.mega-menu__nav__item:focus-within .mega-menu__layout{
+	@media (min-width: $screen-md) {
+		visibility: visible;
+		opacity: 1;
+		transition: opacity 300ms ease-in-out 1ms, visibility 1ms;
+	}
+}
+
+.mega-menu__nav__item:focus .mega-menu__layout{
+	@media (min-width: $screen-md) {
+		visibility: visible;
+		opacity: 1;
+		transition: opacity 300ms ease-in-out 1ms, visibility 1ms;
 	}
 }
 
