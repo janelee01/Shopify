@@ -258,9 +258,6 @@ $(document).ready(function() {
 		if (isMarquee && isMovingUp && isPageNav) {
 			$header.removeAttr('style');
 			$header.css({'top' : $marquee.outerHeight() * -1});
-			if ($(window).width() > LS.desktopBreakpoint) {
-				$('.js-marque-push-down').css({'marginTop': marqueeheight})
-			}
 		}
 
 		if (!isMarquee && isMovingUp && isPageNav) {
