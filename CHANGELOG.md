@@ -1,7 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## 0.0.4 - 2018-12-19
+## 0.0.6 - 2018-12-19
+### TEAM: Barrel
+### CHANGED:
+- Updates hide and show logic of marquee/page-nav states
+
+## 0.0.5 - 2018-12-19
 ### TEAM: Barrel
 ### CHANGED:
 - Fixes header marquee initial page load issue
