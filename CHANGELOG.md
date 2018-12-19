@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+
+## 0.0.7 - 2018-12-19
+### TEAM: Barrel
+### CHANGED:
+- Resolves arrow display issues in menu carousel in FF
+- Resolves scroll bar issue in header for IE
+
 ## 0.0.6 - 2018-12-19
 ### TEAM: Barrel
 ### CHANGED:

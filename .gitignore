@@ -13,6 +13,7 @@ upload
 deploy.log
 config.yml
 *.yml
+config.production.yml
 
 # Compiled source #
 ###################
