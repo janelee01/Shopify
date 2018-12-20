@@ -57,7 +57,18 @@
 				    	background: $gray-lighter !important;
 				    }
 				}
+			
 			}
+		}
+		.write-review-button,
+		.write-question-button{
+			.yotpo-icon{
+				color: #fff !important;
+			}
+		}
+		.write-question-review-button-text{
+			color: #fff;
+			font-weight: 500;
 		}
 		.yotpo-bottomline.yotpo-bottomline-2-boxes .yotpo-default-button.write-question-button{
 			top: 90px;
