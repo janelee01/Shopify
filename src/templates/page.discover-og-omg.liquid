@@ -1,5 +1,5 @@
 {% include 'vars' %}
-{%- assign assetVersion = 7723948976490964678 -%}
+{%- assign assetVersion = 12752008332971440654 -%}
 {%- assign ctaImgCol = 'col-md-6' -%}
 {%- assign ctaContentCol = 'col-md-6' -%} 
 {%- assign ctaTitle = 'O.G. &amp; O.M.G.' -%}
@@ -8,13 +8,13 @@
 {%- assign ctaImg = 'ogomg-cta' -%}
 
 
-<article class="discover">
+<article class="discover has-page-nav">
 
     {% include 'discover-nav', labels:'Design,Features,Materials,Shop' %}
     
     <div class="max-container">
         <div class="hero soft-load has-arrow">
-            {% include 'discover-picture', name: 'ogomg-hero', alt: 'O.G. on black background', retina: true, fw: false, lg: true %}
+            {% include 'discover-picture', name: 'ogomg-hero-v2', alt: 'O.G. on black background', retina: true, fw: false, lg: true %}
             <div class="hero-content center white">
                 <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
                 <p class="description">A functional and lightweight carry-all made from premium materials.</p>
@@ -44,7 +44,7 @@
       <div class="animate" {{ animateFadeInUp }}>
           <div class="row topic-block">
               <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">                    
-                  {% include 'discover-picture', name: 'ogomg-travel-1', alt: "O.G. and O.M.G.'s suitcase handle sleeve", retina: true, fw: true, lg: true %}
+                  {% include 'discover-picture', name: 'ogomg-travel-1-v2', alt: "O.G. and O.M.G.'s suitcase handle sleeve", retina: true, fw: true, lg: true %}
                   <div class="topic-content">
                       <h3 class="title">Suitcase Handle Sleeve</h3>
                       <p class="description">Travel seamlessly with a convenient pass-through sleeve that slides onto any roller bag.</p>
@@ -73,69 +73,39 @@
 
     <div class="animate" {{ animateFadeInUp }}>
       <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 col-md-12 col-md-offset-0">
-          <div class="fw-xs">
-            <div class="inline-video ratio-4-3 product-video" id="ogomg-inlined-1">
-                 <div class="embed-container"
-                     data-desktop-url="https://player.vimeo.com/external/293982916.hd.mp4?s=75109b3591f1745cb52ca579578bdaacb04968e7&profile_id=175"
-                     data-mobile-url="https://player.vimeo.com/external/293982916.sd.mp4?s=a42909151fbcd1585976d3194526f36da288c272&profile_id=165"
-                     data-autoplay="true"
-                     data-loops="100">
-                     <video id="video-1" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/ogomg-purpose-video-1.jpg?{{ assetVersion }}"></video>
-                     <div class="loading"></div>
-                 </div>
-            </div>
-          </div>
+        <div class="col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1">
+            {% include 'discover-picture', name: 'ogomg-multipurpose-1', alt: "O.G. and O.M.G.'s side pocket storing heels", retina: true, fw: true, lg: true %}
         </div>
         <div class="col-sm-6 col-sm-offset-3">
           <div class="topic-content text-center">
               <h3 class="title">Enroute to Work</h3>
+              <p class="description">Lorem ipsum dolor sit amet, consectet adipiscing elit, sed do eiusmod tempor </p>
           </div>
         </div>
       </div>
     </div>
     <div class="animate" {{ animateFadeInUp }}>
       <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 col-md-12 col-md-offset-0">
-          <div class="fw-xs">
-            <div class="inline-video ratio-4-3 product-video" id="ogomg-inlined-2">
-                 <div class="embed-container"
-                     data-desktop-url="https://player.vimeo.com/external/293982900.hd.mp4?s=d44765f617801d111e7697cfa7b3b2df11c51285&profile_id=175"
-                     data-mobile-url="https://player.vimeo.com/external/293982900.sd.mp4?s=61239e9183a5a0e5e3404e187cceb8582abf8b97&profile_id=165"
-                     data-autoplay="true"
-                     data-loops="100">
-                     <video id="video-2" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/ogomg-purpose-video-2.jpg?{{ assetVersion }}"></video>
-                     <div class="loading"></div>
-                 </div>
-            </div>
-          </div>
+        <div class="col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1">
+          {% include 'discover-picture', name: 'ogomg-multipurpose-2', alt: "O.G. and O.M.G.'s side pocket storing pouch", retina: true, fw: true, lg: true %}
         </div>
         <div class="col-sm-6 col-sm-offset-3">
           <div class="topic-content text-center">
               <h3 class="title">Jetsetting to a Conference</h3>
+              <p class="description">Lorem ipsum dolor sit amet, consectet adipiscing elit, sed do eiusmod tempor </p>
           </div>
         </div>
       </div>
     </div>
     <div class="animate" {{ animateFadeInUp }}>
       <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 col-md-12 col-md-offset-0">
-          <div class="fw-xs">
-            <div class="inline-video ratio-4-3 product-video" id="ogomg-inlined-3">
-                 <div class="embed-container"
-                     data-desktop-url="https://player.vimeo.com/external/293982929.hd.mp4?s=e1a3e31557a049ca94a2a469895edfa0f9dcea7e&profile_id=175"
-                     data-mobile-url="https://player.vimeo.com/external/293982929.sd.mp4?s=c83f466cdb3d3e850654866fbb98109689280574&profile_id=165"
-                     data-autoplay="true"
-                     data-loops="100">
-                     <video id="video-3" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/ogomg-purpose-video-3.jpg?{{ assetVersion }}"></video>
-                     <div class="loading"></div>
-                 </div>
-            </div>
-          </div>
+        <div class="col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1">
+          {% include 'discover-picture', name: 'ogomg-multipurpose-3', alt: "O.G. and O.M.G.'s side pocket storing an umbrella", retina: true, fw: true, lg: true %}
         </div>
         <div class="col-sm-6 col-sm-offset-3">
           <div class="topic-content text-center">
               <h3 class="title">Rainy Morning Commutes</h3>
+              <p class="description">Lorem ipsum dolor sit amet, consectet adipiscing elit, sed do eiusmod tempor </p>
           </div>
         </div>
       </div>
@@ -214,14 +184,14 @@
 
   <div class="container">
     <a id="nav-target-3" class="jumptarget"></a>
-      <div class="animate" {{ animateFadeInUp }}>
-          <div class="row">
-              <div class="col-sm-8 col-sm-offset-2">                    
-                  <div class="section-heading">
-                      <h2 class="title">High-Quality Materials</h2>
-                  </div>
-              </div>
-          </div>
+    <div class="animate" {{ animateFadeInUp }}>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">                    
+                <div class="section-heading">
+                    <h2 class="title">High-Quality Materials</h2>
+                </div>
+            </div>
+        </div>
     </div>
     
     <div class="animate" {{ animateFadeInUp }}>
@@ -261,6 +231,34 @@
               <p class="description">Crafted from in a premium quality jacquard lining in our signature hummingbird print.</p>
           </div>
         </div>
+      </div>
+    </div>
+    
+    <div class="animate" {{ animateFadeInUp }}>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">                    
+                <div class="section-heading">
+                    <h2 class="title">Timeless Style</h2>
+                    <p class="description">From board room meetings to red eye flights, this classic travel bag will keep you looking polished and professional everyday. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="animate" {{ animateFadeInUp }}>
+      <div class="row mb-gutter">
+        <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+          {% include 'discover-picture', name: 'ogomg-timeless-1', alt: 'woman walking with O.G. on luggage', retina: true, fw: true, lg: true %}
+        </div>
+      </div>
+      <div class="row topic-block mb-large">
+          <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0"> 
+            <div class="mb-gutter">
+              {% include 'discover-picture', name: 'ogomg-timeless-2', alt: "woman leaving building with O.G.", retina: true, fw: true, lg: true %}
+            </div>
+          </div>
+          <div class="col-sm-5 col-md-6">                    
+              {% include 'discover-picture', name: 'ogomg-timeless-3', alt: "woman holding O.G. while using phone", retina: true, fw: true, lg: true %}
+          </div>
       </div>
     </div>
 
