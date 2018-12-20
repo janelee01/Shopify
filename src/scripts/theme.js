@@ -201,7 +201,8 @@ $(document).ready(function() {
 
   // Set the marginTop initially if Marquee active
   if ($marquee.is(':visible')) {
-	$('.js-marque-push-down').css({'marginTop': $marquee.outerHeight()})
+		$('.js-marque-push-down').css({'marginTop': $marquee.outerHeight()})
+		$('.site-content').css({'marginTop': $marquee.outerHeight()})
   }
 
   // remove menu-open class on window resize
@@ -222,6 +223,7 @@ $(document).ready(function() {
 		var isPastTrigger = $(window).scrollTop() > trigger
 		var isMovingDown = $(window).scrollTop() > lastScrollPos
 		var isMovingUp = $(window).scrollTop() < lastScrollPos
+		var isMegaMenuActive = $('body').hasClass('mega-menu-active')
 		var marqueeheight = $marquee.outerHeight()
 		var isPageNav = $pageNav.length
 		var isMarquee = $marquee.is(':visible')
@@ -239,8 +241,8 @@ $(document).ready(function() {
 		// Marquee
 		// Moving Down
 		if (!isPageNav && isMarquee && isPastTrigger && isMovingDown) {
+			$header.css({'top' : $marquee.outerHeight() * -1});
 			if ($(window).width() > LS.desktopBreakpoint) {
-				$header.css({'top' : $marquee.outerHeight() * -1});
 				$('.js-marque-push-down').addClass('reset-marquee-offset');
 			}
 			return
@@ -258,7 +260,6 @@ $(document).ready(function() {
 					$('.js-marque-push-down').removeClass('reset-marquee-offset')
 				}
 			}
-			// $('.site-content').css({'marginTop': marqueeheight})
 			return
 		}
 
@@ -266,7 +267,9 @@ $(document).ready(function() {
 		// No Marquee
 		// Moving Down
 		if (isPageNav && !isMarquee && isMovingDown && isPastTrigger) {
-			header.css({'top' : $('#site-header-items').outerHeight() * -1});
+			if (!isMegaMenuActive) {
+				header.css({'top' : $('#site-header-items').outerHeight() * -1});
+			}
 			return
 		}
 
@@ -282,8 +285,10 @@ $(document).ready(function() {
 		// Marquee
 		// Moving Down
 		if (isPageNav && isMarquee && isPastTrigger && isMovingDown) {
-			$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
-			$('.js-marque-push-down').addClass('reset-marquee-offset');
+			if (!isMegaMenuActive) {
+				$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
+				$('.js-marque-push-down').addClass('reset-marquee-offset');
+			}
 			return
 		}
 		
@@ -432,6 +437,7 @@ $(document).ready(function() {
 				{
 				  breakpoint: 768,
 				  settings: {
+					arrows : false,
 					slidesToShow: 2.5,
 					slidesToScroll: 1,
 				  }

@@ -15,6 +15,9 @@
 		}
 	}
 }
+.menu-open #site-header{
+	top: 0 !important;
+}
 #site-header-items{
 	padding-bottom: 5px;
 	padding-top: 5px;
@@ -87,6 +90,16 @@
 	body.has-tw-header &,
 	body.has-tb-header & {
 		padding-top: 0;
+	}
+}
+
+.site-content{
+	body.has-page-nav &,
+	body.has-page-nav & {
+		padding-top: $ls-navbar-height-pagenav-xs;
+		@media (min-width: $screen-md) {
+			padding-top: $ls-navbar-height-pagenav;	
+		}
 	}
 }
 

@@ -1,6 +1,30 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+
+## 0.0.10 - 2018-12-20
+### TEAM: Barrel
+### CHANGED:
+- Prevents flip to page nav if mega menu active
+- Updates Yotpo button styles
+
+## 0.0.9 - 2018-12-20
+### TEAM: Barrel
+### CHANGED:
+- Updates content padding on mobile
+
+## 0.0.8 - 2018-12-20
+### TEAM: Barrel
+### CHANGED:
+- Resolves site-content padding issues. 
+- Resolves mobile menu hiding issues
+
+## 0.0.7 - 2018-12-19
+### TEAM: Barrel
+### CHANGED:
+- Resolves arrow display issues in menu carousel in FF
+- Resolves scroll bar issue in header for IE
+
 ## 0.0.6 - 2018-12-19
 ### TEAM: Barrel
 ### CHANGED:
