@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 
 
+## 0.0.10 - 2018-12-20
+### TEAM: Barrel
+### CHANGED:
+- Prevents flip to page nav if mega menu active
+- Updates Yotpo button styles
+
 ## 0.0.9 - 2018-12-20
 ### TEAM: Barrel
 ### CHANGED:

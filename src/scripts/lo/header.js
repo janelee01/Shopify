@@ -8,6 +8,7 @@
         this.isMarqueeVisible = 'shopify-section-marquee'
         this.transparentBgClass = 'showing-alternate';
         this.borderClass = 'after-scroll';
+        this.hoverActiveClass = 'mega-menu-active';
         this.hamburgerActive ='mega-menu-active';
         this.menuOpen = 'menu-open'
         this.megaToggles = 'is-active'
@@ -184,11 +185,15 @@
         if (isActive) {
             if (!isOverBreakpoint) {
                 bodyScrollLock.disableBodyScroll(megaMenu)
+            } else {
+                $('body').addClass(this.hoverActiveClass)
             }
             this.isActive = true
         } else {
             if (!isOverBreakpoint) {
                 bodyScrollLock.enableBodyScroll(megaMenu)
+            } else {
+                $('body').removeClass(this.hoverActiveClass)
             }
             this.isActive = false
         }
