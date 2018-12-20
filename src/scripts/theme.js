@@ -223,6 +223,7 @@ $(document).ready(function() {
 		var isPastTrigger = $(window).scrollTop() > trigger
 		var isMovingDown = $(window).scrollTop() > lastScrollPos
 		var isMovingUp = $(window).scrollTop() < lastScrollPos
+		var isMegaMenuActive = $('body').hasClass('mega-menu-active')
 		var marqueeheight = $marquee.outerHeight()
 		var isPageNav = $pageNav.length
 		var isMarquee = $marquee.is(':visible')
@@ -266,7 +267,9 @@ $(document).ready(function() {
 		// No Marquee
 		// Moving Down
 		if (isPageNav && !isMarquee && isMovingDown && isPastTrigger) {
-			header.css({'top' : $('#site-header-items').outerHeight() * -1});
+			if (!isMegaMenuActive) {
+				header.css({'top' : $('#site-header-items').outerHeight() * -1});
+			}
 			return
 		}
 
@@ -282,8 +285,10 @@ $(document).ready(function() {
 		// Marquee
 		// Moving Down
 		if (isPageNav && isMarquee && isPastTrigger && isMovingDown) {
-			$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
-			$('.js-marque-push-down').addClass('reset-marquee-offset');
+			if (!isMegaMenuActive) {
+				$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
+				$('.js-marque-push-down').addClass('reset-marquee-offset');
+			}
 			return
 		}
 		
