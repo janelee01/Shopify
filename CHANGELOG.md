@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 
 
+## 0.0.8 - 2018-12-20
+### TEAM: Barrel
+### CHANGED:
+- Resolves site-content padding issues. 
+- Resolves mobile menu hiding issues
+
 ## 0.0.7 - 2018-12-19
 ### TEAM: Barrel
 ### CHANGED:
