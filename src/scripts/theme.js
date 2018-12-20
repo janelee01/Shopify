@@ -201,7 +201,8 @@ $(document).ready(function() {
 
   // Set the marginTop initially if Marquee active
   if ($marquee.is(':visible')) {
-	$('.js-marque-push-down').css({'marginTop': $marquee.outerHeight()})
+		$('.js-marque-push-down').css({'marginTop': $marquee.outerHeight()})
+		$('.site-content').css({'marginTop': $marquee.outerHeight()})
   }
 
   // remove menu-open class on window resize
@@ -239,8 +240,8 @@ $(document).ready(function() {
 		// Marquee
 		// Moving Down
 		if (!isPageNav && isMarquee && isPastTrigger && isMovingDown) {
+			$header.css({'top' : $marquee.outerHeight() * -1});
 			if ($(window).width() > LS.desktopBreakpoint) {
-				$header.css({'top' : $marquee.outerHeight() * -1});
 				$('.js-marque-push-down').addClass('reset-marquee-offset');
 			}
 			return
@@ -258,7 +259,6 @@ $(document).ready(function() {
 					$('.js-marque-push-down').removeClass('reset-marquee-offset')
 				}
 			}
-			// $('.site-content').css({'marginTop': marqueeheight})
 			return
 		}
 
