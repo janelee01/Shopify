@@ -1,18 +1,36 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 14172434602968006474 -%}
+{%- assign assetVersion = 13648854922706990145 -%}
 {%- assign ctaTitle = 'Seville' -%}
 {%- assign ctaPrice = '$398 - $448' -%}
 {%- assign ctaLink = '/products/seville-tote-saffiano-leather-black-gold-grey' -%}
 
+{% comment %} duplicate of this in #travel-shell-details {% endcomment %}
+<style>
+.comparison figure{
+	background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-smooth-xs.jpg?3168812252590863496');
+}
+.comparison .divisor{
+	background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-wrinkled-xs.jpg?3168812252590863496');
+}
+@media (min-width: {{screenSm}}) {
+	.comparison figure{
+		background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-smooth.jpg?3168812252590863496');
+	}
+	.comparison .divisor{
+		background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-wrinkled.jpg?3168812252590863496');
+	}
+}
+</style>
+
 <article class="discover">
 
-    {% include 'discover-nav', labels:'Design,Features,Materials' %}
+    {% include 'discover-nav', labels:'Design,Features,Materials,Shop' %}
     
     <div class="max-container">
         <div class="hero soft-load has-arrow">
-            {% include 'discover-picture', name: 'seville-hero', alt: 'Seville on black background', retina: true, fw: false, lg: true %}
-            <div class="hero-content center white">
+            {% include 'discover-picture', name: 'seville-hero-v2', alt: 'woman walking into building with Seville', retina: true, fw: false, lg: true %}
+            <div class="hero-content white left">
                 <h1 class="title"><span class="subtitle">Discover</span> Seville</h1>
                 <p class="description">An innovative leather laptop tote that goes from business mode to airplane mode in a snap.</p>
             </div>
@@ -63,7 +81,7 @@
 	                {% include 'discover-picture', name: 'seville-2-in-1', alt: 'Seville on luggage', retina: true, fw: true, lg: true %}
 	                <div class="topic-content">
 	                    <h3 class="title">Lightweight Travel Shell Included</h3>
-	                    <p class="description">Each tote includes a complimentary Soft Touch Travel Shell that is super lightweight and water resistant, which allows you to go from work mode to travel mode in a snap.</p>
+	                    <div class="description">Each tote includes a complimentary Soft Touch Travel Shell that is super lightweight and water resistant, which allows you to go from work mode to travel mode in a snap. <a href="#travel-shell-details" class="more-window-trigger">Learn more</a></div>
 	                </div>
 	            </div>
 	        </div>
@@ -155,30 +173,13 @@
 			</div>
 		</div>
 		<div class="animate" {{ animateFadeInUp }}>
-			<style>
-			#comparison figure{
-				background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-smooth-xs.jpg?3168812252590863496');
-			}
-			#comparison-divisor{
-				background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-wrinkled-xs.jpg?3168812252590863496');
-			}
-			@media (min-width: {{screenSm}}) {
-				#comparison figure{
-					background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-smooth.jpg?3168812252590863496');
-				}
-				#comparison-divisor{
-					background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/seville-memory-yarn-wrinkled.jpg?3168812252590863496');
-				}
-			}
-			</style>
-			
 			<div class="row">
 				<div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
 					<div class="fw-xs">
-						<div id="comparison">
+						<div class="comparison">
 							<figure>
-								<div id="comparison-handle"></div>
-								<div id="comparison-divisor"></div>
+								<div class="handle" id="comparison-handle"></div>
+								<div class="divisor" id="comparison-divisor"></div>
 							</figure>
 							<input type="range" min="0" max="100" value="50" id="comparison-slider" oninput="moveDivisor()">
 						</div>
@@ -205,7 +206,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="animate" {{ animateFadeInUp }}>
+		<div class="animate mb-default" {{ animateFadeInUp }}>
 			<div class="row">
 				<div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
 					{% include 'discover-picture', name: 'seville-buttons', alt: 'Seville Italian buttons', retina: true, fw: true, lg: true %}
@@ -218,8 +219,34 @@
 				</div>
 			</div>
 		</div>
-
-	
+		
+		<div class="row animate" {{ animateFadeInUp }}>
+		    <div class="col-sm-8 col-sm-offset-2">                    
+		        <div class="section-heading">
+		            <h2 class="title">Timeless Style</h2>
+		            <p class="description">The Seville’s classic design will never go out of style. This innovative laptop tote will keep you looking polished and professional everyday.</p>
+		        </div>
+		    </div>
+		</div>
+		<div class="animate" {{ animateFadeInUp }}>
+		  <div class="row mb-gutter">
+		    <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+		      {% include 'discover-picture', name: 'seville-timeless-1', alt: 'woman walking with Seville', retina: true, fw: true, lg: true %}
+		    </div>
+		  </div>
+		  <div class="row topic-block mb-large">
+		      <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0"> 
+		        <div class="mb-gutter">
+		          {% include 'discover-picture', name: 'seville-timeless-2', alt: "woman with Seville on luggage", retina: true, fw: true, lg: true %}
+		        </div>
+		      </div>
+		      <div class="col-sm-5 col-md-6">                    
+		          {% include 'discover-picture', name: 'seville-timeless-3', alt: "woman holding Seville while using phone", retina: true, fw: true, lg: true %}
+		      </div>
+		  </div>
+		</div>
+		
+		<a id="nav-target-4" class="jumptarget"></a>
 	    <div class="animate" {{ animateFadeInUp }}>
 	        <div class="row">
 	            <div class="col-sm-8 col-sm-offset-2">                    
@@ -295,21 +322,152 @@
 		    </div>
 		</div>
 		
-		
+	</div>
+
+	<div class="more-window" id="travel-shell-details">
+		<div class="container">
+			<div class="row">
+			    <div class="col-sm-10 col-sm-offset-1">                    
+			        <div class="section-heading">
+			            <h2 class="title">The Travel Shell</h2>
+			            <p class="description">This patented design system allows you to change the exterior of your bag without having to unpack everything. The inner bag slips out of one shell and into the travel shell so you can go from business mode to airplane mode in a snap.</p>
+			        </div>
+			    </div>
+			</div>
+			<div class="row topic-block">
+			    <div class="col-sm-6">                    
+			        {% include 'discover-picture', name: 'seville-travel-shell-1', alt: "O.G. and O.M.G.'s suitcase handle sleeve", retina: true, fw: false, lg: true %}
+			        <div class="topic-content">
+			            <h3 class="title">Business Mode</h3>
+			            <p class="description">The classic leather shell will keep you looking polished and professional everyday.</p>
+			        </div>
+			    </div>
+			    <div class="col-sm-6">                    
+			        {% include 'discover-picture', name: 'seville-travel-shell-2', alt: "O.G. and O.M.G.'s messenger strap", retina: true, fw: false, lg: true %}
+			        <div class="topic-content">
+			            <h3 class="title">Airplane Mode</h3>
+			            <p class="description">Each Seville Tote includes a complimentary Travel Shell that is secures to your luggage handle.</p>
+			        </div>
+			    </div>
+			</div>
+
+			<div class="row">
+			    <div class="col-sm-10 col-sm-offset-1">                    
+			        <div class="section-heading">
+			            <h2 class="title">How it works</h2>
+			        </div>
+			    </div>
+			</div>
+			<div class="row topic-block">
+			    <div class="col-sm-4">                    
+			        {% include 'discover-picture', name: 'seville-travel-shell-3', alt: "O.G. and O.M.G.'s suitcase handle sleeve", retina: true, fw: false, lg: true %}
+			        <div class="topic-content">
+			            <h3 class="title">Step 1: Unsnap Straps</h3>
+			            <p class="description">Unsnap the both leather straps and slide them through the metal grommets.</p>
+			        </div>
+			    </div>
+			    <div class="col-sm-4">                    
+			        {% include 'discover-picture', name: 'seville-travel-shell-4', alt: "O.G. and O.M.G.'s messenger strap", retina: true, fw: false, lg: true %}
+			        <div class="topic-content">
+			            <h3 class="title">Step 2: Swap Shells</h3>
+			            <p class="description">Remove the inner bag from the shell and place into the new shell.</p>
+			        </div>
+			    </div>
+			    <div class="col-sm-4">                    
+			        {% include 'discover-picture', name: 'seville-travel-shell-5', alt: "O.G. and O.M.G.'s messenger strap", retina: true, fw: false, lg: true %}
+			        <div class="topic-content">
+			            <h3 class="title">Step 3: Secure Straps</h3>
+			            <p class="description">Thread the leather straps through the grommets and securely snap into place.</p>
+			        </div>
+			    </div>
+			</div>
+			
+			 <div class="inline-video ratio-4-3 product-video" id="seville-inlined-3">
+			     <div class="embed-container"
+			         data-desktop-url="https://player.vimeo.com/external/293977465.hd.mp4?s=60cc44839e6b9368286c7dc9561b5038a41d7f07&profile_id=175"
+			         data-mobile-url="https://player.vimeo.com/external/293977465.sd.mp4?s=f47fbf6dc428cbed3c186068f2b3c90f60189b59&profile_id=165"
+			         data-autoplay="true"
+			         data-force="true"
+			         data-loops="100">
+			         <video id="video-3" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/seville-travel-shell-poster.jpg?{{ assetVersion }}"></video>
+			         <div class="loading"></div>
+			     </div>
+			</div>
+
+			<div class="row">
+			    <div class="col-sm-10 col-sm-offset-1">                    
+			        <div class="section-heading">
+			            <h2 class="title">Lightweight, Water-Resistant Material</h2>
+			            <p class="description">The super lightweight Soft-Touch travel shell is made of durable, water-resistant, and wipeable "Memory Yarn", a fine weave soft nylon that quickly releases wrinkles.</p>
+			        </div>
+			    </div>
+			</div>
+			
+			<div class="fw-xs mb-large">
+				<div class="comparison">
+					<figure>
+						<div class="handle" id="comparison-handle-2"></div>
+						<div class="divisor" id="comparison-divisor-2"></div>
+					</figure>
+					<input type="range" min="0" max="100" value="50" id="comparison-slider-2" oninput="moveDivisor2()">
+				</div>
+			</div>
+
+			<div class="row">
+			    <div class="col-sm-10 col-sm-offset-1">                    
+			        <div class="section-heading">
+			            <h2 class="title">Packing Tip</h2>
+			        </div>
+			    </div>
+			</div>
+			<div class="row topic-block">
+			    <div class="col-sm-4">                    
+			        {% include 'discover-picture', name: 'seville-travel-shell-6', alt: "O.G. and O.M.G.'s suitcase handle sleeve", retina: true, fw: false, lg: true %}
+			        <div class="topic-content">
+			            <h3 class="title">Step 1</h3>
+			            <p class="description">Remove travel shell from the dust bag.</p>
+			        </div>
+			    </div>
+			    <div class="col-sm-4">                    
+			        {% include 'discover-picture', name: 'seville-travel-shell-7', alt: "O.G. and O.M.G.'s messenger strap", retina: true, fw: false, lg: true %}
+			        <div class="topic-content">
+			            <h3 class="title">Step 2</h3>
+			            <p class="description">Attach to inner bag and slide over luggage handle.</p>
+			        </div>
+			    </div>
+			    <div class="col-sm-4">                    
+			        {% include 'discover-picture', name: 'seville-travel-shell-8', alt: "O.G. and O.M.G.'s messenger strap", retina: true, fw: false, lg: true %}
+			        <div class="topic-content">
+			            <h3 class="title">Step 3</h3>
+			            <p class="description">Use the empty dust bag to store your shoes while traveling.</p>
+			        </div>
+			    </div>
+			</div>
+		</div>
+		<button class="panel-close"><span class="sr-only">close</span></button>
 	</div>
 
 	<script>
-	var divisor = document.getElementById("comparison-divisor"),
-	    handle = document.getElementById("comparison-handle"),
-	    slider = document.getElementById("comparison-slider");
+	var divisor1 = document.getElementById("comparison-divisor");
+	var handle1 = document.getElementById("comparison-handle");
+	var slider1 = document.getElementById("comparison-slider");
+
+	var divisor2 = document.getElementById("comparison-divisor-2");
+	var handle2 = document.getElementById("comparison-handle-2");
+	var slider2 = document.getElementById("comparison-slider-2");
 
 	function moveDivisor() {
-	  handle.style.left = slider.value+"%";
-		divisor.style.width = slider.value+"%";
+	 	handle1.style.left = slider1.value+"%";
+		divisor1.style.width = slider1.value+"%";
+	}
+	function moveDivisor2() {
+	 	handle2.style.left = slider2.value+"%";
+		divisor2.style.width = slider2.value+"%";
 	}
 
 	window.onload = function() {
 		moveDivisor();
+		moveDivisor2();
 	};
 	</script>
 

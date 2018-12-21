@@ -1,8 +1,9 @@
-#comparison {
+.comparison {
 	width: 100%;
 	padding-bottom: 146.67%; // 375 x 550
 	overflow: hidden; 
   position: relative;
+  z-index: 10;
   @media (min-width: $screen-sm) {
     padding-bottom: 57.39%; // 942 x 541
   }
@@ -48,64 +49,64 @@
     position: relative;
     outline: none;    
   }
-}
 
-
-
-#comparison-divisor { 
-	background-size: cover;
-	position: absolute;
-	width: 50%; 
-	box-shadow: 0 5px 10px -2px rgba(0,0,0,0.3);
-	bottom: 0; height: 100%;
-  
-  &::before,
-  &::after {
-    content: '';
+  .divisor { 
+    background-size: cover;
     position: absolute;
-    right: -2px;
-    width: 4px;
-    height: calc(50% - 25px);
-    background: white;
-    z-index: 3;
+    width: 50%; 
+    box-shadow: 0 5px 10px -2px rgba(0,0,0,0.3);
+    bottom: 0; height: 100%;
+    
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      right: -2px;
+      width: 4px;
+      height: calc(50% - 25px);
+      background: white;
+      z-index: 3;
+    }
+    &::before {
+      top: 0;
+      box-shadow: 0 -3px 8px 1px rgba(0,0,0,.3);
+    }
+    &::after {
+      bottom: 0;
+      box-shadow: 0 3px 8px 1px rgba(0,0,0,.3);
+    }
   }
-  &::before {
-    top: 0;
-    box-shadow: 0 -3px 8px 1px rgba(0,0,0,.3);
-  }
-  &::after {
-    bottom: 0;
-    box-shadow: 0 3px 8px 1px rgba(0,0,0,.3);
-  }
-}
-#comparison-handle {
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
-  z-index: 1;
-  
-  &::before,
-  &::after {
-    content: '';
-    width: 0;
-    height: 0;
-    border: 6px inset transparent;
+  .handle {
     position: absolute;
+    height: 50px;
+    width: 50px;
     top: 50%;
-    margin-top: -6px;
-  }
-  &::before {
-    border-right: 6px solid white;
     left: 50%;
-    margin-left: -17px;
-  }
-  &::after {
-    border-left: 6px solid white;
-    right: 50%;
-    margin-right: -17px;
+    transform: translateY(-50%) translateX(-50%);
+    z-index: 1;
+    
+    &::before,
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border: 6px inset transparent;
+      position: absolute;
+      top: 50%;
+      margin-top: -6px;
+    }
+    &::before {
+      border-right: 6px solid white;
+      left: 50%;
+      margin-left: -17px;
+    }
+    &::after {
+      border-left: 6px solid white;
+      right: 50%;
+      margin-right: -17px;
+    }
   }
 }
+
+
 

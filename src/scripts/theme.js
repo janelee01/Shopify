@@ -45,6 +45,7 @@ window.theme = window.theme || {};
 // =require lo/customers.js
 // =require lo/toggle-menu.js
 // =require lo/header.js
+// =require lo/more-window.js
 
 $(document).ready(function() {
 
