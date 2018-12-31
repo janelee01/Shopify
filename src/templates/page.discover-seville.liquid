@@ -1,7 +1,7 @@
 {% include 'vars' %}
 
 {%- assign assetVersion = 13648854922706990145 -%}
-{%- assign ctaTitle = 'Seville' -%}
+{%- assign ctaTitle = 'The Seville' -%}
 {%- assign ctaPrice = '$398 - $448' -%}
 {%- assign ctaLink = '/products/seville-tote-saffiano-leather-black-gold-grey' -%}
 
@@ -25,13 +25,13 @@
 
 <article class="discover">
 
-    {% include 'discover-nav', labels:'Design,Features,Materials,Shop' %}
+    {% include 'discover-nav', labels:'Design,Features,Materials,Style' %}
     
     <div class="max-container">
         <div class="hero soft-load has-arrow">
-            {% include 'discover-picture', name: 'seville-hero-v2', alt: 'woman walking into building with Seville', retina: true, fw: false, lg: true %}
+            {% include 'discover-picture', name: 'seville-hero-v3', alt: 'woman walking into building with Seville', retina: true, fw: false, lg: true %}
             <div class="hero-content white left">
-                <h1 class="title"><span class="subtitle">Discover</span> Seville</h1>
+                <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
                 <p class="description">An innovative leather laptop tote that goes from business mode to airplane mode in a snap.</p>
             </div>
             {% include 'hero-jump-btn' %}
@@ -220,6 +220,7 @@
 			</div>
 		</div>
 		
+		<a id="nav-target-4" class="jumptarget"></a>
 		<div class="row animate" {{ animateFadeInUp }}>
 		    <div class="col-sm-8 col-sm-offset-2">                    
 		        <div class="section-heading">
@@ -246,7 +247,6 @@
 		  </div>
 		</div>
 		
-		<a id="nav-target-4" class="jumptarget"></a>
 	    <div class="animate" {{ animateFadeInUp }}>
 	        <div class="row">
 	            <div class="col-sm-8 col-sm-offset-2">                    
@@ -295,7 +295,7 @@
 		    </div>
 		    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-5 col-md-pull-5 col-md-offset-0 content-col">
 		        <div class="topic-content">
-		            <h3 class="title">Seville Tote</h3>
+		            <h3 class="title">{{ ctaTitle }} Tote</h3>
 		            <p class="description">{{ ctaPrice }}</p>
 		            <div class="btn-set">
 		               <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ ctaLink }}">View colors &amp; sizes</a>
@@ -312,7 +312,7 @@
 		    </div>
 		    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-5 col-md-pull-5 col-md-offset-0 content-col">
 		        <div class="topic-content">
-		            <h3 class="title">Seville Shell</h3>
+		            <h3 class="title">{{ ctaTitle }} Shell</h3>
 		            <p class="description">$168 - $228</p>
 		            <div class="btn-set">
 		               <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="/products/seville-shell-saffiano-leather-white-gold-black">View colors &amp; sizes</a>
