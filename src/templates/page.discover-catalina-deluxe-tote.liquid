@@ -1,7 +1,7 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 2771047703138708056 -%}
-{%- assign ctaTitle = 'Catalina Deluxe Tote' -%}
+{%- assign assetVersion = 11633777541598494214 -%}
+{%- assign ctaTitle = 'The Catalina Deluxe Tote' -%}
 {%- assign ctaPrice = '$118 - $128' -%}
 {%- assign ctaLink = '/products/catalina-deluxe-tote-washed-canvas-dove-grey' -%}
 {%- assign ctaImg = 'catalina-deluxe-tote-cta' -%}
@@ -14,7 +14,7 @@
         <div class="hero has-arrow" id="catalina-deluxe-tote-hero">
             {% include 'discover-picture', name: 'catalina-deluxe-tote-hero', alt: 'woman with Catalina Deluxe Tote on luggage', retina: true, fw: false, lg: true %}
             <div class="hero-content white left">
-                <h1 class="title"><span class="subtitle">Discover</span> Catalina <br />Deluxe Tote</h1>
+                <h1 class="title"><span class="subtitle">Discover</span> The Catalina <br />Deluxe Tote</h1>
                 <p class="description">The most compact addition to our line of Catalina bags.</p>
             </div>
             {% include 'hero-jump-btn' %}
@@ -40,10 +40,10 @@
         </div>
         
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-deluxe-tote-design-1', alt: "Catalina Deluxe Tote bottom pocket", retina: false, fw: true, lg: true, gif: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Bottom Pocket</h3>
                     <p class="description">Designed to keep your shoes or dirty clothes separate from clean clothes.</p>
@@ -51,10 +51,10 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-deluxe-tote-design-2', alt: "Catalina Deluxe Tote Suitcase Handle Sleeve", retina: true, fw: true, lg: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Suitcase Handle Sleeve</h3>
                     <p class="description">Travel seamlessly with a convenient pass through sleeve that secures your bag to a suitcase.</p>
@@ -62,10 +62,10 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-deluxe-tote-design-3', alt: "Catalina Deluxe Tote Messenger Strap", retina: false, fw: true, lg: true, gif: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Messenger Strap</h3>
                     <p class="description">The removable messenger strap that’s equipped with memory foam padding for extra comfort.</p>
@@ -73,10 +73,10 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-deluxe-tote-design-4', alt: "Catalina Deluxe Tote Front Exterior Pocket", retina: true, fw: true, lg: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Front Exterior Pocket</h3>
                     <p class="description">Easily access your travel essentials.</p>
@@ -84,10 +84,10 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-sm" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-deluxe-tote-design-5', alt: "Catalina Deluxe Tote interior pockets", retina: true, fw: true, lg: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Interior Pockets</h3>
                     <p class="description">Multiple pockets to keep your essentials securely stored.</p>
@@ -95,10 +95,10 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-large" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-deluxe-tote-design-6', alt: "Catalina Deluxe Tote key leash", retina: true, fw: true, lg: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Key Leash</h3>
                     <p class="description">Never misplace your keys again.</p>
@@ -117,15 +117,33 @@
         </div>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-                <div class="mb-gutter">
-                    { Video needed }
+                <div class="mb-gutter fw-xs">
+                    <div class="inline-video ratio-16-9 product-video" id="catalina-inlined-1">
+                        <div class="embed-container"
+                            data-desktop-url="https://player.vimeo.com/external/308618580.hd.mp4?s=ed99cb984d3b2434df264b4eb42312302f97d312&profile_id=175"
+                            data-mobile-url="https://player.vimeo.com/external/308618580.sd.mp4?s=d5cc8da55f9edb7388460ca65bd7c2928b35b1bc&profile_id=165"
+                            data-autoplay="true"
+                            data-loops="100">
+                            <video id="video-1" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-video-1.jpg?{{ assetVersion }}"></video>
+                            <div class="loading"></div>
+                        </div>
+                   </div>
                 </div>
             </div>
         </div>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-                <div class="mb-large">
-                    { Video needed }
+                <div class="mb-gutter fw-xs">
+                    <div class="inline-video ratio-16-9 product-video" id="catalina-inlined-2">
+                        <div class="embed-container"
+                            data-desktop-url="https://player.vimeo.com/external/309124650.hd.mp4?s=964a73103220ff3904c54998013b300aea731b67&profile_id=175"
+                            data-mobile-url="https://player.vimeo.com/external/309124650.sd.mp4?s=a3f627ca636ac5a95dc03ace9580c611a6c3f385&profile_id=165"
+                            data-autoplay="true"
+                            data-loops="100">
+                            <video id="video-2" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-video-1.jpg?{{ assetVersion }}"></video>
+                            <div class="loading"></div>
+                        </div>
+                   </div>
                 </div>
             </div>
         </div>
@@ -139,11 +157,10 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
-                { final image needed }
-                {% comment %}{% include 'discover-picture', name: 'catalina-deluxe-design-5', alt: "Catalina Deluxe bottom pocket", retina: true, fw: true, lg: true %}{% endcomment %}
+            <div class="{{ topicBlockImgCol }}">
+                {% include 'discover-picture', name: 'catalina-deluxe-carry-on-1', alt: "airline seats", retina: true, fw: true, lg: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Airline Seats</h3>
                     <p class="description">The Catalina Deluxe Tote meets carry-on size requirements, and it should fit underneath your airline seat.</p>
@@ -151,10 +168,10 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-large" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
-                {% include 'discover-picture', name: 'catalina-deluxe-carry-on-2', alt: "Catalina Deluxe dimensions", retina: true, fw: true, lg: true %}
+            <div class="{{ topicBlockImgCol }}">
+                {% include 'discover-picture', name: 'catalina-deluxe-tote-carry-on-2', alt: "Catalina Deluxe Tote dimensions", retina: true, fw: true, lg: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Dimensions</h3>
                     <p class="description">We recommend checking with the airline to confirm their personal item dimensional requirements.</p>

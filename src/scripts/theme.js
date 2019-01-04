@@ -540,6 +540,17 @@ $(document).ready(function() {
 	    }
 	  ]
 	});
+	/*
+	Discover Catalina Deluxe
+	 */
+	$('#dimensions-trigger').on('click', function(e){
+	    e.preventDefault();
+	    $($(this).attr('href')).addClass('shown');
+	});
+	$('#dimensions-overlay .panel-close').on('click', function(e){
+	    e.preventDefault();
+	    $(this).parent().removeClass('shown');
+	});
 
 	/*
 		Home page reviews

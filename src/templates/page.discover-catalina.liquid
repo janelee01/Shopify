@@ -1,7 +1,7 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 5650083228443436841 -%}
-{%- assign ctaTitle = 'Catalina' -%}
+{%- assign assetVersion = 464943924818433952 -%}
+{%- assign ctaTitle = 'The Catalina' -%}
 {%- assign ctaPrice = '$120 - $130' -%}
 {%- assign ctaLink = '/products/catalina-washed-canvas-dove-grey' -%}
 {%- assign ctaImg = 'catalina-discover-cta' -%}
@@ -14,7 +14,7 @@
         <div class="hero has-arrow">
             {% include 'discover-picture', name: 'catalina-hero', alt: 'woman carrying Catalina at the beach', retina: true, fw: false, lg: true%}
             <div class="hero-content white right" id="catalina-hero">
-                <h1 class="title"><span class="subtitle">Discover</span> Catalina</h1>
+                <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
                 <p class="description">A lightweight and foldable weekend travel bag designed to fit everything you need for a weekend away with room to spare.</p>
             </div>
             {% include 'hero-jump-btn' %}
@@ -42,10 +42,10 @@
         </div>
 
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-design-1', alt: "Catalina bottom pocket", retina: false, fw: true, lg: true, gif: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Bottom Pocket</h3>
                     <p class="description">Designed to keep your shoes or dirty clothes separate from clean clothes.</p>
@@ -53,10 +53,10 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-design-2', alt: "Catalina Front Exterior Pocket", retina: true, fw: true, lg: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Front Exterior Pocket</h3>
                     <p class="description">Easily access your travel essentials.</p>
@@ -64,21 +64,21 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-design-3', alt: "Catalina Interior Pocke", retina: true, fw: true, lg: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Interior Pocket</h3>
                     <p class="description">A zipper interior pocket for secure storage of personal items.</p>
                 </div>
             </div>
         </div>
-        <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+        <div class="row topic-block animate aligned-sm mb-negate-xs mb-large" {{ animateFadeInUp }}>
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-design-4', alt: "Catalina is Foldable &amp; Packable", retina: false, fw: true, lg: true, gif: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Foldable &amp; Packable</h3>
                     <p class="description">Neatly fold to make it packable in a suitcase in case you need another bag at your destination.</p>
@@ -97,8 +97,17 @@
 
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-                <div class="mb-large">
-                    { Video needed }
+                <div class="mb-large fw-xs">
+                    <div class="inline-video ratio-16-9 product-video" id="catalina-inlined-1">
+                        <div class="embed-container"
+                            data-desktop-url="https://player.vimeo.com/external/308578318.hd.mp4?s=dc09c5b14f908af056ee0d925c21f00e3f2e6633&profile_id=175"
+                            data-mobile-url="https://player.vimeo.com/external/308578318.sd.mp4?s=b0f1cf8d8ce3570713e5794d08beb1a14754d1af&profile_id=165"
+                            data-autoplay="true"
+                            data-loops="100">
+                            <video id="video-1" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-video-1.jpg?{{ assetVersion }}"></video>
+                            <div class="loading"></div>
+                        </div>
+                   </div>
                 </div>
             </div>
         </div>

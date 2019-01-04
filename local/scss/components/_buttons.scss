@@ -120,8 +120,8 @@
 	@include text-hide;
 	@include square(40px);
 	position: absolute;
-	left: 0;
-	top: 0;
+	left: 15px;
+	top: 15px;
 	opacity: 1;
 	&:before,
 	&:after{

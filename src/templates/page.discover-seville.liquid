@@ -1,8 +1,8 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 13648854922706990145 -%}
+{%- assign assetVersion = 3309824680850768265 -%}
 {%- assign ctaTitle = 'The Seville' -%}
-{%- assign ctaPrice = '$398 - $448' -%}
+{%- assign ctaPrice = '$398 - $428' -%}
 {%- assign ctaLink = '/products/seville-tote-saffiano-leather-black-gold-grey' -%}
 
 {% comment %} duplicate of this in #travel-shell-details {% endcomment %}
@@ -81,7 +81,10 @@
 	                {% include 'discover-picture', name: 'seville-2-in-1', alt: 'Seville on luggage', retina: true, fw: true, lg: true %}
 	                <div class="topic-content">
 	                    <h3 class="title">Lightweight Travel Shell Included</h3>
-	                    <div class="description">Each tote includes a complimentary Soft Touch Travel Shell that is super lightweight and water resistant, which allows you to go from work mode to travel mode in a snap. <a href="#travel-shell-details" class="more-window-trigger">Learn more</a></div>
+	                    <div class="description">
+	                    	<p>Each tote includes a complimentary Soft Touch Travel Shell that is super lightweight and water resistant, which allows you to go from work mode to travel mode in a snap.</p>
+	                    	<a href="#travel-shell-details" class="more-window-trigger">Learn More +</a>
+	                    </div>
 	                </div>
 	            </div>
 	        </div>
@@ -99,10 +102,10 @@
 		</div>
 
 		<div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-			<div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+			<div class="{{ topicBlockImgCol }}">
 				{% include 'discover-picture', name: 'seville-organized-1', alt: 'Seville padded laptop sleeve', retina: true, fw: false, lg: true %}
 			</div>
-			<div class="col-sm-5 content-col">
+			<div class="{{ topicBlockContentCol }}">
 				<div class="topic-content">
 				    <h3 class="title">Padded Laptop Sleeve</h3>
 				    <p class="description">Available in two sizes to accommodate 13" &amp; 15" laptops.</p>
@@ -110,10 +113,10 @@
 			</div>
 		</div>
 		<div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-			<div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
-				{% include 'discover-picture', name: 'seville-organized-2', alt: 'Seville interior pockets', retina: true, fw: false, lg: true %}
+			<div class="{{ topicBlockImgCol }}">
+				{% include 'discover-picture', name: 'seville-organized-2-v2', alt: 'Seville interior pockets', retina: true, fw: false, lg: true %}
 			</div>
-			<div class="col-sm-5 content-col">
+			<div class="{{ topicBlockContentCol }}">
 				<div class="topic-content">
 				    <h3 class="title">Plenty of Interior Pockets</h3>
 				    <p class="description">Well placed pockets keep business documents, tech devices, and personal items organized.</p>
@@ -121,10 +124,10 @@
 			</div>
 		</div>
 		<div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-			<div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+			<div class="{{ topicBlockImgCol }}">
 				{% include 'discover-picture', name: 'seville-organized-3', alt: 'Seville key leash', retina: true, fw: false, lg: true %}
 			</div>
-			<div class="col-sm-5 content-col">
+			<div class="{{ topicBlockContentCol }}">
 				<div class="topic-content">
 				    <h3 class="title">Key Leash</h3>
 				    <p class="description">Never misplace your keys again.</p>
@@ -165,7 +168,7 @@
 					{% include 'discover-picture', name: 'seville-saffiano', alt: 'Seville saffiano leather', retina: true, fw: true, lg: true %}
 				</div>
 				<div class="col-sm-8 col-sm-offset-2">
-					<div class="topic-content text-center">
+					<div class="topic-content text-center text-left-xs">
 					    <h3 class="title">Saffiano Leather Exterior</h3>
 					    <p class="description">Scratch resistant, water resistant, and extremely durable.</p>
 					</div>
@@ -186,7 +189,7 @@
 					</div>
 				</div>
 				<div class="col-sm-8 col-sm-offset-2">
-					<div class="topic-content text-center">
+					<div class="topic-content text-center text-left-xs">
 					    <h3 class="title">Memory Yarn</h3>
 					    <p class="description">The complimentary Soft Touch Travel Shell is made from an advanced polymer memory yarn that easily adapts when physical force is applied to it.  Making it easy to fold and pack away, but with the soft swipe of the hand you can smooth out most wrinkles. It's super lightweight, stain resistant, water resistant, and easily cleanable.</p>
 					</div>
@@ -199,7 +202,7 @@
 					{% include 'discover-picture', name: 'seville-jacquard', alt: 'Seville jacquard lining', retina: true, fw: true, lg: true %}
 				</div>
 				<div class="col-sm-8 col-sm-offset-2">
-					<div class="topic-content text-center">
+					<div class="topic-content text-center text-left-xs">
 					    <h3 class="title">Signature Jacquard Lining</h3>
 					    <p class="description">Crafted from in a premium quality jacquard lining in our signature hummingbird print.</p>
 					</div>
@@ -212,7 +215,7 @@
 					{% include 'discover-picture', name: 'seville-buttons', alt: 'Seville Italian buttons', retina: true, fw: true, lg: true %}
 				</div>
 				<div class="col-sm-8 col-sm-offset-2">
-					<div class="topic-content text-center">
+					<div class="topic-content text-center text-left-xs">
 					    <h3 class="title">Italian Buttons</h3>
 					    <p class="description">Ultra strong and durable snap buttons by Cobra™, an Italian producer of high-end hardware, connect the leather straps of the interior organizer to the outer shell. The firm click of the snaps assures you that your Seville Tote is securely assembled.</p>
 					</div>
@@ -270,7 +273,7 @@
 	        </div>
 	        <div class="row">
 	        	<div class="col-sm-10 col-sm-offset-1">
-	        		<div class="topic-content text-center">
+	        		<div class="topic-content text-center text-left-xs">
 	        		    <p class="description">All Seville Tote purchases include both a Saffiano Leather Shell as well as a dust bag containing a Soft Touch Travel Shell made from memory yarn. Additional leather shells are sold separately.</p>
 	        		</div>
 	        	</div>
@@ -313,7 +316,7 @@
 		    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-5 col-md-pull-5 col-md-offset-0 content-col">
 		        <div class="topic-content">
 		            <h3 class="title">{{ ctaTitle }} Shell</h3>
-		            <p class="description">$168 - $228</p>
+		            <p class="description">$168 - $178</p>
 		            <div class="btn-set">
 		               <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="/products/seville-shell-saffiano-leather-white-gold-black">View colors &amp; sizes</a>
 		               <a class="btn btn-gtm-trk" data-gtm-a="1" href="/products/seville-shell-saffiano-leather-white-gold-black">Buy now</a>
@@ -383,6 +386,7 @@
 			</div>
 			
 			 <div class="inline-video ratio-4-3 product-video" id="seville-inlined-3">
+			 	<div class="mb-gutter">
 			     <div class="embed-container"
 			         data-desktop-url="https://player.vimeo.com/external/293977465.hd.mp4?s=60cc44839e6b9368286c7dc9561b5038a41d7f07&profile_id=175"
 			         data-mobile-url="https://player.vimeo.com/external/293977465.sd.mp4?s=f47fbf6dc428cbed3c186068f2b3c90f60189b59&profile_id=165"
@@ -391,6 +395,7 @@
 			         data-loops="100">
 			         <video id="video-3" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/seville-travel-shell-poster.jpg?{{ assetVersion }}"></video>
 			         <div class="loading"></div>
+			     </div>
 			     </div>
 			</div>
 

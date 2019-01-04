@@ -1,5 +1,5 @@
 {% include 'vars' %}
-{%- assign assetVersion = 12752008332971440654 -%}
+{%- assign assetVersion = 1883305218041810695 -%}
 {%- assign ctaImgCol = 'col-md-6' -%}
 {%- assign ctaContentCol = 'col-md-6' -%} 
 {%- assign ctaTitle = 'The O.G. &amp; O.M.G.' -%}
@@ -77,9 +77,9 @@
             {% include 'discover-picture', name: 'ogomg-multipurpose-1', alt: "O.G. and O.M.G.'s side pocket storing heels", retina: true, fw: true, lg: true %}
         </div>
         <div class="col-sm-6 col-sm-offset-3">
-          <div class="topic-content text-center">
+          <div class="topic-content text-center text-left-xs">
               <h3 class="title">Enroute to Work</h3>
-              <p class="description">Lorem ipsum dolor sit amet, consectet adipiscing elit, sed do eiusmod tempor </p>
+              <p class="description">Whether you have an early morning workout or just like to switch into heels at the office, easily store your extra pair of shoes in the side pocket.</p>
           </div>
         </div>
       </div>
@@ -90,9 +90,9 @@
           {% include 'discover-picture', name: 'ogomg-multipurpose-2', alt: "O.G. and O.M.G.'s side pocket storing pouch", retina: true, fw: true, lg: true %}
         </div>
         <div class="col-sm-6 col-sm-offset-3">
-          <div class="topic-content text-center">
+          <div class="topic-content text-center text-left-xs">
               <h3 class="title">Jetsetting to a Conference</h3>
-              <p class="description">Lorem ipsum dolor sit amet, consectet adipiscing elit, sed do eiusmod tempor </p>
+              <p class="description">The side pocket is perfect for easy access to airplane toiletries and tech accessories.</p>
           </div>
         </div>
       </div>
@@ -103,9 +103,9 @@
           {% include 'discover-picture', name: 'ogomg-multipurpose-3', alt: "O.G. and O.M.G.'s side pocket storing an umbrella", retina: true, fw: true, lg: true %}
         </div>
         <div class="col-sm-6 col-sm-offset-3">
-          <div class="topic-content text-center">
+          <div class="topic-content text-center text-left-xs">
               <h3 class="title">Rainy Morning Commutes</h3>
-              <p class="description">Lorem ipsum dolor sit amet, consectet adipiscing elit, sed do eiusmod tempor </p>
+              <p class="description">Keep your laptop and paperwork safe and dry by storing your wet umbrella in the side pocket.</p>
           </div>
         </div>
       </div>
@@ -123,10 +123,10 @@
     </div>
 
     <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-      <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+      <div class="{{ topicBlockImgCol }}">
         {% include 'discover-picture', name: 'ogomg-organized-1', alt: "O.G. and O.M.G.'s padded laptop sleeve", retina: true, fw: false, lg: true %}
       </div>
-      <div class="col-sm-5 content-col">
+      <div class="{{ topicBlockContentCol }}">
         <div class="topic-content">
             <h3 class="title">Padded Laptop Sleeve</h3>
             <p class="description">Both the O.G. and O.M.G. are designed to fit up to 13" laptops.</p>
@@ -134,10 +134,10 @@
       </div>
     </div>
     <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-      <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+      <div class="{{ topicBlockImgCol }}">
         {% include 'discover-picture', name: 'ogomg-organized-2', alt: "O.G. and O.M.G.'s pockets", retina: true, fw: false, lg: true %}
       </div>
-      <div class="col-sm-5 content-col">
+      <div class="{{ topicBlockContentCol }}">
         <div class="topic-content">
             <h3 class="title">Plenty of Pockets</h3>
             <p class="description">Stay organized with the padded laptop compartment, a pocket for your tablet or work documents, a zipper pocket, and two slips pockets.</p>
@@ -145,10 +145,10 @@
       </div>
     </div>
     <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-      <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+      <div class="{{ topicBlockImgCol }}">
         {% include 'discover-picture', name: 'ogomg-organized-3', alt: "O.G. and O.M.G.'s front zipper pocket", retina: true, fw: false, lg: true %}
       </div>
-      <div class="col-sm-5 content-col">
+      <div class="{{ topicBlockContentCol }}">
         <div class="topic-content">
             <h3 class="title">Front Zipper Pocket</h3>
             <p class="description">2 slip pockets, 2 pen pockets, and an interior zipper pocket for easy access to essentials.</p>
@@ -156,10 +156,10 @@
       </div>
     </div>
     <div class="row topic-block animate aligned-sm mb-negate-xs" {{ animateFadeInUp }}>
-      <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+      <div class="{{ topicBlockImgCol }}">
         {% include 'discover-picture', name: 'ogomg-organized-4', alt: "O.G. and O.M.G.'s key leash", retina: true, fw: false, lg: true %}
       </div>
-      <div class="col-sm-5 content-col">
+      <div class="{{ topicBlockContentCol }}">
         <div class="topic-content">
             <h3 class="title">Key Leash</h3>
             <p class="description">Never misplace your keys again.</p>
@@ -200,7 +200,7 @@
           {% include 'discover-picture', name: 'ogomg-materials-1', alt: 'nylon exterior', retina: true, fw: true, lg: true %}
         </div>
         <div class="col-sm-8 col-sm-offset-2">
-          <div class="topic-content text-center">
+          <div class="topic-content text-center text-left-xs">
               <h3 class="title">Nylon Exterior</h3>
               <p class="description">Constructed with a lightweight fine weave water-resistant nylon.</p>
           </div>
@@ -213,7 +213,7 @@
           {% include 'discover-picture', name: 'ogomg-materials-2', alt: 'cotton poly blend exterior', retina: true, fw: true, lg: true %}
         </div>
         <div class="col-sm-8 col-sm-offset-2">
-          <div class="topic-content text-center">
+          <div class="topic-content text-center text-left-xs">
               <h3 class="title">Cotton Poly Blend Exterior</h3>
               <p class="description">Made with a blend of high quality cotton and poly with an interlock backing for added durability.</p>
           </div>
@@ -226,7 +226,7 @@
           {% include 'discover-picture', name: 'ogomg-materials-3', alt: 'jacquard lining', retina: true, fw: true, lg: true %}
         </div>
         <div class="col-sm-8 col-sm-offset-2">
-          <div class="topic-content text-center">
+          <div class="topic-content text-center text-left-xs">
               <h3 class="title">Signature Jacquard Lining</h3>
               <p class="description">Crafted from in a premium quality jacquard lining in our signature hummingbird print.</p>
           </div>

@@ -1,7 +1,7 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 18132754112649490934 -%}
-{%- assign ctaTitle = 'Catalina Deluxe' -%}
+{%- assign assetVersion = 2816915732642571438 -%}
+{%- assign ctaTitle = 'The Catalina Deluxe' -%}
 {%- assign ctaPrice = '$128 - $158' -%}
 {%- assign ctaLink = '/products/catalina-deluxe-washed-canvas-midnight-ash' -%}
 {%- assign ctaImg = 'catalina-deluxe-cta' -%}
@@ -14,7 +14,7 @@
         <div class="hero has-black-arrow" id="catalina-deluxe-hero">
             {% include 'discover-picture', name: 'catalina-deluxe-hero', alt: 'woman next to Catalina Deluxe attached to luggage handle', retina: true, fw: false, lg: true %}
             <div class="hero-content black left">
-                <h1 class="title"><span class="subtitle">Discover</span> Catalina Deluxe</h1>
+                <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
                 <p class="description">An updated edition of the Catalina weekender with additional features. Available in 2 sizes.</p>
             </div>
             {% include 'hero-jump-btn' %}
@@ -40,10 +40,10 @@
         </div>
 
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-deluxe-design-1', alt: "Catalina Deluxe bottom pocket", retina: false, fw: true, lg: true, gif: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Bottom Pocket</h3>
                     <p class="description">Designed to keep your shoes or dirty clothes separate from clean clothes.</p>
@@ -51,10 +51,10 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-deluxe-design-2', alt: "Catalina Deluxe Suitcase Handle Sleeve", retina: true, fw: true, lg: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Suitcase Handle Sleeve</h3>
                     <p class="description">Travel seamlessly with a convenient pass through sleeve that secures your bag to a suitcase.</p>
@@ -62,10 +62,10 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-deluxe-design-3', alt: "Catalina Deluxe Messenger Strap", retina: false, fw: true, lg: true, gif: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Messenger Strap</h3>
                     <p class="description">Comes with memory foam padding for extra comfort.</p>
@@ -73,10 +73,10 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-deluxe-design-4', alt: "Catalina Deluxe Front Exterior Pocket", retina: true, fw: true, lg: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Front Exterior Pocket</h3>
                     <p class="description">Easily access your travel essentials.</p>
@@ -84,10 +84,10 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-large" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-deluxe-design-5', alt: "Catalina Deluxe interior pockets", retina: true, fw: true, lg: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Interior Pockets</h3>
                     <p class="description">Multiple pockets to keep your essentials securely stored.</p>
@@ -106,8 +106,17 @@
         </div>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-                <div class="mb-large">
-                    { Video needed }
+                <div class="mb-large fw-xs">
+                     <div class="inline-video ratio-16-9 product-video" id="catalina-inlined-1">
+                         <div class="embed-container"
+                             data-desktop-url="https://player.vimeo.com/external/308577378.hd.mp4?s=a6f634bb9ed76cde4850ab7f632680176c11d4c7&profile_id=175"
+                             data-mobile-url="https://player.vimeo.com/external/308577378.sd.mp4?s=71243afd2d5acbd13d010ef03f4c6ce60ccca387&profile_id=165"
+                             data-autoplay="true"
+                             data-loops="100">
+                             <video id="video-1" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-video-1.jpg?4299392970982497643{{ assetVersion }}"></video>
+                             <div class="loading"></div>
+                         </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -121,11 +130,10 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
-                { final image needed }
-                {% comment %}{% include 'discover-picture', name: 'catalina-deluxe-design-5', alt: "Catalina Deluxe bottom pocket", retina: true, fw: true, lg: true %}{% endcomment %}
+            <div class="{{ topicBlockImgCol }}">
+                {% include 'discover-picture', name: 'catalina-deluxe-carry-on-1', alt: "airline seats", retina: true, fw: true, lg: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
                     <h3 class="title">Airline Seats</h3>
                     <p class="description">When not fully packed, fits underneath airline seats.</p>
@@ -133,13 +141,15 @@
             </div>
         </div>
         <div class="row topic-block animate aligned-sm mb-negate-xs mb-large" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            <div class="{{ topicBlockImgCol }}">
                 {% include 'discover-picture', name: 'catalina-deluxe-carry-on-2', alt: "Catalina Deluxe dimensions", retina: true, fw: true, lg: true %}
             </div>
-            <div class="col-sm-5 col-md-offset-1 content-col">
+            <div class="{{ topicBlockContentCol }}">
                 <div class="topic-content">
-                    <h3 class="title">Dimensions {TODO}</h3>
-                    <p class="description">Click here for specs on both small and  large bags.</p>
+                    <h3 class="title">Dimensions</h3>
+                    <p class="description">Available in two sizes.<br />
+                    <a href="#dimensions-overlay" class="more-window-trigger">Size guide +</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -200,5 +210,56 @@
     // ]]></script>
 
     {% include 'video-modal' %}
+
+    
+    <div class="more-window" id="dimensions-overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    {% include 'discover-picture', name: 'catalina-deluxe-dimensions', alt: "Catalina Deluxe", retina: true, fw: false, lg: true %}
+                </div>
+                <div class="col-sm-6 col-md-5 col-md-offset-1">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Small</th>
+                                <th>Large</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Top Width</th>
+                                <td>24&rdquo;</td>
+                                <td>26&rdquo;</td>
+                            </tr>
+                            <tr>
+                                <th>Bottom Width</th>
+                                <td>18&rdquo;</td>
+                                <td>18.5&rdquo;</td>
+                            </tr>
+                            <tr>
+                                <th>Depth</th>
+                                <td>8.5&rdquo;</td>
+                                <td>9&rdquo;</td>
+                            </tr>
+                            <tr>
+                                <th>Height</th>
+                                <td>16&rdquo;</td>
+                                <td>18&rdquo;</td>
+                            </tr>
+                            <tr>
+                                <th>Handle Drop Length</th>
+                                <td>11&rdquo;</td>
+                                <td>11&rdquo;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <button class="panel-close"><span class="sr-only">close</span></button>
+    </div>
+   
 
 </article>
