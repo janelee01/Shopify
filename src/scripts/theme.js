@@ -435,21 +435,17 @@ $(document).ready(function() {
 			slide: '.mega-menu__subnav__item__child',
 			responsive: [
 				{
-				  breakpoint: 768,
-				  settings: {
-					arrows : false,
-					slidesToShow: 2.5,
-					slidesToScroll: 1,
-				  }
+					breakpoint: 768,
+					settings: {
+						arrows : false,
+						slidesToShow: 2.5,
+						slidesToScroll: 1,
+					}
 				},
 				{
 					breakpoint: 569,
-					settings: {
-					  arrows : false,
-					  slidesToShow: 1.5,
-					  slidesToScroll: 1,
-					}
-				  }
+					settings: "unslick"
+				}
 			]
 		});
 	});

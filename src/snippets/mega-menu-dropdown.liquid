@@ -127,10 +127,16 @@
     </div>
     
     {%- if columns >= 3 -%}
-        {%- assign rows = column_3 | remove_first: '|' | split: '|' -%}
+      {%- assign rows = column_3 | remove_first: '|' | split: '|' -%}
       <div class="mega-menu__subnav mega-menu__carousel navcol-3">
-
-        <ul class="mega-menu__featured__carousel mega-menu__featured__carousel--slick-carousel">
+                  
+        {%- for row in rows -%}
+          {%- assign link_details = row | split: ':' -%}
+          {%- if forloop.first == true -%}
+            <p class="mega-menu__subnav__item__header--mobile">{{ link_details[0] }}</p>
+          {%- endif -%}
+        {%- endfor -%}
+        <ul class="mega-menu__featured__carousel mega-menu__featured__carousel--slick-carousel" body-scroll-lock-ignore>
           {%- for row in rows -%}
             {%- assign link_details = row | split: ':' -%}
             {%- if forloop.first == true -%}

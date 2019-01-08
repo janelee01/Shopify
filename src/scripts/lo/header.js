@@ -179,12 +179,27 @@
     }
 
     Header.prototype.toggleActiveState = function toggleActiveState (isActive) {
+        var $header = this.$el
+        var carousel = $header.find('.mega-menu__subnav__item__child')
+
         var megaMenu = $('.'+this.megaElementClass)[0]
+
         var isOverBreakpoint = this.isOverBreakpoint()
         
         if (isActive) {
+            console.log(carousel)
             if (!isOverBreakpoint) {
-                bodyScrollLock.disableBodyScroll(megaMenu)
+                bodyScrollLock.disableBodyScroll(megaMenu, {
+                    allowTouchMove: el => {
+                      while (el && el !== document.body) {
+                        if (el.getAttribute('body-scroll-lock-ignore') !== null) {
+                          return true
+                        }
+                        el = el.parentNode
+                      }
+                    },
+                })
+                bodyScrollLock.disableBodyScroll(carousel)
             } else {
                 $('body').addClass(this.hoverActiveClass)
             }
