@@ -1,3 +1,5 @@
+$navigation-carousel-breakpoint: 569px;
+
 #shopify-section-mega-menu {
 	@media (min-width: $screen-md) {
 		display: inline-block;
@@ -371,7 +373,9 @@ body.menu-open{
 }
 
 .mega-menu__subnav__item__header--mobile {
-	@media (max-width: 569px) {
+	display: none;
+	@media (max-width: $navigation-carousel-breakpoint) {
+		display: block;
 		font-size: $font-size-sm;
 		text-transform: uppercase;
 		letter-spacing: 1px;
@@ -461,7 +465,7 @@ body.menu-open{
 	flex-wrap: wrap;
 	.mega-menu__subnav__item__header {
 		width: 100%;
-		@media (max-width: 569px) {
+		@media (max-width: $navigation-carousel-breakpoint) {
 			display: none;
 		}
 	}
@@ -478,7 +482,7 @@ body.menu-open{
 			}
 		}
 	}
-	@media (max-width: 569px) {
+	@media (max-width: $navigation-carousel-breakpoint) {
 		ul & {
 			flex-wrap: nowrap;
 			flex-direction: row;

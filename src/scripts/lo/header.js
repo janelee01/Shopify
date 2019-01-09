@@ -187,7 +187,6 @@
         var isOverBreakpoint = this.isOverBreakpoint()
         
         if (isActive) {
-            console.log(carousel)
             if (!isOverBreakpoint) {
                 bodyScrollLock.disableBodyScroll(megaMenu, {
                     allowTouchMove: el => {
@@ -206,7 +205,7 @@
             this.isActive = true
         } else {
             if (!isOverBreakpoint) {
-                bodyScrollLock.enableBodyScroll(megaMenu)
+                bodyScrollLock.clearAllBodyScrollLocks()
             } else {
                 $('body').removeClass(this.hoverActiveClass)
             }
