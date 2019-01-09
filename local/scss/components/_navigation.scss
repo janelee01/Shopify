@@ -73,14 +73,14 @@ body.menu-open{
 	}
 	a {
 		text-decoration: none;
-		@media (min-width: $screen-sm) {
-			&:hover,
-			&:focus,
-			&:active
-			{
-				color: $brand-blue;
-				fill: $brand-blue;
-			}
+		transition: color 200ms ease-in-out;
+
+		&:hover,
+		&:focus,
+		&:active
+		{
+			color: $brand-blue;
+			fill: $brand-blue;
 		}
 	}
 }
