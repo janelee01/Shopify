@@ -338,6 +338,8 @@ body.menu-open{
 	font-size: 15px;
 	color: $gray-darker;
 	letter-spacing: normal;
+	transition: color 300ms ease-in-out;
+
 	@media (min-width: $screen-md) {
 		margin-bottom: 0;
 	}
