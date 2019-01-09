@@ -138,6 +138,17 @@ body.menu-open{
 			font-size: 13px;
 			color: $gray-darker;
 		}
+
+		@media (max-width: $screen-sm - 1) {
+			transition: none;
+		}
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: inherit;
+		}
+
 		@media (min-width: $screen-sm) {
 			&:hover,
 			&:active,
@@ -145,13 +156,18 @@ body.menu-open{
 				color: white;
 				background-color: $brand-blue;
 				border: 1px solid $brand-blue;
-				@media (min-width: $screen-md) {
-					background-color: transparent;
-					border: none;
-					color: $gray-darker;
-					border-bottom: 1.5px solid $gray-darker;
-					border-radius: 0;
-				}
+			}
+		}
+		
+		@media (min-width: $screen-md) {
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: transparent;
+				border: none;
+				color: $gray-darker;
+				border-bottom: 1.5px solid $gray-darker;
+				border-radius: 0;
 			}
 		}
 	}
