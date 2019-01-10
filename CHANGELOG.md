@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 0.0.11 - 2018-1-10
+### TEAM: Barrel
+### CHANGED:
+- Converts mobile slideshows from Slick based to native scroll
+- Merges in Electric Pulp updates
 
 ## 0.0.10 - 2018-12-20
 ### TEAM: Barrel
