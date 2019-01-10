@@ -1,7 +1,7 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 1312692621756025204 -%}
-{%- assign ctaTitle = 'Catalina' -%}
+{%- assign assetVersion = 464943924818433952 -%}
+{%- assign ctaTitle = 'The Catalina' -%}
 {%- assign ctaPrice = '$120 - $130' -%}
 {%- assign ctaLink = '/products/catalina-washed-canvas-dove-grey' -%}
 {%- assign ctaImg = 'catalina-discover-cta' -%}
@@ -12,128 +12,117 @@
     
     <div class="max-container">
         <div class="hero has-arrow">
-            {% include 'discover-picture', name: 'catalina-discover-hero', alt: 'woman carrying Catalina at the beach', retina: false, fw: false, lg: true%}
-            <div class="hero-content white right">
-                <h1 class="title"><span class="subtitle">Discover</span> Catalina</h1>
+            {% include 'discover-picture', name: 'catalina-hero', alt: 'woman carrying Catalina at the beach', retina: true, fw: false, lg: true%}
+            <div class="hero-content white right" id="catalina-hero">
+                <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
                 <p class="description">A lightweight and foldable weekend travel bag designed to fit everything you need for a weekend away with room to spare.</p>
-                <a href="#" data-video-id="1" class="video-trigger">
-                    <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
-                </a>
             </div>
             {% include 'hero-jump-btn' %}
         </div>
     </div>
-    <a id="nav-target-1" class="jumptarget"></a>
+    
     <div class="container">{% include 'hero-jump-target' %}
+
+        <div class="row animate mb-large" {{ animateZoomIn }}>
+            <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+                {% include 'discover-picture', name: 'catalina-product-shot', alt: 'Catalina product shot', retina: true, fw: true, lg: true %}
+            </div>
+        </div>
+        
+        <a id="nav-target-1" class="jumptarget"></a>
         <div class="animate" {{ animateFadeInUp }}>
             <div class="row">
-                <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">                    
+                <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">                    
                     <div class="section-heading">
                         <h2 class="title">Smart Design</h2>
                         <p class="description">Thoughtful details and perfectly placed pockets make the Catalina perfect for a weekend getaway.</p>
                     </div>
-                    
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">
-                    <div id="catalina-bottom-pocket">
-                        {% include 'discover-picture', name: 'catalina-discover-bottom-pocket', alt: 'packed bottom pocket', retina: false, fw: true %}
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-5 col-lg-offset-1 animate" {{ animateFadeInUp }}>
-                {% include 'discover-picture', name: 'catalina-discover-front-exterior-pocket', alt: 'front exterior pocket', retina: false, fw: true %}
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2 col-md-12 col-md-offset-0">
-                        <div class="topic-content">
-                            <h3 class="title">Front Exterior Pocket</h3>
-                            <p class="description">Easily access your travel essentials.</p>     
-                        </div>
-                    </div>
-                </div>
+
+        <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
+            <div class="{{ topicBlockImgCol }}">
+                {% include 'discover-picture', name: 'catalina-design-1', alt: "Catalina bottom pocket", retina: false, fw: true, lg: true, gif: true %}
             </div>
-            <div class="col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0 col-lg-5 offset-top-md offset-top-lg animate" {{ animateFadeInUp }}>
-                {% include 'discover-picture', name: 'catalina-discover-interior-pocket', alt: 'interior pocket', retina: false, fw: true %}
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2 col-md-12 col-md-offset-0">
-                        <div class="topic-content">
-                            <h3 class="title">Interior Pocket</h3>
-                            <p class="description">A zipper interior pocket for secure storage of personal items.</p>
-                        </div>
-                    </div>
+            <div class="{{ topicBlockContentCol }}">
+                <div class="topic-content">
+                    <h3 class="title">Bottom Pocket</h3>
+                    <p class="description">Designed to keep your shoes or dirty clothes separate from clean clothes.</p>
                 </div>
             </div>
         </div>
-        <div class="row mb-default hidden-xs">
-            <div class="col-sm-10 col-sm-offset-1">
-                <hr class="reset">
+        <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
+            <div class="{{ topicBlockImgCol }}">
+                {% include 'discover-picture', name: 'catalina-design-2', alt: "Catalina Front Exterior Pocket", retina: true, fw: true, lg: true %}
+            </div>
+            <div class="{{ topicBlockContentCol }}">
+                <div class="topic-content">
+                    <h3 class="title">Front Exterior Pocket</h3>
+                    <p class="description">Easily access your travel essentials.</p>
+                </div>
             </div>
         </div>
+        <div class="row topic-block animate aligned-sm mb-negate-xs mb-small" {{ animateFadeInUp }}>
+            <div class="{{ topicBlockImgCol }}">
+                {% include 'discover-picture', name: 'catalina-design-3', alt: "Catalina Interior Pocke", retina: true, fw: true, lg: true %}
+            </div>
+            <div class="{{ topicBlockContentCol }}">
+                <div class="topic-content">
+                    <h3 class="title">Interior Pocket</h3>
+                    <p class="description">A zipper interior pocket for secure storage of personal items.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row topic-block animate aligned-sm mb-negate-xs mb-large" {{ animateFadeInUp }}>
+            <div class="{{ topicBlockImgCol }}">
+                {% include 'discover-picture', name: 'catalina-design-4', alt: "Catalina is Foldable &amp; Packable", retina: false, fw: true, lg: true, gif: true %}
+            </div>
+            <div class="{{ topicBlockContentCol }}">
+                <div class="topic-content">
+                    <h3 class="title">Foldable &amp; Packable</h3>
+                    <p class="description">Neatly fold to make it packable in a suitcase in case you need another bag at your destination.</p>
+                </div>
+            </div>
+        </div>
+
         <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
-                <div class="section-heading">
-                    <h2 class="title">Foldable &amp; Packable</h2>
-                    <p class="description">The Catalina can neatly be folded to make it packable in a suitcase in case you need another bag at your destination.</p>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-    
-    <div class="max-container">
-        <picture id="catalina-compact" class="animate" {{ animateFadeInUp }}>
-            <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-compact-sm.gif?15023891854137734588" media="(min-width: {{ screenSm }})">
-            <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-compact-xs.gif?2555194281534418529" alt="animated gif of the Catalina folding">
-        </picture>
-        <div class="container">
-            <div class="row mb-large">
-                <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0">
-                    <div class="topic-content text-center-sm animate" {{ animateFadeInUp }}>
-                        <h3 class="title">Storable</h3>
-                        <p class="description">Foldability also makes it easy to store when you get back home.</p>
-                    </div>
-                </div>
-                <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-3 col-lg-6 col-lg-offset-2">    
-                    <div class="topic-end-lg animate" {{ animateFadeInUp }} id="catalina-locker">
-                        {% include 'discover-picture', name: 'catalina-discover-compact-locker', alt: 'folded Catalina in a locker', retina: false, fw: false %}
-                    </div>                
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="container">
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">                    
+            <div class="col-sm-10 col-sm-offset-1 text-center">                    
                 <div class="section-heading">
                     <h2 class="title">Super Spacious</h2>
                     <p class="description">Designed to fit everything you need for a weekend away.</p>
                 </div>
-                
             </div>
         </div>
+
         <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">
-                <div class="mb-large">
-                    {% include 'discover-picture', name: 'catalina-discover-spacious', alt: 'items laying on bed', retina: false, fw: true %}
+            <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+                <div class="mb-large fw-xs">
+                    <div class="inline-video ratio-16-9 product-video" id="catalina-inlined-1">
+                        <div class="embed-container"
+                            data-desktop-url="https://player.vimeo.com/external/308578318.hd.mp4?s=dc09c5b14f908af056ee0d925c21f00e3f2e6633&profile_id=175"
+                            data-mobile-url="https://player.vimeo.com/external/308578318.sd.mp4?s=b0f1cf8d8ce3570713e5794d08beb1a14754d1af&profile_id=165"
+                            data-autoplay="true"
+                            data-loops="100">
+                            <video id="video-1" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-video-1.jpg?{{ assetVersion }}"></video>
+                            <div class="loading"></div>
+                        </div>
+                   </div>
                 </div>
             </div>
         </div>
+
         <a id="nav-target-2" class="jumptarget"></a>
+        
+        {% include 'discover-catalina-materials' %}
+
         <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">                    
-                <div class="section-heading">
-                    <h2 class="title">Lightweight</h2>
-                    <p class="description">Crafted from materials that balance durability with comfort to make your trip easy on the back and shoulders.</p>
+            <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+                <div class="mb-large">
+                    {% include 'discover-picture', name: 'catalina-materials-3', alt: "woman outside with Catalina", retina: true, fw: true, lg: true %}
                 </div>
-                
             </div>
         </div>
-        
-        {% include 'discover-materials' %}
         
     </div>
 

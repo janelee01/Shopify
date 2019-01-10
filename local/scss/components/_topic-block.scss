@@ -124,6 +124,15 @@
 		margin-left: 0;
 	}
 }
+.discover{
+	picture{
+		img{
+			@media (min-width: $screen-lg) {
+				width: auto;
+			}
+		}
+	}
+}
 .topic-content{
 	height: 100%;
 	display: flex;

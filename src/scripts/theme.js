@@ -45,6 +45,7 @@ window.theme = window.theme || {};
 // =require lo/customers.js
 // =require lo/toggle-menu.js
 // =require lo/header.js
+// =require lo/more-window.js
 
 $(document).ready(function() {
 
@@ -534,6 +535,17 @@ $(document).ready(function() {
 	      }
 	    }
 	  ]
+	});
+	/*
+	Discover Catalina Deluxe
+	 */
+	$('#dimensions-trigger').on('click', function(e){
+	    e.preventDefault();
+	    $($(this).attr('href')).addClass('shown');
+	});
+	$('#dimensions-overlay .panel-close').on('click', function(e){
+	    e.preventDefault();
+	    $(this).parent().removeClass('shown');
 	});
 
 	/*

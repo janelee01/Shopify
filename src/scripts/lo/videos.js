@@ -1,9 +1,9 @@
 $(document).ready(function(){
 	var $videos = $('.embed-container'); 
 
-	var startStopVideo = function($embed,video){
+	var startStopVideo = function($embed,video,forceStart){
 		var videoId = $embed.find('video').attr('id');
-		if( LS.isElementInViewport(video) && $embed.data('autoplay') ){
+		if( LS.isElementInViewport(video) && $embed.data('autoplay') || forceStart ){
 			var playPromise = video.play();
 			if (playPromise !== undefined) {
 				playPromise.then(function() {
@@ -32,6 +32,7 @@ $(document).ready(function(){
 		var loops = $(this).data('loops');
 		var videoUrl = $embed.data('desktop-url');
 		var mobileVideoUrl = $embed.data('mobile-url');
+		var forceStart = $embed.data('force');
 
 		if( !videoId ) return; 
 
@@ -44,12 +45,12 @@ $(document).ready(function(){
 		video.oncanplay = function() {
 			$embed.find('.loading').fadeOut();
 			// play it if we can see it 
-			startStopVideo($embed, video);
+			startStopVideo($embed, video, forceStart);
 		};
 
 		// play/pause based on visibility
 		$(window).scroll(function(){
-			startStopVideo($embed, video);
+			startStopVideo($embed, video, forceStart);
 		});
 
 		// limit number of plays and maybe hide overlay text
