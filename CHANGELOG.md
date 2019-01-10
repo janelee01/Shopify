@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 0.0.12 - 2018-1-10
+### TEAM: Barrel
+### CHANGED:
+- Compiles
+
 ## 0.0.11 - 2018-1-10
 ### TEAM: Barrel
 ### CHANGED:
