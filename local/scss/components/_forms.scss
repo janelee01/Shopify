@@ -28,12 +28,26 @@
 		align-items: center;
 		padding: 0;
 		min-height: 1px;
+		margin: 0;
+		height: 48px;
 		input[type="radio"]{
 			float: none;
-			margin: 0;
+			margin: 0 8px 0 0;
+			-webkit-appearance: none;
+			box-shadow: 0 0 0 1px #d9d9d9 inset;
+			width: 20px;
+			height: 20px;
+			border-radius: 100%;
+			@include transition(all .2s ease-in-out);
+			cursor: pointer;
+			&:checked{
+				box-shadow: 0 0 0 7px $brand-blue inset;
+			}
 		}
 		label{
-			margin: 0 0 0 5px;
+			margin: 0 15px 0 0;
+			display: flex;
+			align-items: center;
 		}
 	}
 	&.checkbox{
@@ -215,4 +229,10 @@
 	top: 0;
 	width: 40px;
 	height: 100%;
+}
+
+.klaviyo-form{
+	input[type="text"]{
+		border-radius: 0 !important;
+	}
 }
