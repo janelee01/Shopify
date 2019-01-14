@@ -608,6 +608,20 @@
 	}
 }
 
+#comments{
+	border-top: solid 1px #e6e6e6;
+	padding: 80px 0;
+	&:focus{
+		outline: none;
+	}
+}
+ul.comments{
+	@include resetList;
+	li{
+		margin-bottom: $paragraph-margin-bottom;
+	}
+}
+
 #related-articles{
 	border-top: solid 1px #e6e6e6;
 	padding: 80px 0;
