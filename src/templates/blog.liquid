@@ -5,88 +5,61 @@
   {% if current_tags %}
     {% capture blog_title %}{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}{% endcapture %}
   {% endif %}
-
-  <h1>{{ blog_title }}</h1>
-
-  {% if blog.all_tags.size > 0 %}
-    <h2>{{ 'blogs.general.categories' | t }}</h2>
-
-    <ul>
-      {% for tag in blog.all_tags %}
-
-        {% if current_tags contains tag %}
-          <li>{{ tag }}</li>
-        {% else %}
-          <li>{{ tag | link_to_tag: tag }}</li>
-        {% endif %}
-
-      {% endfor %}
-    </ul>
-  {% endif %}
-
-
-  {% comment %}
-
-  Article Previews
-  ====================
-  {% endcomment %}
-
-  {% for article in blog.articles %}
-    <h3>
-      <a href="{{ article.url }}">{{ article.title }}</a>
-    </h3>
-
-    {% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
-
-    <p>
-      {{ 'blogs.article.author_on_date_html' | t: author: article.author, date: date }}
-    </p>
-
-    {% if article.image %}
-      <a href="{{ article.url }}">
-        {{ article | img_url: '1024x1024' | img_tag: article.title }}
-      </a>
-    {% endif %}
-
-    <div class="rte">
-      {% if article.excerpt.size > 0 %}
-        {{ article.excerpt }}
-      {% else %}
-        <p>
-          {{ article.content | strip_html | truncatewords: 100 }}
-        </p>
-      {% endif %}
+  
+  <div class="container">
+    <div class="section-heading is-page-title">
+      <h1 class="title">{{ blog_title }}</h1>
     </div>
+ 
+    {% comment %}
+      {% if blog.all_tags.size > 0 %}
+        <h2>{{ 'blogs.general.categories' | t }}</h2>
 
-    {% if blog.comments_enabled? or article.tags.size > 0 %}
-      <ul>
-        {% if blog.comments_enabled? %}
-          <li>
-            <a href="{{ article.url }}#comments">
-              {{ 'blogs.comments.with_count' | t: count: article.comments_count }}
-            </a>
-          </li>
-        {% endif %}
+        <ul>
+          {% for tag in blog.all_tags %}
 
-        {% if article.tags.size > 0 %}
-          {% for tag in article.tags %}
-            <li>
-              <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
-              {% unless forloop.last %}, {% endunless %}
-            </li>
+            {% if current_tags contains tag %}
+              <li>{{ tag }}</li>
+            {% else %}
+              <li>{{ tag | link_to_tag: tag }}</li>
+            {% endif %}
+
           {% endfor %}
-        {% endif %}
-      </ul>
+        </ul>
+      {% endif %}
+    {% endcomment %}
+
+
+    {% comment %}
+
+    Article Previews
+    ====================
+    {% endcomment %}
+    
+    {%- assign thumbSize = '590x395' -%}
+    {% for article in blog.articles %}
+      {%- assign thisArticle = article -%}
+
+      {% if forloop.first %}
+
+        {% include 'article-banner' %}
+      
+      {% else %}
+        
+        {% if forloop.index == 2 or forloop.index == 4 %}<div class="row">{% endif %}
+          <div class="col-sm-6">
+            {% include 'article-item' %}
+          </div>
+        {% if forloop.index == 3 or forloop.index == 5 %}</div>{% endif %}
+
+      {% endif %}
+
+    {% endfor %}
+
+    {% if paginate.pages > 1 %}
+      {% include 'pagination' %}
     {% endif %}
 
-    <p>
-      <a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }} &rarr;</a>
-    </p>
-
-  {% endfor %}
-
-  {% if paginate.pages > 1 %}
-    {% include 'pagination' %}
-  {% endif %}
+  </div>
 
 {% endpaginate %}

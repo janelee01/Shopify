@@ -1,0 +1,11 @@
+<div class="banner">
+  <article class="entry {{ contentPosition }}">
+      <a href="{{ thisArticle.url }}">
+          <div class="entry-image"><img src="{{ thisArticle | img_url: '1200x600' }}" alt=""></div>
+          <div class="entry-content">
+              <h3 class="entry-title">{{ thisArticle.title }}</h3>
+              <div class="entry-description">{{ thisArticle.excerpt }}</div>
+          </div>
+      </a>
+  </article>
+</div>

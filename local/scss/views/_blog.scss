@@ -608,6 +608,53 @@
 	}
 }
 
+#comments{
+	border-top: solid 1px #e6e6e6;
+	padding: 80px 0;
+	&:focus{
+		outline: none;
+	}
+}
+#comments-list{
+	.pagination{
+		@include mb(sm);
+	}
+}
+ul.comments{
+	@include resetList;
+	@include mb(sm);
+	li{
+		padding: $grid-gutter-width 0;
+		border-bottom: solid 1px $gray-lighter;
+		&.pending-comment{
+			padding: $grid-gutter-width/2;
+			color: $gray;
+			border: 0;
+		}
+	}
+	.comment-meta{
+		display: flex;
+		justify-content: space-between;
+		font-size: 19px;
+		margin-bottom: 10px;
+		time{
+			color: $gray;
+			font-size: 16px;
+		}
+	}
+	.comment-body{
+		color: $gray;
+		p:last-child{
+			margin: 0;
+		}
+	}
+}
+#comment_form{
+	&:focus{
+		outline: none;
+	}
+}
+
 #related-articles{
 	border-top: solid 1px #e6e6e6;
 	padding: 80px 0;
