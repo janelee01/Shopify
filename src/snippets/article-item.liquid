@@ -2,7 +2,7 @@
   <a href="{{ thisArticle.url }}">
     {% if thisArticle.image %}
       <div class="entry-image">
-        <img src="{{ thisArticle | img_url: thumbSize, crop: 'center' }}" alt="{{ thisArticle.title }}">
+        <img src="{{ thisArticle | img_url: thumbSize, crop: 'center' }}" alt="">
       </div>
     {% endif %}
     <div class="entry-content">

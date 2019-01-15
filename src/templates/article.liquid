@@ -130,68 +130,70 @@
 {% endcomment %}
     {% if blog.comments_enabled? %}
       <div id="comments">
-
-        <div class="section-header">
-          <h2 class="header-text">Comments</h2>  
-          {% comment %}
-          number_of_comments increases even with validation errors, so let's exclude the count
-          <h2 class="title">{{ 'blogs.comments.with_count' | t: count: number_of_comments }}</h2>
-          {% endcomment %}
-        </div>
-
-        {% paginate article.comments by 5 %}
-
-        <div id="comments-list">
-
-          {% if comment and comment.status and paginate.current_page == 1 %}
-            <p class="form-success">
-              {% if blog.moderated? and comment.status != 'published' %}
-                {{ 'blogs.comments.success_moderated' | t }}
-              {% else %}
-                {{ 'blogs.comments.success' | t }}
-              {% endif %}
-            </p>
-            {% if comment and comment.status != 'published' %}
-            <ul class="comments">
-              <li class="pending-comment" id="{{ comment.id }}">
-                <div class="rte">
-                  {{ comment.content }}
-                </div>
-                {% capture date %}{{ comment.created_at | time_tag: format: 'month_day_year' }}{% endcapture %}
-                <p>{{ 'blogs.article.comment_meta_html' | t: author: comment.author, date: date }}</p>
-              </li>
-            </ul>
-            {% endif %}
-          {% endif %}
-
-          {% if number_of_comments > 0 %}
-            <ul class="comments">
-              {% for comment in article.comments %}
-                <li id="{{ comment.id }}">
-                  <div class="rte">
-                    {{ comment.content }}
-                  </div>
-                  {% capture date %}{{ comment.created_at | time_tag: format: 'month_day_year' }}{% endcapture %}
-                  <p>{{ 'blogs.article.comment_meta_html' | t: author: comment.author, date: date }}</p>
-                </li>
-              {% endfor %}
-            </ul>
-            {% if paginate.pages > 1 %}
-              {% include 'pagination' %}
-            {% endif %}
-          {% else %}
-            <p class="alert alert-muted">
-              No comments yet.
-            </p>
-          {% endif %}
-        </div>
-
-        {% endpaginate %}
         
-        <h3 class="h4">{{ 'blogs.comments.title' | t }}</h3>  
-
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <div class="section-header">
+              <h2 class="header-text">Comments</h2>  
+              {% comment %}
+              number_of_comments increases even with validation errors, so let's exclude the count
+              <h2 class="title">{{ 'blogs.comments.with_count' | t: count: number_of_comments }}</h2>
+              {% endcomment %}
+            </div>
+
+            {% paginate article.comments by 5 %}
+
+            <div id="comments-list">
+
+              {% unless comment.errors %}
+                {% if comment and comment.status and paginate.current_page == 1 %}
+                  <p class="form-success">
+                    {% if blog.moderated? and comment.status != 'published' %}
+                      {{ 'blogs.comments.success_moderated' | t }}
+                    {% else %}
+                      {{ 'blogs.comments.success' | t }}
+                    {% endif %}
+                  </p>
+                  {% if comment and comment.status != 'published' %}
+                  {% capture date %}{{ comment.created_at | time_tag: '%m/%d/%y' }}{% endcapture %}
+                  <ul class="comments">
+                    <li class="pending-comment" id="{{ comment.id }}">
+                      <p class="comment-meta">{{ 'blogs.article.comment_meta_html' | t: author: comment.author, date: date }}</p>
+                      <div class="comment-body">
+                        {{ comment.content }}
+                      </div>
+                    </li>
+                  </ul>
+                  {% endif %}
+                {% endif %}
+              {% endunless %}
+
+              {% if number_of_comments > 0 %}
+                <ul class="comments">
+                  {% for comment in article.comments %}
+                    {% capture date %}{{ comment.created_at | time_tag: '%m/%d/%y' }}{% endcapture %}
+                    <li id="{{ comment.id }}">
+                      <p class="comment-meta">{{ 'blogs.article.comment_meta_html' | t: author: comment.author, date: date }}</p>
+                      <div class="comment-body">
+                        {{ comment.content }}
+                      </div>
+                    </li>
+                  {% endfor %}
+                </ul>
+                {% if paginate.pages > 1 %}
+                  {% include 'pagination' %}
+                {% endif %}
+              {% else %}
+                <p class="alert alert-muted">
+                  No comments yet.
+                </p>
+              {% endif %}
+            </div>
+
+            {% endpaginate %}
+            
+            <h3 class="h4">{{ 'blogs.comments.title' | t }}</h3>  
+
             {% form 'new_comment', article %}
               
               {{ form.errors | default_errors }}
@@ -244,6 +246,7 @@
 
           </div>
         </div>
+        
       </div>
     {% endif %}
 
