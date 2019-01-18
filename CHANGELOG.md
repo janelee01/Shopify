@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 0.0.13 - 2018-1-18
+### TEAM: Barrel
+### CHANGED:
+- Resolves new alert/ newsletter code conflict causing white bg
+
 ## 0.0.12 - 2018-1-10
 ### TEAM: Barrel
 ### CHANGED:
