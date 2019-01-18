@@ -717,7 +717,7 @@ $(document).ready(function() {
         	.done(function (response) {
 	            if( response.success ){
 	            	$("#newsletter-signup .form-group, #newsletter-signup label").hide();
-	            	$("#newsletter-signup .alert").fadeIn();
+	            	$("#newsletter-signup .newsletter-alert").fadeIn();
 	            }
 	        });
     });
