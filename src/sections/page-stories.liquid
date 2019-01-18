@@ -115,17 +115,8 @@
 		{%- assign articleHandle = block.settings.articleHandle -%}
 		{%- capture articlePath -%}{{ blogHandle }}/{{ articleHandle }}{%- endcapture -%}
 		{%- assign thisArticle = articles[articlePath] -%}
-		<div class="banner">
-			<article class="entry {{ block.settings.contentPosition }}">
-			    <a href="{{ thisArticle.url }}">
-			        <div class="entry-image"><img src="{{ thisArticle | img_url: '1200x600' }}" alt="{{ thisArticle.title }}"></div>
-			        <div class="entry-content">
-			            <h3 class="entry-title">{{ thisArticle.title }}</h3>
-			            <div class="entry-description">{{ thisArticle.excerpt }}</div>
-			        </div>
-			    </a>
-			</article>
-		</div>
+		{%- assign contentPosition = block.settings.contentPosition -%}
+		{% include 'article-banner' %}
 
 	{% endcase %}
 {% endfor %}

@@ -22,18 +22,36 @@
 			box-shadow: 0 0 0 1px #FFD8D8;
 			color: #FF6D6D;
 		}
+		&.textarea{
+			height: auto;
+			min-height: 96px;
+		}
 	}
 	&.radio{
 		display: flex;
 		align-items: center;
 		padding: 0;
 		min-height: 1px;
+		margin: 0;
+		height: 48px;
 		input[type="radio"]{
 			float: none;
-			margin: 0;
+			margin: 0 8px 0 0;
+			-webkit-appearance: none;
+			box-shadow: 0 0 0 1px #d9d9d9 inset;
+			width: 20px;
+			height: 20px;
+			border-radius: 100%;
+			@include transition(all .2s ease-in-out);
+			cursor: pointer;
+			&:checked{
+				box-shadow: 0 0 0 7px $brand-blue inset;
+			}
 		}
 		label{
-			margin: 0 0 0 5px;
+			margin: 0 15px 0 0;
+			display: flex;
+			align-items: center;
 		}
 	}
 	&.checkbox{
@@ -141,6 +159,9 @@
 		@include resetList;
 		border: solid 1px $brand-danger;
 		color: $brand-danger;
+		li{
+			padding: 4px 8px;
+		}
 	}
 }
 
@@ -148,20 +169,14 @@
 	background: #FDFDFD;
 	border: solid 1px #DEDEDE;
 	border-radius: 2px;
-	padding: 40px 30px 40px 86px;
+	padding: 40px 30px 40px 150px;
 	max-width: 800px;
 	margin: 50px auto 0;
 	font-size: 20px;
 	line-height: 25px;
-	display: flex;
-	align-items: center;
-	.icon{
-		display: inline-block;
-		width: 60px;
-		height: 60px;
-		margin-right: 31px;
-		background: url('icon-confirmation.svg');
-	}
+	background: url('icon-confirmation.svg') no-repeat;
+	background-size: 60px auto;
+	background-position: 55px center;
 }
 .number-control{
 	display: flex;
@@ -215,4 +230,10 @@
 	top: 0;
 	width: 40px;
 	height: 100%;
+}
+
+.klaviyo-form{
+	input[type="text"]{
+		border-radius: 0 !important;
+	}
 }

@@ -543,3 +543,26 @@
 		}
 	}
 }
+
+#svg-logo-lockup{
+	width: 200px;
+	display: block;
+	margin: 0 auto;
+	@media (min-width: $screen-sm) {
+		width: 322px;
+	}
+	@media (min-width: $screen-md) {
+		width: 338px;
+	}
+	@media (min-width: $screen-lg) {
+		width: 372px;
+	}
+}
+
+#svg-hero{
+	@media (max-width: $screen-xs-max) {
+		.hero-content{
+			height: 50%;
+		}
+	}
+}

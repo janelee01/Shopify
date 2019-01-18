@@ -8,7 +8,7 @@
 
 <article class="discover">
 
-    {% include 'discover-nav', labels:'Features,Materials,Compare,Press' %}
+    {% include 'discover-nav', labels:'Features,Materials,Press,Compare' %}
     
     <div class="max-container">
         <div class="hero has-arrow">
@@ -126,13 +126,7 @@
         
     </div>
 
-    
     <a id="nav-target-3" class="jumptarget"></a>
-    <div class="mb-large">
-        {% include 'discover-catalina-compare' %}
-    </div>
-
-    <a id="nav-target-4" class="jumptarget"></a>
     <div class="container pr-items animate" {{ animateFadeInUp }}>
         <div class="section-heading">
             <h2 class="title">Traveler Approved</h2>
@@ -170,8 +164,11 @@
             </div>
         </div>
     </div>
-
+    
     {% include 'discover-cta' %}
+
+    <a id="nav-target-4" class="jumptarget"></a>
+    {% include 'discover-catalina-compare' %}
 
     <script>// <![CDATA[
     var video1Embed = '<iframe src="//player.vimeo.com/video/170848560?player_id=vimeo-catalina&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-catalina" class="vimeo"></iframe>';

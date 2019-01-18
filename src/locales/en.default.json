@@ -51,7 +51,7 @@
 	"blogs": {
 		"article": {
 			"author_on_date_html": "Posted by {{ author }} on {{ date }}",
-			"comment_meta_html": "{{ author }} on {{ date }}",
+			"comment_meta_html": "{{ author }} {{ date }}",
 			"read_more": "Read more"
 		},
 		"comments": {
