@@ -117,7 +117,7 @@
                                 <video id="video-1" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-video-1.jpg?4299392970982497643{{ assetVersion }}"></video>
                                 <div class="loading"></div>
                             </div>
-                            <a href="video-1" class="video-poster">
+                            <a href="#" data-video-id="1" class="video-trigger">
                                 <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-video-1-xs.jpg?4299392970982497643{{ assetVersion }}" alt="play video">
                                 <span><img src="{{ 'play.svg' | asset_url }}" alt=""></span>
                             </a>
@@ -214,8 +214,7 @@
     {% include 'discover-catalina-compare' %}
 
     <script>// <![CDATA[
-    var video1Embed = '<iframe src="//player.vimeo.com/video/170848014?player_id=vimeo-catalinadeluxelarge&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-catalinadeluxelarge" class="vimeo"></iframe>';
-    var video2Embed = '<iframe src="//player.vimeo.com/video/170848014?player_id=vimeo-catalinadeluxelarge&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-catalinadeluxelarge" class="vimeo"></iframe>';
+    var video1Embed = '<iframe src="//player.vimeo.com/video/308577378?player_id=vimeo-video1&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-catalinadeluxelarge" class="vimeo"></iframe>';
     // ]]></script>
 
     {% include 'video-modal' %}

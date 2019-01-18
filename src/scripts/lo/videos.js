@@ -7,7 +7,7 @@ $(document).ready(function(){
 	    // this is mobile
 	    // click to play UI is present
 	    // play hasn't been clicked
-    	if ( $(window).width() < LS.desktopBreakpoint && $embed.parent('.click-to-play').length && !$embed.parent('.click-to-play').hasClass('playing') ) {
+    	if ( $(window).width() < LS.tabletBreakpoint && $embed.parent('.click-to-play').length && !$embed.parent('.click-to-play').hasClass('playing') ) {
             return;
         }
 
@@ -119,20 +119,6 @@ $(document).ready(function(){
 	$(document).keyup(function(e) {
 	    if (e.keyCode == 27) { // escape key maps to keycode `27`
 	    	LS.productVideoClose();
-	    }
-	});
-
-	$('.video-poster').on('click', function(e){
-	    e.preventDefault();
-	    var $this = $(this);
-	    var video = document.getElementById($this.attr('href'));
-	    var playPromise = video.play();
-	    if (playPromise !== undefined) {
-	    	playPromise.then(function() {
-	    		$this.closest('.click-to-play').addClass('playing');
-	    	}).catch(function(error) {
-	    		console.log('Playback did not start. Reason: ' + error)
-	    	});
 	    }
 	});
 });

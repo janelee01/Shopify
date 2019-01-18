@@ -128,7 +128,7 @@
                                 <video id="video-1" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-video-1.jpg?{{ assetVersion }}"></video>
                                 <div class="loading"></div>
                             </div>
-                            <a href="video-1" class="video-poster">
+                            <a href="#" data-video-id="1" class="video-trigger">
                                 <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-video-1-xs.jpg?4299392970982497643{{ assetVersion }}" alt="play video">
                                 <span class="has-text">What Fits Inside<br /><img src="{{ 'play.svg' | asset_url }}" alt=""></span>
                             </a>
@@ -147,10 +147,10 @@
                                 data-mobile-url="https://player.vimeo.com/external/309124650.sd.mp4?s=a3f627ca636ac5a95dc03ace9580c611a6c3f385&profile_id=165"
                                 data-autoplay="true"
                                 data-loops="100">
-                                <video id="video-2" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-video-1.jpg?{{ assetVersion }}"></video>
+                                <video id="video-2" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-video-2.jpg?{{ assetVersion }}"></video>
                                 <div class="loading"></div>
                             </div>
-                            <a href="video-2" class="video-poster">
+                            <a href="#" data-video-id="2" class="video-trigger">
                                 <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-video-2-xs.jpg?4299392970982497643{{ assetVersion }}" alt="play video">
                                 <span class="has-text">How bottom pocket expands<br /><img src="{{ 'play.svg' | asset_url }}" alt=""></span>
                             </a>
@@ -248,9 +248,8 @@
     {% include 'discover-catalina-compare' %}
 
     <script>// <![CDATA[
-    var video1Embed = '<iframe src="//player.vimeo.com/video/224760509?player_id=vimeo-hanover&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-hanover" class="vimeo"></iframe>';
-    var video2Embed = '<iframe src="//player.vimeo.com/video/226210203?player_id=vimeo-hanover&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-hanover" class="vimeo"></iframe>';
-    var video3Embed = '<iframe src="//player.vimeo.com/video/267518046?player_id=vimeo-hanover&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-hanover" class="vimeo"></iframe>';
+    var video1Embed = '<iframe src="//player.vimeo.com/video/308618580?player_id=vimeo-video1&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-hanover" class="vimeo"></iframe>';
+    var video2Embed = '<iframe src="//player.vimeo.com/video/309124650?player_id=vimeo-video2&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-hanover" class="vimeo"></iframe>';
     // ]]></script>
 
     {% include 'video-modal' %}
