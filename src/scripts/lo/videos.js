@@ -2,6 +2,15 @@ $(document).ready(function(){
 	var $videos = $('.embed-container'); 
 
 	var startStopVideo = function($embed,video,forceStart){
+
+	    // disable autoplay when:
+	    // this is mobile
+	    // click to play UI is present
+	    // play hasn't been clicked
+    	if ( $(window).width() < LS.tabletBreakpoint && $embed.parent('.click-to-play').length && !$embed.parent('.click-to-play').hasClass('playing') ) {
+            return;
+        }
+
 		var videoId = $embed.find('video').attr('id');
 		if( LS.isElementInViewport(video) && $embed.data('autoplay') || forceStart ){
 			var playPromise = video.play();
@@ -26,16 +35,17 @@ $(document).ready(function(){
 
 	$videos.each(function(){
 		var $embed = $(this);
-		var videoId = $(this).find('video').attr('id');
+		var videoId = $embed.find('video').attr('id');
 		var video = document.getElementById(videoId);
-		var autoPlay = $(this).data('autoplay');
-		var loops = $(this).data('loops');
+		var autoPlay = $embed.data('autoplay');
+		var loops = $embed.data('loops');
 		var videoUrl = $embed.data('desktop-url');
 		var mobileVideoUrl = $embed.data('mobile-url');
 		var forceStart = $embed.data('force');
 
 		if( !videoId ) return; 
 
+		// append src
 		if ( $(window).width() < LS.desktopBreakpoint && mobileVideoUrl ) {
 	        $('#'+videoId).append('<source src="' + mobileVideoUrl + '" type="video/mp4" />');
 	    } else {
