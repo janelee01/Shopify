@@ -994,5 +994,11 @@ $(document).ready(function() {
 		syncSkimmDisclaimer();
 		$(window).resize( syncSkimmDisclaimer );
 	}
+
+	$('#zodiac-select').on('change', function(e){
+	    e.preventDefault();
+	    $('#zodiac-signs div').hide();
+	    $('.y-' + $(this).val()).fadeIn();
+	});
 	
 });
