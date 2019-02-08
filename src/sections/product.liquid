@@ -50,6 +50,7 @@
 
 	{%- assign current_variant = product.selected_or_first_available_variant -%}
 	{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+	{%- assign oosPolicy = current_variant.metafields['global']['out-of-stock-policy'] -%}
 
 	<meta itemprop="name" content="{{ product.title }}">
 	<meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
@@ -183,8 +184,8 @@
 									{%- endfor -%}
 								</select>
 							</div>
-
-							<div id="add-to-cart">
+							
+							<div id="add-to-cart" {% unless current_variant.available %}{% if oosPolicy == 'soldout' %} style="display: none"{% endif %}{% endunless %}>{% comment %}hide the whole element when OOS and unavailable for a waitlist{% endcomment %}
 								<label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
 								<input type="number" id="quantity" name="quantity" value="1" min="1">
 								<button
@@ -203,6 +204,9 @@
 									id="waitlist-open"
 									{% if current_variant.available %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</a>
 							</div>
+
+							<div id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div>
+
 							<div class="low-stock-warning">{{ 'products.product.low_stock' | t }}</div>
 							<div class="final-sale-warning">{{ 'products.product.final_sale_html' | t }}</div>
 				        </form>
@@ -364,7 +368,8 @@
 				{%- for variant in siblingProduct.variants -%}
 					"{{ variant.id }}" : {
 						"stockLevel" : "{{ variant.inventory_quantity }}",
-						"restockMessage" : "{{ variant.metafields['global']['restock-expected'] }}"
+						"restockMessage" : "{{ variant.metafields['global']['restock-expected'] }}",
+						"oosPolicy" : "{{ variant.metafields['global']['out-of-stock-policy'] }}"
 					},
 				{%- endfor -%}
 			{%- endfor -%}

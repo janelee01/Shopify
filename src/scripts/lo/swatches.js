@@ -36,19 +36,32 @@ $(document).ready(function(){
 
 	var updateCta = function(){
 		var selectedVariantID = $variants.val();
+		var $soldOutMsg = $('#sold-out-message');
+		var $addToCartRow = $('#add-to-cart');
 		var $addToCartBtn = $('[data-add-to-cart]');
 		var $addToWaitlistBtn = $('[data-add-to-waitlist]');
 		var siblingId = $('.swatch.active').data('sibling');
 		var newVariants = siblingsJson[siblingId].variants;
+		// reset to purchase or waitlist
+		$addToCartRow.show();
+		$soldOutMsg.hide();
 		for (var i = 0; i < newVariants.length; i++) {
 			if( newVariants[i].id == selectedVariantID ){
 				if( newVariants[i].available ){
+					// can buy
 					$addToCartBtn.show();
 					$addToWaitlistBtn.hide();
 				}else{
-					$addToWaitlistBtn.data('variant-id', selectedVariantID).show();
-					$addToCartBtn.hide();
-					$('#wl-variant').val(selectedVariantID);
+					if( variantStockData[selectedVariantID].oosPolicy == 'soldout'){
+						// can't buy
+						$addToCartRow.hide();
+						$soldOutMsg.show();
+					}else{
+						// can buy later
+						$addToWaitlistBtn.data('variant-id', selectedVariantID).show();
+						$addToCartBtn.hide();
+						$('#wl-variant').val(selectedVariantID);
+					}
 				}
 			}
 		};
