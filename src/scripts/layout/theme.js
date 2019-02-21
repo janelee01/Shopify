@@ -1,51 +1,32 @@
-window.slate = window.slate || {};
-window.theme = window.theme || {};  
-
 /*================ Slate ================*/
-// =require slate/a11y.js
-// =require slate/cart.js
-// =require slate/utils.js
-// =require slate/rte.js
-// =require slate/sections.js
-// =require slate/currency.js
-// =require slate/images.js
+import './../slate/a11y'
+import './../slate/cart'
+import './../slate/utils'
+import './../slate/rte'
+import './../slate/sections'
+import './../slate/currency'
+import './../slate/images'
+
 /* removed to avoid conflicts with default behavior
  slate/variants.js
 */
-/*================ Sections ================*/
-/* removed to avoid conflicts with default behavior
- sections/product.js
-*/
-/*================ Templates ================*/
-// =require templates/customers-addresses.js
-// =require templates/customers-login.js
 
-/*================ Lo & Sons ================*/
-// =require vendor/picturefill.min.js
-// =require vendor/bootstrap.min.js
-// =require vendor/jquery-ui-1.10.4.custom.min.js
-// =require vendor/jquery-ui.min.js
-// =require vendor/moment.min.js
-// =require vendor/jquery.fitvids.js
-// =require vendor/jquery.cookie.js
-// =require vendor/jquery.touchSwipe.min.js
-// =require vendor/jquery.film_roll.js
-// =require vendor/slick.min.js
-// =require vendor/bodyScrollLock.min.js
-// =require vendor/jquery.debounce.min.js
-// =require lo/lo-and-sons.js
-// =require vendor/scrolla.js
-// =require lo/navigation.js
-// =require lo/videos.js  
-// =require lo/collection-filters.js 
-// =require lo/swatches.js  
-// =require lo/waitlist.js  
-// =require lo/product-reviews.js  
-// =require lo/product-gallery.js  
-// =require lo/customers.js
-// =require lo/toggle-menu.js
-// =require lo/header.js
-// =require lo/more-window.js
+/*================ Templates ================*/
+import './../templates/customers-addresses'
+import './../templates/customers-login'
+
+import './../lo/lo-and-sons'
+import './../lo/navigation'
+import './../lo/videos'
+import './../lo/collection-filters'
+import './../lo/swatches'
+import './../lo/waitlist'
+import './../lo/product-reviews'
+import './../lo/product-gallery'
+import './../lo/customers'
+import './../lo/toggle-menu'
+import './../lo/header'
+import './../lo/more-window'
 
 $(document).ready(function() {
 
@@ -159,8 +140,8 @@ $(document).ready(function() {
 	  window.location = selector;
 	  return;
 	}
-
-	$target = $(selector);
+	
+	let $target = $(selector);
 	if ($target.length === 0) {
 	  $target = $('body');
 	}

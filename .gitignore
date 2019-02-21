@@ -14,6 +14,7 @@ deploy.log
 config.yml
 *.yml
 config.production.yml
+.env
 
 # Compiled source #
 ###################

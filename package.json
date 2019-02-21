@@ -1,10 +1,13 @@
 {
   "name": "lo-and-sons",
   "version": "0.0.13",
-  "devDependencies": {
-    "@shopify/slate-tools": "0.13.0"
+  "scripts": {
+    "start": "slate-tools start --skipFirstDeploy",
+    "build:vendors": "node scripts/create-vendor-bundle.js",
+    "build": "slate-tools build"
   },
-  "dependencies": {
-    "gulp": "^3.9.1"
+  "devDependencies": {
+    "@shopify/slate-tools": "^1.0.0-beta.15",
+    "merge-files": "^0.1.1"
   }
 }
