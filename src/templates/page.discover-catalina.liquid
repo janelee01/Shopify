@@ -99,14 +99,21 @@
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
                 <div class="mb-large fw-xs">
                     <div class="inline-video ratio-16-9 product-video" id="catalina-inlined-1">
-                        <div class="embed-container"
-                            data-desktop-url="https://player.vimeo.com/external/308578318.hd.mp4?s=dc09c5b14f908af056ee0d925c21f00e3f2e6633&profile_id=175"
-                            data-mobile-url="https://player.vimeo.com/external/308578318.sd.mp4?s=b0f1cf8d8ce3570713e5794d08beb1a14754d1af&profile_id=165"
-                            data-autoplay="true"
-                            data-loops="100">
-                            <video id="video-1" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-video-1.jpg?{{ assetVersion }}"></video>
-                            <div class="loading"></div>
+                        <div class="click-to-play">
+                            <div class="embed-container"
+                                data-desktop-url="https://player.vimeo.com/external/308578318.hd.mp4?s=dc09c5b14f908af056ee0d925c21f00e3f2e6633&profile_id=175"
+                                data-mobile-url="https://player.vimeo.com/external/308578318.sd.mp4?s=b0f1cf8d8ce3570713e5794d08beb1a14754d1af&profile_id=165"
+                                data-autoplay="true"
+                                data-loops="100">
+                                <video id="video-1" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-video-1.jpg?{{ assetVersion }}"></video>
+                                <div class="loading"></div>
+                            </div>
+                            <a href="#" data-video-id="1" class="video-trigger">
+                                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-video-1-xs.jpg?4299392970982497643{{ assetVersion }}" alt="play video">
+                                <span><img src="{{ 'play.svg' | asset_url }}" alt=""></span>
+                            </a>
                         </div>
+                        
                    </div>
                 </div>
             </div>
@@ -171,7 +178,7 @@
     {% include 'discover-catalina-compare' %}
 
     <script>// <![CDATA[
-    var video1Embed = '<iframe src="//player.vimeo.com/video/170848560?player_id=vimeo-catalina&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-catalina" class="vimeo"></iframe>';
+    var video1Embed = '<iframe src="//player.vimeo.com/video/308578318?player_id=vimeo-video1&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-catalina" class="vimeo"></iframe>';
     // ]]></script>
 
     {% include 'video-modal' %}

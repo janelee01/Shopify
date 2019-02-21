@@ -566,3 +566,34 @@
 		}
 	}
 }
+
+#yotp-cta{
+	@media (min-width: $screen-sm) {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+#zodiac-signs{
+	padding-top: 40px;
+	font-size: 28px;
+	color: $gray-darker;
+	div{
+		display: none;
+	}
+	p{
+		margin-bottom: 20px;
+	}
+}
+#zodiac-select-wrap{
+	max-width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#yotp-intro p{
+	@media (min-width: $screen-sm) {
+		font-size: 19px;
+	}
+	@media (min-width: $screen-lg) {
+		font-size: 22px;
+	}
+}

@@ -1,0 +1,173 @@
+{% include 'vars' %}
+
+{%- assign assetVersion = 16549111069755005212 -%}
+{%- assign ctaTitle = 'Year of the Pig Charm' -%}
+{%- assign ctaPrice = '$39' -%}
+{%- assign ctaLink = '/products/year-of-the-pig-charm-saffiano-leather-rose-quartz' -%}
+{%- assign ctaImg = 'yotp-cta' -%}
+
+<article class="discover">
+    
+    <div class="max-container">
+        <div class="hero has-arrow" id="yotp-hero">
+            {% include 'discover-picture', name: 'yotp-hero', alt: 'Year of the Pig Charm shown on The Pearl', retina: true, fw: false, lg: true %}
+            <div class="hero-content white left">
+                <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
+                <p class="description">Add a celebratory touch<br> to a favorite bag.</p>
+            </div>
+            {% include 'hero-jump-btn' %}
+        </div>
+    </div>
+    
+    <div class="container">{% include 'hero-jump-target' %}
+        
+        <div class="row animate mb-large" {{ animateZoomIn }}>
+            <div class="col-sm-6 col-sm-offset-3">
+                {% include 'discover-picture', name: 'yotp-charm', alt: 'Year of the Pig Charm product shot', retina: true, fw: true, lg: true %}
+            </div>
+        </div>
+        
+        <a id="nav-target-1" class="jumptarget"></a>
+        <div class="animate" {{ animateFadeInUp }}>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">                    
+                    <div class="section-heading" id="yotp-intro">
+                        <h2 class="title">Happy Lunar<br class="visible-xs"/> New Year!</h2>
+                        <p>As a company founded by a Chinese-American family, the Lunar New Year is particularly special to everyone at Lo & Sons. To celebrate, we’ve created a Limited Edition key chain charm! The Pig has a beautiful personality and is blessed with good fortune in life.</p>
+                        <p class="description"><a href="#year-overlay" class="more-window-trigger">What’s your Chinese Zodiac? +</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="animate" {{ animateFadeInUp }}>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1">                    
+                    <div class="section-heading">
+                        <h2 class="title">How Will You Wear It?</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="animate" {{ animateFadeInUp }}>
+            <div class="row">
+                <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">                    
+                    {% include 'discover-picture', name: 'yotp-lifestyle-1', alt: "Year of the Pig Charm as key chain", retina: true, fw: true, lg: true %}
+                    <div class="topic-content">
+                         <h3 class="title">Key Chain</h3>
+                         <p class="description">The key loop keeps keys organized.</p>
+                      </div>
+                </div>
+                <div class="col-sm-5 col-md-6">                    
+                    {% include 'discover-picture', name: 'yotp-lifestyle-2', alt: "Year of the Pig Charm as charm", retina: true, fw: true, lg: true %}
+                    <div class="topic-content">
+                        <h3 class="title">Charm</h3>
+                        <p class="description">Secure your charm on your favorite bag using the versatile clasp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="animate" {{ animateFadeInUp }}>
+            <div class="row topic-block">
+                <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">   
+                    {% include 'discover-picture', name: 'yotp-lifestyle-3', alt: "overhead photo of family dinner", retina: true, fw: true, lg: true %}
+                </div>
+            </div>
+        </div>
+        
+        <div id="yotp-cta" class="row fw-xs cta-block animate" {{ animateFadeInUp }}>
+            <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-push-6 col-md-offset-0">
+                <a class="btn-gtm-trk" data-gtm-a="7" href="{{ ctaLink }}">
+                    {% include 'discover-picture', name: 'yotp-cta', alt: 'Year of the Pig Charm', retina: true, fw: false %}
+                </a>
+            </div>
+            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-4 col-md-pull-4 col-md-offset-0 content-col">
+                <div class="topic-content" style="text-align: center">
+                    <h3 class="title">{{ ctaTitle }}</h3>
+                    <p class="description">{{ ctaPrice }}</p>
+                    <div class="btn-set">
+                       <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}" style="margin: 0">Buy now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="more-window" id="year-overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">                    
+                    <div class="section-heading">
+                        <h2 class="title">What’s Your Chinese Zodiac?</h2>
+                        <p>Select your year of birth.</p>
+                        <div class="form-group select-wrapper" id="zodiac-select-wrap">
+                            <label for="zodiac-select" class="sr-only">Select your birth year</label>
+                            <select class="form-control" name="zodiac-select" id="zodiac-select">
+                                <option value=""></option>
+                                {% for i in (1924..2027) %}
+                                  <option value="{{ i }}">{{ i }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <dl id="zodiac-signs">
+                            <div class="y-1924 y-1936 y-1948 y-1960 y-1972 y-1984 y-1996 y-2008 y-2020">
+                                <p><img src="{{ 'zodiac-rat.svg' | asset_url }}" alt="rat illustration"></p>
+                                <p>Rat<br /><img src="{{ 'zodiac-rat-text.svg' | asset_url }}" alt="Chinese character and pronounciation of rat"></p>
+                            </div>
+                            <div class="y-1925 y-1937 y-1949 y-1961 y-1973 y-1985 y-1997 y-2009 y-2021">
+                                <p><img src="{{ 'zodiac-ox.svg' | asset_url }}" alt="ox illustration"></p>
+                                <p>Ox<br /><img src="{{ 'zodiac-ox-text.svg' | asset_url }}" alt="Chinese character and pronounciation of ox"></p>
+                            </div>
+                            <div class="y-1926 y-1938 y-1950 y-1962 y-1974 y-1986 y-1998 y-2010 y-2022">
+                                <p><img src="{{ 'zodiac-tiger.svg' | asset_url }}" alt="tiger illustration"></p>
+                                <p>Tiger<br /><img src="{{ 'zodiac-tiger-text.svg' | asset_url }}" alt="Chinese character and pronounciation of tiger"></p>
+                            </div>
+                            <div class="y-1927 y-1939 y-1951 y-1963 y-1975 y-1987 y-1999 y-2011 y-2023">
+                                <p><img src="{{ 'zodiac-rabbit.svg' | asset_url }}" alt="rabbit illustration"></p>
+                                <p>Rabbit<br /><img src="{{ 'zodiac-rabbit-text.svg' | asset_url }}" alt="Chinese character and pronounciation of rabbit"></p>
+                            </div>
+                            <div class="y-1928 y-1940 y-1952 y-1964 y-1976 y-1988 y-2000 y-2012 y-2024">
+                                <p><img src="{{ 'zodiac-dragon.svg' | asset_url }}" alt="dragon illustration"></p>
+                                <p>Dragon<br /><img src="{{ 'zodiac-dragon-text.svg' | asset_url }}" alt="Chinese character and pronounciation of dragon"></p>
+                            </div>
+                            <div class="y-1929 y-1941 y-1953 y-1965 y-1977 y-1989 y-2001 y-2013 y-2025">
+                                <p><img src="{{ 'zodiac-snake.svg' | asset_url }}" alt="snake illustration"></p>
+                                <p>Snake<br /><img src="{{ 'zodiac-snake-text.svg' | asset_url }}" alt="Chinese character and pronounciation of snake"></p>
+                            </div>
+                            <div class="y-1930 y-1942 y-1954 y-1966 y-1978 y-1990 y-2002 y-2014 y-2026">
+                                <p><img src="{{ 'zodiac-horse.svg' | asset_url }}" alt="horse illustration"></p>
+                                <p>Horse<br /><img src="{{ 'zodiac-horse-text.svg' | asset_url }}" alt="Chinese character and pronounciation of horse"></p>
+                            </div>
+                            <div class="y-1931 y-1943 y-1955 y-1967 y-1979 y-1991 y-2003 y-2015 y-2027">
+                                <p><img src="{{ 'zodiac-goat.svg' | asset_url }}" alt="goat illustration"></p>
+                                <p>Goat<br /><img src="{{ 'zodiac-goat-text.svg' | asset_url }}" alt="Chinese character and pronounciation of goat"></p>
+                            </div>
+                            <div class="y-1932 y-1944 y-1956 y-1968 y-1980 y-1992 y-2004 y-2016">
+                                <p><img src="{{ 'zodiac-monkey.svg' | asset_url }}" alt="monkey illustration"></p>
+                                <p>Monkey<br /><img src="{{ 'zodiac-monkey-text.svg' | asset_url }}" alt="Chinese character and pronounciation of monkey"></p>
+                            </div>
+                            <div class="y-1933 y-1945 y-1957 y-1969 y-1981 y-1993 y-2005 y-2017">
+                                <p><img src="{{ 'zodiac-rooster.svg' | asset_url }}" alt="rooster illustration"></p>
+                                <p>Rooster<br /><img src="{{ 'zodiac-rooster-text.svg' | asset_url }}" alt="Chinese character and pronounciation of rooster"></p>
+                            </div>
+                            <div class="y-1934 y-1946 y-1958 y-1970 y-1982 y-1994 y-2006 y-2018">
+                                <p><img src="{{ 'zodiac-dog.svg' | asset_url }}" alt="dog illustration"></p>
+                                <p>Dog<br /><img src="{{ 'zodiac-dog-text.svg' | asset_url }}" alt="Chinese character and pronounciation of dog"></p>
+                            </div>
+                            <div class="y-1935 y-1947 y-1959 y-1971 y-1983 y-1995 y-2007 y-2019">
+                                <p><img src="{{ 'zodiac-pig.svg' | asset_url }}" alt="pig illustration"></p>
+                                <p>Pig<br /><img src="{{ 'zodiac-pig-text.svg' | asset_url }}" alt="Chinese character and pronounciation of pig"></p>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="panel-close"><span class="sr-only">close</span></button>
+    </div>
+   
+
+</article>
