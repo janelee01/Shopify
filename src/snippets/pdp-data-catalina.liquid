@@ -1,0 +1,8 @@
+{%- assign pdp_testimatonials = '' -%}
+{%- assign pdp_testimatonials = pdp_testimatonials | append: 'https://image.jpg' -%}
+{%- assign pdp_testimatonials = pdp_testimatonials | append: '|'     | append: 'THIS IS TEXT' -%}
+{%- assign pdp_testimatonials = pdp_testimatonials | append: '[IFS]' | append: 'https://image.jpg' -%}
+{%- assign pdp_testimatonials = pdp_testimatonials | append: '|'     | append: 'THIS IS TEXT' -%}
+{%- assign pdp_testimatonials = pdp_testimatonials | split:  '[IFS]' -%}
+
+{% comment %}So on and so forth...{% endcomment %}

@@ -1,0 +1,13 @@
+/**
+ * Even though we use Post CSS and BEM as documented in our
+ * best practices, we are going to use SASS with -VERY- minimal
+ * nesting for this project so it infeels line with the rest of the
+ * site code to some degree.
+ *
+ * Please only use one level of nesting where possible
+ * Avoid the use of !important
+ * Couple media queries inside the declaration in which it relates to 
+ * Use existing color variables (see /local)
+ * Declare all type styles in a new variables sheet for use in PDP only
+ * Review and use existing media queries where possible
+ */
