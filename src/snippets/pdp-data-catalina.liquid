@@ -1,3 +1,5 @@
+
+{% comment %} In data/hanover.liquid (or similar location) {% endcomment%}
 {%- assign pdp_testimatonials = '' -%}
 {%- assign pdp_testimatonials = pdp_testimatonials | append: 'https://image.jpg' -%}
 {%- assign pdp_testimatonials = pdp_testimatonials | append: '|'     | append: 'THIS IS TEXT' -%}
@@ -5,4 +7,20 @@
 {%- assign pdp_testimatonials = pdp_testimatonials | append: '|'     | append: 'THIS IS TEXT' -%}
 {%- assign pdp_testimatonials = pdp_testimatonials | split:  '[IFS]' -%}
 
-{% comment %}So on and so forth...{% endcomment %}
+{% comment %} In product.liquid {% endcomment%}
+{% include 'pdp-testimonials', testimonials: pdp_testimatonials %}
+
+{% comment %} In pdp-testimonials.liquid {% endcomment%}
+{%- assign testimonials = testimonials | default: blank -%}
+
+{% for testimonial in testimatonials %}
+{%- assign image_src = testimonial | split: '|' | first -%}
+{%- assign text = testimonial | split: '|' | last -%}
+
+<div>.</div>
+
+{%- assign image_src = nil -%}
+{%- assign text = nil -%}
+{% endfor %}
+
+{%- assign testimonials = nil -%}

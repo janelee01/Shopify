@@ -1,3 +1,6 @@
+{%- assign data_snippet = 'pdp-data-' | append: product.handle -%}
+{% include data_snippet %}
+
 <div itemscope itemtype="http://schema.org/Product">
   {%- include 'pdp-main' -%}
 	{%- include 'pdp-callout-galleries' -%}
