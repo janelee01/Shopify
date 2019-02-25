@@ -1,1 +1,23 @@
+<div class="section-heading">
+  <h2 class="title">What Others Are Saying</h2>
+</div>
+
+{% comment %} In pdp-testimonials.liquid {% endcomment%}
+
+{%- assign testimonials = testimonials | default: blank -%}
+
+
+<div class="pdp-testimonials">
+
+{%- for testimonial in testimonials -%} {%- assign image_src = testimonial | split: '|' | first -%} {%- assign text = testimonial | split: '|' | last -%}
+
+<div>
+  <image src="{{ image_src }}" />
+  <p>{{ text }}</p>
+</div>
+
+{%- assign image_src = nil -%} {%- assign text = nil -%} {%- endfor -%} {%- assign testimonials = nil -%}
+
+</div>
+
 <script>console.log('PDP Testimonials')</script>

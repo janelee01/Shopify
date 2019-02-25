@@ -1,0 +1,12 @@
+
+<div class="pdp-gallery-featured">
+  {{ product.featured_image | img_url | img_tag }}
+</div>
+
+<div class="pdp-gallery-thumbs">
+{%- for image in product.images -%}
+  {{ image | img_url | img_tag }}
+{%- endfor -%}
+</div>
+
+<script>console.log('PDP Gallery')</script>

@@ -1,1 +1,23 @@
+<h1>{{ product.title }}</h1>
+<div class="pdp-form-price">{{ product.price }}</div>
+<div class="pdp-form-description">{{ product.description }}</div>
+
+{% include 'swatches' %}
+
+
+
+<div class="pdp-form-add-to-cart">
+
+  <select>
+{%- for i in (1..10) -%}
+      <option>{{ i }}</option>
+{%- endfor -%}
+  </select>
+
+  <button>Add to cart</button>
+
+</div>
+
+<a>Shipping, Returns, Warranty & Care</a>
+
 <script>console.log('PDP Form')</script>
