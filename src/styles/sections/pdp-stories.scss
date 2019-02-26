@@ -11,3 +11,28 @@
  * Add to existing type variables (see /local/base/_variables)
  * Review and use existing media queries where possible
  */
+
+
+ .pdp-stories{
+
+   .flickity-viewport{
+     height: auto;
+   }
+
+    .flickity-page-dots,
+    .flickity-button{
+      display: none;
+    }
+
+  }
+
+
+ .pdp-stories article{
+  width: calc(33% - 20px);
+  margin-right: 10px;
+
+  @media ( max-width: 768px ) {
+  	width: 70%;
+  }
+
+}

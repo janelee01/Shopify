@@ -11,3 +11,62 @@
  * Add to existing type variables (see /local/base/_variables)
  * Review and use existing media queries where possible
  */
+
+
+.pdp-gallery{
+  position: relative;
+  display: none;
+
+  &.active{
+    display: block;
+  }
+
+}
+
+.pdp-gallery-featured{
+
+  @media (min-width: $breakpoint){
+    padding-left: 60px;
+  }
+
+}
+
+ .pdp-gallery-featured img{
+   width: 100%;
+ }
+
+ .pdp-gallery-thumbs-wrapper{
+
+   display: none;
+
+   @media (min-width: $breakpoint){
+     display: block;
+     position: absolute;
+     top: 0;
+   }
+
+ }
+
+ .pdp-gallery-thumbs{
+
+   max-height: 500px;
+   overflow: hidden;
+
+  a{
+    display: block;
+    max-width: 50px;
+    margin: 10px 0;
+  }
+}
+
+.pdp-gallery-thumbs-video{
+  margin: 10px auto;
+  display: block;
+  width: 50px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.pdp-gallery-thumbs-video path{
+  fill: #00AEEF;
+}

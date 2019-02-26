@@ -11,3 +11,72 @@
  * Add to existing type variables (see /local/base/_variables)
  * Review and use existing media queries where possible
  */
+
+
+
+.product-main__featured{
+
+  @media (min-width: $breakpoint){
+
+    float:left;
+    width:50%;
+
+  }
+
+}
+
+.product-main__holder{
+
+  h1{
+    font-weight: bold;
+    font-size: 34px;
+    line-height: normal;
+    margin-bottom: 0;
+  }
+
+  .selector-wrapper{
+
+    label{
+      display: inline-block;
+    }
+
+    .variant-buttons{
+      display: inline-block;
+    }
+
+  }
+
+  #price-wrapper{
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+
+  @media (min-width: $breakpoint){
+
+    float: left;
+	  width: 50%;
+	  padding: 70px 100px;
+
+  }
+
+}
+
+
+.pdp-form-product-type{
+  
+  margin-bottom: 20px;
+  text-transform: uppercase;
+
+}
+
+.pdp-shipping-returns-warranty-care{
+  color: #333;
+  font-size: 12px;
+  text-decoration: underline;
+
+  &:hover{
+    color: #333;
+  }
+
+}

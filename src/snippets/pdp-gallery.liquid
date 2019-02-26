@@ -1,12 +1,55 @@
+{% comment %}
+<div class="gallery-container is-loading" id="product-galleries">
+		{% for siblingProduct in parentCollection.products %}
+			{% if siblingsList contains siblingProduct.id %}
+			<div class="product-gallery {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
+				<div class="filmroll" id="gallery-{{ siblingProduct.id }}">
+				{% for image in siblingProduct.images %}
+					{% if image.alt contains 'swatch' %}{% continue %}{% endif %}
+					<div class="item">
+						<figure>
+							<span class="{% if forloop.first %}master{% else %}resize{% endif %}">
+								<img src="{{ image.src | img_url: '375x500' }}" alt="{{ image.alt | escape }}">
+							</span>
+						</figure>
+					</div>
+				{% endfor %}
+				</div>
+				<a href="#" id="gallery-{{ siblingProduct.id }}-prev" class="gallery-control prev"><span class="sr-only">previous slide</span></a>
+				<a href="#" id="gallery-{{ siblingProduct.id }}-next" class="gallery-control next"><span class="sr-only">next slide</span></a>
+			</div>
+			{% endif %}
+		{% endfor %}
+		<div class="loading"></div>
+	</div>
 
-<div class="pdp-gallery-featured">
-  {{ product.featured_image | img_url | img_tag }}
-</div>
+{% endcomment %}
 
-<div class="pdp-gallery-thumbs">
-{%- for image in product.images -%}
-  {{ image | img_url | img_tag }}
+{% for siblingProduct in parentCollection.products %}
+{% if siblingsList contains siblingProduct.id %}
+<div class="pdp-gallery {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
+
+  <div class="pdp-gallery-featured">
+    {{ siblingProduct.featured_image | img_url: 'original' | img_tag }}
+  </div>
+
+
+  <div class="pdp-gallery-thumbs-wrapper">
+
+    <div class="pdp-gallery-thumbs">
+
+{%- for image in siblingProduct.images -%}
+    <a data-src="{{ image | img_url: 'original' }}">{{ image | img_url | img_tag }}</a>
 {%- endfor -%}
-</div>
 
-<script>console.log('PDP Gallery')</script>
+    </div>
+
+
+    <a class="pdp-gallery-thumbs-video">{% include 'icon-play' %}</a>
+
+  </div>
+
+</div>
+			{% endif %}
+		{% endfor %}
+<script>console.log('PDP Gallery 2')</script>

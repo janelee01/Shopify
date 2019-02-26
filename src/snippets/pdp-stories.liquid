@@ -1,18 +1,13 @@
-{%- assign stories = '1,2,3' | split: ',' -%}
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+
+{%- assign stories = 'travel-inspiration/a-week-in-paris-alice-gao,travel-tips-guides/traveling-with-kids-9to5chic,travel-inspiration/creative-workshop-morocco-atelier-dore' | split: ',' -%}
 {%- assign stories_count = stories | size -%}
 
 
 {%- if(stories) -%}
 
-
-{%- case stories_count -%}
-  {% when 3 %}
-  {%- assign article_class = 'col-sm-4' -%}
-  {% when 2 %}
-  {%- assign article_class = 'col-sm-6' -%}
-  {% else %}
-  {%- assign article_class = 'col-sm-12' -%}
-{%- endcase -%}
 
 <div class="section-heading">
   <h2 class="title">Stories</h2>
@@ -20,21 +15,16 @@
 
 <div class="pdp-stories">
 
-{%- for id in stories -%}
+{%- for handle in stories -%}
+{% assign article = articles[handle] %}
 
-  <article class="{{article_class}}">
+  <article>
 
     <figure>
-      <img src="//cdn.shopify.com/s/files/1/2185/1497/files/home-feature-3-xs.jpg?v=1538701681" />
+      {{ article | featured_image | img_url: 'large' | img_tag }}
     </figure>
 
-    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
+    <p class="description">{{ article.excerpt_or_content }}</p>
 
   </article>
 

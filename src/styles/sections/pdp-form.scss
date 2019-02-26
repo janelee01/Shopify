@@ -15,3 +15,62 @@
  .pdp-form-title{
    color: red;
  }
+
+
+.pdp-form-price{
+  margin-bottom: 20px;
+}
+
+
+.pdp-form-description{
+  color: #666;
+}
+
+.pdp-form-size-fit-giude{
+  display: inline-block;
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+.pdp-form-add-to-cart{
+
+  background-color: #00AEEF;
+  color: white;
+  margin: 0;
+  margin-bottom: 5px;
+  height: 50px;
+  line-height: 50px;
+
+
+  button{
+    background-color: transparent;
+    border: 0;
+    width: 78%;
+  }
+
+  select{
+    background-color: transparent;
+    border: 0;
+    width: 20%;
+    text-align: center;
+  }
+
+}
+
+
+#add-to-cart{
+
+  background-color: #00AEEF;
+
+  select{
+    width: auto;
+    padding: 0 20px;
+    background-color: #00AEEF;
+    border: 0;
+    outline: 0;
+    color: white;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+  }
+}
