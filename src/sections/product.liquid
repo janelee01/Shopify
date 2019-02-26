@@ -55,7 +55,7 @@
 	<meta itemprop="name" content="{{ product.title }}">
 	<meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
 	<meta itemprop="brand" content="{{ product.vendor }}">
-	<meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
+	<meta itemprop="image" content="https:{{ featured_image | img_url: '600x600' }}">
 	<meta itemprop="description" content="{{ product.description | strip_html | escape }}">
 	{% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
 		<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
