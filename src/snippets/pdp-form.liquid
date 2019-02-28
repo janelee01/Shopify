@@ -1,12 +1,18 @@
 
-<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+<div class="pdp-form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+
 	<meta itemprop="priceCurrency" content="{{ shop.currency }}">
 	<meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
 	<link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
 
 	<form action="/cart/add" method="post" enctype="multipart/form-data">
+
+
+		<div class="pdp-form-option-group">
+		{% include 'pdp-swatches' %}
+		</div>
 		
-		<div class="selector-wrapper">
+		<div class="pdp-form-option-group selector-wrapper">
 			{%- unless product.has_only_default_variant -%} 
 				<label for="variant-selector">Size:</label>
 				<div id="variant-buttons" class="variant-buttons">
@@ -22,7 +28,7 @@
 					{%- endfor -%}
 				</div>
 
-				<a class="pdp-form-size-fit-giude" href="#">Size & Fit guide</a>
+				<a class="pdp-form-size-fit-giude pdp-modal-link" href="#" data-modal="size-fit-guide">Size & Fit guide</a>
 
 			{%- endunless -%}
 			<select name="id" id="variant-selector" class="hidden" data-product-select>
@@ -59,7 +65,7 @@
 				{% if current_variant.available %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</a>
 		</div>
 
-		<a class="pdp-shipping-returns-warranty-care" href="#">Shipping, Returns, Warranty & Care</a>
+		<a class="pdp-shipping-returns-warranty-care pdp-modal-link" data-modal="shipping" href="#">Shipping, Returns, Warranty & Care</a>
 
 		<div id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div>
 

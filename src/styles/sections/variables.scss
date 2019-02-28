@@ -1,0 +1,101 @@
+$site-max-width:          1680px;
+$site-large-width:        1400px;
+ 
+$screen-xs:               345px;
+$screen-md:               1025px; 
+$screen-lg:               1400px; 
+
+$grid-gutter-width:       30px;
+$grid-float-breakpoint:   $screen-md; 
+  
+$menu-width-sm:           100%;
+$menu-width-md:           400px;
+ 
+$ls-navbar-height-xs:     56px;
+$ls-navbar-height:        66px;
+$ls-navbar-height-pagenav-xs: 111px;
+$ls-navbar-height-pagenav: 147px;
+ 
+$page-nav-height-xs:      50px;
+$page-nav-height:         80px;
+ 
+$local-nav-height-xs:     60px;
+$local-nav-height:        80px;
+ 
+$mobile-gutter:           28px;
+ 
+$gray-darker:             #111; 
+$gray-dark:               #414B56;   
+$gray:                    #646464;
+$gray-light:              #808080; 
+$gray-lighter:            #d6d6d6; 
+$gray-lightest:           #f8f8f8; 
+ 
+$brand-primary:           #45ADD9;
+$brand-success:           #5cb85c;
+$brand-info:              #5bc0de;
+$brand-warning:           #f0ad4e;
+$brand-danger:            #d9534f;
+ 
+$brand-blue-dark:         #30A6D8;
+$brand-blue:              #00AEEF;
+$brand-blue-hover:        #30a6d8;
+$brand-blue-light:        #DDF2FC;
+
+$brand-red:               #963b3b; 
+$brand-yellow:            #E3CD6E; 
+$brand-black:             $gray-darker;
+ 
+$text-color:              $gray-darker;
+$link-color:              $brand-blue;
+ 
+$state-success-text:      #fff;
+$state-success-bg:        $brand-success;
+$state-success-border:    $brand-success;
+ 
+$state-info-text:         #fff;
+$state-info-bg:           $brand-info;
+$state-info-border:       $brand-info;
+ 
+$state-warning-text:      #fff;
+$state-warning-bg:        $brand-warning;
+$state-warning-border:    $brand-warning;
+ 
+$state-danger-text:       #fff;
+$state-danger-bg:         $brand-danger;
+$state-danger-border:     $brand-danger; 
+ 
+$font-family-sans-serif:  "Circular-Pro-Book","Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-medium:      "Circular-Pro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+$font-family-bold:        "Circular-Pro-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+ 
+$font-size-base:          16px;
+$font-family-base:        $font-family-sans-serif;
+$line-height-base:        1.4;
+$line-height-lg:          1.875;
+
+$font-size-xl:            60px;
+$font-size-lg:            32px;
+$font-size-sm:            14px;
+$font-size-xs:           12px;
+$font-size-xxs:           10px;
+
+$mb-base:                 1.4em;
+
+$mb-small-xs:             $mobile-gutter;
+$mb-small-sm:             45px;
+$mb-small-md:             55px;
+$mb-small-lg:             60px;
+
+$mb-default-xs:           50px;
+$mb-default-sm:           60px;
+$mb-default-md:           70px;
+$mb-default-lg:           80px;
+
+$mb-large-xs:             75px;
+$mb-large-sm:             90px;
+$mb-large-md:             105px;
+$mb-large-lg:             120px;
+
+$header-z-index: 1000;
+$page-nav-z-index: 999;

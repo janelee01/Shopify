@@ -27,6 +27,8 @@
 
 .product-main__holder{
 
+  margin-bottom: $mobile-gutter;
+
   h1{
     font-weight: bold;
     font-size: 34px;
@@ -46,9 +48,15 @@
 
   }
 
+  #price-wrapper [data-product-price]{
+    font-size: 14px;
+  }
+
+
   #price-wrapper{
     border-bottom: 0;
     padding-bottom: 0;
+    margin-bottom: $mobile-gutter;
   }
 
 
@@ -57,6 +65,54 @@
     float: left;
 	  width: 50%;
 	  padding: 70px 100px;
+
+  }
+
+}
+
+
+.pdp-main-product-heading{
+
+  display: none;
+  
+  @media (min-width: $breakpoint){
+
+    display: block;
+
+  }
+
+}
+
+
+.pdp-main-product-heading-mobile{
+
+  display: block;
+  text-align: center;
+  padding-top: $mobile-gutter;
+
+  h1{
+    margin-bottom: 0;
+  }
+
+  h4{
+
+  }
+  
+  @media (min-width: $breakpoint){
+
+    display: none;
+
+  }
+  
+}
+
+.pdp-main-product-description{
+
+  display: none;
+  
+  @media (min-width: $breakpoint){
+
+    display: block;
 
   }
 

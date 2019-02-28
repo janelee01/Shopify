@@ -8,10 +8,24 @@ import pdp_stories from '../sections/pdp-stories'
 import '../sections/pdp-cross-sell'
 import '../sections/pdp-size-fit-modal'
 
+import pdp_modal from '../sections/pdp-modal'
+
 import '../sections/pdp-swatches'
 
+import '../vendor/imageviewer.min'
 
-pdp_stories(document.querySelector('.pdp-stories'));
+
+$(document).ready(
 
 
-document.querySelectorAll('.pdp-gallery-thumbs').forEach(el => { pdp_gallery(el); });
+	function(){
+
+		pdp_stories(document.querySelector('.pdp-stories'));
+		document.querySelectorAll('.pdp-gallery-thumbs').forEach(el => { pdp_gallery(el); });
+		document.querySelectorAll('.pdp-modal-link').forEach(el => { pdp_modal(el); });
+
+
+	}
+
+);
+

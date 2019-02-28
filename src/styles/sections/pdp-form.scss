@@ -74,3 +74,28 @@
     -webkit-border-radius: 0px;
   }
 }
+
+
+.pdp-form-option-group{
+
+  border-bottom: 1px solid $gray-lighter;
+  padding: $mobile-gutter/2 $mobile-gutter;
+  margin-left: -$mobile-gutter;
+  margin-right: -$mobile-gutter;
+
+  &:first-child{
+    border-top: 1px solid $gray-lighter;
+  }
+
+  @media (min-width: $breakpoint){
+    border: 0;
+    padding: 0;
+    margin: 0;
+
+    &:first-child{
+      border-top: 0;
+    }
+
+  }
+
+}

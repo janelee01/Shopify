@@ -1,4 +1,8 @@
+
+
 $breakpoint:    768px;
+
+@import '../sections/variables.scss';
 
 @import '../sections/pdp-main.scss';
 @import '../sections/pdp-gallery.scss';
@@ -10,6 +14,7 @@ $breakpoint:    768px;
 @import '../sections/pdp-testimonials.scss';
 @import '../sections/pdp-cross-sell.scss';
 @import '../sections/pdp-size-fit-modal.scss';
+@import '../sections/pdp-modal.scss';
 
 body{
   background-color: rgb(248,248,248);

@@ -55,17 +55,26 @@
 
 <section class="product-main">
   <div class="product-main__container container container-xl">
+
+    <div class="pdp-main-product-heading-mobile">
+      <h1>{{ parentCollection.title | remove: "The " }}</h1>
+{%- unless parentCollection.metafields["global"]["short-description"] == blank -%}
+      <h4>{{ parentCollection.metafields["global"]["short-description"] }}</h4>
+{%- endunless -%}
+    </div>
+
   <div class="product-main__featured">
   {%- include 'pdp-gallery', item: product -%}
   </div>
   
   <div class="product-main__holder">
 
-
+<div class="pdp-main-product-heading">
   <h1>{{ parentCollection.title | remove: "The " }}</h1>
 {%- unless parentCollection.metafields["global"]["short-description"] == blank -%}
-<div class="pdp-form-product-type">{{ parentCollection.metafields["global"]["short-description"] }}</div>
+<div class="pdp-main-product-type">{{ parentCollection.metafields["global"]["short-description"] }}</div>
 {%- endunless -%}
+</div>
 
 <div id="price-wrapper" data-price-wrapper>
   <span data-product-price>{{ current_variant.price | money_without_trailing_zeros }}</span>
@@ -88,14 +97,12 @@
 </div>
 
 
-<div class="pdp-form-description">{{ product.description }}</div>
-
-{% include 'pdp-swatches' %}
-
-
+<div class="pdp-main-product-description">{{ product.description }}</div>
 
 
   {%- include 'pdp-form', item: product -%}
+
+
   </div>
   </div>
 </section>
@@ -270,33 +277,5 @@
 </div>
 
 
-
-{% comment %}
-<div class="pdp-modal">
-  <div class="pdp-modal-content">
-
-      {%- assign detailTitle = 'Care Instructions' -%}
-      {%- assign detailKey = 'care-instructions' -%}
-      
-      {% include 'product-detail-panel' %}
-    
-      <div class="product-detail-panel">
-        <h2 data-collapse-toggle class="panel-toggle collapsed">Shipping, Returns, Exchanges</h2>
-        <div data-collapse-panel class="panel-content">
-        {{ shop.metafields["global"]["shipping-returns-exchanges"] }}
-        </div>
-      </div>
-
-    {% comment %}TODO: this could potentially need to be overwritten at the product level {% endcomment %}
-    {% unless shop.metafields["global"]["warranty"] == blank %}
-      <div class="product-detail-panel">
-        <h2 data-collapse-toggle class="panel-toggle collapsed">Warranty</h2>
-        <div data-collapse-panel class="panel-content">
-        {{ shop.metafields["global"]["warranty"] }}
-        </div>
-      </div>
-      {% endunless %}
-
-  </div>
-</div>
-{% endcomment %}
+{%- include 'pdp-modal', id: 'shipping' -%}
+{%- include 'pdp-modal', id: 'size-fit-guide' -%}

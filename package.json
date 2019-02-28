@@ -9,5 +9,8 @@
   "devDependencies": {
     "@shopify/slate-tools": "^1.0.0-beta.15",
     "merge-files": "^0.1.1"
+  },
+  "dependencies": {
+    "flickity": "^2.2.0"
   }
 }
