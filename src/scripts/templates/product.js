@@ -1,14 +1,14 @@
 import '../../styles/templates/product.scss'
 
-import pdp_gallery from '../sections/pdp-gallery'
+import pdpGallery from '../sections/pdp-gallery'
 import '../sections/pdp-form'
 import '../sections/pdp-callout-galleries'
 import '../sections/pdp-material'
-import pdp_stories from '../sections/pdp-stories'
-import '../sections/pdp-cross-sell'
+import pdpStories from '../sections/pdp-stories'
+import pdpCrossSell from '../sections/pdp-cross-sell'
 import '../sections/pdp-size-fit-modal'
 
-import pdp_modal from '../sections/pdp-modal'
+import pdpModal from '../sections/pdp-modal'
 
 // import '../sections/pdp-swatches'
 
@@ -21,9 +21,10 @@ $(document).ready(function(){
 
 
 	// New PDP functions ~ 2/2019
-	pdp_stories(document.querySelector('.pdp-stories'));
-	document.querySelectorAll('.pdp-gallery').forEach(el => { pdp_gallery(el, viewers); });
-	document.querySelectorAll('.pdp-modal-link').forEach(el => { pdp_modal(el); });
+	pdpStories(document.querySelector('.pdp-stories'));
+	pdpCrossSell(document.querySelector('.pdp-cross-sell'));
+	document.querySelectorAll('.pdp-gallery').forEach(el => { pdpGallery(el, viewers); });
+	document.querySelectorAll('.pdp-modal-link').forEach(el => { pdpModal(el); });
 	//
 
 

@@ -1,1 +1,21 @@
-<script>console.log('PDP Cross Sell')</script>
+<div class="section-heading">
+  <h2 class="title">You May Also Like</h2>
+</div>
+
+
+<div class="pdp-cross-sell">
+
+{%- for product in collection.products limit: 3 -%}
+  <article class="product" data-bxhover-1551366567137.4377="true">
+  <a class="product-link" href="/collections/mens-travel-bags/products/hanover-600d-recycled-poly-navy" data-list-name="Shop All Mens Products" data-product-name="The Hanover - 600D Recycled Poly - Navy" data-product-price="128.00" data-product-type="The Hanover" data-product-sku="850180007142" data-product-position="4"><div class="image">
+      <img src="//cdn.shopify.com/s/files/1/2185/1497/products/side-hanover-600d-recycled-poly-navy-backpack-lo-and-sons_360x360.jpg?v=1519107128" alt="Side - The Hanover - 600D Recycled Poly - Navy - Backpack - Lo &amp; Sons">
+    </div><h3 class="title">Hanover</h3>
+    <p class="product-color">Navy</p>
+    <p class="product-material">600D Recycled Poly</p>
+    <div class="price"><span class="regular-price">$128</span></div>
+  </a>
+</article>
+{%- endfor -%}
+
+
+</div>
