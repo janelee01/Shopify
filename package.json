@@ -3,14 +3,21 @@
   "version": "0.0.13",
   "scripts": {
     "start": "slate-tools start --skipFirstDeploy",
+    "deploy": "slate-tools deploy",
     "build:vendors": "node scripts/create-vendor-bundle.js",
-    "build": "slate-tools build"
+    "build": "slate-tools build",
+    "lint": "slate-tools lint --scripts"
   },
   "devDependencies": {
     "@shopify/slate-tools": "^1.0.0-beta.15",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "merge-files": "^0.1.1"
   },
   "dependencies": {
-    "flickity": "^2.2.0"
+    "flickity": "^2.2.0",
+    "imageviewer": "github:amritk/ImageViewer#master"
   }
 }
