@@ -33,7 +33,7 @@ body{
 	margin-bottom: 40px;
 }
 .breadcrumb--center{
-	text-align: left;
+	justify-content: flex-start; 
 }
 .alt-payment-list--center{
 	text-align: left;
@@ -54,6 +54,9 @@ body{
 	.btn,
 	.field__input{
 		border-radius: 0;
+	}
+	.field__caret{
+		border: 0;
 	}
 }
 .main{
