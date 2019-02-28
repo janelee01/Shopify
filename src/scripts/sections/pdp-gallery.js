@@ -1,3 +1,5 @@
+import 'imageviewer/imageviewer.min'
+
 export default (el, viewers) => {
   // Add in module JS code here
 
@@ -43,7 +45,7 @@ export default (el, viewers) => {
 
 
 		    		// 		if(!viewer){
-		    		// 			var $img = path_element.querySelector('.pdp-gallery-featured img');	
+		    		// 			var $img = path_element.querySelector('.pdp-gallery-featured img');
 
 
 		    		// 			// Change the image src
@@ -52,9 +54,9 @@ export default (el, viewers) => {
 
 		    		// 			viewer = ImageViewer($img);
 		    		// 		}else{
-		    					
 
-		    					
+
+
 
 		    		// 		}
 
@@ -80,7 +82,7 @@ export default (el, viewers) => {
 		    	);
 
 
-		    	
+
 
 
 

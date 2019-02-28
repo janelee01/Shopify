@@ -1,3 +1,5 @@
+import Flickity from 'flickity'
+
 export default el => {
   // Add in module JS code here
 

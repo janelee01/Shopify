@@ -12,13 +12,9 @@ import pdpModal from '../sections/pdp-modal'
 
 // import '../sections/pdp-swatches'
 
-import '../vendor/imageviewer.min'
-
-
 var viewers = [];
 
 $(document).ready(function(){
-
 
 	// New PDP functions ~ 2/2019
 	pdpStories(document.querySelector('.pdp-stories'));
@@ -52,8 +48,8 @@ $(document).ready(function(){
 			comparePrice = '';
 			$('.discount-badge, .discount-label').addClass('is-hidden');
 		}
-		
-		// update the regular price element 
+
+		// update the regular price element
 		if( comparePrice == '' ){
 			$('[data-compare-price]').addClass('is-hidden');
 		}else{
@@ -113,7 +109,7 @@ $(document).ready(function(){
 		}else{
 			$('[data-wl-expected]').text('');
 		}
-		
+
 	};
 
 	var updateDataLayer = function(){
@@ -171,7 +167,7 @@ $(document).ready(function(){
 	}
 
 	if( $('[data-product-json]').length ){
-		var productJson = JSON.parse($('[data-product-json]').text().trim());	
+		var productJson = JSON.parse($('[data-product-json]').text().trim());
 	}
 
 	// on page load
@@ -223,12 +219,12 @@ $(document).ready(function(){
 	    updatePricing(siblingId);
 
 	    // toggle Add to cart / Join waitlist visibility
-	    updateCta(); 
+	    updateCta();
 
 	    // update dataLayer values
 	    updateDataLayer();
 
-	    // update waitlist 
+	    // update waitlist
 	    $('#wl-image').attr('src', siblingsJson[siblingId].featured_image);
 	    $('#wl-product').val(siblingId);
 	    updateWaitlistMeta();
@@ -283,8 +279,8 @@ $(document).ready(function(){
 	    updateFinalSaleMessage();
 
 	});
-	
-	
+
+
 	$('body').on('click', '.variant-option', function(e){
 	    e.preventDefault();
 	    var $btn = $(this);
@@ -310,13 +306,13 @@ $(document).ready(function(){
     			if( $(this).text().trim() == selectedString ){
     				$variants.val($(this).attr('value'));
     			}
-    		});  
+    		});
     		// update the featured image and hidden image field
     		for (var i = 0; i < productJson.variants.length; i++) {
     			if( productJson.variants[i].id == $variants.val() ){
     				var variantImage = productJson.variants[i].featured_image.src;
-    				$('[data-product-featured-image]').attr('src', variantImage); 		
-    				$('[data-variant-image]').val(variantImage); 		
+    				$('[data-product-featured-image]').attr('src', variantImage);
+    				$('[data-variant-image]').val(variantImage);
     			}
     		};
 	    }
