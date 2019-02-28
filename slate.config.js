@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+  'network.externalTesting': false,
   'webpack.extend': {
     'module': {
       'rules': [{

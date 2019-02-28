@@ -6,6 +6,7 @@
     "deploy:staging": "slate-tools deploy --env=staging",
     "deploy:production": "slate-tools deploy --env=production",
     "build:vendors": "node scripts/create-vendor-bundle.js",
+    "update:paths": "cp dist/snippets/script-tags.liquid src/snippets/script-tags.liquid",
     "build": "slate-tools build",
     "lint": "slate-tools lint --scripts"
   },
