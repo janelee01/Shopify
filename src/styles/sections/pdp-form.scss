@@ -6,7 +6,7 @@
  *
  * Please only use one level of nesting where possible
  * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to 
+ * Couple media queries inside the declaration in which it relates to
  * Use existing color variables (see /local/base/_variables)
  * Add to existing type variables (see /local/base/_variables)
  * Review and use existing media queries where possible
@@ -21,7 +21,6 @@
   margin-bottom: 20px;
 }
 
-
 .pdp-form-description{
   color: #666;
 }
@@ -34,7 +33,6 @@
 
 .pdp-form-add-to-cart{
 
-  background-color: #00AEEF;
   color: white;
   margin: 0;
   margin-bottom: 5px;
@@ -60,31 +58,75 @@
 
 #add-to-cart{
 
-  background-color: #00AEEF;
+  position: relative;
+  background-color: $brand-blue;
+
+  &:hover{
+    background-color: $brand-black;
+  }
 
   select{
     width: auto;
-    padding: 0 20px;
-    background-color: #00AEEF;
+    padding: 0 30px;
+    margin: 0;
     border: 0;
     outline: 0;
     color: white;
     border-radius: 0;
     -webkit-appearance: none;
     -webkit-border-radius: 0px;
+    background-color: transparent;
   }
+
+  button{
+    position: relative;
+    background-color: transparent;
+    border: 0;
+    color: white;
+
+    &:hover{
+      background: transparent;
+    }
+
+  }
+
+  button:before{
+    content: '';
+    display: block;
+    width: 1px;
+    position: absolute;
+    height: 40px;
+    top: 10px;
+    left: 0px;
+    background-color: white;
+  }
+
+  button:hover{
+    background: inherit;
+  }
+
+  .pdp-chevron-down{
+    top: 23px;
+    left: 54px;
+    position: absolute;
+  }
+
+  .pdp-chevron-down:before{
+    color: white;
+  }
+
 }
 
 
 .pdp-form-option-group{
 
-  border-bottom: 1px solid $gray-lighter;
+  //border-bottom: 1px solid $gray-lighter;
   padding: $mobile-gutter/2 $mobile-gutter;
   margin-left: -$mobile-gutter;
   margin-right: -$mobile-gutter;
 
   &:first-child{
-    border-top: 1px solid $gray-lighter;
+    //border-top: 1px solid $gray-lighter;
   }
 
   @media (min-width: $breakpoint){
@@ -98,4 +140,21 @@
 
   }
 
+}
+
+.pdp-chevron::before {
+    height: 50px;
+    border-style: solid;
+    border-width: 0.10em 0.10em 0 0;
+    content: '';
+    display: block;
+    height: 0.45em;
+    position: relative;
+    top: 0.15em;
+    transform: rotate(-45deg);
+    vertical-align: top;
+    width: 0.45em;
+    text-align: center;
+    color: #ccc;
+    margin: auto;
 }

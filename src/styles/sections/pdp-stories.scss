@@ -6,7 +6,7 @@
  *
  * Please only use one level of nesting where possible
  * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to 
+ * Couple media queries inside the declaration in which it relates to
  * Use existing color variables (see /local/base/_variables)
  * Add to existing type variables (see /local/base/_variables)
  * Review and use existing media queries where possible
@@ -27,9 +27,16 @@
   }
 
 
- .pdp-stories article{
+.pdp-stories article{
+
   width: calc(33% - 20px);
   margin-right: 10px;
+  text-align: center;
+
+  h4{
+    font-size: $font-size-sm;
+    margin-top: 10px;
+  }
 
   @media ( max-width: 768px ) {
   	width: 70%;

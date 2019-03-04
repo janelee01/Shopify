@@ -1,3 +1,11 @@
+{% comment %}
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Hardcoded include, should be made dynamic!
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+{% endcomment %}
+{%- include 'pdp-data-catalina' -%}
+
+
 {%- assign parentCollection = false -%}
 {%- assign referringCollectionHandle = false -%}
 
@@ -50,18 +58,16 @@
 {%- endfor -%}
 {%- endcapture -%}
 
-
-
-
 <div itemscope itemtype="http://schema.org/Product">
   {%- include 'pdp-main' -%}
 
-
   <div class="container container-xl">
 	{%- include 'pdp-callout-galleries' -%}
+  {%- include 'pdp-callout-galleries', alternate: true -%}
 	{%- include 'pdp-material' -%}
-    {%- include 'pdp-stories' -%}
-	{%- include 'pdp-testimonials', testimonials: pdp_testimonials -%}
+  {%- include 'pdp-see-how-to-pack-it' -%}
+  {%- include 'pdp-stories' -%}
+	{%- include 'pdp-testimonials', testimonials: pdp_testimonials_data -%}
 	{%- include 'pdp-cross-sell', collection: parentCollection -%}
 
   </div>
@@ -74,3 +80,13 @@
 
 {%- include 'pdp-modal', id: 'shipping' -%}
 {%- include 'pdp-modal', id: 'size-fit', collection: parentCollection -%}
+
+{%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
+<script>
+  var video1Embed = '{{ parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" }}';
+</script>
+<div id="product-video">
+  <div id="product-video-container"></div>
+  <a href="#" class="panel-close"><span class="sr-only">close</span></a>
+</div>
+{%- endunless -%}

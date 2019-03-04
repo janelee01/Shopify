@@ -16,10 +16,21 @@
     margin-right: 10px;
 
     img{
-      width: 20px;
+      width: 23px;
+      height: 23px;
       border-radius: 2px;
+      display: block;
+    }
+
+    &:focus,
+    &.active{
+      outline: 2px solid $brand-blue;
     }
 
   }
-	
+
+}
+
+.pdp-selected-color{
+  margin-left: 5px;
 }

@@ -6,11 +6,29 @@
  *
  * Please only use one level of nesting where possible
  * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to 
+ * Couple media queries inside the declaration in which it relates to
  * Use existing color variables (see /local/base/_variables)
  * Add to existing type variables (see /local/base/_variables)
  * Review and use existing media queries where possible
  */
+
+.pdp-chevron-up,
+.pdp-chevron-down{
+  text-align: center;
+  display: block;
+  height: 10px;
+}
+
+.pdp-chevron-down{
+  padding-bottom: 20px;
+}
+
+
+
+
+.pdp-chevron-down::before{
+  transform: rotate(135deg);
+}
 
 
 .pdp-gallery{
@@ -23,10 +41,36 @@
 
 }
 
+.pdp-gallery-mobile{
+
+   .flickity-viewport{
+     height: auto;
+   }
+
+  .flickity-page-dots,
+  .flickity-button{
+    display: none;
+  }
+
+  @media (min-width: $breakpoint){
+    display: none;
+  }
+
+}
+
+
+ .pdp-galley-mobile img{
+    width: 70%;
+  }
+
 .pdp-gallery-featured{
+
+  display: none;
+  text-align: center;
 
   @media (min-width: $breakpoint){
     padding-left: 60px;
+    display: block;
   }
 
 }
@@ -40,23 +84,52 @@
    display: none;
 
    @media (min-width: $breakpoint){
-     display: block;
-     position: absolute;
-     top: 0;
+      position: absolute;
+      top: calc(50% - 155px);
+      display: block;
+      width: 50px;
    }
 
  }
 
- .pdp-gallery-thumbs{
 
-   max-height: 500px;
-   overflow: hidden;
+
+.pdp-gallery-thumbs{
 
   a{
     display: block;
     max-width: 50px;
     margin: 10px 0;
+
+    img{
+      width: 100%;
+    }
+
   }
+
+
+  @media (min-width: $breakpoint){
+      max-height: 310px;
+      display: block;
+      width: 50px;
+      overflow: hidden;
+   }
+}
+
+
+.pdp-gallery-thumbs-inner{
+  position: relative;
+  top: 0;
+  transition: top .3s ease-in-out;
+
+  a{
+
+  }
+
+  a.active{
+    border: 2px solid $brand-blue;
+  }
+
 }
 
 .pdp-gallery-thumbs-video{

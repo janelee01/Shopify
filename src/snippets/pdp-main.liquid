@@ -13,7 +13,7 @@
   <div class="product-main__featured">
   {%- include 'pdp-gallery', item: product -%}
   </div>
-  
+
   <div class="product-main__holder">
 
 <div class="pdp-main-product-heading">
@@ -24,7 +24,6 @@
 </div>
 
 <div id="price-wrapper" data-price-wrapper>
-  <span data-product-price>{{ current_variant.price | money_without_trailing_zeros }}</span>
   {%- if current_variant.compare_at_price > current_variant.price -%}
     {%- assign showSaleElements = true -%}
   {%- endif -%}
@@ -35,12 +34,42 @@
         {%- assign discountAmount = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0 -%}
       {%- endif -%}
     </s>
-    <span class="experiment-wrapper-baseline"> 
-      <span class="discount-label{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>% off</span> 
+    <span data-product-price>{{ current_variant.price | money_without_trailing_zeros }}</span>
+    <span class="experiment-wrapper-baseline">
+      <span class="discount-label{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>% off</span>
     </span>
     <span class="experiment-wrapper-alternate">
       <span class="discount-badge{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>%<br />OFF</span>
   </span>
+
+
+
+  {% if true or product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
+<a href="#" class="pdp-main-product-yotpo yotpo">
+    {% assign reviews_average = product.metafields.yotpo.reviews_average | default: 4.5 %}
+    {% assign reviews_average_int = reviews_average | floor %}
+
+    {% assign reviews_average_dec = reviews_average_int | minus: reviews_average_int  %}
+    {% assign empty_stars = 5  %}
+
+    <span class="pdp-main-product-yotpo-stars">
+    {% for i in (1..reviews_average_int)  %}
+      <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+    {% assign empty_stars = empty_stars | minus: 1  %}
+    {% endfor %}
+    {% if reviews_average_dec %}
+    {% assign empty_stars = empty_stars | minus: 1  %}
+      <span class="yotpo-icon yotpo-icon-half-star rating-star pull-left"></span>
+    {% endif %}
+    {% for i in (1..empty_stars)  %}
+      <span class="yotpo-icon yotpo-icon-empty-star rating-star pull-left"></span>
+    {% endfor %}
+    </span>
+
+    <span class="pdp-main-product-yotpo-reviews">{{ product.metafields.yotpo.reviews_count | default: 2 }} Reviews</span>
+</a>
+{% endif %}
+
 </div>
 
 
@@ -59,7 +88,7 @@
 
 <div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
 
-  
+
 
   <meta itemprop="name" content="{{ product.title }}">
   <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
@@ -73,9 +102,9 @@
       <meta itemprop="ratingCount" content="{{ product.metafields.yotpo.reviews_count }}">
       </div>
     {% endif %}
-   
 
-  {% comment %} 
+
+  {% comment %}
   <div class="gallery-container is-loading" id="product-galleries">
     {% for siblingProduct in parentCollection.products %}
       {% if siblingsList contains siblingProduct.id %}
@@ -99,9 +128,9 @@
     {% endfor %}
     <div class="loading"></div>
   </div>
-  {% endcomment %} 
-  
-  {% comment %} 
+  {% endcomment %}
+
+  {% comment %}
     {% if featured_image != blank %}
       <img src="{{ featured_image | img_url: '480x480' }}" alt="{{ featured_image.alt | escape }}" data-product-featured-image>
     {% endif %}
@@ -118,7 +147,7 @@
       </ul>
     {% endif %}
   {% endcomment %}
-  
+
   <div class="container">
 
     {%- capture siblingsJson -%}
@@ -150,7 +179,7 @@
       {%- for siblingProduct in parentCollection.products -%}
         {%- for variant in siblingProduct.variants -%}
           {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
-{{ variant.id }}| 
+{{ variant.id }}|
           {%- endif -%}
         {%- endfor -%}
       {%- endfor -%}

@@ -8,7 +8,6 @@
 
 {%- if(stories) -%}
 
-
 <div class="section-heading">
   <h2 class="title">Stories</h2>
 </div>
@@ -21,10 +20,10 @@
   <article>
 
     <figure>
-      {{ article | featured_image | img_url: 'large' | img_tag }}
+      {{ article | featured_image | img_url: '380x215', crop: 'center' | img_tag }}
     </figure>
 
-    <p class="description">{{ article.excerpt_or_content }}</p>
+    <h4>{{ article.title }}</h4>
 
   </article>
 

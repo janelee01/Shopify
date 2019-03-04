@@ -33,19 +33,34 @@
     {{ siblingProduct.featured_image | img_url: 'original' | img_tag }}
   </div>
 
+  <div class="pdp-gallery-mobile">
+    {%- for image in siblingProduct.images -%}
+      {{ image | img_url: 'original' | img_tag }}
+    {%- endfor -%}
+  </div>
 
   <div class="pdp-gallery-thumbs-wrapper">
 
+    <a href="#" class="pdp-chevron-up"></a>
+
     <div class="pdp-gallery-thumbs">
 
+      <div class="pdp-gallery-thumbs-inner">
+
 {%- for image in siblingProduct.images -%}
-    <a data-src="{{ image | img_url: 'original' }}">{{ image | img_url | img_tag }}</a>
+      <a href="#" data-src="{{ image | img_url: 'original' }}">{{ image | img_url: '100x100', crop: 'center' | img_tag }}</a>
 {%- endfor -%}
+
+      </div>
 
     </div>
 
+    <span href="#" class="pdp-chevron-down"></span>
 
-    <a class="pdp-gallery-thumbs-video">{% include 'icon-play' %}</a>
+    {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
+    <a href="#" id="product-video-trigger" class="pdp-gallery-thumbs-video">{% include 'icon-play' %}</a>
+    {%- endunless -%}
+
 
   </div>
 

@@ -6,7 +6,7 @@
  *
  * Please only use one level of nesting where possible
  * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to 
+ * Couple media queries inside the declaration in which it relates to
  * Use existing color variables (see /local/base/_variables)
  * Add to existing type variables (see /local/base/_variables)
  * Review and use existing media queries where possible
@@ -14,6 +14,10 @@
 
 
  .pdp-cross-sell{
+
+  article{
+    text-align: center;
+  }
 
    .flickity-viewport{
      height: auto;

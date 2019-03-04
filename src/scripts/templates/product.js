@@ -2,10 +2,11 @@ import '../../styles/templates/product.scss'
 
 import pdpGallery from '../sections/pdp-gallery'
 import '../sections/pdp-form'
-import '../sections/pdp-callout-galleries'
+import pdpCalloutGalleries from '../sections/pdp-callout-galleries'
 import '../sections/pdp-material'
 import pdpStories from '../sections/pdp-stories'
 import pdpCrossSell from '../sections/pdp-cross-sell'
+import pdpTestimonials from '../sections/pdp-testimonials'
 import '../sections/pdp-size-fit-modal'
 
 import pdpModal from '../sections/pdp-modal'
@@ -19,10 +20,23 @@ $(document).ready(function(){
 	// New PDP functions ~ 2/2019
 	pdpStories(document.querySelector('.pdp-stories'));
 	pdpCrossSell(document.querySelector('.pdp-cross-sell'));
-	document.querySelectorAll('.pdp-gallery').forEach(el => { pdpGallery(el, viewers); });
+  pdpTestimonials(document.querySelector('.pdp-testimonials'));
+
+  document.querySelectorAll('.pdp-callout-galleries').forEach(el => { pdpCalloutGalleries(el, viewers); });
+  document.querySelectorAll('.pdp-gallery').forEach(el => { pdpGallery(el, viewers); });
 	document.querySelectorAll('.pdp-modal-link').forEach(el => { pdpModal(el); });
 	//
 
+
+
+  $('.pdp-main-product-yotpo').click(
+    function(){
+      var st = $('#site-footer').offset().top;
+      $('html, body').animate({scrollTop: st}, 'slow');
+
+      return false;
+    }
+  );
 
 
 	// Below is jQuery grabbed from previous version of Lo & Sons
@@ -186,7 +200,19 @@ $(document).ready(function(){
 	    $('.pdp-swatch').removeClass('active');
 	    $(this).addClass('active');
 
-	    // replace chosen color
+	    // get the selected color
+      var selectedColor =  $(this).find('img').data('color-label');
+
+      // find out which option has been clicked (option 1 or 2)
+      var optionNumber = $('.pdp-swatches').index($(this).parents('.pdp-swatches'));
+
+      // update selected color in correpondent option
+      $('.configuration-label .pdp-selected-color').text('');
+      $('.configuration-label').eq(optionNumber).find('.pdp-selected-color').text(selectedColor);
+
+      // configuration-label
+
+
 	    $('#current-option span').text( $(this).find('img').data('color-label') );
 
 	    // replace options in our Size selector. hard coded for single option variants

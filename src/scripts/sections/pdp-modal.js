@@ -2,43 +2,33 @@ export default el => {
   // Add in module JS code here
 
   el.addEventListener(
-  	
-  	'click',
 
-  	e => {
+    'click',
 
-      e.preventDefault();
+    e => {
+      e.preventDefault()
 
-      let $a = e.target;
+      let $a = e.target
 
-      let data_modal = $a.getAttribute('data-modal');
+      let dataModal = $a.getAttribute('data-modal')
 
-      let modal_id = `pdp-modal-${data_modal}`;
+      let modalId = `pdp-modal-${dataModal}`
 
-      let $modal = document.getElementById(modal_id);
+      let $modal = document.getElementById(modalId)
 
-      if(!$modal) return console.warn(`modal id ${modal_id} not found!`);
+      if (!$modal) return console.warn(`modal id ${modalId} not found!`)
 
+      $modal.classList.add('active')
 
-      $modal.classList.add('active');
-
-
-      $modal.querySelector('.pdp-modal-close').addEventListener(
+      $modal.querySelector('.panel-close').addEventListener(
 
         'click',
 
         e => {
-
-        	document.querySelector('.pdp-modal.active').classList.remove('active');
+          document.querySelector('.pdp-modal.active').classList.remove('active')
         }
 
-
-      );
-
-      return;
-
-  	}
-  );
-  
-
+      )
+    }
+  )
 }

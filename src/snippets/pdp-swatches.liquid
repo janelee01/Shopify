@@ -6,7 +6,7 @@
 	<ul class="pdp-swatches">
 		{%- for siblingProduct in parentCollection.products -%}{% comment %} all products of this type {% endcomment %}
 			{%- if siblingsList contains siblingProduct.id -%}{% comment %} make sure this product can be shown {% endcomment %}
-				{%- assign siblingUrl = siblingProduct.url -%} 
+				{%- assign siblingUrl = siblingProduct.url -%}
 				{%- if referringCollectionHandle -%}
 					{%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
 				{%- endif -%}
@@ -20,7 +20,7 @@
 		{%- for siblingProduct in parentCollection.products -%}
 			{%- if siblingsList contains siblingProduct.id -%}
 				{%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-1' -%}
-					{%- assign siblingUrl = siblingProduct.url -%} 
+					{%- assign siblingUrl = siblingProduct.url -%}
 					{%- if referringCollectionHandle -%}
 						{%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
 					{%- endif -%}
@@ -30,7 +30,7 @@
 		{%- endfor -%}
 	{%- endcapture -%}
 	{% if swatchGroup1 != blank %}{% comment %} these can be blank if the collection-aware URL filters out all products in this group {% endcomment %}
-		<p class="configuration-label">{{ swatchGroup1Label }}</p>
+		<p class="configuration-label">{{ swatchGroup1Label }}:<span class="pdp-selected-color"></span></p>
 		<ul class="pdp-swatches">
 			{{ swatchGroup1 }}
 		</ul>
@@ -39,7 +39,7 @@
 		{%- for siblingProduct in parentCollection.products -%}
 			{%- if siblingsList contains siblingProduct.id -%}
 				{%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-2' -%}
-					{%- assign siblingUrl = siblingProduct.url -%} 
+					{%- assign siblingUrl = siblingProduct.url -%}
 					{%- if referringCollectionHandle -%}
 						{%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
 					{%- endif -%}
@@ -49,7 +49,7 @@
 		{%- endfor -%}
 	{%- endcapture -%}
 	{% if swatchGroup2 != blank %}
-		<p class="configuration-label">{{ swatchGroup2Label }}</p>
+		<p class="configuration-label">{{ swatchGroup2Label }}:<span class="pdp-selected-color"></span></p>
 		<ul class="pdp-swatches">
 			{{ swatchGroup2 }}
 		</ul>
@@ -58,7 +58,7 @@
 		{%- for siblingProduct in parentCollection.products -%}
 			{%- if siblingsList contains siblingProduct.id -%}
 				{%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-3' -%}
-					{%- assign siblingUrl = siblingProduct.url -%} 
+					{%- assign siblingUrl = siblingProduct.url -%}
 					{%- if referringCollectionHandle -%}
 						{%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
 					{%- endif -%}
@@ -73,6 +73,6 @@
 			{{ swatchGroup3 }}
 		</ul>
 	{%- endif -%}
-{%- endif -%}	
+{%- endif -%}
 {% comment %}
 {% endcomment %}

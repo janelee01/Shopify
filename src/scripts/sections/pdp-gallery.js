@@ -3,101 +3,98 @@ import 'imageviewer/imageviewer.min'
 export default (el, viewers) => {
   // Add in module JS code here
 
+  let x = el
 
-  let x = el;
+  var viewer
 
-  var viewer;
+  var thumbOffset = 0
+  var thumbSize = 60
+  let visibleThumbs = 5
+  let visibleArea = thumbSize * visibleThumbs
 
+  var flkty = new Flickity(el.querySelector('.pdp-gallery-mobile'), {
+    draggable: '>1',
+    groupCells: true
+  })
 
-  let $img = el.querySelector('.pdp-gallery-featured img');
-  let src = $img.getAttribute('src');
+  // thumbsGallery(el.querySelector('.pdp-gallery-thumbs'))
 
+  let $img = el.querySelector('.pdp-gallery-featured img')
+  let src = $img.getAttribute('src')
 
-  $img.setAttribute('data-high-res-src', src);
-  var viewer = ImageViewer($img);
+  $img.setAttribute('data-high-res-src', src)
+  viewer = ImageViewer($img)
 
+  let variantId = el.getAttribute('data-sibling')
 
-  let variantId = el.getAttribute('data-sibling');
+  viewers[variantId] = viewer
 
-  viewers[variantId] = viewer;
+  el.querySelector('.pdp-chevron-down').addEventListener(
+    'click', e => {
+      e.preventDefault()
 
+      thumbOffset--
+
+      let top = (thumbOffset * thumbSize)
+
+      el.querySelector('.pdp-gallery-thumbs-inner').style.top = top + 'px'
+
+      return false
+    }
+  )
+
+  el.querySelector('.pdp-chevron-up').addEventListener(
+    'click', e => {
+      e.preventDefault()
+
+      if (thumbOffset >= 0) return
+
+      thumbOffset++
+
+      let top = (thumbOffset * thumbSize)
+
+      el.querySelector('.pdp-gallery-thumbs-inner').style.top = top + 'px'
+
+      return false
+    }
+  )
 
   el.querySelectorAll('.pdp-gallery-thumbs a').forEach(
+    $a => {
+      // Add a click event listener to each of the thumbs
+      $a.addEventListener(
 
-  	$a => {
+        'click', e => {
+          e.preventDefault()
+          let src = $a.getAttribute('data-src')
 
-  		// Add a click event listener to each of the thumbs
-  		$a.addEventListener(
+          if (el.querySelector('.pdp-gallery-thumbs a.active')) el.querySelector('.pdp-gallery-thumbs a.active').classList.remove('active')
 
-		    'click', e => {
+          $a.classList.add('active')
 
-		    	let src = $a.getAttribute('data-src');
+          // Run through click event path to search for '.pdp-gallery-featured img'
+          e.path.forEach(
+            pathElement => {
+              if (pathElement.classList && pathElement.classList.contains('pdp-gallery')) {
+                viewer.load(src, src)
+                viewer.refresh()
+              }
+            }
 
+          )
 
-		    	$a.classList.add('active');
+          return false
+        }
+      )
+    }
+  )
+}
 
-		    	// Run through click event path to search for '.pdp-gallery-featured img'
-		    	e.path.forEach(
+function thumbsGallery ($thumbGallery) {
+  var thumbOffset = 0
+  var thumbSize = 60
+  let visibleThumbs = 5
+  let visibleArea = thumbSize * visibleThumbs
 
-		    		path_element => {
-
-		    			if(path_element.classList && path_element.classList.contains('pdp-gallery')){
-
-
-		    		// 		if(!viewer){
-		    		// 			var $img = path_element.querySelector('.pdp-gallery-featured img');
-
-
-		    		// 			// Change the image src
-		    		// 			$img.setAttribute('src', src);
-								// $img.setAttribute('data-high-res-src', src);
-
-		    		// 			viewer = ImageViewer($img);
-		    		// 		}else{
-
-
-
-
-		    		// 		}
-
-		    				// viewer.resetZoom();
-		    				viewer.load(src, src);
-		    				viewer.refresh();
-
-		    				// console.log('viewer');
-		    				// console.log(viewer);
-
-
-		    				// data-high-res-src="assets/images/image_viewer/1_big.jpg"
-
-
-		    				el.querySelector('.pdp-gallery-thumbs a.active').classList.remove('active');
-
-		    				return;
-		    			}
-
-		    		}
-
-
-		    	);
-
-
-
-
-
-
-		    	return false;
-
-		    }
-
-		  );
-
-  	}
-
-  );
-
-  // var flkty = new Flickity( el, {
-  //   verticalCells: true
-  // });
-
+  $thumbGallery.querySelector('').style.marginTop = marginTop + 'px'
 }
