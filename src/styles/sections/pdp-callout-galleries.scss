@@ -6,8 +6,151 @@
  *
  * Please only use one level of nesting where possible
  * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to 
+ * Couple media queries inside the declaration in which it relates to
  * Use existing color variables (see /local/base/_variables)
  * Add to existing type variables (see /local/base/_variables)
  * Review and use existing media queries where possible
  */
+
+
+ .pdp-callout-galleries{
+
+    background-color: white;
+    position: relative;
+    margin-bottom: 40px;
+
+    &:after{
+      clear: both;
+      content: '';
+      display: block;
+    }
+
+  }
+
+
+.pdp-testimonials-texts p{
+  width: 100%;
+  text-align: center;
+}
+
+.pdp-product-features-text{
+  width: 50%;
+  float: left;
+  text-align:center;
+  padding: 150px 50px;
+
+  p{
+    font-size: $font-size-sm;
+    line-height: $line-height-lg;
+    color: $gray-light;
+  }
+
+}
+
+.pdp-callout-galleries-alternate{
+  .pdp-product-features-text{
+    float: right;
+  }
+}
+
+.pdp-product-features-carousel{
+  width: 50%;
+  float: left;
+  text-align:center;
+  position: relative;
+
+
+
+
+}
+
+
+.pdp-product-features-carousel-main{
+
+  .flickity-viewport{
+     height: auto;
+   }
+
+    .flickity-page-dots,
+    .flickity-button{
+      display: none;
+    }
+}
+
+.pdp-product-features-carousel-nav{
+  background-color: white;
+  bottom: 52px;
+  margin: 0 20px;
+
+  span{
+    text-align: center;
+    margin-right: 0!important;
+    color: $gray-light;
+    text-transform: uppercase;
+    font-size: $font-size-xs;
+    white-space: nowrap;
+
+    min-width: calc(33% - 20px);
+    margin-right: 10px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0;
+
+    @media ( max-width: 768px ) {
+      width: 70%;
+    }
+  }
+
+  span.is-selected{
+    color: $gray-darker;
+  }
+
+  span.is-selected:before{
+    background: $brand-blue;
+    width: 100%;
+    content: '';
+    height: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .flickity-button{
+    border-radius: 0;
+    background-color: white;
+    height: 100%;
+    outline: 0;
+    width: 30px;
+
+
+    &.previous{
+      left: 0!important;
+      border-right: 1px solid $gray-lighter;
+
+      &:active{
+        opacity: 1;
+      }
+
+    }
+
+    &.next{
+      right: 0!important;
+      border-left: 1px solid $gray-lighter;
+
+      &:active{
+        opacity: 1;
+      }
+
+    }
+
+    svg{
+      transform: scale(.3);
+    }
+
+  }
+
+  .flickity-button:disabled{
+    display: none;
+  }
+
+}
