@@ -1,6 +1,22 @@
-{%- assign pdp_testimatonials = '' -%}
-{%- assign pdp_testimatonials = pdp_testimatonials | append: 'https://image.jpg' -%}
-{%- assign pdp_testimatonials = pdp_testimatonials | append: '|'     | append: 'THIS IS TEXT' -%}
-{%- assign pdp_testimatonials = pdp_testimatonials | append: '[IFS]' | append: 'https://image.jpg' -%}
-{%- assign pdp_testimatonials = pdp_testimatonials | append: '|'     | append: 'THIS IS TEXT' -%}
-{%- assign pdp_testimatonials = pdp_testimatonials | split:  '[IFS]' -%}
+{%- assign pdp_testimonials_data = '' -%}
+
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: 'https://cdn.shopify.com/s/files/1/2185/1497/files/fodors_logo_3ffcc271-70c8-4fbf-8003-09fa3a260912.png' -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '|'     | append: '“Lo & Sons chose lightweight materials like nylon and canvas to help ease the load on your shoulders. Because when you’re traveling, your bag shouldn’t weigh more than the stuff it carries!”' -%}
+
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '[IFS]' | append: 'https://cdn.shopify.com/s/files/1/2185/1497/files/travelchannel_logo_e6f49a9e-766a-4cfe-83f7-560b43fbd48e.png' -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '|'     | append: '“For the mom whose purse is a black hole. How many times has mom dug through her purse, endlessly looking for something important? This cross-body bag is the perfect place for mom to store her most important travel items.”' -%}
+
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '[IFS]' | append: 'https://cdn.shopify.com/s/files/1/2185/1497/files/huffingtonpost_logo_595eeeec-4176-4bae-8901-a85ff5085efb.png' -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '|'     | append: '“Say goodbye to the days of bags falling off the side of your suitcase and spilling out over the floor (we’ve all been there,) and hello to a less painful carry on experience.”' -%}
+
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '[IFS]' | append: 'https://cdn.shopify.com/s/files/1/2185/1497/files/businessinsider_logo_84f0f17a-049f-4712-b360-f5843a57f647.png' -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '|'     | append: '“Helen Lo founded luxury bag company Lo & Sons after she couldn’t find any fashionable, functional travel bags. She convinced her sons, Derek and Jan, to quit their jobs in advertising and product design research, respectively, and get the startup off the ground in December 2010.”' -%}
+
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '[IFS]' | append: 'https://cdn.shopify.com/s/files/1/2185/1497/files/refinery29_logo_a2fa6254-0299-47dc-ab60-fea06f0f5b34.png' -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '|'     | append: '“A young New York-based brand that’s the brainchild of a mother and her two sons, both of whom have backgrounds in advertising, product design, and DJing (creative family, huh?). With dreams of building the perfect functional-yet-stylish laptop tote, the trio dreamt up a series of streamlined and minimalist designs that they describe as the little black dress of travel accessories.”' -%}
+
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '[IFS]' | append: 'https://cdn.shopify.com/s/files/1/2185/1497/files/elle_logo_68efb2d2-e7e4-45ca-8dd1-f225c4f6708d.png' -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '|'     | append: '“Now I have a new item to add to my wish list - a camera bag that’s elegant chic and not the bland backpack black neoprene I’ve been using.”' -%}
+
+
+{%- assign pdp_testimonials_data = pdp_testimonials_data | split:  '[IFS]' -%}

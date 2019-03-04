@@ -6,7 +6,7 @@ export default el => {
   // Add in module JS code here
   // el.classList.add('wilcho');
   // element argument can be a selector string
-  // for an individual element
+  // for an individual  element
 
   var $main = el.querySelector('.pdp-testimonials-texts')
   var $nav = el.querySelector('.pdp-testimonials-logos')
