@@ -6,8 +6,85 @@
  *
  * Please only use one level of nesting where possible
  * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to 
+ * Couple media queries inside the declaration in which it relates to
  * Use existing color variables (see /local/base/_variables)
  * Add to existing type variables (see /local/base/_variables)
  * Review and use existing media queries where possible
  */
+
+
+ .pdp-testimonials{
+
+  padding: 0 50px;
+
+   .flickity-viewport{
+     height: auto;
+   }
+
+    .flickity-page-dots,
+    .flickity-button{
+      display: none;
+    }
+
+
+  .pdp-testimonials-logos{
+
+    margin-bottom: 40px;
+
+  }
+
+
+  .pdp-testimonials-logos-item{
+      display: block;
+      opacity: 1;
+      width: calc(20% - 60px);
+      margin: 0 30px;
+      text-align: center;
+      transition: opacity 1s;
+
+      &:hover{
+        opacity: 1;
+      }
+
+      span:after{
+        content: '';
+        width: 0;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: $brand-blue;
+        transition: width .5s;
+      }
+
+      &.is-selected{
+        opacity: 1;
+
+        span:after{
+          width: 100%;
+        }
+
+      }
+
+      @media ( max-width: 768px ) {
+        width: 70%;
+      }
+
+    }
+
+  .pdp-testimonials-texts{
+
+    p{
+      opacity: 0;
+      transition: opacity 1s;
+
+      &.is-selected{
+
+        opacity: 1;
+
+      }
+
+    }
+
+  }
+}

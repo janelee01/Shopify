@@ -1,4 +1,3 @@
-{%- comment -%}
 <div class="section-heading">
   <h2 class="title">What Others Are Saying</h2>
 </div>
@@ -7,19 +6,39 @@
 
 {%- assign testimonials = testimonials | default: blank -%}
 
-
 <div class="pdp-testimonials">
 
-{%- for testimonial in testimonials -%} {%- assign image_src = testimonial | split: '|' | first -%} {%- assign text = testimonial | split: '|' | last -%}
+  <div class="pdp-testimonials-logos">
 
-<div>
-  <image src="{{ image_src }}" />
-  <p>{{ text }}</p>
+{%- for testimonial in testimonials -%}
+{%- assign image_src = testimonial | split: '|' | first -%} {%- assign text = testimonial | split: '|' | last -%}
+
+
+  <div class="pdp-testimonials-logos-item">
+    <span>
+      <img src="{{ image_src }}" />
+    </span>
+  </div>
+
+{%- assign image_src = nil -%} {%- assign text = nil -%}
+
+{%- endfor -%}
+
+  </div>
+
+  <div class="pdp-testimonials-texts">
+
+{%- for testimonial in testimonials -%}
+{%- assign image_src = testimonial | split: '|' | first -%} {%- assign text = testimonial | split: '|' | last -%}
+
+<p>{{ text }}</p>
+
+{%- assign image_src = nil -%} {%- assign text = nil -%}
+
+{%- endfor -%}
+
+  </div>
+
 </div>
 
-{%- assign image_src = nil -%} {%- assign text = nil -%} {%- endfor -%} {%- assign testimonials = nil -%}
-
-</div>
-
-<script>console.log('PDP Testimonials')</script>
-{%- endcomment -%}
+{%- assign testimonials = nil -%}
