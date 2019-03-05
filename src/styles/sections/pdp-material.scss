@@ -6,8 +6,125 @@
  *
  * Please only use one level of nesting where possible
  * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to 
+ * Couple media queries inside the declaration in which it relates to
  * Use existing color variables (see /local/base/_variables)
  * Add to existing type variables (see /local/base/_variables)
  * Review and use existing media queries where possible
  */
+
+ .pdp-material{
+
+  padding: 0 50px;
+
+  &:after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+   .flickity-viewport{
+     height: auto;
+   }
+
+    .flickity-button{
+      display: none;
+    }
+
+}
+
+
+.pdp-material-images{
+
+  @media (min-width: $breakpoint){
+    float: left;
+    width: 50%;
+  }
+
+
+  .flickity-page-dots{
+    @media (min-width: $breakpoint){
+      display: none;
+    }
+  }
+
+}
+
+.pdp-material-image{
+
+  width: 100%;
+  text-align: center;
+
+  @media (min-width: $breakpoint){
+    .pdp-material-image-caption{
+      display: none;
+    }
+  }
+
+}
+
+
+.pdp-material-image-caption{
+  h3{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+}
+
+.pdp-material-tiles{
+
+  display: none;
+
+  &:after{
+    content: 'flickity';
+    display: none;
+  }
+
+
+  .flickity-viewport{
+    overflow: visible;
+  }
+
+  .flickity-slider{
+    transform: none!important;
+  }
+
+
+  @media (min-width: $breakpoint){
+    display: block;
+    float: left;
+    width: 50%;
+  }
+
+}
+
+
+.pdp-material-tile{
+  position: relative!important;
+  left: 0!important;
+  opacity: .5;
+  text-align: center;
+  padding: 45px 69px;
+  cursor: pointer;
+  transition: opacity 1s;
+  border: 1px solid $gray;
+  margin-bottom: 20px;
+
+
+  &.is-selected{
+    opacity: 1;
+    background-color: white;
+    border-color: white;
+  }
+
+  h3{
+    font-weight: bold;
+  }
+
+  p{
+    color: $gray;
+    font-size: $font-size-sm;
+    line-height: $line-height-lg;
+  }
+
+}
