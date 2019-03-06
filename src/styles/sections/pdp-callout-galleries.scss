@@ -15,9 +15,9 @@
 
  .pdp-callout-galleries{
 
-    background-color: white;
+    background-color: transparent;
     position: relative;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 
     &:after{
       clear: both;
@@ -25,34 +25,61 @@
       display: block;
     }
 
+    @media (min-width: $screen-md){
+      display: flex;
+      background-color: white;
+      margin-bottom: 80px;
+    }
+
   }
 
 .pdp-product-features-text{
 
-  text-align:center;
-  padding: 50px 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 112px;
+  float: none;
 
-
-  p{
-    font-size: $font-size-sm;
-    line-height: $line-height-lg;
-    color: $gray-light;
+  h4{
+    font-size: 26px;
+    color: #2F2D2D;
+    font-weight: 500;
+    line-height: 37px;
   }
 
-  @media (min-width: $pdp-breakpoint-desktop){
+  p{
+    font-size: 14px;
+    line-height: 23px;
+    color: $gray-light;
+    font-weight: 300;
+  }
+
+  @media (min-width: $screen-xs){
+    width: 100%;
+  }
+
+  @media (min-width: $screen-md){
     width: 50%;
-    float: left;
-    padding: 150px 100px;
-    padding-bottom: 0;
   }
 
 }
 
 .pdp-callout-galleries-alternate{
+
+  flex-direction: row-reverse;
+
   .pdp-product-features-text{
-    @media (min-width: $pdp-breakpoint-desktop){
-      float: right;
+
+    @media (min-width: $screen-xs){
+      width: 100%;
     }
+
+    @media (min-width: $screen-md){
+      width: 50%;
+    }
+
   }
 }
 
@@ -62,7 +89,12 @@
   position: relative;
 
 
-  @media (min-width: $pdp-breakpoint-desktop){
+  @media (min-width: $screen-xs){
+    width: 100%;
+    float: none;
+  }
+
+  @media (min-width: $screen-md){
     width: 50%;
     float: left;
   }
@@ -71,7 +103,7 @@
   img{
     display: block;
 
-    @media (min-width: $pdp-breakpoint-desktop){
+    @media (min-width: $screen-md){
       height: 610px;
       object-fit: cover;
     }
@@ -109,13 +141,13 @@
     text-transform: uppercase;
     font-size: $font-size-sm;
 
-    @media (min-width: $pdp-breakpoint-desktop){
+    @media (min-width: $screen-md){
       display: none;
     }
 
   }
 
-  @media (min-width: $pdp-breakpoint-desktop){
+  @media (min-width: $screen-md){
     width: 100%;
     padding: 0px;
   }
@@ -132,7 +164,7 @@
   bottom: 10px;
 
 
-  @media (min-width: $pdp-breakpoint-desktop){
+  @media (min-width: $screen-md){
     display: block;
   }
 

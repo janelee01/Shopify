@@ -1,5 +1,5 @@
 {%- assign title = data[0] | default: 'NO TITLE' -%}
-{%- assign total_tiles = data | size -%}
+{%- assign total_tiles_minus_1 = data | size | minus: 1 -%}
 
 <div class="pdp-material wilzon">
 
@@ -9,11 +9,10 @@
 
   <div class="pdp-material-images">
 
-{%- for row in data -%}
-
-{{row}}=====
-{%- assign tile = row | split: '|' -%}
+{%- for i in (1..total_tiles_minus_1) -%}
+{%- assign tile = data[i] | split: '|' -%}
     <div class="pdp-material-image">
+
       <img src="{{ tile[2] }}" />
 
       <div class="pdp-material-image-caption">
@@ -27,7 +26,7 @@
 
   <div class="pdp-material-tiles">
 
-{%- for i in (2..total_tiles) -%}
+{%- for i in (1..total_tiles_minus_1) -%}
 {%- assign tile = data[i] | split: '|' -%}
     <div class="pdp-material-tile">
       <h3>{{ tile[0] }}</h3>

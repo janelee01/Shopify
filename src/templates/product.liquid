@@ -55,7 +55,11 @@
 
 {%- capture data-file -%}pdp-data-{{parentCollection.title| downcase | remove: 'the' | strip | replace: ' ', '-' }}{%- endcapture -%}
 
+{%- comment -%}
 {%- include data-file -%}
+{%- endcomment -%}
+
+{%- include 'pdp-data-waverley' -%}
 
 
 <div itemscope itemtype="http://schema.org/Product">
