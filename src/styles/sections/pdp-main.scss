@@ -30,6 +30,22 @@
 .product-main__holder{
   margin-bottom: $mobile-gutter;
 
+  @media (min-width: $pdp-breakpoint-tablet){
+    float: none;
+    width: 100%;
+    max-width: 376px;
+    padding: 0;
+    margin: auto;
+  }
+
+
+  @media (min-width: $pdp-breakpoint-desktop){
+    float: left;
+    width: 50%;
+    max-width: 50%;
+    padding: 35px 0 0 100px;
+  }
+
   .selector-wrapper{
     label{
       display: inline-block;
@@ -63,23 +79,6 @@
     .is-hidden{
       display: none;
     }
-  }
-
-
-  @media (min-width: $pdp-breakpoint-tablet){
-    float: none;
-    width: 100%;
-    max-width: 376px;
-    padding: 0;
-    margin: auto;
-  }
-
-
-  @media (min-width: $pdp-breakpoint-desktop){
-    float: left;
-    width: 50%;
-    max-width: 50%;
-    padding: 70px 0 0 100px;
   }
 }
 

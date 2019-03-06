@@ -41,6 +41,7 @@
     -webkit-appearance: none;
     -webkit-border-radius: 0px;
     background-color: transparent;
+    height: 50px;
   }
 
   button{
@@ -53,7 +54,6 @@
     &:hover{
       background: transparent;
     }
-
   }
 
   button:before{
@@ -61,7 +61,7 @@
     display: block;
     width: 1px;
     position: absolute;
-    height: 40px;
+    height: 30px;
     top: 10px;
     left: 0px;
     background-color: white;
@@ -72,7 +72,7 @@
   }
 
   .pdp-chevron-down{
-    top: 23px;
+    top: 18px;
     left: 54px;
     position: absolute;
   }
