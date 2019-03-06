@@ -1,116 +1,138 @@
-import 'imageviewer/imageviewer.min'
+import PhotoSwipe from 'photoswipe'
+import PhotoSwipeUI from 'photoswipe/dist/photoswipe-ui-default.js'
+import select from 'dom-select'
+import on from 'dom-event'
 
-export default (el, viewers) => {
-  if (!el) return
-  let x = el
+class ProductGallery {
+  constructor (el) {
+    this.$el = el
+    this.$thumbs = select.all('.js-pdp-gallery-thumbs a', el)
+    this.$thumbsContainer = select('.js-pdp-thumbs-container', el)
+    this.$mobileCarousel = select('.js-pdp-gallery-mobile', el)
+    this.$featuredImg = select('.js-pdp-gallery-featured img', el)
+    this.$arrowUp = select('.js-gallery-up', el)
+    this.$arrowDown = select('.js-gallery-down', el)
+    this.$swipeTemplate = select('.js-pswp')
 
-  let viewer
+    this.thumbOffset = 0
+    this.thumbSize = 60
+    this.visibleThumbs = 5
+    this.visibleArea = this.thumbSize * this.visibleThumbs
+    this.totalThumbs = this.$thumbs.length
+    this.variantId = this.$el.getAttribute('data-sibling')
 
-  let thumbOffset = 0
-  let thumbSize = 60
-  let visibleThumbs = 5
-  let visibleArea = thumbSize * visibleThumbs
-  let totalThumbs = el.querySelectorAll('.pdp-gallery-thumbs a').length
+    this.setBindings()
+    this.setListeners()
+    this.setInitStates()
+    this.initResponsiveSlider()
+  }
 
-  let flkty = new Flickity(el.querySelector('.pdp-gallery-mobile'), {
-    draggable: '>1',
-    groupCells: true,
-    contain: true
-  })
+  setBindings () {
+    this.onThumbClick = this.onThumbClick.bind(this)
+  }
 
-  // thumbsGallery(el.querySelector('.pdp-gallery-thumbs'))
-
-  let $img = el.querySelector('.pdp-gallery-featured img')
-  let src = $img.getAttribute('src')
-
-  $img.setAttribute('data-high-res-src', src)
-  viewer = ImageViewer($img)
-
-  let variantId = el.getAttribute('data-sibling')
-
-  viewers[variantId] = viewer
-
-  el.querySelector('.pdp-chevron-down').addEventListener(
-    'click', e => {
+  setListeners () {
+    this.$thumbs.forEach(el => (
+      on(el, 'click', this.onThumbClick)
+    ))
+    on(this.$arrowUp, 'click', e => {
       e.preventDefault()
-
-      if (totalThumbs + thumbOffset - visibleThumbs <= 1) el.querySelector('.pdp-chevron-down').setAttribute('disabled', true)
-
-      if (totalThumbs + thumbOffset - visibleThumbs <= 0) return
-
-      el.querySelector('.pdp-chevron-up').setAttribute('disabled', false)
-
-      thumbOffset--
-
-      let top = (thumbOffset * thumbSize)
-
-      el.querySelector('.pdp-gallery-thumbs-inner').style.top = top + 'px'
-
-      return false
-    }
-  )
-
-  el.querySelector('.pdp-chevron-up').setAttribute('disabled', true)
-
-  el.querySelector('.pdp-chevron-up').addEventListener(
-    'click', e => {
+      this.updateThumbScroller('up')
+    })
+    on(this.$arrowDown, 'click', e => {
       e.preventDefault()
+      this.updateThumbScroller('down')
+    })
+    on(this.$featuredImg, 'click', e => {
+      this.initPhotoSwipe()
+    })
+  }
 
-      if (thumbOffset >= 0) return
+  setInitStates () {
+    this.$thumbs[0].classList.add('active')
+    this.$arrowUp.setAttribute('disabled', true)
+  }
 
-      thumbOffset++
-
-      if (thumbOffset === 0) el.querySelector('.pdp-chevron-up').setAttribute('disabled', true)
-
-      el.querySelector('.pdp-chevron-down').setAttribute('disabled', false)
-
-      let top = (thumbOffset * thumbSize)
-
-      el.querySelector('.pdp-gallery-thumbs-inner').style.top = top + 'px'
-
-      return false
+  updateThumbScroller (direction = 'down') {
+    if (direction === 'up') {
+      if (this.thumbOffset >= 0) {
+        return
+      }
+      if (!this.thumbOffset) {
+        this.$arrowUp.setAttribute('disabled', true)
+      }
+      this.thumbOffset++
+      this.$arrowDown.setAttribute('disabled', false)
+    } else {
+      this.$arrowUp.setAttribute('disabled', false)
+      if (this.totalThumbs + this.thumbOffset - this.visibleThumbs <= 0) {
+        return
+      }
+      this.thumbOffset--
     }
-  )
 
-  // First thumb should be set to "active" as default
-  el.querySelectorAll('.pdp-gallery-thumbs a')[0].classList.add('active')
+    this.$thumbsContainer.style.top = (
+      `${(this.thumbOffset * this.thumbSize)}px`
+    )
+  }
 
-  el.querySelectorAll('.pdp-gallery-thumbs a').forEach(
-    $a => {
-      // Add a click event listener to each of the thumbs
-      $a.addEventListener(
+  onThumbClick (e) {
+    e.preventDefault()
+    const target = slate.utils.getClosest(e.target, 'a')
+    this.$thumbs.forEach(el => el.classList.remove('active'))
+    target.classList.add('active')
+    this.$featuredImg.src = target.getAttribute('data-src')
+  }
 
-        'click', e => {
-          e.preventDefault()
-          let src = $a.getAttribute('data-src')
+  initResponsiveSlider () {
+    this.flkty = new Flickity(this.$mobileCarousel, {
+      draggable: '>1',
+      groupCells: true,
+      contain: true
+    })
+  }
 
-          if (el.querySelector('.pdp-gallery-thumbs a.active')) el.querySelector('.pdp-gallery-thumbs a.active').classList.remove('active')
+  initPhotoSwipe () {
+    const el = document.querySelector('.pswp')
+    const index = this.$thumbs.reduce((active, el, i) => {
+      if (el.classList.contains('active')) {
+        active = i
+      }
+      return active
+    }, 0)
 
-          $a.classList.add('active')
+    const items = this.$thumbs.map(el => ({
+      msrc: el.getAttribute('data-small'),
+      src: el.getAttribute('data-src'),
+      w: el.getAttribute('data-width'),
+      h: el.getAttribute('data-height')
+    }))
 
-          // Run through click event path to search for '.pdp-gallery-featured img'
-          e.path.forEach(
-            pathElement => {
-              if (pathElement.classList && pathElement.classList.contains('pdp-gallery')) {
-                viewer.load(src, src)
-                viewer.refresh()
-              }
-            }
-
-          )
-
-          return false
+    this.photoSwipe = new PhotoSwipe(
+      this.$swipeTemplate,
+      PhotoSwipeUI,
+      items,
+      {
+        index,
+        showHideOpacity: true,
+        showAnimationDuration: 500,
+        loop: false,
+        history: false,
+        closeOnVerticalDrag: false,
+        allowPanToNext: false,
+        pinchToClose: false,
+        errorMsg: '<p class="pswp__error-msg">Error Message..</p>',
+        getDoubleTapZoom (e, t) {
+          return e ? 1.6 : t.initialZoomLevel < 0.7 ? 1 : 1.33
+        },
+        getThumbBoundsFn (e) {
+          return { x: 0, y: 0, w: 50 }
         }
-      )
-    }
-  )
+      }
+    )
+
+    this.photoSwipe.init()
+  }
 }
 
-function thumbsGallery ($thumbGallery) {
-  let thumbOffset = 0
-  let thumbSize = 60
-  let visibleThumbs = 5
-  let visibleArea = thumbSize * visibleThumbs
-
-  $thumbGallery.querySelector('').style.marginTop = marginTop + 'px'
-}
+export default (el) => new ProductGallery(el)

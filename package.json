@@ -16,12 +16,16 @@
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
+    "file-loader": "^3.0.1",
     "merge-files": "^0.1.1"
   },
   "dependencies": {
+    "dom-event": "^1.0.0",
+    "dom-select": "^1.1.1",
     "flickity": "^2.2.0",
     "flickity-as-nav-for": "^2.0.1",
     "flickity-fade": "^1.0.0",
-    "imageviewer": "github:amritk/ImageViewer#master"
+    "imageviewer": "github:amritk/ImageViewer#master",
+    "photoswipe": "^4.1.3"
   }
 }
