@@ -1,21 +1,6 @@
-/**
- * Even though we use Post CSS and BEM as documented in our
- * best practices, we are going to use SASS with -VERY- minimal
- * nesting for this project so it feels inline with the rest of the
- * site code to some degree.
- *
- * Please only use one level of nesting where possible
- * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to
- * Use existing color variables (see /local/base/_variables)
- * Add to existing type variables (see /local/base/_variables)
- * Review and use existing media queries where possible
- */
-
- .pdp-form-title{
+.pdp-form-title{
    color: red;
  }
-
 
 .pdp-form-price{
   margin-bottom: 20px;
@@ -33,16 +18,18 @@
 }
 
 #add-to-cart{
-
+  max-width: 320px;
   position: relative;
   background-color: $brand-blue;
   transition: background-color .5s;
+  margin-bottom: 10px;
 
   &:hover{
     background-color: $brand-black;
   }
 
   select{
+    @extend %h3;
     z-index: 1;
     width: auto;
     padding: 0 30px;
@@ -57,6 +44,7 @@
   }
 
   button{
+    @extend %h3;
     position: relative;
     background-color: transparent;
     border: 0;
@@ -95,9 +83,7 @@
 
 }
 
-
 .pdp-form-option-group{
-
   //border-bottom: 1px solid $gray-lighter;
   padding: $mobile-gutter/2 $mobile-gutter;
   margin-left: -$mobile-gutter;
@@ -120,9 +106,7 @@
     &:first-child{
       border-top: 0;
     }
-
   }
-
 
   @media (min-width: $pdp-breakpoint-tablet){
     border: 0;
@@ -137,7 +121,6 @@
       content: '';
       display: block;
     }
-
   }
 
   .configuration-label{
@@ -147,7 +130,6 @@
   .pdp-swatches-wrapper{
     width: 66%;
   }
-
 }
 
 .pdp-chevron::before {
@@ -169,7 +151,6 @@
 
 
 #price-wrapper{
-
   .discount-label{
     font-size: 14px;
     margin-left: 10px;
@@ -179,5 +160,4 @@
     font-size: 14px;
     margin-right: 10px!important;
   }
-
 }

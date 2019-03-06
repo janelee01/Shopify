@@ -1,80 +1,36 @@
-/**
- * Even though we use Post CSS and BEM as documented in our
- * best practices, we are going to use SASS with -VERY- minimal
- * nesting for this project so it feels inline with the rest of the
- * site code to some degree.
- *
- * Please only use one level of nesting where possible
- * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to
- * Use existing color variables (see /local/base/_variables)
- * Add to existing type variables (see /local/base/_variables)
- * Review and use existing media queries where possible
- */
-
+.product-main{
+  @media (min-width: $pdp-breakpoint-tablet) {
+    margin-top: 80px;
+  }
+}
 .pdp-container{
-
   margin: auto;
   width: 100%;
-
-
   @media (min-width: $pdp-breakpoint-mobile) {
-
     padding: 0 20px;
-
   }
-
   @media (min-width: $pdp-breakpoint-tablet) {
-
     padding: 0 30px;
-
   }
-
-
   @media (min-width: $pdp-breakpoint-desktop) {
-
     max-width: 1440px;
     padding: 0 110px;
-
   }
-
 }
 
 .product-main__featured{
-
-  margin: 0 -70px;
   width: calc(100% + 140px);
   float: none;
-
-  @media (min-width: $pdp-breakpoint-tablet){
-
-
-
-  }
-
-
   @media (min-width: $pdp-breakpoint-desktop){
-
     float:left;
     width:50%;
-
   }
-
 }
 
 .product-main__holder{
-
   margin-bottom: $mobile-gutter;
 
-  h1{
-    font-weight: bold;
-    font-size: 32px;
-    line-height: normal;
-    margin-bottom: 10px;
-  }
-
   .selector-wrapper{
-
     label{
       display: inline-block;
     }
@@ -98,7 +54,7 @@
   #price-wrapper{
     border-bottom: 0;
     padding-bottom: 0;
-    margin-bottom: $mobile-gutter;
+    margin-bottom: 22px;
 
     *{
       line-height: normal;
@@ -107,58 +63,45 @@
     .is-hidden{
       display: none;
     }
-
   }
 
 
   @media (min-width: $pdp-breakpoint-tablet){
-
     float: none;
     width: 100%;
     max-width: 376px;
     padding: 0;
     margin: auto;
-
   }
 
 
   @media (min-width: $pdp-breakpoint-desktop){
-
     float: left;
-	  width: 50%;
+    width: 50%;
     max-width: 50%;
-	  padding: 70px 0 0 100px;
-
+    padding: 70px 0 0 100px;
   }
-
 }
 
-
 .pdp-main-product-heading{
-
   display: none;
 
   h1{
-    font-weight: normal;
+    @extend %h1;
+    margin-bottom: 5px;
   }
 
   @media (min-width: $pdp-breakpoint-desktop){
-
     display: block;
-    margin-bottom: 10px;
-
+    margin-bottom: 13px;
   }
-
 }
 
 .pdp-main-product-type{
-  text-transform: uppercase;
-  font-size: $font-size-sm;
+  @extend %h4;
 }
 
-
 .pdp-main-product-heading-mobile{
-
   display: block;
   text-align: center;
   padding-top: $mobile-gutter;
@@ -167,46 +110,31 @@
     margin-bottom: 0;
   }
 
-  h4{
-
-  }
-
   @media (min-width: $pdp-breakpoint-desktop){
-
     display: none;
-
   }
-
 }
 
 .pdp-main-product-description{
-
   color: $gray;
-  font-size: $font-size-sm;
+  max-width: 320px;
 
   @media (min-width: $pdp-breakpoint){
-
     display: block;
-
   }
 
   p{
+    @extend %p2;
     margin-bottom: 10px;
-
     @media (min-width: $pdp-breakpoint){
       margin-bottom: 20px;
     }
-
   }
-
 }
 
-
 .pdp-form-product-type{
-
   margin-bottom: 20px;
   text-transform: uppercase;
-
 }
 
 .pdp-shipping-returns-warranty-care{
@@ -217,16 +145,13 @@
   &:hover{
     color: #333;
   }
-
 }
-
 
 .pdp-main-product-yotpo{
   display: inline-block;
   margin-left: 5px;
   padding-left: 5px;
   border-left: 1px solid $gray-light;
-
 
   @media (min-width: $pdp-breakpoint){
     margin-left: 10px;
@@ -247,7 +172,6 @@
 
 }
 
-
 .pdp-main-product-yotpo-reviews{
   margin-left: 10px!important;
   display: inline-block;
@@ -255,7 +179,6 @@
   color: $gray!important;
   font-size: $font-size-xs!important;
 }
-
 
 .pdp-chevron-down::before{
   transform: rotate(135deg);
@@ -288,7 +211,6 @@
 .pdp-chevron-down:active{
   transform: scale(.9);
 }
-
 
 .section-heading{
   text-align: center;

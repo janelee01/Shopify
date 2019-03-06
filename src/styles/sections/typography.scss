@@ -1,0 +1,65 @@
+
+%h1{
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+
+  @media (min-width: $screen-s-md){
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+%h2{
+  font-size: 18px;
+  line-height: 28px;
+
+  @media (min-width: $screen-s-md){
+    font-size: 26px;
+    line-height: 28px;
+  }
+}
+
+%h3{
+  font-size: 15px;
+  line-height: 20px;
+
+  @media (min-width: $screen-s-md){
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+%h4{
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  @media (min-width: $screen-s-md){
+    font-size: 13px;
+  }
+}
+%p1{
+  font-size: 16px;
+  line-height: 24px;
+
+  @media (min-width: $screen-s-md){
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+%p2{
+  font-size: 15px;
+  line-height: 20px;
+
+  @media (min-width: $screen-s-md){
+    font-size: 14px;
+    line-height: 23px;
+  }
+}
+%p3{
+  font-size: 12px;
+  line-height: 15px;
+}

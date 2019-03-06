@@ -1,5 +1,5 @@
 $pdp-breakpoint:                  768px;
-$pdp-breakpoint-desktop:          1440px;
+$pdp-breakpoint-desktop:          768px;
 $pdp-breakpoint-tablet:           768px;
 $pdp-breakpoint-mobile:           320px;
 
@@ -10,6 +10,7 @@ $pdp-desktop-gutter:    110px;
 @import '~photoswipe/dist/photoswipe.css';
 @import '~photoswipe/dist/default-skin/default-skin.css';
 @import '../sections/variables.scss';
+@import '../sections/typography.scss';
 @import '../sections/pdp-photoswipe-overrides.scss';
 @import '../sections/pdp-main.scss';
 @import '../sections/pdp-gallery.scss';
