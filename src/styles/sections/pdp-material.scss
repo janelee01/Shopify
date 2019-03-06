@@ -1,54 +1,38 @@
-/**
- * Even though we use Post CSS and BEM as documented in our
- * best practices, we are going to use SASS with -VERY- minimal
- * nesting for this project so it feels inline with the rest of the
- * site code to some degree.
- *
- * Please only use one level of nesting where possible
- * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to
- * Use existing color variables (see /local/base/_variables)
- * Add to existing type variables (see /local/base/_variables)
- * Review and use existing media queries where possible
- */
-
- .pdp-material{
-
+.pdp-material{
   &:after{
     content: '';
     display: block;
     clear: both;
   }
 
-   .flickity-viewport{
+  .flickity-viewport{
      height: auto;
-   }
-
-    .flickity-button{
-      display: none;
-    }
-
-}
-
-
-.pdp-material-images{
-
-  @media (min-width: $pdp-breakpoint-desktop){
-    float: left;
-    width: 50%;
   }
 
+  .flickity-button{
+    display: none;
+  }
+}
+
+.pdp-material-inner{
+  @media (min-width: $pdp-breakpoint-desktop){
+    display: flex;
+  }
+}
+.pdp-material-images{
+  @media (min-width: $pdp-breakpoint-desktop){
+    width: calc(50% - 20px);
+    margin-right: 20px;
+  }
 
   .flickity-page-dots{
     @media (min-width: $pdp-breakpoint-desktop){
       display: none;
     }
   }
-
 }
 
 .pdp-material-image{
-
   width: 100%;
   text-align: center;
 
@@ -58,26 +42,37 @@
     }
   }
 
+  &:before{
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+  img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
 }
 
 
 .pdp-material-image-caption{
   h3{
-    font-size: 18px;
-    font-weight: bold;
+    @extend %h2;
     margin: 20px 0;
   }
 }
 
 .pdp-material-tiles{
-
   display: none;
 
   &:after{
     content: 'flickity';
     display: none;
   }
-
 
   .flickity-viewport{
     overflow: visible;
@@ -87,15 +82,13 @@
     transform: none!important;
   }
 
-
   @media (min-width: $pdp-breakpoint-desktop){
-    display: block;
-    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     width: 50%;
   }
-
 }
-
 
 .pdp-material-tile{
   position: relative!important;
@@ -109,7 +102,6 @@
   transition: border .5s;
   margin-bottom: 20px;
 
-
   &.is-selected{
     opacity: 1;
     background-color: white;
@@ -118,13 +110,12 @@
   }
 
   h3{
-    font-weight: bold;
+    @extend %h2;
   }
 
   p{
     color: $gray;
-    font-size: $font-size-sm;
-    line-height: $line-height-lg;
+    @extend %p2;
+    margin-bottom: 0;
   }
-
 }

@@ -52,6 +52,7 @@
 
   .pdp-testimonials-texts{
     p{
+      @extend %p1;
       opacity: 0;
       transition: opacity 1s;
       text-align: center;

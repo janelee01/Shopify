@@ -1,59 +1,37 @@
-/**
- * Even though we use Post CSS and BEM as documented in our
- * best practices, we are going to use SASS with -VERY- minimal
- * nesting for this project so it feels inline with the rest of the
- * site code to some degree.
- *
- * Please only use one level of nesting where possible
- * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to
- * Use existing color variables (see /local/base/_variables)
- * Add to existing type variables (see /local/base/_variables)
- * Review and use existing media queries where possible
- */
+.pdp-callout-galleries{
+  background-color: transparent;
+  position: relative;
+  margin-bottom: 40px;
 
-
- .pdp-callout-galleries{
-
-    background-color: transparent;
-    position: relative;
-    margin-bottom: 40px;
-
-    &:after{
-      clear: both;
-      content: '';
-      display: block;
-    }
-
-    @media (min-width: $screen-md){
-      display: flex;
-      background-color: white;
-      margin-bottom: 80px;
-    }
-
+  &:after{
+    clear: both;
+    content: '';
+    display: block;
   }
 
-.pdp-product-features-text{
+  @media (min-width: $screen-md){
+    display: flex;
+    background-color: white;
+    margin-bottom: 80px;
+  }
+}
 
+.pdp-product-features-text{
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
   padding: 0 112px;
   float: none;
+  color: $gray;
 
   h4{
-    font-size: 26px;
-    color: #2F2D2D;
-    font-weight: 500;
-    line-height: 37px;
+    @extend %h2;
   }
 
   p{
-    font-size: 14px;
-    line-height: 23px;
-    color: $gray-light;
-    font-weight: 300;
+    @extend %p2;
+    color: $gray;
   }
 
   @media (min-width: $screen-xs){
@@ -63,31 +41,24 @@
   @media (min-width: $screen-md){
     width: 50%;
   }
-
 }
 
 .pdp-callout-galleries-alternate{
-
   flex-direction: row-reverse;
 
   .pdp-product-features-text{
-
     @media (min-width: $screen-xs){
       width: 100%;
     }
-
     @media (min-width: $screen-md){
       width: 50%;
     }
-
   }
 }
 
 .pdp-product-features-carousel{
-
   text-align:center;
   position: relative;
-
 
   @media (min-width: $screen-xs){
     width: 100%;
@@ -99,7 +70,6 @@
     float: left;
   }
 
-
   img{
     display: block;
 
@@ -107,24 +77,18 @@
       height: 610px;
       object-fit: cover;
     }
-
   }
-
 }
 
-
 .pdp-product-features-carousel-main{
-
   height: 100%;
 
   .flickity-viewport{
      height: auto;
    }
-
 }
 
 .pdp-product-features-carousel-main-slide{
-
   width: 80%;
   padding: 10px;
 
@@ -144,14 +108,12 @@
     @media (min-width: $screen-md){
       display: none;
     }
-
   }
 
   @media (min-width: $screen-md){
     width: 100%;
     padding: 0px;
   }
-
 }
 
 .pdp-product-features-carousel-nav{
@@ -163,24 +125,21 @@
   z-index: 9;
   bottom: 10px;
 
-
   @media (min-width: $screen-md){
     display: block;
   }
 
   span{
+    @extend %h4;
     text-align: center;
-    margin-right: 0!important;
+    margin-right: 0 !important;
     color: $gray-light;
-    text-transform: uppercase;
-    font-size: $font-size-xs;
     white-space: nowrap;
-
     min-width: calc(33% - 20px);
     margin-right: 10px;
     display: inline-block;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px 25px;
 
     @media ( max-width: 768px ) {
       width: 70%;
@@ -238,5 +197,4 @@
   .flickity-button:disabled{
     display: none;
   }
-
 }
