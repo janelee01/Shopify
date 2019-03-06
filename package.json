@@ -3,11 +3,11 @@
   "version": "0.0.13",
   "scripts": {
     "start": "slate-tools start --skipFirstDeploy",
-    "deploy:staging": "slate-tools deploy --env=staging",
-    "deploy:production": "slate-tools deploy --env=production",
+    "deploy:staging": "npm run build; slate-tools deploy --env=staging",
+    "deploy:production": "npm run build; slate-tools deploy --env=production",
     "build:vendors": "node scripts/create-vendor-bundle.js",
     "update:paths": "cp dist/snippets/script-tags.liquid src/snippets/script-tags.liquid",
-    "build": "slate-tools build",
+    "build": "slate-tools build --env=staging",
     "lint": "slate-tools lint --scripts"
   },
   "devDependencies": {
