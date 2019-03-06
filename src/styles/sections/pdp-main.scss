@@ -12,8 +12,6 @@
  * Review and use existing media queries where possible
  */
 
-
-
 .product-main__featured{
 
   @media (min-width: $breakpoint){
@@ -132,13 +130,21 @@
 
 .pdp-main-product-description{
 
-  display: none;
   color: $gray;
   font-size: $font-size-sm;
 
   @media (min-width: $breakpoint){
 
     display: block;
+
+  }
+
+  p{
+    margin-bottom: 10px;
+
+    @media (min-width: $breakpoint){
+      margin-bottom: 20px;
+    }
 
   }
 
@@ -166,12 +172,20 @@
 
 .pdp-main-product-yotpo{
   display: inline-block;
-  margin-left: 20px;
-  padding-left: 10px;
+  margin-left: 5px;
+  padding-left: 5px;
   border-left: 1px solid $gray-light;
+
+
+  @media (min-width: $breakpoint){
+    margin-left: 10px;
+    padding-left: 10px;
+  }
 
   .yotpo-icon{
     color: $brand-blue;
+    font-size: 14px;
+    line-height: 20px!important;
   }
 
   &:hover{
@@ -187,13 +201,23 @@
   margin-left: 10px!important;
   display: inline-block;
   text-decoration: underline;
-  color: $brand-blue!important;
+  color: $gray!important;
+  font-size: $font-size-xs!important;
 }
 
+
+.pdp-chevron-down::before{
+  transform: rotate(135deg);
+}
+
+.pdp-chevron-up::before{
+  transform: rotate(-45deg);
+}
 
 .pdp-chevron-right::before,
 .pdp-chevron-up::before,
 .pdp-chevron-down::before {
+    transition: transform .5s;
     height: 50px;
     border-style: solid;
     border-width: 0.10em 0.10em 0 0;
@@ -202,10 +226,30 @@
     height: 0.45em;
     position: relative;
     top: 0.15em;
-    transform: rotate(-45deg);
     vertical-align: top;
     width: 0.45em;
     text-align: center;
     color: #ccc;
     margin: auto;
+}
+
+.pdp-chevron-up:active,
+.pdp-chevron-down:active{
+  transform: scale(.9);
+}
+
+
+.section-heading{
+  text-align: center;
+
+  @media (min-width: $breakpoint){
+    margin-bottom: 90px!important;
+    margin-top: 90px!important;
+  }
+
+}
+
+.section-heading h2.title{
+  max-width: 700px;
+  margin: auto;
 }

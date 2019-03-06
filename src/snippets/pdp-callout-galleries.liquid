@@ -1,6 +1,13 @@
 <script src="https://unpkg.com/flickity@2.2.0/dist/flickity.pkgd.min.js"></script>
 
+{% unless alternate %}
+<div class="section-heading">
+  <h2 class="title">Designed for life on the road with thoughtful features and a place for all your essentials.</h2>
+</div>
+{%- endunless -%}
+
 <div class="pdp-callout-galleries{% if alternate %} pdp-callout-galleries-alternate{% endif %}">
+
 
   <div class="pdp-product-features-text">
 
@@ -14,10 +21,26 @@
 
     <div class="pdp-product-features-carousel-main">
 
-      <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-beach.jpeg">
-      <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-street.jpeg">
-      <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-terrace.jpeg">
-      <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-beach.jpeg">
+
+      <div class="pdp-product-features-carousel-main-slide">
+        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-beach.jpeg">
+        <span>Pass through sleeve</span>
+      </div>
+
+      <div class="pdp-product-features-carousel-main-slide">
+        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-street.jpeg">
+        <span>Messenger strap</span>
+      </div>
+
+      <div class="pdp-product-features-carousel-main-slide">
+        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-terrace.jpeg">
+        <span>Carry on friend</span>
+      </div>
+
+      <div class="pdp-product-features-carousel-main-slide">
+        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-beach.jpeg">
+        <span>Pass through sleeve</span>
+      </div>
 
     </div>
 

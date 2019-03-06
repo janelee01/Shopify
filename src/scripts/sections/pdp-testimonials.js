@@ -1,12 +1,7 @@
-// import Flickity from 'flickity'
+import Flickity from 'flickity'
 
 export default el => {
-  // 1st carousel, main
-
-  // Add in module JS code here
-  // el.classList.add('wilcho');
-  // element argument can be a selector string
-  // for an individual  element
+  if (!el) return
 
   var $main = el.querySelector('.pdp-testimonials-texts')
   var $nav = el.querySelector('.pdp-testimonials-logos')

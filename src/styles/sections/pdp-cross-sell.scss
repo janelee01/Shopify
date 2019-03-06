@@ -13,30 +13,52 @@
  */
 
 
- .pdp-cross-sell{
+.pdp-cross-sell{
+
+  margin-bottom: 60px;
+
+  a{
+
+    &:hover{
+      text-decoration: none;
+    }
+
+  }
 
   article{
     text-align: center;
   }
 
-   .flickity-viewport{
+  .flickity-viewport{
      height: auto;
-   }
+  }
 
-    .flickity-page-dots,
-    .flickity-button{
+  .flickity-page-dots,
+  .flickity-button{
       display: none;
-    }
-
   }
 
+}
 
- .pdp-cross-sell article{
-  width: calc(33% - 20px);
-  margin-right: 10px;
+.pdp-cross-sell article{
 
-  @media ( max-width: 768px ) {
-  	width: 70%;
+  width: 66%;
+
+  @media (min-width: $breakpoint){
+    width: calc(33% - 20px);
+    margin-right: 10px;
   }
 
+}
+
+
+.pdp-cross-sell-product-type{
+  font-size: 14px;
+  color: $gray;
+  margin-bottom: 5px;
+}
+
+.pdp-cross-sell-product-colors{
+  font-size: 12px;
+  color: $gray-dark;
 }

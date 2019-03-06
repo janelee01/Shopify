@@ -7,6 +7,7 @@ export default el => {
   // for an individual element
   var flkty = new Flickity(el, {
     draggable: '>1',
-    groupCells: true
+    groupCells: true,
+    contain: true
   })
 }

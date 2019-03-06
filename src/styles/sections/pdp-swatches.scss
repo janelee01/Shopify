@@ -13,18 +13,23 @@
 
   .pdp-swatch{
     float: left;
-    margin-right: 10px;
+    margin-right: 5px;
 
     img{
       width: 23px;
       height: 23px;
       border-radius: 2px;
       display: block;
+      transition: border .7s;
+      border: 2px solid transparent;
     }
 
     &:focus,
     &.active{
-      outline: 2px solid $brand-blue;
+      img{
+        border: 2px solid $brand-blue;
+      }
+
     }
 
   }

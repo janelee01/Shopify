@@ -26,6 +26,11 @@
     padding-bottom: 20px;
     margin-bottom: 20px;
     font-weight: bold;
+    text-align: left;
+  }
+
+  p.description{
+   text-align: left;
   }
 
 
@@ -38,6 +43,27 @@
 
   dd{
     margin-bottom: 20px;
+  }
+
+
+  .carousel-control.left{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    background-color: transparent;
+
+    &:after{
+    }
+  }
+
+  .carousel-control.right{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    background-color: transparent;
+
+    &:after{
+    }
   }
 
 

@@ -1,29 +1,3 @@
-{% comment %}
-<div class="gallery-container is-loading" id="product-galleries">
-		{% for siblingProduct in parentCollection.products %}
-			{% if siblingsList contains siblingProduct.id %}
-			<div class="product-gallery {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
-				<div class="filmroll" id="gallery-{{ siblingProduct.id }}">
-				{% for image in siblingProduct.images %}
-					{% if image.alt contains 'swatch' %}{% continue %}{% endif %}
-					<div class="item">
-						<figure>
-							<span class="{% if forloop.first %}master{% else %}resize{% endif %}">
-								<img src="{{ image.src | img_url: '375x500' }}" alt="{{ image.alt | escape }}">
-							</span>
-						</figure>
-					</div>
-				{% endfor %}
-				</div>
-				<a href="#" id="gallery-{{ siblingProduct.id }}-prev" class="gallery-control prev"><span class="sr-only">previous slide</span></a>
-				<a href="#" id="gallery-{{ siblingProduct.id }}-next" class="gallery-control next"><span class="sr-only">next slide</span></a>
-			</div>
-			{% endif %}
-		{% endfor %}
-		<div class="loading"></div>
-	</div>
-
-{% endcomment %}
 
 {% for siblingProduct in parentCollection.products %}
 {% if siblingsList contains siblingProduct.id %}
@@ -55,7 +29,7 @@
 
     </div>
 
-    <span href="#" class="pdp-chevron-down"></span>
+    <a href="#" class="pdp-chevron-down"></a>
 
     {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
     <a href="#" id="product-video-trigger" class="pdp-gallery-thumbs-video">{% include 'icon-play' %}</a>

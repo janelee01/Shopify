@@ -76,11 +76,16 @@
     p{
       opacity: 0;
       transition: opacity 1s;
+      text-align: center;
 
       &.is-selected{
 
         opacity: 1;
 
+      }
+
+      @media (min-width: $breakpoint){
+        width: 100%;
       }
 
     }

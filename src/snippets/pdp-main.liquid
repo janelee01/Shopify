@@ -1,5 +1,3 @@
-
-
 <section class="product-main">
   <div class="product-main__container container container-xl">
 
@@ -46,22 +44,22 @@
 
   {% if true or product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
 <a href="#" class="pdp-main-product-yotpo yotpo">
-    {% assign reviews_average = product.metafields.yotpo.reviews_average | default: 4.5 %}
-    {% assign reviews_average_int = reviews_average | floor %}
+    {% assign reviewsAverage = product.metafields.yotpo.reviewsAverage | default: 4.5 %}
+    {% assign reviewsAverageInt = reviewsAverage | floor %}
 
-    {% assign reviews_average_dec = reviews_average_int | minus: reviews_average_int  %}
-    {% assign empty_stars = 5  %}
+    {% assign reviewsAverageDec = reviewsAverageInt | minus: reviewsAverageInt  %}
+    {% assign emptyStars = 5  %}
 
     <span class="pdp-main-product-yotpo-stars">
-    {% for i in (1..reviews_average_int)  %}
+    {% for i in (1..reviewsAverageInt)  %}
       <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
-    {% assign empty_stars = empty_stars | minus: 1  %}
+    {% assign emptyStars = emptyStars | minus: 1  %}
     {% endfor %}
-    {% if reviews_average_dec %}
-    {% assign empty_stars = empty_stars | minus: 1  %}
+    {% if reviewsAverageDec %}
+    {% assign emptyStars = emptyStars | minus: 1  %}
       <span class="yotpo-icon yotpo-icon-half-star rating-star pull-left"></span>
     {% endif %}
-    {% for i in (1..empty_stars)  %}
+    {% for i in (1..emptyStars)  %}
       <span class="yotpo-icon yotpo-icon-empty-star rating-star pull-left"></span>
     {% endfor %}
     </span>
@@ -98,7 +96,7 @@
 
   {% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
     <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-      <meta itemprop="ratingValue" content="{{ product.metafields.yotpo.reviews_average }}">
+      <meta itemprop="ratingValue" content="{{ product.metafields.yotpo.reviewsAverage }}">
       <meta itemprop="ratingCount" content="{{ product.metafields.yotpo.reviews_count }}">
       </div>
     {% endif %}
@@ -253,3 +251,10 @@
 </div>
 
 
+{%- assign emptyStars = nil -%}
+{%- assign showSaleElements = nil -%}
+{%- assign discountAmount = nil -%}
+{%- assign reviewsAverage = nil -%}
+{%- assign reviewsAverageInt = nil -%}
+{%- assign reviewsAverageDec = nil -%}
+{%- assign emptyStars = nil -%}

@@ -1,10 +1,10 @@
+{%- assign testimonials = testimonials | default: blank -%}
+
 <div class="section-heading">
   <h2 class="title">What Others Are Saying</h2>
 </div>
 
-{% comment %} In pdp-testimonials.liquid {% endcomment%}
-
-{%- assign testimonials = testimonials | default: blank -%}
+{%- unless testimonials == blank -%}
 
 <div class="pdp-testimonials">
 
@@ -38,6 +38,12 @@
 {%- endfor -%}
 
   </div>
+</div>
+
+{%- endunless -%}
+
+<div id="reviews-widget">
+  <div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
 </div>
 
 {%- assign testimonials = nil -%}

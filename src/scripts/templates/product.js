@@ -7,7 +7,9 @@ import '../sections/pdp-material'
 import pdpStories from '../sections/pdp-stories'
 import pdpCrossSell from '../sections/pdp-cross-sell'
 import pdpTestimonials from '../sections/pdp-testimonials'
+import pdpMaterial from '../sections/pdp-material'
 import '../sections/pdp-size-fit-modal'
+import pdpSeeHowToPackit from '../sections/pdp-see-how-to-pack-it'
 
 import pdpModal from '../sections/pdp-modal'
 
@@ -17,10 +19,19 @@ var viewers = [];
 
 $(document).ready(function(){
 
+  var flkty = new Flickity(document.querySelector('.pdp-form-option-group'), {watchCSS: true, prevNextButtons: false, pageDots: false, contain: true, freeScroll: true})
+
+  // var flkty = new Flickity(
+  //   document.querySelector('.pdp-form-option-group'),
+  //   { watchCSS: true }
+  // );
+
 	// New PDP functions ~ 2/2019
 	pdpStories(document.querySelector('.pdp-stories'));
 	pdpCrossSell(document.querySelector('.pdp-cross-sell'));
   pdpTestimonials(document.querySelector('.pdp-testimonials'));
+  pdpMaterial(document.querySelector('.pdp-material'));
+  pdpSeeHowToPackit(document.querySelector('.pdp-see-how-to-pack-it'));
 
   document.querySelectorAll('.pdp-callout-galleries').forEach(el => { pdpCalloutGalleries(el, viewers); });
   document.querySelectorAll('.pdp-gallery').forEach(el => { pdpGallery(el, viewers); });
@@ -31,8 +42,8 @@ $(document).ready(function(){
 
   $('.pdp-main-product-yotpo').click(
     function(){
-      var st = $('#site-footer').offset().top;
-      $('html, body').animate({scrollTop: st}, 'slow');
+      var st = $('#reviews-widget').offset().top - 200;
+      $('html, body').animate({scrollTop: st}, 1000);
 
       return false;
     }

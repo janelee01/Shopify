@@ -3,7 +3,7 @@
 
 
 {%- assign stories = 'travel-inspiration/a-week-in-paris-alice-gao,travel-tips-guides/traveling-with-kids-9to5chic,travel-inspiration/creative-workshop-morocco-atelier-dore' | split: ',' -%}
-{%- assign stories_count = stories | size -%}
+{%- assign storiesCount = stories | size -%}
 
 
 {%- if(stories) -%}
@@ -20,10 +20,14 @@
   <article>
 
     <figure>
+      <a href="{{ article.url }}">
       {{ article | featured_image | img_url: '380x215', crop: 'center' | img_tag }}
+      </a>
     </figure>
 
-    <h4>{{ article.title }}</h4>
+    <h4>
+      <a href="{{ article.url }}">{{ article.title }}</a>
+    </h4>
 
   </article>
 
@@ -32,5 +36,6 @@
 </div>
 {%- endif -%}
 
-
-<script>console.log('PDP Stories')</script>
+{%- assign handle = nil -%}
+{%- assign stories = nil -%}
+{%- assign storiesCount = nil -%}

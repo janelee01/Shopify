@@ -1,3 +1,31 @@
-.pdp-see-how-to-pack-it video{
-  width: 100%;
+.pdp-see-how-to-pack-it-video{
+
+  position: relative;
+
+  video{
+    width: 100%;
+  }
+
+  &.playing{
+
+    .pdp-see-how-to-pack-it-video-trigger{
+      opacity: 0;
+    }
+
+  }
+
+  .pdp-see-how-to-pack-it-video-trigger{
+    width: 100px;
+    height: 100px;
+    z-index: 9;
+    display: block;
+    position: absolute;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+  }
+}
+
+
+.pdp-see-how-to-pack-it-video-trigger{
+  transition: opacity .5s;
 }

@@ -1,18 +1,18 @@
 import 'imageviewer/imageviewer.min'
 
 export default (el, viewers) => {
-  // Add in module JS code here
-
+  if (!el) return
   let x = el
 
-  var viewer
+  let viewer
 
-  var thumbOffset = 0
-  var thumbSize = 60
+  let thumbOffset = 0
+  let thumbSize = 60
   let visibleThumbs = 5
   let visibleArea = thumbSize * visibleThumbs
+  let totalThumbs = el.querySelectorAll('.pdp-gallery-thumbs a').length
 
-  var flkty = new Flickity(el.querySelector('.pdp-gallery-mobile'), {
+  let flkty = new Flickity(el.querySelector('.pdp-gallery-mobile'), {
     draggable: '>1',
     groupCells: true
   })
@@ -33,6 +33,12 @@ export default (el, viewers) => {
     'click', e => {
       e.preventDefault()
 
+      if (totalThumbs + thumbOffset - visibleThumbs <= 1) el.querySelector('.pdp-chevron-down').setAttribute('disabled', true)
+
+      if (totalThumbs + thumbOffset - visibleThumbs <= 0) return
+
+      el.querySelector('.pdp-chevron-up').setAttribute('disabled', false)
+
       thumbOffset--
 
       let top = (thumbOffset * thumbSize)
@@ -43,6 +49,8 @@ export default (el, viewers) => {
     }
   )
 
+  el.querySelector('.pdp-chevron-up').setAttribute('disabled', true)
+
   el.querySelector('.pdp-chevron-up').addEventListener(
     'click', e => {
       e.preventDefault()
@@ -51,6 +59,10 @@ export default (el, viewers) => {
 
       thumbOffset++
 
+      if (thumbOffset === 0) el.querySelector('.pdp-chevron-up').setAttribute('disabled', true)
+
+      el.querySelector('.pdp-chevron-down').setAttribute('disabled', false)
+
       let top = (thumbOffset * thumbSize)
 
       el.querySelector('.pdp-gallery-thumbs-inner').style.top = top + 'px'
@@ -58,6 +70,9 @@ export default (el, viewers) => {
       return false
     }
   )
+
+  // First thumb should be set to "active" as default
+  el.querySelectorAll('.pdp-gallery-thumbs a')[0].classList.add('active')
 
   el.querySelectorAll('.pdp-gallery-thumbs a').forEach(
     $a => {
@@ -91,8 +106,8 @@ export default (el, viewers) => {
 }
 
 function thumbsGallery ($thumbGallery) {
-  var thumbOffset = 0
-  var thumbSize = 60
+  let thumbOffset = 0
+  let thumbSize = 60
   let visibleThumbs = 5
   let visibleArea = thumbSize * visibleThumbs
 

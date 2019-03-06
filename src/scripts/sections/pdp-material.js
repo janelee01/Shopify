@@ -1,6 +1,7 @@
 import Flickity from 'flickity'
 
 export default el => {
+  if (!el) return
   var $main = el.querySelector('.pdp-material-images')
   var $nav = el.querySelector('.pdp-material-tiles')
   let n = 0

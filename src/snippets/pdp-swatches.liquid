@@ -1,6 +1,7 @@
 {%- assign swatchGroup1Label = parentCollection.metafields["global"]["swatch-group-1-label"] -%}
 {%- assign swatchGroup2Label = parentCollection.metafields["global"]["swatch-group-2-label"] -%}
 {%- assign swatchGroup3Label = parentCollection.metafields["global"]["swatch-group-3-label"] -%}
+
 {%- if swatchGroup2Label == blank -%}{% comment %} no extra grouping, show them all {% endcomment %}
 	{%- if swatchGroup1Label != blank -%}<p class="configuration-label">{{ swatchGroup1Label }}</p>{%- endif -%}
 	<ul class="pdp-swatches">
@@ -30,10 +31,12 @@
 		{%- endfor -%}
 	{%- endcapture -%}
 	{% if swatchGroup1 != blank %}{% comment %} these can be blank if the collection-aware URL filters out all products in this group {% endcomment %}
-		<p class="configuration-label">{{ swatchGroup1Label }}:<span class="pdp-selected-color"></span></p>
-		<ul class="pdp-swatches">
-			{{ swatchGroup1 }}
-		</ul>
+    <div class="pdp-swatches-wrapper">
+		  <p class="configuration-label">{{ swatchGroup1Label }}:<span class="pdp-selected-color"></span></p>
+		  <ul class="pdp-swatches">
+			 {{ swatchGroup1 }}
+		  </ul>
+    </div>
 	{%- endif -%}
 	{%- capture swatchGroup2 -%}
 		{%- for siblingProduct in parentCollection.products -%}
@@ -49,10 +52,12 @@
 		{%- endfor -%}
 	{%- endcapture -%}
 	{% if swatchGroup2 != blank %}
-		<p class="configuration-label">{{ swatchGroup2Label }}:<span class="pdp-selected-color"></span></p>
-		<ul class="pdp-swatches">
-			{{ swatchGroup2 }}
-		</ul>
+    <div class="pdp-swatches-wrapper">
+		  <p class="configuration-label">{{ swatchGroup2Label }}:<span class="pdp-selected-color"></span></p>
+		  <ul class="pdp-swatches">
+			 {{ swatchGroup2 }}
+		  </ul>
+    </div>
 	{%- endif -%}
 	{%- capture swatchGroup3 -%}
 		{%- for siblingProduct in parentCollection.products -%}
@@ -68,11 +73,19 @@
 		{%- endfor -%}
 	{%- endcapture -%}
 	{% if swatchGroup3 != blank %}
-		<p class="configuration-label">{{ swatchGroup3Label }}</p>
-		<ul class="pdp-swatches">
-			{{ swatchGroup3 }}
-		</ul>
+		<div class="pdp-swatches-wrapper">
+      <p class="configuration-label">{{ swatchGroup3Label }}</p>
+		  <ul class="pdp-swatches">
+			 {{ swatchGroup3 }}
+		  </ul>
+    </div>
 	{%- endif -%}
 {%- endif -%}
 {% comment %}
 {% endcomment %}
+
+
+{%- assign swatchGroup1Label = nil -%}
+{%- assign swatchGroup2Label = nil -%}
+{%- assign swatchGroup3Label = nil -%}
+{%- assign siblingUrl = nil -%}
