@@ -17,7 +17,7 @@
 
     background-color: white;
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
 
     &:after{
       clear: both;
@@ -43,6 +43,7 @@
     width: 50%;
     float: left;
     padding: 150px 100px;
+    padding-bottom: 0;
   }
 
 }
@@ -64,6 +65,11 @@
   @media (min-width: $breakpoint){
     width: 50%;
     float: left;
+  }
+
+
+  img{
+    display: block;
   }
 
 }
@@ -110,9 +116,12 @@
 
 .pdp-product-features-carousel-nav{
   background-color: white;
-  bottom: 52px;
-  margin: 0 20px;
+  margin: 0 10px;
   display: none;
+  position: absolute!important;
+  width: calc(100% - 20px);
+  z-index: 9;
+  bottom: 10px;
 
 
   @media (min-width: $breakpoint){
