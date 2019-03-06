@@ -3,7 +3,9 @@ $breakpoint-mobile:   320px;
 
 @import '../sections/variables.scss';
 
-@import '../sections/imageviewer.css';
+@import '~photoswipe/dist/photoswipe.css';
+@import '~photoswipe/dist/default-skin/default-skin.css';
+@import '../sections/pdp-photoswipe-overrides.scss';
 @import '../sections/pdp-main.scss';
 @import '../sections/pdp-gallery.scss';
 @import '../sections/pdp-form.scss';
