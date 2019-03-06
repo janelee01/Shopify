@@ -1,5 +1,6 @@
 import Flickity from 'flickity'
 import AsNavFor from 'flickity-as-nav-for'
+import Sync from 'flickity-sync'
 
 export default el => {
   var $main = el.querySelector('.pdp-product-features-carousel-main')
@@ -12,7 +13,6 @@ export default el => {
   })
 
   var flktyNav = new Flickity($nav, {
-    asNavFor: $main,
     contain: true,
     pageDots: false
   })

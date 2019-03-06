@@ -1,7 +1,12 @@
 {% include 'pdp-get-sibling-products' %}
 
 {%- capture data-file -%}pdp-data-{{parentCollection.title| downcase | remove: 'the' | strip | replace: ' ', '-' }}{%- endcapture -%}
+
+{%- comment -%}
 {%- include data-file -%}
+{%- endcomment -%}
+
+{%- include 'pdp-data-waverley' -%}
 
 {% include 'pdp-photoswipe-template' %}
 
