@@ -1,94 +1,71 @@
-/**
- * Even though we use Post CSS and BEM as documented in our
- * best practices, we are going to use SASS with -VERY- minimal
- * nesting for this project so it feels inline with the rest of the
- * site code to some degree.
- *
- * Please only use one level of nesting where possible
- * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to
- * Use existing color variables (see /local/base/_variables)
- * Add to existing type variables (see /local/base/_variables)
- * Review and use existing media queries where possible
- */
-
- .pdp-testimonials{
-
+.pdp-testimonials{
   padding: 0 50px;
 
-   .flickity-viewport{
-     height: auto;
-   }
-
-    .flickity-page-dots,
-    .flickity-button{
-      display: none;
-    }
-
-
-  .pdp-testimonials-logos{
-
-    margin-bottom: 40px;
-
+  .flickity-viewport{
+    height: auto;
   }
 
+  .flickity-page-dots,
+  .flickity-button{
+    display: none;
+  }
+
+  .pdp-testimonials-logos{
+    margin-bottom: 40px;
+  }
 
   .pdp-testimonials-logos-item{
-      display: block;
+    display: block;
+    opacity: 1;
+    width: calc(20% - 60px);
+    margin: 0 30px;
+    text-align: center;
+    transition: opacity 1s;
+
+    &:hover{
       opacity: 1;
-      width: calc(20% - 60px);
-      margin: 0 30px;
-      text-align: center;
-      transition: opacity 1s;
-
-      &:hover{
-        opacity: 1;
-      }
-
-      span:after{
-        content: '';
-        width: 0;
-        height: 2px;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        background-color: $brand-blue;
-        transition: width .5s;
-      }
-
-      &.is-selected{
-        opacity: 1;
-
-        span:after{
-          width: 100%;
-        }
-
-      }
-
-      @media ( max-width: 768px ) {
-        width: 70%;
-      }
-
     }
 
-  .pdp-testimonials-texts{
+    span:after{
+      content: '';
+      width: 0;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: $brand-blue;
+      transition: width .5s;
+    }
 
+    &.is-selected{
+      opacity: 1;
+
+      span:after{
+        width: 100%;
+      }
+    }
+
+    @media (max-width: $pdp-breakpoint-tablet) {
+      width: 70%;
+    }
+  }
+
+  .pdp-testimonials-texts{
     p{
       opacity: 0;
       transition: opacity 1s;
       text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
 
       &.is-selected{
-
         opacity: 1;
-
       }
 
       @media (min-width: $pdp-breakpoint-desktop){
         width: 100%;
       }
-
     }
-
   }
 }

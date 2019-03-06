@@ -63,7 +63,7 @@
 			<meta itemprop="ratingCount" content="{{ product.metafields.yotpo.reviews_count }}">
     	</div>
     {% endif %}
-	 
+
 	<div class="gallery-container is-loading" id="product-galleries">
 		{% for siblingProduct in parentCollection.products %}
 			{% if siblingsList contains siblingProduct.id %}
@@ -87,8 +87,8 @@
 		{% endfor %}
 		<div class="loading"></div>
 	</div>
-	
-	{% comment %} 
+
+	{% comment %}
 		{% if featured_image != blank %}
 		  <img src="{{ featured_image | img_url: '480x480' }}" alt="{{ featured_image.alt | escape }}" data-product-featured-image>
 		{% endif %}
@@ -122,17 +122,17 @@
 					        {%- assign discountAmount = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0 -%}
 					      {%- endif -%}
 					    </s>
-					    <span class="experiment-wrapper-baseline"> 
-					    	<span class="discount-label{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>% off</span>	
+					    <span class="experiment-wrapper-baseline">
+					    	<span class="discount-label{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>% off</span>
 					    </span>
 					    <span class="experiment-wrapper-alternate">
 						    <span class="discount-badge{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>%<br />OFF</span>
 						</span>
 					</div>
-					
+
 					{% comment %} keep this file a little cleaner {% endcomment %}
 					{% include 'swatches' %}
-			    
+
 					<p id="current-option" class="configuration-label">Color: <span>{{ product.metafields["global"]["swatch-label"] }}</span></p>
 
 			      	<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
@@ -141,7 +141,7 @@
 				        <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
 
 				        <form action="/cart/add" method="post" enctype="multipart/form-data">
-							
+
 							{% comment %} not used for now since we only have one option. will need to reinstate if multiple options become a thing
 				        	{%- unless product.has_only_default_variant -%}
 				        		{%- for option in product.options_with_values -%}
@@ -161,9 +161,9 @@
 				        		{%- endfor -%}
 				        	{%- endunless -%}
 							{% endcomment %}
-							
+
 							<div class="selector-wrapper">
-								{%- unless product.has_only_default_variant -%} 
+								{%- unless product.has_only_default_variant -%}
 									<label for="variant-selector">Size</label>
 									<div id="variant-buttons" class="variant-buttons">
 										{%- for variant in product.variants -%}
@@ -184,7 +184,7 @@
 									{%- endfor -%}
 								</select>
 							</div>
-							
+
 							<div id="add-to-cart" {% unless current_variant.available %}{% if oosPolicy == 'soldout' %} style="display: none"{% endif %}{% endunless %}>{% comment %}hide the whole element when OOS and unavailable for a waitlist{% endcomment %}
 								<label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
 								<input type="number" id="quantity" name="quantity" value="1" min="1">
@@ -197,7 +197,7 @@
 								  {% unless current_variant.available %}style="display: none"{% endunless %}>
 								    {{ 'products.product.add_to_cart' | t }}
 								</button>
-								
+
 								<button
 									class="btn btn-lg"
 									data-add-to-waitlist
@@ -205,7 +205,7 @@
 									{% if current_variant.available %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</a>
 							</div>
 
-							<div id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div>
+							{% comment %} <div id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div> {% endcomment %}
 
 							<div class="low-stock-warning">{{ 'products.product.low_stock' | t }}</div>
 							<div class="final-sale-warning">{{ 'products.product.final_sale_html' | t }}</div>
@@ -215,7 +215,7 @@
 			        {% if section.settings.show_share_buttons %}
 			          {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
 			        {% endif %}
-				
+
 		     	</div>
 		    </div>
 		    <div class="col-sm-6 col-sm-pull-6">
@@ -232,9 +232,9 @@
 		    		{%- endunless -%}
 		    	</div>
 		    </div>
-	   		
+
 		</div>
-	  	
+
 	  	{%- assign detailTitle = 'Overview' -%}
 	  	{%- assign detailKey = 'overview' -%}
 	  	{% include 'product-detail-panel' %}
@@ -254,7 +254,7 @@
 	  	{%- assign detailTitle = 'Care Instructions' -%}
 	  	{%- assign detailKey = 'care-instructions' -%}
 	  	{% include 'product-detail-panel' %}
-		
+
 	  	<div class="product-detail-panel">
 	  	  <h2 data-collapse-toggle class="panel-toggle collapsed">Shipping, Returns, Exchanges</h2>
 	  	  <div data-collapse-panel class="panel-content">
@@ -299,16 +299,16 @@
 					    	    	// var event = new CustomEvent('reviews-received');
 					    	    	// body.dispatchEvent(event);
 					    		// }
-					    	  // } 
+					    	  // }
 					    	// });
 					    	// xhr.open("GET", "https://api.yotpo.com/v1/widget/1BRcvEm4otuzCinl2NlZx7eeyApg3H6EPGJ0Zv74/products/"+siblingIds[i]+"/reviews.json?per_page=100");
 					    	// xhr.send(data);
-					    // }; 
+					    // };
 				  	// });
 				</script>
 			</div>
 		</div>
-	  	
+
 	  	{%- unless parentCollection.metafields["global"]["press"] == blank -%}
 			<div class="product-detail-panel">
 				<h2 data-collapse-toggle class="panel-toggle collapsed">Press</h2>
@@ -319,13 +319,13 @@
 				</div>
 			</div>
 		{%- endunless -%}
-	  
+
 		{%- unless product == empty -%}
 			<script type="application/json" data-product-json>
 				{{ product | json }}
 			</script>
 		{%- endunless -%}
-		
+
 		{%- capture siblingsJson -%}
 			{
 				{%- for siblingProduct in parentCollection.products -%}
@@ -355,7 +355,7 @@
 			{%- for siblingProduct in parentCollection.products -%}
 				{%- for variant in siblingProduct.variants -%}
 					{%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
-{{ variant.id }}| 
+{{ variant.id }}|
 					{%- endif -%}
 				{%- endfor -%}
 			{%- endfor -%}

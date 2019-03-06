@@ -1,24 +1,15 @@
-/**
- * Even though we use Post CSS and BEM as documented in our
- * best practices, we are going to use SASS with -VERY- minimal
- * nesting for this project so it feels inline with the rest of the
- * site code to some degree.
- *
- * Please only use one level of nesting where possible
- * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to
- * Use existing color variables (see /local/base/_variables)
- * Add to existing type variables (see /local/base/_variables)
- * Review and use existing media queries where possible
- */
-
-
 .pdp-gallery{
   position: relative;
   display: none;
 
   &.active{
     display: block;
+
+    @media (min-width: $pdp-breakpoint-tablet){
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+    }
   }
 
   .pdp-chevron-up,
@@ -27,12 +18,9 @@
     display: block;
     height: 10px;
   }
-
 }
 
 .pdp-gallery-mobile{
-
-
   display: block;
 
   .flickity-viewport{
@@ -54,17 +42,15 @@
 
 }
 
-
 .pdp-gallery-featured{
-
   display: none;
   text-align: center;
+  width: 100%;
 
   @media (min-width: $pdp-breakpoint-desktop){
-    padding-left: 60px;
+    padding-left: 90px;
     display: block;
   }
-
 }
 
 .pdp-gallery-featured img{
@@ -72,23 +58,18 @@
 }
 
 .pdp-gallery-thumbs-wrapper{
-
   display: none;
 
   @media (min-width: $pdp-breakpoint-desktop){
-    position: absolute;
-    top: calc(50% - 155px);
     display: block;
     width: 50px;
   }
-
 
   .pdp-chevron-up,
   .pdp-chevron-down{
     padding: 20px 0;
     padding-bottom: 20px;
   }
-
 
   .pdp-chevron-up::before,
   .pdp-chevron-down::before{
@@ -105,7 +86,6 @@
 }
 
 .pdp-gallery-thumbs{
-
   a{
     display: block;
     max-width: 50px;
@@ -114,9 +94,7 @@
     img{
       width: 100%;
     }
-
   }
-
 
   @media (min-width: $pdp-breakpoint){
       max-height: 310px;
@@ -126,7 +104,6 @@
    }
 
 }
-
 
 .pdp-gallery-thumbs-inner{
   position: relative;
@@ -145,9 +122,7 @@
     img{
       border: 2px solid $brand-blue;
     }
-
   }
-
 }
 
 .pdp-gallery-thumbs-video{
@@ -156,8 +131,15 @@
   width: 50px;
   border-radius: 50%;
   text-align: center;
-}
+  width: 32px;
+  height: 32px;
 
-.pdp-gallery-thumbs-video path{
-  fill: #00AEEF;
+  svg{
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  path{
+    fill: #00AEEF;
+  }
 }
