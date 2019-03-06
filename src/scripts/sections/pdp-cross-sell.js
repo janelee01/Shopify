@@ -1,11 +1,9 @@
+import Flickity from 'flickity'
+import select from 'dom-select'
+
 export default el => {
-  // Add in module JS code here
-
-  // el.classList.add('wilcho');
-
-  // element argument can be a selector string
-  //   for an individual element
-  var flkty = new Flickity(el, {
+  const container = select('.js-container', el)
+  const flkty = new Flickity(container, {
     draggable: '>1',
     groupCells: true
   })
