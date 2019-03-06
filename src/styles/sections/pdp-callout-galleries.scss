@@ -39,7 +39,7 @@
     color: $gray-light;
   }
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint-desktop){
     width: 50%;
     float: left;
     padding: 150px 100px;
@@ -50,7 +50,7 @@
 
 .pdp-callout-galleries-alternate{
   .pdp-product-features-text{
-    @media (min-width: $breakpoint){
+    @media (min-width: $pdp-breakpoint-desktop){
       float: right;
     }
   }
@@ -62,7 +62,7 @@
   position: relative;
 
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint-desktop){
     width: 50%;
     float: left;
   }
@@ -70,12 +70,20 @@
 
   img{
     display: block;
+
+    @media (min-width: $pdp-breakpoint-desktop){
+      height: 610px;
+      object-fit: cover;
+    }
+
   }
 
 }
 
 
 .pdp-product-features-carousel-main{
+
+  height: 100%;
 
   .flickity-viewport{
      height: auto;
@@ -101,13 +109,13 @@
     text-transform: uppercase;
     font-size: $font-size-sm;
 
-    @media (min-width: $breakpoint){
+    @media (min-width: $pdp-breakpoint-desktop){
       display: none;
     }
 
   }
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint-desktop){
     width: 100%;
     padding: 0px;
   }
@@ -124,7 +132,7 @@
   bottom: 10px;
 
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint-desktop){
     display: block;
   }
 

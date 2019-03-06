@@ -33,14 +33,14 @@
 
 .pdp-material-images{
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint-desktop){
     float: left;
     width: 50%;
   }
 
 
   .flickity-page-dots{
-    @media (min-width: $breakpoint){
+    @media (min-width: $pdp-breakpoint-desktop){
       display: none;
     }
   }
@@ -52,7 +52,7 @@
   width: 100%;
   text-align: center;
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint-desktop){
     .pdp-material-image-caption{
       display: none;
     }
@@ -88,7 +88,7 @@
   }
 
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint-desktop){
     display: block;
     float: left;
     width: 50%;

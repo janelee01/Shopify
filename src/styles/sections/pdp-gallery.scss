@@ -32,6 +32,9 @@
 
 .pdp-gallery-mobile{
 
+
+  display: block;
+
   .flickity-viewport{
     height: auto;
   }
@@ -41,7 +44,7 @@
     display: none;
   }
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint-desktop){
     display: none;
   }
 
@@ -57,7 +60,7 @@
   display: none;
   text-align: center;
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint-desktop){
     padding-left: 60px;
     display: block;
   }
@@ -72,7 +75,7 @@
 
   display: none;
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint-desktop){
     position: absolute;
     top: calc(50% - 155px);
     display: block;
@@ -115,7 +118,7 @@
   }
 
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint){
       max-height: 310px;
       display: block;
       width: 50px;

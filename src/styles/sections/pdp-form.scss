@@ -112,7 +112,7 @@
     display: none;
   }
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint){
     border: 0;
     padding: 0;
     margin: 0;
@@ -124,7 +124,7 @@
   }
 
 
-  @media (min-width: $breakpoint-mobile){
+  @media (min-width: $pdp-breakpoint-tablet){
     border: 0;
     padding: 0;
     margin: 0;

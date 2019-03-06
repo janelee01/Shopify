@@ -1,8 +1,13 @@
-$breakpoint:          768px;
-$breakpoint-mobile:   320px;
+$pdp-breakpoint:                  768px;
+$pdp-breakpoint-desktop:          1440px;
+$pdp-breakpoint-tablet:           768px;
+$pdp-breakpoint-mobile:           320px;
+
+$pdp-mobile-gutter:     20px;
+$pdp-tablet-gutter:     30px;
+$pdp-desktop-gutter:    110px;
 
 @import '../sections/variables.scss';
-
 @import '../sections/imageviewer.css';
 @import '../sections/pdp-main.scss';
 @import '../sections/pdp-gallery.scss';

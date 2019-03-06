@@ -14,7 +14,8 @@ export default (el, viewers) => {
 
   let flkty = new Flickity(el.querySelector('.pdp-gallery-mobile'), {
     draggable: '>1',
-    groupCells: true
+    groupCells: true,
+    contain: true
   })
 
   // thumbsGallery(el.querySelector('.pdp-gallery-thumbs'))

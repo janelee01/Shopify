@@ -1,43 +1,45 @@
-<div class="pdp-material">
+{%- assign title = data[0] | default: 'NO TITLE' -%}
+{%- assign total_tiles = data | size -%}
+
+<div class="pdp-material wilzon">
 
 <div class="section-heading">
-  <h2 class="title">Sturdy & Lightweight Canvas</h2>
+  <h2 class="title">{{ title }}</h2>
 </div>
 
   <div class="pdp-material-images">
 
+{%- for row in data -%}
+
+{{row}}=====
+{%- assign tile = row | split: '|' -%}
     <div class="pdp-material-image">
-      <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-cta-md.jpg?1312692621756025204" />
+      <img src="{{ tile[2] }}" />
 
       <div class="pdp-material-image-caption">
-        <h3>Pre-Washed Canvas</h3>
-        <p>We use a high-quality, lightweight, yet strong pre-washed canvas. Despite being a softer and less structured canvas than the typical heavy canvas, it can handle a heavyweight load (even though we always encourage packing light).</p>
+        <h3>{{ tile[0] }}</h3>
+        <p>{{ tile[1] }}</p>
       </div>
     </div>
-
-    <div class="pdp-material-image">
-      <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-cta-md.jpg?10032446425132256139" />
-      <div class="pdp-material-image-caption">
-        <h3>Organic Cotton Canvas</h3>
-        <p>A canvas that is 100% naturally grown without the use of any synthetic agricultural chemicals such as fertilizers or pesticides. The material is so natural that you can actually see bits of the seeds on the surface!</p>
-      </div>
-    </div>
+{%- endfor -%}
 
   </div>
 
   <div class="pdp-material-tiles">
 
+{%- for i in (2..total_tiles) -%}
+{%- assign tile = data[i] | split: '|' -%}
     <div class="pdp-material-tile">
-      <h3>Pre-Washed Canvas</h3>
-      <p>We use a high-quality, lightweight, yet strong pre-washed canvas. Despite being a softer and less structured canvas than the typical heavy canvas, it can handle a heavyweight load (even though we always encourage packing light).</p>
+      <h3>{{ tile[0] }}</h3>
+      <p>{{ tile[1] }}</p>
     </div>
+{%- endfor -%}
 
-    <div class="pdp-material-tile">
-      <h3>Organic Cotton Canvas</h3>
-      <p>A canvas that is 100% naturally grown without the use of any synthetic agricultural chemicals such as fertilizers or pesticides. The material is so natural that you can actually see bits of the seeds on the surface!</p>
-    </div>
 
   </div>
 
 
 </div>
+
+
+{%- assign title = nil -%}

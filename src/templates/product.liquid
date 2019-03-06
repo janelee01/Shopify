@@ -61,18 +61,16 @@
 <div itemscope itemtype="http://schema.org/Product">
   {%- include 'pdp-main' -%}
 
-  <div class="container container-xl">
+  <div class="pdp-container">
 	{%- include 'pdp-callout-galleries' -%}
   {%- include 'pdp-callout-galleries', alternate: true -%}
-	{%- include 'pdp-material' -%}
+	{%- include 'pdp-material', data: data_pdp_material -%}
   {%- include 'pdp-see-how-to-pack-it' -%}
   {%- include 'pdp-stories' -%}
 	{%- include 'pdp-testimonials', testimonials: pdp_testimonials_data -%}
 	{%- include 'pdp-cross-sell', collection: parentCollection -%}
 
   </div>
-
-
 
 
 </div>

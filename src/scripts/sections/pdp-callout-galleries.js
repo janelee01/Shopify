@@ -1,4 +1,5 @@
 import Flickity from 'flickity'
+import AsNavFor from 'flickity-as-nav-for'
 
 export default el => {
   var $main = el.querySelector('.pdp-product-features-carousel-main')

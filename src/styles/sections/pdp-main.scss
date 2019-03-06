@@ -12,9 +12,48 @@
  * Review and use existing media queries where possible
  */
 
+.pdp-container{
+
+  margin: auto;
+  width: 100%;
+
+
+  @media (min-width: $pdp-breakpoint-mobile) {
+
+    padding: 0 20px;
+
+  }
+
+  @media (min-width: $pdp-breakpoint-tablet) {
+
+    padding: 0 30px;
+
+  }
+
+
+  @media (min-width: $pdp-breakpoint-desktop) {
+
+    max-width: 1440px;
+    padding: 0 110px;
+
+  }
+
+}
+
 .product-main__featured{
 
-  @media (min-width: $breakpoint){
+  margin: 0 -70px;
+  width: calc(100% + 140px);
+  float: none;
+
+  @media (min-width: $pdp-breakpoint-tablet){
+
+
+
+  }
+
+
+  @media (min-width: $pdp-breakpoint-desktop){
 
     float:left;
     width:50%;
@@ -72,10 +111,22 @@
   }
 
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint-tablet){
+
+    float: none;
+    width: 100%;
+    max-width: 376px;
+    padding: 0;
+    margin: auto;
+
+  }
+
+
+  @media (min-width: $pdp-breakpoint-desktop){
 
     float: left;
 	  width: 50%;
+    max-width: 50%;
 	  padding: 70px 0 0 100px;
 
   }
@@ -91,7 +142,7 @@
     font-weight: normal;
   }
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint-desktop){
 
     display: block;
     margin-bottom: 10px;
@@ -120,7 +171,7 @@
 
   }
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint-desktop){
 
     display: none;
 
@@ -133,7 +184,7 @@
   color: $gray;
   font-size: $font-size-sm;
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint){
 
     display: block;
 
@@ -142,7 +193,7 @@
   p{
     margin-bottom: 10px;
 
-    @media (min-width: $breakpoint){
+    @media (min-width: $pdp-breakpoint){
       margin-bottom: 20px;
     }
 
@@ -177,7 +228,7 @@
   border-left: 1px solid $gray-light;
 
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint){
     margin-left: 10px;
     padding-left: 10px;
   }
@@ -242,7 +293,7 @@
 .section-heading{
   text-align: center;
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint){
     margin-bottom: 90px!important;
     margin-top: 90px!important;
   }

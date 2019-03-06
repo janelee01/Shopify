@@ -44,7 +44,7 @@
 
   width: 66%;
 
-  @media (min-width: $breakpoint){
+  @media (min-width: $pdp-breakpoint-desktop){
     width: calc(33% - 20px);
     margin-right: 10px;
   }

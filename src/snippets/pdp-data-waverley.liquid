@@ -19,10 +19,9 @@
 ### Fabric Module
 {%- endcomment -%}
 
-{%- capture pdp_data_material -%}
+{%- capture data_pdp_material -%}
 Premium Leather
 Nappa Leather|A natural grain leather that is known for its smooth texture and soft feel.|https://cdn.shopify.com/s/files/1/2185/1497/files/slider-3_Premium-Material_Waverley_nappa-leather.jpg?15471602786175701569
 Durable Hardware|Crafted from high-quality materials that are built for everyday wear.|https://cdn.shopify.com/s/files/1/2185/1497/files/slider-3_Premium-Material_Waverley_hardware.jpg?15471602786175701569
 {%- endcapture -%}
-
-{%- assign pdp_data_material = pdp_data_material | newline_to_br | replace: '<br />', '[IFS]' | split:  '[IFS]' -%}
+{%- assign data_pdp_material = data_pdp_material | newline_to_br | split: '<br />' -%}
