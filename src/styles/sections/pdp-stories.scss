@@ -1,6 +1,4 @@
 .pdp-stories{
-
-
   &:after{
     content: 'flickity';
     display:none;
@@ -24,7 +22,11 @@
     display: none;
   }
 }
-
+.pdp-stories{
+  @media (min-width: $screen-md){
+    display: flex;
+  }
+}
 .pdp-stories article{
   margin-right: 10px;
   text-align: center;
@@ -52,7 +54,6 @@
   @media (min-width: $screen-xs){
     margin: 0 10px;
     width: calc(80% - 40px);
-    float: left;
   }
 
   @media (min-width: $screen-md){

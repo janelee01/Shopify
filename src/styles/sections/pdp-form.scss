@@ -98,7 +98,6 @@
     @media (min-width: $screen-xs){
       top: 20px;
     }
-
   }
 
   .pdp-chevron-down:before{
@@ -108,14 +107,9 @@
 }
 
 .pdp-form-option-group{
-
   border-top: 1px solid rgba(151,151,151,.2);
   border-bottom: 1px solid rgba(151,151,151,.2);
-
   padding: 12px 20px;
-
-  &:first-child{
-  }
 
   &:after{
     content: 'flickity';
@@ -157,6 +151,9 @@
 
   .pdp-swatches-wrapper{
     width: 66%;
+    @media (min-width: $screen-md){
+      width: auto;
+    }
   }
 }
 
