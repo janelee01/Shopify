@@ -1,7 +1,7 @@
 {%- assign productTitleParts = siblingProduct.title | split: '-' -%}
 <li>
 	<a href="#"
-		class="pdp-swatch {% if product.id == siblingProduct.id %}active{% endif %}"
+		class="js-pdp-swatch pdp-swatch {% if product.id == siblingProduct.id %}active{% endif %}"
 		data-url="{{ siblingUrl }}"
 		data-name="{{ siblingProduct.title }}"
 		data-sibling="{{ siblingProduct.id }}">

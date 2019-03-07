@@ -1,95 +1,77 @@
-<section class="product-main">
+<section class="product-main pdp-main">
   <div class="product-main__container pdp-container">
-
     <div class="pdp-main-product-heading-mobile">
       <h1>{{ parentCollection.title | remove: "The " }}</h1>
-{%- unless parentCollection.metafields["global"]["short-description"] == blank -%}
+      {%- unless parentCollection.metafields["global"]["short-description"] == blank -%}
       <h4>{{ parentCollection.metafields["global"]["short-description"] }}</h4>
-{%- endunless -%}
+      {%- endunless -%}
+    </div>
+    <div class="product-main__featured">
+    {%- include 'pdp-gallery', item: product -%}
+    </div>
+    <div class="product-main__holder">
+
+    <div class="pdp-main-product-heading">
+      <h1>{{ parentCollection.title | remove: "The " }}</h1>
+      {%- unless parentCollection.metafields["global"]["short-description"] == blank -%}
+      <div class="pdp-main-product-type">{{ parentCollection.metafields["global"]["short-description"] }}</div>
+      {%- endunless -%}
     </div>
 
-  <div class="product-main__featured">
-  {%- include 'pdp-gallery', item: product -%}
-  </div>
+  <div id="price-wrapper" data-price-wrapper>
+    {%- if current_variant.compare_at_price > current_variant.price -%}
+      {%- assign showSaleElements = true -%}
+    {%- endif -%}
+      <span class="sr-only" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+      <s class="js-compare-price {% unless showSaleElements %} is-hidden{% endunless %}" data-compare-price>
+        {%- if current_variant.compare_at_price > current_variant.price -%}
+          {{ current_variant.compare_at_price | money_without_trailing_zeros }}
+          {%- assign discountAmount = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0 -%}
+        {%- endif -%}
+      </s>
+      <span data-product-price class="js-product-price">{{ current_variant.price | money_without_trailing_zeros }}</span>
+      <span class="experiment-wrapper-baseline">
+        <span class="discount-label{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>% off</span>
+      </span>
+      <span class="experiment-wrapper-alternate">
+        <span class="discount-badge{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>%<br />OFF</span>
+      </span>
 
-  <div class="product-main__holder">
+    {% if true or product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
+      <a href="#" class="pdp-main-product-yotpo yotpo">
+        {% assign reviewsAverage = product.metafields.yotpo.reviewsAverage | default: 4.5 %}
+        {% assign reviewsAverageInt = reviewsAverage | floor %}
 
-<div class="pdp-main-product-heading">
-  <h1>{{ parentCollection.title | remove: "The " }}</h1>
-{%- unless parentCollection.metafields["global"]["short-description"] == blank -%}
-<div class="pdp-main-product-type">{{ parentCollection.metafields["global"]["short-description"] }}</div>
-{%- endunless -%}
-</div>
+        {% assign reviewsAverageDec = reviewsAverageInt | minus: reviewsAverageInt  %}
+        {% assign emptyStars = 5  %}
 
-<div id="price-wrapper" data-price-wrapper>
-  {%- if current_variant.compare_at_price > current_variant.price -%}
-    {%- assign showSaleElements = true -%}
-  {%- endif -%}
-    <span class="sr-only" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
-    <s class="{% unless showSaleElements %} is-hidden{% endunless %}" data-compare-price>
-      {%- if current_variant.compare_at_price > current_variant.price -%}
-        {{ current_variant.compare_at_price | money_without_trailing_zeros }}
-        {%- assign discountAmount = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0 -%}
-      {%- endif -%}
-    </s>
-    <span data-product-price>{{ current_variant.price | money_without_trailing_zeros }}</span>
-    <span class="experiment-wrapper-baseline">
-      <span class="discount-label{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>% off</span>
-    </span>
-    <span class="experiment-wrapper-alternate">
-      <span class="discount-badge{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>%<br />OFF</span>
-  </span>
+        <span class="pdp-main-product-yotpo-stars">
+        {% for i in (1..reviewsAverageInt)  %}
+          <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
+        {% assign emptyStars = emptyStars | minus: 1  %}
+        {% endfor %}
+        {% if reviewsAverageDec %}
+        {% assign emptyStars = emptyStars | minus: 1  %}
+          <span class="yotpo-icon yotpo-icon-half-star rating-star pull-left"></span>
+        {% endif %}
+        {% for i in (1..emptyStars)  %}
+          <span class="yotpo-icon yotpo-icon-empty-star rating-star pull-left"></span>
+        {% endfor %}
+        </span>
 
-
-
-  {% if true or product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
-<a href="#" class="pdp-main-product-yotpo yotpo">
-    {% assign reviewsAverage = product.metafields.yotpo.reviewsAverage | default: 4.5 %}
-    {% assign reviewsAverageInt = reviewsAverage | floor %}
-
-    {% assign reviewsAverageDec = reviewsAverageInt | minus: reviewsAverageInt  %}
-    {% assign emptyStars = 5  %}
-
-    <span class="pdp-main-product-yotpo-stars">
-    {% for i in (1..reviewsAverageInt)  %}
-      <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
-    {% assign emptyStars = emptyStars | minus: 1  %}
-    {% endfor %}
-    {% if reviewsAverageDec %}
-    {% assign emptyStars = emptyStars | minus: 1  %}
-      <span class="yotpo-icon yotpo-icon-half-star rating-star pull-left"></span>
+        <span class="pdp-main-product-yotpo-reviews">{{ product.metafields.yotpo.reviews_count | default: 2 }} Reviews</span>
+      </a>
     {% endif %}
-    {% for i in (1..emptyStars)  %}
-      <span class="yotpo-icon yotpo-icon-empty-star rating-star pull-left"></span>
-    {% endfor %}
-    </span>
-
-    <span class="pdp-main-product-yotpo-reviews">{{ product.metafields.yotpo.reviews_count | default: 2 }} Reviews</span>
-</a>
-{% endif %}
-
-</div>
-
-
-<div class="pdp-main-product-description">{{ product.description }}</div>
-
-
-  {%- include 'pdp-form', item: product -%}
-
-  <div class="pdp-main-product-description-mobile">{{ product.description }}</div>
-
-
   </div>
+
+  <div class="pdp-main-product-description">{{ product.description }}</div>
+    {%- include 'pdp-form', item: product -%}
+    <div class="pdp-main-product-description-mobile">{{ product.description }}</div>
+    </div>
   </div>
 </section>
 
-
-
-
 <div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
-
-
-
   <meta itemprop="name" content="{{ product.title }}">
   <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
   <meta itemprop="brand" content="{{ product.vendor }}">
@@ -100,8 +82,8 @@
     <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
       <meta itemprop="ratingValue" content="{{ product.metafields.yotpo.reviewsAverage }}">
       <meta itemprop="ratingCount" content="{{ product.metafields.yotpo.reviews_count }}">
-      </div>
-    {% endif %}
+    </div>
+  {% endif %}
   <div class="container">
     {%- capture siblingsJson -%}
       {

@@ -5,13 +5,13 @@
   <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
 
   <form action="/cart/add" method="post" enctype="multipart/form-data">
-    <div class="pdp-snap pdp-form-option-group">
+  <div class="pdp-snap pdp-form-option-group">
       {% include 'pdp-swatches' %}
     </div>
     <div class="pdp-snap pdp-form-option-group selector-wrapper hidden">
       {%- unless product.has_only_default_variant -%}
         <label for="variant-selector">Size:</label>
-        <div id="variant-buttons" class="variant-buttons">
+        <div id="variant-buttons" class="variant-buttons js-variant-buttons-wrap">
           {%- for variant in product.variants -%}
             {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
               {%- continue -%}
@@ -20,14 +20,14 @@
             {%- if variant.id == current_variant.id -%}
               {%- assign selected = ' selected' -%}
             {%- endif -%}
-            <a href="#" data-id="{{ variant.id }}" class="btn btn-secondary variant-option{{ selected }}">{{ variant.title }}</a>
+            <a href="#" data-id="{{ variant.id }}" class="btn btn-secondary variant-option js-pdp-non-swatch-input {{ selected }}">{{ variant.title }}</a>
           {%- endfor -%}
         </div>
 
         <a class="pdp-form-size-fit pdp-modal-link" href="#" data-modal="size-fit">Size & Fit guide</a>
       {%- endunless -%}
 
-      <select name="id" id="variant-selector" class="hidden" data-product-select>
+      <select name="id" id="variant-selector" class="hidden js-variant-input" data-product-select>
         {%- for variant in product.variants -%}
           <option value="{{ variant.id }}"{% if variant.id == product.selected_variant.id or variant.id == current_variant.id %} selected="selected"{% endif %}>{{ variant.title }}</option>
         {%- endfor -%}
@@ -47,7 +47,7 @@
       <button
         type="submit"
         name="add"
-        class="btn-lg"
+        class="btn-lg js-add-to-cart"
         data-add-to-cart
         id="add-product-proceed"
         {% unless current_variant.available %}style="display: none"{% endunless %}>
@@ -60,16 +60,12 @@
         id="waitlist-open"
         {% if current_variant.available %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</a>
     </div>
-
     <a class="pdp-shipping-returns-warranty-care pdp-modal-link" data-modal="shipping" href="#">Shipping, Returns, Warranty & Care</a>
-
     {% comment %} <div id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div> {% endcomment %}
-
-{% comment %}
-    <div class="low-stock-warning">{{ 'products.product.low_stock' | t }}</div>
-    <div class="final-sale-warning">{{ 'products.product.final_sale_html' | t }}</div>
-{% endcomment %}
-
+    {% comment %}
+      <div class="low-stock-warning">{{ 'products.product.low_stock' | t }}</div>
+      <div class="final-sale-warning">{{ 'products.product.final_sale_html' | t }}</div>
+    {% endcomment %}
   </form>
 </div>
 
