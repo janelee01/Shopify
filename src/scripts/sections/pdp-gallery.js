@@ -4,6 +4,8 @@ import PhotoSwipeUI from 'photoswipe/dist/photoswipe-ui-default.js'
 import select from 'dom-select'
 import on from 'dom-event'
 
+const testURL = 'https://cdn.shopify.com/s/files/1/2185/1497/products/front-brookline-nylon-black-gold-lavender-tote-lo-and-sons_ca96bb20-154e-4c8c-a46a-9790951556e8.jpg'
+
 class ProductGallery {
   constructor (el) {
     this.$el = el
@@ -45,6 +47,9 @@ class ProductGallery {
       this.updateThumbScroller('down')
     })
     on(this.$featuredImg, 'click', e => {
+      this.initPhotoSwipe()
+    })
+    on(this.$mobileCarousel, 'click', e => {
       this.initPhotoSwipe()
     })
   }
@@ -94,6 +99,7 @@ class ProductGallery {
   }
 
   initPhotoSwipe () {
+    const _ = this
     const el = document.querySelector('.pswp')
     const index = this.$thumbs.reduce((active, el, i) => {
       if (el.classList.contains('active')) {
@@ -102,12 +108,20 @@ class ProductGallery {
       return active
     }, 0)
 
-    const items = this.$thumbs.map(el => ({
-      msrc: el.getAttribute('data-small'),
-      src: el.getAttribute('data-src'),
-      w: el.getAttribute('data-width'),
-      h: el.getAttribute('data-height')
-    }))
+    const items = this.$thumbs.map(el => (
+      ~document.location.href.indexOf('test')
+        ? {
+          msrc: el.getAttribute('data-small'),
+          src: testURL,
+          w: 1500,
+          h: 1500
+        } : {
+          msrc: el.getAttribute('data-small'),
+          src: el.getAttribute('data-src'),
+          w: el.getAttribute('data-width'),
+          h: el.getAttribute('data-height')
+        }
+    ))
 
     this.photoSwipe = new PhotoSwipe(
       this.$swipeTemplate,
@@ -127,9 +141,32 @@ class ProductGallery {
           return e ? 1.6 : t.initialZoomLevel < 0.7 ? 1 : 1.33
         },
         getThumbBoundsFn (e) {
-          return { x: 0, y: 0, w: 50 }
+          const scrollTop = (window.pageYOffset || document.documentElement.scrollTop)
+          const rect = _.$featuredImg.getBoundingClientRect()
+
+          return {
+            x: rect.left,
+            y: rect.top + scrollTop,
+            w: rect.width
+          }
         }
       }
+    )
+
+    on(
+      select('.js-pswp-left'),
+      'click',
+      () => this.photoSwipe.prev()
+    )
+    on(
+      select('.js-pswp-close'),
+      'click',
+      () => this.photoSwipe.close()
+    )
+    on(
+      select('.js-pswp-right'),
+      'click',
+      () => this.photoSwipe.next()
     )
 
     this.photoSwipe.init()

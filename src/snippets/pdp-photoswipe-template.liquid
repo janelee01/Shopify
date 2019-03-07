@@ -16,7 +16,7 @@
     </div>
     <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
     <div class="pswp__ui pswp__ui--hidden">
-      <div class="pswp__top-bar">
+      <div class="pswp__top-bar" style="display:none">
         <!--  Controls are self-explanatory. Order can be changed. -->
         <div class="pswp__counter"></div>
         <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
@@ -34,11 +34,22 @@
         </div>
       </div>
 
-      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-        <div class="pswp__share-tooltip"></div>
-      </div>
-      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+      <button class="js-pswp-left pswp__button pswp-button pswp-button--left" data-animate-left title="Previous (left arrow)">
+        <svg class="Icon Icon--arrow-left" role="presentation" viewBox="0 0 11 21">
+          <polyline fill="none" stroke="currentColor" points="10.5 0.5 0.5 10.5 10.5 20.5" stroke-width="1.25"></polyline>
+        </svg>
+      </button>
+      <button class="js-pswp-close pswp__button pswp-button pswp-button--close" data-animate-bottom title="Close (Esc)">
+        <svg class="Icon Icon--close" role="presentation" viewBox="0 0 16 14">
+          <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+        </svg>
+      </button>
+      <button class="js-pswp-right pswp__button pswp-button pswp-button--right" data-animate-right title="Next (right arrow)">
+        <svg class="Icon Icon--arrow-right" role="presentation" viewBox="0 0 11 21">
+          <polyline fill="none" stroke="currentColor" points="0.5 0.5 10.5 10.5 0.5 20.5" stroke-width="1.25"></polyline>
+        </svg>
+      </button>
+
       <div class="pswp__caption">
         <div class="pswp__caption__center"></div>
       </div>
