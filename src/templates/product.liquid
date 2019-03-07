@@ -1,13 +1,53 @@
+{% include 'pdp-get-sibling-products' %}
+
+{%- capture data-file -%}pdp-data-{{parentCollection.title| downcase | remove: 'the' | strip | replace: ' ', '-' }}{%- endcapture -%}
+
+{%- comment -%}
+{%- include data-file -%}
+{%- endcomment -%}
+
+{%- include 'pdp-data-waverley' -%}
+
+{% include 'pdp-photoswipe-template' %}
+
+{%- include 'pdp-sticky-nav' -%}
+
 <div itemscope itemtype="http://schema.org/Product">
   {%- include 'pdp-main' -%}
 
+  <div class="pdp-white-wrapper">
+  {%- include 'pdp-instagram' -%}
+  </div>
+
+  <div class="pdp-container">
 	{%- include 'pdp-callout-galleries' -%}
-	{%- include 'pdp-material' -%}
-    {%- include 'pdp-stories' -%}
-	{%- include 'pdp-testimonials', testimonials: pdp_testimonials -%}
-	{%- include 'pdp-cross-sell' -%}
-	{%- include 'pdp-size-fit-modal' -%}
+  {%- include 'pdp-callout-galleries', alternate: true -%}
+	{%- include 'pdp-material', data: data_pdp_material -%}
+  </div>
 
+  <div class="pdp-white-wrapper">
+    <div class="pdp-container">
+  {%- include 'pdp-see-how-to-pack-it' -%}
+  {%- include 'pdp-stories' -%}
+	{%- include 'pdp-testimonials', testimonials: pdp_testimonials_data -%}
+    </div>
+  </div>
+
+    <div class="pdp-container">
+	{%- include 'pdp-cross-sell', collection: parentCollection -%}
+    </div>
 
 </div>
+
+{%- include 'pdp-modal', id: 'shipping' -%}
+{%- include 'pdp-modal', id: 'size-fit', collection: parentCollection -%}
+
+{%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
+<script>
+  var video1Embed = '{{ parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" }}';
+</script>
+<div id="product-video">
+  <div id="product-video-container"></div>
+  <a href="#" class="panel-close"><span class="sr-only">close</span></a>
 </div>
+{%- endunless -%}

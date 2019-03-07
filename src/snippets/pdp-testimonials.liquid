@@ -1,23 +1,33 @@
+{%- assign testimonials = testimonials | default: blank -%}
 <div class="section-heading">
   <h2 class="title">What Others Are Saying</h2>
 </div>
-
-{% comment %} In pdp-testimonials.liquid {% endcomment%}
-
-{%- assign testimonials = testimonials | default: blank -%}
-
-
+{%- unless testimonials == blank -%}
 <div class="pdp-testimonials">
-
-{%- for testimonial in testimonials -%} {%- assign image_src = testimonial | split: '|' | first -%} {%- assign text = testimonial | split: '|' | last -%}
-
-<div>
-  <image src="{{ image_src }}" />
-  <p>{{ text }}</p>
+  <div class="pdp-testimonials-logos">
+  {%- for testimonial in testimonials -%}
+  {%- assign image_src = testimonial | split: '|' | first -%}
+  <div class="pdp-testimonials-logos-item">
+    <span>
+      {% include 'image',
+        src: image_src,
+        object_fit: 'contain',
+        alt: '' %}
+    </span>
+  </div>
+  {%- assign image_src = nil -%}
+  {%- endfor -%}
 </div>
-
-{%- assign image_src = nil -%} {%- assign text = nil -%} {%- endfor -%} {%- assign testimonials = nil -%}
-
+<div class="pdp-testimonials-texts">
+  {%- for testimonial in testimonials -%}
+  {%- assign text = testimonial | split: '|' | last -%}
+    <p>{{ text }}</p>
+  {%- assign image_src = nil -%}
+  {%- endfor -%}
+  </div>
 </div>
-
-<script>console.log('PDP Testimonials')</script>
+{%- endunless -%}
+<div id="reviews-widget">
+  <div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
+</div>
+{%- assign testimonials = nil -%}

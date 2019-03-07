@@ -1,13 +1,149 @@
-/**
- * Even though we use Post CSS and BEM as documented in our
- * best practices, we are going to use SASS with -VERY- minimal
- * nesting for this project so it feels inline with the rest of the
- * site code to some degree.
- *
- * Please only use one level of nesting where possible
- * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to 
- * Use existing color variables (see /local/base/_variables)
- * Add to existing type variables (see /local/base/_variables)
- * Review and use existing media queries where possible
- */
+.pdp-gallery{
+  position: relative;
+  display: none;
+
+  @media (min-width: $screen-xs){
+    margin: 0 95px;
+  }
+
+  @media (min-width: $screen-md){
+    margin: 0;
+  }
+
+  &.active{
+    display: block;
+
+    @media (min-width: $screen-xs){
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+    }
+  }
+
+  .pdp-chevron-up,
+  .pdp-chevron-down{
+    text-align: center;
+    display: block;
+    height: 10px;
+  }
+}
+
+.pdp-gallery-mobile{
+  display: block;
+
+  .flickity-viewport{
+    height: auto;
+  }
+
+  .flickity-page-dots,
+  .flickity-button{
+    display: none;
+  }
+
+  @media (min-width: $screen-md){
+    display: none;
+  }
+
+  img{
+    width: 60%;
+    margin-right: 10px;
+  }
+}
+.pdp-gallery-featured{
+  @include ratio(70%);
+  display: none;
+  text-align: center;
+  width: 100%;
+  cursor: zoom-in;
+
+  @media (min-width: $screen-md){
+    display: block;
+  }
+}
+
+.pdp-gallery-featured img{
+  @include fill;
+  object-fit: contain;
+}
+
+.pdp-gallery-thumbs-wrapper{
+  display: none;
+
+  @media (min-width: $screen-md){
+    display: block;
+    width: 40px;
+  }
+
+  .pdp-chevron-up,
+  .pdp-chevron-down{
+    padding: 20px 0;
+    padding-bottom: 20px;
+  }
+
+  .pdp-chevron-up::before,
+  .pdp-chevron-down::before{
+    color: $gray;
+    transition: opacity .5s;
+  }
+
+  .pdp-chevron-down[disabled="true"]:before,
+  .pdp-chevron-up[disabled="true"]:before{
+    cursor: default;
+    opacity: .3;
+  }
+
+}
+
+.pdp-gallery-thumbs{
+  a{
+    max-width: 40px;
+    margin: 5px 0;
+    @include ratio(100%);
+  }
+
+  @media (min-width: $screen-md){
+      max-height: 225px;
+      display: block;
+      width: 40px;
+      overflow: hidden;
+   }
+}
+
+.pdp-gallery-thumbs-inner{
+  position: relative;
+  top: 0;
+  transition: top .3s ease-in-out;
+
+  a{
+    img{
+      transition: border .7s;
+      border-radius: 2px;
+      border: 2px solid transparent;
+    }
+  }
+
+  a.active{
+    img{
+      border: 2px solid $brand-blue;
+    }
+  }
+}
+
+.pdp-gallery-thumbs-video{
+  margin: 10px auto;
+  display: block;
+  width: 40px;
+  border-radius: 50%;
+  text-align: center;
+  width: 32px;
+  height: 32px;
+
+  svg{
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  path{
+    fill: #00AEEF;
+  }
+}

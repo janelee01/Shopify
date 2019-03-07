@@ -1,0 +1,58 @@
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="js-pswp pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe. It's a separate element, as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg"></div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+    <div class="pswp__container">
+      <!-- don't modify these 3 pswp__item elements, data is added later on -->
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar" style="display:none">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter"></div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--share" title="Share"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="js-pswp-left pswp__button pswp-button pswp-button--left" data-animate-left title="Previous (left arrow)">
+        <svg class="Icon Icon--arrow-left" role="presentation" viewBox="0 0 11 21">
+          <polyline fill="none" stroke="currentColor" points="10.5 0.5 0.5 10.5 10.5 20.5" stroke-width="1.25"></polyline>
+        </svg>
+      </button>
+      <button class="js-pswp-close pswp__button pswp-button pswp-button--close" data-animate-bottom title="Close (Esc)">
+        <svg class="Icon Icon--close" role="presentation" viewBox="0 0 16 14">
+          <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+        </svg>
+      </button>
+      <button class="js-pswp-right pswp__button pswp-button pswp-button--right" data-animate-right title="Next (right arrow)">
+        <svg class="Icon Icon--arrow-right" role="presentation" viewBox="0 0 11 21">
+          <polyline fill="none" stroke="currentColor" points="0.5 0.5 10.5 10.5 0.5 20.5" stroke-width="1.25"></polyline>
+        </svg>
+      </button>
+
+      <div class="pswp__caption">
+        <div class="pswp__caption__center"></div>
+      </div>
+    </div>
+  </div>
+</div>

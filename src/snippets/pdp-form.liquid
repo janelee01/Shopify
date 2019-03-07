@@ -1,23 +1,76 @@
-<h1>{{ product.title }}</h1>
-<div class="pdp-form-price">{{ product.price }}</div>
-<div class="pdp-form-description">{{ product.description }}</div>
 
-{% include 'swatches' %}
+<div class="pdp-form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+  <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+  <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+  <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
 
+  <form action="/cart/add" method="post" enctype="multipart/form-data">
+    <div class="pdp-snap pdp-form-option-group">
+      {% include 'pdp-swatches' %}
+    </div>
+    <div class="pdp-snap pdp-form-option-group selector-wrapper hidden">
+      {%- unless product.has_only_default_variant -%}
+        <label for="variant-selector">Size:</label>
+        <div id="variant-buttons" class="variant-buttons">
+          {%- for variant in product.variants -%}
+            {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+              {%- continue -%}
+            {%- endif -%}
+            {%- assign selected = '' -%}
+            {%- if variant.id == current_variant.id -%}
+              {%- assign selected = ' selected' -%}
+            {%- endif -%}
+            <a href="#" data-id="{{ variant.id }}" class="btn btn-secondary variant-option{{ selected }}">{{ variant.title }}</a>
+          {%- endfor -%}
+        </div>
 
+        <a class="pdp-form-size-fit pdp-modal-link" href="#" data-modal="size-fit">Size & Fit guide</a>
+      {%- endunless -%}
 
-<div class="pdp-form-add-to-cart">
+      <select name="id" id="variant-selector" class="hidden" data-product-select>
+        {%- for variant in product.variants -%}
+          <option value="{{ variant.id }}"{% if variant.id == product.selected_variant.id or variant.id == current_variant.id %} selected="selected"{% endif %}>{{ variant.title }}</option>
+        {%- endfor -%}
+      </select>
+    </div>
 
-  <select>
-{%- for i in (1..10) -%}
-      <option>{{ i }}</option>
-{%- endfor -%}
-  </select>
+    <div id="add-to-cart" {% unless current_variant.available %}{% if oosPolicy == 'soldout' %} style="display: none"{% endif %}{% endunless %}>{% comment %}hide the whole element when OOS and unavailable for a waitlist{% endcomment %}
+      <label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
+      <select id="quantity" name="quantity" >
+      {%- for i in (1..10) -%}
+        <option>{{ i }}</option>
+      {%- endfor -%}
+      </select>
 
-  <button>Add to cart</button>
+      <span class="pdp-chevron-down"></span>
 
+      <button
+        type="submit"
+        name="add"
+        class="btn-lg"
+        data-add-to-cart
+        id="add-product-proceed"
+        {% unless current_variant.available %}style="display: none"{% endunless %}>
+          {{ 'products.product.add_to_cart' | t }}
+      </button>
+
+      <button
+        class="btn-lg"
+        data-add-to-waitlist
+        id="waitlist-open"
+        {% if current_variant.available %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</a>
+    </div>
+
+    <a class="pdp-shipping-returns-warranty-care pdp-modal-link" data-modal="shipping" href="#">Shipping, Returns, Warranty & Care</a>
+
+    {% comment %} <div id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div> {% endcomment %}
+
+{% comment %}
+    <div class="low-stock-warning">{{ 'products.product.low_stock' | t }}</div>
+    <div class="final-sale-warning">{{ 'products.product.final_sale_html' | t }}</div>
+{% endcomment %}
+
+  </form>
 </div>
 
-<a>Shipping, Returns, Warranty & Care</a>
-
-<script>console.log('PDP Form')</script>
+{%- assign selected = nil -%}

@@ -1,0 +1,46 @@
+.pdp-swatches-wrapper{
+  @media (min-width: $screen-xs){
+    margin-bottom: 20px;
+  }
+}
+
+.pdp-swatches{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0px;
+
+  &:after{
+    display: block;
+    content: '';
+    clear:both;
+  }
+
+  .pdp-swatch{
+    float: left;
+    margin-right: 5px;
+
+    img{
+      width: 23px;
+      height: 23px;
+      border-radius: 2px;
+      display: block;
+      transition: border .7s;
+      border: 2px solid transparent;
+    }
+
+    &:focus,
+    &.active{
+      img{
+        border: 2px solid $brand-blue;
+      }
+
+    }
+
+  }
+
+}
+
+.pdp-selected-color{
+  margin-left: 5px;
+}

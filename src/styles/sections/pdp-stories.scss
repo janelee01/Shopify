@@ -1,13 +1,57 @@
-/**
- * Even though we use Post CSS and BEM as documented in our
- * best practices, we are going to use SASS with -VERY- minimal
- * nesting for this project so it feels inline with the rest of the
- * site code to some degree.
- *
- * Please only use one level of nesting where possible
- * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to 
- * Use existing color variables (see /local/base/_variables)
- * Add to existing type variables (see /local/base/_variables)
- * Review and use existing media queries where possible
- */
+.pdp-stories{
+  &:after{
+    content: 'flickity';
+    display:none;
+
+    @media (min-width: $screen-md){
+      content: '';
+    }
+  }
+
+
+  @media (min-width: $screen-md){
+    margin: 0 -10px;
+  }
+
+  .flickity-viewport{
+    height: auto;
+  }
+
+  .flickity-page-dots,
+  .flickity-button{
+    display: none;
+  }
+}
+.pdp-stories{
+  @media (min-width: $screen-md){
+    display: flex;
+  }
+}
+.pdp-stories article{
+  margin-right: 10px;
+  text-align: center;
+  width: calc(80% -  10px);
+
+  .pdp-stories-img-container{
+    @include ratio(60%);
+  }
+
+  h4{
+    @extend %h3;
+    margin-top: 15px;
+  }
+
+  a{
+    text-decoration: none;
+    color: $brand-grey;
+  }
+
+  @media (min-width: $screen-xs){
+    margin: 0 10px;
+    width: calc(80% - 40px);
+  }
+
+  @media (min-width: $screen-md){
+    width: calc(33.3% - 20px);
+  }
+}

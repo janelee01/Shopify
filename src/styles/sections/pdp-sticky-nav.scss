@@ -1,0 +1,32 @@
+.pdp-sticky-nav{}
+
+
+.pdp-sticky-nav-footer{
+
+  transition: bottom .5s;
+  position: fixed;
+  bottom: 0;
+  bottom: -40px;
+  z-index: 99;
+  width: 100%;
+  background-color: red;
+  height: 40px;
+  text-align: center;
+  background-color: $brand-blue;
+  color: white;
+
+  button{
+    @extend %p2;
+    outline: none;
+  }
+
+}
+
+
+.pdp-sticky-nav-footer-on{
+
+  .pdp-sticky-nav-footer{
+    bottom: 0;
+  }
+
+}

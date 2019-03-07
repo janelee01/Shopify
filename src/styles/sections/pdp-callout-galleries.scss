@@ -1,13 +1,215 @@
-/**
- * Even though we use Post CSS and BEM as documented in our
- * best practices, we are going to use SASS with -VERY- minimal
- * nesting for this project so it feels inline with the rest of the
- * site code to some degree.
- *
- * Please only use one level of nesting where possible
- * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to 
- * Use existing color variables (see /local/base/_variables)
- * Add to existing type variables (see /local/base/_variables)
- * Review and use existing media queries where possible
- */
+.pdp-callout-galleries{
+  background-color: transparent;
+  position: relative;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+
+  @media (min-width: $screen-xs){
+    padding-bottom: 77px!important;
+    margin-top: 77px;
+  }
+
+  @media (min-width: $screen-md){
+    display: flex;
+    background-color: white;
+    margin-bottom: 80px;
+    padding-bottom: 0!important;
+  }
+}
+
+.pdp-product-features-text{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  float: none;
+  color: $gray;
+  margin-top: 50px;
+
+  h4{
+    @extend %h2;
+  }
+
+  p{
+    @extend %p2;
+    color: $gray;
+  }
+
+  @media (min-width: $screen-xs){
+    width: 100%;
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+  @media (min-width: $screen-md){
+    width: 50%;
+    padding: 0 112px;
+  }
+}
+
+.pdp-callout-galleries-alternate{
+  flex-direction: row-reverse;
+
+  .pdp-product-features-text{
+    @media (min-width: $screen-xs){
+      width: 100%;
+    }
+    @media (min-width: $screen-md){
+      width: 50%;
+    }
+  }
+}
+
+.pdp-product-features-carousel{
+  text-align:center;
+  position: relative;
+
+  @media (min-width: $screen-xs){
+    width: 100%;
+    float: none;
+  }
+
+  @media (min-width: $screen-md){
+    width: 50%;
+    float: left;
+  }
+
+  img{
+    display: block;
+
+    @media (min-width: $screen-xs){
+      height: 610px;
+      object-fit: cover;
+    }
+
+    @media (min-width: $screen-md){
+
+      object-fit: cover;
+    }
+  }
+}
+
+.pdp-product-features-carousel-main{
+  height: 100%;
+
+  .flickity-viewport{
+     height: auto;
+   }
+}
+
+.pdp-product-features-carousel-main-slide{
+  @include ratio(100%);
+  width: 90%;
+  padding-right: 10px;
+
+  span{
+    @extend %h4;
+    background-color: white;
+    position: absolute;
+    bottom: 10px;
+    padding: 10px 0;
+    margin: 20px;
+    width: calc(100% - 40px);
+    left:0;
+    bottom:0;
+    display: block;
+    text-transform: uppercase;
+    color: $brand-grey;
+
+    @media (min-width: $screen-md){
+      display: none;
+    }
+  }
+
+  @media (min-width: $screen-xs){
+    width: 80%;
+  }
+
+  @media (min-width: $screen-md){
+    width: 100%;
+    padding: 0px;
+  }
+}
+
+.pdp-product-features-carousel-nav{
+  background-color: white;
+  margin: 0 10px;
+  display: none;
+  position: absolute!important;
+  width: calc(100% - 20px);
+  z-index: 9;
+  bottom: 10px;
+
+  @media (min-width: $screen-md){
+    display: block;
+  }
+
+  span{
+    @extend %h4;
+    text-align: center;
+    margin-right: 0 !important;
+    color: $gray-light;
+    white-space: nowrap;
+    min-width: calc(33% - 20px);
+    margin-right: 10px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 25px;
+
+    @media ( max-width: 768px ) {
+      width: 70%;
+    }
+  }
+
+  span.is-selected{
+    color: $gray-darker;
+  }
+
+  span.is-selected:before{
+    background: $brand-blue;
+    width: 100%;
+    content: '';
+    height: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .flickity-button{
+    border-radius: 0;
+    background-color: white;
+    height: 100%;
+    outline: 0;
+    width: 30px;
+
+
+    &.previous{
+      left: 0!important;
+      border-right: 1px solid $gray-lighter;
+
+      &:active{
+        opacity: 1;
+      }
+
+    }
+
+    &.next{
+      right: 0!important;
+      border-left: 1px solid $gray-lighter;
+
+      &:active{
+        opacity: 1;
+      }
+
+    }
+
+    svg{
+      transform: scale(.3);
+    }
+
+  }
+
+  .flickity-button:disabled{
+    display: none;
+  }
+}

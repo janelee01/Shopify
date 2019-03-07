@@ -1,0 +1,18 @@
+@mixin fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin ratio($amount) {
+  position: relative;
+  display: block;
+
+  &:before{
+    content: '';
+    display: block;
+    padding-top: #{$amount};
+  }
+}

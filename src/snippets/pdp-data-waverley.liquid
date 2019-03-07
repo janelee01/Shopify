@@ -1,0 +1,27 @@
+{%- comment -%}
+### Corporate Reviews
+{%- endcomment -%}
+
+{%- assign pdp_testimonials_data = '' -%}
+
+{%- assign pdp_testimonials_data = '' -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: 'https://cdn.shopify.com/s/files/1/2185/1497/files/fodors_logo_3ffcc271-70c8-4fbf-8003-09fa3a260912.png' -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '|'     | append: '“What’s not to love about this sleek, versatile bag? It’s perfect for keeping your phone, passport and credit cards close, without sacrificing style. It comes in four beautiful colors, and can be worn like a crossbody handbag or an updated version of the fanny pack.”' -%}
+
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '[IFS]' | append: 'https://cdn.shopify.com/s/files/1/2185/1497/files/todayshow_logo.png?7201395892155397211' -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '|'     | append: "“The fanny pack is sort of back in a way. For travel it's so smart. I need to be hands free when traveling with two kids. It's great to put your passport and all of your important things without reaching back and getting all twisted up.”" -%}
+
+{%- assign pdp_testimonials_data = pdp_testimonials_data | split:  '[IFS]' -%}
+
+
+
+{%- comment -%}
+### Fabric Module
+{%- endcomment -%}
+
+{%- capture data_pdp_material -%}
+Premium Leather
+Nappa Leather|A natural grain leather that is known for its smooth texture and soft feel.|https://cdn.shopify.com/s/files/1/2185/1497/files/slider-3_Premium-Material_Waverley_nappa-leather.jpg?15471602786175701569
+Durable Hardware|Crafted from high-quality materials that are built for everyday wear.|https://cdn.shopify.com/s/files/1/2185/1497/files/slider-3_Premium-Material_Waverley_hardware.jpg?15471602786175701569
+{%- endcapture -%}
+{%- assign data_pdp_material = data_pdp_material | newline_to_br | split: '<br />' -%}
