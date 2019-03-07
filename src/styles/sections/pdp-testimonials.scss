@@ -1,6 +1,4 @@
 .pdp-testimonials{
-
-
   @media (min-width: $screen-md){
     padding-bottom: 50px;
   }
@@ -36,15 +34,24 @@
       opacity: 1;
     }
 
-    span:after{
-      content: '';
-      width: 0;
-      height: 2px;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      background-color: $brand-blue;
-      transition: width .5s;
+    span{
+      @include ratio(40%);
+
+      &:after{
+        content: '';
+        width: 0;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: $brand-blue;
+        transition: width .5s;
+      }
+
+      img{
+        @include fill;
+        object-fit: contain;
+      }
     }
 
     &.is-selected{
@@ -54,7 +61,6 @@
         width: 100%;
       }
     }
-
   }
 
   .pdp-testimonials-texts{
@@ -76,14 +82,11 @@
       @media (min-width: $screen-md){
         width: 100%;
       }
-
     }
   }
 }
 
-
 #reviews-widget{
-
   @media (min-width: $screen-md){
     padding-bottom: 40px;
   }

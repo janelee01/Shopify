@@ -10,10 +10,13 @@
 }
 
 .pdp-stories article{
-
   margin-right: 10px;
   text-align: center;
   width: calc(80% -  10px);
+
+  .pdp-stories-img-container{
+    @include ratio(60%);
+  }
 
   h4{
     @extend %h3;
@@ -26,7 +29,8 @@
   }
 
   img{
-    width: 100%;
+    @include fill;
+    object-fit: cover;
   }
 
   @media (min-width: $screen-xs){

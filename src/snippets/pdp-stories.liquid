@@ -1,43 +1,25 @@
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-
-
 {%- assign stories = 'travel-inspiration/a-week-in-paris-alice-gao,travel-tips-guides/traveling-with-kids-9to5chic,travel-inspiration/creative-workshop-morocco-atelier-dore' | split: ',' -%}
 {%- assign storiesCount = stories | size -%}
-
-
-{%- if(stories) -%}
-
-
+{%- if stories -%}
 <div class="pdp-separator">
-
   <div class="section-heading">
     <h2 class="title">Stories</h2>
   </div>
-
   <div class="pdp-stories pdp-snap">
-
   {%- for handle in stories -%}
   {% assign article = articles[handle] %}
-
     <article>
-
       <figure>
-        <a href="{{ article.url }}">
+        <a href="{{ article.url }}" class="pdp-stories-img-container">
         {{ article | featured_image | img_url: '380x215', crop: 'center' | img_tag }}
         </a>
       </figure>
-
       <h4>
         <a href="{{ article.url }}">{{ article.title }}</a>
       </h4>
-
     </article>
-
   {%- endfor -%}
-
   </div>
-
 </div>
 {%- endif -%}
 

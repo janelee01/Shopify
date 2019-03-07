@@ -1,34 +1,25 @@
-/**
- * Even though we use Post CSS and BEM as documented in our
- * best practices, we are going to use SASS with -VERY- minimal
- * nesting for this project so it feels inline with the rest of the
- * site code to some degree.
- *
- * Please only use one level of nesting where possible
- * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to
- * Use existing color variables (see /local/base/_variables)
- * Add to existing type variables (see /local/base/_variables)
- * Review and use existing media queries where possible
- */
-
-
 .pdp-cross-sell{
   margin-bottom: 60px;
 
-  a{
+  .pdp-cross-sell-image{
+    @include ratio(120%);
 
+    img{
+      object-fit: cover;
+      @include fill;
+    }
+  }
+
+
+  a{
     &:hover{
       text-decoration: none;
     }
-
   }
 
   h4{
-    line-height: 20px;
-    font-size: 15px;
+    @extend %h3;
     color: $brand-grey;
-    font-weight: 500;
     margin-bottom: 5px;
   }
 
@@ -44,35 +35,26 @@
   .flickity-button{
       display: none;
   }
-
 }
 
 .pdp-cross-sell article{
-
   width: 66%;
 
   @media (min-width: $screen-md){
     width: calc(33% - 20px);
     margin-right: 10px;
   }
-
 }
 
-
 .pdp-cross-sell-product-type{
-  line-height: 22px;
-  font-size: 14px;
+  @extend %p2;
   color: $brand-grey;
-  font-weight: 300;
   margin-bottom: 3px;
   color: $gray;
 }
 
 .pdp-cross-sell-product-colors{
-  line-height: 22px;
-  font-size: 12px;
+  @extend %p3;
   color: $brand-grey;
-  font-weight: 300;
   margin-bottom: 5px;
-  color: $brand-grey;
 }

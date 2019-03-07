@@ -1,3 +1,4 @@
+import Flickity from 'flickity'
 import PhotoSwipe from 'photoswipe'
 import PhotoSwipeUI from 'photoswipe/dist/photoswipe-ui-default.js'
 import select from 'dom-select'

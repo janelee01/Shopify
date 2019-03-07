@@ -1,3 +1,4 @@
+import Flickity from 'flickity'
 import '../../styles/templates/product.scss'
 
 import pdpGallery from '../sections/pdp-gallery'

@@ -2,10 +2,6 @@ import Flickity from 'flickity'
 import AsNavFor from 'flickity-as-nav-for'
 
 export default el => {
-  // Add in module JS code here
-  // el.classList.add('wilcho');
-  // element argument can be a selector string
-  // for an individual element
   var flkty = new Flickity(el, {
     draggable: '>1',
     groupCells: true
