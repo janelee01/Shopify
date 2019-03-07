@@ -1,4 +1,20 @@
 .pdp-stories{
+
+
+  &:after{
+    content: 'flickity';
+    display:none;
+
+    @media (min-width: $screen-md){
+      content: '';
+    }
+  }
+
+
+  @media (min-width: $screen-md){
+    margin: 0 -10px;
+  }
+
   .flickity-viewport{
     height: auto;
   }
@@ -34,11 +50,12 @@
   }
 
   @media (min-width: $screen-xs){
-    margin-right: 20px;
+    margin: 0 10px;
     width: calc(80% - 40px);
+    float: left;
   }
 
   @media (min-width: $screen-md){
-    width: calc(33% - 20px);
+    width: calc(33.3% - 20px);
   }
 }

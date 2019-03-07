@@ -7,6 +7,14 @@
     margin: 0 95px;
   }
 
+  @media (min-width: $screen-md){
+    margin: 0;
+    max-width: 633px;
+    max-height: 633px;
+    padding: 0 95px 74px 95px;
+    margin-top: -30px;
+  }
+
 
   &.active{
     display: block;
@@ -55,7 +63,6 @@
   width: 100%;
 
   @media (min-width: $screen-md){
-    padding-left: 50px;
     display: block;
   }
 }
@@ -69,7 +76,9 @@
 
   @media (min-width: $screen-md){
     display: block;
-    width: 50px;
+    width: 40px;
+    left: -70px;
+    position: absolute;
   }
 
   .pdp-chevron-up,

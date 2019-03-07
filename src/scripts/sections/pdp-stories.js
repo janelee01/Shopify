@@ -4,6 +4,8 @@ import AsNavFor from 'flickity-as-nav-for'
 export default el => {
   var flkty = new Flickity(el, {
     draggable: '>1',
-    groupCells: true
+    groupCells: true,
+    contain: true,
+    watchCSS: true
   })
 }
