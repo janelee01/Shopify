@@ -6,8 +6,12 @@ export default el => {
   // el.classList.add('wilcho');
   // element argument can be a selector string
   // for an individual element
-  var flkty = new Flickity(el, {
-    draggable: '>1',
-    groupCells: true
-  })
+
+  // const $widget = el.querySelector('.pdp-instagram-widget')
+
+  // const flkty = new Flickity($widget, {
+  //   draggable: '>1',
+  //   groupCells: true,
+  //   freeScroll: true
+  // })
 }

@@ -15,7 +15,7 @@ class ProductGallery {
     this.$swipeTemplate = select('.js-pswp')
 
     this.thumbOffset = 0
-    this.thumbSize = 60
+    this.thumbSize = 45
     this.visibleThumbs = 5
     this.visibleArea = this.thumbSize * this.visibleThumbs
     this.totalThumbs = this.$thumbs.length

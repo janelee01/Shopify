@@ -1,5 +1,5 @@
 <section class="product-main">
-  <div class="product-main__container container container-xl">
+  <div class="product-main__container pdp-container">
 
     <div class="pdp-main-product-heading-mobile">
       <h1>{{ parentCollection.title | remove: "The " }}</h1>
@@ -75,6 +75,8 @@
 
 
   {%- include 'pdp-form', item: product -%}
+
+  <div class="pdp-main-product-description-mobile">{{ product.description }}</div>
 
 
   </div>

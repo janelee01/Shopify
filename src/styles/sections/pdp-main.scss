@@ -1,18 +1,54 @@
 .product-main{
-  @media (min-width: $pdp-breakpoint-tablet) {
-    margin-top: 80px;
+
+  position: relative;
+  padding-bottom: $grid-gutter-width;
+  padding-top: 10px;
+  background-color: white;
+
+  @media (min-width: $screen-xs) {
+    padding-top: 80px;
+    background-color: transparent;
   }
+
+  @media (min-width: $screen-md){
+    height: 0px;
+    padding-top: 117px!important;
+  }
+
+  &:after{
+    clear: both;
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: #979797;
+    width: calc(100% + 60px);
+    margin:0 -30px;
+    opacity: .2;
+    bottom: 0px;
+    position: absolute;
+
+    @media (min-width: $screen-xs){
+      display: none;
+      width: calc(100% + 80px);
+      margin:0 -0px;
+    }
+
+    @media (min-width: $screen-md){
+      height: 0px;
+    }
+
+  }
+
 }
 .pdp-container{
   margin: auto;
   width: 100%;
-  @media (min-width: $pdp-breakpoint-mobile) {
-    padding: 0 20px;
-  }
-  @media (min-width: $pdp-breakpoint-tablet) {
+  padding: 0 20px;
+
+  @media (min-width: $screen-xs) {
     padding: 0 30px;
   }
-  @media (min-width: $pdp-breakpoint-desktop) {
+  @media (min-width: $screen-md) {
     max-width: 1440px;
     padding: 0 110px;
   }
@@ -21,29 +57,32 @@
 .product-main__featured{
   width: calc(100% + 140px);
   float: none;
-  @media (min-width: $pdp-breakpoint-desktop){
+
+  @media (min-width: $screen-md){
     float:left;
-    width:50%;
+    width:60%;
   }
 }
 
 .product-main__holder{
-  margin-bottom: $mobile-gutter;
 
-  @media (min-width: $pdp-breakpoint-tablet){
+  margin-top: 20px;
+
+  @media (min-width: $screen-xs){
     float: none;
     width: 100%;
     max-width: 376px;
     padding: 0;
     margin: auto;
+    margin-top: 0px;
   }
 
 
-  @media (min-width: $pdp-breakpoint-desktop){
-    float: left;
-    width: 50%;
-    max-width: 50%;
-    padding: 35px 0 0 100px;
+  @media (min-width: $screen-md){
+    margin-top: 0px;
+    float: right;
+    width: 40%;
+    padding: 30px;
   }
 
   .selector-wrapper{
@@ -90,7 +129,7 @@
     margin-bottom: 5px;
   }
 
-  @media (min-width: $pdp-breakpoint-desktop){
+  @media (min-width: $screen-md){
     display: block;
     margin-bottom: 13px;
   }
@@ -103,13 +142,19 @@
 .pdp-main-product-heading-mobile{
   display: block;
   text-align: center;
-  padding-top: $mobile-gutter;
+  margin-bottom: 24px;
 
   h1{
-    margin-bottom: 0;
+    @extend %h1;
+    margin-bottom: 5px;
   }
 
-  @media (min-width: $pdp-breakpoint-desktop){
+  h4{
+    @extend %h4;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: $screen-md){
     display: none;
   }
 }
@@ -117,15 +162,36 @@
 .pdp-main-product-description{
   color: $gray;
   max-width: 320px;
+  display: none;
 
-  @media (min-width: $pdp-breakpoint){
+  @media (min-width: $screen-xs){
     display: block;
+    margin-bottom: 20px;
+    max-width: 100%;
   }
 
   p{
     @extend %p2;
     margin-bottom: 10px;
-    @media (min-width: $pdp-breakpoint){
+    @media (min-width: $screen-md){
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.pdp-main-product-description-mobile{
+  color: $gray;
+  max-width: 320px;
+  margin-top: $grid-gutter-width;
+
+  @media (min-width: $screen-xs){
+    display: none;
+  }
+
+  p{
+    @extend %p2;
+    margin-bottom: 10px;
+    @media (min-width: $screen-md){
       margin-bottom: 20px;
     }
   }
@@ -137,7 +203,7 @@
 }
 
 .pdp-shipping-returns-warranty-care{
-  color: #333;
+  color: #646464;
   font-size: 12px;
   text-decoration: underline;
 
@@ -152,7 +218,7 @@
   padding-left: 5px;
   border-left: 1px solid $gray-light;
 
-  @media (min-width: $pdp-breakpoint){
+  @media (min-width: $screen-md){
     margin-left: 10px;
     padding-left: 10px;
   }
@@ -214,14 +280,123 @@
 .section-heading{
   text-align: center;
 
-  @media (min-width: $pdp-breakpoint){
+  margin-top: $mb-small-sm!important;
+  margin-bottom: 10px!important;
+
+  @media (min-width: $screen-xs){
+      max-width: 504px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+  @media (min-width: $screen-md){
+    max-width: 687px;
     margin-top: 90px!important;
     margin-bottom: 45px!important;
+  }
+
+  h2{
+    line-height: 30px;
+    color: #2F2D2D;
+    font-weight: 500;
+
+    @media (min-width: $screen-xs){
+      font-size: 30px;
+    }
+
   }
 
 }
 
 .section-heading h2.title{
+  @extend %h1;
+  color: #2F2D2D!important;
   max-width: 700px;
   margin: auto;
+}
+
+
+
+.pdp-snap{
+
+  @media (max-width: $screen-xs){
+    margin: 0 -20px;
+    width: calc(100% + 40px);
+  }
+
+  @media (min-width: $screen-xs) and (max-width: $screen-md){
+    margin: 0 -30px;
+    width: calc(100% + 60px)!important;
+  }
+
+
+}
+
+.flickity-page-dots .dot{
+  width: 7px!important;
+  height: 7px!important;
+  margin:0 4px!important;
+  background-color: white!important;
+  border: 1px solid $gray;
+}
+
+.flickity-page-dots .dot.is-selected{
+  background-color: $gray!important;
+}
+
+
+.pdp-color-wrapper{
+
+}
+
+
+.pdp-separator{
+  position: relative;
+  margin-bottom: 0px;
+  padding-bottom: 40px!important;
+
+  &:after{
+    clear: both;
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: #979797;
+    width: calc(100% + 40px);
+    margin:0 -20px;
+    opacity: .2;
+    bottom: 0px;
+    position: absolute;
+
+    @media (min-width: $screen-xs){
+      width: calc(100% + 80px);
+      margin:0 -40px;
+    }
+
+    @media (min-width: $screen-md){
+      height: 0px;
+    }
+
+  }
+}
+
+
+._pdp-wrapper-white{
+  background-color: white;
+  padding: 0 20px;
+  padding-bottom: 40px;
+  margin: 0 -20px;
+  width: calc(100% + 40px);
+  overflow: hidden;
+}
+
+.pdp-white-wrapper{
+  display: flex;
+  width: 100%;
+  background-color: white;
+}
+
+
+.pdp-white{
+  background-color: white;
+  width: 100%;
 }

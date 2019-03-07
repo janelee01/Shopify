@@ -12,6 +12,8 @@ import '../sections/pdp-size-fit-modal'
 import pdpSeeHowToPackit from '../sections/pdp-see-how-to-pack-it'
 
 import pdpModal from '../sections/pdp-modal'
+import pdpInstagram from '../sections/pdp-instagram'
+import pdpSticky from '../sections/pdp-sticky-nav'
 
 // import '../sections/pdp-swatches'
 
@@ -32,6 +34,9 @@ $(document).ready(function(){
   pdpTestimonials(document.querySelector('.pdp-testimonials'));
   pdpMaterial(document.querySelector('.pdp-material'));
   pdpSeeHowToPackit(document.querySelector('.pdp-see-how-to-pack-it'));
+  pdpInstagram(document.querySelector('.pdp-instagram'));
+
+  // pdpSticky()
 
   document.querySelectorAll('.pdp-callout-galleries').forEach(el => { pdpCalloutGalleries(el, viewers); });
   document.querySelectorAll('.pdp-gallery').forEach(el => { pdpGallery(el, viewers); });

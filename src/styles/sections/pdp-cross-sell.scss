@@ -24,6 +24,14 @@
 
   }
 
+  h4{
+    line-height: 20px;
+    font-size: 15px;
+    color: $brand-grey;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
   article{
     text-align: center;
   }
@@ -43,7 +51,7 @@
 
   width: 66%;
 
-  @media (min-width: $pdp-breakpoint-desktop){
+  @media (min-width: $screen-md){
     width: calc(33% - 20px);
     margin-right: 10px;
   }
@@ -52,12 +60,19 @@
 
 
 .pdp-cross-sell-product-type{
+  line-height: 22px;
   font-size: 14px;
+  color: $brand-grey;
+  font-weight: 300;
+  margin-bottom: 3px;
   color: $gray;
-  margin-bottom: 5px;
 }
 
 .pdp-cross-sell-product-colors{
+  line-height: 22px;
   font-size: 12px;
-  color: $gray-dark;
+  color: $brand-grey;
+  font-weight: 300;
+  margin-bottom: 5px;
+  color: $brand-grey;
 }

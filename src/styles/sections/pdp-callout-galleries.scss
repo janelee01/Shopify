@@ -2,17 +2,18 @@
   background-color: transparent;
   position: relative;
   margin-bottom: 40px;
+  padding-bottom: 40px;
 
-  &:after{
-    clear: both;
-    content: '';
-    display: block;
+  @media (min-width: $screen-xs){
+    padding-bottom: 77px!important;
+    margin-top: 77px;
   }
 
   @media (min-width: $screen-md){
     display: flex;
     background-color: white;
     margin-bottom: 80px;
+    padding-bottom: 0!important;
   }
 }
 
@@ -21,9 +22,9 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  padding: 0 112px;
   float: none;
   color: $gray;
+  margin-top: 50px;
 
   h4{
     @extend %h2;
@@ -36,10 +37,13 @@
 
   @media (min-width: $screen-xs){
     width: 100%;
+    padding-left: 34px;
+    padding-right: 34px;
   }
 
   @media (min-width: $screen-md){
     width: 50%;
+    padding: 0 112px;
   }
 }
 
@@ -73,8 +77,13 @@
   img{
     display: block;
 
-    @media (min-width: $screen-md){
+    @media (min-width: $screen-xs){
       height: 610px;
+      object-fit: cover;
+    }
+
+    @media (min-width: $screen-md){
+
       object-fit: cover;
     }
   }
@@ -89,10 +98,11 @@
 }
 
 .pdp-product-features-carousel-main-slide{
-  width: 80%;
-  padding: 10px;
+  width: 90%;
+  padding-right: 10px;
 
   span{
+    @extend %h4;
     background-color: white;
     position: absolute;
     bottom: 10px;
@@ -103,11 +113,15 @@
     bottom:0;
     display: block;
     text-transform: uppercase;
-    font-size: $font-size-sm;
+    color: $brand-grey;
 
     @media (min-width: $screen-md){
       display: none;
     }
+  }
+
+  @media (min-width: $screen-xs){
+    width: 80%;
   }
 
   @media (min-width: $screen-md){

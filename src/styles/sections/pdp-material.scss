@@ -1,9 +1,10 @@
+
 .pdp-material{
-  &:after{
-    content: '';
-    display: block;
-    clear: both;
-  }
+
+  position: relative;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+
 
   .flickity-viewport{
      height: auto;
@@ -15,18 +16,18 @@
 }
 
 .pdp-material-inner{
-  @media (min-width: $pdp-breakpoint-desktop){
+  @media (min-width: $screen-md){
     display: flex;
   }
 }
 .pdp-material-images{
-  @media (min-width: $pdp-breakpoint-desktop){
+  @media (min-width: $screen-md){
     width: calc(50% - 20px);
     margin-right: 20px;
   }
 
   .flickity-page-dots{
-    @media (min-width: $pdp-breakpoint-desktop){
+    @media (min-width: $screen-md){
       display: none;
     }
   }
@@ -36,25 +37,30 @@
   width: 100%;
   text-align: center;
 
-  @media (min-width: $pdp-breakpoint-desktop){
+  @media (min-width: $screen-md){
     .pdp-material-image-caption{
       display: none;
     }
   }
 
   &:before{
-    content: '';
-    display: block;
-    padding-top: 100%;
+    @media (min-width: $screen-md){
+      content: '';
+      display: block;
+      padding-top: 100%;
+    }
   }
 
   img{
     width: 100%;
     height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover;
+
+    @media (min-width: $screen-md){
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
   }
 }
 
@@ -62,7 +68,14 @@
 .pdp-material-image-caption{
   h3{
     @extend %h2;
-    margin: 20px 0;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  p{
+    @extend %p2;
+    color: $gray;
+    margin-bottom: 0;
   }
 }
 
@@ -82,7 +95,7 @@
     transform: none!important;
   }
 
-  @media (min-width: $pdp-breakpoint-desktop){
+  @media (min-width: $screen-md){
     display: flex;
     flex-wrap: wrap;
     align-items: center;

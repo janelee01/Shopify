@@ -18,11 +18,21 @@
 }
 
 #add-to-cart{
+
   max-width: 320px;
+  height: 40px;
   position: relative;
   background-color: $brand-blue;
   transition: background-color .5s;
   margin-bottom: 10px;
+  margin-top: 20px;
+  border-radius: 2px;
+
+
+  @media (min-width: $screen-xs){
+    max-width: 100%;
+    height: 50px;
+  }
 
   &:hover{
     background-color: $brand-black;
@@ -32,7 +42,7 @@
     @extend %h3;
     z-index: 1;
     width: auto;
-    padding: 0 30px;
+    padding: 0 20px;
     margin: 0;
     border: 0;
     outline: 0;
@@ -41,7 +51,11 @@
     -webkit-appearance: none;
     -webkit-border-radius: 0px;
     background-color: transparent;
-    height: 50px;
+    height: 40px;
+
+    @media (min-width: $screen-xs){
+      height: 50px;
+    }
   }
 
   button{
@@ -54,6 +68,10 @@
     &:hover{
       background: transparent;
     }
+
+    @media (min-width: $screen-xs){
+      font-size: 16px;
+    }
   }
 
   button:before{
@@ -62,7 +80,7 @@
     width: 1px;
     position: absolute;
     height: 30px;
-    top: 10px;
+    top: 5px;
     left: 0px;
     background-color: white;
   }
@@ -72,9 +90,15 @@
   }
 
   .pdp-chevron-down{
-    top: 18px;
-    left: 54px;
+    top: 14px;
+    left: 36px;
     position: absolute;
+    transform: scale(.7);
+
+    @media (min-width: $screen-xs){
+      top: 20px;
+    }
+
   }
 
   .pdp-chevron-down:before{
@@ -84,13 +108,13 @@
 }
 
 .pdp-form-option-group{
-  //border-bottom: 1px solid $gray-lighter;
-  padding: $mobile-gutter/2 $mobile-gutter;
-  margin-left: -$mobile-gutter;
-  margin-right: -$mobile-gutter;
+
+  border-top: 1px solid rgba(151,151,151,.2);
+  border-bottom: 1px solid rgba(151,151,151,.2);
+
+  padding: 12px 20px;
 
   &:first-child{
-    //border-top: 1px solid $gray-lighter;
   }
 
   &:after{
@@ -98,7 +122,7 @@
     display: none;
   }
 
-  @media (min-width: $pdp-breakpoint){
+  @media (min-width: $screen-md){
     border: 0;
     padding: 0;
     margin: 0;
@@ -108,7 +132,7 @@
     }
   }
 
-  @media (min-width: $pdp-breakpoint-tablet){
+  @media (min-width: $screen-xs){
     border: 0;
     padding: 0;
     margin: 0;
@@ -121,6 +145,10 @@
       content: '';
       display: block;
     }
+  }
+
+  .flickity-slider{
+    height: auto;
   }
 
   .configuration-label{
@@ -154,6 +182,7 @@
   .discount-label{
     font-size: 14px;
     margin-left: 10px;
+    color: #E14154;
   }
 
   [data-compare-price]{

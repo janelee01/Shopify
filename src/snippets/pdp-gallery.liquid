@@ -2,6 +2,8 @@
 {%- for siblingProduct in parentCollection.products -%}
 {%- if siblingsList contains siblingProduct.id -%}
 <div class="pdp-gallery {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
+
+
   <div class="js-pdp-gallery-featured pdp-gallery-featured">
     {{ siblingProduct.featured_image | img_url: 'original' | img_tag }}
   </div>
@@ -15,6 +17,7 @@
     <div class="js-pdp-gallery-thumbs pdp-gallery-thumbs">
       <div class="js-pdp-thumbs-container pdp-gallery-thumbs-inner">
         {%- for image in siblingProduct.images -%}
+        {%- unless image.alt contains 'swatch' -%}
         <a
           href="#"
           data-src="{{ image | img_url: 'original' }}"
@@ -23,6 +26,7 @@
           data-width="{{ image.width }}">
           {{ image | img_url: '100x100', crop: 'center' | img_tag }}
         </a>
+        {%- endunless -%}
         {%- endfor -%}
       </div>
     </div>

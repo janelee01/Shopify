@@ -10,9 +10,10 @@
 }
 
 .pdp-stories article{
-  width: calc(33% - 20px);
+
   margin-right: 10px;
   text-align: center;
+  width: calc(80% -  10px);
 
   h4{
     @extend %h3;
@@ -21,10 +22,19 @@
 
   a{
     text-decoration: none;
-    color: $gray-dark;
+    color: $brand-grey;
   }
 
-  @media ( max-width: 768px ) {
-  	width: 80%;
+  img{
+    width: 100%;
+  }
+
+  @media (min-width: $screen-xs){
+    margin-right: 20px;
+    width: calc(80% - 40px);
+  }
+
+  @media (min-width: $screen-md){
+    width: calc(33% - 20px);
   }
 }

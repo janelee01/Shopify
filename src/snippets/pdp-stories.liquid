@@ -8,30 +8,35 @@
 
 {%- if(stories) -%}
 
-<div class="section-heading">
-  <h2 class="title">Stories</h2>
-</div>
 
-<div class="pdp-stories">
+<div class="pdp-separator">
 
-{%- for handle in stories -%}
-{% assign article = articles[handle] %}
+  <div class="section-heading">
+    <h2 class="title">Stories</h2>
+  </div>
 
-  <article>
+  <div class="pdp-stories pdp-snap">
 
-    <figure>
-      <a href="{{ article.url }}">
-      {{ article | featured_image | img_url: '380x215', crop: 'center' | img_tag }}
-      </a>
-    </figure>
+  {%- for handle in stories -%}
+  {% assign article = articles[handle] %}
 
-    <h4>
-      <a href="{{ article.url }}">{{ article.title }}</a>
-    </h4>
+    <article>
 
-  </article>
+      <figure>
+        <a href="{{ article.url }}">
+        {{ article | featured_image | img_url: '380x215', crop: 'center' | img_tag }}
+        </a>
+      </figure>
 
-{%- endfor -%}
+      <h4>
+        <a href="{{ article.url }}">{{ article.title }}</a>
+      </h4>
+
+    </article>
+
+  {%- endfor -%}
+
+  </div>
 
 </div>
 {%- endif -%}

@@ -5,10 +5,10 @@
   <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
 
   <form action="/cart/add" method="post" enctype="multipart/form-data">
-    <div class="pdp-form-option-group">
+    <div class="pdp-snap pdp-form-option-group">
       {% include 'pdp-swatches' %}
     </div>
-    <div class="pdp-form-option-group selector-wrapper hidden">
+    <div class="pdp-snap pdp-form-option-group selector-wrapper hidden">
       {%- unless product.has_only_default_variant -%}
         <label for="variant-selector">Size:</label>
         <div id="variant-buttons" class="variant-buttons">

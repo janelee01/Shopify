@@ -2,10 +2,16 @@
   position: relative;
   display: none;
 
+
+  @media (min-width: $screen-xs){
+    margin: 0 95px;
+  }
+
+
   &.active{
     display: block;
 
-    @media (min-width: $pdp-breakpoint-tablet){
+    @media (min-width: $screen-xs){
       display: flex;
       flex-direction: row-reverse;
       align-items: center;
@@ -32,12 +38,13 @@
     display: none;
   }
 
-  @media (min-width: $pdp-breakpoint-desktop){
+  @media (min-width: $screen-md){
     display: none;
   }
 
   img{
-    width: 70%;
+    width: 60%;
+    margin-right: 10px;
   }
 
 }
@@ -47,8 +54,8 @@
   text-align: center;
   width: 100%;
 
-  @media (min-width: $pdp-breakpoint-desktop){
-    padding-left: 90px;
+  @media (min-width: $screen-md){
+    padding-left: 50px;
     display: block;
   }
 }
@@ -60,7 +67,7 @@
 .pdp-gallery-thumbs-wrapper{
   display: none;
 
-  @media (min-width: $pdp-breakpoint-desktop){
+  @media (min-width: $screen-md){
     display: block;
     width: 50px;
   }
@@ -88,18 +95,18 @@
 .pdp-gallery-thumbs{
   a{
     display: block;
-    max-width: 50px;
-    margin: 10px 0;
+    max-width: 40px;
+    margin: 5px 0;
 
     img{
       width: 100%;
     }
   }
 
-  @media (min-width: $pdp-breakpoint){
-      max-height: 310px;
+  @media (min-width: $screen-md){
+      max-height: 225px;
       display: block;
-      width: 50px;
+      width: 40px;
       overflow: hidden;
    }
 
@@ -128,7 +135,7 @@
 .pdp-gallery-thumbs-video{
   margin: 10px auto;
   display: block;
-  width: 50px;
+  width: 40px;
   border-radius: 50%;
   text-align: center;
   width: 32px;
@@ -141,5 +148,22 @@
 
   path{
     fill: #00AEEF;
+  }
+}
+
+
+.pdp-gallery-zoom{
+
+  display: none;
+
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 0px;
+  bottom: 100px;
+  z-index: 99;
+
+  @media (min-width: $screen-md){
+    display: block;
   }
 }
