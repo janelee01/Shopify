@@ -1,17 +1,15 @@
 import Flickity from 'flickity'
 import '../../styles/templates/product.scss'
-
+import image from '../sections/pdp-image'
 import pdpGallery from '../sections/pdp-gallery'
-import '../sections/pdp-form'
+import pdpForm from '../sections/pdp-form'
 import pdpCalloutGalleries from '../sections/pdp-callout-galleries'
-import '../sections/pdp-material'
 import pdpStories from '../sections/pdp-stories'
 import pdpCrossSell from '../sections/pdp-cross-sell'
 import pdpTestimonials from '../sections/pdp-testimonials'
 import pdpMaterial from '../sections/pdp-material'
-import '../sections/pdp-size-fit-modal'
+import pdpSizeFitModal from '../sections/pdp-size-fit-modal'
 import pdpSeeHowToPackit from '../sections/pdp-see-how-to-pack-it'
-
 import pdpModal from '../sections/pdp-modal'
 import pdpInstagram from '../sections/pdp-instagram'
 import pdpSticky from '../sections/pdp-sticky-nav'
@@ -21,6 +19,7 @@ import pdpSticky from '../sections/pdp-sticky-nav'
 var viewers = [];
 
 $(document).ready(function(){
+  image()
 
   var flkty = new Flickity(document.querySelector('.pdp-form-option-group'), {watchCSS: true, prevNextButtons: false, pageDots: false, contain: true, freeScroll: true})
 

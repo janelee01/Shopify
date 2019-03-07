@@ -102,54 +102,7 @@
       <meta itemprop="ratingCount" content="{{ product.metafields.yotpo.reviews_count }}">
       </div>
     {% endif %}
-
-
-  {% comment %}
-  <div class="gallery-container is-loading" id="product-galleries">
-    {% for siblingProduct in parentCollection.products %}
-      {% if siblingsList contains siblingProduct.id %}
-      <div class="product-gallery {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
-        <div class="filmroll" id="gallery-{{ siblingProduct.id }}">
-        {% for image in siblingProduct.images %}
-          {% if image.alt contains 'swatch' %}{% continue %}{% endif %}
-          <div class="item">
-            <figure>
-              <span class="{% if forloop.first %}master{% else %}resize{% endif %}">
-                <img src="{{ image.src | img_url: '375x500' }}" alt="{{ image.alt | escape }}">
-              </span>
-            </figure>
-          </div>
-        {% endfor %}
-        </div>
-        <a href="#" id="gallery-{{ siblingProduct.id }}-prev" class="gallery-control prev"><span class="sr-only">previous slide</span></a>
-        <a href="#" id="gallery-{{ siblingProduct.id }}-next" class="gallery-control next"><span class="sr-only">next slide</span></a>
-      </div>
-      {% endif %}
-    {% endfor %}
-    <div class="loading"></div>
-  </div>
-  {% endcomment %}
-
-  {% comment %}
-    {% if featured_image != blank %}
-      <img src="{{ featured_image | img_url: '480x480' }}" alt="{{ featured_image.alt | escape }}" data-product-featured-image>
-    {% endif %}
-
-    {% if product.images.size > 1 %}
-      <ul id="product-thumbnails">
-        {% for image in product.images %}
-          <li>
-            <a href="{{ image.src | img_url: '480x480' }}" data-product-single-thumbnail>
-              <img src="{{ image.src | img_url: '160x160' }}" alt="{{ image.alt | escape }}">
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  {% endcomment %}
-
   <div class="container">
-
     {%- capture siblingsJson -%}
       {
         {%- for siblingProduct in parentCollection.products -%}
@@ -179,7 +132,7 @@
       {%- for siblingProduct in parentCollection.products -%}
         {%- for variant in siblingProduct.variants -%}
           {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
-{{ variant.id }}|
+            {{ variant.id }}|
           {%- endif -%}
         {%- endfor -%}
       {%- endfor -%}
@@ -199,14 +152,12 @@
       {%- endfor -%}
     }
     {%- endcapture -%}
-
     <script>
       var siblingsJson = {{ siblingsJson }};
       var siblingsSupplimentalJson = {{ siblingsSupplimentalJson }};
       var hiddenVariants = "{{ hiddenVariants }}";
       var variantStockData = {{ variantStockData }};
     </script>
-
   </div>
 </div>
 
@@ -247,11 +198,15 @@
           <button class="btn btn-block" data-wl-cancel>{{ 'products.waitlist.back' | t }}</button>
         </div>
       </div>
-      <img src="{{ product.featured_image | img_url: '375x500' }}" alt="" id="wl-image">
+      {%- assign img_src = product.featured_image | img_url: '375x500' -%}
+      {% include 'image',
+        src: img_src,
+        attrs: 'id="wl-image"'
+        alt: '' %}
+      {%- assign img_src = nil -%}
     </form>
   </div>
 </div>
-
 
 {%- assign emptyStars = nil -%}
 {%- assign showSaleElements = nil -%}

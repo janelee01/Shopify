@@ -26,6 +26,7 @@
     "flickity": "^2.2.0",
     "flickity-as-nav-for": "^2.0.1",
     "flickity-fade": "^1.0.0",
+    "layzr.js": "^2.2.2",
     "photoswipe": "^4.1.3"
   }
 }

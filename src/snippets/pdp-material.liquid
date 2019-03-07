@@ -10,7 +10,9 @@
       {%- for i in (1..total_tiles_minus_1) -%}
       {%- assign tile = data[i] | split: '|' -%}
       <div class="pdp-material-image">
-        <img src="{{ tile[2] }}" />
+        {% include 'image',
+          src: tile[2],
+          alt: tile[1] %}
         <div class="pdp-material-image-caption">
           <h3>{{ tile[0] }}</h3>
           <p>{{ tile[1] }}</p>

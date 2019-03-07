@@ -5,54 +5,42 @@
 {%- endunless -%}
 
 <div class="pdp-callout-galleries pdp-separator{% if alternate %} pdp-callout-galleries-alternate{% endif %}">
-
-
   <div class="pdp-product-features-text">
-
     <h4>Ready for Travel </h4>
     <p>Featuring a pass through messenger sleeve to slide over your suitcase handle for seamless travel and a padded messenger strap for extra comfort. In addition, the Catalina Deluxe qualifies as a carry on item and fits in airline compartments and under the seat when not fully packed.</p>
-
   </div>
-
   <div class="pdp-product-features-carousel pdp-snap">
-
-
     <div class="pdp-product-features-carousel-main">
-
-
       <div class="pdp-product-features-carousel-main-slide">
-        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-beach.jpeg">
+        {% include 'image',
+          src: 'https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-beach.jpeg',
+          alt: 'Pass through sleeve' %}
         <span>Pass through sleeve</span>
       </div>
-
       <div class="pdp-product-features-carousel-main-slide">
-        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-street.jpeg">
+        {% include 'image',
+          src: 'https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-street.jpeg',
+          alt: 'Messenger strap' %}
         <span>Messenger strap</span>
       </div>
-
       <div class="pdp-product-features-carousel-main-slide">
-        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-terrace.jpeg">
+        {% include 'image',
+          src: 'https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-terrace.jpeg',
+          alt: 'Carry on friend' %}
         <span>Carry on friend</span>
       </div>
-
       <div class="pdp-product-features-carousel-main-slide">
-        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-beach.jpeg">
+        {% include 'image',
+          src: 'https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-beach.jpeg',
+          alt: 'Pass through sleeve' %}
         <span>Pass through sleeve</span>
       </div>
-
     </div>
-
     <div class="pdp-product-features-carousel-nav">
-
       <span>Pass through sleeve</span>
       <span>Messenger strap</span>
       <span>Carry on friend</span>
       <span>Pass through sleeve</span>
-
     </div>
-
   </div>
-
-
-
 </div>

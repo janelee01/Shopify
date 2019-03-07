@@ -47,11 +47,6 @@
         background-color: $brand-blue;
         transition: width .5s;
       }
-
-      img{
-        @include fill;
-        object-fit: contain;
-      }
     }
 
     &.is-selected{

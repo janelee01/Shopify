@@ -11,7 +11,11 @@
     <article>
       <figure>
         <a href="{{ article.url }}" class="pdp-stories-img-container">
-        {{ article | featured_image | img_url: '380x215', crop: 'center' | img_tag }}
+        {%- assign img_src = article | featured_image | img_url: '380x215', crop: 'center' -%}
+        {% include 'image',
+          src: img_src,
+          alt: '' %}
+        {%- assign img_src = nil -%}
         </a>
       </figure>
       <h4>

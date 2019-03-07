@@ -98,6 +98,7 @@
 }
 
 .pdp-product-features-carousel-main-slide{
+  @include ratio(100%);
   width: 90%;
   padding-right: 10px;
 

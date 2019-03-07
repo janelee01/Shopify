@@ -48,9 +48,7 @@
     width: 60%;
     margin-right: 10px;
   }
-
 }
-
 .pdp-gallery-featured{
   @include ratio(70%);
   display: none;
@@ -98,13 +96,9 @@
 
 .pdp-gallery-thumbs{
   a{
-    display: block;
     max-width: 40px;
     margin: 5px 0;
-
-    img{
-      width: 100%;
-    }
+    @include ratio(100%);
   }
 
   @media (min-width: $screen-md){
@@ -113,7 +107,6 @@
       width: 40px;
       overflow: hidden;
    }
-
 }
 
 .pdp-gallery-thumbs-inner{
@@ -152,22 +145,5 @@
 
   path{
     fill: #00AEEF;
-  }
-}
-
-
-.pdp-gallery-zoom{
-
-  display: none;
-
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  right: 0px;
-  bottom: 100px;
-  z-index: 99;
-
-  @media (min-width: $screen-md){
-    display: block;
   }
 }

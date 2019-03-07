@@ -46,11 +46,6 @@
     color: $brand-grey;
   }
 
-  img{
-    @include fill;
-    object-fit: cover;
-  }
-
   @media (min-width: $screen-xs){
     margin: 0 10px;
     width: calc(80% - 40px);

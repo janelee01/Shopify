@@ -3,11 +3,6 @@
 
   .pdp-cross-sell-image{
     @include ratio(110%);
-
-    img{
-      object-fit: contain;
-      @include fill;
-    }
   }
 
 
