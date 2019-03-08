@@ -25,6 +25,10 @@ class ProductForm {
     this.scrollToYotpo()
     this.attachEventListeners()
     this.initSwatchCarousels()
+
+    $(document).on('pdp.header.variant.change', () => {
+      // Update this form..
+    })
   }
 
   /**
@@ -72,6 +76,11 @@ class ProductForm {
     })
     this.variantID = this.variant.id
     this.$variantInput.value = this.variantID
+
+    $(document).trigger('pdp.form.variant.change', {
+      id: this.variantID,
+      variant: this.variant
+    })
   }
 
   /**

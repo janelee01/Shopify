@@ -1,34 +1,24 @@
+import on from 'dom-event'
+import select from 'dom-select'
+
 export default el => {
-  // Add in module JS code here
+  on(el, 'click', () => {
+    e.preventDefault()
+    const $a = e.target
+    const dataModal = $a.getAttribute('data-modal')
+    const modalId = `pdp-modal-${dataModal}`
+    const $modal = document.getElementById(modalId)
 
-  el.addEventListener(
+    if (!$modal) return console.warn(`modal id ${modalId} not found!`)
 
-    'click',
+    $modal.classList.add('active')
 
-    e => {
-      e.preventDefault()
-
-      let $a = e.target
-
-      let dataModal = $a.getAttribute('data-modal')
-
-      let modalId = `pdp-modal-${dataModal}`
-
-      let $modal = document.getElementById(modalId)
-
-      if (!$modal) return console.warn(`modal id ${modalId} not found!`)
-
-      $modal.classList.add('active')
-
-      $modal.querySelector('.panel-close').addEventListener(
-
-        'click',
-
-        e => {
-          document.querySelector('.pdp-modal.active').classList.remove('active')
-        }
-
-      )
-    }
-  )
+    on(
+      select('.js-panel-close', $model),
+      'click',
+      e => {
+        select('.pdp-modal.active').classList.remove('active')
+      }
+    )
+  })
 }
