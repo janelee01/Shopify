@@ -2,7 +2,7 @@
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
-  transition: opacity var(--duration-slow) var(--ease), visibility var(--duration-slow) var(--ease);
+  transition: opacity 300ms ease-in 1ms, visibility 1ms;
 
   &.is-loaded {
     opacity: 1;
