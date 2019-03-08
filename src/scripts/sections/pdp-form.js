@@ -82,7 +82,9 @@ class ProductForm {
     this.$swatches.forEach(el => (
       on(el, 'click', this.onSwatchChange)
     ))
-    on(this.$sizeWrap, 'click', this.onNonSwatchChange)
+    if (this.$sizeWrap) {
+      on(this.$sizeWrap, 'click', this.onNonSwatchChange)
+    }
     on(this.$addToCartBtn, 'click', this.onAddToCart)
   }
 
@@ -131,7 +133,10 @@ class ProductForm {
    */
   updateVariantInput () {
     this.$variantInput.innerHTML = ''
-    this.$sizeWrap.innerHTML = ''
+
+    if (this.$sizeWrap) {
+      this.$sizeWrap.innerHTML = ''
+    }
 
     this.variants.forEach(variant => {
       $(this.$variantInput).append(
@@ -151,7 +156,17 @@ class ProductForm {
     })
   }
 
+  /**
+   * Selects the Size option in the form. Used
+   * after a new swatch has been selected and these
+   * Size button have been regenerated.
+   *
+   * @param {Integer} index The option to select
+   */
   selectVariantOption (index = 0) {
+    if (!this.$sizeWrap) {
+      return
+    }
     const options = select.all('a', this.$sizeWrap)
     if (!options || !options.length) {
       return
@@ -250,7 +265,9 @@ class ProductForm {
   }
 
   /**
-   * [This needs some testing]
+   * Handles clicks on the Size variant options in
+   * the form. Also caters to the Gift Card PDP
+   * which does not have swatches.
    *
    * @param {Object} e Vanilla event object
    */
@@ -345,6 +362,12 @@ class ProductForm {
     }
   }
 
+  /**
+   * Updates the waitlist overlay with current
+   * product and variant information.
+   *
+   * @todo: This needs testing
+   */
   updateWaitlistMeta () {
     $('#wl-image').attr('src', this.product.featured_image)
     $('#wl-product').val(this.productID)
@@ -407,10 +430,14 @@ class ProductForm {
     }
   }
 
+  /**
+   * Shows final sale messaging when there
+   * are discontinued products (including the
+   * current variant).
+   */
   updateFinalSaleMessage () {
-    const variant = this.$variantInput.value
     const $warning = $('.final-sale-warning')
-    if (discontinued.includes(variant)) {
+    if (window.discontinued.includes(this.variantID)) {
       $warning.addClass('shown')
     } else {
       $warning.removeClass('shown')
