@@ -4,14 +4,18 @@ import AsNavFor from 'flickity-as-nav-for'
 export default el => {
   if (!el) return
 
-  const $main = el.querySelector('.pdp-testimonials-texts')
-  const $nav = el.querySelector('.pdp-testimonials-logos')
+  const $main = el.querySelector('.js-pdp-testimonials-texts')
+  const $nav = el.querySelector('.js-pdp-testimonials-logos')
 
-  const flkty1 = new Flickity($main)
+  const flkty1 = new Flickity($main, {
+    pageDots: false,
+    prevNextButtons: false
+  })
 
   const flkty2 = new Flickity($nav, {
-    asNavFor: '.pdp-testimonials-texts',
-    pageDots: false
+    asNavFor: '.js-pdp-testimonials-texts',
+    pageDots: false,
+    prevNextButtons: false
   })
 
   flkty2.on('change', (index) => {

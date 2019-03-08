@@ -5,6 +5,8 @@ export default el => {
   const container = select('.js-container', el)
   const flkty = new Flickity(container, {
     draggable: '>1',
-    groupCells: true
+    groupCells: true,
+    pageDots: false,
+    prevNextButtons: false
   })
 }

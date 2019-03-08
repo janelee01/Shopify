@@ -1,7 +1,7 @@
 
 {%- for siblingProduct in parentCollection.products -%}
 {%- if siblingsList contains siblingProduct.id -%}
-<div class="pdp-gallery {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
+<div class="pdp-gallery js-pdp-gallery {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
   <div class="js-pdp-gallery-featured pdp-gallery-featured">
     {%- assign img_src = siblingProduct.featured_image | img_url: 'original' -%}
     {% include 'image',
@@ -12,12 +12,14 @@
   </div>
   <div class="js-pdp-gallery-mobile pdp-gallery-mobile">
     {%- for image in siblingProduct.images -%}
+      <div class="pdp-gallery-mobile-image">
       {%- assign img_src = image | img_url: 'original' -%}
       {% include 'image',
         src: img_src,
         object_fit: 'contain',
         alt: '' %}
       {%- assign img_src = nil -%}
+      </div>
     {%- endfor -%}
   </div>
   <div class="pdp-gallery-thumbs-wrapper">

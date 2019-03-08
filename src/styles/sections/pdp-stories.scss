@@ -1,4 +1,6 @@
 .pdp-stories{
+  @include stretch-to-fill-viewport;
+
   &:after{
     content: 'flickity';
     display:none;
@@ -8,33 +10,15 @@
     }
   }
 
-
   @media (min-width: $screen-md){
     margin: 0 -10px;
-  }
-
-  .flickity-viewport{
-    height: auto;
-  }
-
-  .flickity-page-dots,
-  .flickity-button{
-    display: none;
-  }
-}
-.pdp-stories{
-  @media (min-width: $screen-md){
     display: flex;
   }
 }
-.pdp-stories article{
+.pdp-stories__article{
   margin-right: 10px;
   text-align: center;
   width: calc(80% -  10px);
-
-  .pdp-stories-img-container{
-    @include ratio(60%);
-  }
 
   h4{
     @extend %h3;
@@ -54,4 +38,7 @@
   @media (min-width: $screen-md){
     width: calc(33.3% - 20px);
   }
+}
+.pdp-stories__img{
+  @include ratio(60%);
 }

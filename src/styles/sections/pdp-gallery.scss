@@ -2,18 +2,10 @@
   position: relative;
   display: none;
 
-  @media (min-width: $screen-xs){
-    margin: 0 95px;
-  }
-
-  @media (min-width: $screen-md){
-    margin: 0;
-  }
-
   &.active{
     display: block;
 
-    @media (min-width: $screen-xs){
+    @media (min-width: $screen-md){
       display: flex;
       flex-direction: row-reverse;
       align-items: center;
@@ -35,19 +27,14 @@
     height: auto;
   }
 
-  .flickity-page-dots,
-  .flickity-button{
-    display: none;
-  }
-
   @media (min-width: $screen-md){
     display: none;
   }
-
-  img{
-    width: 60%;
-    margin-right: 10px;
-  }
+}
+.pdp-gallery-mobile-image {
+  @include ratio(100%);
+  width: 80%;
+  margin-right: 10px;
 }
 .pdp-gallery-featured{
   @include ratio(70%);
@@ -91,7 +78,6 @@
     cursor: default;
     opacity: .3;
   }
-
 }
 
 .pdp-gallery-thumbs{

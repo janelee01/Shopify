@@ -28,6 +28,10 @@ class ProductGallery {
     this.setListeners()
     this.setInitStates()
     this.initResponsiveSlider()
+
+    $(document).on('pdp.galleries.resize', () => {
+      this.flkty.resize()
+    })
   }
 
   setBindings () {
@@ -94,7 +98,9 @@ class ProductGallery {
     this.flkty = new Flickity(this.$mobileCarousel, {
       draggable: '>1',
       groupCells: true,
-      contain: true
+      contain: true,
+      pageDots: false,
+      prevNextButtons: false
     })
   }
 

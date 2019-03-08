@@ -1,11 +1,6 @@
 .pdp-cross-sell{
   margin-bottom: 60px;
 
-  .pdp-cross-sell-image{
-    @include ratio(110%);
-  }
-
-
   a{
     &:hover{
       text-decoration: none;
@@ -17,38 +12,29 @@
     color: $brand-grey;
     margin-bottom: 5px;
   }
-
-  article{
-    text-align: center;
-  }
-
-  .flickity-viewport{
-     height: auto;
-  }
-
-  .flickity-page-dots,
-  .flickity-button{
-      display: none;
-  }
 }
-
-.pdp-cross-sell article{
+.pdp-cross-sell__container{
+  @include stretch-to-fill-viewport;
+}
+.pdp-cross-sell__article{
   width: 66%;
+  text-align: center;
 
   @media (min-width: $screen-md){
     width: calc(33% - 20px);
     margin-right: 10px;
   }
 }
-
-.pdp-cross-sell-product-type{
+.pdp-cross-sell__image{
+  @include ratio(110%);
+}
+.pdp-cross-sell__type{
   @extend %p2;
   color: $brand-grey;
   margin-bottom: 3px;
   color: $gray;
 }
-
-.pdp-cross-sell-product-colors{
+.pdp-cross-sell__colors{
   @extend %p3;
   color: $brand-grey;
   margin-bottom: 5px;
