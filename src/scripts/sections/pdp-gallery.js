@@ -28,6 +28,10 @@ class ProductGallery {
     this.setListeners()
     this.setInitStates()
     this.initResponsiveSlider()
+
+    $(document).on('pdp.galleries.resize', () => {
+      this.flkty.resize()
+    })
   }
 
   setBindings () {

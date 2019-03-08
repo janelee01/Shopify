@@ -97,7 +97,7 @@
 }
 .pdp-form-option-group{
   @include pdp-border-bottom-xs-only;
-  padding: 12px 20px;
+  padding: 12px 0;
 
   &:after{
     content: 'flickity';
