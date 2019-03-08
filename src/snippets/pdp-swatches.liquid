@@ -32,8 +32,8 @@
 	{%- endcapture -%}
 	{% if swatchGroup1 != blank %}{% comment %} these can be blank if the collection-aware URL filters out all products in this group {% endcomment %}
     <div class="pdp-swatches-wrapper">
-		  <p class="configuration-label">{{ swatchGroup1Label }}:<span class="pdp-selected-color"></span></p>
-		  <ul class="pdp-swatches">
+		  <p class="configuration-label">{{ swatchGroup1Label }}:<span class="js-pdp-selected-color pdp-selected-color"></span></p>
+		  <ul class="pdp-swatches js-pdp-swatches">
 			 {{ swatchGroup1 }}
 		  </ul>
     </div>
@@ -53,8 +53,8 @@
 	{%- endcapture -%}
 	{% if swatchGroup2 != blank %}
     <div class="pdp-swatches-wrapper">
-		  <p class="configuration-label">{{ swatchGroup2Label }}:<span class="pdp-selected-color"></span></p>
-		  <ul class="pdp-swatches">
+		  <p class="configuration-label">{{ swatchGroup2Label }}:<span class="js-pdp-selected-color pdp-selected-color"></span></p>
+		  <ul class="pdp-swatches js-pdp-swatches">
 			 {{ swatchGroup2 }}
 		  </ul>
     </div>
@@ -75,7 +75,7 @@
 	{% if swatchGroup3 != blank %}
 		<div class="pdp-swatches-wrapper">
       <p class="configuration-label">{{ swatchGroup3Label }}</p>
-		  <ul class="pdp-swatches">
+		  <ul class="pdp-swatches js-pdp-swatches">
 			 {{ swatchGroup3 }}
 		  </ul>
     </div>
