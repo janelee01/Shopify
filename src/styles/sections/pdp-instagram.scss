@@ -3,6 +3,10 @@
   width: 100%;
   padding-bottom: 20px;
 
+  @media (min-width: $screen-xs){
+    padding-top: 40px;
+  }
+
 
   @media (min-width: $screen-md){
     padding-top: 0px;
@@ -23,18 +27,16 @@
 
   .yotpo-single-image-container{
     @media (min-width: $screen-md){
-      margin: 0!important;
+      margin: 0 !important;
     }
   }
 }
 
-.pdp-instagram-header{
-
+.pdp-instagram__header{
   padding-bottom: 20px;
   text-align: center;
 
   @media (min-width: $screen-md){
-
     padding-bottom: 0px;
     display: flex;
     flex-direction: column;
@@ -43,30 +45,22 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
-
   }
 
   h3{
     margin-bottom: 5px;
     @extend %h1;
-
   }
 
   a{
     @extend %h4;
   }
-
 }
-
-.pdp-instagram-widget{
-
+.pdp-instagram__widget{
   @media (min-width: $screen-md){
-
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
     flex: 1;
-
   }
-
 }

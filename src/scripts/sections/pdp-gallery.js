@@ -98,7 +98,9 @@ class ProductGallery {
     this.flkty = new Flickity(this.$mobileCarousel, {
       draggable: '>1',
       groupCells: true,
-      contain: true
+      contain: true,
+      pageDots: false,
+      prevNextButtons: false
     })
   }
 

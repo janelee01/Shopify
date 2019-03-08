@@ -52,11 +52,11 @@
 }
 
 .pdp-callout-galleries__carousel{
+  @include stretch-to-fill-viewport;
   text-align: center;
   position: relative;
 
   @media (min-width: $screen-xs){
-    width: 100%;
     float: none;
   }
 

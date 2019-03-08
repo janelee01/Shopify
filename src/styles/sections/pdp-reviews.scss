@@ -1,5 +1,6 @@
-#reviews-widget{
-  @media (min-width: $screen-md){
-    padding-bottom: 40px;
+.pdp-reviews{
+  padding-bottom: 40px;
+  @media (min-width: $screen-xs){
+    padding-bottom: 70px;
   }
 }

@@ -25,17 +25,17 @@
   padding: 0 $mobile-gutter-pdp;
 
   @media (min-width: $screen-xs) {
-    padding: 0 30px;
-    max-width: calc(974px + 60px);
+    padding: 0 $mobile-gutter-pdp-lg;
+    max-width: calc(974px + #{$mobile-gutter-pdp-lg * 2});
   }
   @media (min-width: $screen-lg) {
-    max-width: calc(1166px + 60px);
+    max-width: calc(1166px + #{$mobile-gutter-pdp-lg * 2});
   }
 }
 .pdp__separator{
-  @include pdp-border-bottom-xs-only;
+  @include pdp-border-bottom-md;
   padding-bottom: 50px;
-  @media (min-width: $screen-xs){
+  @media (min-width: $screen-md){
     padding-bottom: 0;
   }
 }

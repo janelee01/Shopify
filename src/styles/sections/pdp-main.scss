@@ -19,9 +19,7 @@
   }
 }
 .product-main__featured{
-  @media (min-width: $screen-md){
-    width: 100%;
-  }
+  @include stretch-to-fill-viewport;
 }
 .product-main__holder{
   margin-top: 20px;
