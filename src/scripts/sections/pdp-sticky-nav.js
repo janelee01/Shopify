@@ -1,40 +1,51 @@
+import select from 'dom-select'
+import on from 'dom-event'
+
 export default e => {
-  const $pdp = document.querySelector('.pdp-form')
+  const $stickyNavHeader = select('.js-pdp-sticky-nav__header')
+  const $stickyNavFooter = select('.js-pdp-sticky-nav__footer')
+  const $stickyNavHeaderButton = select('.js-pdp-sticky-nav__header-add-to-cart-button', $stickyNavHeader)
+  const $stickyNavHeaderQty = select('.js-pdp-sticky-nav__header-quantity', $stickyNavHeader)
 
-  var viewportOffset = $pdp.getBoundingClientRect()
-  var offsetHeight = $pdp.offsetHeight
-  var _docHeight = (document.height !== undefined) ? document.height : document.body.offsetHeight
-  const $body = document.querySelector('body')
-  const a = document.querySelector('#add-to-cart').offsetTop
-  // var left = viewportOffset.left
-
-  document.querySelector('.pdp-sticky-nav-footer button').addEventListener(
-    'click',
-    e => {
-      e.preventDefault()
-    }
-  )
-
-  // console.log('top')
-
-  var b = document.querySelector('#add-to-cart').offsetTop
-  console.log(scroll + ' === ' + b)
+  const b = 500 // fixed value for now
+  const c = 700 // fixed value for now
 
   window.addEventListener(
     'scroll',
     function (e) {
       var scroll = this.scrollY
-      // var top = $pdp.offsetHeight
-
-      b = document.querySelector('#add-to-cart').offsetTop
 
       if (scroll > b) {
-        if (!$body.classList.contains('pdp-sticky-nav-footer-on')) $body.classList.add('pdp-sticky-nav-footer-on')
+        if (!$stickyNavHeader.classList.contains('is-active')) $stickyNavHeader.classList.add('is-active')
       } else {
-        if ($body.classList.contains('pdp-sticky-nav-footer-on')) $body.classList.remove('pdp-sticky-nav-footer-on')
+        if ($stickyNavHeader.classList.contains('is-active')) $stickyNavHeader.classList.remove('is-active')
       }
 
-      // console.log(viewportOffset)
+      if (scroll > c) {
+        if (!$stickyNavFooter.classList.contains('is-active')) $stickyNavFooter.classList.add('is-active')
+      } else {
+        if ($stickyNavFooter.classList.contains('is-active')) $stickyNavFooter.classList.remove('is-active')
+      }
     }
   )
+
+  // Bind click event to add to cart button
+  on($stickyNavHeaderButton, 'click',
+    event => {
+      select('button.js-add-to-cart').click()
+    }
+  )
+
+  // Bind change event to select quantity
+  on($stickyNavHeaderQty, 'change',
+    event => {
+      let qty = event.target.value
+      $(document).trigger('pdp.form.quantity.set', qty)
+    }
+  )
+
+  // Event listener for quantity field
+  $(document).on('pdp.form.quantity.set', (e, [qty]) => {
+    select('.js-add-to-cart-quantity').value = qty
+  })
 }
