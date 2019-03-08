@@ -1,4 +1,4 @@
-{% include 'pdp-get-sibling-products' %}
+{%- include 'pdp-get-sibling-products' -%}
 
 {%- capture data-file -%}pdp-data-{{parentCollection.title| downcase | remove: 'the' | strip | replace: ' ', '-' }}{%- endcapture -%}
 
@@ -8,9 +8,9 @@
 
 {%- include 'pdp-data-waverley' -%}
 
-{% include 'pdp-photoswipe-template' %}
+{%- include 'pdp-photoswipe-template' -%}
 
-{%- include 'pdp-sticky-nav' -%}
+{% comment %} {%- include 'pdp-sticky-nav' -%} {% endcomment %}
 
 <div itemscope itemtype="http://schema.org/Product">
   {%- include 'pdp-main' -%}
