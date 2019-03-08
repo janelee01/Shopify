@@ -15,28 +15,27 @@
 <div itemscope itemtype="http://schema.org/Product">
   {%- include 'pdp-main' -%}
 
-  <div class="pdp-white-wrapper">
+  <div class="pdp__white-wrapper">
   {%- include 'pdp-instagram' -%}
   </div>
 
-  <div class="pdp-container">
-	{%- include 'pdp-callout-galleries' -%}
-  {%- include 'pdp-callout-galleries', alternate: true -%}
-	{%- include 'pdp-material', data: data_pdp_material -%}
+  <div class="pdp__container">
+    {%- include 'pdp-callout-galleries' -%}
+    {%- include 'pdp-callout-galleries', alternate: true -%}
+    {%- include 'pdp-material', data: data_pdp_material -%}
   </div>
 
-  <div class="pdp-white-wrapper">
-    <div class="pdp-container">
-  {%- include 'pdp-see-how-to-pack-it' -%}
-  {%- include 'pdp-stories' -%}
-	{%- include 'pdp-testimonials', testimonials: pdp_testimonials_data -%}
+  <div class="pdp__white-wrapper">
+    <div class="pdp__container">
+    {%- include 'pdp-see-how-to-pack-it' -%}
+    {%- include 'pdp-stories' -%}
+    {%- include 'pdp-testimonials', testimonials: pdp_testimonials_data -%}
     </div>
   </div>
 
-    <div class="pdp-container">
-	{%- include 'pdp-cross-sell', collection: parentCollection -%}
-    </div>
-
+  <div class="pdp__container">
+    {%- include 'pdp-cross-sell', collection: parentCollection -%}
+  </div>
 </div>
 
 {%- include 'pdp-modal', id: 'shipping' -%}

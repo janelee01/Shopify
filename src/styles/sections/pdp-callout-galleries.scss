@@ -1,23 +1,27 @@
 .pdp-callout-galleries{
   background-color: transparent;
   position: relative;
-  margin-bottom: 40px;
-  padding-bottom: 40px;
+  margin-top: 40px;
 
   @media (min-width: $screen-xs){
-    padding-bottom: 77px!important;
-    margin-top: 77px;
+    margin-top: 80px;
   }
 
   @media (min-width: $screen-md){
     display: flex;
     background-color: white;
-    margin-bottom: 80px;
-    padding-bottom: 0!important;
+  }
+
+  & .pdp-callout-galleries--alternate {
+    flex-direction: row-reverse;
   }
 }
 
-.pdp-product-features-text{
+.pdp__section-heading + .pdp-callout-galleries{
+  margin-top: 0;
+}
+
+.pdp-callout-galleries__text{
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -47,21 +51,8 @@
   }
 }
 
-.pdp-callout-galleries-alternate{
-  flex-direction: row-reverse;
-
-  .pdp-product-features-text{
-    @media (min-width: $screen-xs){
-      width: 100%;
-    }
-    @media (min-width: $screen-md){
-      width: 50%;
-    }
-  }
-}
-
-.pdp-product-features-carousel{
-  text-align:center;
+.pdp-callout-galleries__carousel{
+  text-align: center;
   position: relative;
 
   @media (min-width: $screen-xs){
@@ -73,23 +64,9 @@
     width: 50%;
     float: left;
   }
-
-  img{
-    display: block;
-
-    @media (min-width: $screen-xs){
-      height: 610px;
-      object-fit: cover;
-    }
-
-    @media (min-width: $screen-md){
-
-      object-fit: cover;
-    }
-  }
 }
 
-.pdp-product-features-carousel-main{
+.pdp-callout-galleries__carousel-main{
   height: 100%;
 
   .flickity-viewport{
@@ -97,7 +74,7 @@
    }
 }
 
-.pdp-product-features-carousel-main-slide{
+.pdp-callout-galleries__carousel-main-slide{
   @include ratio(100%);
   width: 90%;
   padding-right: 10px;
@@ -110,8 +87,8 @@
     padding: 10px 0;
     margin: 20px;
     width: calc(100% - 40px);
-    left:0;
-    bottom:0;
+    left: 0;
+    bottom: 0;
     display: block;
     text-transform: uppercase;
     color: $brand-grey;
@@ -131,11 +108,11 @@
   }
 }
 
-.pdp-product-features-carousel-nav{
+.pdp-callout-galleries__carousel-nav{
   background-color: white;
   margin: 0 10px;
   display: none;
-  position: absolute!important;
+  position: absolute;
   width: calc(100% - 20px);
   z-index: 9;
   bottom: 10px;
@@ -147,7 +124,7 @@
   span{
     @extend %h4;
     text-align: center;
-    margin-right: 0 !important;
+    margin-right: 0;
     color: $gray-light;
     white-space: nowrap;
     min-width: calc(33% - 20px);
@@ -184,29 +161,26 @@
 
 
     &.previous{
-      left: 0!important;
+      left: 0 !important;
       border-right: 1px solid $gray-lighter;
 
       &:active{
         opacity: 1;
       }
-
     }
 
     &.next{
-      right: 0!important;
+      right: 0 !important;
       border-left: 1px solid $gray-lighter;
 
       &:active{
         opacity: 1;
       }
-
     }
 
     svg{
       transform: scale(.3);
     }
-
   }
 
   .flickity-button:disabled{

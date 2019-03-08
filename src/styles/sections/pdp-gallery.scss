@@ -43,11 +43,11 @@
   @media (min-width: $screen-md){
     display: none;
   }
-
-  img{
-    width: 60%;
-    margin-right: 10px;
-  }
+}
+.pdp-gallery-mobile-image {
+  @include ratio(100%);
+  width: 80%;
+  margin-right: 10px;
 }
 .pdp-gallery-featured{
   @include ratio(70%);
@@ -91,7 +91,6 @@
     cursor: default;
     opacity: .3;
   }
-
 }
 
 .pdp-gallery-thumbs{

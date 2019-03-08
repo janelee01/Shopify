@@ -2,29 +2,31 @@
 {%- assign total_tiles_minus_1 = data | size | minus: 1 -%}
 
 <div class="pdp-material">
-  <div class="section-heading">
+  <div class="pdp__section-heading">
     <h2 class="title">{{ title }}</h2>
   </div>
-  <div class="pdp-material-inner">
-    <div class="pdp-material-images">
+  <div class="pdp-material__inner">
+    <div class="pdp-material__images js-pdp-material-images">
       {%- for i in (1..total_tiles_minus_1) -%}
       {%- assign tile = data[i] | split: '|' -%}
-      <div class="pdp-material-image">
-        {% include 'image',
-          src: tile[2],
-          alt: tile[1] %}
-        <div class="pdp-material-image-caption">
+      <div class="pdp-material__image">
+        <div class="pdp-material__image-container">
+          {% include 'image',
+            src: tile[2],
+            alt: tile[1] %}
+        </div>
+        <div class="pdp-material__image-caption">
           <h3>{{ tile[0] }}</h3>
           <p>{{ tile[1] }}</p>
         </div>
       </div>
       {%- endfor -%}
     </div>
-    <div class="pdp-material-tiles">
+    <div class="pdp-material__tiles js-pdp-material-tiles">
       <div>
       {%- for i in (1..total_tiles_minus_1) -%}
       {%- assign tile = data[i] | split: '|' -%}
-        <div class="pdp-material-tile">
+        <div class="pdp-material__tile js-pdp-material-tile">
           <h3>{{ tile[0] }}</h3>
           <p>{{ tile[1] }}</p>
         </div>

@@ -16,3 +16,23 @@
     padding-top: #{$amount};
   }
 }
+
+@mixin pdp-border-bottom-xs-only {
+  position: relative;
+
+  &:before{
+    content: '';
+    display: block;
+    width: calc(100% + #{$mobile-gutter-pdp * 2});
+    margin-left: -$mobile-gutter-pdp;
+    height: 1px;
+    background-color: $gray-lighter;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    @media (min-width: $screen-xs){
+      display: none;
+    }
+  }
+}

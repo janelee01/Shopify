@@ -1,3 +1,4 @@
+import Flickity from 'flickity'
 import select from 'dom-select'
 import on from 'dom-event'
 
@@ -23,6 +24,7 @@ class ProductForm {
     this.updateFinalSaleMessage()
     this.scrollToYotpo()
     this.attachEventListeners()
+    this.initSwatchCarousels()
   }
 
   /**
@@ -111,6 +113,7 @@ class ProductForm {
     this.updateWaitlistMeta()
     this.updateLabels($target)
     this.updateActiveGallery()
+    this.updateSwatchCarouselSize()
 
     this.$swatches.forEach(el => (
       el.classList.remove('active')
@@ -433,6 +436,31 @@ class ProductForm {
         $('#reviews-widget').offset().top - 200
       ) }, 1000)
     })
+  }
+
+  /**
+   * On mobile, the swatch groups sit next to
+   * each other horizontally and are moved into
+   * view by Flickity.
+   */
+  initSwatchCarousels () {
+    this.flickity = new Flickity(
+      document.querySelector('.js-pdp-form-option-group'), {
+        watchCSS: true,
+        prevNextButtons: false,
+        pageDots: false,
+        contain: true,
+        freeScroll: true
+      })
+  }
+
+  /**
+   * Since some times will overflow, we need to resize
+   * the Flickity viewport whenever the swatch
+   * changes.
+   */
+  updateSwatchCarouselSize () {
+    this.flickity.resize()
   }
 }
 

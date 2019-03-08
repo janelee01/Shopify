@@ -1,4 +1,3 @@
-import Flickity from 'flickity'
 import select from 'dom-select'
 import '../../styles/templates/product.scss'
 import image from '../sections/pdp-image'
@@ -16,8 +15,6 @@ import pdpInstagram from '../sections/pdp-instagram'
 import pdpSticky from '../sections/pdp-sticky-nav'
 
 $(document).ready(function () {
-  // var flkty = new Flickity(document.querySelector('.pdp-form-option-group'), {watchCSS: true, prevNextButtons: false, pageDots: false, contain: true, freeScroll: true})
-
   image()
   pdpStories(select('.pdp-stories'))
   pdpCrossSell(select('.pdp-cross-sell'))

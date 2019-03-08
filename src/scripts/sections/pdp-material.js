@@ -2,15 +2,16 @@ import Flickity from 'flickity'
 
 export default el => {
   if (!el) return
-  var $main = el.querySelector('.pdp-material-images')
-  var $nav = el.querySelector('.pdp-material-tiles')
+  var $main = el.querySelector('.js-pdp-material-images')
+  var $nav = el.querySelector('.js-pdp-material-tiles')
   let n = 0
 
   let flkty1 = new Flickity($main, {
-    pageDots: true
+    pageDots: true,
+    prevNextButtons: false
   })
 
-  el.querySelectorAll('.pdp-material-tile').forEach(
+  el.querySelectorAll('.js-pdp-material-tile').forEach(
     $tile => {
       $tile.setAttribute('data-index', n++)
 
@@ -20,7 +21,7 @@ export default el => {
         'click',
         e => {
           let n = parseInt($tile.getAttribute('data-index'))
-          if (el.querySelector('.pdp-material-tile.is-selected')) el.querySelector('.pdp-material-tile.is-selected').classList.remove('is-selected')
+          if (el.querySelector('.js-pdp-material-tile.is-selected')) el.querySelector('.js-pdp-material-tile.is-selected').classList.remove('is-selected')
           $tile.classList.add('is-selected')
           flkty1.select(n)
         }
