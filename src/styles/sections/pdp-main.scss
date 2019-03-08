@@ -276,9 +276,8 @@
 
 .section-heading{
   text-align: center;
-
-  margin-top: $mb-small-sm!important;
-  margin-bottom: 10px!important;
+  margin-top: $mb-small-sm !important;
+  margin-bottom: 10px !important;
 
   @media (min-width: $screen-xs){
       max-width: 504px;
@@ -302,20 +301,14 @@
     }
 
   }
-
 }
-
 .section-heading h2.title{
   @extend %h1;
   color: #2F2D2D!important;
   max-width: 700px;
   margin: auto;
 }
-
-
-
 .pdp-snap{
-
   @media (max-width: $screen-xs){
     margin: 0 -20px;
     width: calc(100% + 40px);
@@ -325,8 +318,6 @@
     margin: 0 -30px;
     width: calc(100% + 60px)!important;
   }
-
-
 }
 
 .flickity-page-dots .dot{
@@ -336,21 +327,13 @@
   background-color: white!important;
   border: 1px solid $gray;
 }
-
 .flickity-page-dots .dot.is-selected{
-  background-color: $gray!important;
+  background-color: $gray !important;
 }
-
-
-.pdp-color-wrapper{
-
-}
-
-
 .pdp-separator{
   position: relative;
   margin-bottom: 0px;
-  padding-bottom: 40px!important;
+  padding-bottom: 40px !important;
 
   &:after{
     clear: both;
@@ -375,8 +358,6 @@
 
   }
 }
-
-
 ._pdp-wrapper-white{
   background-color: white;
   padding: 0 20px;
@@ -385,7 +366,6 @@
   width: calc(100% + 40px);
   overflow: hidden;
 }
-
 .pdp-white-wrapper{
   display: flex;
   width: 100%;

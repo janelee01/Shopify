@@ -7,17 +7,16 @@ class ProductForm {
     this.$galleries = select.all('.js-pdp-gallery', el)
     this.$variantInput = select('.js-variant-input', el)
     this.$swatches = select.all('.js-pdp-swatch', el)
-    this.$nonSwatchInputs = select.all('.js-pdp-non-swatch-input', el)
+    this.$sizeWrap = select('.js-variant-buttons-wrap', el)
     this.$addToCartBtn = select('.js-add-to-cart', el)
     this.$colorLabelContainers = select.all('.js-pdp-selected-color', el)
 
-    this.json = JSON.parse(
-      select('[data-product-json]').innerHTML.trim()
-    )
     this.siblingsJson = window.siblingsJson
+    this.hiddenVariants = window.hiddenVariants
+    this.stockData = window.variantStockData
+    this.productID = window.productID
 
-    this.productID = ''
-
+    this.updateProductID()
     this.bindContexts()
     this.updateWaitlistMeta()
     this.updateLowStockWarning()
@@ -26,65 +25,117 @@ class ProductForm {
     this.attachEventListeners()
   }
 
+  /**
+   * Ensures that event handlers are bound to
+   * point 'this' to this class instance.
+   */
   bindContexts () {
     this.onNonSwatchChange = this.onNonSwatchChange.bind(this)
     this.onSwatchChange = this.onSwatchChange.bind(this)
-    this.onVariantChange = this.onVariantChange.bind(this)
     this.onAddToCart = this.onAddToCart.bind(this)
   }
 
-  updateProductID (id) {
-    this.productID = id
-    this.variants = this.siblingsJson[id].variants
-    this.product = this.siblingsJson[id]
+  /**
+   * Updates instance properties that store
+   * references to the currently selected product
+   * and variant JSON objects.
+   *
+   * @param {String} id The new Product ID
+   */
+  updateProductID (id = false) {
+    if (id) {
+      this.productID = id
+    }
+    this.variants = this.siblingsJson[this.productID].variants
+    this.product = this.siblingsJson[this.productID]
+
+    const index = this.variants.reduce((active, variant, i) => {
+      if (this.variantTitle === variant.title) {
+        active = i
+      }
+      return active
+    }, 0)
+
+    this.variant = this.variants[index]
+    this.variantID = this.variants[index].id
+
+    this.updateVariantInput()
+    this.selectVariantOption(index)
   }
 
+  updateVariant (id = false, title = '') {
+    this.variantTitle = title
+    this.variant = this.variants.find(({ id: _id }) => {
+      return '' + id === '' + _id
+    })
+    this.variantID = this.variant.id
+    this.$variantInput.value = this.variantID
+  }
+
+  /**
+   * Attaches event handlers to the inputs
+   * in the product form.
+   */
   attachEventListeners () {
-    this.$nonSwatchInputs.forEach(el => (
-      on(el, 'click', this.onNonSwatchChange)
-    ))
     this.$swatches.forEach(el => (
       on(el, 'click', this.onSwatchChange)
     ))
-    on(this.$variantInput, 'change', this.onVariantChange)
+    on(this.$sizeWrap, 'click', this.onNonSwatchChange)
     on(this.$addToCartBtn, 'click', this.onAddToCart)
   }
 
+  /**
+   * Responds to user swatch selections in the
+   * product form.
+   *
+   * @param {Object} e Vanilla event object
+   */
   onSwatchChange (e) {
     e.preventDefault()
 
-    const $target = e.target
+    const $target = (
+      e.target.classList.contains('.js-pdp-swatch')
+        ? e.target
+        : slate.utils.getClosest(e.target, '.js-pdp-swatch')
+    )
+
     const productID = $target.getAttribute('data-sibling')
-    const label = select('img', $target).getAttribute('data-color-label')
 
     this.updateProductID(productID)
-    this.updateVariantInput()
-    this.updatePricing(productID)
+    this.updatePrice()
     this.updateCta()
     this.updateDataLayer()
-    this.updateURL(url)
+    this.updateURL($target.getAttribute('data-url'))
     this.updateLowStockWarning()
     this.updateFinalSaleMessage()
     this.updateWaitlistMeta()
-    this.updateActiveProduct(target)
     this.updateLabels($target)
+    this.updateActiveGallery()
 
     this.$swatches.forEach(el => (
-      el.classlist.removeClass('active')
+      el.classList.remove('active')
     ))
-    $target.classlist.add('active')
+    $target.classList.add('active')
   }
 
+  /**
+   * There is a select input that contains all
+   * of the available variant IDs for the product
+   * currently on display. Since each color swatch
+   * represents an entirely different product, we
+   * recreate this dropdown when the user updates
+   * their swatch selection.
+   */
   updateVariantInput () {
     this.$variantInput.innerHTML = ''
-    $('.js-variant-buttons-wrap').html('')
+    this.$sizeWrap.innerHTML = ''
+
     this.variants.forEach(variant => {
       $(this.$variantInput).append(
         `<option value="${variant.id}">${variant.title}</option>`
       )
 
-      // hidden variants??
-      if (!~hiddenVariants.indexOf(variant.id)) {
+      if (!~this.hiddenVariants.indexOf(variant.id)) {
         $('.js-variant-buttons-wrap').append(
           `<a
             href="#"
@@ -97,93 +148,172 @@ class ProductForm {
     })
   }
 
+  selectVariantOption (index = 0) {
+    const options = select.all('a', this.$sizeWrap)
+    if (!options || !options.length) {
+      return
+    }
+
+    options[index].classList.add('selected')
+  }
+
+  /**
+   * Updates the price that is shown to the user.
+   * This should be updated everything that the user
+   * selects a new option in the product form.
+   * This will dynamically show both price and the
+   * compare at price.
+   */
+  updatePrice () {
+    const $discount = select('[data-discount-amount]', this.$el)
+    const $badges = select.all('.discount-badge, .discount-label', this.$el)
+    const $compare = select('.js-compare-price', this.$el)
+    const $price = select('.js-product-price', this.$el)
+
+    const {
+      compare_at_price: compare = 0,
+      price = 0
+    } = this.variant
+
+    const formattedCompare = slate.Currency.formatMoney(compare, theme.moneyFormat)
+    const formattedPrice = slate.Currency.formatMoney(price, theme.moneyFormat)
+
+    if (Number(compare)) {
+      const formated = slate.Currency.formatMoney(compare, theme.moneyFormat)
+      $discount.innerHTML = Math.round(100 * (compare - price) / compare)
+      $badges.forEach(el => el.classList.remove('is-hidden'))
+      $compare.classList.remove('is-hidden')
+      $compare.innerHTML = formattedCompare
+    } else {
+      $compare.classList.add('is-hidden')
+      $badges.forEach(el => el.classList.add('is-hidden'))
+    }
+
+    $price.innerHTML = formattedPrice.replace('.00', '')
+  }
+
+  /**
+   * Conditionally shows three different buttons
+   * based on the state of the currently selected
+   * variant. This updates the big button in the
+   * product form.
+   */
+  updateCta () {
+    const selectedVariantID = this.$variantInput.value
+    const $soldOutMsg = $('#sold-out-message')
+    const $addToCartRow = $('#add-to-cart')
+    const $addToCartBtn = $('[data-add-to-cart]')
+    const $addToWaitlistBtn = $('[data-add-to-waitlist]')
+    const siblingId = $('.pdp-swatch.active').data('sibling')
+
+    // reset to purchase or waitlist
+    $addToCartRow.show()
+    $soldOutMsg.hide()
+
+    if (this.variant.available) {
+      $addToCartBtn.show()
+      $addToWaitlistBtn.hide()
+      return
+    }
+
+    if (this.stockData[this.variantID].oosPolicy === 'soldout') {
+      $addToCartRow.hide()
+      $soldOutMsg.show()
+      return
+    }
+
+    $addToWaitlistBtn.data('variant-id', this.variantID).show()
+    $addToCartBtn.hide()
+    $('#wl-variant').val(this.variantID)
+  }
+
+  /**
+   * Updates the color label shown to the user
+   * that represents the currently selected
+   * swatch.
+   *
+   * @param {DOM Reference} $swatch Newly selected swatch
+   */
   updateLabels ($swatch) {
-    this.colorLabelContainers.forEach(el = (el.innerHTML = ''))
-    const $container = slate.utils.getClosest($swatch, '.js-pdp-swatches')
+    this.$colorLabelContainers.forEach(el => (
+      el.innerHTML = ''
+    ))
+    const $container = slate.utils.getClosest(
+      $swatch,
+      '.js-pdp-swatches-wrapper'
+    )
+    const label = select('img', $swatch).getAttribute('data-color-label')
     select('.js-pdp-selected-color', $container).innerHTML = label
   }
 
   /**
-   * Replace options in our Size selector. hard coded for single option variants
-   * Reselect the size, or use the first option
+   * [This needs some testing]
+   *
+   * @param {Object} e Vanilla event object
    */
-  updateSizeSelection ($target) {
-    const currentSize = $('.js-variant-buttons-wrap .selected').text()
-    let sizeFound = false
-    $('.js-variant-buttons-wrap .btn').each(() => {
-      if ($(this).text() !== currentSize) {
-        return
-      }
-      sizeFound = true
-      $target.click()
-    })
-    if (!sizeFound) {
-      $('.js-variant-buttons-wrap .btn').first().click()
-    }
-  }
-
   onNonSwatchChange (e) {
+    if (e.target.nodeName !== 'A') {
+      return
+    }
     e.preventDefault()
     const $target = e.target
 
     $('.variant-buttons .validation-error').remove()
 
-    $btn.closest('.variant-buttons').find('.variant-option').removeClass('selected')
-    $btn.addClass('selected')
+    select.all('a', this.$sizeWrap).forEach(el => (
+      el.classList.remove('selected')
+    ))
+    $target.classList.add('selected')
 
-    if (!$(this).hasClass('gc-option')) { // size attributes
-      $variants.find('option').each(() => {
-        if ($(this).text().trim() === $btn.text()) {
-          $variants.val($(this).attr('value'))
-          $variants.trigger('change')
-        }
-      })
-
-      $('#wl-variant').val($variants.val())
-
-      this.updateCta()
-      this.updateDataLayer()
-      this.updateWaitlistMeta()
-      this.updateLowStockWarning()
-      this.updateFinalSaleMessage()
-    } else { // gift card options
-      const selectedString = getSelectedString()
-      $variants.find('option').each(() => {
+    // We are currently on a Gift Card PDP
+    if ($target.classList.contains('gc-option')) {
+      const selectedString = this.getSelectedString()
+      $(this.$variantInput).find('option').each(() => {
         if ($(this).text().trim() === selectedString) {
-          $variants.val($(this).attr('value'))
+          $(this.$variantInput).val($(this).attr('value'))
         }
       })
-      // update the featured image and hidden image field
-      for (let i = 0; i < productJson.variants.length; i++) {
-        if (productJson.variants[i].id === this.$variantInput.value) {
-          const variantImage = productJson.variants[i].featured_image.src
-          $('[data-product-featured-image]').attr('src', variantImage)
-          $('[data-variant-image]').val(variantImage)
-        }
-      };
+
+      return
     }
-  }
 
-  onVariantChange () {
-    this.updatePricing(
-      $('.pdp-swatch.active').data('sibling')
+    this.updateVariant(
+      $target.getAttribute('data-id'),
+      $target.innerHTML.trim()
     )
+    this.updateCta()
+    this.updateDataLayer()
+    this.updateWaitlistMeta()
+    this.updateLowStockWarning()
+    this.updateFinalSaleMessage()
+
+    $('#wl-variant').val(this.$variantInput.value)
   }
 
+  /**
+   * Intercepts the form submission if there is not
+   * a variant selected in the form.
+   */
   onAddToCart () {
     if (!this.$variantInput.value) {
-      $('.js-variant-buttons-wrap').append('<div class="validation-error">Please select a size</div>')
+      $('.js-variant-buttons-wrap').append(
+        '<div class="validation-error">Please select a size</div>'
+      )
       return false
     }
   }
 
+  /**
+   * Updates the images shown to the user to be
+   * reflective of the currently selected swatch.
+   */
   updateActiveGallery () {
-    this.$galleries.forEach(el => el.classlist.remove('active'))
+    this.$galleries.forEach(el => el.classList.remove('active'))
     this.$galleries.forEach(el => {
-      if (el.getAttribute('data-sibling') !== this.siblingId) {
+      if (el.getAttribute('data-sibling') !== this.productID) {
         return
       }
-      el.classlist.add('active')
+      el.classList.add('active')
 
       // Need to ask Derek about this one..
       // dataLayer.push({
@@ -193,6 +323,13 @@ class ProductForm {
     })
   }
 
+  /**
+   * Updates the current URL. If the user refreshes the page
+   * then the user will be able to pick up from where
+   * they left off.
+   *
+   * @param {String} url The url attached to a data attribute
+   */
   updateURL (url) {
     if (history.replaceState) {
       const newurl = window.location.protocol + '//' + window.location.host + url
@@ -203,71 +340,6 @@ class ProductForm {
         'event': 'afterUrlUpdate'
       })
     }
-  }
-
-  updatePrice (siblingId) {
-    const $discount = select('[data-discount-amount]', this.$el)
-    const $badges = select.all('.discount-badge, .discount-label', this.$el)
-    const $compare = select('.js-compare-price', this.$el)
-    const $price = select('.js-product-price', this.$el)
-
-    const variant = this.siblingsJson[siblingId].variants.find(variant => {
-      return '' + variant.id === '' + this.variantInput.value
-    })
-
-    const {
-      compare_at_price: compare = 0,
-      price = 0
-    } = variant
-
-    const formattedCompare = slate.Currency.formatMoney(compare, theme.moneyFormat)
-    const formattedPrice = slate.Currency.formatMoney(price, theme.moneyFormat)
-
-    if (Number(compare)) {
-      const formated = slate.Currency.formatMoney(compare, theme.moneyFormat)
-      $discount.innerHTML = Math.round(100 * (compare - price) / compare)
-      $badges.forEach(el => el.classlist.remove('is-hidden'))
-      $compare.classlist.remove('is-hidden')
-      $compare.innerHTML = formattedCompare
-    } else {
-      $compare.classlist.add('is-hidden')
-      $badges.forEach(el => el.classlist.add('is-hidden'))
-    }
-
-    $price.innerHTML = formattedPrice.replace('.00', '')
-  }
-
-  updateCta () {
-    const selectedVariantID = this.$variantInput.value
-    const $soldOutMsg = $('#sold-out-message')
-    const $addToCartRow = $('#add-to-cart')
-    const $addToCartBtn = $('[data-add-to-cart]')
-    const $addToWaitlistBtn = $('[data-add-to-waitlist]')
-    const siblingId = $('.pdp-swatch.active').data('sibling')
-    // reset to purchase or waitlist
-    $addToCartRow.show()
-    $soldOutMsg.hide()
-
-    for (var i = 0; i < this.variants.length; i++) {
-      if (this.variants[i].id === selectedVariantID) {
-        if (this.variants[i].available) {
-          // can buy
-          $addToCartBtn.show()
-          $addToWaitlistBtn.hide()
-        } else {
-          if (variantStockData[selectedVariantID].oosPolicy === 'soldout') {
-            // can't buy
-            $addToCartRow.hide()
-            $soldOutMsg.show()
-          } else {
-            // can buy later
-            $addToWaitlistBtn.data('variant-id', selectedVariantID).show()
-            $addToCartBtn.hide()
-            $('#wl-variant').val(selectedVariantID)
-          }
-        }
-      }
-    };
   }
 
   updateWaitlistMeta () {
@@ -290,32 +362,40 @@ class ProductForm {
     }
   }
 
+  /**
+   * Updates the GTM information that is dynamically
+   * pushed up when the user interacts with the page.
+   */
   updateDataLayer () {
     const dataLayer = window.dataLayer || []
     const selectedSibling = $('.pdp-swatch.active').data('sibling')
     const selectedVariantID = this.$variantInput.value
-    for (var i = 0; i < siblingsJson[selectedSibling].variants.length; i++) {
-      if (siblingsJson[selectedSibling].variants[i].id === selectedVariantID) {
+    for (var i = 0; i < this.variants.length; i++) {
+      if (this.variants[i].id === selectedVariantID) {
+        const variant = this.variants[i]
         dataLayer.push({
           'event': 'swatchClick',
-          'productData.price': siblingsJson[selectedSibling].variants[i].price * 0.01,
-          'productData.comparePrice': siblingsJson[selectedSibling].variants[i].compare_at_price * 0.01,
-          'productData.sku': siblingsJson[selectedSibling].variants[i].sku,
-          'productData.name': siblingsJson[selectedSibling].title,
-          'productData.variant': siblingsJson[selectedSibling].variants[i].title,
+          'productData.price': variant.price * 0.01,
+          'productData.comparePrice': variant.compare_at_price * 0.01,
+          'productData.sku': variant.sku,
+          'productData.name': this.product.title,
+          'productData.variant': variant.title,
           'productData.variantId': selectedVariantID,
           'productData.url': siblingsSupplimentalJson[selectedSibling].url,
           'productData.imageUrl': siblingsSupplimentalJson[selectedSibling].featuredImage,
           'productData.collections': siblingsSupplimentalJson[selectedSibling].collections,
-          'pinterestPage': siblingsJson[selectedSibling].title
+          'pinterestPage': this.product.title
         })
       }
     }
   }
 
+  /**
+   * Shows a stock warning notification if there
+   * is less than 20 stock items available.
+   */
   updateLowStockWarning () {
-    const variant = this.$variantInput.value
-    const inventoryLevel = variantStockData[variant].stockLevel
+    const inventoryLevel = Number(variantStockData[this.variantID].stockLevel)
     const $warning = $('.low-stock-warning')
     if (inventoryLevel > 0 && inventoryLevel <= 20) {
       $warning.addClass('shown')

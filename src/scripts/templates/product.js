@@ -27,7 +27,7 @@ $(document).ready(function () {
   pdpInstagram(select('.pdp-instagram'))
   pdpForm(select('.pdp-main'))
 
-  select.all('.pdp-callout-galleries').forEach(el => { pdpCalloutGalleries(el, viewers) })
-  select.all('.pdp-gallery').forEach(el => { pdpGallery(el, viewers) })
+  select.all('.pdp-callout-galleries').forEach(el => { pdpCalloutGalleries(el) })
+  select.all('.pdp-gallery').forEach(el => { pdpGallery(el) })
   select.all('.pdp-modal-link').forEach(el => { pdpModal(el) })
 })

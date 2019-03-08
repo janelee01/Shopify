@@ -135,6 +135,7 @@
     }
     {%- endcapture -%}
     <script>
+      var productID = "{{product.id}}";
       var siblingsJson = {{ siblingsJson }};
       var siblingsSupplimentalJson = {{ siblingsSupplimentalJson }};
       var hiddenVariants = "{{ hiddenVariants }}";
@@ -180,12 +181,14 @@
           <button class="btn btn-block" data-wl-cancel>{{ 'products.waitlist.back' | t }}</button>
         </div>
       </div>
-      {%- assign img_src = product.featured_image | img_url: '375x500' -%}
-      {% include 'image',
-        src: img_src,
-        attrs: 'id="wl-image"'
-        alt: '' %}
-      {%- assign img_src = nil -%}
+      {% comment %} <div class="wl-image">
+        {%- assign img_src = product.featured_image | img_url: '375x500' -%}
+        {% include 'image',
+          src: img_src,
+          attrs: 'id="wl-image"'
+          alt: '' %}
+        {%- assign img_src = nil -%}
+      </div> {% endcomment %}
     </form>
   </div>
 </div>
