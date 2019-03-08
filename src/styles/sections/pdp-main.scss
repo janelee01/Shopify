@@ -64,10 +64,12 @@
   #price-wrapper{
     @include pdp-border-bottom-xs-only;
     border-bottom: 0;
+    margin-bottom: 0;
     padding-bottom: 22px;
 
-    * {
-      line-height: normal;
+    @media (min-width: $screen-md){
+      margin-bottom: 22px;
+      padding-bottom: 0;
     }
 
     .is-hidden{
@@ -181,7 +183,11 @@
       color: $gray;
     }
   }
-
+}
+.pdp-main-product-yotpo-stars{
+  display: inline-block;
+  position: relative;
+  top: 4px;
 }
 .pdp-main-product-yotpo-reviews{
   margin-left: 10px!important;
@@ -189,4 +195,6 @@
   text-decoration: underline;
   color: $gray!important;
   font-size: $font-size-xs!important;
+  position: relative;
+  top: -2px;
 }

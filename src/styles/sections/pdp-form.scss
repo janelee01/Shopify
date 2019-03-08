@@ -15,6 +15,7 @@
   margin-bottom: 10px;
   margin-top: 20px;
   border-radius: 2px;
+  display: flex;
 
   @media (min-width: $screen-xs){
     height: 50px;
@@ -54,6 +55,7 @@
     background-color: transparent;
     border: 0;
     color: white;
+    flex: 1;
 
     &:hover{
       background: transparent;
@@ -148,7 +150,6 @@
     }
   }
 }
-
 .pdp-chevron::before {
   height: 50px;
   border-style: solid;

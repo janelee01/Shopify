@@ -20,7 +20,7 @@ $(document).ready(function () {
   pdpCrossSell(select('.pdp-cross-sell'))
   pdpTestimonials(select('.pdp-testimonials'))
   pdpMaterial(select('.pdp-material'))
-  pdpSeeHowToPackit(select('.pdp-see-how-to-pack-it'))
+  pdpSeeHowToPackit(select('.js-pdp-pack-it'))
   pdpInstagram(select('.pdp-instagram'))
   pdpForm(select('.pdp-main'))
 
