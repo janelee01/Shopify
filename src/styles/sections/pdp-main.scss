@@ -51,20 +51,22 @@
     }
   }
 
-  #price-wrapper [data-product-price]{
+  #price-wrapper [data-product-price],
+  #price-wrapper [data-compare-price],
+  #price-wrapper .discount-label{
+    margin-right: 5px;
+    margin-left: 0;
     @extend %h4;
   }
 
-  #price-wrapper [data-compare-price]{
-    margin-right: 20px;
-    margin-left: 0px;
+  #price-wrapper .discount-label{
+    color: $brand-red;
   }
 
   #price-wrapper{
     @include pdp-border-bottom-xs-only;
     border-bottom: 0;
     padding-bottom: 22px;
-
 
     * {
       line-height: normal;
@@ -161,9 +163,10 @@
   }
 }
 .pdp-main-product-yotpo{
-  display: inline-block;
+  float: right;
 
   @media (min-width: $screen-md){
+    float: none;
     border-left: 1px solid $gray-light;
     margin-left: 10px;
     padding-left: 10px;
