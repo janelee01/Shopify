@@ -7,9 +7,11 @@
   z-index: 99999;
   align-items: center;
   justify-content: center;
-  height: 73px;
-  top: -73px;
+  height: 65px;
+  top: -65px;
   transition: top .5s;
+  transform: translateZ(0);
+  overflow: hidden;
 
   @media (min-width: $screen-md){
     display: flex;
@@ -18,7 +20,6 @@
   &.is-active{
     top: 0;
   }
-
 }
 
 .pdp-sticky-nav__header-swatches{
@@ -70,11 +71,17 @@
     padding: 8px 26px;
     color: $gray;
     text-decoration: none;
+
+    &.selected {
+      border-color: $brand-blue;
+      color: $brand-blue;
+    }
   }
 }
 
 .pdp-sticky-nav__header-add-to-cart{
-  height: 73px;
+  max-width: 600px;
+  height: 100%;
   flex: 1 1 50%;
   position: relative;
   background-color: $brand-blue;
@@ -107,14 +114,10 @@
     display: block;
     width: 1px;
     position: absolute;
-    height: 20px;
-    top: 23px;
+    height: 40px;
+    top: 13px;
     left: 0px;
     background-color: white;
-
-    @media (min-width: $screen-xs){
-      height: 30px;
-    }
   }
 
   button:hover{
@@ -162,7 +165,6 @@
 }
 
 .pdp-sticky-nav__footer{
-
   transition: bottom .5s;
   display: flex;
   align-items: center;

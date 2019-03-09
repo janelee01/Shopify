@@ -1,17 +1,16 @@
-<div class="pdp-sticky-nav">
-
+<div class="js-pdp-sticky-nav pdp-sticky-nav">
   <div class="js-pdp-sticky-nav__header pdp-sticky-nav__header">
-
     <div class="pdp-sticky-nav__header-swatches">
       <a href="#" class="pdp-sticky-nav__header-configuration-label">
-        {{ parentCollection.metafields["global"]["swatch-group-1-label"] }}:<span class="js-pdp-selected-color pdp-selected-color">{{ product.metafields["global"]["swatch-label"] }}</span>
-        <span class="pdp-chevron-down"></span>
+        <span class="js-dp-sticky-nav__swatch-title"></span>
+        <span class="js-dp-sticky-nav__swatch-value"></span>
+        {% comment %} <span class="pdp-chevron-down"></span> {% endcomment %}
       </a>
     </div>
 
-    <div class="pdp-sticky-nav__header-sizes">
+    <div class="pdp-sticky-nav__header-sizes js-pdp-sticky-nav__header-sizes-wrap">
       <label for="variant-selector">Size:</label>
-
+      <div class="js-pdp-sticky-nav__header-sizes">
         {%- for variant in product.variants -%}
           {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
             {%- continue -%}
@@ -26,20 +25,16 @@
             {{ variant.title }}
           </a>
         {%- endfor -%}
+      </div>
     </div>
-
     <div class="pdp-sticky-nav__header-add-to-cart" {% unless current_variant.available %}{% if oosPolicy == 'soldout' %} style="display: none"{% endif %}{% endunless %}>{% comment %}hide the whole element when OOS and unavailable for a waitlist{% endcomment %}
-
       <div class="pdp-sticky-nav__header-add-to-cart-quantity">
-
         <select id="quantity" name="quantity" class="js-pdp-sticky-nav__header-quantity" >
         {%- for i in (1..10) -%}
           <option>{{ i }}</option>
         {%- endfor -%}
         </select>
-
         <span class="pdp-chevron-down"></span>
-
       </div>
 
       <button
@@ -58,15 +53,8 @@
         id="waitlist-open"
         {% if current_variant.available %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</a>
     </div>
-
   </div>
-
-
-
   <div class="pdp-sticky-nav__footer js-pdp-sticky-nav__footer">
-
     <button type="button">Buy Now</button>
-
   </div>
-
 </div>
