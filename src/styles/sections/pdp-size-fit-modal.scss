@@ -6,11 +6,73 @@
  *
  * Please only use one level of nesting where possible
  * Avoid the use of !important
- * Couple media queries inside the declaration in which it relates to 
+ * Couple media queries inside the declaration in which it relates to
  * Use existing color variables (see /local/base/_variables)
  * Add to existing type variables (see /local/base/_variables)
  * Review and use existing media queries where possible
  */
-.pdp-form {
-  .container {}
+
+#pdp-modal-size-fit{
+  background-color: $gray-lightest;
+}
+
+.pdp-size-fit__carousel{
+  border: 1px solid $gray-lighter;
+  margin-bottom: 40px;
+
+  .flickity-button{
+    background-color: transparent;
+  }
+
+  svg{
+    transform: scale(.7);
+  }
+}
+
+.pdp-size-fit__carousel div{
+  width: 100%;
+}
+
+
+.pdp-size-fit__table{
+  width: 100%;
+
+  table{
+    @extend %p3;
+    width: 100%;
+  }
+
+  thead{
+    background-color: white;
+
+    th{
+      text-align: center;
+      border: 1px solid $gray-lighter;
+      padding: 20px 30px;
+      font-weight: normal;
+      color: $gray;
+    }
+
+    th:first-child{
+      font-weight: bold;
+    }
+
+  }
+
+  tbody{
+
+    td{
+      text-align: center;
+      border: 1px solid $gray-lighter;
+      padding: 20px 30px;
+    }
+
+    td:first-child{
+      text-align: left;
+      text-transform: uppercase;
+
+    }
+
+  }
+
 }

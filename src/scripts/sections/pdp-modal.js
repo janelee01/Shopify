@@ -2,7 +2,7 @@ import on from 'dom-event'
 import select from 'dom-select'
 
 export default el => {
-  on(el, 'click', () => {
+  on(el, 'click', (e) => {
     e.preventDefault()
     const $a = e.target
     const dataModal = $a.getAttribute('data-modal')
@@ -14,7 +14,7 @@ export default el => {
     $modal.classList.add('active')
 
     on(
-      select('.js-panel-close', $model),
+      select('.js-panel-close', $modal),
       'click',
       e => {
         select('.pdp-modal.active').classList.remove('active')
