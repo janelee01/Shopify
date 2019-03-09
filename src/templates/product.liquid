@@ -10,7 +10,7 @@
 
 {%- include 'pdp-photoswipe-template' -%}
 
-{% comment %} {%- include 'pdp-sticky-nav' -%} {% endcomment %}
+{%- include 'pdp-sticky-nav' -%}
 
 <div itemscope itemtype="http://schema.org/Product">
   {%- include 'pdp-main' -%}
@@ -39,6 +39,7 @@
   </div>
 </div>
 
+{%- include 'pdp-sticky-nav', collection: parentCollection -%}
 {%- include 'pdp-modal', id: 'shipping' -%}
 {%- include 'pdp-modal', id: 'size-fit', collection: parentCollection -%}
 

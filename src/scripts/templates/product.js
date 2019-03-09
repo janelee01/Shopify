@@ -23,6 +23,7 @@ $(document).ready(function () {
   pdpSeeHowToPackit(select('.js-pdp-pack-it'))
   pdpInstagram(select('.pdp-instagram'))
   pdpForm(select('.pdp-main'))
+  pdpSticky(select('.js-pdp-sticky-nav'))
 
   select.all('.pdp-callout-galleries').forEach(el => { pdpCalloutGalleries(el) })
   select.all('.pdp-gallery').forEach(el => { pdpGallery(el) })

@@ -26,8 +26,11 @@ class ProductForm {
     this.attachEventListeners()
     this.initSwatchCarousels()
 
-    $(document).on('pdp.header.variant.change', () => {
-      // Update this form..
+    $(document).on('pdp.form.size.update', (e, id) => {
+      this.variantTitle = (this.variants.find(({ id: _id }) => {
+        return '' + id === '' + _id
+      }) || {}).title
+      this.updateProductID(false, false)
     })
   }
 
@@ -48,12 +51,28 @@ class ProductForm {
    *
    * @param {String} id The new Product ID
    */
-  updateProductID (id = false) {
+  updateProductID (id = false, triggerEvent = true) {
     if (id) {
       this.productID = id
     }
     this.variants = this.siblingsJson[this.productID].variants
     this.product = this.siblingsJson[this.productID]
+
+    this.updateVariant(null, triggerEvent)
+  }
+
+  /**
+   * Updates the current variant. This is fired when a swatch
+   * changes and also when the user selects a non-swatch option,
+   * like the size.
+   *
+   * @param {String} title The current variant title
+   * @param {Boolean} triggerEvent Conditionally fire a change event (For PDP Sticky Header)
+   */
+  updateVariant (title = '', triggerEvent = true) {
+    if (title) {
+      this.variantTitle = title
+    }
 
     const index = this.variants.reduce((active, variant, i) => {
       if (this.variantTitle === variant.title) {
@@ -63,24 +82,17 @@ class ProductForm {
     }, 0)
 
     this.variant = this.variants[index]
-    this.variantID = this.variants[index].id
 
     this.updateVariantInput()
-    this.selectVariantOption(index)
-  }
 
-  updateVariant (id = false, title = '') {
-    this.variantTitle = title
-    this.variant = this.variants.find(({ id: _id }) => {
-      return '' + id === '' + _id
-    })
     this.variantID = this.variant.id
     this.$variantInput.value = this.variantID
 
-    $(document).trigger('pdp.form.variant.change', {
-      id: this.variantID,
-      variant: this.variant
-    })
+    this.selectVariantOption(index)
+
+    if (triggerEvent) {
+      this.triggerVariantUpdateEvent()
+    }
   }
 
   /**
@@ -307,7 +319,6 @@ class ProductForm {
     }
 
     this.updateVariant(
-      $target.getAttribute('data-id'),
       $target.innerHTML.trim()
     )
     this.updateCta()
@@ -500,6 +511,21 @@ class ProductForm {
    */
   updateSwatchCarouselSize () {
     this.flickity.resize()
+  }
+
+  /**
+   * Trigger an event to let other modules know when the
+   * active variant has been updated. Wrapped in a setTimeout
+   * to make sure that it fires at the end of the call stack.
+   */
+  triggerVariantUpdateEvent () {
+    setTimeout(() => {
+      $(document).trigger('pdp.form.variant.change', {
+        id: this.variantID,
+        variant: this.variant,
+        product: this.product
+      })
+    }, 0)
   }
 }
 
