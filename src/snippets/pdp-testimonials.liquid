@@ -1,12 +1,16 @@
 {%- assign testimonials = testimonials | default: blank -%}
+{%- assign testimonials_count_minus_1 = testimonials | size -%}
+
+{%- unless testimonials == blank -%}
 
 <div class="pdp__section-heading">
-  <h2 class="title">What Others Are Saying</h2>
+  <h2 class="title">{{testimonials[0]}}</h2>
 </div>
-{%- unless testimonials == blank -%}
+
 <div class="pdp-testimonials">
   <div class="pdp-testimonials__logos js-pdp-testimonials-logos">
-  {%- for testimonial in testimonials -%}
+  {%- for i in (1..testimonials_count_minus_1) -%}
+  {%- assign testimonial = testimonials[i] -%}
 
   {%- assign image_src = testimonial | split: '|' | last -%}
   <div class="pdp-testimonials__logos-item">
@@ -21,7 +25,8 @@
   {%- endfor -%}
 </div>
 <div class="pdp-testimonials__texts js-pdp-testimonials-texts">
-  {%- for testimonial in testimonials -%}
+  {%- for i in (1..testimonials_count_minus_1) -%}
+  {%- assign testimonial = testimonials[i] -%}
   {%- assign text = testimonial | split: '|' | first -%}
     <p>{{ text }}</p>
   {%- assign image_src = nil -%}
@@ -30,3 +35,5 @@
 </div>
 {%- endunless -%}
 {%- assign testimonials = nil -%}
+{%- assign i = nil -%}
+{%- assign testimonials_count_minus_1 = nil -%}

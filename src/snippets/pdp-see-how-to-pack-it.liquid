@@ -7,7 +7,11 @@
   </div>
   <div class="js-pdp-pack-it pdp-see-how-to-pack-it">
     <div class="pdp-see-how-to-pack-it__video">
-      {% include 'video', video: video %}
+      {%- if video contains '<iframe' -%}
+      {{ video }}
+      {%- else -%}
+      {%- include 'video', video: video -%}
+      {%- endif -%}
     </div>
   </div>
 </div>

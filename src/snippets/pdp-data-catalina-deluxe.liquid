@@ -1,22 +1,112 @@
-{%- assign pdp_testimonials_data = '' -%}
+{%- comment -%}
+### -----------
+### 1. Carousel
+### -----------
+### line 1: carousel title (or "-" if none)
+### line 2: carousel subtitle
+### line 3: carousel text
+### line 4+N: slide text|slide image
+### -----------
+{%- endcomment -%}
 
-{%- assign pdp_testimonials_data = pdp_testimonials_data | append: 'https://cdn.shopify.com/s/files/1/2185/1497/files/fodors_logo_3ffcc271-70c8-4fbf-8003-09fa3a260912.png' -%}
-{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '|'     | append: '“Lo & Sons chose lightweight materials like nylon and canvas to help ease the load on your shoulders. Because when you’re traveling, your bag shouldn’t weigh more than the stuff it carries!”' -%}
+{%- capture pdp_callout_galleries_data_1 -%}
+An updated edition of the Catalina weekender with additional features. Available in 2 sizes.
+Smart Design
+Thoughtful features and a place for all your essentials, the Catalina Deluxe is designed for life on the road.
+Bottom Pocket|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Bottom-Pocket_Catalina-Deluxe.jpg?17991356216287879697
+Suitcase Handle Sleeve|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Suitcase-Handle-Sleeve_Catalina-Deluxe.jpg?17991356216287879697
+Messenger Strap|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Messenger-Strap_Catalina-Deluxe.jpg?17991356216287879697
+{%- endcapture -%}
 
-{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '[IFS]' | append: 'https://cdn.shopify.com/s/files/1/2185/1497/files/travelchannel_logo_e6f49a9e-766a-4cfe-83f7-560b43fbd48e.png' -%}
-{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '|'     | append: '“For the mom whose purse is a black hole. How many times has mom dug through her purse, endlessly looking for something important? This cross-body bag is the perfect place for mom to store her most important travel items.”' -%}
+{%- capture pdp_callout_galleries_data_2 -%}
+-
+Super Spacious
+The Catalina Deluxe will fit everything you need for the next big vacation.
+Interior Pockets|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Interior-Pockets_Catalina-Deluxe.jpg?17991356216287879697
+Front Exterior Pocket|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Front-Exterior-Pockets_Catalina-Deluxe.jpg?17991356216287879697
+Main Compartment|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Main-Compartment_Catalina-Deluxe.jpg?17991356216287879697
+{%- endcapture -%}
 
-{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '[IFS]' | append: 'https://cdn.shopify.com/s/files/1/2185/1497/files/huffingtonpost_logo_595eeeec-4176-4bae-8901-a85ff5085efb.png' -%}
-{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '|'     | append: '“Say goodbye to the days of bags falling off the side of your suitcase and spilling out over the floor (we’ve all been there,) and hello to a less painful carry on experience.”' -%}
+{%- capture pdp_callout_galleries_data_3 -%}
+-
+Carry-on Friendly
+While it doesn't qualify as a personal item, depending on the airline it does qualify as a carry-on item and fits in most airplane overhead compartments. The Catalina Deluxe Large weekender can be placed in the overhead compartment of most aircrafts. The Catalina Deluxe Small weekender may fit underneath the airline seat when not fully packed.
+Airline Seats|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_Airline-Seat-Friendly_Catalina-Deluxe.jpg?17991356216287879697
+{%- endcapture -%}
 
-{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '[IFS]' | append: 'https://cdn.shopify.com/s/files/1/2185/1497/files/businessinsider_logo_84f0f17a-049f-4712-b360-f5843a57f647.png' -%}
-{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '|'     | append: '“Helen Lo founded luxury bag company Lo & Sons after she couldn’t find any fashionable, functional travel bags. She convinced her sons, Derek and Jan, to quit their jobs in advertising and product design research, respectively, and get the startup off the ground in December 2010.”' -%}
-
-{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '[IFS]' | append: 'https://cdn.shopify.com/s/files/1/2185/1497/files/refinery29_logo_a2fa6254-0299-47dc-ab60-fea06f0f5b34.png' -%}
-{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '|'     | append: '“A young New York-based brand that’s the brainchild of a mother and her two sons, both of whom have backgrounds in advertising, product design, and DJing (creative family, huh?). With dreams of building the perfect functional-yet-stylish laptop tote, the trio dreamt up a series of streamlined and minimalist designs that they describe as the little black dress of travel accessories.”' -%}
-
-{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '[IFS]' | append: 'https://cdn.shopify.com/s/files/1/2185/1497/files/elle_logo_68efb2d2-e7e4-45ca-8dd1-f225c4f6708d.png' -%}
-{%- assign pdp_testimonials_data = pdp_testimonials_data | append: '|'     | append: '“Now I have a new item to add to my wish list - a camera bag that’s elegant chic and not the bland backpack black neoprene I’ve been using.”' -%}
+{%- assign pdp_callout_galleries_data_1 = pdp_callout_galleries_data_1 | newline_to_br | split: '<br />' -%}
+{%- assign pdp_callout_galleries_data_2 = pdp_callout_galleries_data_2 | newline_to_br | split: '<br />' -%}
+{%- assign pdp_callout_galleries_data_3 = pdp_callout_galleries_data_3 | newline_to_br | split: '<br />' -%}
 
 
-{%- assign pdp_testimonials_data = pdp_testimonials_data | split:  '[IFS]' -%}
+{%- comment -%}
+### -------------------
+### 2. Video
+### -------------------
+### line N: title|video
+### -------------------
+{%- endcomment -%}
+
+{%- capture pdp_video_data -%}
+What Fits Inside|https://player.vimeo.com/external/308577378.hd.mp4?s=a6f634bb9ed76cde4850ab7f632680176c11d4c7&profile_id=175
+{%- endcapture -%}
+{%- assign pdp_video_data = pdp_video_data | trim -%}
+
+
+{%- comment -%}
+### --------------------
+### 3. Corporate Reviews
+### --------------------
+### line 1: title
+### line 1+N: review|image
+### --------------------
+{%- endcomment -%}
+
+{%- capture pdp_testimonials_data -%}
+Traveler Approved
+“I didn’t bring family-size jars of Vaseline or fun packs of chocolates, and I didn’t have to stress about lost baggage or juggling too much stuff or any of the minor luggage-related hassles that we all face. And it’s all thanks to this Lo & Sons Weekender, easily the best bag I’ve ever purchased.”|https://cdn.shopify.com/s/files/1/2185/1497/files/Racked_logo_910159dd-f7c2-4611-85cf-e70fc48f9d0d.png?7201395892155397211
+“The Catalina Deluxe Small is a dream weekend tote or carry-on bag. The base of the tote bag is a compartment that can store shoes and bulkier ponchos, and the top compartment is extra spacious and easily fits everything you would need for a weekend away!”|https://cdn.shopify.com/s/files/1/2185/1497/files/Expedia_2012_logo.png?7201395892155397211
+“Not your average weekender, this travel tote bag is the ultimate carry-on to keep your friend on the go both organized and chic.”|https://cdn.shopify.com/s/files/1/2185/1497/files/apartment_therapy.png?7201395892155397211
+{%- endcapture -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### ----------------
+### 4. Fabric Module
+### ----------------
+### line 1: Main title
+### line 2+N: Tile title|tile subtitle|tile image
+### ----------------
+{%- endcomment -%}
+
+{%- capture pdp_material_data -%}
+High-Quality & Lightweight
+Pre-Washed Canvas|We use a high-quality, lightweight, yet strong pre-washed canvas. Despite being a softer and less structured canvas than the typical heavy canvas, it can handle a heavyweight load (even though we always encourage packing light).|https://cdn.shopify.com/s/files/1/2185/1497/files/Fabric-1_Pre-Washed-Canvas_Catalina-Deluxe.jpg?17991356216287879697
+Organic Cotton Canvas|A canvas that is 100% naturally grown without the use of any synthetic agricultural chemicals such as fertilizers or pesticides.|https://cdn.shopify.com/s/files/1/2185/1497/files/Fabric-2_Organic-Cotton-Canvas_Catalina-Deluxe.jpg?17991356216287879697
+{%- endcapture -%}
+{%- assign pdp_material_data = pdp_material_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### ------------
+### 5. Instagram
+### ------------
+{%- endcomment -%}
+
+{%- capture pdp_instagram_data -%}
+<div class="yotpo yotpo-pictures-widget" data-gallery-id="5c7f0ae41b0ee5321a63269c"></div>
+{%- endcapture -%}
+
+
+{%- comment -%}
+### ----------
+### 6. Stories
+### ----------
+### handle 1, handle 2,... handle N
+### ----------
+{%- endcomment -%}
+
+{%- capture pdp_stories_data -%}
+{%- endcapture -%}
+{%- assign pdp_stories_data = pdp_stories_data | split: ',' -%}
