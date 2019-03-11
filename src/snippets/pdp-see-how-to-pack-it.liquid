@@ -1,10 +1,9 @@
-
-{%- assign video = 'https://player.vimeo.com/external/190575346.hd.mp4?s=60ab0dee05f4aba33551a42762dbc596df8f1561&profile_id=119' -%}
-
-{%- if video -%}
+{%- if data -%}
+{%- assign video = data | split: '|' | last -%}
+{%- assign title = data | split: '|' | first -%}
 <div class="pdp__separator">
   <div class="pdp__section-heading">
-    <h2 class="title">See How To Pack It</h2>
+    <h2 class="title">{{ title }}</h2>
   </div>
   <div class="js-pdp-pack-it pdp-see-how-to-pack-it">
     <div class="pdp-see-how-to-pack-it__video">
@@ -15,3 +14,4 @@
 {%- endif -%}
 
 {%- assign video = nil -%}
+{%- assign title = nil -%}

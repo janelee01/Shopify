@@ -1,46 +1,43 @@
-{% unless alternate %}
+{%- assign total_slides = data | size -%}
+
+{%- unless data[0] == '-' -%}
 <div class="pdp__section-heading">
-  <h2>Designed for life on the road with thoughtful features and a place for all your essentials.</h2>
+  <h2>{{ data[0] }}</h2>
 </div>
 {%- endunless -%}
 
 <div class="pdp-callout-galleries pdp__separator{% if alternate %} pdp-callout-galleries--alternate{% endif %}">
   <div class="pdp-callout-galleries__text">
-    <h4>Ready for Travel </h4>
-    <p>Featuring a pass through messenger sleeve to slide over your suitcase handle for seamless travel and a padded messenger strap for extra comfort. In addition, the Catalina Deluxe qualifies as a carry on item and fits in airline compartments and under the seat when not fully packed.</p>
+    <h4>{{data[1]}}</h4>
+    <p>{{data[2]}}</p>
   </div>
   <div class="pdp-callout-galleries__carousel pdp-snap">
     <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main">
-      <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main-slide">
+{%- for i in (4..total_slides) -%}
+{%- assign j = i | minus: 1 -%}
+{%- assign slide = data[j] -%}
+{%- assign slide_text = slide | split: '|' | first -%}
+{%- assign slide_image = slide | split: '|' | last -%}
+    <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main-slide">
         {% include 'image',
-          src: 'https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-beach.jpeg',
+          src: {{slide_image}},
           alt: 'Pass through sleeve' %}
-        <span>Pass through sleeve</span>
+        <span>{{slide_text}}</span>
       </div>
-      <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main-slide">
-        {% include 'image',
-          src: 'https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-street.jpeg',
-          alt: 'Messenger strap' %}
-        <span>Messenger strap</span>
-      </div>
-      <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main-slide">
-        {% include 'image',
-          src: 'https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-terrace.jpeg',
-          alt: 'Carry on friend' %}
-        <span>Carry on friend</span>
-      </div>
-      <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main-slide">
-        {% include 'image',
-          src: 'https://cdn.shopify.com/s/files/1/2185/1497/files/amalfi-coast-beach.jpeg',
-          alt: 'Pass through sleeve' %}
-        <span>Pass through sleeve</span>
-      </div>
+{%- endfor -%}
     </div>
     <div class="js-pdp-callout-gallery-nav pdp-callout-galleries__carousel-nav">
-      <span>Pass through sleeve</span>
-      <span>Messenger strap</span>
-      <span>Carry on friend</span>
-      <span>Pass through sleeve</span>
+{%- for i in (4..total_slides) -%}
+{%- assign j = i | minus: 1 -%}
+{%- assign slide = data[j] -%}
+{%- assign slide_text = slide | split: '|' | first -%}
+    <span>{{slide_text}}</span>
+{%- endfor -%}
     </div>
   </div>
 </div>
+
+
+{%- assign j = nil -%}
+{%- assign slide_text = nil -%}
+{%- assign slide_image = nil -%}

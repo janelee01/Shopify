@@ -11,14 +11,21 @@
   }
 
   @media (min-width: $screen-md){
-    margin: 0 -10px;
     display: flex;
   }
 }
 .pdp-stories__article{
-  margin-right: 10px;
+  margin: 0 5px;
   text-align: center;
   width: calc(80% -  10px);
+
+  &:nth-child(1){
+    margin-left: 0;
+  }
+
+  &:nth-child(3){
+    margin-right: 0;
+  }
 
   h4{
     @extend %h3;
@@ -36,7 +43,7 @@
   }
 
   @media (min-width: $screen-md){
-    width: calc(33.3% - 20px);
+    width: 33.3%;
   }
 }
 .pdp-stories__img{
