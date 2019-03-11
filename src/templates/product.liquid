@@ -1,12 +1,8 @@
 {%- include 'pdp-get-sibling-products' -%}
 
-{%- capture data-file -%}pdp-data-{{parentCollection.title| downcase | remove: 'the' | strip | replace: ' ', '-' }}{%- endcapture -%}
+{%- capture data_file -%}pdp-data-{{parentCollection.title| downcase | remove: 'the' | strip | replace: ' ', '-' }}{%- endcapture -%}
 
-{%- comment -%}
-{%- include data-file -%}
-{%- endcomment -%}
-
-{%- include 'pdp-data-waverley' -%}
+{%- include data_file -%}
 
 {%- include 'pdp-photoswipe-template' -%}
 
@@ -22,6 +18,7 @@
   <div class="pdp__container">
     {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_1 -%}
     {%- include 'pdp-callout-galleries', alternate: true, data: pdp_callout_galleries_data_2 -%}
+    {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_3 -%}
     {%- include 'pdp-material', data: pdp_material_data -%}
   </div>
 

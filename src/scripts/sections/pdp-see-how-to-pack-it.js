@@ -3,5 +3,5 @@ import select from 'dom-select'
 
 export default el => {
   const $video = select('.js-video', el)
-  video($video)
+  if ($video) video($video)
 }

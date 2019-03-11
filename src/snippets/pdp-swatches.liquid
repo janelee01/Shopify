@@ -3,7 +3,8 @@
 {%- assign swatchGroup3Label = parentCollection.metafields["global"]["swatch-group-3-label"] -%}
 
 {%- if swatchGroup2Label == blank -%}{% comment %} no extra grouping, show them all {% endcomment %}
-	{%- if swatchGroup1Label != blank -%}<p class="configuration-label">{{ swatchGroup1Label }}</p>{%- endif -%}
+	{%- if swatchGroup1Label != blank -%}<p class="configuration-label">{{ swatchGroup1Label }}:<span class="js-pdp-selected-color pdp-selected-color"></span></p>{%- endif -%}
+
 	<ul class="pdp-swatches">
 		{%- for siblingProduct in parentCollection.products -%}{% comment %} all products of this type {% endcomment %}
 			{%- if siblingsList contains siblingProduct.id -%}{% comment %} make sure this product can be shown {% endcomment %}

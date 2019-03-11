@@ -1,6 +1,6 @@
 {%- assign storiesCount = data | size -%}
 
-{%- if data -%}
+{%- unless data == blank -%}
 <div class="pdp__separator">
   <div class="pdp__section-heading">
     <h2 class="title">Stories</h2>
@@ -25,7 +25,7 @@
   {%- endfor -%}
   </div>
 </div>
-{%- endif -%}
+{%- endunless -%}
 
 {%- assign handle = nil -%}
 {%- assign stories = nil -%}
