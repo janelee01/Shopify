@@ -9,6 +9,12 @@
 {%- include 'pdp-sticky-nav' -%}
 
 <div itemscope itemtype="http://schema.org/Product">
+  <meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
+  <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
+  <meta itemprop="brand" content="{{ product.vendor }}">
+  <meta itemprop="image" content="https:{{ featured_image | img_url: '600x600' }}">
+  <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+
   {%- include 'pdp-main' -%}
 
   <div class="pdp__white-wrapper">
