@@ -64,6 +64,12 @@
         id="waitlist-open"
         {% if current_variant.available %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</a>
     </div>
+
+    {%- if product.has_only_default_variant -%}
+    <div><a class="pdp-form-size-fit pdp-modal-link" href="#" data-modal="size-fit">Size & Fit guide</a></div>
+    {%- endif -%}
+
+
     <a class="pdp-shipping-returns-warranty-care pdp-modal-link" data-modal="shipping" href="#">Shipping, Returns, Warranty & Care</a>
     {% comment %} <div id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div> {% endcomment %}
     {% comment %}
