@@ -322,6 +322,7 @@ class ProductForm {
       $target.innerHTML.trim()
     )
     this.updateCta()
+    this.updatePrice()
     this.updateDataLayer()
     this.updateWaitlistMeta()
     this.updateLowStockWarning()
