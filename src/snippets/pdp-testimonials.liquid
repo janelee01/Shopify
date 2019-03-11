@@ -1,4 +1,5 @@
 {%- assign testimonials = testimonials | default: blank -%}
+
 <div class="pdp__section-heading">
   <h2 class="title">What Others Are Saying</h2>
 </div>
@@ -6,7 +7,8 @@
 <div class="pdp-testimonials">
   <div class="pdp-testimonials__logos js-pdp-testimonials-logos">
   {%- for testimonial in testimonials -%}
-  {%- assign image_src = testimonial | split: '|' | first -%}
+
+  {%- assign image_src = testimonial | split: '|' | last -%}
   <div class="pdp-testimonials__logos-item">
     <span>
       {% include 'image',
@@ -20,7 +22,7 @@
 </div>
 <div class="pdp-testimonials__texts js-pdp-testimonials-texts">
   {%- for testimonial in testimonials -%}
-  {%- assign text = testimonial | split: '|' | last -%}
+  {%- assign text = testimonial | split: '|' | first -%}
     <p>{{ text }}</p>
   {%- assign image_src = nil -%}
   {%- endfor -%}

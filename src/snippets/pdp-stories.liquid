@@ -1,13 +1,13 @@
-{%- assign stories = 'travel-inspiration/a-week-in-paris-alice-gao,travel-tips-guides/traveling-with-kids-9to5chic,travel-inspiration/creative-workshop-morocco-atelier-dore' | split: ',' -%}
-{%- assign storiesCount = stories | size -%}
-{%- if stories -%}
+{%- assign storiesCount = data | size -%}
+
+{%- if data -%}
 <div class="pdp__separator">
   <div class="pdp__section-heading">
     <h2 class="title">Stories</h2>
   </div>
   <div class="pdp-stories pdp-snap">
-  {%- for handle in stories -%}
-  {% assign article = articles[handle] %}
+  {%- for handle in data -%}
+  {% assign article = articles[handle] | trim %}
     <article class="pdp-stories__article">
       <figure>
         <a href="{{ article.url }}" class="pdp-stories__img">

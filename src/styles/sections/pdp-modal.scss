@@ -9,7 +9,6 @@
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  z-index: 9003; // was: 99999
   transition: opacity .5s, visibility .5s;
   padding: 20px 40px;
 
@@ -43,11 +42,14 @@
     text-transform: uppercase;
   }
 
+
+  p{
+    @extend %p2
+  }
+
   p.description{
    text-align: left;
   }
-
-
 
   &.active{
     visibility: visible;
@@ -56,11 +58,9 @@
     display: block;
   }
 
-
   dd{
     margin-bottom: 20px;
   }
-
 
   .carousel-control.left{
     position: absolute;
@@ -149,9 +149,7 @@
   &:hover:after{
     transform: rotate(135deg);
   }
-
 }
-
 
 .pdp-modal__image-container{
   @include ratio(100%);

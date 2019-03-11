@@ -21,7 +21,19 @@
   margin-bottom: 40px;
 
   .flickity-button{
+    display: none;
     background-color: transparent;
+
+    @media (min-width: $screen-md){
+      display: block;
+    }
+  }
+
+  .flickity-page-dots{
+    display: block;
+    @media (min-width: $screen-md){
+      display: none;
+    }
   }
 
   svg{
@@ -36,6 +48,12 @@
 
 .pdp-size-fit__table{
   width: 100%;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  @media (min-width: $screen-md){
+    overflow-x: initial;
+  }
 
   table{
     @extend %p3;
@@ -48,7 +66,7 @@
     th{
       text-align: center;
       border: 1px solid $gray-lighter;
-      padding: 20px 30px;
+      padding: 1.7% 1.5%;
       font-weight: normal;
       color: $gray;
     }
@@ -56,7 +74,6 @@
     th:first-child{
       font-weight: bold;
     }
-
   }
 
   tbody{
@@ -64,7 +81,7 @@
     td{
       text-align: center;
       border: 1px solid $gray-lighter;
-      padding: 20px 30px;
+      padding: 1.7% 1.5%;
     }
 
     td:first-child{
@@ -72,7 +89,47 @@
       text-transform: uppercase;
 
     }
+  }
+}
 
+
+.pdp-modal__section-two-column{
+
+  @media (min-width: $screen-md){
+    display: flex;
+  }
+
+  > div{
+
+    flex-basis: 100%;
+
+    @media (min-width: $screen-md){
+      max-width: 300px;
+      margin: auto;
+      flex: 1 1 50%;
+    }
+  }
+}
+
+.pdp-modal__section-airline{
+
+  p{
+    color: $gray;
+  }
+
+  div{
+    text-align: center;
+  }
+
+  h5{
+    @extend %h4;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  h6{
+    font-weight: bold;
+    color: $gray;
   }
 
 }

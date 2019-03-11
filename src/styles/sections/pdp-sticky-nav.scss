@@ -12,6 +12,7 @@
   transition: top .5s;
   transform: translateZ(0);
   overflow: hidden;
+  border-bottom: 1px solid $gray-lighter;
 
   @media (min-width: $screen-md){
     display: flex;
@@ -19,6 +20,7 @@
 
   &.is-active{
     top: 0;
+    border-bottom: 0;
   }
 }
 

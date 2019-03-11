@@ -20,15 +20,15 @@
   </div>
 
   <div class="pdp__container">
-    {%- include 'pdp-callout-galleries' -%}
-    {%- include 'pdp-callout-galleries', alternate: true -%}
-    {%- include 'pdp-material', data: data_pdp_material -%}
+    {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_1 -%}
+    {%- include 'pdp-callout-galleries', alternate: true, data: pdp_callout_galleries_data_2 -%}
+    {%- include 'pdp-material', data: pdp_material_data -%}
   </div>
 
   <div class="pdp__white-wrapper">
     <div class="pdp__container">
-    {%- include 'pdp-see-how-to-pack-it' -%}
-    {%- include 'pdp-stories' -%}
+    {%- include 'pdp-see-how-to-pack-it', data: pdp_video_data -%}
+    {%- include 'pdp-stories', data: pdp_stories_data -%}
     {%- include 'pdp-testimonials', testimonials: pdp_testimonials_data -%}
     {%- include 'pdp-reviews' -%}
     </div>
