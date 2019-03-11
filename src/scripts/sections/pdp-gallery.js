@@ -137,14 +137,23 @@ class ProductGallery {
         index,
         showHideOpacity: true,
         showAnimationDuration: 500,
-        loop: false,
+        loop: true,
         history: false,
         closeOnVerticalDrag: false,
         allowPanToNext: false,
         pinchToClose: false,
+        closeEl: true,
+        captionEl: false,
+        fullscreenEl: false,
+        zoomEl: false,
+        shareEl: false,
+        counterEl: false,
+        arrowEl: true,
+        preloaderEl: false,
+        tapToToggleControls: false,
         errorMsg: '<p class="pswp__error-msg">Error Message..</p>',
         getDoubleTapZoom (e, t) {
-          return e ? 1.6 : t.initialZoomLevel < 0.7 ? 1 : 1.33
+          return 1
         },
         getThumbBoundsFn (e) {
           const scrollTop = (window.pageYOffset || document.documentElement.scrollTop)
@@ -157,22 +166,6 @@ class ProductGallery {
           }
         }
       }
-    )
-
-    on(
-      select('.js-pswp-left'),
-      'click',
-      () => this.photoSwipe.prev()
-    )
-    on(
-      select('.js-pswp-close'),
-      'click',
-      () => this.photoSwipe.close()
-    )
-    on(
-      select('.js-pswp-right'),
-      'click',
-      () => this.photoSwipe.next()
     )
 
     this.photoSwipe.init()

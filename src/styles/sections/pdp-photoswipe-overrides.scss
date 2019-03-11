@@ -25,13 +25,26 @@
     transform: translateY(35px);
   }
 }
-.pswp-button{
+.pswp__top-bar{
+  background: transparent;
+  position: relative;
+  left: 0;
+  top: 0;
+  height: auto;
+  width: auto;
+
+  .pswp__ui--idle & {
+    opacity: 1;
+  }
+}
+.pswp__button{
   position: relative;
   width: 45px;
   height: 45px;
   border: none;
   border-radius: 50%;
   background: #fff;
+  background-position: center;
   color: #1c1b1b;
   cursor: pointer;
   text-align: center;
@@ -46,6 +59,22 @@
     transform 0.2s ease-in-out, color 0.2s ease-in-out;
   overflow: hidden;
   margin: 0 10px;
+  top: 0;
+
+  &:before{
+    display: none;
+  }
+
+  &:after{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: '';
+    display: block;
+    background: transparent;
+  }
 
   > svg{
     height: 15px;
@@ -53,19 +82,25 @@
     fill: currentColor;
   }
 
-  &.pswp-button--left:hover{
+  .pswp__ui--idle & {
+    opacity: 1;
+  }
+}
+
+.no-touchevents .pswp__button{
+  &.pswp__button--arrow--left:hover{
     > svg {
       animation: buttonFromRightToLeft 0.5s ease-in-out forwards;
     }
   }
 
-  &.pswp-button--close:hover{
+  &.pswp__button--close:hover{
     > svg {
       animation: buttonFromTopToBottom 0.5s ease-in-out forwards;
     }
   }
 
-  &.pswp-button--right:hover{
+  &.pswp__button--arrow--right:hover{
     > svg {
       animation: buttonFromLeftToRight 0.5s ease-in-out forwards;
     }
