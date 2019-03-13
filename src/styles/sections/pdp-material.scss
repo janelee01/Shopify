@@ -27,6 +27,7 @@
 .pdp-material__image{
   width: 100%;
   text-align: center;
+  margin-right: 10px;
 }
 .pdp-material__image-caption{
   @media (min-width: $screen-md){
@@ -80,6 +81,13 @@
   transition: border .5s;
   margin-bottom: 20px;
 
+  @media (min-width: $screen-md){
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
   &.is-selected{
     opacity: 1;
     background-color: white;
@@ -97,3 +105,31 @@
     margin-bottom: 0;
   }
 }
+
+.pdp-material__tiles-1{
+  .pdp-material__tile{
+    @media (min-width: $screen-md){
+      height: calc(100% - 0px);
+    }
+  }
+}
+
+.pdp-material__tiles-2{
+  .pdp-material__tile{
+    @media (min-width: $screen-md){
+      height: calc(50% - 10px);
+    }
+  }
+}
+
+.pdp-material__tiles-3{
+  .pdp-material__tile{
+
+    @media (min-width: $screen-md){
+      height: calc(33% - 20px);
+      padding: 27px 69px;
+    }
+  }
+}
+
+

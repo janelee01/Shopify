@@ -1,5 +1,6 @@
 {%- assign title = data[0] | default: 'NO TITLE' -%}
-{%- assign total_tiles_minus_1 = data | size | minus: 1 -%}
+{%- assign total_tiles = data | size -%}
+{%- assign total_tiles_minus_1 = total_tiles | minus: 1 -%}
 
 <div class="pdp-material">
   <div class="pdp__section-heading">
@@ -22,8 +23,7 @@
       </div>
       {%- endfor -%}
     </div>
-    <div class="pdp-material__tiles js-pdp-material-tiles">
-      <div>
+    <div class="pdp-material__tiles js-pdp-material-tiles pdp-material__tiles-{{total_tiles_minus_1}}">
       {%- for i in (1..total_tiles_minus_1) -%}
       {%- assign tile = data[i] | split: '|' -%}
         <div class="pdp-material__tile js-pdp-material-tile">
@@ -31,8 +31,9 @@
           <p>{{ tile[1] }}</p>
         </div>
       {%- endfor -%}
-      </div>
     </div>
   </div>
 </div>
 {%- assign title = nil -%}
+{%- assign total_tiles = nil -%}
+{%- assign total_tiles_minus_1 = nil -%}

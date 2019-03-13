@@ -5,7 +5,7 @@ export default el => {
   var flkty = new Flickity(el, {
     draggable: '>1',
     groupCells: true,
-    contain: true,
+    contain: false,
     watchCSS: true,
     pageDots: false,
     prevNextButtons: false,
