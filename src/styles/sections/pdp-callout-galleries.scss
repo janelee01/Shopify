@@ -116,6 +116,7 @@
   width: calc(100% - 20px);
   z-index: 9;
   bottom: 10px;
+  height: 46px;
 
   @media (min-width: $screen-md){
     display: block;
@@ -132,6 +133,7 @@
     display: inline-block;
     text-align: center;
     padding: 10px 25px;
+    line-height: 30px;
 
     @media ( max-width: 768px ) {
       width: 70%;

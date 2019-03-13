@@ -4,6 +4,7 @@ import on from 'dom-event'
 export default el => {
   const $stickyNavHeader = select('.js-pdp-sticky-nav__header', el)
   const $stickyNavFooter = select('.js-pdp-sticky-nav__footer', el)
+  const $stickyNavFooterButton = select('.js-pdp-sticky-nav__footer-buy-now', el)
   const $stickyNavHeaderButton = select('.js-pdp-sticky-nav__header-add-to-cart-button', el)
   const $stickyNavHeaderQty = select('.js-pdp-sticky-nav__header-quantity', el)
   const $swatchLabel = select('.js-dp-sticky-nav__swatch-title', el)
@@ -93,6 +94,13 @@ export default el => {
   on($stickyNavHeaderButton, 'click',
     event => {
       select('button.js-add-to-cart').click()
+    }
+  )
+
+  // Bind click event to add to cart button
+  on($stickyNavFooterButton, 'click',
+    event => {
+      $('body, html').animate({ scrollTop: 0 }, 'slow')
     }
   )
 

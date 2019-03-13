@@ -115,7 +115,9 @@
   }
 }
 
+
 .pdp-gallery-thumbs-video{
+
   margin: 10px auto;
   display: block;
   width: 40px;
@@ -123,13 +125,31 @@
   text-align: center;
   width: 32px;
   height: 32px;
+  border: 2px solid $brand-blue;
+  position: relative;
+  line-height: 32px;
+  transition: background-color .3s;
 
-  svg{
-    width: 100% !important;
-    height: 100% !important;
+  &:after{
+    content: '';
+    display: block;
+    margin: auto;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 7px;
+    position: relative;
+    top: calc(50% - 5px);
+    border-color: transparent transparent transparent $brand-blue;
+    transition: border-color .3s;
   }
 
-  path{
-    fill: #00AEEF;
+  &:hover{
+    background-color: $brand-blue;
+
+    &:after{
+      border-color: transparent transparent transparent #fff;
+    }
   }
+
 }

@@ -12,6 +12,7 @@
   </div>
   <div class="js-pdp-gallery-mobile pdp-gallery-mobile">
     {%- for image in siblingProduct.images -%}
+    {%- unless image.alt contains 'swatch' -%}
       <div class="pdp-gallery-mobile-image">
       {%- assign img_src = image | img_url: 'original' -%}
       {% include 'image',
@@ -20,7 +21,16 @@
         alt: '' %}
       {%- assign img_src = nil -%}
       </div>
+    {%- endunless -%}
     {%- endfor -%}
+
+    {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
+      <div>{{ parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" }}</div>
+{%- endunless -%}
+
+
+
+
   </div>
   <div class="pdp-gallery-thumbs-wrapper">
     <a href="#" class="js-gallery-up pdp-chevron-up"></a>
@@ -46,7 +56,8 @@
     </div>
     <a href="#" class="js-gallery-down pdp-chevron-down"></a>
     {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
-    <a href="#" id="product-video-trigger" class="pdp-gallery-thumbs-video">{% include 'icon-play' %}</a>
+    <a href="#" id="product-video-trigger" class="pdp-gallery-thumbs-video"></a>
+
     {%- endunless -%}
   </div>
 </div>

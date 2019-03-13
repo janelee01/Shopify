@@ -57,8 +57,13 @@
     @extend %h4;
   }
 
+  #price-wrapper [data-product-price]{
+    font-weight: 700;
+  }
+
   #price-wrapper .discount-label{
-    color: $brand-red;
+    color: $brand-red-2;
+    font-weight: 700;
   }
 
   #price-wrapper{
@@ -124,6 +129,10 @@
     max-width: 100%;
   }
 
+  @media (min-width: $screen-md){
+    max-width: 320px;
+  }
+
   p{
     @extend %p2;
     margin-bottom: 10px;
@@ -159,11 +168,15 @@
   text-decoration: underline;
 
   &:hover{
-    color: #333;
+    color: $brand-blue;
   }
 }
 .pdp-main-product-yotpo{
   float: right;
+
+  &:hover{
+    text-decoration: none;
+  }
 
   @media (min-width: $screen-md){
     float: none;
@@ -197,4 +210,23 @@
   font-size: $font-size-xs!important;
   position: relative;
   top: -2px;
+}
+
+
+.pdp-video-modal{
+  display: none;
+  position: fixed;
+  z-index: 10100;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: #fff;
+
+  #product-video-container{
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    z-index: 2;
+  }
+
 }
