@@ -177,12 +177,10 @@
   color: #ccc;
   margin: auto;
 }
-
-
-
 .pdp-variant-buttons{
   a{
-    width: 84px;
-    padding:12px 0!important;
+    @extend %p2;
+    min-width: 84px;
+    padding:12px 4px!important;
   }
 }
