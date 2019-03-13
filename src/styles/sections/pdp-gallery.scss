@@ -21,11 +21,10 @@
 }
 
 .pdp-gallery-mobile{
-  display: block;
-
-  .flickity-viewport{
-    height: auto;
-  }
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 
   @media (min-width: $screen-md){
     display: none;
@@ -33,8 +32,9 @@
 }
 .pdp-gallery-mobile-image {
   @include ratio(100%);
-  width: 80%;
+  width: 80vw;
   margin-right: 10px;
+  flex: 0 0 auto;
 }
 .pdp-gallery-featured{
   @include ratio(70%);
