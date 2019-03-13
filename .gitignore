@@ -16,6 +16,7 @@ config.yml
 config.production.yml
 .env
 .env.staging
+.env.production
 
 # Compiled source #
 ###################

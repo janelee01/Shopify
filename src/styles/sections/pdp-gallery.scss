@@ -117,7 +117,6 @@
 
 
 .pdp-gallery-thumbs-video{
-
   margin: 10px auto;
   display: block;
   width: 40px;
@@ -140,6 +139,7 @@
     border-width: 5px 0 5px 7px;
     position: relative;
     top: calc(50% - 5px);
+    left: 1px;
     border-color: transparent transparent transparent $brand-blue;
     transition: border-color .3s;
   }
@@ -151,5 +151,4 @@
       border-color: transparent transparent transparent #fff;
     }
   }
-
 }

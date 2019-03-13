@@ -28,9 +28,6 @@
       <div>{{ parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" }}</div>
 {%- endunless -%}
 
-
-
-
   </div>
   <div class="pdp-gallery-thumbs-wrapper">
     <a href="#" class="js-gallery-up pdp-chevron-up"></a>
@@ -40,7 +37,8 @@
         {%- unless image.alt contains 'swatch' -%}
         <a
           href="#"
-          data-src="{{ image | img_url: 'original' }}"
+          data-src="{{ image | img_url: '1024x' }}"
+          data-zoom="{{ image | img_url: 'master' }}"
           data-small="{{ image | img_url: '500x' }}"
           data-height="{{ image.height }}"
           data-width="{{ image.width }}">

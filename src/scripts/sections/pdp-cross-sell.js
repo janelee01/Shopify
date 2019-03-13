@@ -7,6 +7,7 @@ export default el => {
     draggable: '>1',
     groupCells: true,
     pageDots: false,
-    prevNextButtons: false
+    prevNextButtons: false,
+    freeScroll: true
   })
 }

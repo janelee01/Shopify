@@ -100,7 +100,8 @@ class ProductGallery {
       groupCells: true,
       contain: true,
       pageDots: false,
-      prevNextButtons: false
+      prevNextButtons: false,
+      freeScroll: true
     })
   }
 
@@ -114,20 +115,14 @@ class ProductGallery {
       return active
     }, 0)
 
-    const items = this.$thumbs.map(el => (
-      ~document.location.href.indexOf('test')
-        ? {
-          msrc: el.getAttribute('data-small'),
-          src: testURL,
-          w: 1500,
-          h: 1500
-        } : {
-          msrc: el.getAttribute('data-small'),
-          src: el.getAttribute('data-src'),
-          w: el.getAttribute('data-width'),
-          h: el.getAttribute('data-height')
-        }
-    ))
+    const items = this.$thumbs.map(el => {
+      return {
+        msrc: el.getAttribute('data-small'),
+        src: el.getAttribute('data-zoom'),
+        w: el.getAttribute('data-width'),
+        h: el.getAttribute('data-height')
+      }
+    })
 
     this.photoSwipe = new PhotoSwipe(
       this.$swipeTemplate,
@@ -154,16 +149,6 @@ class ProductGallery {
         errorMsg: '<p class="pswp__error-msg">Error Message..</p>',
         getDoubleTapZoom (e, t) {
           return 1
-        },
-        getThumbBoundsFn (e) {
-          const scrollTop = (window.pageYOffset || document.documentElement.scrollTop)
-          const rect = _.$featuredImg.getBoundingClientRect()
-
-          return {
-            x: rect.left,
-            y: rect.top + scrollTop,
-            w: rect.width
-          }
         }
       }
     )

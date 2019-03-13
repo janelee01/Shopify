@@ -4,12 +4,22 @@
     padding-bottom: 70px;
   }
 }
-
-
+.yotpo-icon-write,
+.yotpo-icon-double-bubble{
+  display: none;
+}
+.yotpo-icon-profile{
+  display: none !important;
+}
+.yotpo-icon-star,
+.yotpo-icon-half-star,
+.yotpo-icon-empty-star{
+  color: $brand-blue !important;
+}
 .pdp-main-product-yotpo{
   &:hover{
     .pdp-main-product-yotpo-reviews{
-      color: $brand-blue!important;
+      color: $brand-blue !important;
     }
   }
 }

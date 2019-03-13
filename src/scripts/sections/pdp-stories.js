@@ -8,6 +8,7 @@ export default el => {
     contain: true,
     watchCSS: true,
     pageDots: false,
-    prevNextButtons: false
+    prevNextButtons: false,
+    freeScroll: true
   })
 }

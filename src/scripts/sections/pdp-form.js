@@ -327,8 +327,6 @@ class ProductForm {
     this.updateWaitlistMeta()
     this.updateLowStockWarning()
     this.updateFinalSaleMessage()
-
-    $('#wl-variant').val(this.$variantInput.value)
   }
 
   /**
@@ -394,7 +392,10 @@ class ProductForm {
    */
   updateWaitlistMeta () {
     $('#wl-image').attr('src', this.product.featured_image)
+
     $('#wl-product').val(this.productID)
+    $('#wl-variant').val(this.variantID)
+
     const wlMeta = [$('#current-option span').text()]
     if ($('#variant-buttons ').length) {
       wlMeta.push(
@@ -403,8 +404,8 @@ class ProductForm {
     }
     $('[data-wl-meta]').text(wlMeta.join(' - '))
 
-    const variant = this.$variantInput.value
-    const wlExpected = variantStockData[variant].restockMessage
+    const wlExpected = variantStockData[this.variantID].restockMessage
+
     if (wlExpected) {
       $('[data-wl-expected]').text('Expected in stock: ' + wlExpected)
     } else {

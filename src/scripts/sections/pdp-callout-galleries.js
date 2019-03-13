@@ -7,7 +7,8 @@ export default el => {
 
   const flktyMain = new Flickity($main, {
     prevNextButtons: false,
-    pageDots: false
+    pageDots: false,
+    freeScroll: true
   })
 
   const flktyNav = new Flickity($nav, {
