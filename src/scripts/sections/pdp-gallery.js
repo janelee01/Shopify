@@ -12,6 +12,7 @@ class ProductGallery {
     this.$thumbs = select.all('.js-pdp-gallery-thumbs a', el)
     this.$thumbsContainer = select('.js-pdp-thumbs-container', el)
     this.$mobileCarousel = select('.js-pdp-gallery-mobile', el)
+    this.$mobileImages = select.all('.js-pdp-gallery-mobile-image', el)
     this.$featuredImg = select('.js-pdp-gallery-featured img', el)
     this.$arrowUp = select('.js-gallery-up', el)
     this.$arrowDown = select('.js-gallery-down', el)
@@ -108,8 +109,15 @@ class ProductGallery {
   initPhotoSwipe () {
     const _ = this
     const el = document.querySelector('.pswp')
-    const index = this.$thumbs.reduce((active, el, i) => {
-      if (el.classList.contains('active')) {
+    const index = (
+      window.innerWidth < '1025'
+        ? this.$mobileImages
+        : this.$thumbs
+    ).reduce((active, el, i) => {
+      if (
+        el.classList.contains('active') ||
+        el.classList.contains('is-selected')
+      ) {
         active = i
       }
       return active

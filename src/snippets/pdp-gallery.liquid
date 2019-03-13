@@ -13,7 +13,7 @@
   <div class="js-pdp-gallery-mobile pdp-gallery-mobile">
     {%- for image in siblingProduct.images -%}
     {%- unless image.alt contains 'swatch' -%}
-      <div class="pdp-gallery-mobile-image">
+      <div class="js-pdp-gallery-mobile-image pdp-gallery-mobile-image">
       {%- assign img_src = image | img_url: 'original' -%}
       {% include 'image',
         src: img_src,
