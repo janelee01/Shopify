@@ -354,9 +354,6 @@ class ProductForm {
       }
       el.classList.add('active')
 
-      // Resize flickity
-      $(document).trigger('pdp.galleries.resize')
-
       // Need to ask Derek about this one..
       // dataLayer.push({
       //   'event' : 'galleryNavigation',

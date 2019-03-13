@@ -12,7 +12,7 @@ class ProductGallery {
     this.$thumbs = select.all('.js-pdp-gallery-thumbs a', el)
     this.$thumbsContainer = select('.js-pdp-thumbs-container', el)
     this.$mobileCarousel = select('.js-pdp-gallery-mobile', el)
-    this.$mobileImages = select.all('.js-pdp-gallery-mobile-image', el)
+    this.$mobileImages = select.all('.js-pdp-gallery-mobile-image img', el)
     this.$featuredImg = select('.js-pdp-gallery-featured img', el)
     this.$arrowUp = select('.js-gallery-up', el)
     this.$arrowDown = select('.js-gallery-down', el)
@@ -28,11 +28,6 @@ class ProductGallery {
     this.setBindings()
     this.setListeners()
     this.setInitStates()
-    this.initResponsiveSlider()
-
-    $(document).on('pdp.galleries.resize', () => {
-      this.flkty.resize()
-    })
   }
 
   setBindings () {
@@ -55,7 +50,7 @@ class ProductGallery {
       this.initPhotoSwipe()
     })
     on(this.$mobileCarousel, 'click', e => {
-      this.initPhotoSwipe()
+      this.initPhotoSwipe(e.target)
     })
   }
 
@@ -95,33 +90,25 @@ class ProductGallery {
     this.$featuredImg.src = target.getAttribute('data-src')
   }
 
-  initResponsiveSlider () {
-    this.flkty = new Flickity(this.$mobileCarousel, {
-      draggable: '>1',
-      groupCells: true,
-      contain: true,
-      pageDots: false,
-      prevNextButtons: false,
-      freeScroll: true
-    })
-  }
-
-  initPhotoSwipe () {
+  initPhotoSwipe (target) {
     const _ = this
     const el = document.querySelector('.pswp')
-    const index = (
-      window.innerWidth < '1025'
-        ? this.$mobileImages
-        : this.$thumbs
-    ).reduce((active, el, i) => {
-      if (
-        el.classList.contains('active') ||
-        el.classList.contains('is-selected')
-      ) {
-        active = i
-      }
-      return active
-    }, 0)
+    let index = 0
+    if (window.innerWidth < '1025') {
+      index = this.$mobileImages.reduce((active, el, i) => {
+        if (el.getAttribute('src') === target.getAttribute('src')) {
+          active = i
+        }
+        return active
+      }, 0)
+    } else {
+      index = this.$thumbs.reduce((active, el, i) => {
+        if (el.classList.contains('active')) {
+          active = i
+        }
+        return active
+      }, 0)
+    }
 
     const items = this.$thumbs.map(el => {
       return {
