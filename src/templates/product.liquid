@@ -1,6 +1,6 @@
 {%- include 'pdp-get-sibling-products' -%}
 
-{%- capture data_file -%}pdp-data-{{parentCollection.title| downcase | remove: 'the' | strip | replace: ' ', '-' }}{%- endcapture -%}
+{%- capture data_file -%}pdp-data-{{parentCollection.title| downcase | remove: 'the' | strip | replace: ' ', '-' | replace: '.', '' }}{%- endcapture -%}
 
 {%- include data_file -%}
 
