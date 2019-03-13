@@ -1,0 +1,111 @@
+{%- comment -%}
+### ------------
+### 1. Instagram
+### ------------
+{%- endcomment -%}
+
+{%- capture pdp_instagram_data -%}
+<div class="yotpo yotpo-pictures-widget" data-gallery-id="5c819f56eecffe0008977aab"></div>
+{%- endcapture -%}
+
+
+{%- comment -%}
+### -----------
+### 2. Carousel
+### -----------
+### line 1: carousel title (or "-" if none)
+### line 2: carousel subtitle
+### line 3: carousel text
+### line 4+N: slide text|slide image
+### -----------
+{%- endcomment -%}
+
+{%- capture pdp_callout_galleries_data_1 -%}
+An innovative leather laptop tote that goes from business mode to airplane mode in a snap.
+2 in 1 Tote
+A patented interchangeable shell design system and complimentary lightweight shell allows The Seville to transform seamlessly from a work tote to travel tote.
+Patented Interchangeable Shell Design|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_SevilleTote_patented-design.jpg?4037163730518513975
+Lightweight Travel Shell Included|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_SevilleTote_travel-shell.jpg?4037163730518513975
+{%- endcapture -%}
+
+{%- capture pdp_callout_galleries_data_2 -%}
+-
+Timeless Style
+The Seville’s classic design will never go out of style. This innovative laptop tote will keep you looking polished and professional everyday.
+Padded Laptop Sleeve|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_SevilleTote_padded-laptop-sleeve.jpg?4037163730518513975
+Plenty of Interior Pockets|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_SevilleTote_interior-pockets.jpg?4037163730518513975
+Key Leash|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_SevilleTote_key-leash.jpg?4037163730518513975
+{%- endcapture -%}
+
+{%- capture pdp_callout_galleries_data_3 -%}
+-
+Included with purchase
+All Seville Tote purchases include both a Saffiano Leather Shell as well as a dust bag containing a Soft Touch Travel Shell made from memory yarn. Additional leather shells are sold separately.
+Saffiano Leather Shell|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_SevilleTote_leather-shell.jpg?4037163730518513975
+Dust Bag with Soft Touch Travel Shell|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_SevilleTote_travel-shell.jpg?4037163730518513975
+{%- endcapture -%}
+
+{%- assign pdp_callout_galleries_data_1 = pdp_callout_galleries_data_1 | newline_to_br | split: '<br />' -%}
+{%- assign pdp_callout_galleries_data_2 = pdp_callout_galleries_data_2 | newline_to_br | split: '<br />' -%}
+{%- assign pdp_callout_galleries_data_3 = pdp_callout_galleries_data_3 | newline_to_br | split: '<br />' -%}
+
+
+
+{%- comment -%}
+### -------------------
+### 3. Video
+### -------------------
+### line N: title|video
+### -------------------
+{%- endcomment -%}
+
+{%- capture pdp_video_data -%}
+What Fits Inside|https://player.vimeo.com/external/293977465.hd.mp4?s=60cc44839e6b9368286c7dc9561b5038a41d7f07&profile_id=175
+{%- endcapture -%}
+{%- assign pdp_video_data = pdp_video_data | trim -%}
+
+
+{%- comment -%}
+### ----------------
+### 4. Fabric Module
+### ----------------
+### line 1: Main title
+### line 2+N: Tile title|tile subtitle|tile image
+### ----------------
+{%- endcomment -%}
+
+{%- capture pdp_material_data -%}
+Luxurious and Durable Materials
+Saffiano Leather|Scratch resistant, water resistant, and extremely durable.|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-4_SevilleTote_saffiano-leather.jpg?4037163730518513975
+Memory Yarn|The complimentary Soft Touch Travel Shell is made from an advanced polymer memory yarn that easily adapts when physical force is applied to it. Making it easy to fold and pack away, but with the soft swipe of the hand you can smooth out most wrinkles. It's super lightweight, stain resistant, water resistant, and easily cleanable.|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-4_SevilleTote_memory-yarn.jpg?4037163730518513975
+Signature Jacquard Lining|Crafted from in a premium quality jacquard lining in our signature hummingbird print.|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-4_SevilleTote_jacquard-lining.jpg?4037163730518513975
+Italian Buttons|Ultra strong and durable snap buttons by Cobra™, an Italian producer of high-end hardware, connect the leather straps of the interior organizer to the outer shell. The firm click of the snaps assures you that your Seville Tote is securely assembled.|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-4_SevilleTote_italian-buttons.jpg?4037163730518513975
+{%- endcapture -%}
+{%- assign pdp_material_data = pdp_material_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### --------------------
+### 5. Corporate Reviews
+### --------------------
+### line 1: title
+### line 1+N: review|image
+### --------------------
+{%- endcomment -%}
+
+{%- capture pdp_testimonials_data -%}
+{%- endcapture -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### ----------
+### 6. Stories
+### ----------
+### handle 1, handle 2,... handle N
+### ----------
+{%- endcomment -%}
+
+{%- capture pdp_stories_data -%}
+{%- endcapture -%}
+{%- assign pdp_stories_data = pdp_stories_data | split: ',' -%}
