@@ -4,3 +4,13 @@
     padding-bottom: 70px;
   }
 }
+
+
+.pdp-main-product-yotpo{
+  &:hover{
+    .pdp-main-product-yotpo-reviews{
+      color: $brand-blue!important;
+    }
+  }
+}
+

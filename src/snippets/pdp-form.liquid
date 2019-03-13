@@ -11,7 +11,7 @@
     {%- unless product.has_only_default_variant -%}
     <div class="pdp-snap pdp-form-option-group js-pdp-form-option-group selector-wrapper">
       <label for="variant-selector">Size:</label>
-      <div id="variant-buttons" class="variant-buttons js-variant-buttons-wrap">
+      <div id="variant-buttons" class="pdp-variant-buttons variant-buttons js-variant-buttons-wrap">
         {%- for variant in product.variants -%}
           {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
             {%- continue -%}
