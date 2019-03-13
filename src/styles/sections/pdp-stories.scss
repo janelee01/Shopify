@@ -27,6 +27,19 @@
     margin-right: 0;
   }
 
+  &:hover{
+
+    a{
+      color: $brand-blue;
+    }
+
+
+    img.lazy-img__el{
+      opacity: .9;
+    }
+
+  }
+
   h4{
     @extend %h3;
     margin-top: 15px;
@@ -35,6 +48,7 @@
   a{
     text-decoration: none;
     color: $brand-grey;
+    transition: color .5s;
   }
 
   @media (min-width: $screen-xs){
@@ -49,3 +63,5 @@
 .pdp-stories__img{
   @include ratio(60%);
 }
+
+

@@ -37,5 +37,12 @@
 .pdp-cross-sell__colors{
   @extend %p3;
   color: $brand-grey;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+}
+
+
+
+.pdp-cross-sell__section-heading{
+  padding-top: 80px;
+  padding-bottom: 63px;
 }

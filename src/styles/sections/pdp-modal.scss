@@ -56,10 +56,6 @@
     display: block;
   }
 
-  dd{
-    margin-bottom: 20px;
-  }
-
   .carousel-control.left{
     position: absolute;
     left: 0;
@@ -80,6 +76,25 @@
     }
   }
 
+  dl{
+    padding: 34px;
+
+    @media (min-width: $screen-md){
+      padding: 0;
+    }
+  }
+
+  dt{
+    @extend %h4;
+    color: $brand-grey;
+  }
+
+  dd{
+    @extend %p2;
+    color: $gray;
+    margin-bottom: 20px;
+  }
+
 
   @media (min-width: $screen-md){
     padding: 50px 100px;
@@ -90,7 +105,6 @@
 
     dt{
       text-transform: uppercase;
-      font-size: 19px;
       width: 225px;
       float: left;
       margin: 0;
