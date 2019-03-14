@@ -139,7 +139,7 @@
   }
 
   span{
-    @extend %h4;
+    @extend %h4--alt;
     text-align: center;
     margin-right: 0;
     color: $gray-light;

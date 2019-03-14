@@ -1,9 +1,8 @@
 
 %h1{
+  font-family: $font-family-medium;
   font-size: 22px;
   line-height: 30px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
 
   @media (min-width: $screen-s-md){
     font-size: 32px;
@@ -12,6 +11,7 @@
 }
 
 %h2{
+  font-family: $font-family-medium;
   font-size: 18px;
   line-height: 28px;
 
@@ -22,9 +22,9 @@
 }
 
 %h3{
+  font-family: $font-family-medium;
   font-size: 14px;
   line-height: 22px;
-  font-weight: 400;
 
   @media (min-width: $screen-s-md){
     font-size: 16px;
@@ -33,6 +33,7 @@
 }
 
 %h4{
+  font-family: $font-family-medium;
   font-size: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -40,6 +41,13 @@
 
   @media (min-width: $screen-s-md){
     font-size: 13px;
+  }
+}
+%h4--alt{
+  @extend %h4;
+
+  @media (min-width: $screen-s-md){
+    font-size: 12px;
   }
 }
 %p1{

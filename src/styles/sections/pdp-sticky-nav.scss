@@ -197,8 +197,10 @@
     bottom: 0;
   }
 }
-
-
 .pdp-sticky-nav__header-configuration-label{
   color: $brand-grey;
+}
+.pdp-sticky-nav__variant-selector{
+  @extend %p2;
+  margin-bottom: 0;
 }

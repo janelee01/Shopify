@@ -9,7 +9,7 @@
     </div>
 
     <div class="pdp-sticky-nav__header-sizes js-pdp-sticky-nav__header-sizes-wrap">
-      <label for="variant-selector">Size:</label>
+      <label for="variant-selector" class="pdp-sticky-nav__variant-selector">Size:</label>
       <div class="js-pdp-sticky-nav__header-sizes">
         {%- for variant in product.variants -%}
           {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
