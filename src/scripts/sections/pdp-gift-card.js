@@ -17,6 +17,8 @@ export default el => {
    * @param {Object} e Vanilla DOM Event
    */
   const updateSelectedItem = e => {
+    e.preventDefault()
+
     const $container = slate.utils.getClosest(e.target, '.js-variant-buttons-wrap')
     const $others = select.all('.js-variant-option', $container)
 
