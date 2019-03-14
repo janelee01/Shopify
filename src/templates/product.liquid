@@ -25,10 +25,17 @@
     </div>
 
     <div class="pdp__container">
-      {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_1 -%}
+      {%- if pdp_instagram_data == blank -%}
+        {%- assign remove_top_padding = true -%}
+      {%- endif -%}
+      {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_1, remove_top_padding: remove_top_padding -%}
       {%- include 'pdp-callout-galleries', alternate: true, data: pdp_callout_galleries_data_2 -%}
       {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_3 -%}
-      {%- include 'pdp-material', data: pdp_material_data -%}
+
+      {%- if pdp_instagram_data == blank and pdp_callout_galleries_data_1 == blank -%}
+        {%- assign remove_top_padding = true -%}
+      {%- endif -%}
+      {%- include 'pdp-material', data: pdp_material_data, remove_top_padding: remove_top_padding -%}
     </div>
 
     <div class="pdp__white-wrapper">

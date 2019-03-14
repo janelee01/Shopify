@@ -1,4 +1,4 @@
-{%- if data -%}
+{%- if data != blank -%}
 {%- assign video = data | split: '|' | last -%}
 {%- assign title = data | split: '|' | first -%}
 <div class="pdp__separator">

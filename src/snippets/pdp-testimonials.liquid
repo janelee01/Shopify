@@ -1,12 +1,14 @@
 {%- assign testimonials = testimonials | default: blank -%}
 {%- assign testimonials_count_minus_1 = testimonials | size -%}
-
-{%- unless testimonials == blank -%}
-
 <div class="pdp__section-heading">
-  <h2 class="title">{{testimonials[0]}}</h2>
+  {%- assign heading = testimonials[0] -%}
+  {%- if heading == blank -%}
+    {%- assign heading = 'Traveler Approved' -%}
+  {%- endif -%}
+  <h2 class="title">{{heading}}</h2>
+  {%- assign heading = nil -%}
 </div>
-
+{%- unless testimonials == blank -%}
 <div class="pdp-testimonials js-pdp-testimonials">
   <div class="pdp-testimonials__logos js-pdp-testimonials-logos">
   {%- for i in (1..testimonials_count_minus_1) -%}

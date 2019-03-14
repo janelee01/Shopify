@@ -21,6 +21,10 @@ html{
     color: $brand-grey;
     margin: 0 auto;
   }
+
+  &.pdp__section-heading--no-top-padding{
+    padding-top: 0;
+  }
 }
 .pdp__container{
   margin: auto;
