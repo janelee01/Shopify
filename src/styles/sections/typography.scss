@@ -45,6 +45,7 @@
 %p1{
   font-size: 16px;
   line-height: 24px;
+  font-weight: 400;
 
   @media (min-width: $screen-s-md){
     font-size: 18px;
@@ -54,6 +55,7 @@
 %p2{
   font-size: 14px;
   line-height: 23px;
+  font-weight: 400;
 
   @media (min-width: $screen-s-md){
     font-size: 14px;
@@ -63,4 +65,5 @@
 %p3{
   font-size: 12px;
   line-height: 15px;
+  font-weight: 400;
 }
