@@ -23,7 +23,9 @@ html{
   }
 
   &.pdp__section-heading--no-top-padding{
-    padding-top: 0;
+    @media (min-width: $screen-md){
+      padding-top: 0;
+    }
   }
 }
 .pdp__container{
