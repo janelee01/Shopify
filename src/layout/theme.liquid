@@ -7,6 +7,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="{{ settings.color_primary }}">
 
+  {{ 'lo.css' | asset_url | stylesheet_tag }}
+
+  {% include 'style-tags' %}
+
   {% include 'optimize-page-hiding' %}
   {% include 'google-tag-manager' %}
   {% include 'optimize-tag' %}
@@ -44,8 +48,6 @@
 
   {% include 'social-meta-tags' %}
 
-  {{ 'lo.css' | asset_url | stylesheet_tag }}
-
   <script>
     window.slate = window.slate || {};
     window.theme = window.theme || {};
@@ -75,7 +77,6 @@
   <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'vendors.min.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
   <!--[if lt IE 9]><script src="{{ 'vendors.min.js' | asset_url }}"></script><![endif]-->
   {% include 'script-tags', layout: 'theme' %}
-  {% include 'style-tags' %}
 
   <script src="https://player.vimeo.com/api/player.js"></script>
 
