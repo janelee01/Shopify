@@ -47,7 +47,7 @@
 
   {%- include 'pdp-sticky-nav', collection: parentCollection -%}
   {%- include 'pdp-modal', id: 'shipping' -%}
-  {%- include 'pdp-modal', id: 'size-fit', collection: parentCollection -%}
+  {%- include 'pdp-modal', id: 'size-fit', collection: parentCollection, device_compatibility: pdp_size_fit_device_compatibility, size_weight: pdp_size_fit_size_weight -%}
 
   {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
   <script>

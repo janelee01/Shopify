@@ -13,7 +13,8 @@
 
 {% comment %} find the type collection {% endcomment %}
 {%- for collection in product.collections -%}
-    {%- if collection.metafields["global"]["is-parent-collection"] == "true" -%}
+{%- assign is_parent_collection = collection.metafields["global"]["is-parent-collection"] | strip_html -%}
+{%- if is_parent_collection == "true" -%}
       {%- assign parentCollection = collections[collection.handle] -%}
       {%- break -%}
     {%- endif -%}
