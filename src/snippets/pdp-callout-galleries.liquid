@@ -1,6 +1,7 @@
 {%- unless data == blank -%}
 
-{%- assign total_slides = data | size -%}
+{%- assign total_rows = data | size -%}
+{%- assign total_slides = total_rows | minus: 3 -%}
 
 {%- unless data[0] == '-' -%}
 <div class="pdp__section-heading">
@@ -13,9 +14,9 @@
     <h4>{{data[1]}}</h4>
     <p>{{data[2]}}</p>
   </div>
-  <div class="pdp-callout-galleries__carousel pdp-snap">
+  <div class="pdp-callout-galleries__carousel pdp-snap pdp-callout-galleries__carousel-{{total_slides}}-slides">
     <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main">
-    {%- for i in (4..total_slides) -%}
+    {%- for i in (4..total_rows) -%}
     {%- assign j = i | minus: 1 -%}
     {%- assign slide = data[j] -%}
     {%- assign slide_text = slide | split: '|' | first -%}
@@ -29,11 +30,11 @@
     {%- endfor -%}
     </div>
     <div class="js-pdp-callout-gallery-nav pdp-callout-galleries__carousel-nav">
-    {%- for i in (4..total_slides) -%}
+    {%- for i in (4..total_rows) -%}
     {%- assign j = i | minus: 1 -%}
     {%- assign slide = data[j] -%}
     {%- assign slide_text = slide | split: '|' | first -%}
-        <span>{{slide_text}}</span>
+    <span>{{slide_text}}</span>
     {%- endfor -%}
     </div>
   </div>
@@ -43,5 +44,7 @@
 {%- assign j = nil -%}
 {%- assign slide_text = nil -%}
 {%- assign slide_image = nil -%}
+{%- assign total_slides = nil -%}
+{%- assign total_rows = nil -%}
 
 {%- endunless -%}
