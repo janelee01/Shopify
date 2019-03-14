@@ -190,3 +190,10 @@
     display: none;
   }
 }
+.pdp-callout-galleries__carousel-1-slides{
+  .pdp-callout-galleries__carousel-nav{
+    span.is-selected:before{
+      display:none;
+    }
+  }
+}
