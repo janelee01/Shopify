@@ -99,3 +99,20 @@ Durable Hardware|Crafted from high-quality materials that are built for everyday
 travel-inspiration/a-week-in-paris-alice-gao,travel-tips-guides/traveling-with-kids-9to5chic,travel-inspiration/creative-workshop-morocco-atelier-dore
 {%- endcapture -%}
 {%- assign pdp_stories_data = pdp_stories_data | split: ',' -%}
+
+
+
+{%- comment -%}
+### ----------
+### 7. Related Products
+### ----------
+### line N: handle N
+### ----------
+{%- endcomment -%}
+
+{%- capture pdp_cross_sell_data -%}
+Claremont Sienna
+Pearl Black Saffiano
+Pearl Graphite Saffiano
+{%- endcapture -%}
+{%- assign pdp_cross_sell_data = pdp_cross_sell_data | newline_to_br | split: '<br />' -%}

@@ -1,34 +1,53 @@
-{%- if parentCollection.metafields["global"]["related-product-1"] -%}{%- assign related = related | append: ',' | append: parentCollection.metafields["global"]["related-product-1"] -%}{%- endif -%}
-{%- if parentCollection.metafields["global"]["related-product-2"] -%}{%- assign related = related | append: ',' | append: parentCollection.metafields["global"]["related-product-2"] -%}{%- endif -%}
-{%- if parentCollection.metafields["global"]["related-product-3"] -%}{%- assign related = related | append: ',' | append: parentCollection.metafields["global"]["related-product-3"] -%}{%- endif -%}
-
-{%- assign related = 'waverley-nappa-leather-black-gunmetal-grey,waverley-nappa-leather-black-gunmetal-grey' -%}
-{%- assign related = related | split: ',' -%}
-
-{%- unless related == blank -%}
+{%- unless data == blank -%}
 
 <div class="pdp-cross-sell js-pdp-cross-sell">
   <div class="pdp__section-heading pdp-cross-sell__section-heading">
     <h2>You May Also Like</h2>
   </div>
   <div class="js-container pdp-snap pdp-cross-sell__container">
-  {%- for handle in related -%}
-  {%- assign product = collection.all.products[handle] -%}
-  <article class="pdp-cross-sell__article product" data-bxhover-1551366567137.4377="true">
-    <a class="product-link" href="/collections/mens-travel-bags/products/hanover-600d-recycled-poly-navy" data-list-name="Shop All Mens Products" data-product-name="The Hanover - 600D Recycled Poly - Navy" data-product-price="128.00" data-product-type="The Hanover" data-product-sku="850180007142" data-product-position="4">
+  {%- for row in data -%}
+  {%- assign handle = row | strip -%}
+  {%- if handle contains ' ' -%}
+  {%- assign handle = handle | handleize -%}
+  {%- endif -%}
+  {%- assign product = all_products[handle] -%}
+
+  {%- unless product == blank -%}
+
+  {%- assign product_featured_image = product.featured_image | img_url: 'large' -%}
+
+  {%- assign colorCount = '' -%}
+
+{%- for collection in product.collections -%}
+{%- assign is_parent_collection = collection.metafields["global"]["is-parent-collection"] | strip_html -%}
+{%- if is_parent_collection == "true" -%}
+{%- assign colorCount = collections[collection.handle].products | size -%}
+{%- break -%}
+{%- endif -%}
+{%- endfor -%}
+
+
+  <article class="pdp-cross-sell__article product">
+    <a class="product-link" href="{{ product.url }}" data-list-name="Shop All Mens Products" data-product-name="The Hanover - 600D Recycled Poly - Navy" data-product-price="128.00" data-product-type="The Hanover" data-product-sku="850180007142" data-product-position="4">
       <div class="pdp-cross-sell__image">
         {% include 'image',
-          src: '//cdn.shopify.com/s/files/1/2185/1497/products/side-hanover-600d-recycled-poly-navy-backpack-lo-and-sons_360x360.jpg?v=1519107128',
+          src: product_featured_image,
           object_fit: 'contain',
-          alt: 'Side - The Hanover - 600D Recycled Poly - Navy - Backpack - Lo &amp; Sons' %}
+          alt: product.title %}
       </div>
-      <h4>Hanover</h4>
-      <p class="pdp-cross-sell__type">Navy</p>
-      <p class="pdp-cross-sell__colors">5 colors</p>
+      <h4>{{product.title}}</h4>
+      <p class="pdp-cross-sell__colors">{{colorCount}} colors</p>
     </a>
   </article>
+
+  {%- endunless -%}
   {%- endfor -%}
   </div>
 </div>
 
 {%- endunless -%}
+
+{%- assign handle = nil -%}
+{%- assign product = nil -%}
+{%- assign product_featured_image = nil -%}
+
