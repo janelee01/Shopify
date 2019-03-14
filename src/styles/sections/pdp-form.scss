@@ -118,13 +118,12 @@
     color: $gray;
     border-color: $gray-light;
     background: #FFF;
+    min-width: 84px;
 
     &.selected{
       border-color: $brand-blue;
       color: $brand-blue;
     }
-
-    min-width: 84px;
   }
 
   .pdp-form-size-wrapper--reflow & {

@@ -46,7 +46,7 @@
 
       </div>
       {%- assign optionValues = nil -%}
-      <a class="pdp-form-size-fit pdp-modal-link" href="#" data-modal="size-fit">Size & Fit guide</a>
+      <a class="pdp-form-size-fit pdp-modal-link js-pdp-modal-link" href="#" data-modal="size-fit">Size & Fit guide</a>
     </div>
     {%- endunless -%}
 
@@ -87,11 +87,11 @@
     <div class="pdp-final-sale-warning js-final-sale-warning final-sale-warning hidden"><span>{{ 'products.product.final_sale_html' | t }}</span></div>
 
     {%- if product.has_only_default_variant -%}
-    <div><a class="pdp-form-size-fit pdp-modal-link" href="#" data-modal="size-fit">Size & Fit guide</a></div>
+    <div><a class="pdp-form-size-fit pdp-modal-link js-pdp-modal-link" href="#" data-modal="size-fit">Size & Fit guide</a></div>
     {%- endif -%}
 
 
-    <a class="pdp-shipping-returns-warranty-care pdp-modal-link" data-modal="shipping" href="#">Shipping, Returns, Warranty & Care</a>
+    <a class="pdp-shipping-returns-warranty-care pdp-modal-link js-pdp-modal-link" data-modal="shipping" href="#">Shipping, Returns, Warranty & Care</a>
   </form>
 </div>
 
