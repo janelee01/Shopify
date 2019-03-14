@@ -169,3 +169,35 @@
   </div>
 
 </div>
+
+{%- if device_compatibility -%}
+<div class="pdp-modal__section pdp-modal__section-airline">
+
+  <h3>Device Compatibility</h3>
+
+  <div class="pdp-modal__section-two-column">
+
+
+  {{device_compatibility}}
+
+  </div>
+
+</div>
+
+{%- endif -%}
+
+
+{%- if size_weight -%}
+<div class="pdp-modal__section pdp-modal__section-airline">
+
+  <h3>Size & Weight</h3>
+
+  <div class="pdp-size-fit__table">
+
+  {{size_weight}}
+
+  </div>
+
+</div>
+
+{%- endif -%}
