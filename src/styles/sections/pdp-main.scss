@@ -18,6 +18,43 @@
     display: flex;
   }
 }
+.pdp-main-product-heading{
+  display: none;
+
+  h1{
+    @extend %h1;
+    margin-bottom: 5px;
+  }
+
+  @media (min-width: $screen-md){
+    display: block;
+    margin-bottom: 13px;
+  }
+}
+.pdp-main-product-type{
+  @extend %h4;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.pdp-main-product-heading-mobile{
+  display: block;
+  text-align: center;
+  margin-bottom: 24px;
+
+  h1{
+    @extend %h1;
+    margin-bottom: 5px;
+  }
+
+  h4{
+    @extend %h4;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: $screen-md){
+    display: none;
+  }
+}
 .product-main__featured{
   @include stretch-to-fill-viewport;
 }
@@ -41,10 +78,6 @@
 
   .selector-wrapper{
     label{
-      display: inline-block;
-    }
-
-    .variant-buttons{
       display: inline-block;
     }
   }
@@ -82,37 +115,11 @@
     }
   }
 }
-
-.pdp-main-product-heading{
-  display: none;
-
-  h1{
-    @extend %h1;
-    margin-bottom: 5px;
-  }
-
-  @media (min-width: $screen-md){
-    display: block;
-    margin-bottom: 13px;
-  }
-}
-.pdp-main-product-type{
-  @extend %h4;
-}
-.pdp-main-product-heading-mobile{
-  display: block;
-  text-align: center;
-  margin-bottom: 24px;
-
-  h1{
-    @extend %h1;
-    margin-bottom: 5px;
-  }
-
-  h4{
-    @extend %h4;
-    text-transform: uppercase;
-  }
+.pdp-main-mobile-swatch-label{
+  margin-bottom: 0;
+  margin-top: 5px;
+  color: $gray;
+  @extend %p2;
 
   @media (min-width: $screen-md){
     display: none;
@@ -157,10 +164,6 @@
       margin-bottom: 20px;
     }
   }
-}
-.pdp-form-product-type{
-  margin-bottom: 20px;
-  text-transform: uppercase;
 }
 .pdp-shipping-returns-warranty-care{
   color: #646464;

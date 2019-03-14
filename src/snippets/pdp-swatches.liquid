@@ -20,7 +20,7 @@ DETECT PRESELECTED material/color IF ANY
 
 
 {%- if swatchGroup2Label == blank -%}{% comment %} no extra grouping, show them all {% endcomment %}
-	{%- if swatchGroup1Label != blank -%}<p class="configuration-label">{{ swatchGroup1Label }}:<span class="js-pdp-selected-color pdp-selected-color">{{selectedColor1}}</span></p>{%- endif -%}
+	{%- if swatchGroup1Label != blank -%}<p class="configuration-label js-pdp-swatch-group-name">{{ swatchGroup1Label }}<span class="js-pdp-selected-color pdp-selected-color">{{selectedColor1}}</span></p>{%- endif -%}
 
 	<ul class="pdp-swatches">
 		{%- for siblingProduct in parentCollection.products -%}{% comment %} all products of this type {% endcomment %}
@@ -50,7 +50,7 @@ DETECT PRESELECTED material/color IF ANY
 	{%- endcapture -%}
 	{% if swatchGroup1 != blank %}{% comment %} these can be blank if the collection-aware URL filters out all products in this group {% endcomment %}
     <div class="pdp-swatches-wrapper js-pdp-swatches-wrapper">
-		  <p class="configuration-label">{{ swatchGroup1Label }}:<span class="js-pdp-selected-color pdp-selected-color">{{selectedColor1}}</span></p>
+		  <p class="configuration-label js-pdp-swatch-group-name">{{ swatchGroup1Label }}<span class="js-pdp-selected-color pdp-selected-color">{{selectedColor1}}</span></p>
 		  <ul class="pdp-swatches js-pdp-swatches">
 			 {{ swatchGroup1 }}
 		  </ul>
@@ -71,7 +71,7 @@ DETECT PRESELECTED material/color IF ANY
 	{%- endcapture -%}
 	{% if swatchGroup2 != blank %}
     <div class="pdp-swatches-wrapper js-pdp-swatches-wrapper">
-		  <p class="configuration-label">{{ swatchGroup2Label }}:<span class="js-pdp-selected-color pdp-selected-color">{{selectedColor2}}</span></p>
+		  <p class="configuration-label js-pdp-swatch-group-name">{{ swatchGroup2Label }}<span class="js-pdp-selected-color pdp-selected-color">{{selectedColor2}}</span></p>
 		  <ul class="pdp-swatches js-pdp-swatches">
 			 {{ swatchGroup2 }}
 		  </ul>
@@ -92,7 +92,7 @@ DETECT PRESELECTED material/color IF ANY
 	{%- endcapture -%}
 	{% if swatchGroup3 != blank %}
 		<div class="pdp-swatches-wrapper js-pdp-swatches-wrapper">
-      <p class="configuration-label">{{ swatchGroup3Label }}</p>
+      <p class="configuration-label js-pdp-swatch-group-name">{{ swatchGroup3Label }}</p>
 		  <ul class="pdp-swatches js-pdp-swatches">
 			 {{ swatchGroup3 }}
 		  </ul>

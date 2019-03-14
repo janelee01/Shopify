@@ -3,7 +3,6 @@
     margin-bottom: 20px;
   }
 }
-
 .pdp-swatches{
   list-style-type: none;
   margin: 0;
@@ -38,9 +37,16 @@
     }
 
   }
-
 }
-
 .pdp-selected-color{
-  margin-left: 5px;
+  margin-left: 1px;
+  display: none;
+
+  @media (min-width: $screen-md){
+    display: inline;
+
+    &:before{
+      content: ': '
+    }
+  }
 }

@@ -18,23 +18,13 @@ export default el => {
   const b = 500 // fixed value for now
   const c = 700 // fixed value for now
 
-  $(document).on('pdp.form.variant.change', (event, { variant = {}, product = {} }) => {
+  $(document).on('pdp.form.variant.change', (event, { label = '', labelBucket = '', variant = {}, product = {} }) => {
     const {
-      name = '',
       id = ''
     } = variant
 
-    const split = name.split(/ ?- ?/).filter(str => {
-      if (/(?:the |small|large)/i.test(str)) {
-        return false
-      }
-      return true
-    })
-
-    if (split.length >= 2) {
-      $swatchLabel.innerHTML = `${split[0]}: `
-      $swatchValue.innerHTML = split[1]
-    }
+    $swatchLabel.innerHTML = labelBucket
+    $swatchValue.innerHTML = label
 
     $sizeBtnContainer.innerHTML = ''
     const variants = (siblingJSON[product.id] || {}).variants

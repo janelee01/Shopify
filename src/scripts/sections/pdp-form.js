@@ -11,6 +11,7 @@ class ProductForm {
     this.$sizeWrap = select('.js-variant-buttons-wrap', el)
     this.$addToCartBtn = select('.js-add-to-cart', el)
     this.$colorLabelContainers = select.all('.js-pdp-selected-color', el)
+    this.$mobileColorLabelContainer = select('.js-mobile-swatch-label', el)
 
     this.siblingsJson = window.siblingsJson
     this.hiddenVariants = window.hiddenVariants
@@ -19,6 +20,7 @@ class ProductForm {
 
     this.updateProductID()
     this.bindContexts()
+    this.updateLabels()
     this.updateWaitlistMeta()
     this.updateLowStockWarning()
     this.updateFinalSaleMessage()
@@ -126,6 +128,11 @@ class ProductForm {
 
     const productID = $target.getAttribute('data-sibling')
 
+    this.$swatches.forEach(el => (
+      el.classList.remove('active')
+    ))
+    $target.classList.add('active')
+
     this.updateProductID(productID)
     this.updatePrice()
     this.updateCta()
@@ -134,14 +141,9 @@ class ProductForm {
     this.updateLowStockWarning()
     this.updateFinalSaleMessage()
     this.updateWaitlistMeta()
-    this.updateLabels($target)
+    this.updateLabels()
     this.updateActiveGallery()
     this.updateSwatchCarouselSize()
-
-    this.$swatches.forEach(el => (
-      el.classList.remove('active')
-    ))
-    $target.classList.add('active')
   }
 
   /**
@@ -273,16 +275,25 @@ class ProductForm {
    *
    * @param {DOM Reference} $swatch Newly selected swatch
    */
-  updateLabels ($swatch) {
+  updateLabels () {
     this.$colorLabelContainers.forEach(el => (
       el.innerHTML = ''
     ))
+    const $swatch = this.$swatches.find(el => el.classList.contains('active'))
     const $container = slate.utils.getClosest(
       $swatch,
       '.js-pdp-swatches-wrapper'
     )
-    const label = select('img', $swatch).getAttribute('data-color-label')
-    select('.js-pdp-selected-color', $container).innerHTML = label
+    const $desktopLabel = select('.js-pdp-selected-color', $container)
+    const $desktopLabelBucket = select('.js-pdp-swatch-group-name', $container)
+
+    // Save the label locally so it can be sent to the
+    // sticky header later on..
+    this.label = select('img', $swatch).getAttribute('data-color-label')
+    this.labelBucket = $desktopLabelBucket.innerHTML.trim()
+
+    this.$mobileColorLabelContainer.innerHTML = this.label
+    $desktopLabel.innerHTML = this.label
   }
 
   /**
@@ -521,6 +532,8 @@ class ProductForm {
     setTimeout(() => {
       $(document).trigger('pdp.form.variant.change', {
         id: this.variantID,
+        label: this.label,
+        labelBucket: this.labelBucket,
         variant: this.variant,
         product: this.product
       })

@@ -177,12 +177,33 @@
   color: #ccc;
   margin: auto;
 }
-
-
-
+.pdp-form-size-wrapper{
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.pdp-form-size-label{
+  @extend %p2;
+  margin-right: 5px;
+  margin-bottom: 0;
+}
 .pdp-variant-buttons{
-  a{
-    width: 84px;
-    padding:12px 0!important;
+  display: flex;
+
+  a.variant-option{
+    @extend %p2;
+    padding: 10px 22px 9px;
+    margin: 0 10px 0 0;
+    color: $gray;
+    border-color: $gray-light;
+    background: #FFF;
+
+    &.selected{
+      border-color: $brand-blue;
+      color: $brand-blue;
+    }
+
+    min-width: 84px;
+    // padding: 12px 0;
   }
 }
