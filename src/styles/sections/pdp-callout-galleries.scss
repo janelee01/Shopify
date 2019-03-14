@@ -56,11 +56,8 @@
   text-align: center;
   position: relative;
 
-  @media (min-width: $screen-xs){
-    float: none;
-  }
-
   @media (min-width: $screen-md){
+    display: block;
     width: 50%;
     float: left;
   }
@@ -68,16 +65,34 @@
 
 .pdp-callout-galleries__carousel-main{
   height: 100%;
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 
-  .flickity-viewport{
-     height: auto;
-   }
+  @media (min-width: $screen-md){
+    display: block;
+    overflow-x: auto;
+  }
+
+  &:after{
+    content: '';
+    display: none;
+
+    @media (min-width: $screen-md){
+      content: 'flickity';
+    }
+  }
 }
 
 .pdp-callout-galleries__carousel-main-slide{
   @include ratio(100%);
   width: 90%;
   margin-right: 10px;
+  flex: 0 0 auto;
+
+  &:only-child{
+    width: 100%;
+  }
 
   span{
     @extend %h4;

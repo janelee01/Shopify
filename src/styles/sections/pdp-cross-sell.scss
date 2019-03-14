@@ -15,9 +15,13 @@
 }
 .pdp-cross-sell__container{
   @include stretch-to-fill-viewport;
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .pdp-cross-sell__article{
   width: 66%;
+  flex: 0 0 auto;
   text-align: center;
 
   @media (min-width: $screen-md){
@@ -39,9 +43,6 @@
   color: $brand-grey;
   margin-bottom: 3px;
 }
-
-
-
 .pdp-cross-sell__section-heading{
   padding-top: 80px;
   padding-bottom: 63px;
