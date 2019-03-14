@@ -40,7 +40,7 @@ Key Leash|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_SevilleTote
 {%- capture pdp_callout_galleries_data_3 -%}
 -
 Included with purchase
-All Seville Tote purchases include both a Saffiano Leather Shell as well as a dust bag containing a Soft Touch Travel Shell made from memory yarn. Additional leather shells are sold separately.
+All Seville Tote purchases include both a Leather Shell as well as a dust bag containing a Soft Touch Travel Shell made from memory yarn. Additional leather shells are sold separately.
 Saffiano Leather Shell|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_SevilleTote_leather-shell.jpg?4037163730518513975
 Dust Bag with Soft Touch Travel Shell|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_SevilleTote_travel-shell.jpg?4037163730518513975
 {%- endcapture -%}
@@ -109,3 +109,20 @@ Italian Buttons|Ultra strong and durable snap buttons by Cobra™, an Italian pr
 {%- capture pdp_stories_data -%}
 {%- endcapture -%}
 {%- assign pdp_stories_data = pdp_stories_data | split: ',' -%}
+
+
+{%- comment -%}
+### ----------
+### 7. Related Products
+### ----------
+### line N: handle N
+### ----------
+{%- endcomment -%}
+
+{%- capture pdp_cross_sell_data -%}
+seville-tote-saffiano-leather-black-gold-grey
+seville-tote-saffiano-leather-black-gold-grey
+seville-tote-saffiano-leather-light-grey-gold-grey
+{%- endcapture -%}
+
+{%- assign pdp_cross_sell_data = pdp_cross_sell_data | newline_to_br | split: '<br />' -%}

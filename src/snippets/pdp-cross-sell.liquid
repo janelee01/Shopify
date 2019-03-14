@@ -7,10 +7,16 @@
   <div class="js-container pdp-snap pdp-cross-sell__container">
   {%- for row in data -%}
   {%- assign handle = row | strip -%}
+  {%- if handle contains ' ' -%}
+  {%- assign handle = handle | handleize -%}
+  {%- endif -%}
   {%- assign product = all_products[handle] -%}
+
+  {%- unless product == blank -%}
+
   {%- assign product_featured_image = product.featured_image | img_url: 'large' -%}
 
-{%- assign colorCount = '' -%}
+  {%- assign colorCount = '' -%}
 
 {%- for collection in product.collections -%}
 {%- assign is_parent_collection = collection.metafields["global"]["is-parent-collection"] | strip_html -%}
@@ -19,9 +25,6 @@
 {%- break -%}
 {%- endif -%}
 {%- endfor -%}
-
-
-
 
 
   <article class="pdp-cross-sell__article product">
@@ -36,6 +39,8 @@
       <p class="pdp-cross-sell__colors">{{colorCount}} colors</p>
     </a>
   </article>
+
+  {%- endunless -%}
   {%- endfor -%}
   </div>
 </div>
@@ -45,3 +50,4 @@
 {%- assign handle = nil -%}
 {%- assign product = nil -%}
 {%- assign product_featured_image = nil -%}
+
