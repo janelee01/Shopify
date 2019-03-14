@@ -513,12 +513,13 @@ class ProductForm {
    * view by Flickity.
    */
   initSwatchCarousels () {
-    const $groups = select('.js-pdp-form-option-group')
-    if (!$groups) {
+    const $groupsWrapper = select('.js-pdp-form-option-group--swatches')
+    const $groups = select.all('.js-pdp-swatches-wrapper')
+    if (!$groupsWrapper || $groups.length <= 1) {
       return
     }
     this.flickity = new Flickity(
-      $groups, {
+      $groupsWrapper, {
         watchCSS: true,
         prevNextButtons: false,
         pageDots: false,
