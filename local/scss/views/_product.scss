@@ -24,8 +24,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1040;
+  z-index: 9012;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   @media (min-width: $screen-sm) {
       background: rgba(40,40,40,.75);
   }
@@ -74,7 +75,7 @@
       color: $gray-darker;
       line-height: 1.1;
       @media (max-width: $screen-xs-max) {
-          margin-bottom: -20px; // pulls the image up
+          // margin-bottom: -20px; // pulls the image up
           position: relative;
       }
       span{

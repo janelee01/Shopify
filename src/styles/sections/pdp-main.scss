@@ -58,6 +58,14 @@
 .product-main__featured{
   @include stretch-to-fill-viewport;
 }
+.product-main__gift-card-img{
+ @include ratio(100%);
+ margin-right: 0;
+
+ @media (min-width: $screen-md){
+  margin-right: 40px;
+ }
+}
 .product-main__holder{
   margin-top: 20px;
 
@@ -214,8 +222,6 @@
   position: relative;
   top: -2px;
 }
-
-
 .pdp-video-modal{
   display: none;
   position: fixed;

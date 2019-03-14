@@ -1,59 +1,64 @@
-{%- include 'pdp-get-sibling-products' -%}
+{%- if product.type == 'Gift Card' -%}
+  {%- include 'pdp-gift-card' -%}
+{%- else -%}
+  {%- include 'pdp-get-sibling-products' -%}
 
-{%- capture data_file -%}pdp-data-{{parentCollection.title| downcase | remove: 'the' | strip | replace: ' ', '-' | replace: '.', '' }}{%- endcapture -%}
+  {%- capture data_file -%}pdp-data-{{parentCollection.title| downcase | remove: 'the' | strip | replace: ' ', '-' | replace: '.', '' }}{%- endcapture -%}
 
-{%- include data_file -%}
+  {%- include data_file -%}
 
-{%- include 'pdp-photoswipe-template' -%}
+  {%- include 'pdp-photoswipe-template' -%}
 
-{%- include 'pdp-sticky-nav' -%}
+  {%- include 'pdp-sticky-nav' -%}
 
-<div itemscope itemtype="http://schema.org/Product">
-  <meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
-  <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
-  <meta itemprop="brand" content="{{ product.vendor }}">
-  <meta itemprop="image" content="https:{{ featured_image | img_url: '600x600' }}">
-  <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+  <div itemscope itemtype="http://schema.org/Product">
+    <meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
+    <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
+    <meta itemprop="brand" content="{{ product.vendor }}">
+    <meta itemprop="image" content="https:{{ featured_image | img_url: '600x600' }}">
+    <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
 
-  {%- include 'pdp-main' -%}
+    {%- include 'pdp-main' -%}
 
-  <div class="pdp__white-wrapper">
-  {%- include 'pdp-instagram' -%}
-  </div>
+    <div class="pdp__white-wrapper">
+    {%- include 'pdp-instagram' -%}
+    </div>
 
-  <div class="pdp__container">
-    {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_1 -%}
-    {%- include 'pdp-callout-galleries', alternate: true, data: pdp_callout_galleries_data_2 -%}
-    {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_3 -%}
-    {%- include 'pdp-material', data: pdp_material_data -%}
-  </div>
-
-  <div class="pdp__white-wrapper">
     <div class="pdp__container">
-    {%- include 'pdp-see-how-to-pack-it', data: pdp_video_data -%}
-    {%- include 'pdp-stories', data: pdp_stories_data -%}
-    {%- include 'pdp-testimonials', testimonials: pdp_testimonials_data -%}
-    {%- include 'pdp-reviews' -%}
+      {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_1 -%}
+      {%- include 'pdp-callout-galleries', alternate: true, data: pdp_callout_galleries_data_2 -%}
+      {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_3 -%}
+      {%- include 'pdp-material', data: pdp_material_data -%}
+    </div>
+
+    <div class="pdp__white-wrapper">
+      <div class="pdp__container">
+      {%- include 'pdp-see-how-to-pack-it', data: pdp_video_data -%}
+      {%- include 'pdp-stories', data: pdp_stories_data -%}
+      {%- include 'pdp-testimonials', testimonials: pdp_testimonials_data -%}
+      {%- include 'pdp-reviews' -%}
+      </div>
+    </div>
+
+    <div class="pdp__container">
+      {%- include 'pdp-cross-sell', collection: parentCollection -%}
     </div>
   </div>
 
-  <div class="pdp__container">
-    {%- include 'pdp-cross-sell', collection: parentCollection -%}
+  {%- include 'pdp-sticky-nav', collection: parentCollection -%}
+  {%- include 'pdp-modal', id: 'shipping' -%}
+  {%- include 'pdp-modal', id: 'size-fit', collection: parentCollection -%}
+
+  {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
+  <script>
+    var video1Embed = '{{ parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" }}';
+  </script>
+  <div id="product-video">
+    <div id="product-video-container"></div>
+    <a href="#" class="js-panel-close panel-close">
+      <span class="sr-only">close</span>
+    </a>
   </div>
-</div>
+  {%- endunless -%}
+{%- endif -%}
 
-{%- include 'pdp-sticky-nav', collection: parentCollection -%}
-{%- include 'pdp-modal', id: 'shipping' -%}
-{%- include 'pdp-modal', id: 'size-fit', collection: parentCollection -%}
-
-{%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
-<script>
-  var video1Embed = '{{ parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" }}';
-</script>
-<div id="product-video">
-  <div id="product-video-container"></div>
-  <a href="#" class="js-panel-close panel-close">
-    <span class="sr-only">close</span>
-  </a>
-</div>
-{%- endunless -%}

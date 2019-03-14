@@ -5,31 +5,47 @@
   <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
 
   <form action="/cart/add" method="post" enctype="multipart/form-data">
-  <div class="pdp-snap pdp-form-option-group js-pdp-form-option-group">
+    <div class="pdp-snap pdp-form-option-group js-pdp-form-option-group">
       {% include 'pdp-swatches' %}
     </div>
     {%- unless product.has_only_default_variant -%}
     <div class="pdp-snap pdp-form-option-group js-pdp-form-option-group selector-wrapper">
-      <div class="pdp-form-size-wrapper">
+      {%- assign optionValues = '' -%}
+      {%- for variant in product.variants -%}
+        {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- assign optionValues = optionValues
+          | append: '|'
+          | append: variant.id
+          | append: ':'
+          | append: variant.title  -%}
+      {%- endfor -%}
+      {%- assign optionValues = optionValues | replace_first: '|', '' | split: '|' -%}
+      <div class="pdp-form-size-wrapper {% if optionValues.size > 2 %}pdp-form-size-wrapper--reflow{% endif %}">
         <label class="pdp-form-size-label" for="variant-selector">Size:</label>
+
         <div id="variant-buttons" class="pdp-variant-buttons variant-buttons js-variant-buttons-wrap">
-          {%- for variant in product.variants -%}
-            {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
-              {%- continue -%}
-            {%- endif -%}
+          {%- for optionValue in optionValues -%}
+            {%- assign variantId = optionValue | split: ':' | first -%}
+            {%- assign variantTitle = optionValue | split: ':' | last -%}
             {%- assign selected = '' -%}
-            {%- if variant.id == current_variant.id -%}
+            {%- if variantId == current_variant.id -%}
               {%- assign selected = ' selected' -%}
             {%- endif -%}
             <a
               href="#"
-              data-id="{{ variant.id }}"
+              data-id="{{ variantId }}"
               class="btn btn-secondary variant-option js-pdp-non-swatch-input {{ selected }}">
-              {{ variant.title }}
+              {{ variantTitle }}
             </a>
+            {%- assign variantId = nil -%}
+            {%- assign variantTitle = nil -%}
           {%- endfor -%}
         </div>
+
       </div>
+      {%- assign optionValues = nil -%}
       <a class="pdp-form-size-fit pdp-modal-link" href="#" data-modal="size-fit">Size & Fit guide</a>
     </div>
     {%- endunless -%}
@@ -40,7 +56,7 @@
       {%- endfor -%}
     </select>
 
-    <div class="add-to-cart" id="add-to-cart" {% unless current_variant.available %}{% if oosPolicy == 'soldout' %} style="display: none"{% endif %}{% endunless %}>{% comment %}hide the whole element when OOS and unavailable for a waitlist{% endcomment %}
+    <div class="js-add-to-cart-wrap add-to-cart" id="add-to-cart" {% unless current_variant.available %}{% if oosPolicy == 'soldout' %} style="display: none"{% endif %}{% endunless %}>{% comment %}hide the whole element when OOS and unavailable for a waitlist{% endcomment %}
       <label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
       <select id="quantity" name="quantity" class="js-add-to-cart-quantity" >
       {%- for i in (1..10) -%}
@@ -61,11 +77,14 @@
       </button>
 
       <button
-        class="btn-lg"
+        class="btn-lg js-add-to-wishlist"
         data-add-to-waitlist
         id="waitlist-open"
         {% if current_variant.available %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</a>
     </div>
+    <div class="pdp-sold-out-message js-pdp-sold-out-message" id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div>
+    <div class="pdp-low-stock-warning js-pdp-low-stock-warning low-stock-warning hidden">{{ 'products.product.low_stock' | t }}</div>
+    <div class="pdp-final-sale-warning js-final-sale-warning final-sale-warning hidden"><span>{{ 'products.product.final_sale_html' | t }}</span></div>
 
     {%- if product.has_only_default_variant -%}
     <div><a class="pdp-form-size-fit pdp-modal-link" href="#" data-modal="size-fit">Size & Fit guide</a></div>
@@ -73,11 +92,6 @@
 
 
     <a class="pdp-shipping-returns-warranty-care pdp-modal-link" data-modal="shipping" href="#">Shipping, Returns, Warranty & Care</a>
-    {% comment %} <div id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div> {% endcomment %}
-    {% comment %}
-      <div class="low-stock-warning">{{ 'products.product.low_stock' | t }}</div>
-      <div class="final-sale-warning">{{ 'products.product.final_sale_html' | t }}</div>
-    {% endcomment %}
   </form>
 </div>
 

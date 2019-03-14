@@ -4,6 +4,9 @@ import on from 'dom-event'
 
 class ProductForm {
   constructor (el) {
+    if (!el) {
+      return false
+    }
     this.$el = el
     this.$galleries = select.all('.js-pdp-gallery', el)
     this.$variantInput = select('.js-variant-input', el)
@@ -13,14 +16,15 @@ class ProductForm {
     this.$colorLabelContainers = select.all('.js-pdp-selected-color', el)
     this.$mobileColorLabelContainer = select('.js-mobile-swatch-label', el)
 
-    this.siblingsJson = window.siblingsJson
-    this.hiddenVariants = window.hiddenVariants
-    this.stockData = window.variantStockData
+    this.siblingsJson = window.siblingsJson || {}
+    this.hiddenVariants = window.hiddenVariants || {}
+    this.stockData = window.variantStockData || {}
     this.productID = window.productID
 
     this.updateProductID()
     this.bindContexts()
     this.updateLabels()
+    this.updateCta()
     this.updateWaitlistMeta()
     this.updateLowStockWarning()
     this.updateFinalSaleMessage()
@@ -136,12 +140,12 @@ class ProductForm {
     this.updateProductID(productID)
     this.updatePrice()
     this.updateCta()
+    this.updateLabels()
     this.updateDataLayer()
     this.updateURL($target.getAttribute('data-url'))
     this.updateLowStockWarning()
     this.updateFinalSaleMessage()
     this.updateWaitlistMeta()
-    this.updateLabels()
     this.updateActiveGallery()
     this.updateSwatchCarouselSize()
   }
@@ -241,10 +245,10 @@ class ProductForm {
    */
   updateCta () {
     const selectedVariantID = this.$variantInput.value
-    const $soldOutMsg = $('#sold-out-message')
-    const $addToCartRow = $('#add-to-cart')
-    const $addToCartBtn = $('[data-add-to-cart]')
-    const $addToWaitlistBtn = $('[data-add-to-waitlist]')
+    const $soldOutMsg = $('.js-pdp-sold-out-message')
+    const $addToCartRow = $('.js-add-to-cart-wrap')
+    const $addToCartBtn = $('.js-add-to-cart')
+    const $addToWaitlistBtn = $('.js-add-to-wishlist')
     const siblingId = $('.pdp-swatch.active').data('sibling')
 
     // reset to purchase or waitlist
@@ -265,6 +269,7 @@ class ProductForm {
 
     $addToWaitlistBtn.data('variant-id', this.variantID).show()
     $addToCartBtn.hide()
+
     $('#wl-variant').val(this.variantID)
   }
 
@@ -290,10 +295,17 @@ class ProductForm {
     // Save the label locally so it can be sent to the
     // sticky header later on..
     this.label = select('img', $swatch).getAttribute('data-color-label')
-    this.labelBucket = $desktopLabelBucket.innerHTML.trim()
+    this.labelBucket = $desktopLabelBucket
+      ? $desktopLabelBucket.innerHTML.trim()
+      : ''
 
-    this.$mobileColorLabelContainer.innerHTML = this.label
-    $desktopLabel.innerHTML = this.label
+    if (this.$mobileColorLabelContainer) {
+      this.$mobileColorLabelContainer.innerHTML = this.label
+    }
+
+    if ($desktopLabel) {
+      $desktopLabel.innerHTML = this.label
+    }
   }
 
   /**
@@ -404,15 +416,12 @@ class ProductForm {
     $('#wl-product').val(this.productID)
     $('#wl-variant').val(this.variantID)
 
-    const wlMeta = [$('#current-option span').text()]
-    if ($('#variant-buttons ').length) {
-      wlMeta.push(
-        $('#variant-buttons .selected').text()
-      )
-    }
-    $('[data-wl-meta]').text(wlMeta.join(' - '))
+    const swatch = this.label
+    const size = $('#variant-buttons .selected').text()
 
-    const wlExpected = variantStockData[this.variantID].restockMessage
+    $('[data-wl-meta]').text(`${swatch} - ${size}`)
+
+    const wlExpected = (variantStockData[this.variantID] || {}).restockMessage
 
     if (wlExpected) {
       $('[data-wl-expected]').text('Expected in stock: ' + wlExpected)
@@ -454,12 +463,12 @@ class ProductForm {
    * is less than 20 stock items available.
    */
   updateLowStockWarning () {
-    const inventoryLevel = Number(variantStockData[this.variantID].stockLevel)
+    const inventoryLevel = Number((variantStockData[this.variantID] || {}).stockLevel)
     const $warning = $('.low-stock-warning')
     if (inventoryLevel > 0 && inventoryLevel <= 20) {
-      $warning.addClass('shown')
+      $warning.removeClass('hidden')
     } else {
-      $warning.removeClass('shown')
+      $warning.addClass('hidden')
     }
   }
 
@@ -471,9 +480,9 @@ class ProductForm {
   updateFinalSaleMessage () {
     const $warning = $('.final-sale-warning')
     if (window.discontinued.includes(this.variantID)) {
-      $warning.addClass('shown')
+      $warning.removeClass('hidden')
     } else {
-      $warning.removeClass('shown')
+      $warning.addClass('hidden')
     }
   }
 
@@ -504,8 +513,12 @@ class ProductForm {
    * view by Flickity.
    */
   initSwatchCarousels () {
+    const $groups = select('.js-pdp-form-option-group')
+    if (!$groups) {
+      return
+    }
     this.flickity = new Flickity(
-      document.querySelector('.js-pdp-form-option-group'), {
+      $groups, {
         watchCSS: true,
         prevNextButtons: false,
         pageDots: false,
@@ -520,7 +533,9 @@ class ProductForm {
    * changes.
    */
   updateSwatchCarouselSize () {
-    this.flickity.resize()
+    if (this.flickity) {
+      this.flickity.resize()
+    }
   }
 
   /**

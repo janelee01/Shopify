@@ -13,17 +13,19 @@ import pdpSeeHowToPackit from '../sections/pdp-see-how-to-pack-it'
 import pdpModal from '../sections/pdp-modal'
 import pdpInstagram from '../sections/pdp-instagram'
 import pdpSticky from '../sections/pdp-sticky-nav'
+import pdpGiftCard from '../sections/pdp-gift-card'
 
 $(document).ready(function () {
   image()
+  pdpSticky(select('.js-pdp-sticky-nav'))
+  pdpForm(select('.js-pdp-main'))
   pdpStories(select('.pdp-stories'))
   pdpCrossSell(select('.pdp-cross-sell'))
   pdpTestimonials(select('.pdp-testimonials'))
   pdpMaterial(select('.pdp-material'))
   pdpSeeHowToPackit(select('.js-pdp-pack-it'))
   pdpInstagram(select('.pdp-instagram'))
-  pdpForm(select('.pdp-main'))
-  pdpSticky(select('.js-pdp-sticky-nav'))
+  pdpGiftCard(select('.js-pdp-main--gift-card'))
 
   select.all('.pdp-callout-galleries').forEach(el => { pdpCalloutGalleries(el) })
   select.all('.pdp-gallery').forEach(el => { pdpGallery(el) })

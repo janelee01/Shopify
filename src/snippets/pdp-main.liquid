@@ -1,4 +1,4 @@
-<section class="product-main pdp-main">
+<section class="product-main pdp-main js-pdp-main">
   <div class="product-main__container pdp__container">
     <div class="pdp-main-product-heading-mobile">
       <h1>{{ parentCollection.title | remove: "The " }}</h1>
@@ -73,13 +73,7 @@
   </div>
 </section>
 
-<div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
-  <meta itemprop="name" content="{{ product.title }}">
-  <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
-  <meta itemprop="brand" content="{{ product.vendor }}">
-  <meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
-  <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
-
+<div data-section-id="{{ section.id }}">
   {% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
     <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
       <meta itemprop="ratingValue" content="{{ product.metafields.yotpo.reviewsAverage }}">

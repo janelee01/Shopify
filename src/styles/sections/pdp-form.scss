@@ -12,13 +12,164 @@
   }
 
 }
-#add-to-cart{
+.pdp-form-option-group{
+  @include pdp-border-bottom-xs-only;
+  padding: 12px 0;
+
+  &:after{
+    content: 'flickity';
+    display: none;
+  }
+
+  @media (min-width: $screen-md){
+    border: 0;
+    padding: 0;
+    margin: 0;
+
+    &:first-child{
+      border-top: 0;
+    }
+  }
+
+  @media (min-width: $screen-xs){
+    border: 0;
+    padding: 0;
+    margin: 0;
+
+    &:first-child{
+      border-top: 0;
+    }
+
+    &:after{
+      content: '';
+      display: block;
+    }
+  }
+
+  .flickity-slider{
+    height: auto;
+  }
+
+  .configuration-label{
+    @extend %p2;
+    margin-bottom: 5px;
+
+    span{
+      color: $gray;
+    }
+  }
+
+  .pdp-swatches-wrapper{
+    width: 66%;
+
+    @media (min-width: $screen-md){
+      width: auto;
+    }
+  }
+}
+.pdp-chevron::before {
+  height: 50px;
+  border-style: solid;
+  border-width: 0.10em 0.10em 0 0;
+  content: '';
+  display: block;
+  height: 0.45em;
+  position: relative;
+  top: 0.15em;
+  transform: rotate(-45deg);
+  vertical-align: top;
+  width: 0.45em;
+  text-align: center;
+  color: #ccc;
+  margin: auto;
+}
+.pdp-form-size-wrapper{
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.pdp-form-size-wrapper--reflow{
+  align-items: flex-start;
+}
+.pdp-form-size-wrapper--gift-card{
+  display: block;
+  margin-bottom: 20px;
+}
+.pdp-form-size-label{
+  @extend %p2;
+  margin-right: 5px;
+  margin-bottom: 0;
+
+  .pdp-form-size-wrapper--reflow & {
+    margin-top: 10px;
+  }
+}
+.pdp-gift-card-option-label{
+  @extend %p2;
+  margin-bottom: 0;
+}
+.pdp-variant-buttons{
+  display: flex;
+
+  a.variant-option{
+    @extend %p2;
+    padding: 10px 22px 9px;
+    margin: 0 10px 0 0;
+    color: $gray;
+    border-color: $gray-light;
+    background: #FFF;
+
+    &.selected{
+      border-color: $brand-blue;
+      color: $brand-blue;
+    }
+
+    min-width: 84px;
+    // padding: 12px 0;
+  }
+
+  .pdp-form-size-wrapper--reflow & {
+    flex-wrap: wrap;
+
+    a.variant-option{
+      min-width: 60%;
+    }
+
+    .variant-option + .variant-option{
+      margin-top: 10px;
+    }
+  }
+
+  .pdp-form-size-wrapper--gift-card & {
+    display: block;
+
+    a.variant-option{
+      margin-top: 10px;
+    }
+  }
+}
+
+// Making this extendable so that the
+// various state callouts (low stock, soldout, etc)
+// can lerverage the same declaration
+%add-to-cart-button{
   height: 40px;
   position: relative;
-  background-color: $brand-blue;
-  transition: background-color .5s;
   margin-bottom: 10px;
   margin-top: 20px;
+
+  @media (min-width: $screen-xs){
+    height: 50px;
+  }
+
+  @media (min-width: $screen-md){
+    max-width: 320px;
+  }
+}
+#add-to-cart{
+  @extend %add-to-cart-button;
+  background-color: $brand-blue;
+  transition: background-color .5s;
   border-radius: 2px;
   display: flex;
 
@@ -84,6 +235,10 @@
     @media (min-width: $screen-xs){
       height: 30px;
     }
+
+    .pdp-main--gift-card & {
+      display: none;
+    }
   }
 
   button:hover{
@@ -105,105 +260,14 @@
     color: white;
   }
 }
-.pdp-form-option-group{
-  @include pdp-border-bottom-xs-only;
-  padding: 12px 0;
-
-  &:after{
-    content: 'flickity';
-    display: none;
-  }
-
-  @media (min-width: $screen-md){
-    border: 0;
-    padding: 0;
-    margin: 0;
-
-    &:first-child{
-      border-top: 0;
-    }
-  }
-
-  @media (min-width: $screen-xs){
-    border: 0;
-    padding: 0;
-    margin: 0;
-
-    &:first-child{
-      border-top: 0;
-    }
-
-    &:after{
-      content: '';
-      display: block;
-    }
-  }
-
-  .flickity-slider{
-    height: auto;
-  }
-
-  .configuration-label{
-    @extend %p2;
-    margin-bottom: 5px;
-
-    span{
-      color: $gray;
-    }
-
-  }
-
-  .pdp-swatches-wrapper{
-    width: 66%;
-
-    @media (min-width: $screen-md){
-      width: auto;
-    }
-  }
-}
-.pdp-chevron::before {
-  height: 50px;
-  border-style: solid;
-  border-width: 0.10em 0.10em 0 0;
-  content: '';
-  display: block;
-  height: 0.45em;
-  position: relative;
-  top: 0.15em;
-  transform: rotate(-45deg);
-  vertical-align: top;
-  width: 0.45em;
-  text-align: center;
-  color: #ccc;
-  margin: auto;
-}
-.pdp-form-size-wrapper{
+.pdp-sold-out-message,
+.pdp-low-stock-warning,
+.pdp-final-sale-warning{
+  @extend %h3;
+  @extend %add-to-cart-button;
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
-}
-.pdp-form-size-label{
-  @extend %p2;
-  margin-right: 5px;
-  margin-bottom: 0;
-}
-.pdp-variant-buttons{
-  display: flex;
-
-  a.variant-option{
-    @extend %p2;
-    padding: 10px 22px 9px;
-    margin: 0 10px 0 0;
-    color: $gray;
-    border-color: $gray-light;
-    background: #FFF;
-
-    &.selected{
-      border-color: $brand-blue;
-      color: $brand-blue;
-    }
-
-    min-width: 84px;
-    // padding: 12px 0;
-  }
+  justify-content: center;
+  text-align: center;
+  background: $gray-lighter;
 }

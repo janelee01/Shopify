@@ -2,6 +2,9 @@ import select from 'dom-select'
 import on from 'dom-event'
 
 export default el => {
+  if (!el) {
+    return
+  }
   const $stickyNavHeader = select('.js-pdp-sticky-nav__header', el)
   const $stickyNavFooter = select('.js-pdp-sticky-nav__footer', el)
   const $stickyNavFooterButton = select('.js-pdp-sticky-nav__footer-buy-now', el)
