@@ -16,9 +16,9 @@ class ProductForm {
     this.$colorLabelContainers = select.all('.js-pdp-selected-color', el)
     this.$mobileColorLabelContainer = select('.js-mobile-swatch-label', el)
 
-    this.siblingsJson = window.siblingsJson || {}
-    this.hiddenVariants = window.hiddenVariants || {}
-    this.stockData = window.variantStockData || {}
+    this.siblingsJson = window.siblingsJson
+    this.hiddenVariants = window.hiddenVariants
+    this.stockData = window.variantStockData
     this.productID = window.productID
 
     this.updateProductID()
