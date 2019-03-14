@@ -110,3 +110,20 @@ Organic Cotton Canvas|A canvas that is 100% naturally grown without the use of a
 {%- capture pdp_stories_data -%}
 {%- endcapture -%}
 {%- assign pdp_stories_data = pdp_stories_data | split: ',' -%}
+
+
+{%- comment -%}
+### ----------
+### 7. Related Products
+### ----------
+### handle 1, handle 2,... handle N
+### ----------
+{%- endcomment -%}
+
+
+{%- capture pdp_cross_sell_data -%}
+catalina-deluxe-washed-canvas-dove-grey
+catalina-deluxe-washed-canvas-forest-green
+catalina-deluxe-washed-canvas-thistle
+{%- endcapture -%}
+{%- assign pdp_cross_sell_data = pdp_cross_sell_data | newline_to_br | split: '<br />' -%}

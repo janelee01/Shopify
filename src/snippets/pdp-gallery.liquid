@@ -25,7 +25,7 @@
     {%- endfor -%}
 
     {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
-      <div>{{ parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" }}</div>
+      <div class="pdp-gallery-mobile-video">{{ parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" }}</div>
 {%- endunless -%}
 
   </div>

@@ -152,3 +152,15 @@
     }
   }
 }
+
+
+.pdp-gallery-mobile-video {
+  width: 80vw;
+  margin-right: 10px;
+  flex: 0 0 auto;
+
+  iframe.vimeo{
+    width:100%;
+  }
+
+}
