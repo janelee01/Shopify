@@ -18,6 +18,10 @@
   display: flex;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
+
+  @media (min-width: $screen-md){
+    overflow-x: hidden;
+  }
 }
 .pdp-cross-sell__article{
   width: 66%;

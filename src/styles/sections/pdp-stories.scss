@@ -1,22 +1,17 @@
 .pdp-stories{
   @include stretch-to-fill-viewport;
-
-  &:after{
-    content: 'flickity';
-    display:none;
-
-    @media (min-width: $screen-md){
-      content: '';
-    }
-  }
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 
   @media (min-width: $screen-md){
-    display: flex;
+    overflow-x: hidden;
   }
 }
 .pdp-stories__article{
   margin: 0 5px;
   text-align: center;
+  flex: 0 0 auto;
   width: calc(80% -  10px);
 
   &:nth-child(1){
@@ -52,6 +47,7 @@
   @media (min-width: $screen-xs){
     margin: 0 10px;
     width: calc(80% - 40px);
+    flex: 1 1 auto;
   }
 
   @media (min-width: $screen-md){
