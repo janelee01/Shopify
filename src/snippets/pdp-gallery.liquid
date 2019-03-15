@@ -25,15 +25,17 @@
     {%- endfor -%}
 
     {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
-      <div class="pdp-gallery-mobile-image pdp-gallery-mobile-image--video" id="product-video-trigger">
-      <span class="pdp-gallery-video-icon" aria-label="Play Video"></span>
-      {%- assign img_src = 'Seville.jpg' | file_img_url: 'original' -%}
-      {% include 'image',
-        src: img_src,
-        object_fit: 'contain',
-        alt: '' %}
-      {%- assign img_src = nil -%}
-      </div>
+      {%- unless pdp_mobile_video_thumb == blank -%}
+        <div class="pdp-gallery-mobile-image pdp-gallery-mobile-image--video" id="product-video-trigger">
+        <span class="pdp-gallery-video-icon" aria-label="Play Video"></span>
+        {%- assign img_src = pdp_mobile_video_thumb | file_img_url: 'original' -%}
+        {% include 'image',
+          src: img_src,
+          object_fit: 'contain',
+          alt: '' %}
+        {%- assign img_src = nil -%}
+        </div>
+      {%- endunless -%
     {%- endunless -%}
 
   </div>

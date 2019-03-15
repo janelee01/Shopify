@@ -56,9 +56,16 @@
   {%- include 'pdp-modal', id: 'shipping' -%}
   {%- include 'pdp-modal', id: 'size-fit', collection: parentCollection, device_compatibility: pdp_size_fit_device_compatibility, size_weight: pdp_size_fit_size_weight -%}
 
-  {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
+  {%- if pdp_video_url != blank -%}
+  {%- capture pdp_video_embed -%}
+  <iframe id="vimeo-hanover" class="vimeo" src="{{pdp_video_url}}?title=0&amp;byline=0&amp;portrait=0" width="528" height="297" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+  {%- endcapture -%}
+  {%- elsif parentCollection.metafields["global"]["product-video"] != blank -%}
+    {%- assign pdp_video_embed = parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" -%}
+  {%- endif -%}
+  {%- if pdp_video_embed != blank -%}
   <script>
-    var video1Embed = '{{ parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" }}';
+    var video1Embed = '{{pdp_video_embed}}';
   </script>
   <div id="product-video">
     <div id="product-video-container"></div>
@@ -66,6 +73,6 @@
       <span class="sr-only">close</span>
     </a>
   </div>
-  {%- endunless -%}
+  {%- endif -%}
 {%- endif -%}
 
