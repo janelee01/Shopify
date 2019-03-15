@@ -25,6 +25,7 @@ class ProductForm {
     this.bindContexts()
     this.updateLabels()
     this.updateCta()
+    this.updatePrice()
     this.updateWaitlistMeta()
     this.updateLowStockWarning()
     this.updateFinalSaleMessage()
@@ -61,7 +62,13 @@ class ProductForm {
     if (id) {
       this.productID = id
     }
-    this.variants = this.siblingsJson[this.productID].variants
+
+    this.variants = this.siblingsJson[this.productID]
+      .variants
+      .filter(({ id }) => {
+        return !~this.hiddenVariants.indexOf(id)
+      })
+
     this.product = this.siblingsJson[this.productID]
 
     this.updateVariant(null, triggerEvent)
@@ -170,16 +177,14 @@ class ProductForm {
         `<option value="${variant.id}">${variant.title}</option>`
       )
 
-      if (!~this.hiddenVariants.indexOf(variant.id)) {
-        $('.js-variant-buttons-wrap').append(
-          `<a
-            href="#"
-            data-id="${variant.id}"
-            class="btn btn-secondary variant-option">
-            ${variant.title}
-          </a>`
-        )
-      }
+      $('.js-variant-buttons-wrap').append(
+        `<a
+          href="#"
+          data-id="${variant.id}"
+          class="btn btn-secondary variant-option">
+          ${variant.title}
+        </a>`
+      )
     })
   }
 
@@ -199,7 +204,9 @@ class ProductForm {
       return
     }
 
-    options[index].classList.add('selected')
+    if (options[index]) {
+      options[index].classList.add('selected')
+    }
   }
 
   /**
@@ -256,17 +263,20 @@ class ProductForm {
     $soldOutMsg.hide()
 
     if (this.variant.available) {
+      this.buttonState = 'Add To Cart'
       $addToCartBtn.show()
       $addToWaitlistBtn.hide()
       return
     }
 
     if (this.stockData[this.variantID].oosPolicy === 'soldout') {
+      this.buttonState = 'Sold Out'
       $addToCartRow.hide()
       $soldOutMsg.show()
       return
     }
 
+    this.buttonState = 'Join Waitlist'
     $addToWaitlistBtn.data('variant-id', this.variantID).show()
     $addToCartBtn.hide()
 
@@ -547,6 +557,7 @@ class ProductForm {
   triggerVariantUpdateEvent () {
     setTimeout(() => {
       $(document).trigger('pdp.form.variant.change', {
+        buttonState: this.buttonState,
         id: this.variantID,
         label: this.label,
         labelBucket: this.labelBucket,

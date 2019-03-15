@@ -30,7 +30,7 @@
     <div class="pdp-sticky-nav__header-add-to-cart" {% unless current_variant.available %}{% if oosPolicy == 'soldout' %} style="display: none"{% endif %}{% endunless %}>{% comment %}hide the whole element when OOS and unavailable for a waitlist{% endcomment %}
       <div class="pdp-sticky-nav__header-add-to-cart-quantity">
         <select id="quantity" name="quantity" class="js-pdp-sticky-nav__header-quantity" >
-        {%- for i in (1..10) -%}
+        {%- for i in (1..40) -%}
           <option>{{ i }}</option>
         {%- endfor -%}
         </select>

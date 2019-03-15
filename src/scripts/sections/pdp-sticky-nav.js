@@ -21,7 +21,13 @@ export default el => {
   const b = 500 // fixed value for now
   const c = 700 // fixed value for now
 
-  $(document).on('pdp.form.variant.change', (event, { label = '', labelBucket = '', variant = {}, product = {} }) => {
+  $(document).on('pdp.form.variant.change', (event, {
+    label = '',
+    labelBucket = '',
+    variant = {},
+    product = {},
+    buttonState = 'Add To Cart'
+  }) => {
     const {
       id = ''
     } = variant
@@ -56,6 +62,7 @@ export default el => {
 
       // Select the current size button
       updateActiveOption(variant.id)
+      updateButtonState(buttonState)
     }
   })
 
@@ -86,6 +93,15 @@ export default el => {
   // Bind click event to add to cart button
   on($stickyNavHeaderButton, 'click',
     event => {
+      const state = event.target.innerHTML.trim()
+      if (/Wait/i.test(state)) {
+        select('button.js-add-to-wishlist').click()
+        return
+      }
+      if (/Sold Out/i.test(state)) {
+        return
+      }
+
       select('button.js-add-to-cart').click()
     }
   )
@@ -122,6 +138,10 @@ export default el => {
         el.classList.remove('selected')
       }
     })
+  }
+
+  const updateButtonState = state => {
+    $stickyNavHeaderButton.innerHTML = state
   }
 
   // Event listener for quantity field

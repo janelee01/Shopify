@@ -59,7 +59,7 @@
     <div class="js-add-to-cart-wrap add-to-cart" id="add-to-cart" {% unless current_variant.available %}{% if oosPolicy == 'soldout' %} style="display: none"{% endif %}{% endunless %}>{% comment %}hide the whole element when OOS and unavailable for a waitlist{% endcomment %}
       <label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
       <select id="quantity" name="quantity" class="js-add-to-cart-quantity" >
-      {%- for i in (1..10) -%}
+      {%- for i in (1..40) -%}
         <option>{{ i }}</option>
       {%- endfor -%}
       </select>
@@ -87,7 +87,7 @@
     <div class="pdp-final-sale-warning js-final-sale-warning final-sale-warning hidden"><span>{{ 'products.product.final_sale_html' | t }}</span></div>
 
     {%- if product.has_only_default_variant -%}
-    <div><a class="pdp-form-size-fit pdp-modal-link js-pdp-modal-link" href="#" data-modal="size-fit">Size & Fit guide</a></div>
+    <div><a class="pdp-form-size-fit pdp-modal-link js-pdp-modal-link" href="#" data-modal="size-fit">Size & Fit Guide</a></div>
     {%- endif -%}
 
 
