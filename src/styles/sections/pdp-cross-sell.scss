@@ -13,6 +13,12 @@
     margin-bottom: 5px;
   }
 }
+.pdp-cross-sell__section-heading{
+  padding-bottom: 20px;
+  @media (min-width: $screen-md){
+    padding-bottom: 50px;
+  }
+}
 .pdp-cross-sell__container{
   @include stretch-to-fill-viewport;
   display: flex;
@@ -46,8 +52,4 @@
   @extend %p3;
   color: $brand-grey;
   margin-bottom: 3px;
-}
-.pdp-cross-sell__section-heading{
-  padding-top: 80px;
-  padding-bottom: 63px;
 }
