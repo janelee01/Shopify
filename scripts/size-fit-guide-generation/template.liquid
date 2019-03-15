@@ -1,5 +1,3 @@
-{%- assign collection_ref = collection_ref | default: false -%}
-
 <h2>Size & Fit Guide</h2>
 
 <div class="pdp-modal__section">
@@ -79,11 +77,9 @@
 </div>
 {% endif %}
 
-{%- if arline -%}
+{% if show_airline == true %}
 <div class="pdp-modal__section pdp-modal__section-airline">
-
   <h3>Airline Carry-On</h3>
-
   <div class="pdp-modal__section-two-column">
     <div>
       <figure>{% raw %}{%- include 'pdp-icons', icon: 'icon-airline-1' -%}{% endraw %}</figure>
@@ -93,7 +89,6 @@
       <h6>Catalina Deluxe Tote</h6>
       <p>Should fit underneath the airline seat of most aircrafts, and should comply with the dimension requirements of most aircrafts.</p>
     </div>
-
     <div>
       <figure>{% raw %}{%- include 'pdp-icons', icon: 'icon-airline-2' -%}{% endraw %}</figure>
       <h5>Airline Overhead Compartment</h5>
@@ -104,25 +99,4 @@
     </div>
   </div>
 </div>
-{%- endif -%}
-
-{%- if device_compatibility -%}
-<div class="pdp-modal__section pdp-modal__section-device">
-  <h3>Device Compatibility</h3>
-  <div class="pdp-modal__section-two-column">
-  {{device_compatibility}}
-  </div>
-</div>
-{%- endif -%}
-
-{%- if size_weight -%}
-<div class="pdp-modal__section pdp-modal__section-airline">
-  <h3>Size & Weight</h3>
-  <div class="pdp-size-fit__table">
-  {{size_weight}}
-  </div>
-</div>
-
-{%- endif -%}
-
-{%- assign collection_ref = nil -%}
+{% endif %}
