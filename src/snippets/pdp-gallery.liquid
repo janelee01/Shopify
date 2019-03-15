@@ -3,6 +3,9 @@
 {%- if siblingsList contains siblingProduct.id -%}
 <div class="pdp-gallery js-pdp-gallery {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
   <div class="js-pdp-gallery-featured pdp-gallery-featured">
+    <span class="pdp-gallery-magnify-icon pdp-gallery-magnify-icon--featured" aria-label="Magnify Image">
+      {% include 'pdp-icons', icon: 'icon-magnify' %}
+    </span>
     {%- assign img_src = siblingProduct.featured_image | img_url: 'original' -%}
     {% include 'image',
       src: img_src,
@@ -14,6 +17,9 @@
     {%- for image in siblingProduct.images -%}
     {%- unless image.alt contains 'swatch' -%}
       <div class="js-pdp-gallery-mobile-image pdp-gallery-mobile-image">
+      {% comment %} <span class="pdp-gallery-magnify-icon" aria-label="Magnify Image">
+        {% include 'pdp-icons', icon: 'icon-magnify' %}
+      </span> {% endcomment %}
       {%- assign img_src = image | img_url: 'original' -%}
       {% include 'image',
         src: img_src,

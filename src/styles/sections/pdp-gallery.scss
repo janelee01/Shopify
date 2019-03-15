@@ -57,6 +57,38 @@
     z-index: 2;
   }
 }
+.pdp-gallery-magnify-icon{
+  width: 17px;
+  height: 17px;
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1;
+
+  @media (min-width: $screen-xs){
+    width: 20px;
+    height: 20px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  @media (min-width: $screen-s-md){
+    bottom: 30px;
+    right: 30px;
+  }
+}
+.pdp-gallery-magnify-icon--featured{
+  width: 18px;
+  height: 18px;
+  bottom: -20px;
+  right: 15%;
+  display: none;
+
+  @media (min-width: $screen-md){
+    display: block;
+  }
+}
 .pdp-gallery-featured{
   @include ratio(70%);
   display: none;
