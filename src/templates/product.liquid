@@ -53,8 +53,8 @@
   </div>
 
   {%- include 'pdp-sticky-nav', collection: parentCollection -%}
-  {%- include 'pdp-modal', id: 'shipping' -%}
-  {%- include 'pdp-modal', id: 'size-fit', collection: parentCollection, device_compatibility: pdp_size_fit_device_compatibility, size_weight: pdp_size_fit_size_weight -%}
+  {%- include 'pdp-modal', id: 'shipping', collection_ref: parentCollection -%}
+  {%- include 'pdp-modal', id: 'size-fit', collection_ref: parentCollection, device_compatibility: pdp_size_fit_device_compatibility, size_weight: pdp_size_fit_size_weight -%}
 
   {%- if pdp_video_url != blank -%}
   {%- capture pdp_video_embed -%}
