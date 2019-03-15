@@ -20,6 +20,11 @@
     margin-right: 6px;
     margin-bottom: 5px;
 
+    @media (min-width: $screen-md){
+      margin-right: 4px;
+      margin-bottom: 0;
+    }
+
     img{
       width: 35px;
       height: 35px;
@@ -27,6 +32,11 @@
       display: block;
       transition: border .7s;
       border: 2px solid transparent;
+
+      @media (min-width: $screen-md){
+        width: 25px;
+        height: 25px;
+      }
     }
 
     &:focus,
