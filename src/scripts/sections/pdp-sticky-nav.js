@@ -117,7 +117,7 @@ export default el => {
   on($stickyNavHeaderQty, 'change',
     event => {
       let qty = event.target.value
-      $(document).trigger('pdp.form.quantity.set', qty)
+      $(document).trigger('pdp.form.size.quantity', qty)
     }
   )
 
@@ -145,8 +145,8 @@ export default el => {
   }
 
   // Event listener for quantity field
-  $(document).on('pdp.form.quantity.set', (e, [qty]) => {
-    select('.js-add-to-cart-quantity').value = qty
+  $(document).on('pdp.form.size.quantity', (e, qty) => {
+    $stickyNavHeaderQty.value = qty
   })
 
   $(document).on('pdp.form.size.update', (event, id) => {

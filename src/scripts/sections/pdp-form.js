@@ -15,6 +15,7 @@ class ProductForm {
     this.$addToCartBtn = select('.js-add-to-cart', el)
     this.$colorLabelContainers = select.all('.js-pdp-selected-color', el)
     this.$mobileColorLabelContainer = select('.js-mobile-swatch-label', el)
+    this.$quantitySelector = select('.js-add-to-cart-quantity', el)
 
     this.siblingsJson = window.siblingsJson
     this.hiddenVariants = window.hiddenVariants
@@ -38,6 +39,11 @@ class ProductForm {
         return '' + id === '' + _id
       }) || {}).title
       this.updateProductID(false, false)
+    })
+
+    $(document).on('pdp.form.size.quantity', (e, quantity) => {
+      console.dir(quantity)
+      this.$quantitySelector.value = quantity
     })
   }
 
@@ -120,6 +126,9 @@ class ProductForm {
       on(this.$sizeWrap, 'click', this.onNonSwatchChange)
     }
     on(this.$addToCartBtn, 'click', this.onAddToCart)
+    on(this.$quantitySelector, 'change', e => {
+      $(document).trigger('pdp.form.size.quantity', e.target.value)
+    })
   }
 
   /**

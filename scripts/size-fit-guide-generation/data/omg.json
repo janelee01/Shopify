@@ -39,7 +39,7 @@
     }]
   },
   "fits": [{
-    "title": "To help compare the different sizes, we asked three women of different heights to carry both bags.",
+    "title": "5'9\"",
     "slides": [{
       "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Amanda-desktop-1.jpg",
       "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Amanda-mobile-1.jpg"
@@ -54,7 +54,7 @@
       "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Amanda-mobile-5.jpg"
     }]
   },{
-    "title": "To help compare the different sizes, we asked three women of different heights to carry both bags.",
+    "title": "5'5\"",
     "slides": [{
       "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Lana-desktop-1.jpg",
       "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Lana-mobile-1.jpg"
@@ -68,6 +68,21 @@
     },{
       "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Lana-desktop-4.jpg",
       "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Lana-mobile-4.jpg"
+    }]
+  },{
+    "title": "5'1\"",
+    "slides": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Olivia-desktop-1.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Olivia-mobile-1.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Olivia-desktop-2.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Olivia-mobile-2.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Olivia-desktop-3.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Olivia-mobile-3.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Olivia-desktop-4.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Olivia-mobile-5.jpg"
     }]
   }],
   "airline": false
