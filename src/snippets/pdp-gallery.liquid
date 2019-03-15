@@ -25,7 +25,15 @@
     {%- endfor -%}
 
     {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
-      <div class="pdp-gallery-mobile-video">{{ parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" }}</div>
+      <div class="pdp-gallery-mobile-image pdp-gallery-mobile-image--video" id="product-video-trigger">
+      <span class="pdp-gallery-video-icon" aria-label="Play Video"></span>
+      {%- assign img_src = 'Seville.jpg' | file_img_url: 'original' -%}
+      {% include 'image',
+        src: img_src,
+        object_fit: 'contain',
+        alt: '' %}
+      {%- assign img_src = nil -%}
+      </div>
     {%- endunless -%}
 
   </div>

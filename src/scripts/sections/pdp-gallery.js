@@ -49,6 +49,10 @@ class ProductGallery {
       this.initPhotoSwipe()
     })
     on(this.$mobileCarousel, 'click', e => {
+      const $container = slate.utils.getClosest(e.target, '#product-video-trigger')
+      if ($container) {
+        return true
+      }
       this.initPhotoSwipe(e.target)
     })
   }
