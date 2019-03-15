@@ -1,0 +1,94 @@
+{
+  "dimensions": {
+    "images": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/new1-Desktop-size-dimensions-1.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc-new2-mobile-size-dimensions-1.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-7.-Desktop-copy.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc-new2-mobile-size-dimensions-2.jpg"
+    }],
+    "headings": [
+      "Dimensions",
+      "Depth",
+      "weight",
+      "Handle Drop height",
+      "Base Width",
+      "Height"
+    ],
+    "rows": [{
+      "content": [
+        "Catalina",
+        "9\"",
+        "1.4 lbs",
+        "11\"",
+        "18.5\"",
+        "18\""
+      ]
+    }, {
+      "content": [
+        "Cataline Deluxe Large",
+        "9\"",
+        "2 lbs",
+        "11\"",
+        "18.5\"",
+        "18\""
+      ]
+    }, {
+      "content": [
+        "Cataline Deluxe Small",
+        "8.5\"",
+        "1.9 lbs",
+        "11\"",
+        "18\"",
+        "16\""
+      ]
+    }, {
+      "content": [
+        "Cataline Deluxe Tote",
+        "7\"",
+        "1.6 lbs",
+        "11\"",
+        "14\"",
+        "15\""
+      ]
+    }]
+  },
+  "fits": [{
+    "title": "5'10\"",
+    "slides": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc-new2-Francine-desktop-1.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc6-Francine-mobile-1.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc-new2-Francine-desktop-2.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc6-Francine-mobile-2.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc-new2-Francine-desktop-3.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc6-Francine-mobile-3.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc-new2-Francine-desktop-4.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc6-Francine-mobile-4.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc-new2-Francine-desktop-5.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc6-Francine-mobile-6.jpg"
+    }]
+  },{
+    "title": "5'4\"",
+    "slides": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc-new-Eyesmin-desktop-1.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc6-Eyesmin-mobile-1.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc-new-Eyesmin-desktop-2.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc6-Eyesmin-mobile-2.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc-new-Eyesmin-desktop-3.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc6-Eyesmin-mobile-3.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc-new-Eyesmin-desktop-4.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc6-Eyesmin-mobile-4.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc-new-Eyesmin-desktop-5.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/cc6-Eyesmin-mobile-5.jpg"
+    }]
+  }],
+  "airline": true
+}

@@ -1,0 +1,46 @@
+{
+  "dimensions": {
+    "images": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/H3-specs-desktop.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H3-specs-mobile.jpg"
+    }]
+  },
+  "fits": [{
+    "title": "See how the Hanover and the Hanover Deluxe looks according to your height.",
+    "slides": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Becky-1.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H-Becky-1.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Becky-2.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H-Becky-2.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Becky-3.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H-Becky-3.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Becky-4.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H-Becky-4.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Becky-5.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H-Becky-5.jpg"
+    }]
+  },{
+    "title": "See how the Hanover and the Hanover Deluxe looks according to your height.",
+    "slides": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Maeve-1.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H-Maeve-mobile-1.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Maeve-2.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H-Maeve-mobile-2.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Maeve-3.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H-Maeve-mobile-3.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Maeve-4.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H-Maeve-mobile-4.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Maeve-5.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H-Maeve-mobile-5.jpg"
+    }]
+  }],
+  "airline": false
+}

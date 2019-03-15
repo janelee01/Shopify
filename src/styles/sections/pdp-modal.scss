@@ -36,7 +36,6 @@
     border-bottom: 1px solid $gray-lighter;
     padding-bottom: 20px;
     margin-bottom: 20px;
-    font-weight: bold;
     text-align: left;
   }
 
@@ -54,7 +53,11 @@
 
 
   p{
-    @extend %p2
+    @extend %p2;
+  }
+
+  li{
+    @extend %p2;
   }
 
   p.description{

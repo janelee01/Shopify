@@ -1,0 +1,23 @@
+{
+  "dimensions": {
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Depth",
+      "Height",
+      "Handle Drop Length",
+      "Weight"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "16\"",
+        "5\"",
+        "12.5\"",
+        "6.5\"",
+        "2.1 lbs"
+      ]
+    }]
+  },
+  "airline": false
+}

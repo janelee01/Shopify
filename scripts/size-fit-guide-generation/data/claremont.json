@@ -1,0 +1,35 @@
+{
+  "dimensions": {
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Depth",
+      "Height",
+      "Strap Full Length",
+      "Strap Drop Length",
+      "Weight"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "10.5\"",
+        "5.5\"",
+        "8.5\"",
+        "50\"",
+        "23\"",
+        "1.5 lbs"
+      ]
+    }]
+  },
+  "device": [{
+    "type": "paragraph",
+    "content": "Designed to carry a DSLR camera plus a small lens or flash."
+  },{
+    "type": "paragraph",
+    "content": "Fits Canon models: 5D, 7D, 50D, 60D, T3i / 600D, T3, XS)."
+  },{
+    "type": "paragraph",
+    "content": "Fits Nikon models: D90, D700, D3000, D3100, D5000, D7000."
+  }],
+  "airline": false
+}
