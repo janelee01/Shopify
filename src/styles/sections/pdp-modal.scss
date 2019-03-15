@@ -96,6 +96,12 @@
     }
   }
 
+  .pdp-modal__content--shipping{
+    dl{
+      padding: 0;
+    }
+  }
+
   dt{
     @extend %h4;
     color: $brand-grey;

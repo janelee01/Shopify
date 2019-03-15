@@ -1,4 +1,9 @@
-<h2>Shipping, Returns, Exchanges</h2>
-<h3>Shipping & Returns</h3>
-
-{{ shop.metafields["global"]["shipping-returns-exchanges"] }}
+<h2>Shipping, Returns, Warranty & Care</h2>
+<div class="pdp-modal__content--shipping">
+  <h3>Shipping & Returns</h3>
+  {{ shop.metafields["global"]["shipping-returns-exchanges"] }}
+  <h3>Warranty</h3>
+  {{ shop.metafields["global"]["warranty"] }}
+  <h3>Care Instructions</h3>
+  {{ shop.metafields["global"]["care-instructions"] }}
+</div>
