@@ -26,7 +26,7 @@
 
     {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
       <div class="pdp-gallery-mobile-video">{{ parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" }}</div>
-{%- endunless -%}
+    {%- endunless -%}
 
   </div>
   <div class="pdp-gallery-thumbs-wrapper">
@@ -55,7 +55,6 @@
     <a href="#" class="js-gallery-down pdp-chevron-down"></a>
     {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
     <a href="#" id="product-video-trigger" class="pdp-gallery-thumbs-video"></a>
-
     {%- endunless -%}
   </div>
 </div>

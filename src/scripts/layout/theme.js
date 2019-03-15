@@ -88,7 +88,7 @@ $(document).ready(function() {
       });
     }
   });
-   
+
   $(".js-autocomplete").catcomplete({
   delay: 0,
 	source: window.autocompletedata,
@@ -140,7 +140,7 @@ $(document).ready(function() {
 	  window.location = selector;
 	  return;
 	}
-	
+
 	let $target = $(selector);
 	if ($target.length === 0) {
 	  $target = $('body');
@@ -209,13 +209,13 @@ $(document).ready(function() {
 		var marqueeheight = $marquee.outerHeight()
 		var isPageNav = $pageNav.length
 		var isMarquee = $marquee.is(':visible')
-		
+
 		lastScrollPos = $(window).scrollTop()
 
 		if (firstTime) {
 			// add a delay so the header position change can finish before we animate the fade in (fixes weird flickering)
-			window.setTimeout(function(){ 
-				$pageNav.addClass('is-shown');	
+			window.setTimeout(function(){
+				$pageNav.addClass('is-shown');
 			}, 250);
 		}
 
@@ -245,7 +245,7 @@ $(document).ready(function() {
 			return
 		}
 
-		// Page navigation edge cases	
+		// Page navigation edge cases
 		// No Marquee
 		// Moving Down
 		if (isPageNav && !isMarquee && isMovingDown && isPastTrigger) {
@@ -255,7 +255,7 @@ $(document).ready(function() {
 			return
 		}
 
-		// Page navigation edge cases	
+		// Page navigation edge cases
 		// No Marquee
 		// Moving Up
 		if (isPageNav && !isMarquee && isMovingUp) {
@@ -263,7 +263,7 @@ $(document).ready(function() {
 			return
 		}
 
-		// Page navigation edge cases	
+		// Page navigation edge cases
 		// Marquee
 		// Moving Down
 		if (isPageNav && isMarquee && isPastTrigger && isMovingDown) {
@@ -273,8 +273,8 @@ $(document).ready(function() {
 			}
 			return
 		}
-		
-		// Page navigation edge cases	
+
+		// Page navigation edge cases
 		// Marquee
 		// Moving up
 		if (isPageNav && isMarquee && isMovingUp) {
@@ -337,7 +337,7 @@ $(document).ready(function() {
 	  $loginTitle.text($loginTitle.data('reset-text')).addClass('has-divider');
 	}
 
-	if( $('.discover .hero').length ){ 
+	if( $('.discover .hero').length ){
 		$('.discover .hero').addClass('in');
 	}
 
@@ -363,7 +363,7 @@ $(document).ready(function() {
 	};
 	var updateHeaderUi = function(){
 		var $slideContent = $hero.find('.slick-active .hero-content');
-		
+
 		if ($slideContent.hasClass('default') ){
 			// use white UI on mobile when an explicit color isn't chosen
 			if ($(window).width() < LS.desktopBreakpoint) {
@@ -538,7 +538,7 @@ $(document).ready(function() {
 		slidesToShow: 1,
 		slidesToScroll: 1
 	});
-	
+
 
 	/*
 	Side scrolling areas
@@ -555,7 +555,7 @@ $(document).ready(function() {
 				// the amount of content scrolling maps to the amount the handle moves since they're sized proportionately below
 				$content.scrollLeft(percentScrolled * $content.find('.overflow-content').width());
 			}
-		}); 
+		});
 
 		// map the handle position to element scrolling
 		$(".product-group .overflow-row").scroll(function(){
@@ -584,12 +584,12 @@ $(document).ready(function() {
 				}
 			});
 		};
-	
+
 		$(window).load(function(){ // make sure we have images
 
 			// size the handle based on how much scrolling will be necessary like normal scrollbars
 			setHandleWidth();
-			
+
 			$('.overflow-row').each(function(){
 				var $scrollEl = $(this);
 				var $indicators = $( $scrollEl.data('indicators') ).children();
@@ -598,17 +598,17 @@ $(document).ready(function() {
 				// scrop out the scrollbar
 				var elHeight = $(this).closest('.overflow-window').height();
 				$(this).closest('.overflow-window').height(elHeight - 20);
-				
+
 				// easier to work with
 				var amountToScroll = $scrollEl.find('.overflow-content').width() - $scrollEl.width();
 				var indicatorValue = 100 / $indicators.length;
 
 				$scrollEl.on('scroll', function(){
 					var scrollCompletion = $scrollEl.scrollLeft() / amountToScroll * 100;
-					$indicators.each(function(index){ 
+					$indicators.each(function(index){
 						// index * indicatorValue creates percentage benchmarks for the scrollCompletion to cross
 						// example: 4 items will create 0/25/50/75
-						if( scrollCompletion >= index * indicatorValue  ){ 
+						if( scrollCompletion >= index * indicatorValue  ){
 							$indicators.removeClass('active');
 							$(this).addClass('active');
 						}
@@ -627,7 +627,7 @@ $(document).ready(function() {
 				});
 			});
 		});
-		$('.overflow-control').on('click', function(e){ 
+		$('.overflow-control').on('click', function(e){
 		    e.preventDefault();
 		    var $scrollEl = $(this).closest('.overflow-window').find('.overflow-row');
 		    var $prev = $(this).closest('.overflow-window').find('.overflow-control.prev');
@@ -639,14 +639,14 @@ $(document).ready(function() {
 
 		    // determine where we should scroll to
 		    if( $(this).hasClass('next') ){
-		    	var nextIndex = currentIndex + 1; 
+		    	var nextIndex = currentIndex + 1;
 		    }else{
-		    	var nextIndex = currentIndex - 1; 
+		    	var nextIndex = currentIndex - 1;
 		    }
 
 		    // do it
 		    $scrollEl.animate({
-		    	scrollLeft : nextIndex * stepWidth 
+		    	scrollLeft : nextIndex * stepWidth
 		    }, 500, 'swing', function(){
 		    	// maybe enable/disable buttons when animation completed
 		    	if( nextIndex - 1 == -1 ){ // at first element
@@ -667,7 +667,7 @@ $(document).ready(function() {
 	$("#newsletter-signup").on('submit', function(e) {
         e.preventDefault();
 		$('#newsletter-signup .form-group .validation-error').remove();
-		$('#newsletter-signup').removeClass("has-errors");		
+		$('#newsletter-signup').removeClass("has-errors");
         var email = $('#signup-email').val();
         if( !email ){
 			$('#newsletter-signup .form-group').append('<small class="validation-error">Please enter your email.</small>');
@@ -693,7 +693,7 @@ $(document).ready(function() {
         $.ajax(settings)
         	.fail(function(jqXHR, textStatus, errorThrown){
 				$('#newsletter-signup .form-group').append('<small class="validation-error">Something went wrong. Perhaps you\'ve already subscribed to our list? <a href="/pages/support#contact">Contact us</a> for further assistance.</small>');
-				$('#newsletter-signup').addClass("has-errors");			
+				$('#newsletter-signup').addClass("has-errors");
         	})
         	.done(function (response) {
 	            if( response.success ){
@@ -826,7 +826,7 @@ $(document).ready(function() {
 	    	$('.tab-panel').hide().removeClass('active');
 	    	$(this).addClass('active');
 	    	$($(this).attr('href')).fadeIn();
-	    	$('.tab-headings .active-bar').css({ 
+	    	$('.tab-headings .active-bar').css({
 	    		'left': $(this).position().left,
 	    		'width': $('.tab-headings a.active').width()
 	    	});
@@ -851,7 +851,6 @@ $(document).ready(function() {
 	});
 
 	// Product video
-	$('#product-video-trigger').detach().insertAfter('#product-description p:first-child');
 	$('body').on('click', '#product-video-trigger', function(e){
 		e.preventDefault();
 		LS.productVideoOpen(1); // button always shows the first video
@@ -893,7 +892,7 @@ $(document).ready(function() {
      */
     $('.share-btn').on('click', function(e){
         if( !$(this).hasClass('email') ){
-            e.preventDefault(); 
+            e.preventDefault();
             window.open($(this).attr('href'), 'shareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
         }
     });
@@ -924,8 +923,8 @@ $(document).ready(function() {
         	}
         });
 
-        if( numErrors > 0 ) return; 
-        
+        if( numErrors > 0 ) return;
+
         var settings = {
             "async": true,
             "crossDomain": true,
@@ -944,7 +943,7 @@ $(document).ready(function() {
                 "Sign Up Source": "Credo Giveaway May 2018"
             }
         };
-        $.ajax(settings) 
+        $.ajax(settings)
         	.fail(function(jqXHR, textStatus, errorThrown){
         		$('<small class="validation-error">Something went wrong. Perhaps you\'ve already subscribed to our list? <a href="/pages/support#contact">Contact us</a> for further assistance.</small>')
         			.appendTo($form)
@@ -962,7 +961,7 @@ $(document).ready(function() {
 	/*
 	Skimm LP
 	 */
-	
+
 	// things are flexed so we need a width on the disclaimer to left-align it with the code box
 	var syncSkimmDisclaimer = function(){
 		if( $(window).width() >= LS.desktopBreakpoint ){
@@ -981,5 +980,5 @@ $(document).ready(function() {
 	    $('#zodiac-signs div').hide();
 	    $('.y-' + $(this).val()).fadeIn();
 	});
-	
+
 });
