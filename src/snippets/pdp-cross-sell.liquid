@@ -22,20 +22,20 @@
 {%- assign is_parent_collection = collection.metafields["global"]["is-parent-collection"] | strip_html -%}
 {%- if is_parent_collection == "true" -%}
 {%- assign colorCount = collections[collection.handle].products | size -%}
+{%- assign productTitle = collections[collection.handle].title -%}
 {%- break -%}
 {%- endif -%}
 {%- endfor -%}
 
-
   <article class="pdp-cross-sell__article product">
-    <a class="product-link" href="{{ product.url }}" data-list-name="Shop All Mens Products" data-product-name="The Hanover - 600D Recycled Poly - Navy" data-product-price="128.00" data-product-type="The Hanover" data-product-sku="850180007142" data-product-position="4">
+    <a class="product-link" href="{{ product.url }}">
       <div class="pdp-cross-sell__image">
         {% include 'image',
           src: product_featured_image,
           object_fit: 'contain',
           alt: product.title %}
       </div>
-      <h4>{{product.title}}</h4>
+      <h4>{{productTitle}}</h4>
       <p class="pdp-cross-sell__colors">{{colorCount}} colors</p>
     </a>
   </article>
@@ -49,5 +49,6 @@
 
 {%- assign handle = nil -%}
 {%- assign product = nil -%}
+{%- assign productTitle = nil -%}
 {%- assign product_featured_image = nil -%}
 
