@@ -25,7 +25,7 @@
     {%- endfor -%}
 
     {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
-      {%- unless pdp_mobile_video_thumb == blank -%}
+      {%- if pdp_mobile_video_thumb != blank -%}
         <div class="pdp-gallery-mobile-image pdp-gallery-mobile-image--video" id="product-video-trigger">
         <span class="pdp-gallery-video-icon" aria-label="Play Video"></span>
         {%- assign img_src = pdp_mobile_video_thumb | file_img_url: 'original' -%}
@@ -35,7 +35,7 @@
           alt: '' %}
         {%- assign img_src = nil -%}
         </div>
-      {%- endunless -%
+      {%- endif -%}
     {%- endunless -%}
 
   </div>
