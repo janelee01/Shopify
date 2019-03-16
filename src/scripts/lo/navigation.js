@@ -27,7 +27,7 @@ $(document).ready(function(){
 		var $active = $nav.find('.active');
 		var barOffset = $(window).width() >= LS.largeBreakpoint ? 20 : 11; // margins on the nav items
 		$bar.css({
-			'left': $active.position().left + barOffset, 
+			'left': $active.position().left + barOffset,
 			'width': $active.outerWidth()
 		});
 	};
@@ -46,7 +46,7 @@ $(document).ready(function(){
 			}
 		});
 
-		// jump to/show a section 
+		// jump to/show a section
 		if( location.hash ){
 			$topics.removeClass('active');
 			$('[href="'+location.hash+'"]').addClass('active');
@@ -83,14 +83,14 @@ $(document).ready(function(){
 			// update toggle text for current section
 			setActiveText();
 		});
-			
+
 	}
 
 	// jump to section
 	$topics.on('click', function(e){
 		e.preventDefault();
 
-		var $btn = $(this); 
+		var $btn = $(this);
 		var selector = $btn.attr('href');
 
 		// If the target isn't an on-page anchor, treat it like a normal link
@@ -99,13 +99,13 @@ $(document).ready(function(){
 			return;
 		}
 
-		$target = $(selector);
+		var $target = $(selector);
 		if ($target.length === 0) {
 			$target = $('body');
 		}
 
 		if( $(window).width() >= LS.desktopBreakpoint ){
-			// smooth scroll on desktop 
+			// smooth scroll on desktop
 			$('html,body').animate({
 				scrollTop: LS.getScrollTo( $target, trigger )});
 			// scroll spy will update current state

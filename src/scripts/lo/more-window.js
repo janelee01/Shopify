@@ -12,7 +12,7 @@ $(document).ready(function(){
 	});
 	$('body').on('keyup', function(e){
 	    // keyCode is getting deprecated use key instead when supported, which makes this messy
-	    evt = e || window.event;
+	    var evt = e || window.event;
 	    var isEscape = false;
 	    if ("key" in evt) {
 	        isEscape = (evt.key == "Escape" || evt.key == "Esc");
