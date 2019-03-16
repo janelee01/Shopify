@@ -19,5 +19,21 @@
       ]
     }]
   },
+  "laptopPocket": {
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Height",
+      "Depth"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "13\"",
+        "13\"",
+        "1.4\""
+      ]
+    }]
+  },
   "airline": false
 }

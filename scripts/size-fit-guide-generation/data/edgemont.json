@@ -17,5 +17,20 @@
       ]
     }]
   },
+  "laptopPocket": {
+    "subtitle": "Fits up to 13-inch laptops",
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Height"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "11.75\"",
+        "13.25\""
+      ]
+    }]
+  },
   "airline": false
 }

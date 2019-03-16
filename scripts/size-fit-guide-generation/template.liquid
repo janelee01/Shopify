@@ -77,6 +77,33 @@
 </div>
 {% endif %}
 
+{% if laptopPocket.headings.size > 0 %}
+<div class="pdp-size-fit__table">
+  <h3>Laptop Pocket Dimensions</h3>
+  {% if laptopPocket.headings.size > 0 %}
+    <table>
+      <thead>
+        <tr>
+        {% for heading in laptopPocket.headings %}
+          <th>{{ heading }}</th>
+        {% endfor %}
+        </tr>
+      </thead>
+
+      <tbody>
+      {% for rows in laptopPocket.rows %}
+        <tr>
+         {% for content in rows.content %}
+          <td>{{ content }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+  </div>
+{% endif %}
+
 {% if show_airline == true %}
 <div class="pdp-modal__section pdp-modal__section-airline">
   <h3>Airline Carry-On</h3>
