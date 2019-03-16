@@ -68,6 +68,22 @@
       "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-05D.jpg",
       "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-05D.jpg"
     }]
+  },{
+    "title": "5'2\"",
+    "slides": [{
+        "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-07A.jpg",
+        "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-07A.jpg"
+    },{
+        "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-07B.jpg",
+        "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-07B.jpg"
+    },{
+        "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-07C.jpg",
+        "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-07C.jpg"
+    },{
+        "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-07D.jpg",
+        "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-07D.jpg"
+    }
+    ]
   }],
   "airline": false
 }
