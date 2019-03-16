@@ -9,6 +9,10 @@ export default el => {
   const $main = el.querySelector('.js-pdp-callout-gallery')
   const $nav = el.querySelector('.js-pdp-callout-gallery-nav')
 
+  if (!$main) {
+    return
+  }
+
   const flktyMain = new Flickity($main, {
     prevNextButtons: false,
     pageDots: false,
