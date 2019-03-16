@@ -24,12 +24,7 @@ class ProductForm {
 
     this.updateProductID()
     this.bindContexts()
-    this.updateLabels()
-    this.updateCta()
-    this.updatePrice()
-    this.updateWaitlistMeta()
-    this.updateLowStockWarning()
-    this.updateFinalSaleMessage()
+    this.updateDynamicElements()
     this.scrollToYotpo()
     this.attachEventListeners()
     this.initSwatchCarousels()
@@ -38,13 +33,23 @@ class ProductForm {
       this.variantTitle = (this.variants.find(({ id: _id }) => {
         return '' + id === '' + _id
       }) || {}).title
-      this.updateProductID(false, false)
+      this.updateProductID(false, true)
+      this.updateDynamicElements()
     })
 
     $(document).on('pdp.form.size.quantity', (e, quantity) => {
-      console.dir(quantity)
       this.$quantitySelector.value = quantity
     })
+  }
+
+  updateDynamicElements () {
+    this.updatePrice()
+    this.updateCta()
+    this.updateLabels()
+    this.updateDataLayer()
+    this.updateLowStockWarning()
+    this.updateFinalSaleMessage()
+    this.updateWaitlistMeta()
   }
 
   /**
@@ -154,14 +159,8 @@ class ProductForm {
     $target.classList.add('active')
 
     this.updateProductID(productID)
-    this.updatePrice()
-    this.updateCta()
-    this.updateLabels()
-    this.updateDataLayer()
+    this.updateDynamicElements()
     this.updateURL($target.getAttribute('data-url'))
-    this.updateLowStockWarning()
-    this.updateFinalSaleMessage()
-    this.updateWaitlistMeta()
     this.updateActiveGallery()
     this.updateSwatchCarouselSize()
   }
@@ -363,12 +362,7 @@ class ProductForm {
     this.updateVariant(
       $target.innerHTML.trim()
     )
-    this.updateCta()
-    this.updatePrice()
-    this.updateDataLayer()
-    this.updateWaitlistMeta()
-    this.updateLowStockWarning()
-    this.updateFinalSaleMessage()
+    this.updateDynamicElements()
   }
 
   /**

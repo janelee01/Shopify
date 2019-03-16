@@ -124,7 +124,6 @@ export default el => {
   on($sizeBtnWrapper, 'click', e => {
     e.preventDefault()
     const id = e.target.getAttribute('data-id')
-    updateActiveOption(id)
     $(document).trigger('pdp.form.size.update', id)
   })
 
