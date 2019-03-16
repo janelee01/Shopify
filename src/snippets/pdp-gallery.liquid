@@ -17,9 +17,9 @@
     {%- for image in siblingProduct.images -%}
     {%- unless image.alt contains 'swatch' -%}
       <div class="js-pdp-gallery-mobile-image pdp-gallery-mobile-image">
-      {% comment %} <span class="pdp-gallery-magnify-icon" aria-label="Magnify Image">
+      <span class="pdp-gallery-magnify-icon" aria-label="Magnify Image">
         {% include 'pdp-icons', icon: 'icon-magnify' %}
-      </span> {% endcomment %}
+      </span>
       {%- assign img_src = image | img_url: 'original' -%}
       {% include 'image',
         src: img_src,

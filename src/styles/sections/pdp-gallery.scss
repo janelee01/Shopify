@@ -40,8 +40,8 @@
   &:before{
     @include center;
     content: '';
-    width: 32px;
-    height: 32px;
+    width: 60px;
+    height: 60px;
     background: white;
     z-index: 1;
     border-radius: 50%;
@@ -51,10 +51,11 @@
     content: '';
     width: 0;
     height: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 7px solid $brand-blue;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 19px solid $brand-blue;
     z-index: 2;
+    left: 3px;
   }
 }
 .pdp-gallery-magnify-icon{
