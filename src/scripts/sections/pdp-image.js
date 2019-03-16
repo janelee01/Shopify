@@ -1,4 +1,5 @@
 import on from 'dom-event'
+import select from 'dom-select'
 import Layzr from 'layzr.js'
 
 // Check if object fit is supported
@@ -27,6 +28,9 @@ instance
   })
 
 const objectFitShim = (el) => {
+  if (!el) {
+    return false
+  }
   // We'll compare the aspect ratio of media items with the aspect ratio of the parent container to decide how
   const elAspect = el.clientHeight / el.clientWidth
   const elMediaItems = el.querySelectorAll('img,video')
@@ -58,7 +62,7 @@ const objectFitShim = (el) => {
     }
   }
 }
-export default (el) => {
+export default () => {
   instance
     .update()
     .check()
@@ -68,5 +72,7 @@ export default (el) => {
     return
   }
 
-  objectFitShim(el)
+  select.all('.js-lazy-img').forEach(el => {
+    objectFitShim(el)
+  })
 }
