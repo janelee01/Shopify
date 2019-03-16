@@ -1,5 +1,6 @@
 import select from 'dom-select'
 import '../../styles/templates/product.scss'
+import '../polyfills/forEach'
 import image from '../sections/pdp-image'
 import pdpGallery from '../sections/pdp-gallery'
 import pdpForm from '../sections/pdp-form'
