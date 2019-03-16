@@ -7,6 +7,10 @@ export default el => {
   const $main = el.querySelector('.js-pdp-testimonials-texts')
   const $nav = el.querySelector('.js-pdp-testimonials-logos')
 
+  if (!$main) {
+    return
+  }
+
   const flkty1 = new Flickity($main, {
     pageDots: false,
     prevNextButtons: false
