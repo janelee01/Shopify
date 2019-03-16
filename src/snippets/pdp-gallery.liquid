@@ -30,7 +30,7 @@
     {%- endunless -%}
     {%- endfor -%}
 
-    {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
+    {%- unless parentCollection.metafields["global"]["product-video"] == blank and pdp_video_url == blank -%}
       {%- if pdp_mobile_video_thumb != blank -%}
         <div class="pdp-gallery-mobile-image pdp-gallery-mobile-image--video" id="product-video-trigger">
         <span class="pdp-gallery-video-icon" aria-label="Play Video"></span>
@@ -69,7 +69,7 @@
       </div>
     </div>
     <a href="#" class="js-gallery-down pdp-chevron-down"></a>
-    {%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
+    {%- unless parentCollection.metafields["global"]["product-video"] == blank and pdp_video_url == blank -%}
     <a href="#" id="product-video-trigger" class="pdp-gallery-thumbs-video"></a>
     {%- endunless -%}
   </div>
