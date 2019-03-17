@@ -13,9 +13,11 @@
       {%- assign tile = data[i] | split: '|' -%}
       <div class="pdp-material__image">
         <div class="pdp-material__image-container">
+          {%- assign img_src = tile[2] | replace: '.jpg', '_750x.jpg' -%}
           {% include 'image',
-            src: tile[2],
+            src: img_src,
             alt: tile[1] %}
+          {%- assign img_src = nil -%}
         </div>
         <div class="pdp-material__image-caption">
           <h3>{{ tile[0] }}</h3>

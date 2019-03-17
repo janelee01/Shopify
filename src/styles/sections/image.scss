@@ -10,8 +10,17 @@
   width: 100%;
 }
 
-.lazy-img__el--shim {
-  width: 100%;
+.lazy-img--shim {
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &.fit-cover{
+    background-size: cover;
+  }
+
+  &.fit-contain {
+    background-size: contain;
+  }
 }
 
 .lazy-img {
@@ -21,66 +30,11 @@
     .lazy-img__el {
       object-fit: cover;
     }
-
-    .lazy-img__el--ie,
-    .lazy-img__el--shim {
-      background-size: cover;
-    }
   }
 
   &.fit-contain {
     .lazy-img__el {
       object-fit: contain;
-    }
-
-    .lazy-img__el--ie,
-    .lazy-img__el--shim {
-      background-size: contain;
-    }
-  }
-
-  &.fit-width {
-    position: relative;
-
-    .lazy-img__el {
-      position: relative;
-      bottom: auto;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  &.pos-center {
-    .lazy-img__el {
-      object-position: center;
-    }
-
-    .lazy-img__el--ie,
-    .lazy-img__el--shim {
-      background-position: center center;
-    }
-  }
-
-  &.pos-top {
-    .lazy-img__el {
-      object-position: top;
-    }
-
-    .lazy-img__el--ie,
-    .lazy-img__el--shim {
-      background-position: center top;
-    }
-  }
-
-  &.pos-bottom {
-    .lazy-img__el {
-      object-position: bottom;
-    }
-
-    .lazy-img__el--ie,
-    .lazy-img__el--shim {
-      background-position: center bottom;
     }
   }
 
@@ -89,15 +43,6 @@
       opacity: 1;
       visibility: visible;
     }
-
-    .lazy-img__loader {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
-
-  &.is-updating{
-    display: none;
   }
 
   .lazy-img__el {
@@ -114,25 +59,5 @@
 
   .lazy-img--vanilla & {
     transition: opacity 300ms ease-in 1ms, visibility 1ms;
-  }
-
-  &.lazy-img__el--ie,
-  &.lazy-img__el--shim {
-    background-position: center;
-    background-repeat: no-repeat;
-
-    /* For Vue transitions */
-    &[data-fit="cover"] {
-      background-size: cover !important;
-    }
-    &[data-fit="contain"] {
-      background-size: contain !important;
-    }
-  }
-  &[data-fit="cover"] {
-    object-fit: cover !important;
-  }
-  &[data-fit="contain"] {
-    object-fit: contain !important;
   }
 }

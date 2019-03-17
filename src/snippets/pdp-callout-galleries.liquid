@@ -22,9 +22,11 @@
       {%- assign slide_text = slide | split: '|' | first -%}
       {%- assign slide_image = slide | split: '|' | last -%}
       <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main-slide">
+        {%- assign img_src = slide_image | replace: '.jpg', '_750x.jpg' -%}
         {% include 'image',
-          src: {{slide_image}},
+          src: img_src,
           alt: 'Pass through sleeve' %}
+        {%- assign img_src = nil -%}
         <span>{{slide_text}}</span>
       </div>
       {%- endfor -%}
