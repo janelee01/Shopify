@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 0.0.13 - 2018-3-17
+### TEAM: Barrel
+### CHANGED:
+- Adds in new PDP template
+- Adds in size & fit guide build process
+- Adds in new version of slate tools
+- Updates vendor dependency build script
+
 ## 0.0.13 - 2018-1-18
 ### TEAM: Barrel
 ### CHANGED:
