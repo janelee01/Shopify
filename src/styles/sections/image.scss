@@ -1,0 +1,63 @@
+.lazy-img,
+.lazy-img__el {
+  display: block;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.lazy-img--shim {
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &.fit-cover{
+    background-size: cover;
+  }
+
+  &.fit-contain {
+    background-size: contain;
+  }
+}
+
+.lazy-img {
+  overflow: hidden;
+
+  &.fit-cover {
+    .lazy-img__el {
+      object-fit: cover;
+    }
+  }
+
+  &.fit-contain {
+    .lazy-img__el {
+      object-fit: contain;
+    }
+  }
+
+  &.is-loaded {
+    .lazy-img__el {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .lazy-img__el {
+    &.is-fallback {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.lazy-img__el {
+  opacity: 0;
+  visibility: hidden;
+
+  .lazy-img--vanilla & {
+    transition: opacity 300ms ease-in 1ms, visibility 1ms;
+  }
+}

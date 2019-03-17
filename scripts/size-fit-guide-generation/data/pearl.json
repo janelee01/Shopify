@@ -1,0 +1,37 @@
+{
+  "dimensions": {
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Depth",
+      "Height",
+      "Strap Full Length",
+      "Strap Drop Length",
+      "Weight"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "9.5\"",
+        "3\"",
+        "7.75\"",
+        "60\"",
+        "30.5\"",
+        "0.9 lbs"
+      ]
+    }]
+  },
+  "device": [{
+    "type": "paragraph",
+    "content": "Designed to fit mini-tablets, such as the models below:"
+  },{
+    "type": "list",
+    "content": [
+      "Apple iPad Mini 3 (2014 release)",
+      "Google Nexus 7",
+      "Samsung Galaxy Tab 4 (7 inch)",
+      "Kindle Fire HD6/HD7"
+    ]
+  }],
+  "airline": false
+}

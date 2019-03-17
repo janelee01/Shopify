@@ -1,0 +1,16 @@
+{%- assign productTitleParts = siblingProduct.title | split: '-' -%}
+<li>
+  <a href="#"
+    class="js-pdp-swatch pdp-swatch {% if product.id == siblingProduct.id %}active{% endif %}"
+    data-url="{{ siblingUrl }}"
+    data-name="{{ siblingProduct.title }}"
+    data-sibling="{{ siblingProduct.id }}">
+    {%- for image in siblingProduct.images -%}
+      {%- if image.alt contains 'swatch' -%}
+        <img src="{{ image.src | img_url }}" class="swatch-image" data-color-label="{{ siblingProduct.metafields["global"]["swatch-label"] }}" alt="{{ productTitleParts[2] | strip }} swatch for {{ productTitleParts[0] | strip }}">
+      {%- endif -%}
+    {%- endfor -%}
+  </a>
+</li>
+
+{%- assign productTitleParts = nil -%}

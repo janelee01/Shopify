@@ -1,0 +1,112 @@
+{%- assign swatchGroup1Label = parentCollection.metafields["global"]["swatch-group-1-label"] -%}
+{%- assign swatchGroup2Label = parentCollection.metafields["global"]["swatch-group-2-label"] -%}
+{%- assign swatchGroup3Label = parentCollection.metafields["global"]["swatch-group-3-label"] -%}
+
+{%- comment -%}
+DETECT PRESELECTED material/color IF ANY
+{%- endcomment -%}
+{%- for siblingProduct in parentCollection.products -%}
+{%- assign siblingProductColor = siblingProduct.title | split: '-' | last | strip -%}
+{%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-1' -%}
+{%- if siblingProductColor == product.metafields["global"]["swatch-label"] -%}
+{%- assign selectedColor1 = siblingProductColor -%}
+{%- endif -%}
+{%- elsif siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-2' -%}
+{%- if siblingProductColor == product.metafields["global"]["swatch-label"] -%}
+{%- assign selectedColor2 = siblingProductColor -%}
+{%- endif -%}
+{%- endif -%}
+{%- endfor -%}
+
+{%- if swatchGroup2Label == blank -%}{% comment %} no extra grouping, show them all {% endcomment %}
+  <div class="pdp-swatches-wrapper js-pdp-swatches-wrapper">
+    {%- if swatchGroup1Label != blank -%}<p class="configuration-label js-pdp-swatch-group-name">{{ swatchGroup1Label }}<span class="js-pdp-selected-color pdp-selected-color">{{selectedColor1}}</span></p>{%- endif -%}
+
+    <ul class="pdp-swatches">
+      {%- for siblingProduct in parentCollection.products -%}{% comment %} all products of this type {% endcomment %}
+        {%- if siblingsList contains siblingProduct.id -%}{% comment %} make sure this product can be shown {% endcomment %}
+          {%- assign siblingUrl = siblingProduct.url -%}
+          {%- if referringCollectionHandle -%}
+            {%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
+          {%- endif -%}
+          {% include "pdp-swatch" %}
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- else -%}
+  {% comment %}TODO: maybe DRY this up a bit{% endcomment %}
+  {%- capture swatchGroup1 -%}
+    {%- for siblingProduct in parentCollection.products -%}
+      {%- if siblingsList contains siblingProduct.id -%}
+        {%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-1' -%}
+          {%- assign siblingUrl = siblingProduct.url -%}
+          {%- if referringCollectionHandle -%}
+            {%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
+          {%- endif -%}
+          {% include "pdp-swatch" %}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {% if swatchGroup1 != blank %}{% comment %} these can be blank if the collection-aware URL filters out all products in this group {% endcomment %}
+    <div class="pdp-swatches-wrapper js-pdp-swatches-wrapper">
+      <p class="configuration-label js-pdp-swatch-group-name">{{ swatchGroup1Label }}<span class="js-pdp-selected-color pdp-selected-color">{{selectedColor1}}</span></p>
+      <ul class="pdp-swatches js-pdp-swatches">
+       {{ swatchGroup1 }}
+      </ul>
+    </div>
+  {%- endif -%}
+  {%- capture swatchGroup2 -%}
+    {%- for siblingProduct in parentCollection.products -%}
+      {%- if siblingsList contains siblingProduct.id -%}
+        {%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-2' -%}
+          {%- assign siblingUrl = siblingProduct.url -%}
+          {%- if referringCollectionHandle -%}
+            {%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
+          {%- endif -%}
+          {% include "pdp-swatch" %}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {% if swatchGroup2 != blank %}
+    <div class="pdp-swatches-wrapper js-pdp-swatches-wrapper">
+      <p class="configuration-label js-pdp-swatch-group-name">{{ swatchGroup2Label }}<span class="js-pdp-selected-color pdp-selected-color">{{selectedColor2}}</span></p>
+      <ul class="pdp-swatches js-pdp-swatches">
+       {{ swatchGroup2 }}
+      </ul>
+    </div>
+  {%- endif -%}
+  {%- capture swatchGroup3 -%}
+    {%- for siblingProduct in parentCollection.products -%}
+      {%- if siblingsList contains siblingProduct.id -%}
+        {%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-3' -%}
+          {%- assign siblingUrl = siblingProduct.url -%}
+          {%- if referringCollectionHandle -%}
+            {%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
+          {%- endif -%}
+          {% include "pdp-swatch" %}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {% if swatchGroup3 != blank %}
+    <div class="pdp-swatches-wrapper js-pdp-swatches-wrapper">
+      <p class="configuration-label js-pdp-swatch-group-name">{{ swatchGroup3Label }}</p>
+      <ul class="pdp-swatches js-pdp-swatches">
+       {{ swatchGroup3 }}
+      </ul>
+    </div>
+  {%- endif -%}
+{%- endif -%}
+{% comment %}
+{% endcomment %}
+
+
+{%- assign swatchGroup1Label = nil -%}
+{%- assign swatchGroup2Label = nil -%}
+{%- assign swatchGroup3Label = nil -%}
+{%- assign siblingUrl = nil -%}
+{%- assign selectedColor1 = nil -%}
+{%- assign selectedColor2 = nil -%}

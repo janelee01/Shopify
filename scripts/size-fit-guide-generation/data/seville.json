@@ -1,0 +1,89 @@
+{
+  "dimensions": {
+    "images": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-13A.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-51.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-13B.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-13B.jpg"
+    }],
+    "headings": [
+      "Dimensions",
+      "Depth",
+      "Weight",
+      "Handle Drop height",
+      "Base Width",
+      "Height",
+      "Laptop Fit"
+    ],
+    "rows": [{
+      "content": [
+        "13\" Laptop Size",
+        "5\"",
+        "2.6 lbs",
+        "11\"",
+        "18.5\"",
+        "12.5\"",
+        "13\""
+      ]
+    }, {
+      "content": [
+        "15\" Laptop Size",
+        "5\"",
+        "2.7 lbs",
+        "11\"",
+        "20\"",
+        "13\"",
+        "15\""
+      ]
+    }]
+  },
+  "fits": [{
+    "title": "5'9\"",
+    "slides": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-03A.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-03A.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-03B.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-03B.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-03C.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-03C.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-03D.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-03D.jpg"
+    }]
+  },{
+    "title": "5'5\"",
+    "slides": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-05A.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-05A.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-05B.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-05B.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-05C.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-05C.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-05D.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-05D.jpg"
+    }]
+  },{
+    "title": "5'2\"",
+    "slides": [{
+        "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-07A.jpg",
+        "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-07A.jpg"
+    },{
+        "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-07B.jpg",
+        "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-07B.jpg"
+    },{
+        "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-07C.jpg",
+        "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-07C.jpg"
+    },{
+        "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Large-07D.jpg",
+        "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/Seville-SizeComparisonPage-Small-07D.jpg"
+    }
+    ]
+  }],
+  "airline": false
+}

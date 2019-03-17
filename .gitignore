@@ -14,6 +14,9 @@ deploy.log
 config.yml
 *.yml
 config.production.yml
+.env
+.env.staging
+.env.production
 
 # Compiled source #
 ###################
@@ -23,6 +26,10 @@ config.production.yml
 *.exe
 *.o
 *.so
+
+# Slate Specific Files #
+###################
+src/snippets/script-tags.liquid
 
 # Packages #
 ############

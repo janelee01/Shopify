@@ -1,0 +1,32 @@
+{%- assign storiesCount = data | size -%}
+
+{%- unless data == blank -%}
+<div class="pdp__separator">
+  <div class="pdp__section-heading">
+    <h2 class="title">Stories</h2>
+  </div>
+  <div class="pdp-stories js-pdp-stories pdp-snap">
+  {%- for handle in data -%}
+  {% assign article = articles[handle] | trim %}
+    <article class="pdp-stories__article">
+      <figure>
+        <a href="{{ article.url }}" class="pdp-stories__img">
+        {%- assign img_src = article | featured_image | img_url: '380x215', crop: 'center' -%}
+        {% include 'image',
+          src: img_src,
+          alt: '' %}
+        {%- assign img_src = nil -%}
+        </a>
+      </figure>
+      <h4>
+        <a href="{{ article.url }}">{{ article.title }}</a>
+      </h4>
+    </article>
+  {%- endfor -%}
+  </div>
+</div>
+{%- endunless -%}
+
+{%- assign handle = nil -%}
+{%- assign stories = nil -%}
+{%- assign storiesCount = nil -%}

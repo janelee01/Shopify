@@ -1,0 +1,25 @@
+{%- assign class = class | default: blank -%}
+{%- assign video = video | default: false -%}
+{%- assign video_mobile = video_mobile | default: false -%}
+{%- assign fallback_mobile = fallback_mobile | default: false -%}
+
+{%- capture css -%}
+  {%- if class -%}
+    {{ class }} video fill js-video {%- if video_mobile -%}no-fallback{%- endif -%}
+  {%- else -%}
+    video fill js-video {%- if video_mobile -%}no-fallback{%- endif -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+<div class="{{ css | strip }}" data-module="video">
+  <video class="video__el js-video" data-src="{{ video }}" {%- if video_mobile -%}data-mobile-src="{{ video_mobile }}"{%- endif -%} autoplay="true" loop="true" muted="true" playsinline></video>
+  {%- if fallback_mobile -%}
+    {%- include 'image', src: fallback_mobile, class: 'video__fallback' -%}
+  {%- endif -%}
+</div>
+
+{%- assign class = nil -%}
+{%- assign css = nil -%}
+{%- assign video = nil -%}
+{%- assign fallback_mobile = nil -%}
+{%- assign size = nil -%}

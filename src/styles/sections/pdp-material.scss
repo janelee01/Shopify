@@ -1,0 +1,136 @@
+
+.pdp-material{
+  position: relative;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+}
+.pdp-material__inner{
+  @media (min-width: $screen-md){
+    display: flex;
+  }
+}
+.pdp-material__images{
+  @media (min-width: $screen-md){
+    width: calc(50% - 20px);
+    margin-right: 20px;
+  }
+
+  .flickity-page-dots{
+    @media (min-width: $screen-md){
+      display: none;
+    }
+  }
+}
+.pdp-material__image-container{
+  @include ratio(100%);
+}
+.pdp-material__image{
+  width: 100%;
+  text-align: center;
+  margin-right: 10px;
+}
+.pdp-material__image-caption{
+  @media (min-width: $screen-md){
+    display: none;
+  }
+
+  h3{
+    @extend %h2;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  p{
+    @extend %p2;
+    color: $gray;
+    margin-bottom: 0;
+  }
+}
+.pdp-material__tiles{
+  display: none;
+
+  &:after{
+    content: 'flickity';
+    display: none;
+  }
+
+  .flickity-viewport{
+    overflow: visible;
+  }
+
+  .flickity-slider{
+    transform: none !important;
+  }
+
+  @media (min-width: $screen-md){
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 50%;
+  }
+}
+.pdp-material__tile{
+  position: relative !important;
+  left: 0 !important;
+  opacity: .5;
+  text-align: center;
+  padding: 45px 69px;
+  cursor: pointer;
+  transition: opacity 1s;
+  border: 1px solid $gray-light;
+  transition: border .5s;
+  margin-bottom: 20px;
+
+  @media (min-width: $screen-md){
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+
+  &.is-selected{
+    opacity: 1;
+    background-color: white;
+    border-color: white;
+    cursor: default;
+  }
+
+  h3{
+    @extend %h2;
+  }
+
+  p{
+    color: $gray;
+    @extend %p2;
+    margin-bottom: 0;
+  }
+}
+
+.pdp-material__tiles-1{
+  .pdp-material__tile{
+    @media (min-width: $screen-md){
+      height: calc(100% - 0px);
+    }
+  }
+}
+
+.pdp-material__tiles-2{
+  .pdp-material__tile{
+    @media (min-width: $screen-md){
+      height: calc(50% - 10px);
+    }
+  }
+}
+
+.pdp-material__tiles-3{
+  .pdp-material__tile{
+
+    @media (min-width: $screen-md){
+      height: calc(33% - 20px);
+      padding: 27px 69px;
+    }
+  }
+}
+
+

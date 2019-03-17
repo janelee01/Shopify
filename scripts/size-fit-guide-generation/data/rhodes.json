@@ -1,0 +1,27 @@
+{
+  "dimensions": {
+    "headings": [
+      "Dimensions",
+      "Bottom Width",
+      "Top Width",
+      "Depth",
+      "Height",
+      "Handle Drop Length",
+      "Weight (600D Recycled Poly)",
+      "Weight (Waxed Twill)"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "20\"",
+        "28.5\"",
+        "10\"",
+        "12\"",
+        "11\"",
+        "3.4 lbs",
+        "4.2 lbs"
+      ]
+    }]
+  },
+  "airline": false
+}

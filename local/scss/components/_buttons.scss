@@ -5,7 +5,7 @@
 	&.inlined{
 		@media (min-width: $screen-sm) {
 			width: 100%;
-			text-align: center; 
+			text-align: center;
 			.btn{
 				display: inline-block;
 				margin: 0 3px;
@@ -78,19 +78,6 @@
 		font-family: $font-family-base;
 		&:hover{
 			text-decoration: underline;
-		}
-	}
-	&.variant-option{
-		padding: 12px 26px 11px;
-		margin: 0 10px 10px 0;
-		font-size: 15px;
-		color: $gray;
-		border-color: #e6e6e6;
-		font-family: $font-family-base;
-		background: #FFF;
-		&.selected{
-			border-color: $brand-blue;
-			color: $brand-blue;
 		}
 	}
 	&.navigate-back{

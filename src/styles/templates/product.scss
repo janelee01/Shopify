@@ -1,0 +1,50 @@
+$pdp-breakpoint:                  768px;
+$pdp-breakpoint-desktop:          768px;
+$pdp-breakpoint-tablet:           768px;
+$pdp-breakpoint-mobile:           320px;
+
+$pdp-mobile-gutter:     20px;
+$pdp-tablet-gutter:     30px;
+$pdp-desktop-gutter:    110px;
+
+@import '~flickity/css/flickity.css';
+@import '~photoswipe/dist/photoswipe.css';
+@import '~photoswipe/dist/default-skin/default-skin.css';
+@import '../sections/variables.scss';
+@import '../sections/typography.scss';
+@import '../sections/mixins.scss';
+@import '../sections/icons.scss';
+@import '../sections/flickity.scss';
+@import '../sections/image.scss';
+@import '../sections/video.scss';
+@import '../sections/pdp-layout.scss';
+@import '../sections/pdp-photoswipe-overrides.scss';
+@import '../sections/pdp-main.scss';
+@import '../sections/pdp-gallery.scss';
+@import '../sections/pdp-form.scss';
+@import '../sections/pdp-swatches.scss';
+@import '../sections/pdp-callout-galleries.scss';
+@import '../sections/pdp-material.scss';
+@import '../sections/pdp-stories.scss';
+@import '../sections/pdp-testimonials.scss';
+@import '../sections/pdp-reviews.scss';
+@import '../sections/pdp-cross-sell.scss';
+@import '../sections/pdp-size-fit-modal.scss';
+@import '../sections/pdp-modal.scss';
+@import '../sections/pdp-see-how-to-pack-it.scss';
+@import '../sections/pdp-instagram.scss';
+@import '../sections/pdp-sticky-nav.scss';
+@import '../sections/pdp-wishlist.scss';
+
+body{
+  background-color: rgb(248,248,248);
+}
+
+.section-heading{
+  margin-bottom: 40px;
+  margin-top: 80px;
+}
+
+.section-heading .title{
+  font-size: 1.4em;
+}

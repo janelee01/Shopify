@@ -1,0 +1,12 @@
+{%- assign collection_ref = collection_ref | default: false -%}
+{%- capture inc -%}pdp-{{ id }}-modal{%- endcapture -%}
+<div class="pdp-modal" id="pdp-modal-{{ id }}">
+  <a href="#" class="js-panel-close panel-close"><span class="sr-only">close</span></a>
+  <div class="pdp-modal-content">
+    <div>
+    {%- include inc, collection_ref: collection_ref -%}
+    </div>
+  </div>
+</div>
+{%- assign collection_ref = nil -%}
+{%- assign inc = nil -%}

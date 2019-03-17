@@ -1,0 +1,144 @@
+{%- comment -%}
+### ------------
+### 0. Mobile Video Thumbnail
+### ------------
+{%- endcomment -%}
+{%- assign pdp_mobile_video_thumb = "Edgemont_4b92d981-ba0a-4395-88bd-80db3307cf2c.jpg" -%}
+{%- assign pdp_video_url = "//player.vimeo.com/video/262563963" -%}
+
+{%- comment -%}
+### ------------
+### 1. Instagram
+### ------------
+{%- endcomment -%}
+
+{%- capture pdp_instagram_data -%}
+<div class="yotpo yotpo-pictures-widget" data-gallery-id="5c83d531eecffe000d3d4341"></div>
+{%- endcapture -%}
+
+{%- comment -%}
+### -----------
+### 2. Carousel
+### -----------
+### line 1: carousel title (or "-" if none)
+### line 2: carousel subtitle
+### line 3: carousel text
+### line 4+N: slide text|slide image
+### -----------
+{%- endcomment -%}
+
+{%- capture pdp_callout_galleries_data_1 -%}
+Work to Weekend
+Ultimate Versatility
+Thoughtfully designed with features that make it adaptable to any situation
+Converts from Backpack to Tote|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Converts-Backpack-Tote_Edgemont.jpg?15446092561340475667
+Removable insert|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Removable-Insert_Edgemont.jpg?15446092561340475667
+Minimalist Design|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Minimalist-Design_Edgemont.jpg?15446092561340475667
+Adapts to any situation and destination.|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Adapts-Any-Situation-Destination_Edgemont.jpg?15446092561340475667
+{%- endcapture -%}
+
+{%- capture pdp_callout_galleries_data_2 -%}
+-
+Carry-on Effortlessly
+Fits perfectly as a carry-on personal item.
+Suitcase handle sleeve|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Suitcase-Handle-Sleeve_Edgemont.jpg?15446092561340475667
+Airline seat friendly|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Airline-Seat-Friendly_Edgemont.jpg?15446092561340475667
+Ultra comfortable|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Ultra-Comfortable_Edgemont.jpg?15446092561340475667
+{%- endcapture -%}
+
+{%- capture pdp_callout_galleries_data_3 -%}
+-
+Stay organized
+The Edgemont is designed with tons of features to help you stay put together when traveling.
+Interior pockets|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_Interior-Pockets_Edgemont.jpg?15446092561340475667
+Laptop storage|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_Laptop-Storage_Edgemont.jpg?15446092561340475667
+Key leash|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_Key-Leash_Edgemont.jpg?15446092561340475667
+Stash pockets|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_Stash-Pockets_Edgemont.jpg?15446092561340475667
+{%- endcapture -%}
+
+{%- assign pdp_callout_galleries_data_1 = pdp_callout_galleries_data_1 | newline_to_br | split: '<br />' -%}
+{%- assign pdp_callout_galleries_data_2 = pdp_callout_galleries_data_2 | newline_to_br | split: '<br />' -%}
+{%- assign pdp_callout_galleries_data_3 = pdp_callout_galleries_data_3 | newline_to_br | split: '<br />' -%}
+
+
+
+{%- comment -%}
+### -------------------
+### 3. Video
+### -------------------
+### line N: title|video
+### -------------------
+{%- endcomment -%}
+
+{%- capture pdp_video_data -%}
+What Fits Inside|https://player.vimeo.com/external/262563963.hd.mp4?s=42f0ae64eee921ca3dbfe824f60336f657e8331d&profile_id=175
+{%- endcapture -%}
+{%- assign pdp_video_data = pdp_video_data | trim -%}
+
+
+{%- comment -%}
+### ----------------
+### 4. Fabric Module
+### ----------------
+### line 1: Main title
+### line 2+N: Tile title|tile subtitle|tile image
+### ----------------
+{%- endcomment -%}
+
+{%- capture pdp_material_data -%}
+High Quality Materials
+Sustainable|The exterior is made from a high density polyester made from recycled plastic bottles.|https://cdn.shopify.com/s/files/1/2185/1497/files/Fabric-1_Sustainable_Edgemont.jpg?15446092561340475667
+Water-Resistant|This 600D recycled poly is built to withstand the elements.|https://cdn.shopify.com/s/files/1/2185/1497/files/Fabric-2_Water-Resistant_Edgemont.jpg?15446092561340475667
+{%- endcapture -%}
+{%- assign pdp_material_data = pdp_material_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### --------------------
+### 5. Corporate Reviews
+### --------------------
+### line 1: title
+### line 1+N: review|image
+### --------------------
+{%- endcomment -%}
+
+{%- capture pdp_testimonials_data -%}
+{%- endcapture -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### ----------
+### 6. Stories
+### ----------
+### handle 1, handle 2,... handle N
+### ----------
+{%- endcomment -%}
+
+{%- capture pdp_stories_data -%}
+{%- endcapture -%}
+{%- assign pdp_stories_data = pdp_stories_data | split: ',' -%}
+
+{%- comment -%}
+### ----------
+### 7. Related Products
+### ----------
+### line N: handle N
+### ----------
+{%- endcomment -%}
+
+{%- capture pdp_cross_sell_data -%}
+hanover-600d-recycled-poly-navy
+hanover-deluxe-600d-recycled-poly-navy-camo
+catalina-deluxe-washed-canvas-midnight-ash
+{%- endcapture -%}
+{%- assign pdp_cross_sell_data = pdp_cross_sell_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### ----------
+### 8. Size & Fit Snippet File (autogenerated)
+### ----------
+{%- endcomment -%}
+
+{%- assign pdp_size_fit_data = 'pdp-size-fit-edgemont' -%}

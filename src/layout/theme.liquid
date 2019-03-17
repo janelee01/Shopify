@@ -7,17 +7,26 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="{{ settings.color_primary }}">
 
+  {{ 'lo.css' | asset_url | stylesheet_tag }}
+
+  {% include 'style-tags' %}
+
   {% include 'optimize-page-hiding' %}
   {% include 'google-tag-manager' %}
   {% include 'optimize-tag' %}
-  
+
+    {%- comment -%}Include polyfill for IE browser only{%- endcomment -%}
+    {%- if template contains 'product' -%}
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.includes-polyfill%2CArray.prototype.forEach-polyfill"></script>
+    {%- endif -%}
+
   {% comment %} hide parent collection pages from indexing {% endcomment %}
   {%- if template == 'collection' -%}
     {%- if collection.metafields["global"]["is-parent-collection"] == "true" -%}
       <meta name="robots" content="noindex,follow" />
     {%- endif -%}
   {%- endif -%}
-  
+
   <link rel="canonical" href="{{ canonical_url }}">
 
   {% if settings.favicon != blank %}
@@ -44,9 +53,11 @@
 
   {% include 'social-meta-tags' %}
 
-  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-
   <script>
+    window.slate = window.slate || {};
+    window.theme = window.theme || {};
+    window.LS = window.LS || {};
+
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 
     window.theme = {
@@ -68,11 +79,9 @@
     <!--[if lte IE 9]><script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script><![endif]-->
   {% endif %}
 
-  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
-  <!--[if lt IE 9]><script src="{{ 'vendor.js' | asset_url }}"></script><![endif]-->
-
-  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'theme.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
-  <!--[if lt IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'vendors.min.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+  <!--[if lt IE 9]><script src="{{ 'vendors.min.js' | asset_url }}"></script><![endif]-->
+  {% include 'script-tags', layout: 'theme' %}
 
   <script src="https://player.vimeo.com/api/player.js"></script>
 
@@ -86,7 +95,7 @@
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }} {{ template | handle }} {{ page.metafields['global']['header-theme'] }} js-mega-menu">
 
 
-  {% include 'body-before-start' %} 
+  {% include 'body-before-start' %}
 
     <a class="in-page-link skip-link sr-only" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
@@ -96,14 +105,14 @@
               {% section 'marquee' %}
               <nav id="site-header-items">
                 <div class="container">
-                  {% section 'mega-menu' %} 
+                  {% section 'mega-menu' %}
 
                   {% if template.name == 'index' %}
                     <h1 id="site-logo" itemscope itemtype="http://schema.org/Organization">{{ shop.name }}</h1>
                   {% else %}
                     <a href="/" id="site-logo" itemscope itemtype="http://schema.org/Organization">{{ shop.name }}</a>
                   {% endif %}
-                  
+
                   <div class="site-header-icons">
                     <div class="site-header-icons__icon help-link js-toggle-menu toggle-menu">
                       <a href="#help">
@@ -192,6 +201,6 @@
       });
     </script>
   {% endunless -%}
- 
+
 </body>
 </html>

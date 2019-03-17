@@ -43,7 +43,6 @@
     {%- endfor -%}
 {%- endif -%}
 {%- endfor -%}
-
 <div class="mega-menu__layout js-marque-push-down">
   <div class="mega-menu__container--desktop">
     {%- if columns == 1 -%}
@@ -62,11 +61,13 @@
           {%- elsif _type == 'page_link' -%}
             {%- assign _object = pages[_handle] -%}
           {%- endif -%}
-          
+
           <a class="mega-menu__subnav__item__link" href="{{link_details[1]}}">
             <div class="ratio mega-menu__image">
               <div class="img fit-cover">
-                <img class="img__el mega-menu_subnav__item__img" src="{{_object.metafields["global"]["menu-image"]}}">
+                {%- assign img_src = _object.metafields["global"]["menu-image"] -%}
+                <img class="img__el mega-menu_subnav__item__img" src="{{ img_src | replace: '.jpg', '_300x.jpg' }}">
+                {%- assign img_src = nil -%}
               </div>
             </div>
             <div>
@@ -96,7 +97,7 @@
           {%- assign link_details = nil -%}
         {%- endfor -%}
       </ul>
-      {%- assign rows = nil -%}  
+      {%- assign rows = nil -%}
     </div>
 
 
@@ -123,13 +124,13 @@
           {%- assign link_details = nil -%}
         {%- endfor -%}
       </ul>
-      {%- assign rows = nil -%}  
+      {%- assign rows = nil -%}
     </div>
-    
+
     {%- if columns >= 3 -%}
       {%- assign rows = column_3 | remove_first: '|' | split: '|' -%}
       <div class="mega-menu__subnav mega-menu__carousel navcol-3">
-                  
+
         {%- for row in rows -%}
           {%- assign link_details = row | split: ':' -%}
           {%- if forloop.first == true -%}
@@ -152,7 +153,7 @@
                 <a class="mega-menu__subnav__item__child__featured--link btn-gtm-trk" data-gtm-a="3" href="{{link_details[1]}}">
                   <div class="ratio mega-menu__image">
                     <div class="img fit-cover">
-                      <img class="img__el mega-menu_subnav__item__img" src="{{_page.metafields["global"]["menu-image"]}}">
+                      <img class="img__el mega-menu_subnav__item__img" src="{{_page.metafields["global"]["menu-image"] | replace: '.jpg', '_300x.jpg'}}">
                     </div>
                   </div>
                   <p class="mega-menu__subnav__item__child__featured__caption">{{link_details[0]}}</p>
@@ -171,7 +172,7 @@
             {% include 'header-icons', icon: 'arrow' %}
           </span>
         </ul>
-        {%- assign rows = nil -%}  
+        {%- assign rows = nil -%}
       </div>
       {%- endif -%}
     {%- endif -%}
