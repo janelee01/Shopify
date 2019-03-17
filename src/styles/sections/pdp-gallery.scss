@@ -102,11 +102,6 @@
   }
 }
 
-.pdp-gallery-featured img{
-  @include fill;
-  object-fit: contain;
-}
-
 .pdp-gallery-thumbs-wrapper{
   display: none;
 
@@ -206,7 +201,6 @@
     }
   }
 }
-
 
 .pdp-gallery-mobile-video {
   width: 80vw;
