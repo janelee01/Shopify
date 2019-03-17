@@ -62,6 +62,15 @@
   }
 }
 .pdp-instagram__widget{
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 300ms ease-in 1ms, visibility 1ms;
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
   @media (min-width: $screen-md){
     display: flex;
     flex-direction: column;
