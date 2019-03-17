@@ -597,3 +597,79 @@
 		font-size: 22px;
 	}
 }
+
+#eco-hero{
+	.hero-content{
+		padding: 0 $grid-gutter-width;
+		height: 70%;
+		@media (min-width: $screen-sm) {
+			padding: 0 10%;
+		}
+		@media (min-width: $screen-md) {
+			padding: 0;
+			height: 80%;
+		}
+		@media (min-width: $screen-lg) {
+			padding: 0 5%;
+		}
+	}	
+}
+#eco-backpacks-icons{
+	text-align: center;
+	background: #EBEBEB;
+	padding: 45px $grid-gutter-width;
+	@media (min-width: $screen-sm) {
+		padding: 60px;
+	}
+	@media (min-width: $screen-md) {
+		padding: 60px 0;
+	}
+	h2{
+		font-family: $font-family-medium;	
+		margin: 0;
+		font-size: 36px;
+		@media (min-width: $screen-sm) {
+			font-size: 40px;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 46px;
+		}
+	}
+	img{
+		margin: 45px 0;
+		max-width: 100%;
+		@media (min-width: $screen-sm) {
+			max-width: 432px;
+		}
+		@media (min-width: $screen-lg) {
+			max-width: none;
+		}
+	}
+	p{
+		margin: 0;
+		font-size: 18px;
+		@media (min-width: $screen-lg) {
+			font-size: 22px;
+		}
+	}
+}
+#eco-edgemont-cta{
+	picture{
+		max-width: 160px;
+		@media (min-width: $screen-sm) {
+			max-width: 240px;
+		}
+		@media (min-width: $screen-md) {
+			max-width: 100%;
+		}
+	}
+}
+
+#eco-hanover-cta,
+#eco-hanover-deluxe-cta{
+	picture{
+		@media (min-width: $screen-md) {
+			max-width: 340px;
+		}
+	}
+}

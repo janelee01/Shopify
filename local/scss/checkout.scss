@@ -1,5 +1,5 @@
 @import 'base/variables';
-@import 'base/mixins'; 
+@import 'base/mixins';
 
 @import "vendor/bootstrap/variables";
 @import "vendor/bootstrap/mixins";
@@ -33,7 +33,7 @@ body{
 	margin-bottom: 40px;
 }
 .breadcrumb--center{
-	text-align: left;
+	justify-content: flex-start;
 }
 .alt-payment-list--center{
 	text-align: left;
@@ -55,6 +55,9 @@ body{
 	.field__input{
 		border-radius: 0;
 	}
+	.field__caret{
+		border: 0;
+	}
 }
 .main{
 	h2{
@@ -65,7 +68,7 @@ body{
 		height: 24px;
 		border-radius: 0;
 		&:checked{
-			box-shadow: 0 0 0 13px $brand-blue inset; 
+			box-shadow: 0 0 0 13px $brand-blue inset;
 		}
 	}
 	.input-radio:checked{
@@ -90,7 +93,7 @@ body{
 				padding-top: 18px;
 				padding-bottom: 18px;
 				&.product__image{
-					
+
 				}
 			}
 		}
@@ -144,10 +147,10 @@ body{
 			box-shadow: 0 0 0 1px $brand-blue;
 		}
 		.btn--disabled{
-			border-color: #c8c8c8;	
+			border-color: #c8c8c8;
 			box-shadow: 0 0 0 1px #c8c8c8;
 		}
-	} 
+	}
 	.product__description{
 		.final-sale-warning{
 			text-align: left;
