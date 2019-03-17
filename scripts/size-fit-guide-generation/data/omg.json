@@ -1,0 +1,89 @@
+{
+  "dimensions": {
+    "images": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/bagspecs-frontview-large.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/bagspecs-frontview-small.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/bagspecs-sideview-large.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/bagspecs-sideview-small.jpg"
+    }],
+    "headings": [
+      "Dimensions",
+      "Depth",
+      "Weight",
+      "Handle Drop height",
+      "Base Width",
+      "Height",
+      "Laptop Fit"
+    ],
+    "rows": [{
+      "content": [
+        "O.G.",
+        "6.5\"",
+        "2.2 lbs",
+        "9.5\"",
+        "17\"",
+        "15\"",
+        "13\""
+      ]
+    }, {
+      "content": [
+        "O.M.G",
+        "6\"",
+        "2.1 lbs",
+        "9\"",
+        "16\"",
+        "13.5\"",
+        "13\""
+      ]
+    }]
+  },
+  "fits": [{
+    "title": "5'9\"",
+    "slides": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Amanda-desktop-1.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Amanda-mobile-1.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Amanda-desktop-2.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Amanda-mobile-2.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Amanda-desktop-3.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Amanda-mobile-3.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Amanda-desktop-4.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Amanda-mobile-5.jpg"
+    }]
+  },{
+    "title": "5'5\"",
+    "slides": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Lana-desktop-1.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Lana-mobile-1.jpg"
+    },
+    {
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Lana-desktop-2.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Lana-mobile-2.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Lana-desktop-3.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Lana-mobile-3.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Lana-desktop-4.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Lana-mobile-4.jpg"
+    }]
+  },{
+    "title": "5'1\"",
+    "slides": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Olivia-desktop-1.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Olivia-mobile-1.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Olivia-desktop-2.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Olivia-mobile-2.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Olivia-desktop-3.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Olivia-mobile-3.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Olivia-desktop-4.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/01-Olivia-mobile-5.jpg"
+    }]
+  }],
+  "airline": false
+}

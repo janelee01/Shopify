@@ -1,126 +1,80 @@
-{% comment %} Gift cards follow the standard layout closer, and our regular products are quite elaborate so doing this separate here {% endcomment %}
-{% if product.type == "Gift Card" %}
-	<div class="giftcard">
-		{%- assign current_variant = product.selected_or_first_available_variant -%}
-		{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+{%- if product.type == 'Gift Card' -%}
+  {%- include 'pdp-gift-card' -%}
+{%- else -%}
+  {%- include 'pdp-get-sibling-products' -%}
 
-		<meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
-		<meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
-		<meta itemprop="brand" content="{{ product.vendor }}">
-		<meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
-		<meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+  {%- capture data_file -%}pdp-data-{{parentCollection.title| downcase | remove: 'the' | strip | replace: ' ', '-' | replace: '.', '' }}{%- endcapture -%}
 
-		<div class="container">
-			<div class="h1 hidden-sm hidden-md hidden-lg text-center">{{ product.title }}</div>
-		  	<div class="row">
-		  		<div class="col-sm-8 col-sm-offset-2 col-md-7 col-md-offset-0">
-		  			{% if featured_image != blank %}
-		  			  <img src="{{ featured_image | img_url: 'master' }}" alt="{{ featured_image.alt | escape }}" data-product-featured-image>
-		  			{% endif %}
-		  		</div>
-		   		<div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-0">
-	      			<div class="description">
-	      				<h1 class="hidden-xs">{{ product.title }}</h1>
-		      			{{ product.description }}
-		      		</div>
+  {%- include data_file -%}
 
-	      			<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-	      			  <meta itemprop="priceCurrency" content="{{ shop.currency }}">
-	      			  <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
-	      			  <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
+  {%- include 'pdp-photoswipe-template' -%}
 
-	      			  <form action="/cart/add" method="post" enctype="multipart/form-data">
-	      			  	
-			      			    {% unless product.has_only_default_variant %}
-			      			     	{% for option in product.options_with_values %}
-			      			     	<div class="selector-wrapper">
-		      			     			<p class="variant-label">{{ option.name }}</p>
-		      			     			<div class="variant-buttons">
-		      			     				{% for value in option.values %}
-		      			     					<a href="#" class="btn btn-secondary variant-option gc-option {% if option.selected_value == value %}selected{% endif %}">{{ value }}</a>
-		      			     				{%- endfor -%}
-		      			     			</div>
-			      			     	</div>
-			      			
-     		      			    	{% comment %} Original selects
-     		      			    	<div class="form-group floating-label select-wrapper has-value">
-     			      			        <label for="SingleOptionSelector-{{ forloop.index0 }}">
-     			      			        	{{ option.name }}
-     			      			        </label>
-     									<select
-     										class="form-control"
-     										id="SingleOptionSelector-{{ forloop.index0 }}"
-     										data-single-option-selector
-     										data-index="option{{ option.position }}">
-     										{% for value in option.values %}
-     										  <option
-     										    value="{{ value | escape }}"
-     										    {% if option.selected_value == value %}selected="selected"{% endif %}>
-     										      {{ value }}
-     										  </option>
-     										{% endfor %}
-     									</select>
-     		      			        </div>{% endcomment %}
-			      			      {% endfor %}
-			      			    {% endunless %}
+  {%- include 'pdp-sticky-nav' -%}
 
-			      			    <select name="id" class="hidden" data-product-select>
-			      			      {% for variant in product.variants %}
-			      			        <option
-			      			          {% if variant == current_variant %}selected="selected"{% endif %}
-			      			          {% unless variant.available %}disabled="disabled"{% endunless %}
-			      			          value="{{ variant.id }}">
-			      			            {{ variant.title }}
-			      			        </option>
-			      			      {% endfor %}
-			      			    </select>
-								
-			      			    <input type="hidden" name="properties[Image]" value="https:{{ featured_image | img_url: 'master' }}" data-variant-image>
-								
-								<div class="hidden">
-									<label for="Quantity">{{ 'products.product.quantity' | t }}</label>
-									<input type="number" id="Quantity" name="quantity" value="1" min="1" disabled>
-								</div>
+  <div itemscope itemtype="http://schema.org/Product">
+    <meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
+    <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
+    <meta itemprop="brand" content="{{ product.vendor }}">
+    <meta itemprop="image" content="https:{{ featured_image | img_url: '600x600' }}">
+    <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
 
-			      			    <button
-			      			    	type="submit"
-			      			    	name="add"
-			      			    	class="btn btn-lg"
-			      			     	data-add-to-cart>
-		      			        	{{ 'products.product.add_to_cart' | t }}	
-			      			    </button>
-	      			  	
-	      			  </form>
+    {%- include 'pdp-main' -%}
 
-	    			</div>
-	    		</div>
-			</div>
-		</div>
-		
-		{% comment %} not needed for gift cards, but we need it to keep our js happy {% endcomment %}
-		{%- capture variantStockData -%}
-		{
-			{%- for variant in product.variants -%}
-				"{{ variant.id }}" : {
-					"stockLevel" : "{{ variant.inventory_quantity }}",
-					"restockMessage" : "{{ variant.metafields['global']['restock-expected'] }}"
-				},
-			{%- endfor -%}
-		}
-		{%- endcapture -%}
+    <div class="pdp__white-wrapper">
+    {%- include 'pdp-instagram' -%}
+    </div>
 
-		{% unless product == empty %}
-		  <script type="application/json" data-product-json>
-		    {{ product | json }}
-		  </script>
-		  <script>
-		  var variantStockData = {{ variantStockData }};
-		  </script>
-		{% endunless %}
-	</div>
-{% else %}
+    <div class="pdp__container">
+      {%- if pdp_instagram_data == blank -%}
+        {%- assign remove_top_padding = true -%}
+      {%- endif -%}
+      {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_1, remove_top_padding: remove_top_padding -%}
+      {%- include 'pdp-callout-galleries', alternate: true, data: pdp_callout_galleries_data_2 -%}
+      {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_3 -%}
 
-	{% comment %} regular products {% endcomment %}
-	{% section 'product' %}
+      {%- if pdp_instagram_data == blank and pdp_callout_galleries_data_1 == blank -%}
+        {%- assign remove_top_padding = true -%}
+      {%- endif -%}
+      {%- include 'pdp-material', data: pdp_material_data, remove_top_padding: remove_top_padding -%}
+    </div>
 
-{% endif %}
+    <div class="pdp__white-wrapper">
+      <div class="pdp__container">
+      {%- include 'pdp-see-how-to-pack-it', data: pdp_video_data -%}
+      {%- include 'pdp-stories', data: pdp_stories_data -%}
+      {%- include 'pdp-testimonials', testimonials: pdp_testimonials_data -%}
+      {%- include 'pdp-reviews' -%}
+      </div>
+    </div>
+
+    <div class="pdp__container">
+      {%- include 'pdp-cross-sell', data: pdp_cross_sell_data -%}
+    </div>
+  </div>
+
+  {%- include 'pdp-sticky-nav', collection: parentCollection -%}
+  {%- include 'pdp-modal', id: 'shipping', collection_ref: parentCollection -%}
+  {%- include 'pdp-modal', id: 'size-fit', collection_ref: parentCollection, device_compatibility: pdp_size_fit_device_compatibility, size_weight: pdp_size_fit_size_weight -%}
+
+  {%- if pdp_video_url != blank -%}
+  {%- capture pdp_video_embed -%}
+  <iframe id="vimeo-hanover" class="vimeo" src="{{pdp_video_url}}?title=0&amp;byline=0&amp;portrait=0" width="528" height="297" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+  {%- endcapture -%}
+  {%- elsif parentCollection.metafields["global"]["product-video"] != blank -%}
+    {%- assign pdp_video_embed = parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" -%}
+  {%- endif -%}
+  {%- if pdp_video_embed != blank -%}
+  <script>
+    var video1Embed = '{{pdp_video_embed}}';
+  </script>
+  <div id="product-video">
+    <div id="product-video-container"></div>
+    <a href="#" class="js-panel-close panel-close">
+      <span class="sr-only">close</span>
+    </a>
+  </div>
+  {%- endif -%}
+{%- endif -%}
+
+{%- include 'pdp-icon-sprites' -%}
+

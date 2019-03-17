@@ -1,0 +1,25 @@
+.video {
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: opacity 300ms ease-in 1ms, visibility 1ms;
+
+  &.is-init {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.video.no-fallback .video__el {
+  display: block;
+}
+
+.video__el {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  height: auto;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}

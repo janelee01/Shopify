@@ -23,7 +23,7 @@ gulp.task('styles', function () {
         }))
         .pipe($.autoprefixer('last 2 version', 'ie 9'))
         .pipe($.concat('lo.css')) // slate grabs this file for it's build
-        .pipe(gulp.dest('../src/styles/vendor')) 
+        .pipe(gulp.dest('../src/assets')) 
         .pipe($.size())
 });
 
@@ -35,7 +35,7 @@ gulp.task('checkout', function () {
         }))
         .pipe($.autoprefixer('last 2 version', 'ie 9'))
         .pipe($.concat('lo-checkout.css')) // slate grabs this file for it's build
-        .pipe(gulp.dest('../src/styles/vendor')) 
+        .pipe(gulp.dest('../src/assets')) 
         .pipe($.size())
 });
 

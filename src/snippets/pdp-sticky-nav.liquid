@@ -1,0 +1,60 @@
+<div class="js-pdp-sticky-nav pdp-sticky-nav">
+  <div class="js-pdp-sticky-nav__header pdp-sticky-nav__header">
+    <div class="pdp-sticky-nav__header-swatches">
+      <div href="#" class="pdp-sticky-nav__header-configuration-label">
+        <span class="js-dp-sticky-nav__swatch-title"></span>
+        <span class="js-dp-sticky-nav__swatch-value"></span>
+        {% comment %} <span class="pdp-chevron-down"></span> {% endcomment %}
+      </div>
+    </div>
+
+    <div class="pdp-sticky-nav__header-sizes js-pdp-sticky-nav__header-sizes-wrap">
+      <label for="variant-selector" class="pdp-sticky-nav__variant-selector">Size:</label>
+      <div class="js-pdp-sticky-nav__header-sizes">
+        {%- for variant in product.variants -%}
+          {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- assign selected = '' -%}
+          {%- if variant.id == current_variant.id -%}
+            {%- assign selected = ' selected' -%}
+          {%- endif -%}
+          <a
+            href="#"
+             class="variant-option js-pdp-non-swatch-input {{ selected }}">
+            {{ variant.title }}
+          </a>
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="pdp-sticky-nav__header-add-to-cart" {% unless current_variant.available %}{% if oosPolicy == 'soldout' %} style="display: none"{% endif %}{% endunless %}>{% comment %}hide the whole element when OOS and unavailable for a waitlist{% endcomment %}
+      <div class="pdp-sticky-nav__header-add-to-cart-quantity">
+        <select id="quantity" name="quantity" class="js-pdp-sticky-nav__header-quantity" >
+        {%- for i in (1..40) -%}
+          <option>{{ i }}</option>
+        {%- endfor -%}
+        </select>
+        <span class="pdp-chevron-down"></span>
+      </div>
+
+      <button
+        type="submit"
+        name="add"
+        class="js-pdp-sticky-nav__header-add-to-cart-button"
+        data-add-to-cart
+        id="add-product-proceed"
+        {% unless current_variant.available %}style="display: none"{% endunless %}>
+          {{ 'products.product.add_to_cart' | t }}
+      </button>
+
+      <button
+        class="btn-lg"
+        data-add-to-waitlist
+        id="waitlist-open"
+        {% if current_variant.available %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</a>
+    </div>
+  </div>
+  <div class="pdp-sticky-nav__footer js-pdp-sticky-nav__footer">
+    <button class="js-pdp-sticky-nav__footer-buy-now" type="button">Buy Now</button>
+  </div>
+</div>

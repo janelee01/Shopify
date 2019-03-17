@@ -1,0 +1,38 @@
+{
+  "dimensions": {
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Depth",
+      "Height",
+      "Strap Full Length",
+      "Strap Drop Length",
+      "Weight"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "8\"",
+        "2\"",
+        "5.6\"",
+        "58\"",
+        "27.5\"",
+        "0.5 lbs"
+      ]
+    }]
+  },
+  "device": [{
+    "type": "paragraph",
+    "content": "The Waverley is designed to fit the following smartphones (without a case):"
+  },{
+    "type": "list",
+    "content": [
+      "iPhone 6, iPhone 6 Plus, iPhone 7, iPhone 7 Plus",
+      "Samsung Galaxy S7",
+      "Motorola Moto Z",
+      "LG G5",
+      "Google Pixel"
+    ]
+  }],
+  "airline": false
+}

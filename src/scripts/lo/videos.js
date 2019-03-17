@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var $videos = $('.embed-container'); 
+	var $videos = $('.embed-container');
 
 	var startStopVideo = function($embed,video,forceStart){
 
@@ -43,7 +43,7 @@ $(document).ready(function(){
 		var mobileVideoUrl = $embed.data('mobile-url');
 		var forceStart = $embed.data('force');
 
-		if( !videoId ) return; 
+		if( !videoId ) return;
 
 		// append src
 		if ( $(window).width() < LS.desktopBreakpoint && mobileVideoUrl ) {
@@ -54,7 +54,7 @@ $(document).ready(function(){
 
 		video.oncanplay = function() {
 			$embed.find('.loading').fadeOut();
-			// play it if we can see it 
+			// play it if we can see it
 			startStopVideo($embed, video, forceStart);
 		};
 
@@ -82,7 +82,7 @@ $(document).ready(function(){
 			// catching the start of the video is tricky with the loop, so see if the current time is the last time we saved ?>
 			if( video.currentTime < lastTime ){
 				playCount++;
-				lastTime = 0; 
+				lastTime = 0;
 			}else{
 				lastTime = video.currentTime;
 			}

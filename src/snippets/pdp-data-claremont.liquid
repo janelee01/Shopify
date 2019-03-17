@@ -1,0 +1,135 @@
+{%- comment -%}
+### ------------
+### 0. Mobile Video Thumbnail
+### ------------
+{%- endcomment -%}
+{%- assign pdp_mobile_video_thumb = "" -%}
+
+
+{%- comment -%}
+### ------------
+### 1. Instagram
+### ------------
+{%- endcomment -%}
+
+{%- capture pdp_instagram_data -%}
+{%- endcapture -%}
+
+
+{%- comment -%}
+### -----------
+### 2. Carousel
+### -----------
+### line 1: carousel title (or "-" if none)
+### line 2: carousel subtitle
+### line 3: carousel text
+### line 4+N: slide text|slide image
+### -----------
+{%- endcomment -%}
+
+{%- capture pdp_callout_galleries_data_1 -%}
+Travel In Style
+Designed for DSLR Cameras
+We asked 2 NYC-based photographers, Lindsay Brown and Chaunté Vaughn to take the Claremont camera bag on a day trip touring some of their favorite NYC landmarks.
+Metropolian Museum of Art|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Claremont_designed-for-DSLR_Metropolian-Museum-of-Art.jpg?2015975611200202825
+New York Public Library|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Claremont_designed-for-DSLR_NewYork-Public-Library.jpg?2015975611200202825
+World Trade Center Tunnel|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Claremont_designed-for-DSLR_World-Trade-Center-Tunnel.jpg?2015975611200202825
+{%- endcapture -%}
+
+{%- capture pdp_callout_galleries_data_2 -%}
+-
+A place for everything
+The Claremont doesn't scream "steal me" and is stylish enough to use even as an everyday crossbody bag.
+Internal padding|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Claremont_interior-padding.jpg?2015975611200202825
+SD memory card pockets|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Claremont_interior-memory-card-slots.jpg?2015975611200202825
+Back pocket|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Claremont_exterior-zipper-pocket.jpg?2015975611200202825
+{%- endcapture -%}
+
+{%- assign pdp_callout_galleries_data_1 = pdp_callout_galleries_data_1 | newline_to_br | split: '<br />' -%}
+{%- assign pdp_callout_galleries_data_2 = pdp_callout_galleries_data_2 | newline_to_br | split: '<br />' -%}
+
+
+
+{%- comment -%}
+### -------------------
+### 3. Video
+### -------------------
+### line N: title|video
+### -------------------
+{%- endcomment -%}
+
+{%- capture pdp_video_data -%}
+{%- endcapture -%}
+{%- assign pdp_video_data = pdp_video_data | trim -%}
+
+
+{%- comment -%}
+### ----------------
+### 4. Fabric Module
+### ----------------
+### line 1: Main title
+### line 2+N: Tile title|tile subtitle|tile image
+### ----------------
+{%- endcomment -%}
+
+{%- capture pdp_material_data -%}
+Premium Materials
+Leather Exterior|Crafted from a high-quality full grain leather on the exterior.|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_Claremont_material-full-grain-leather.jpg?2015975611200202825
+Quilted Interior|The interior bag is made of 100% Polyester|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_Claremont_material-quilted.jpg?17787271852002843166
+{%- endcapture -%}
+{%- assign pdp_material_data = pdp_material_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### --------------------
+### 5. Corporate Reviews
+### --------------------
+### line 1: title
+### line 1+N: review|image
+### --------------------
+{%- endcomment -%}
+
+{%- capture pdp_testimonials_data -%}
+Traveler Approved
+“Don't let this buttery soft leather and vintage shape fool you. This is a modern shutterbug's ideal cross-body. Filled with features like pockets for memory cards and extra internal padding to keep your DSLR safe (and your look chic).”|https://cdn.shopify.com/s/files/1/2185/1497/files/elle_logo_68efb2d2-e7e4-45ca-8dd1-f225c4f6708d.png?7201395892155397211
+“Now I have a new item to add to my wish list - a camera bag that’s elegant chic and not the bland backpack black neoprene I've been using.”|https://cdn.shopify.com/s/files/1/2185/1497/files/lucky_logo_3e150580-11cf-4561-b882-ca29c5fa89c7.png?7201395892155397211
+“It looks like a trendy leather purse and features extra internal padding specifically designed to protect a DSLR camera and a small extra lens. The cross body bag has adjustable straps and several discreet pockets for essentials – a back zipper pockets for cash, keys, or credit cards, with two front pockets for memory cards, and a hanging SD memory card holder. This is the best-looking camera bag in the market.”|https://cdn.shopify.com/s/files/1/2185/1497/files/huffingtonpost_logo_595eeeec-4176-4bae-8901-a85ff5085efb.png?7201395892155397211
+{%- endcapture -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### ----------
+### 6. Stories
+### ----------
+### handle 1, handle 2,... handle N
+### ----------
+{%- endcomment -%}
+
+{%- capture pdp_stories_data -%}
+{%- endcapture -%}
+{%- assign pdp_stories_data = pdp_stories_data | split: ',' -%}
+
+{%- comment -%}
+### ----------
+### 7. Related Products
+### ----------
+### line N: handle N
+### ----------
+{%- endcomment -%}
+
+{%- capture pdp_cross_sell_data -%}
+pearl-nappa-leather-sienna-gold-camel
+catalina-deluxe-tote-washed-canvas-dove-grey
+waverley-nappa-leather-light-grey-gold-grey
+{%- endcapture -%}
+{%- assign pdp_cross_sell_data = pdp_cross_sell_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### ----------
+### 8. Size & Fit Snippet File (autogenerated)
+### ----------
+{%- endcomment -%}
+
+{%- assign pdp_size_fit_data = 'pdp-size-fit-claremont' -%}

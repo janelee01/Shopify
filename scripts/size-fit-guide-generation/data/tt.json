@@ -1,0 +1,39 @@
+{
+  "dimensions": {
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Depth",
+      "Height",
+      "Handle Drop Length",
+      "Weight"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "14\"",
+        "4.5\"",
+        "15.5\"",
+        "9.5\"",
+        "1.9 lbs"
+      ]
+    }]
+  },
+  "laptopPocket": {
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Height",
+      "Depth"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "13\"",
+        "13\"",
+        "1.4\""
+      ]
+    }]
+  },
+  "airline": false
+}

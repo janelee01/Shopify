@@ -1,0 +1,138 @@
+{%- comment -%}
+### ------------
+### 0. Mobile Video Thumbnail
+### ------------
+{%- endcomment -%}
+{%- assign pdp_mobile_video_thumb = "Pearl.jpg" -%}
+{%- assign pdp_video_url = "//player.vimeo.com/video/272651324" -%}
+
+{%- comment -%}
+### -----------
+### 1. Carousel
+### -----------
+### line 1: carousel title (or "-" if none)
+### line 2: carousel subtitle
+### line 3: carousel text
+### line 4+N: slide text|slide image
+### -----------
+{%- endcomment -%}
+
+{%- capture pdp_callout_galleries_data_1 -%}
+Travel In Style
+Take it Anywhere
+It's understated yet elegant aesthetic makes The Pearl perfect for any kind of situation or destination.
+Crossbody Bag|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Pearl_crossbody-bag.jpg?1628638196373177977
+Shoulder Bag|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Pearl_shoulder-bag.jpg?1628638196373177977
+Wristlet|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Pearl_wristlet.jpg?1628638196373177977
+{%- endcapture -%}
+
+{%- capture pdp_callout_galleries_data_2 -%}
+-
+A Place for Everything
+Packed with pockets to keep you and your travel essentials organized on-the-go.
+1 Zipper Pocket|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Pearl_interior-zipper-pocket.jpg?1628638196373177977
+2 Slip Pockets|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Pearl_interior-slip-pockets.jpg?1628638196373177977
+Padded Zipper Pockets|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Pearl_padded-zipper-pockets.jpg?1628638196373177977
+Key Leash|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Pearl_key-leash.jpg?1628638196373177977
+{%- endcapture -%}
+
+{%- assign pdp_callout_galleries_data_1 = pdp_callout_galleries_data_1 | newline_to_br | split: '<br />' -%}
+{%- assign pdp_callout_galleries_data_2 = pdp_callout_galleries_data_2 | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### -------------------
+### 2. Video
+### -------------------
+### line N: title|video
+### -------------------
+{%- endcomment -%}
+
+{%- capture pdp_video_data -%}
+What Fits Inside|https://player.vimeo.com/external/272651324.hd.mp4?s=b52ce97d7ddf9de58bbdcb06b20ade6f7c8feed6&profile_id=175
+{%- endcapture -%}
+{%- assign pdp_video_data = pdp_video_data | trim -%}
+
+
+{%- comment -%}
+### --------------------
+### 3. Corporate Reviews
+### --------------------
+### line 1: title
+### line 1+N: review|image
+### --------------------
+{%- endcomment -%}
+
+{%- capture pdp_testimonials_data -%}
+Press
+“A cross-body bag with a top zipper is a must in crowded markets and busy tourist areas where pickpockets and bag snatchers might be on the prowl. The Lo & Sons Pearl has a minimalist exterior design, so it'll go with pretty much any outfit, but the interior is packed with slots and zippered pockets to keep all your valuables and money secure. The adjustable strap even comes off to convert into a clutch for a fancier night out.”|https://cdn.shopify.com/s/files/1/2185/1497/files/travel-leisure-logo.svg?7201395892155397211
+“Classy and practical and as precious as its namesake, The Pearl Bag won’t leave your side on your next day trip or weekend getaway.”|https://cdn.shopify.com/s/files/1/2185/1497/files/huffingtonpost_logo_595eeeec-4176-4bae-8901-a85ff5085efb.png?7201395892155397211
+“I always use the Pearl when I’m on a trip. It’s designed with the traveler in mind, so everything fits in it. That is, my camera, my phone, a charger, lipstick, my wallet, a small notebook, and a pen.”|https://cdn.shopify.com/s/files/1/2185/1497/files/new-york-logo.jpg?7201395892155397211
+{%- endcapture -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### ----------------
+### 4. Fabric Module
+### ----------------
+### line 1: Main title
+### line 2+N: Tile title|tile subtitle|tile image
+### ----------------
+{%- endcomment -%}
+
+{%- capture pdp_material_data -%}
+Premium Materials
+Nappa Leather|A natural grain leather that is known for its smooth texture and soft feel.|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_Pearl_material-nappa-leather.jpg?1628638196373177977
+Saffiano Leather|A durable scratch and water resistant material that won't show as much wear and tear.|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_Pearl_material-saffiano-leather.jpg?1628638196373177977
+{%- endcapture -%}
+{%- assign pdp_material_data = pdp_material_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### ------------
+### 5. Instagram
+### ------------
+{%- endcomment -%}
+
+{%- capture pdp_instagram_data -%}
+<div class="yotpo yotpo-pictures-widget" data-gallery-id="5c8171d51b0ee53d33ff22e4"></div>
+{%- endcapture -%}
+
+
+{%- comment -%}
+### ----------
+### 6. Stories
+### ----------
+### handle 1, handle 2,... handle N
+### ----------
+{%- endcomment -%}
+
+{%- capture pdp_stories_data -%}
+{%- endcapture -%}
+{%- assign pdp_stories_data = pdp_stories_data | split: ',' -%}
+
+
+{%- comment -%}
+### ----------
+### 7. Related Products
+### ----------
+### line N: handle N
+### ----------
+{%- endcomment -%}
+
+{%- capture pdp_cross_sell_data -%}
+og-and-omg-nylon-black-gold-lavender
+claremont-full-grain-leather-sienna
+waverley-nappa-leather-light-grey-gold-grey
+{%- endcapture -%}
+{%- assign pdp_cross_sell_data = pdp_cross_sell_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### ----------
+### 8. Size & Fit Snippet File (autogenerated)
+### ----------
+{%- endcomment -%}
+
+{%- assign pdp_size_fit_data = 'pdp-size-fit-pearl' -%}

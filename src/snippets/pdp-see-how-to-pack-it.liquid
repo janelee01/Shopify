@@ -1,0 +1,21 @@
+{%- if data != blank -%}
+{%- assign video = data | split: '|' | last -%}
+{%- assign title = data | split: '|' | first -%}
+<div class="pdp__separator">
+  <div class="pdp__section-heading">
+    <h2 class="title">{{ title }}</h2>
+  </div>
+  <div class="js-pdp-pack-it pdp-see-how-to-pack-it">
+    <div class="pdp-see-how-to-pack-it__video">
+      {%- if video contains '<iframe' -%}
+      {{ video }}
+      {%- else -%}
+      {%- include 'video', video: video -%}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+{%- endif -%}
+
+{%- assign video = nil -%}
+{%- assign title = nil -%}

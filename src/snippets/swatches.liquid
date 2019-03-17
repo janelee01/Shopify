@@ -6,7 +6,7 @@
 	<ul class="swatches">
 		{%- for siblingProduct in parentCollection.products -%}{% comment %} all products of this type {% endcomment %}
 			{%- if siblingsList contains siblingProduct.id -%}{% comment %} make sure this product can be shown {% endcomment %}
-				{%- assign siblingUrl = siblingProduct.url -%} 
+				{%- assign siblingUrl = siblingProduct.url -%}
 				{%- if referringCollectionHandle -%}
 					{%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
 				{%- endif -%}
@@ -20,7 +20,7 @@
 		{%- for siblingProduct in parentCollection.products -%}
 			{%- if siblingsList contains siblingProduct.id -%}
 				{%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-1' -%}
-					{%- assign siblingUrl = siblingProduct.url -%} 
+					{%- assign siblingUrl = siblingProduct.url -%}
 					{%- if referringCollectionHandle -%}
 						{%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
 					{%- endif -%}
@@ -39,7 +39,7 @@
 		{%- for siblingProduct in parentCollection.products -%}
 			{%- if siblingsList contains siblingProduct.id -%}
 				{%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-2' -%}
-					{%- assign siblingUrl = siblingProduct.url -%} 
+					{%- assign siblingUrl = siblingProduct.url -%}
 					{%- if referringCollectionHandle -%}
 						{%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
 					{%- endif -%}
@@ -58,7 +58,7 @@
 		{%- for siblingProduct in parentCollection.products -%}
 			{%- if siblingsList contains siblingProduct.id -%}
 				{%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-3' -%}
-					{%- assign siblingUrl = siblingProduct.url -%} 
+					{%- assign siblingUrl = siblingProduct.url -%}
 					{%- if referringCollectionHandle -%}
 						{%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
 					{%- endif -%}
@@ -73,4 +73,4 @@
 			{{ swatchGroup3 }}
 		</ul>
 	{%- endif -%}
-{%- endif -%}	
+{%- endif -%}

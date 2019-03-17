@@ -1,0 +1,37 @@
+{%- assign class = class | default: nil -%}
+{%- assign src = src | default: nil -%}
+{%- assign retina = retina | default: nil -%}
+{%- assign src_media = src_media | default: false -%}
+{%- assign srcset = srcset | default: nil -%}
+{%- assign seo = seo | default: nil -%}
+{%- assign object_fit = object_fit | default: 'cover' -%}
+{%- assign attrs = attrs | default: true -%}
+
+{%- capture css -%}
+  js-lazy-img lazy-img lazy-img--vanilla fit-{{ object_fit }} {{ class }}
+{%- endcapture -%}
+
+{%- capture attributes -%}
+  {%- if seo -%}title="{{- seo | strip -}}" alt="{{- seo | strip -}}" {{attrs}}{%- endif -%}
+{%- endcapture -%}
+
+<div class="{{- css | strip -}}">
+  <noscript>
+    <img class="lazy-img__el is-fallback" src="{{- src | strip -}}" {{- attributes | strip -}}>
+  </noscript>
+  {%- if src_media -%}
+    {{- src_media -}}
+  {%- endif -%}
+  <img class="lazy-img__el" data-js-class="img__el" data-normal="{{- src | strip -}}" {%- if retina -%}data-retina="{{- retina | strip -}}"{%- endif -%} {%- if srcset -%}data-srcset="{{- srcset | strip -}}"{%- endif -%} {{- attributes | strip -}}>
+</div>
+
+{%- assign class = nil -%}
+{%- assign src = nil -%}
+{%- assign retina = nil -%}
+{%- assign src_media = nil -%}
+{%- assign srcset = nil -%}
+{%- assign seo = nil -%}
+{%- assign object_fit = nil -%}
+{%- assign css = nil -%}
+{%- assign attrs = nil -%}
+{%- assign attributes = nil -%}

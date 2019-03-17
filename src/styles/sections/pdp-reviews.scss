@@ -1,0 +1,96 @@
+.pdp-main-product-yotpo{
+  &:hover{
+    .pdp-main-product-yotpo-reviews{
+      color: $brand-blue !important;
+    }
+  }
+}
+.pdp-reviews{
+  padding-bottom: 40px;
+  @media (min-width: $screen-xs){
+    padding-bottom: 70px;
+  }
+}
+.yotpo-icon-write,
+.yotpo-icon-double-bubble{
+  display: none;
+}
+.yotpo-icon-profile{
+  display: none !important;
+}
+.yotpo-user-name{
+  color: $gray-darker !important;
+}
+.yotpo-icon-star,
+.yotpo-icon-half-star,
+.yotpo-icon-empty-star{
+  color: $brand-blue !important;
+}
+.yotpo-review-images-wrapper{
+  display: none;
+}
+.template-product .yotpo .yotpo-question .yotpo-comments-box,
+.template-product .yotpo .yotpo-review .yotpo-comments-box,
+.template-product .yotpo.yotpo-main-widget .yotpo-question .yotpo-comments-box,
+.template-product .yotpo.yotpo-main-widget .yotpo-review .yotpo-comments-box,
+.template-product .yotpo.yotpo-lightbox .yotpo-question .yotpo-comments-box,
+.template-product .yotpo.yotpo-lightbox .yotpo-review .yotpo-comments-box {
+  border-left-color: $gray-lighter !important;
+}
+.template-product .yotpo .yotpo-question .yotpo-header .yotpo-header-element .y-label,
+.template-product .yotpo .yotpo-review .yotpo-header .yotpo-header-element .y-label,
+.template-product .yotpo.yotpo-main-widget .yotpo-question .yotpo-header .yotpo-header-element .y-label,
+.template-product .yotpo.yotpo-main-widget .yotpo-review .yotpo-header .yotpo-header-element .y-label,
+.template-product .yotpo.yotpo-lightbox .yotpo-question .yotpo-header .yotpo-header-element .y-label,
+.template-product .yotpo.yotpo-lightbox .yotpo-review .yotpo-header .yotpo-header-element .y-label{
+  @extend %p2;
+  color: $gray-light;
+}
+.template-product .yotpo .yotpo-question .yotpo-main .content-question.yotpo-font-bold,
+.template-product .yotpo .yotpo-question .yotpo-main .content-title,
+.template-product .yotpo .yotpo-review .yotpo-main .content-question.yotpo-font-bold,
+.template-product .yotpo .yotpo-review .yotpo-main .content-title,
+.template-product .yotpo.yotpo-main-widget .yotpo-question .yotpo-main .content-question.yotpo-font-bold,
+.template-product .yotpo.yotpo-main-widget .yotpo-question .yotpo-main .content-title,
+.template-product .yotpo.yotpo-main-widget .yotpo-review .yotpo-main .content-question.yotpo-font-bold,
+.template-product .yotpo.yotpo-main-widget .yotpo-review .yotpo-main .content-title,
+.template-product .yotpo.yotpo-lightbox .yotpo-question .yotpo-main .content-question.yotpo-font-bold,
+.template-product .yotpo.yotpo-lightbox .yotpo-question .yotpo-main .content-title,
+.template-product .yotpo.yotpo-lightbox .yotpo-review .yotpo-main .content-question.yotpo-font-bold,
+.template-product .yotpo.yotpo-lightbox .yotpo-review .yotpo-main .content-title{
+  font-family: $font-family-medium;
+  color: $text-color;
+  @extend %p1;
+}
+.template-product .yotpo .yotpo-question .yotpo-main .content-question,
+.template-product .yotpo .yotpo-question .yotpo-main .content-review,
+.template-product .yotpo .yotpo-question .yotpo-main .content-review .rest-content-collapsed,
+.template-product .yotpo .yotpo-review .yotpo-main .content-question,
+.template-product .yotpo .yotpo-review .yotpo-main .content-review,
+.template-product .yotpo .yotpo-review .yotpo-main .content-review .rest-content-collapsed,
+.template-product .yotpo.yotpo-main-widget .yotpo-question .yotpo-main .content-question,
+.template-product .yotpo.yotpo-main-widget .yotpo-question .yotpo-main .content-review,
+.template-product .yotpo.yotpo-main-widget .yotpo-question .yotpo-main .content-review .rest-content-collapsed,
+.template-product .yotpo.yotpo-main-widget .yotpo-review .yotpo-main .content-question,
+.template-product .yotpo.yotpo-main-widget .yotpo-review .yotpo-main .content-review,
+.template-product .yotpo.yotpo-main-widget .yotpo-review .yotpo-main .content-review .rest-content-collapsed,
+.template-product .yotpo.yotpo-lightbox .yotpo-question .yotpo-main .content-question,
+.template-product .yotpo.yotpo-lightbox .yotpo-question .yotpo-main .content-review,
+.template-product .yotpo.yotpo-lightbox .yotpo-question .yotpo-main .content-review .rest-content-collapsed,
+.template-product .yotpo.yotpo-lightbox .yotpo-review .yotpo-main .content-question,
+.template-product .yotpo.yotpo-lightbox .yotpo-review .yotpo-main .content-review,
+.template-product .yotpo.yotpo-lightbox .yotpo-review .yotpo-main .content-review .rest-content-collapsed{
+  line-height: 1.4;
+  color: $gray;
+  @extend %p2;
+}
+.template-product .yotpo .yotpo-question .yotpo-header .yotpo-header-element .y-label.yotpo-user-title,
+.template-product .yotpo .yotpo-review .yotpo-header .yotpo-header-element .y-label.yotpo-user-title,
+.template-product .yotpo.yotpo-main-widget .yotpo-question .yotpo-header .yotpo-header-element .y-label.yotpo-user-title,
+.template-product .yotpo.yotpo-main-widget .yotpo-review .yotpo-header .yotpo-header-element .y-label.yotpo-user-title,
+.template-product .yotpo.yotpo-lightbox .yotpo-question .yotpo-header .yotpo-header-element .y-label.yotpo-user-title,
+.template-product .yotpo.yotpo-lightbox .yotpo-review .yotpo-header .yotpo-header-element .y-label.yotpo-user-title{
+  @extend %p3;
+  line-height: 1em;
+  vertical-align: bottom;
+}

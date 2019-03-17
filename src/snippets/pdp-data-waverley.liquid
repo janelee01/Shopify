@@ -1,0 +1,134 @@
+{%- comment -%}
+### ------------
+### 0. Mobile Video Thumbnail
+### ------------
+{%- endcomment -%}
+{%- assign pdp_mobile_video_thumb = "Waverley.jpg" -%}
+
+{%- comment -%}
+### -----------
+### 1. Carousel
+### -----------
+### line 1: carousel title (or "-" if none)
+### line 2: carousel subtitle
+### line 3: carousel text
+### line 4+N: slide text|slide image
+### -----------
+{%- endcomment -%}
+
+{%- capture pdp_callout_galleries_data_1 -%}
+Travel In Style
+Wear It 4 Ways
+Convert the Waverley from a belt bag to a crossbody, shoulder bag, or a wristlet.
+Belt Bag|https://cdn.shopify.com/s/files/1/2185/1497/files/slider-1_Wear-It-4-Ways_Waverley_belt-bag.jpg?15471602786175701569
+Crossbody Bag|https://cdn.shopify.com/s/files/1/2185/1497/files/slider-1_Wear-It-4-Ways_Waverley_crossbody-bag.jpg?15471602786175701569
+Shoulder Bag|https://cdn.shopify.com/s/files/1/2185/1497/files/slider-1_Wear-It-4-Ways_Waverley_shoulder-bag.jpg?15471602786175701569
+Wristlet|https://cdn.shopify.com/s/files/1/2185/1497/files/slider-1_Wear-It-4-Ways_Waverley_wristlet-clutch.jpg?15471602786175701569
+{%- endcapture -%}
+
+{%- capture pdp_callout_galleries_data_2 -%}
+-
+Easy Access
+The Waverley keeps your most essential items neatly organized on the road.
+1 big slip pocket|https://cdn.shopify.com/s/files/1/2185/1497/files/slider-2_Easy-Access_Waverley_interior-slip-pocket.jpg?15471602786175701569
+3 small card pockets|https://cdn.shopify.com/s/files/1/2185/1497/files/slider-2_Easy-Access_Waverley_interier-card-slots.jpg?15471602786175701569
+{%- endcapture -%}
+
+{%- assign pdp_callout_galleries_data_1 = pdp_callout_galleries_data_1 | newline_to_br | split: '<br />' -%}
+{%- assign pdp_callout_galleries_data_2 = pdp_callout_galleries_data_2 | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### -------------------
+### 2. Video
+### -------------------
+### line N: title|video
+### -------------------
+{%- endcomment -%}
+
+{%- capture pdp_video_data -%}
+What Fits Inside|https://player.vimeo.com/external/190575346.hd.mp4?s=60ab0dee05f4aba33551a42762dbc596df8f1561&profile_id=119
+{%- endcapture -%}
+{%- assign pdp_video_data = pdp_video_data | trim -%}
+
+
+{%- comment -%}
+### --------------------
+### 3. Corporate Reviews
+### --------------------
+### line 1: title
+### line 1+N: review|image
+### --------------------
+{%- endcomment -%}
+
+{%- capture pdp_testimonials_data -%}
+Press
+“What’s not to love about this sleek, versatile bag? It’s perfect for keeping your phone, passport and credit cards close, without sacrificing style. It comes in four beautiful colors, and can be worn like a crossbody handbag or an updated version of the fanny pack.”|https://cdn.shopify.com/s/files/1/2185/1497/files/travel-channel-logo.svg?7201395892155397211
+“The fanny pack is sort of back in a way. For travel it's so smart. I need to be hands free when traveling with two kids. It's great to put your passport and all of your important things without reaching back and getting all twisted up.”|https://cdn.shopify.com/s/files/1/2185/1497/files/todayshow_logo.png?7201395892155397211
+{%- endcapture -%}
+{%- assign pdp_testimonials_data = pdp_testimonials_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### ----------------
+### 4. Fabric Module
+### ----------------
+{%- endcomment -%}
+
+{%- capture pdp_material_data -%}
+Premium Materials
+Nappa Leather|A natural grain leather that is known for its smooth texture and soft feel.|https://cdn.shopify.com/s/files/1/2185/1497/files/slider-3_Premium-Material_Waverley_nappa-leather.jpg?15471602786175701569
+Durable Hardware|Crafted from high-quality materials that are built for everyday wear.|https://cdn.shopify.com/s/files/1/2185/1497/files/slider-3_Premium-Material_Waverley_hardware.jpg?15471602786175701569
+{%- endcapture -%}
+{%- assign pdp_material_data = pdp_material_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### ------------
+### 5. Instagram
+### ------------
+{%- endcomment -%}
+
+{%- capture pdp_instagram_data -%}
+<div class="yotpo yotpo-pictures-widget" data-gallery-id="5c81716bd74597154215b5f8"></div>
+{%- endcapture -%}
+
+
+{%- comment -%}
+### ----------
+### 6. Stories
+### ----------
+### handle 1, handle 2,... handle N
+### ----------
+{%- endcomment -%}
+
+{%- capture pdp_stories_data -%}
+travel-inspiration/a-week-in-paris-alice-gao,travel-tips-guides/traveling-with-kids-9to5chic,travel-inspiration/creative-workshop-morocco-atelier-dore
+{%- endcapture -%}
+{%- assign pdp_stories_data = pdp_stories_data | split: ',' -%}
+
+
+
+{%- comment -%}
+### ----------
+### 7. Related Products
+### ----------
+### line N: handle N
+### ----------
+{%- endcomment -%}
+
+{%- capture pdp_cross_sell_data -%}
+claremont-full-grain-leather-sienna
+pearl-saffiano-leather-black-gold-grey
+catalina-deluxe-washed-canvas-dove-grey
+{%- endcapture -%}
+{%- assign pdp_cross_sell_data = pdp_cross_sell_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### ----------
+### 8. Size & Fit Snippet File (autogenerated)
+### ----------
+{%- endcomment -%}
+
+{%- assign pdp_size_fit_data = 'pdp-size-fit-waverly' -%}

@@ -1,0 +1,39 @@
+{
+  "dimensions": {
+    "headings": [
+      "Dimensions",
+      "Base Width",
+      "Depth",
+      "Height",
+      "Handle Drop Length",
+      "Weight (600D Recycled Poly)",
+      "Weight (Waxed Twill)"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "17\"",
+        "7\"",
+        "12\"",
+        "9\"",
+        "3.2 lbs",
+        "3.4 lbs"
+      ]
+    }]
+  },
+  "laptopPocket": {
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Height"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "16.25\"",
+        "10\""
+      ]
+    }]
+  },
+  "airline": false
+}

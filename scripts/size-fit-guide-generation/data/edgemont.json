@@ -1,0 +1,36 @@
+{
+  "dimensions": {
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Depth",
+      "Height",
+      "Weight"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "13\"",
+        "5\"",
+        "14.5\"",
+        "2.2 lbs"
+      ]
+    }]
+  },
+  "laptopPocket": {
+    "subtitle": "Fits up to 13-inch laptops",
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Height"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "11.75\"",
+        "13.25\""
+      ]
+    }]
+  },
+  "airline": false
+}
