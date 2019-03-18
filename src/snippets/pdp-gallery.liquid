@@ -8,6 +8,7 @@
     </span>
     {%- assign img_src = siblingProduct.featured_image | img_url: 'original' -%}
     {% include 'image',
+      lazy: false,
       src: img_src,
       object_fit: 'contain',
       alt: '' %}
