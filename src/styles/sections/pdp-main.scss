@@ -183,14 +183,11 @@
   }
 }
 .pdp-main-product-yotpo{
-  float: right;
-
   &:hover{
     text-decoration: none;
   }
 
   @media (min-width: $screen-md){
-    float: none;
     border-left: 1px solid $gray-light;
     margin-left: 10px;
     padding-left: 10px;
@@ -206,6 +203,12 @@
     .pdp-main-product-yotpo-reviews{
       color: $gray;
     }
+  }
+}
+.pdp-main-product-yotpo--desktop{
+  display: none;
+  @media (min-width: $screen-md){
+    display: inline;
   }
 }
 .pdp-main-product-yotpo-stars{
