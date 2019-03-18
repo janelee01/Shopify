@@ -40,18 +40,9 @@
       <button
         type="submit"
         name="add"
-        class="js-pdp-sticky-nav__header-add-to-cart-button"
-        data-add-to-cart
-        id="add-product-proceed"
-        {% unless current_variant.available %}style="display: none"{% endunless %}>
+        class="js-pdp-sticky-nav__header-add-to-cart-button">
           {{ 'products.product.add_to_cart' | t }}
       </button>
-
-      <button
-        class="btn-lg"
-        data-add-to-waitlist
-        id="waitlist-open"
-        {% if current_variant.available %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</a>
     </div>
   </div>
   <div class="pdp-sticky-nav__footer js-pdp-sticky-nav__footer">
