@@ -1,0 +1,12 @@
+<script src="https://browser.sentry-cdn.com/4.6.4/bundle.min.js" crossorigin="anonymous"></script>
+<script>
+Sentry.init({
+  dsn: 'https://4535afa6763441cabf738a5947fb6308@sentry.io/1417909',
+  environment: ~document.location.href.indexOf('localhost') ? 'dev' : 'production',
+  debug: false,
+  whitelistUrls: [
+    "{{ 'test.jpg' | asset_url }}".replace(/test.jpg\?\d*/,'')
+  ],
+  ignoreErrors: ['localhost']
+});
+</script>

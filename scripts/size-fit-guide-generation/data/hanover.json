@@ -6,7 +6,7 @@
     }]
   },
   "fits": [{
-    "title": "See how the Hanover and the Hanover Deluxe looks according to your height.",
+    "title": "5'7\"",
     "slides": [{
       "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Becky-1.jpg",
       "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H-Becky-1.jpg"
@@ -24,7 +24,7 @@
       "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H-Becky-5.jpg"
     }]
   },{
-    "title": "See how the Hanover and the Hanover Deluxe looks according to your height.",
+    "title": "5'3\"",
     "slides": [{
       "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Maeve-1.jpg",
       "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H-Maeve-mobile-1.jpg"
@@ -40,6 +40,42 @@
     },{
       "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/Maeve-5.jpg",
       "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/H-Maeve-mobile-5.jpg"
+    }]
+  },{
+    "title": "6'2\"",
+    "slides": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Nicolas-desktop-1.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Nicolas-mobile-1.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Nicolas-desktop-2.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Nicolas-mobile-2.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Nicolas-desktop-3.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Nicolas-mobile-3.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Nicolas-desktop-4.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Nicolas-mobile-4.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Nicolas-desktop-5.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Nicolas-mobile-5.jpg"
+    }]
+  },{
+    "title": "5'8\"",
+    "slides": [{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Viktor-desktop-1.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Viktor-mobile-1.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Viktor-desktop-2.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Viktor-mobile-2.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Viktor-desktop-3.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Viktor-mobile-3.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Viktor-desktop-4.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Viktor-mobile-4.jpg"
+    },{
+      "desktop": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Viktor-desktop-5.jpg",
+      "mobile": "https://cdn.shopify.com/s/files/1/2185/1497/files/2-HC-Viktor-mobile-5.jpg"
     }]
   }],
   "airline": false

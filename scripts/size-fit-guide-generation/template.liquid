@@ -17,7 +17,7 @@
 
   <div class="pdp-size-fit__table">
   {% if dimensions.headings.size > 0 %}
-    <table>
+    <table {% if dimensions.rows[0].content[0] == blank %} class="hide-first"{% endif %}>
       <thead>
         <tr>
         {% for heading in dimensions.headings %}
@@ -81,7 +81,7 @@
 <div class="pdp-size-fit__table">
   <h3>Laptop Pocket Dimensions</h3>
   {% if laptopPocket.headings.size > 0 %}
-    <table>
+    <table {% if laptopPocket.rows[0].content[0] == blank %} class="hide-first"{% endif %}>
       <thead>
         <tr>
         {% for heading in laptopPocket.headings %}

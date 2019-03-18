@@ -248,7 +248,7 @@ $(document).ready(function() {
 		// Moving Down
 		if (isPageNav && !isMarquee && isMovingDown && isPastTrigger) {
 			if (!isMegaMenuActive) {
-				header.css({'top' : $('#site-header-items').outerHeight() * -1});
+				$header.css({'top' : $('#site-header-items').outerHeight() * -1});
 			}
 			return
 		}

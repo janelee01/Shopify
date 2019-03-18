@@ -6,6 +6,7 @@
 {%- assign seo = seo | default: nil -%}
 {%- assign object_fit = object_fit | default: 'cover' -%}
 {%- assign attrs = attrs | default: true -%}
+{%- assign lazy = lazy | default: true -%}
 
 {%- capture css -%}
   js-lazy-img lazy-img lazy-img--vanilla fit-{{ object_fit }} {{ class }}
@@ -15,14 +16,18 @@
   {%- if seo -%}title="{{- seo | strip -}}" alt="{{- seo | strip -}}" {{attrs}}{%- endif -%}
 {%- endcapture -%}
 
-<div class="{{- css | strip -}}">
+<div class="{{- css | strip -}} {% unless lazy %} is-loaded{% endunless %}">
   <noscript>
     <img class="lazy-img__el is-fallback" src="{{- src | strip -}}" {{- attributes | strip -}}>
   </noscript>
   {%- if src_media -%}
     {{- src_media -}}
   {%- endif -%}
+  {%- if lazy-%}
   <img class="lazy-img__el" data-js-class="img__el" data-normal="{{- src | strip -}}" {%- if retina -%}data-retina="{{- retina | strip -}}"{%- endif -%} {%- if srcset -%}data-srcset="{{- srcset | strip -}}"{%- endif -%} {{- attributes | strip -}}>
+  {%- else -%}
+  <img class="lazy-img__el" data-js-class="img__el" src="{{- src | strip -}}" {{- attributes | strip -}}>
+  {%- endif -%}
 </div>
 
 {%- assign class = nil -%}
@@ -35,3 +40,4 @@
 {%- assign css = nil -%}
 {%- assign attrs = nil -%}
 {%- assign attributes = nil -%}
+{%- assign lazy = nil -%}

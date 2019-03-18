@@ -5,6 +5,7 @@
       {%- unless parentCollection.metafields["global"]["short-description"] == blank -%}
       <h4>{{ parentCollection.metafields["global"]["short-description"] }}</h4>
       {%- endunless -%}
+      {% include 'pdp-review-summary', class:"pdp-main-product-yotpo--mobile" %}
     </div>
     <div class="product-main__featured">
     {%- include 'pdp-gallery', item: product -%}
@@ -37,31 +38,7 @@
         <span class="discount-badge{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>%<br />OFF</span>
       </span>
 
-    {% if true or product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
-      <a href="#" class="pdp-main-product-yotpo yotpo">
-        {% assign reviewsAverage = product.metafields.yotpo.reviewsAverage | default: 4.5 %}
-        {% assign reviewsAverageInt = reviewsAverage | floor %}
-
-        {% assign reviewsAverageDec = reviewsAverageInt | minus: reviewsAverageInt  %}
-        {% assign emptyStars = 5  %}
-
-        <span class="pdp-main-product-yotpo-stars">
-        {% for i in (1..reviewsAverageInt)  %}
-          <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
-        {% assign emptyStars = emptyStars | minus: 1  %}
-        {% endfor %}
-        {% if reviewsAverageDec %}
-        {% assign emptyStars = emptyStars | minus: 1  %}
-          <span class="yotpo-icon yotpo-icon-half-star rating-star pull-left"></span>
-        {% endif %}
-        {% for i in (1..emptyStars)  %}
-          <span class="yotpo-icon yotpo-icon-empty-star rating-star pull-left"></span>
-        {% endfor %}
-        </span>
-
-        <span class="pdp-main-product-yotpo-reviews">{{ product.metafields.yotpo.reviews_count | default: 2 }} Reviews</span>
-      </a>
-    {% endif %}
+      {% include 'pdp-review-summary', class:"pdp-main-product-yotpo--desktop" %}
 
      <p class="pdp-main-mobile-swatch-label js-mobile-swatch-label"></p>
   </div>
