@@ -13,8 +13,8 @@
   <div class="pdp-testimonials__logos js-pdp-testimonials-logos">
   {%- for i in (1..testimonials_count_minus_1) -%}
   {%- assign testimonial = testimonials[i] -%}
-
   {%- assign image_src = testimonial | split: '|' | last -%}
+  {%- unless image_src == blank -%}
   <div class="pdp-testimonials__logos-item">
     <span>
       {% include 'image',
@@ -23,6 +23,7 @@
         alt: '' %}
     </span>
   </div>
+  {%- endunless -%}
   {%- assign image_src = nil -%}
   {%- endfor -%}
 </div>
@@ -30,8 +31,10 @@
   {%- for i in (1..testimonials_count_minus_1) -%}
   {%- assign testimonial = testimonials[i] -%}
   {%- assign text = testimonial | split: '|' | first -%}
+  {%- unless text == blank -%}
     <p>{{ text }}</p>
-  {%- assign image_src = nil -%}
+  {%- assign text = nil -%}
+  {%- endunless -%}
   {%- endfor -%}
   </div>
 </div>
