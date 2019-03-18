@@ -1,6 +1,6 @@
 {
   "name": "lo-and-sons",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "scripts": {
     "start": "slate-tools start --skipFirstDeploy",
     "start:deploy": "slate-tools start",
