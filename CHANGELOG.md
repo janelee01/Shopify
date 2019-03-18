@@ -1,7 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## 0.0.13 - 2018-3-17
+## 0.0.15 - 2018-3-18
+### TEAM: Barrel
+### CHANGED:
+- PDP pre launch and post launch updates
+- Adds in Sentry
+- QA Fixes
+
+## 0.0.14 - 2018-3-17
 ### TEAM: Barrel
 ### CHANGED:
 - Adds in new PDP template

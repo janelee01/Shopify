@@ -80,7 +80,7 @@
         class="btn-lg js-add-to-wishlist"
         data-add-to-waitlist
         id="waitlist-open"
-        {% if current_variant.available %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</a>
+        {% if current_variant.available %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</button>
     </div>
     <div class="pdp-sold-out-message js-pdp-sold-out-message" id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div>
     <div class="pdp-low-stock-warning js-pdp-low-stock-warning low-stock-warning hidden">{{ 'products.product.low_stock' | t }}</div>

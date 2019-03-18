@@ -41,6 +41,17 @@
   table{
     @extend %p3;
     width: 100%;
+
+    &.hide-first{
+      th:first-child,
+      td:first-child{
+        display: none;
+
+        @media (min-width: $screen-md){
+          display: table-cell;
+        }
+      }
+    }
   }
 
   thead{

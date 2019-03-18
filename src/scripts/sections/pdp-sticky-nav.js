@@ -59,11 +59,11 @@ export default el => {
       $sizeBtnWrapper.classList.add('hidden')
     } else {
       $sizeBtnWrapper.classList.remove('hidden')
-
-      // Select the current size button
-      updateActiveOption(variant.id)
-      updateButtonState(buttonState)
     }
+
+    // Select the current size button
+    updateActiveOption(variant.id)
+    updateButtonState(buttonState)
   })
 
   window.addEventListener('scroll', e => {
