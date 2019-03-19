@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 0.0.16 - 2018-3-19
+### TEAM: Barrel
+### CHANGED:
+- Updates reviews_average naming convention on PDP
+
 ## 0.0.15 - 2018-3-18
 ### TEAM: Barrel
 ### CHANGED:
