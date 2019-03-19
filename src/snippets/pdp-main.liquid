@@ -53,7 +53,7 @@
 <div data-section-id="{{ section.id }}">
   {% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
     <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-      <meta itemprop="ratingValue" content="{{ product.metafields.yotpo.reviewsAverage }}">
+      <meta itemprop="ratingValue" content="{{ product.metafields.yotpo.reviews_average }}">
       <meta itemprop="ratingCount" content="{{ product.metafields.yotpo.reviews_count }}">
     </div>
   {% endif %}
