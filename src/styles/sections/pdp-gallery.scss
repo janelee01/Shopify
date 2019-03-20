@@ -35,6 +35,20 @@
   width: 80vw;
   margin-right: 10px;
   flex: 0 0 auto;
+
+  @media (min-width: $screen-s-md){
+    width: 60vw;
+  }
+
+  /*
+   * Positions the first image to appear inline
+   * with the form below for tablet devices.
+   */
+  &:first-child{
+    @media (min-width: $screen-s-md){
+      margin-left: 20vw;
+    }
+  }
 }
 .pdp-gallery-video-icon{
   &:before{
