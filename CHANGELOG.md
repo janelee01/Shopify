@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 0.0.18 - 2018-3-28
+### TEAM: Barrel
+### CHANGED:
+- Temporarily removes footer newsletter due to issue with URL (Quick fix)
+
 ## 0.0.17 - 2018-3-20
 ### TEAM: Barrel
 ### CHANGED:
