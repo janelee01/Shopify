@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 0.0.19 - 2018-4-1
+### TEAM: Barrel
+### CHANGED:
+- Updates PDP template and material module
+- Allows PDP data worflow to fail silently
+
 ## 0.0.18 - 2018-3-28
 ### TEAM: Barrel
 ### CHANGED:
