@@ -12,7 +12,8 @@
 
   {%- capture data_file -%}pdp-data-{{parentCollection.title| downcase | remove: 'the' | strip | replace: ' ', '-' | replace: '.', '' }}{%- endcapture -%}
 
-  {%- include data_file -%}
+  {%- capture test_data_file -%}{%- include data_file -%}{%- endcapture -%}
+  {%- unless test_data_file contains 'Liquid error' -%}{%- include data_file -%}{%- endunless -%}
 
   {%- include 'pdp-photoswipe-template' -%}
 
