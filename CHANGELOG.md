@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 0.0.20 - 2018-4-1
+### TEAM: Barrel
+### CHANGED:
+- Updates newsletter URL
+- Reactivates newsletter
+
 ## 0.0.19 - 2018-4-1
 ### TEAM: Barrel
 ### CHANGED:
