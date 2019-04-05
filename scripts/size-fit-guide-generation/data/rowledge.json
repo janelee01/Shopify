@@ -1,0 +1,25 @@
+{
+  "dimensions": {
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Depth",
+      "Height",
+      "Padded Strap Length",
+      "Stash Pocket Depth",
+      "Front Zipper Pocket Height"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "11.5\"",
+        "6.75\"",
+        "16.5\"",
+        "14\"",
+        "7\"",
+        "9\""
+      ]
+    }]
+  },
+  "airline": false
+}
