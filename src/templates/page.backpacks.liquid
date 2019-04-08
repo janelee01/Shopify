@@ -8,7 +8,7 @@
         <div class="hero has-black-arrow" id="eco-hero">
             {% include 'discover-picture', name: 'eco-backpacks-hero', alt: 'crowd at beach', retina: true, fw: false, lg: true %}
             <div class="hero-content black">
-                <h1 class="title">Eco-Friendly Backpacks</h1>
+                <h1 class="title">Hanover Collection</h1>
                 <p class="description">Minimalist design. Constructed from sustainable materials. Our backpacks are thoughtfully designed for commutes, working remotely, or exploring your favorite city.</p>
             </div>
             {% include 'hero-jump-btn' %}
@@ -119,43 +119,6 @@
           
         </div>
 
-    </div>
-   
-    {%- assign ctaImgCol = 'col-md-6' -%}
-    {%- assign ctaContentCol = 'col-md-6' -%} 
-    {%- assign ctaTitle = 'Edgemont' -%}
-    {%- assign ctaPrice = '$128' -%}
-    {%- assign ctaLink = '/products/edgemont-600d-recycled-poly-onyx' -%}
-    {%- assign learnLink = '/pages/edgemont-womens-travel-laptop-backpack' -%}
-    {%- assign ctaImg = 'edgemont-cta' -%}
-
-    <div class="discover-cta mb-default" id="eco-edgemont-cta">
-        <div class="container">
-            <div class="row topic-block">
-                <div class="{{ ctaContentCol}}">
-                    <div class="topic-content">
-                        <h3 class="title">{{ ctaTitle }}</h3>
-                        <p class="price">{{ ctaPrice }}</p>
-                        <div class="btn-set hidden-xs hidden-sm">
-                            <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="1" href="{{ learnLink }}">Learn more</a>
-                            <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">Buy now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="{{ ctaImgCol }}">
-                    <a href="{{ ctaLink }}">
-                        <picture>
-                            <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-md.jpg?{{ assetVersion }}{% if (retina) %}, https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-md2x.jpg?{{ assetVersion }} 2x{% endif %}" media="(min-width: {{ screenSm }})">
-                            <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-xs.jpg?{{ assetVersion }}" alt="Shop {{ ctaTitle }}">
-                        </picture>
-                    </a>
-                    <div class="btn-set hidden-md hidden-lg">
-                        <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ learnLink }}">Learn more</a>
-                        <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">Buy now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     {%- assign ctaTitle = 'Hanover' -%}
