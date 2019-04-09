@@ -1,0 +1,9 @@
+{%- assign models = m | split: " | " -%}
+{%- assign title = 'Fits in the Laptop Sleeve' -%}
+{%- if t == 'main' -%}
+  {%- assign title = 'Fits in the Main Compartment Only' -%}
+{%- endif -%}
+<h3>{{ title }}</h3>
+<p>{%- for model in models -%}
+{{ model }}{%- unless forloop.last -%}<br/>{%- endunless -%}
+{%- endfor -%}</p>

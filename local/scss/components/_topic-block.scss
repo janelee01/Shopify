@@ -202,7 +202,7 @@
 }
 
 .side-scrolling{
-	@media (max-width: $screen-sm-max) {
+	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
 		margin-left: -$grid-gutter-width;
 		margin-right: -$grid-gutter-width;
 		overflow-x: scroll;
@@ -225,18 +225,24 @@
 			padding-bottom: 50px;
 		}
 	}
-	@media (max-width: $screen-xs-max) {
-		padding-top: $grid-gutter-width;
-		[class^="col-"]{
-			min-width: 245px;
-		}
-		&::before,
-		&::after{
-			min-width: $grid-gutter-width/2;
-			height: 1px;
-		}
-		.topic-content{
-			padding-bottom: $grid-gutter-width;
-		}
+	// @media (max-width: $screen-xs-max) {
+	// 	padding-top: $grid-gutter-width;
+	// 	[class^="col-"]{
+	// 		min-width: 245px;
+	// 	}
+	// 	&::before,
+	// 	&::after{
+	// 		min-width: $grid-gutter-width/2;
+	// 		height: 1px;
+	// 	}
+	// 	.topic-content{
+	// 		padding-bottom: $grid-gutter-width;
+	// 	}
+	// }
+}
+
+.container.has-scrolling{
+	@media (min-width: 769px) and (max-width: 1024px){
+		width: calc(100vw - 30px);
 	}
 }
