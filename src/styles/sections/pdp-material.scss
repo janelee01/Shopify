@@ -89,6 +89,10 @@
     width: 100%;
   }
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   &.is-selected{
     opacity: 1;
     background-color: white;
