@@ -131,7 +131,7 @@
   .pdp-material__tile{
 
     @media (min-width: $screen-md){
-      height: calc(33% - 20px);
+      height: calc(33.33333% - 20px);
       padding: 27px 69px;
     }
   }
