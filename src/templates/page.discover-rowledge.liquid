@@ -1,14 +1,16 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 74277 -%}
+{%- assign assetVersion = 74557 -%}
 {%- assign ctaTitle = 'The Rowledge' -%}
 {%- assign ctaPrice = '$128 - $158' -%}
 {%- assign ctaLink = '/products/rowledge-nylon-black-gold-lavender' -%}
-{%- assign ctaImg = 'catalina-deluxe-cta' -%}
+{%- assign ctaImg = 'rowledge-cta' -%}
+{%- assign ctaImgCol = 'col-md-5 col-md-pull-5' -%}
+{%- assign ctaContentCol = 'col-md-6 col-md-push-6' -%}
 
 <article class="discover">
     <div class="max-container">
-        <div class="hero has-arrow">
+        <div class="hero has-arrow" id="rowledge-hero">
             {% include 'discover-picture', name: 'rowledge-hero', alt: 'woman with Rowledge on shoulder', retina: true, fw: false, lg: true %}
             <div class="hero-content left white">
                 <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
@@ -18,17 +20,15 @@
         </div>
     </div>
     <div class="container">{% include 'hero-jump-target' %}
-        <div class="row animate mb-large" {{ animateFadeInUp }}>
+        <div class="row animate mb-gutter" {{ animateFadeInUp }}>
             <div class="col-sm-6 col-sm-offset-3">
                 {% include 'discover-picture', name: 'rowledge-product-img', alt: 'Rowledge product shot', retina: true, fw: true, lg: true %}
             </div>
         </div>
-         <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-10 col-sm-offset-1">                    
-                <div class="section-heading">
-                    <h2 class="title" id="rowledge-title">Carry yourself with confidence.<br /> Carry your essentials with a backpack.</h2>
+         <div class="animate" {{ animateFadeInUp }}>
+            <div class="section-heading">
+                    <h2 class="title" id="rowledge-title">Carry yourself <br class="visible-xs" />with confidence.<br /> Carry your essentials <br class="visible-xs visible-sm" />with a backpack.</h2>
                 </div>
-            </div>
         </div>
     </div>
     <div class="max-container animate" {{ animateFadeInUp }}>
@@ -44,7 +44,7 @@
             <div class="col-sm-3">
                 {% include 'discover-picture', name: 'rowledge-work-1', alt: 'Rowledge luxe details', retina: true, fw: false, lg: true %}
                 <div class="topic-content">
-                    <h3 class="title">CEO-Tested, Client-Approved</h3>
+                    <h3 class="title">CEO-Tested, <br class="hidden-xs">Client-Approved</h3>
                     <p class="description">With its luxe details, this bag looks right at home in the boardroom, the courtroom, and beyond.</p>
                 </div>
             </div>
@@ -160,7 +160,7 @@
         </div>
     </div>
     <div class="container has-scrolling">
-        <div class="row side-scrolling mb-large mb-negate-xs">
+        <div class="row side-scrolling mb-gutter mb-large-sm mb-negate-xs">
             <div class="col-sm-4">
                 {% include 'discover-picture', name: 'rowledge-workout-1', alt: 'Rowledge bottle side pocket', retina: true, fw: false, lg: true %}
                 <div class="topic-content">
@@ -178,7 +178,7 @@
             <div class="col-sm-4">
                 {% include 'discover-picture', name: 'rowledge-workout-3', alt: 'Rowledge converts from tote to backpack', retina: true, fw: false, lg: true %}
                 <div class="topic-content">
-                    <h3 class="title">From Desk to Downward Dog</h3>
+                    <h3 class="title">From Desk to <br class="hidden-xs">Downward Dog</h3>
                     <p class="description">Easily convert your bag from tote to backpack to book it from the office to that 7pm yoga class.</p>
                 </div>
             </div>
@@ -189,8 +189,8 @@
                 <div class="inline-video ratio-16-9 product-video" id="rowledge-1">
                 <div class="click-to-play">
                     <div class="embed-container"
-                        data-desktop-url="https://player.vimeo.com/external/308577378.hd.mp4?s=a6f634bb9ed76cde4850ab7f632680176c11d4c7&profile_id=175"
-                        data-mobile-url="https://player.vimeo.com/external/308577378.sd.mp4?s=71243afd2d5acbd13d010ef03f4c6ce60ccca387&profile_id=165"
+                        data-desktop-url="https://player.vimeo.com/external/329254374.hd.mp4?s=689aeb5cecaf95c661ca27e0d23c9e4b9ddc1524&profile_id=175"
+                        data-mobile-url="https://player.vimeo.com/external/329254374.sd.mp4?s=541f5e81268d590fa947c745f719ce5ad0ecb804&profile_id=165"
                         data-autoplay="true"
                         data-loops="100">
                         <video id="video-1" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/rowledge-video-lg.jpg?{{ assetVersion }}"></video>

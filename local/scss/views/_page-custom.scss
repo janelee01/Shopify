@@ -703,6 +703,14 @@
 	}
 }
 
+#rowledge-hero{
+	@media (max-width: $screen-xs-max) {
+		.description{
+			font-size: 22px;
+			padding: 0 30px;
+		}
+	}
+}
 #rowledge-title{
 	@media (max-width: $screen-xs-max) {
 		font-size: 30px;
