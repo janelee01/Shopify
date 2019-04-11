@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 0.0.22 - 2018-4-11
+### TEAM: Barrel
+### CHANGED:
+- Removes old config.yml files
+
 ## 0.0.21 - 2018-4-11
 ### TEAM: Barrel
 ### CHANGED:
