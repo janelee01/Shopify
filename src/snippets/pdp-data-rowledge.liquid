@@ -1,0 +1,149 @@
+{%- comment -%}
+### ------------
+### 0. Mobile Video Thumbnail
+### ------------
+{%- endcomment -%}
+{%- assign pdp_mobile_video_thumb = "Rowledge.jpg" -%}
+{%- assign pdp_video_url = "//player.vimeo.com/video/329254374" -%}
+
+
+{%- comment -%}
+### ------------
+### 1. Instagram
+### ------------
+{%- endcomment -%}
+
+{%- capture pdp_instagram_data -%}
+{%- endcapture -%}
+
+
+{%- comment -%}
+### -----------
+### 2. Carousel
+### -----------
+### line 1: carousel title (or "-" if none)
+### line 2: carousel subtitle
+### line 3: carousel text
+### line 4+N: slide text|slide image
+### -----------
+{%- endcomment -%}
+
+{%- capture pdp_callout_galleries_data_1 -%}
+Versatile Design
+Work Mode
+With its luxe Nappa leather and elegant hardware, this bag looks right at home in the boardroom, the courtroom and beyond. 
+Tuck in Straps for Tote Mode|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Rowledge_Tote-Mode.jpg?74558
+Separate Laptop Compartment|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Rowledge_Seperate-Laptop-Compartment.jpg?72443
+Pocket Organization|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Rowledge_Pocket-Organization.jpg?72443
+Front Pocket|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-1_Rowledge_Front-Pocket.jpg?72443
+{%- endcapture -%}
+
+{%- capture pdp_callout_galleries_data_2 -%}
+-
+Travel Mode	
+The Rowledge slides onto any roller bag, fits under an airplane seat, and has easy-access pockets for your passport and laptop.	
+Suitcase Handle Sleeve|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Rowledge_Suitcase-Handle-Sleeve.jpg?72443
+Stash Pocket|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Rowledge_Stash-Pocket.jpg?72443
+Airline Seat Friendly|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-2_Rowledge_Airline-Seat-Friendly.jpg?72443
+{%- endcapture -%}
+
+{%- capture pdp_callout_galleries_data_3 -%}
+-
+Weekend Mode	
+Whether you're exploring your city or hitting the road, this versatile bag is always up for a weekend adventure.	
+Removable Insert|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_Rowledge_Removable-Insert.jpg?72443
+Key Leash|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-3_Rowledge_key-leash.jpg?72443
+{%- endcapture -%}
+
+{%- capture pdp_callout_galleries_data_4 -%}
+-
+Workout Mode	
+Discreet zippered side pockets lie flat when not in use but stretch to fit your water bottle when you're ready to hit the gym.	
+Expandable Side Pocket|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-4_Rowledge_Expandable-Side-Pocket.jpg?72443
+Convertible|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-4_Rowledge_Convertible.jpg?72443
+{%- endcapture -%}
+
+{%- assign pdp_callout_galleries_data_1 = pdp_callout_galleries_data_1 | newline_to_br | split: '<br />' -%}
+{%- assign pdp_callout_galleries_data_2 = pdp_callout_galleries_data_2 | newline_to_br | split: '<br />' -%}
+{%- assign pdp_callout_galleries_data_3 = pdp_callout_galleries_data_3 | newline_to_br | split: '<br />' -%}
+{%- assign pdp_callout_galleries_data_4 = pdp_callout_galleries_data_4 | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### -------------------
+### 3. Video
+### -------------------
+### line N: title|video
+### -------------------
+{%- endcomment -%}
+
+{%- capture pdp_video_data -%}
+What Fits Inside|https://player.vimeo.com/external/329254374.hd.mp4?s=689aeb5cecaf95c661ca27e0d23c9e4b9ddc1524&profile_id=175
+{%- endcapture -%}
+{%- assign pdp_video_data = pdp_video_data | trim -%}
+
+
+{%- comment -%}
+### ----------------
+### 4. Fabric Module
+### ----------------
+### line 1: Main title
+### line 2+N: Tile title|tile subtitle|tile image
+### ----------------
+{%- endcomment -%}
+
+{%- capture pdp_material_data -%}
+Premium Materials
+Nylon Exterior|Constructed with a lightweight fine weave water-resistant nylon.|https://cdn.shopify.com/s/files/1/2185/1497/files/Fabric-1_Rowledge_Nylon-Exterior.jpg?72443
+Nappa Leather Accents|A soft natural grain leather that adds a luxurious touch to pockets, zipper pulls and handles.|https://cdn.shopify.com/s/files/1/2185/1497/files/Fabric-2_Rowledge_Nappa-Leather-Accents.jpg?72443
+Memory Foam Straps|Cloud-like memory foam and diamond-shape stitching prevent straps from sliding.|https://cdn.shopify.com/s/files/1/2185/1497/files/Fabric-3_Rowledge_Memory-Foam-Straps.jpg?72443
+{%- endcapture -%}
+{%- assign pdp_material_data = pdp_material_data | newline_to_br | split: '<br />' -%}
+
+
+{%- comment -%}
+### --------------------
+### 5. Corporate Reviews
+### --------------------
+### line 1: title
+### line 1+N: review|image
+### --------------------
+{%- endcomment -%}
+
+{%- capture pdp_testimonials_data -%}
+{%- endcapture -%}
+
+
+{%- comment -%}
+### ----------
+### 6. Stories
+### ----------
+### handle 1, handle 2,... handle N
+### ----------
+{%- endcomment -%}
+
+{%- capture pdp_stories_data -%}
+{%- endcapture -%}
+
+{%- comment -%}
+### ----------
+### 7. Related Products
+### ----------
+### line N: handle N
+### ----------
+{%- endcomment -%}
+
+{%- capture pdp_cross_sell_data -%}
+pearl-saffiano-leather-dark-grey-gold-grey
+waverley-nappa-leather-light-grey-gold-grey
+og-and-omg-nylon-black-gold-camel
+{%- endcapture -%}
+{%- assign pdp_cross_sell_data = pdp_cross_sell_data | newline_to_br | split: '<br />' -%}
+
+{%- comment -%}
+### ----------
+### 8. Size & Fit Snippet File (autogenerated)
+### ----------
+{%- endcomment -%}
+
+{%- assign pdp_size_fit_data = 'pdp-size-fit-rowledge' -%}
