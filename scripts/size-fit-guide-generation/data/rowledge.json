@@ -7,7 +7,8 @@
       "Height",
       "Padded Strap Length",
       "Stash Pocket Depth",
-      "Front Zipper Pocket Height"
+      "Front Zipper Pocket Height",
+      "Weight"
     ],
     "rows": [{
       "content": [
@@ -17,7 +18,8 @@
         "16.5\"",
         "14\"",
         "7\"",
-        "9\""
+        "9\"",
+        "3 lbs"
       ]
     }]
   },

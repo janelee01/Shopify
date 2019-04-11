@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 0.0.23 - 2018-4-11
+### TEAM: Barrel
+### CHANGED:
+- Content changes for Rowledge product
+
 ## 0.0.22 - 2018-4-11
 ### TEAM: Barrel
 ### CHANGED:
