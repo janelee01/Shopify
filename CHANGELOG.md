@@ -1,6 +1,48 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 0.0.23 - 2018-4-11
+### TEAM: Barrel
+### CHANGED:
+- Content changes for Rowledge product
+
+## 0.0.22 - 2018-4-11
+### TEAM: Barrel
+### CHANGED:
+- Removes old config.yml files
+
+## 0.0.21 - 2018-4-11
+### TEAM: Barrel
+### CHANGED:
+- Adds in content for Rowledge product
+
+## 0.0.20 - 2018-4-1
+### TEAM: Barrel
+### CHANGED:
+- Updates newsletter URL
+- Reactivates newsletter
+
+## 0.0.19 - 2018-4-1
+### TEAM: Barrel
+### CHANGED:
+- Updates PDP template and material module
+- Allows PDP data worflow to fail silently
+
+## 0.0.18 - 2018-3-28
+### TEAM: Barrel
+### CHANGED:
+- Temporarily removes footer newsletter due to issue with URL (Quick fix)
+
+## 0.0.17 - 2018-3-20
+### TEAM: Barrel
+### CHANGED:
+- Updates tablet styles on PDP
+
+## 0.0.16 - 2018-3-19
+### TEAM: Barrel
+### CHANGED:
+- Updates reviews_average naming convention on PDP
+
 ## 0.0.15 - 2018-3-18
 ### TEAM: Barrel
 ### CHANGED:

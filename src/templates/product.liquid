@@ -12,7 +12,8 @@
 
   {%- capture data_file -%}pdp-data-{{parentCollection.title| downcase | remove: 'the' | strip | replace: ' ', '-' | replace: '.', '' }}{%- endcapture -%}
 
-  {%- include data_file -%}
+  {%- capture test_data_file -%}{%- include data_file -%}{%- endcapture -%}
+  {%- unless test_data_file contains 'Liquid error' -%}{%- include data_file -%}{%- endunless -%}
 
   {%- include 'pdp-photoswipe-template' -%}
 
@@ -38,6 +39,7 @@
       {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_1, remove_top_padding: remove_top_padding -%}
       {%- include 'pdp-callout-galleries', alternate: true, data: pdp_callout_galleries_data_2 -%}
       {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_3 -%}
+      {%- include 'pdp-callout-galleries', alternate: true, data: pdp_callout_galleries_data_4 -%}
 
       {%- if pdp_instagram_data == blank and pdp_callout_galleries_data_1 == blank -%}
         {%- assign remove_top_padding = true -%}

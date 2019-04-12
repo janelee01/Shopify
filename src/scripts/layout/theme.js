@@ -675,7 +675,7 @@ $(document).ready(function() {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://manage.kmail-lists.com/subscriptions/external/subscribe",
+            "url": "https://manage.kmail-lists.com/ajax/subscriptions/subscribe",
             "method": "POST",
             "headers": {
                 "content-type": "application/x-www-form-urlencoded",
