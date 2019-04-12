@@ -198,6 +198,11 @@ blockquote{
 .mb-large{
 	@include mb('lg');
 }
+.mb-large-sm{
+	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+			@include mb('lg');
+	}
+}
 .mb-negate-xs{
 	@media (max-width: $screen-xs-max) {
 	    margin-bottom: 0 !important;
