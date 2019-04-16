@@ -7,6 +7,16 @@
 {% include 'hero-jump-btn' %}
 </div>
 </div>
+<div class="continuous-carousel"> 
+  {% for i in (1..8) %}
+    <div>
+      <picture>
+        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/organic-canvas-carousel-{{ i }}-md.jpg?82925" media="(min-width: 1025px)" />
+        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/organic-canvas-carousel-{{ i }}-xs.jpg?82925" alt="" />
+      </picture>
+    </div>
+  {% endfor %}
+</div>
 <div class="container"><a id="block-target-1" class="jumptarget "></a>{% include 'hero-jump-target' %}
 <div class="image-panel mb-default fw-xs" data-bxhover-1518568895571="">
 <div class="carousel slide" data-ride="carousel" data-interval="false" id="carousel-1">

@@ -983,6 +983,24 @@ $(document).ready(function() {
 		e.preventDefault();
 		$('#laptops div').hide();
 		$('.brand-' + $(this).val()).fadeIn();
-});
+	});
+
+	/*
+	Continuous scroll
+	*/
+	$('.continuous-carousel').slick({
+		autoplay: true,
+		autoplaySpeed: 0,
+		speed: 10000,
+		arrows: false,
+		draggable: false,
+		pauseOnHover: false,
+		pauseOnFocus: false, 
+		swipe: false,  
+		cssEase: 'linear',
+		slidesToShow: 1,
+		centerMode: true,
+		variableWidth: true
+	});
 
 });
