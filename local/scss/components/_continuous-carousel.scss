@@ -1,6 +1,14 @@
 .continuous-carousel{
   picture{
     display: inline-block;
-    padding: 0 14px;
+    padding: 0 9px;
+    @media (min-width: $screen-md) {
+			padding: 0 14px;
+		}
+  }
+  img{
+    @media (max-width: $screen-sm-max) {
+			height: 503px;
+		}
   }
 }

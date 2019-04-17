@@ -162,6 +162,15 @@
 		    text-align: center;
 		}
 	}
+	&.text-center-xs{
+		@media (max-width: $screen-xs-max) {
+		    text-align: center;
+		}
+	}
+	&.above-xs{
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
 	.title{
 		font-size: 1.3em;
 		font-family: $font-family-medium;

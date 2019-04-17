@@ -13,6 +13,11 @@ body{
 		padding-top: 0;
 	}
 }
+.fw-container{
+	max-width: 2560px;
+	margin-left: auto;
+	margin-right: auto;
+}
 .max-container{
 	max-width: $site-max-width;
 	margin-left: auto;
@@ -251,6 +256,12 @@ blockquote{
 .text-left-xs{
 	@media (max-width: $screen-xs-max) {
 	    text-align: left;
+	}
+}
+
+.lh-increased{
+	@media (min-width: $screen-md) {
+		line-height: 1.57em;
 	}
 }
 
