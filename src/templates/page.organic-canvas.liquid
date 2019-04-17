@@ -106,28 +106,22 @@
       </div>
       <div class="row">
         <div class="col-sm-6">
-          <article class="cta-column">
-            <a href="/products/catalina-deluxe-organic-canvas-natural">
-              <img src="https://cdn.shopify.com/s/files/1/2185/1497/products/side-catalina-deluxe-organic-canvas-natural-weekender-lo-and-sons_ea6c7021-fd37-4ba2-9b52-3592253e92ac.jpg?v=1554155063" alt="buy The Catalina Deluxe in organic canvas">
-            </a>
-            <h2 class="title">The Catalina Deluxe</h2>
-            <p class="color">Natural</p>
-            <p class="material">Organic Canvas</p>
-            <p class="price">$158</p>
-            <a href="/products/catalina-deluxe-organic-canvas-natural" class="btn">Buy now</a>
-          </article>
+          {% include 'discover-cta-column',
+            path: '/products/catalina-deluxe-organic-canvas-natural',
+            image: 'products/side-catalina-deluxe-organic-canvas-natural-weekender-lo-and-sons_ea6c7021-fd37-4ba2-9b52-3592253e92ac.jpg?v=1554155063',
+            title: 'The Catalina Deluxe',
+            color: 'Natural',
+            material: 'Organic Canvas',
+            price: '158' %}
         </div>
         <div class="col-sm-6">
-          <div class="cta-column">
-            <a href="/products/catalina-deluxe-tote-organic-canvas-natural">
-              <img src="https://cdn.shopify.com/s/files/1/2185/1497/products/side-catalina-deluxe-tote-organic-canvas-natural-tote-lo-and-sons_ccaf276f-8b75-462d-a0f9-755b5e34b463.jpg?v=1554155045" alt="buy The Catalina Deluxe Tote in organic canvas">
-            </a>
-            <h2 class="title">The Catalina Deluxe Tote</h2>
-            <p class="color">Natural</p>
-            <p class="material">Organic Canvas</p>
-            <p class="price">$128</p>
-            <a href="/products/catalina-deluxe-tote-organic-canvas-natural" class="btn">Buy now</a>
-          </div>
+          {% include 'discover-cta-column',
+            path: '/products/catalina-deluxe-tote-organic-canvas-natural',
+            image: 'products/side-catalina-deluxe-tote-organic-canvas-natural-tote-lo-and-sons_ccaf276f-8b75-462d-a0f9-755b5e34b463.jpg?v=1554155045',
+            title: 'The Catalina Deluxe Tote',
+            color: 'Natural',
+            material: 'Organic Canvas',
+            price: '128' %}
         </div>
       </div>
     </div>
