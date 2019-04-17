@@ -795,12 +795,104 @@
 			max-width: 75%
 		}
 		@media (min-width: $screen-md) {
-			max-width: 50%
+			max-width: 575px;
 		}
 	}
 }
 #organic-canvas-shop-title{
 	@media (max-width: $screen-xs-max) {
 		font-size: 1.78em;
+	}
+}
+
+#recycled-poly-hero{
+	margin-bottom: 0;
+}
+
+#recycled-poly-process,
+#recycled-poly-benefits{
+	background: #5F6C7C;
+	color: #fff;
+	padding: 45px;
+	@include fslh(16, 22);
+	@media (min-width: $screen-sm) {
+		padding: 75px;
+		@include fslh(18, 28);
+	}
+	@media (max-width: $screen-sm-max) {
+		.container{
+			width: 100%;
+			padding: 0;
+		}
+	}
+	@media (min-width: $screen-md) {
+		padding: 85px 0;
+	}
+	@media (min-width: $screen-lg) {
+		@include fslh(22, 36);
+		padding: 100px 0;
+	}
+	h2{
+		color: #fff;
+		font-family: $font-family-medium;
+		font-size: 32px;
+		margin-bottom: 1em;
+		@media (min-width: $screen-sm) {
+			font-size: 40px;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 46px;
+		}
+	}
+	em{
+		color: #B7C2CF;
+	}
+	.row{
+		text-align: center;
+	}
+}
+
+.recycled-poly-lifestyle{
+	position: relative;
+	margin-bottom: $grid-gutter-width;
+	@media (min-width: $screen-sm) {
+		margin-bottom: 0;
+	}
+	footer{
+		text-align: right;
+		color: #9B9B9B;
+		padding-top: 15px;
+		@media (min-width: $screen-sm) {
+			font-size: 14px;
+		}
+		@media (min-width: $screen-md) {
+			font-size: 18px;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 22px;
+		}
+		@media (max-width: $screen-xs-max) {
+			position: absolute;
+			bottom: 15px;
+			left: 15px;
+			text-align: left;
+			color: #fff;
+		}
+	}
+	&.offset{
+		@media (min-width: $screen-sm) {
+			margin-top: 55px;
+		}
+		@media (min-width: $screen-md) {
+			margin-top: 85px;
+		}
+		@media (min-width: $screen-lg) {
+			margin-top: 100px;
+		}
+		@media (max-width: $screen-xs-max) {
+			footer{
+				color: #9B9B9B;
+		}
+		}
 	}
 }

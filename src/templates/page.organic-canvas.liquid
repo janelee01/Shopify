@@ -1,6 +1,6 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 83097 -%}
+{%- assign assetVersion = 83135 -%}
 {%- assign topicBlockImgCol = 'col-sm-5 col-sm-pull-4 col-md-6 col-md-pull-6 col-lg-7 col-lg-pull-5' -%}
 {%- assign topicBlockContentCol = 'col-sm-5 col-sm-push-6 col-md-6 col-md-push-6 col-lg-5 col-lg-push-7 content-col' -%}
 
@@ -8,7 +8,7 @@
 
     <div class="fw-container">
         <div class="hero has-arrow mb-gutter" id="organic-canvas-hero">
-            {% include 'discover-picture', name: 'organic-canvas-hero', alt: 'woman with Rowledge on shoulder', retina: true, fw: false, xxl: true %}
+            {% include 'discover-picture', name: 'organic-canvas-hero', alt: 'Catalina shown over foliage background', retina: true, fw: false, xxl: true %}
             <div class="hero-content right white">
                 <h1 class="title"><span class="subtitle">Discover</span> Organic Canvas <br />Collection</h1>
                 <p class="description lh-increased">Versatile, durable weekend bags that are always up for an adventure.  </p>
@@ -16,7 +16,7 @@
             {% include 'hero-jump-btn' %}
         </div>
         <div class="topic-block has-overlay-xs mb-default mb-negate-xs">{% include 'hero-jump-target' %}
-            {% include 'discover-picture', name: 'organic-canvas-natural', alt: 'woman getting in car', retina: true, fw: true, xxl: true %}
+            {% include 'discover-picture', name: 'organic-canvas-natural', alt: 'cotton branch next to Catalina', retina: true, fw: true, xxl: true %}
             <div class="topic-content black" id="organic-canvas-natural">
               <div class="container">
                 <div class="row">
@@ -39,7 +39,7 @@
           </div>
         </div>
         <div class="{{ topicBlockImgCol }}">
-          {% include 'discover-picture', name: 'organic-canvas-limited', alt: "Catalina Deluxe bottom pocket", retina: false, fw: true, lg: true %}
+          {% include 'discover-picture', name: 'organic-canvas-limited', alt: "organic canvas Catalina on shoulder", retina: false, fw: true, lg: true %}
         </div>
       </div>
       <div class="row topic-block animate aligned-sm mb-default" {{ animateFadeInUp }}>
@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="{{ topicBlockImgCol }}">
-            {% include 'discover-picture', name: 'organic-canvas-safe', alt: "Catalina Deluxe bottom pocket", retina: false, fw: true, lg: true %}
+            {% include 'discover-picture', name: 'organic-canvas-safe', alt: "woman by car", retina: false, fw: true, lg: true %}
         </div>
       </div>
     </div>
@@ -79,7 +79,7 @@
         <div>
           <picture>
             <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/organic-canvas-carousel-{{ i }}-md.jpg?{{assetVersion}}" media="(min-width: 1025px)" />
-            <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/organic-canvas-carousel-{{ i }}-xs.jpg?{{assetVersion}}" alt="" />
+            <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/organic-canvas-carousel-{{ i }}-xs.jpg?{{assetVersion}}" alt="carousel image {{ i }}" />
           </picture>
         </div>
       {% endfor %}
@@ -87,10 +87,10 @@
 
     <div class="fw-container">
       <div class="topic-block has-overlay-xs mb-large" id="organic-canvas-foliage">
-        {% include 'discover-picture', name: 'organic-canvas-foliage', alt: 'woman getting in car', retina: true, fw: true, xxl: true %}
+        {% include 'discover-picture', name: 'organic-canvas-foliage', alt: 'foliage background', retina: true, fw: true, xxl: true %}
         <div class="topic-content">
           <h2 class="title">Investing in Sustainability</h2>
-          <p class="description lh-increased">As our business grows, we’re committed to enhancing (not just minimizing harm to) the earth and the wonderful places we travel to. Read more about our approach to sustainability here.</p>
+          <p class="description lh-increased">As our business grows, we’re committed to enhancing (not just minimizing harm to) the earth and the wonderful places we travel to.</p>
           <p class="description"><a href="#" class="btn btn-secondary">Learn more</a></p>
         </div>
       </div>
@@ -104,14 +104,14 @@
               </div>
           </div>
       </div>
+      {% assign color = 'Natural' %}
+      {% assign material = 'Organic Canvas' %}
       <div class="row">
         <div class="col-sm-6">
           {% include 'discover-cta-column',
             path: '/products/catalina-deluxe-organic-canvas-natural',
             image: 'products/side-catalina-deluxe-organic-canvas-natural-weekender-lo-and-sons_ea6c7021-fd37-4ba2-9b52-3592253e92ac.jpg?v=1554155063',
             title: 'The Catalina Deluxe',
-            color: 'Natural',
-            material: 'Organic Canvas',
             price: '158' %}
         </div>
         <div class="col-sm-6">
@@ -119,8 +119,6 @@
             path: '/products/catalina-deluxe-tote-organic-canvas-natural',
             image: 'products/side-catalina-deluxe-tote-organic-canvas-natural-tote-lo-and-sons_ccaf276f-8b75-462d-a0f9-755b5e34b463.jpg?v=1554155045',
             title: 'The Catalina Deluxe Tote',
-            color: 'Natural',
-            material: 'Organic Canvas',
             price: '128' %}
         </div>
       </div>

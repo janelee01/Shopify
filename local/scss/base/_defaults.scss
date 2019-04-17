@@ -185,15 +185,6 @@ blockquote{
 	}
 }
 
-.mb-gutter{
-	margin-bottom: $grid-gutter-width;
-}
-.mb-gutter-xs{
-	@media (max-width: $screen-xs-max) {
-	    margin-bottom: $grid-gutter-width;
-	}
-}
-
 .mb-small{
 	@include mb('sm');
 }
@@ -202,6 +193,15 @@ blockquote{
 }
 .mb-large{
 	@include mb('lg');
+}
+.mb-gutter{
+	margin-bottom: $grid-gutter-width;
+}
+
+.mb-gutter-xs{
+	@media (max-width: $screen-xs-max) {
+	    margin-bottom: $grid-gutter-width;
+	}
 }
 .mb-large-sm{
 	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
