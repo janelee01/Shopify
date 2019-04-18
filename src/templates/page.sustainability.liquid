@@ -27,19 +27,21 @@
       </div>
       <div class="row mb-gutter animate" {{ animateFadeInUp }}>
           <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">      
-            <div class="mb-large">
-              <h2>Our Priorities</h2>
+            <h2>Our Priorities</h2>
               <p>At our core, we’re a company that wants to see our customers out in the world: exploring, connecting, working, and discovering. And while we obsess over the design and functionality of our products, we’re equally concerned with our larger impact as a business. </p>
               <p>For us, it’s not enough to “do no harm” when it comes to environmental impact. We are part of a growing movement that believes businesses can actually lead the way in reversing environmental damage and creating innovative solutions. We’re always seeking ways to improve our supply chain and the lifecycle of our products. </p>
-              <p>We also know that you, our customers, are conscientious and uncompromising, and you expect the same from the brands you support. As a business, we’re in it for the long run—and to us, that means honoring our planet and the people with whom we share it.</p>
-            </div>              
+              <p>We also know that you, our customers, are conscientious and uncompromising, and you expect the same from the brands you support. As a business, we’re in it for the long run—and to us, that means honoring our planet and the people with whom we share it.</p>             
           </div>
-          <div class="col-sm-12 col-md-6">
-            <div class="fw-sm mb-large mb-negate-xs mb-negate-sm">
+          <div class="col-sm-12 col-md-6 hidden-xs hidden-sm">
+            <div class="mb-large">
               {% include 'discover-picture', name: 'sustainability-priorities', alt: 'beach cliffs', retina: true, fw: true, lg: true %}
             </div>
           </div>
       </div>
+    </div>
+
+    <div class="hidden-md hidden-lg mb-gutter">
+      {% include 'discover-picture', name: 'sustainability-priorities', alt: 'beach cliffs', retina: true, fw: true, lg: true %}
     </div>
 
     <div class="sustainability-icon-grid">
@@ -115,7 +117,7 @@
               </div>
               <div class="col-sm-4">
                 <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/sustainability-leaves.gif?{{assetVersion}}" alt="fill to 15% animation" />
-                <p>For select products, we hope to start using sustainable materials made from plant-based fibers. These materials contain no animal products and are biodegradable.</p>
+                <p>For select products, we plan to start using sustainable materials made from plant-based fibers. These materials contain no animal products and are biodegradable.</p>
               </div>
               <div class="col-sm-4">
                 <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/sustainability-nylon-fabric.gif?{{assetVersion}}" alt="fill to 2x animation" />
@@ -175,15 +177,13 @@
     </div>
 
     <div class="container mb-default">
-      <div class="animate" {{ animateFadeInUp }}>
-        <div class="row">
-          <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-            <h2>Our Challenges</h2>
-            <p>Prioritizing sustainability can be complicated and costly. As a small family-owned business, we know that our commitment to sustainability means that we will sometimes sacrifice opportunities or revenue in order to be responsible, and we’re proud to do that. Today, our primary challenges are:</p>
-          </div>
+      <div class="row animate" {{ animateFadeInUp }}>
+        <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+          <h2>Our Challenges</h2>
+          <p>Prioritizing sustainability can be complicated and costly. As a small, family-owned business, we know that our commitment to sustainability means that we will sometimes sacrifice opportunities or revenue in order to be responsible, and we’re proud to do that. Today, our primary challenges are:</p>
         </div>
       </div>
-      <div class="row">
+      <div class="row animate" {{ animateFadeInUp }}>
         <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
           <div class="topic-content" id="sustainability-challenges-2">
             <h3 class="title">We can’t do it all—at least not right now.</h3>
@@ -197,7 +197,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row animate" {{ animateFadeInUp }}>
         <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
           <h2>Our Ongoing Commitment</h2>
           <p>When it comes to sustainability, we’re excited to build on our current momentum. We look forward to having a dynamic dialogue with our customers about our strategy, so don’t hold back. Questions? Suggestions? Send them to us at <a href="mailto:support@loandsons.com">support@loandsons.com</a>. </p>

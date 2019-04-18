@@ -972,10 +972,16 @@
 	}
 	@media (min-width: $screen-lg) {
 		padding: 75px 0;
+		p{
+			@include fslh(22, 36);
+			&.lead{
+				font-size: 28px;
+			}
+		}
 	}
 }
 #sustainability-challenges-2{
-	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+	@media (max-width: $screen-sm-max) {
 		padding-bottom: 25px;
 	}
 }
