@@ -1,5 +1,5 @@
 {% include 'vars' %}
-{%- assign assetVersion = 83157 -%}
+{%- assign assetVersion = 83345 -%}
 
 <article class="discover">
 
@@ -29,7 +29,7 @@
             <p>2.<br/> The bottles are washed and cut into small pieces.</p>
           </div>
           <div class="col-sm-6 col-md-3">
-            <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/recycled-poly-spool.gif?{{assetVersion}}" alt="spool animation" />
+            <img style="margin-right: 6px" src="https://cdn.shopify.com/s/files/1/2185/1497/files/recycled-poly-spool.gif?{{assetVersion}}" alt="spool animation" />
             <p>3.<br/> The plastic is melted, spun into yarn, and woven into fabric.</p>
           </div>
           <div class="col-sm-6 col-md-3">
@@ -67,7 +67,9 @@
       </div>
     </div>
 
-    {% include 'discover-picture', name: 'recycled-poly-landfill', alt: 'landfill', retina: true, fw: true, xxl: true %}
+    <div class="topic-block" style="margin: 0">
+      {% include 'discover-picture', name: 'recycled-poly-landfill', alt: 'landfill', retina: true, fw: true, xxl: true %}
+    </div>
 
     <div id="recycled-poly-benefits">
       <div class="container">

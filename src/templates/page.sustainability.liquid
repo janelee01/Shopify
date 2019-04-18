@@ -1,0 +1,208 @@
+{% include 'vars' %}
+
+{%- assign assetVersion = 83333 -%}
+{%- assign topicBlockImgCol = 'col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0' -%}
+{%- assign topicBlockContentCol = 'col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 content-col' -%}
+
+
+<article class="discover sustainability">
+
+    <div class="fw-container">
+        <div class="hero has-arrow mb-gutter" id="sustainability-hero">
+            {% include 'discover-picture', name: 'sustainability-hero', alt: 'Catalina shown over foliage background', retina: true, fw: false, xxl: true %}
+            <div class="hero-content white">
+                <h1 class="title">Sustainability at Lo & Sons</h1>
+            </div>
+            {% include 'hero-jump-btn' %}
+        </div>
+    </div>
+
+    <div class="container">
+      <div class="animate" {{ animateFadeInUp }}>{% include 'hero-jump-target' %}
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+            <h2 id="sustainability-mission">Our mission is to inspire and empower people to go places, while striving to leave a positive impact.</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-gutter animate" {{ animateFadeInUp }}>
+          <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">      
+            <div class="mb-large">
+              <h2>Our Priorities</h2>
+              <p>At our core, we’re a company that wants to see our customers out in the world: exploring, connecting, working, and discovering. And while we obsess over the design and functionality of our products, we’re equally concerned with our larger impact as a business. </p>
+              <p>For us, it’s not enough to “do no harm” when it comes to environmental impact. We are part of a growing movement that believes businesses can actually lead the way in reversing environmental damage and creating innovative solutions. We’re always seeking ways to improve our supply chain and the lifecycle of our products. </p>
+              <p>We also know that you, our customers, are conscientious and uncompromising, and you expect the same from the brands you support. As a business, we’re in it for the long run—and to us, that means honoring our planet and the people with whom we share it.</p>
+            </div>              
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <div class="fw-sm mb-large mb-negate-xs mb-negate-sm">
+              {% include 'discover-picture', name: 'sustainability-priorities', alt: 'beach cliffs', retina: true, fw: true, lg: true %}
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="sustainability-icon-grid">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+            <div class="row">
+              <div class="col-sm-4">
+                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/sustainability-sustainable.gif?{{assetVersion}}" alt="loop around leaves animation" />
+                <p>Someday, we hope to be a 100% sustainable brand, and we’re proud of the progress we’ve made so far.</p>
+              </div>
+              <div class="col-sm-4">
+                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/sustainability-chart-15.gif?{{assetVersion}}" alt="fill to 15% animation" />
+                <p>In 2018, 15% of our products were made with eco-friendly materials. </p>
+              </div>
+              <div class="col-sm-4">
+                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/sustainability-chart-double.gif?{{assetVersion}}" alt="fill to 2x animation" />
+                <p>Our goal is to double that amount by 2020.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="animate" {{ animateFadeInUp }}>
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+            <h2>Our Products</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row topic-block aligned-md mb-gutter mb-negate-xs mb-negate-sm animate" {{ animateFadeInUp }}>
+        <div class="{{ topicBlockImgCol }}">
+          {% include 'discover-picture', name: 'sustainability-products-1', alt: 'beach cliffs', retina: true, fw: false, lg: true %}
+        </div>
+        <div class="{{ topicBlockContentCol }}">
+          <div class="topic-content">
+            <h3 class="title">Recycled Poly Collection</h3>
+            <p class="description">Our Recycled Poly Collection features a technical fabric made from plastic bottles. Not only is it durable and sleek, but its production helps reduce pollution and greenhouse gas emissions.</p>
+            <p><a href="/pages/featured-material-reycled-poly" class="btn">Learn more</a></p>
+          </div>                    
+        </div>
+      </div>
+      <div class="row topic-block aligned-md mb-large mb-negate-xs mb-negate-sm animate" {{ animateFadeInUp }}>
+        <div class="{{ topicBlockImgCol }}">
+          {% include 'discover-picture', name: 'sustainability-products-2', alt: 'beach cliffs', retina: true, fw: false, lg: true %}
+        </div>
+        <div class="{{ topicBlockContentCol }}">   
+          <div class="topic-content mb-negate-">
+            <h3 class="title">Organic Canvas Collection</h3>
+              <p class="description">Our Organic Canvas Collection is made from limited-supply cotton, grown without pesticides or chemicals. This farming method reduces environmental harm by preventing eutrophication, a buildup of nitrogen in bodies of water that threatens fish and plant life. The resulting textile is better for the planet and for you (it’s all-natural and hypo-allergenic).</p>
+              <p><a href="/pages/featured-material-organic-cotton-canvas" class="btn">Learn more</a></p>
+          </div>                 
+        </div>
+      </div>
+    </div>
+
+    <div class="sustainability-icon-grid">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <p class="lead">As we expand our product line, we’re excited to incorporate even more eco-friendly materials.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+            <div class="row">
+              <div class="col-sm-4">
+                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/sustainability-poly-bag.gif?{{assetVersion}}" alt="loop around leaves animation" />
+                <p>We hope to start packing our products in biodegradable poly bags, which will break down completely in landfills, thereby reducing our carbon footprint.</p>
+              </div>
+              <div class="col-sm-4">
+                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/sustainability-leaves.gif?{{assetVersion}}" alt="fill to 15% animation" />
+                <p>For select products, we hope to start using sustainable materials made from plant-based fibers. These materials contain no animal products and are biodegradable.</p>
+              </div>
+              <div class="col-sm-4">
+                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/sustainability-nylon-fabric.gif?{{assetVersion}}" alt="fill to 2x animation" />
+                <p>For our nylon laptop bags, we aim to switch to 37.4% recycled nylon, which is created using post-consumer and discarded nylon.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="animate" {{ animateFadeInUp }}>
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+            <h2>Our Partners</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row topic-block aligned-md mb-gutter mb-negate-xs mb-negate-sm animate" {{ animateFadeInUp }}>
+        <div class="{{ topicBlockImgCol }}">
+          {% include 'discover-picture', name: 'sustainability-partners-1', alt: 'beach cliffs', retina: true, fw: false, lg: true %}
+        </div>
+        <div class="{{ topicBlockContentCol }}">
+          <div class="topic-content">
+            <h3 class="title">Sustainable Apparel Coalition</h3>
+            <p class="description">We’ve joined our industry’s leading alliance for sustainable production, which provides tools to help us improve our sustainability practices, achieve transparency, and address inefficiencies in our value chain.</p>
+          </div>                    
+        </div>
+      </div>
+      <div class="row topic-block aligned-md mb-gutter mb-negate-xs mb-negate-sm animate" {{ animateFadeInUp }}>
+        <div class="{{ topicBlockImgCol }}">
+          {% include 'discover-picture', name: 'sustainability-partners-2', alt: 'beach cliffs', retina: true, fw: false, lg: true %}
+        </div>
+        <div class="{{ topicBlockContentCol }}">   
+          <div class="topic-content">
+            <h3 class="title">The Renewal Workshop</h3>
+              <p class="description">We’ve partnered with this manufacturing facility, based in Portland, Oregon, to refurbish and fix damaged Lo & Sons products. Ultimately, we will donate these products to non-profits like Dress for Success that provide support to those entering the workforce. Know an organization we should consider donating to? Email us at <a href="mailto:support@loandsons.com">support@loandsons.com</a>.</p>
+          </div>                 
+        </div>
+      </div>
+      <div class="row topic-block aligned-md mb-large mb-negate-xs mb-negate-sm animate" {{ animateFadeInUp }}>
+        <div class="{{ topicBlockImgCol }}">
+          {% include 'discover-picture', name: 'sustainability-partners-3', alt: 'beach cliffs', retina: true, fw: false, lg: true %}
+        </div>
+        <div class="{{ topicBlockContentCol }}">   
+          <div class="topic-content">
+            <h3 class="title">Yale Center for Business and the Environment (CBEY)</h3>
+            <p class="description">Our cofounder (and one of the sons), Jan Lo, was invited to serve on the Advisory Board of the Yale Center for Business and the Environment, which trains and empowers future leaders to develop "business solutions to systemic environmental problems" from the Yale School of Management and the Yale School of Forestry and Environmental Studies. With this group, Jan is currently helping to advise on a range of projects, such as how emerging technology can help to address environmental sustainability challenges.</p>
+          </div>                 
+        </div>
+      </div>
+    </div>
+
+    <div class="topic-block mb-large">
+    {% include 'discover-picture', name: 'sustainability-challenges', alt: 'landfill', retina: true, fw: true, xxl: true %}
+    </div>
+
+    <div class="container mb-default">
+      <div class="animate" {{ animateFadeInUp }}>
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+            <h2>Our Challenges</h2>
+            <p>Prioritizing sustainability can be complicated and costly. As a small family-owned business, we know that our commitment to sustainability means that we will sometimes sacrifice opportunities or revenue in order to be responsible, and we’re proud to do that. Today, our primary challenges are:</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+          <div class="topic-content" id="sustainability-challenges-2">
+            <h3 class="title">We can’t do it all—at least not right now.</h3>
+            <p>While we’d love to be 100% sustainable today, we know it will take time for us to integrate sustainability into all elements of our business (from our supply chain to our in-office operations). As a small business, we need to prioritize rigorously. To do so, we’ve created an internal sustainability board that ensures we’re progressing and pushing ourselves to be ambitious. For example, we are working towards becoming a B Certified business (B Corp), which would mean we’ve met “the highest standards of verified environmental performance, public transparency, and legal accountability.”</p>
+          </div>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0">
+          <div class="topic-content">
+            <h3 class="title">Tradeoffs are inevitable.</h3>
+            <p>Materials like “vegan leather” are great for those looking to avoid animal products, but they’re not harmless.  Many vegan leathers (specifically PVC) are a form of plastic; therefore, they aren’t biodegradable and they can contain harmful chemicals that damage the environment. For now, we’ve opted to use traditional leather over vegan leather, but we continue to research emerging resources that offer a promise of sustainability, are non-toxic, and allow us to uphold the high standard of quality that defines our products. Internally, we have to weigh this kind of tension when choosing materials, and we always prioritize with our customers’ best interests in mind.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+          <h2>Our Ongoing Commitment</h2>
+          <p>When it comes to sustainability, we’re excited to build on our current momentum. We look forward to having a dynamic dialogue with our customers about our strategy, so don’t hold back. Questions? Suggestions? Send them to us at <a href="mailto:support@loandsons.com">support@loandsons.com</a>. </p>
+        </div>
+      </div>
+    </div>
+
+</article>
