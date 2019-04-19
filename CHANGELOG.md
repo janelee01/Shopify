@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+
+## 0.0.23 - 2018-4-19
+### TEAM: Barrel
+### CHANGED:
+- Image URL changes for Rowledge
+
 ## 0.0.23 - 2018-4-11
 ### TEAM: Barrel
 ### CHANGED:
