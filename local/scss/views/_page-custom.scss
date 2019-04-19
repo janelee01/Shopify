@@ -573,6 +573,7 @@
 		margin-right: auto;
 	}
 }
+#laptops,
 #zodiac-signs{
 	padding-top: 40px;
 	font-size: 28px;
@@ -584,8 +585,36 @@
 		margin-bottom: 20px;
 	}
 }
+#laptops{
+	h3{
+		font-family: $font-family-medium;
+		font-size: 21px;
+		@media (min-width: $screen-lg) {
+			font-size: 28px;
+		}
+	}
+	p{
+		color: #4A4A4A;
+		margin-bottom: 40px;
+		line-height: 2.14;
+		font-size: 14px;
+		@media (min-width: $screen-sm) {
+			font-size: 18px;
+			line-height: 1.64;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 22px;
+			margin-bottom: 70px;
+		}
+	}
+}
 #zodiac-select-wrap{
 	max-width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#laptops-select-wrap{
+	max-width: 140px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -671,5 +700,19 @@
 		@media (min-width: $screen-md) {
 			max-width: 340px;
 		}
+	}
+}
+
+#rowledge-hero{
+	@media (max-width: $screen-xs-max) {
+		.description{
+			font-size: 22px;
+			padding: 0 30px;
+		}
+	}
+}
+#rowledge-title{
+	@media (max-width: $screen-xs-max) {
+		font-size: 30px;
 	}
 }

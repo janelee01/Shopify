@@ -979,4 +979,10 @@ $(document).ready(function() {
 	    $('.y-' + $(this).val()).fadeIn();
 	});
 
+	$('#laptops-select').on('change', function(e){
+		e.preventDefault();
+		$('#laptops div').hide();
+		$('.brand-' + $(this).val()).fadeIn();
+});
+
 });
