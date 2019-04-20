@@ -702,7 +702,7 @@
 }
 
 #organic-canvas-hero{
-	margin-bottom: $grid-gutter-width;
+	margin-bottom: 0;
 	.hero-content{
 		@media (max-width: $screen-xs-max) {
 			height: 62%;
