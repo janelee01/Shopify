@@ -408,22 +408,6 @@
 	}
 }
 
-#organic-canvas-hero{
-	.hero-content{
-		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-		    width: 50%;
-		    right: 0;
-		    left: auto;
-		    padding: 0 3%;
-		}
-	}
-}
-.legacy-has-overlay.organic-canvas-better{
-	.image-panel-content{
-		height: 70%;
-	}
-}
-
 #claremont-cta{
 	@media (max-width: $screen-xs-max) {
 	    .title, .final-price{
@@ -714,5 +698,290 @@
 #rowledge-title{
 	@media (max-width: $screen-xs-max) {
 		font-size: 30px;
+	}
+}
+
+#organic-canvas-hero{
+	margin-bottom: 0;
+	.hero-content{
+		@media (max-width: $screen-xs-max) {
+			height: 62%;
+		}
+	}
+	.description{
+		max-width: 560px;
+		@media (max-width: $screen-xs-max) {
+			font-size: 22px;
+		}
+	}
+}
+
+#organic-canvas-natural{
+	@media (min-width: $screen-sm) {
+		text-align: left;
+		padding: 0;
+	}
+	@media (max-width: $screen-xs-max) {
+		height: 42%;
+	}
+	.description{
+		color: #4A4A4A;
+	}
+}
+.topic-content .title.organic-title,
+#organic-canvas-features .title{
+	font-size: 32px;
+	@media (min-width: $screen-md) {
+		font-size: 40px;
+	}
+	@media (min-width: $screen-lg) {
+		font-size: 46px;
+	}
+}
+
+#organic-canvas-features{
+	background: #D4CDC6;
+	color: #fff;
+	padding: 0 $grid-gutter-width;
+	text-align: center;
+	@media (min-width: $screen-sm) {
+		padding: 0;
+		text-align: left;
+	}
+	img{
+		margin-bottom: 20px;
+		@media (min-width: $screen-sm) {
+			margin: 0 0 0 7%;
+		}
+		@media (min-width: $screen-md) {
+			margin: 0;
+		}
+	}
+	.feature{
+		margin: 55px 0;
+		@media (min-width: $screen-sm) {
+			display: flex;
+			align-items: center;
+		}
+		@media (min-width: $screen-lg) {
+			margin: 85px 0;
+		}
+	}
+	.content{
+		@media (min-width: $screen-sm) {
+			padding: 0 $grid-gutter-width;
+		}
+	}
+	.title{
+		font-family: $font-family-sans-serif;
+		color: #fff;
+	}
+	.description{
+		font-size: 16px;
+		margin: 0;
+		@media (min-width: $screen-sm) {
+			font-size: 18px;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 22px;
+		}
+	}
+}
+#organic-canvas-foliage{
+	.topic-content .description{
+		margin-left: auto;
+		margin-right: auto;
+		@media (min-width: $screen-sm) {
+			max-width: 75%
+		}
+		@media (min-width: $screen-md) {
+			max-width: 575px;
+		}
+	}
+}
+#organic-canvas-shop-title{
+	@media (max-width: $screen-xs-max) {
+		font-size: 1.78em;
+	}
+}
+
+#recycled-poly-hero{
+	margin-bottom: 0;
+}
+
+#recycled-poly-process,
+#recycled-poly-benefits{
+	background: #5F6C7C;
+	color: #fff;
+	padding: 45px;
+	@include fslh(16, 22);
+	@media (min-width: $screen-sm) {
+		padding: 75px;
+		@include fslh(18, 28);
+	}
+	@media (max-width: $screen-sm-max) {
+		.container{
+			width: 100%;
+			padding: 0;
+		}
+	}
+	@media (min-width: $screen-md) {
+		padding: 85px 0;
+	}
+	@media (min-width: $screen-lg) {
+		@include fslh(22, 36);
+		padding: 100px 0;
+	}
+	h2{
+		color: #fff;
+		font-family: $font-family-medium;
+		font-size: 32px;
+		margin-bottom: 1em;
+		@media (min-width: $screen-sm) {
+			font-size: 40px;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 46px;
+		}
+	}
+	em{
+		color: #B7C2CF;
+	}
+	.row{
+		text-align: center;
+	}
+}
+
+.recycled-poly-lifestyle{
+	position: relative;
+	margin-bottom: $grid-gutter-width;
+	@media (min-width: $screen-sm) {
+		margin-bottom: 0;
+	}
+	footer{
+		text-align: right;
+		color: #9B9B9B;
+		padding-top: 15px;
+		@media (min-width: $screen-sm) {
+			font-size: 14px;
+		}
+		@media (min-width: $screen-md) {
+			font-size: 18px;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 22px;
+		}
+		@media (max-width: $screen-xs-max) {
+			position: absolute;
+			bottom: 15px;
+			left: 15px;
+			text-align: left;
+			color: #fff;
+		}
+	}
+	&.offset{
+		@media (min-width: $screen-sm) {
+			margin-top: 55px;
+		}
+		@media (min-width: $screen-md) {
+			margin-top: 85px;
+		}
+		@media (min-width: $screen-lg) {
+			margin-top: 100px;
+		}
+		@media (max-width: $screen-xs-max) {
+			footer{
+				color: #9B9B9B;
+		}
+		}
+	}
+}
+
+.sustainability{
+	h2{
+		font-family: $font-family-medium;
+		margin-bottom: 1em;
+		@include fslh(36,44);
+		@media (min-width: $screen-sm) {
+			@include fslh(40,45);
+		}
+		@media (min-width: $screen-lg) {
+			@include fslh(46,45);
+		}
+	}
+	p{
+		color: #4A4A4A;
+		@include fslh(16,24);
+		@media (min-width: $screen-sm) {
+			@include fslh(18,28);
+		}
+		@media (min-width: $screen-lg) {
+			@include fslh(22,36);
+		}
+	}
+}
+#sustainability-hero{
+	@media (max-width: $screen-xs-max) {
+		margin-bottom: 50px;
+	}
+	.hero-content{
+		width: 100%;
+		left: 0;
+		padding: 0 $grid-gutter-width;
+	}
+}
+#sustainability-mission{
+	font-family: $font-family-sans-serif;
+	@include fslh(28, 35);
+	border-bottom: solid 2px #979797;
+	padding-bottom: 50px;
+	margin-bottom: 50px;
+	text-align: left;
+	@media (min-width: $screen-sm) {
+		@include fslh(32, 46);
+	}
+	@media (min-width: $screen-md) {
+		@include fslh(35, 46);
+		text-align: center;
+		padding: 0 7%;
+		border: 0;
+		margin-bottom: 105px;
+	}
+	@media (min-width: $screen-lg) {
+		@include fslh(38, 48);
+	}
+}
+.sustainability-icon-grid{
+	background: #CECDCD;
+	padding: 60px 13px 35px;
+	text-align: center;
+	@include mb(lg);
+	p{
+		color: #fff;
+		font-size: 18px;
+		&.lead{
+			font-size: 24px;
+			font-family: $font-family-medium;
+		}
+	}
+	@media (min-width: $screen-sm) {
+		padding: 55px 0 30px;
+	}
+	@media (min-width: $screen-md) {
+		padding: 60px 0;
+	}
+	@media (min-width: $screen-lg) {
+		padding: 75px 0;
+		p{
+			@include fslh(22, 36);
+			&.lead{
+				font-size: 28px;
+			}
+		}
+	}
+}
+#sustainability-challenges-2{
+	@media (max-width: $screen-sm-max) {
+		padding-bottom: 25px;
 	}
 }
