@@ -10,7 +10,7 @@
 {%- else -%}
   {%- include 'pdp-get-sibling-products' -%}
 
-  {%- capture data_file -%}pdp-data-{{parentCollection.title| downcase | remove: 'the' | strip | replace: ' ', '-' | replace: '.', '' }}{%- endcapture -%}
+  {%- capture data_file -%}pdp-data-{{parentCollection.title| downcase | remove_first: 'the' | strip | replace: ' ', '-' | replace: '.', '' }}{%- endcapture -%}
 
   {%- capture test_data_file -%}{%- include data_file -%}{%- endcapture -%}
   {%- unless test_data_file contains 'Liquid error' -%}{%- include data_file -%}{%- endunless -%}
