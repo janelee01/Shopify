@@ -38,8 +38,16 @@
     </table>
   {% endif %}
   </div>
-
 </div>
+
+{%- if standalone_image -%}
+<div class="pdp-modal__section">
+  <picture>
+    <source srcset="{{standalone_image.desktop}}" media="(min-width: 768px)" />
+    <img src="{{standalone_image.mobile}}" alt="" />
+  </picture>
+</div>
+{%- endif -%}
 
 {% if fits.size > 0 %}
 <div class="pdp-modal__section">
