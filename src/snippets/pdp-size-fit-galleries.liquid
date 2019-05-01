@@ -1,0 +1,44 @@
+{%- assign remove_top_padding = remove_top_padding | default: false -%}
+
+{%- unless data == blank -%}
+  {%- assign total_rows = data | size -%}
+  {%- assign total_slides = total_rows | minus: 1 -%}
+
+  <div class="pdp-size-fit-galleries pdp-callout-galleries js-pdp-callout-galleries pdp__separator{% if alternate %} pdp-callout-galleries--alternate{% endif %}">
+    <div class="pdp-callout-galleries__carousel pdp-snap pdp-callout-galleries__carousel-{{total_slides}}-slides">
+      <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main">
+      {%- for i in (2..total_rows) -%}
+      {%- assign j = i | minus: 1 -%}
+      {%- assign slide = data[j] -%}
+      {%- assign slide_text = slide | split: '|' | first -%}
+      {%- assign slide_image = slide | split: '|' | last -%}
+      <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main-slide">
+        {%- assign img_src = slide_image | replace: '.jpg', '_750x.jpg' -%}
+        {% include 'image',
+          src: img_src,
+          alt: 'Pass through sleeve' %}
+        {%- assign img_src = nil -%}
+        <span>{{slide_text}}</span>
+      </div>
+      {%- endfor -%}
+      </div>
+      <div class="js-pdp-callout-gallery-nav pdp-callout-galleries__carousel-nav">
+      {%- for i in (2..total_rows) -%}
+      {%- assign j = i | minus: 1 -%}
+      {%- assign slide = data[j] -%}
+      {%- assign slide_text = slide | split: '|' | first -%}
+      <span>{{slide_text}}</span>
+      {%- endfor -%}
+      </div>
+      <p class="pdp-size-fit-galleries__text">{{ data[0] }}</p>
+    </div>
+  </div>
+
+  {%- assign j = nil -%}
+  {%- assign slide_text = nil -%}
+  {%- assign slide_image = nil -%}
+  {%- assign total_rows = nil -%}
+  {%- assign total_slides = nil -%}
+{%- endunless -%}
+
+{%- assign remove_top_padding = nil -%}
