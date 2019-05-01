@@ -1,0 +1,36 @@
+{
+  "dimensions": {
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Depth",
+      "Height",
+      "Strap Maximum Length",
+      "Strap Shortest Length",
+      "Weight"
+    ],
+    "rows": [{
+      "content": [
+        "Small",
+        "8\"",
+        "2\"",
+        "5.6\"",
+        "57\"",
+        "23\"",
+        "0.6 lbs"
+      ]
+    },
+    {
+      "content": [
+        "Large",
+        "8.3\"",
+        "2\"",
+        "5.9\"",
+        "57\"",
+        "23\"",
+        "0.8 lbs"
+      ]
+    }]
+  },
+  "airline": false
+}
