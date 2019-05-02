@@ -71,33 +71,71 @@
   </div>
 </div>
 
+
 <div class="pdp-modal__section pdp-size-fit-galleries-container">
-  {%- capture pdp_size_fit_galleries_data_1 -%}
-  Nicola's pant size is 2.
-  Small|https://cdn.shopify.com/s/files/1/2185/1497/files/01_Waverley2_Small_53713cd5-4c71-4072-a34c-f24cba97d0d9.png?85644
-  Large|https://cdn.shopify.com/s/files/1/2185/1497/files/01_Waverley2_Large_2d52f875-4f59-4c5f-93d6-0742b2685d6a.png?85644
-  {%- endcapture -%}
+  
+    <div class="pdp-size-fit-galleries pdp-callout-galleries js-pdp-callout-galleries">
+      <div class="pdp-callout-galleries__carousel">
+        <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main">
+          
+            <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main-slide">
+              <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/01_Waverley2_Small_53713cd5-4c71-4072-a34c-f24cba97d0d9.png?85644" alt="Small" />
+              <span>Small</span>
+            </div>
+            <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main-slide">
+              <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/01_Waverley2_Large_2d52f875-4f59-4c5f-93d6-0742b2685d6a.png?85644" alt="Large" />
+              <span>Large</span>
+            </div></div>
+        <div class="js-pdp-callout-gallery-nav pdp-callout-galleries__carousel-nav">
+          
+            <span>Small</span>
+            <span>Large</span></div>
+        <p class="pdp-size-fit-galleries__text">Nicola's pant size is 2.</p>
+      </div>
+    </div>
+    <div class="pdp-size-fit-galleries pdp-callout-galleries js-pdp-callout-galleries">
+      <div class="pdp-callout-galleries__carousel">
+        <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main">
+          
+            <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main-slide">
+              <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/02_Waverley2_Small_22e9b05d-5ae0-4455-b133-7c16e8212269.png?85644" alt="Small" />
+              <span>Small</span>
+            </div>
+            <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main-slide">
+              <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/02_Waverley2_Large_4a3736c0-ec9d-4e59-a215-964f13dc4404.png?85644" alt="Large" />
+              <span>Large</span>
+            </div></div>
+        <div class="js-pdp-callout-gallery-nav pdp-callout-galleries__carousel-nav">
+          
+            <span>Small</span>
+            <span>Large</span></div>
+        <p class="pdp-size-fit-galleries__text">Katie's pant size is 6.</p>
+      </div>
+    </div>
+    <div class="pdp-size-fit-galleries pdp-callout-galleries js-pdp-callout-galleries">
+      <div class="pdp-callout-galleries__carousel">
+        <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main">
+          
+            <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main-slide">
+              <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/03_Waverley2_Small_96d4f5ae-e31c-4715-943c-a56a7a852c17.png?85644" alt="Small" />
+              <span>Small</span>
+            </div>
+            <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main-slide">
+              <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/03_Waverley2_Large_57fc9f43-9684-406f-a56c-b30c4b32eb05.png?85644" alt="Large" />
+              <span>Large</span>
+            </div></div>
+        <div class="js-pdp-callout-gallery-nav pdp-callout-galleries__carousel-nav">
+          
+            <span>Small</span>
+            <span>Large</span></div>
+        <p class="pdp-size-fit-galleries__text">Vanessa's pant size is 12.</p>
+      </div>
+    </div></div>
 
-  {%- capture pdp_size_fit_galleries_data_2 -%}
-  Katie's pant size is 6.
-  Small|https://cdn.shopify.com/s/files/1/2185/1497/files/02_Waverley2_Small_22e9b05d-5ae0-4455-b133-7c16e8212269.png?85644
-  Large|https://cdn.shopify.com/s/files/1/2185/1497/files/02_Waverley2_Large_4a3736c0-ec9d-4e59-a215-964f13dc4404.png?85644
-  {%- endcapture -%}
 
-  {%- capture pdp_size_fit_galleries_data_3 -%}
-  Vanessa's pant size is 12.
-  Small|https://cdn.shopify.com/s/files/1/2185/1497/files/03_Waverley2_Small_96d4f5ae-e31c-4715-943c-a56a7a852c17.png?85644
-  Large|https://cdn.shopify.com/s/files/1/2185/1497/files/03_Waverley2_Large_57fc9f43-9684-406f-a56c-b30c4b32eb05.png?85644
-  {%- endcapture -%}
 
-  {%- assign pdp_size_fit_galleries_data_1 = pdp_size_fit_galleries_data_1 | newline_to_br | split: '<br />' -%}
-  {%- assign pdp_size_fit_galleries_data_2 = pdp_size_fit_galleries_data_2 | newline_to_br | split: '<br />' -%}
-  {%- assign pdp_size_fit_galleries_data_3 = pdp_size_fit_galleries_data_3 | newline_to_br | split: '<br />' -%}
 
-  {%- include 'pdp-size-fit-galleries', data: pdp_size_fit_galleries_data_1 -%}
-  {%- include 'pdp-size-fit-galleries', data: pdp_size_fit_galleries_data_2 -%}
-  {%- include 'pdp-size-fit-galleries', data: pdp_size_fit_galleries_data_3 -%}
-</div>
+
 
 
 

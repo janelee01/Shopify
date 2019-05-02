@@ -40,14 +40,30 @@
   </div>
 </div>
 
-{%- if standalone_image -%}
-<div class="pdp-modal__section">
-  <picture>
-    <source srcset="{{standalone_image.desktop}}" media="(min-width: 768px)" />
-    <img src="{{standalone_image.mobile}}" alt="" />
-  </picture>
+{% if galleries.size > 0 %}
+<div class="pdp-modal__section pdp-size-fit-galleries-container">
+  {% for gallery in galleries %}
+    <div class="pdp-size-fit-galleries pdp-callout-galleries js-pdp-callout-galleries">
+      <div class="pdp-callout-galleries__carousel">
+        <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main">
+          {% for image in gallery.images %}
+            <div class="js-pdp-callout-gallery pdp-callout-galleries__carousel-main-slide">
+              <img src="{{ image[1] }}" alt="{{ image[0] }}" />
+              <span>{{ image[0] }}</span>
+            </div>
+          {%- endfor -%}
+        </div>
+        <div class="js-pdp-callout-gallery-nav pdp-callout-galleries__carousel-nav">
+          {% for image in gallery.images %}
+            <span>{{ image[0] }}</span>
+          {%- endfor -%}
+        </div>
+        <p class="pdp-size-fit-galleries__text">{{ gallery.caption }}</p>
+      </div>
+    </div>
+  {%- endfor -%}
 </div>
-{%- endif -%}
+{% endif %}
 
 {% if fits.size > 0 %}
 <div class="pdp-modal__section">

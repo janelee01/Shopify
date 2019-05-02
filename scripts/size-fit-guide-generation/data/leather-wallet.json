@@ -15,9 +15,5 @@
       ]
     }]
   },
-  "standalone_image": {
-    "desktop": "",
-    "mobile": ""
-  },
   "airline": false
 }

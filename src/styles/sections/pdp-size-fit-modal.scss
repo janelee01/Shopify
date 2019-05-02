@@ -135,11 +135,13 @@
 }
 
 .pdp-size-fit-galleries {
+  background: transparent;
+  width: 33%;
+  
   .flickity-button { display: none; } 
 
-  &.pdp-callout-galleries {
-    background: transparent;
-    width: 33%;
+  .pdp-callout-galleries__carousel-main-slide:before {
+    padding-top: 0;
   }
 
   .pdp-callout-galleries__carousel {
@@ -153,3 +155,4 @@
     margin-top: 1em;
   }
 }
+
