@@ -1,0 +1,59 @@
+{
+  "dimensions": {
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Depth",
+      "Height",
+      "Strap Maximum Length",
+      "Strap Shortest Length",
+      "Weight"
+    ],
+    "rows": [{
+      "content": [
+        "Small",
+        "8\"",
+        "2\"",
+        "5.6\"",
+        "57\"",
+        "23\"",
+        "0.6 lbs"
+      ]
+    },
+    {
+      "content": [
+        "Large",
+        "8.3\"",
+        "2\"",
+        "5.9\"",
+        "57\"",
+        "23\"",
+        "0.8 lbs"
+      ]
+    }]
+  },
+  "galleries": [
+    {
+      "caption": "Nicola's pant size is 2.",
+      "images": {
+        "Small": "https://cdn.shopify.com/s/files/1/2185/1497/files/01_Waverley2_Small_53713cd5-4c71-4072-a34c-f24cba97d0d9.png?85644",
+        "Large": "https://cdn.shopify.com/s/files/1/2185/1497/files/01_Waverley2_Large_2d52f875-4f59-4c5f-93d6-0742b2685d6a.png?85644"
+      }
+    },
+    {
+      "caption": "Katie's pant size is 6.",
+      "images": {
+        "Small": "https://cdn.shopify.com/s/files/1/2185/1497/files/02_Waverley2_Small_22e9b05d-5ae0-4455-b133-7c16e8212269.png?85644",        
+        "Large": "https://cdn.shopify.com/s/files/1/2185/1497/files/02_Waverley2_Large_4a3736c0-ec9d-4e59-a215-964f13dc4404.png?85644"
+      }
+    },
+    {
+      "caption": "Vanessa's pant size is 12.",
+      "images": {
+        "Small": "https://cdn.shopify.com/s/files/1/2185/1497/files/03_Waverley2_Small_96d4f5ae-e31c-4715-943c-a56a7a852c17.png?85644",
+        "Large": "https://cdn.shopify.com/s/files/1/2185/1497/files/03_Waverley2_Large_57fc9f43-9684-406f-a56c-b30c4b32eb05.png?85644"
+      }
+    }
+  ],
+  "airline": false
+}
