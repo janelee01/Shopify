@@ -129,3 +129,26 @@
     color: $gray;
   }
 }
+
+.pdp-size-fit-galleries-container {
+  display: flex;
+}
+
+.pdp-size-fit-galleries {
+  background: transparent;
+  width: 33%;
+  
+  .flickity-button { display: none; } 
+
+  .pdp-callout-galleries__carousel {
+    @media (min-width: $screen-md) {
+      width: 100%;
+    }
+  }
+
+  .pdp-size-fit-galleries__text {
+    color: #646464;
+    margin-top: 1em;
+  }
+}
+
