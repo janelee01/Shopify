@@ -3,9 +3,7 @@
 ### 0. Mobile Video Thumbnail
 ### ------------
 {%- endcomment -%}
-{%- comment -%}
-{%- assign pdp_mobile_video_thumb = "Waverley.jpg" -%}
-{%- endcomment -%}
+{%- assign pdp_mobile_video_thumb = "Waverley2-WhatFitsInside.jpg" -%}
 
 {%- comment -%}
 ### -----------
@@ -17,7 +15,6 @@
 ### line 4+N: slide text|slide image
 ### -----------
 {%- endcomment -%}
-
 {%- capture pdp_callout_galleries_data_1 -%}
 Travel In Style
 1 Bag, 4 Ways
@@ -37,8 +34,32 @@ Exterior Card Slot|https://cdn.shopify.com/s/files/1/2185/1497/files/Waverley2_s
 Interior Zipper Pocket with 3 Card Slots|https://cdn.shopify.com/s/files/1/2185/1497/files/Waverley2_slider2-3.jpg?85644
 {%- endcapture -%}
 
+{%- capture pdp_callout_galleries_data_3 -%}
+-
+Comfortable Fit
+The maximum length of the Waverley 2 strap is 57 inches and the shortest length is 23 inches, si it should fit any measurement in between.
+Nicola wears pant size 2.|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-Waverley2_Nicola.jpg?87926
+Katie wears pant size 6.|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-Waverley2_Katie.jpg?87926
+Vanessa wears pant size 12.|https://cdn.shopify.com/s/files/1/2185/1497/files/Slider-Waverley2_Vanessa.jpg?87926
+{%- endcapture -%}
+
 {%- assign pdp_callout_galleries_data_1 = pdp_callout_galleries_data_1 | newline_to_br | split: '<br />' -%}
 {%- assign pdp_callout_galleries_data_2 = pdp_callout_galleries_data_2 | newline_to_br | split: '<br />' -%}
+{%- assign pdp_callout_galleries_data_3 = pdp_callout_galleries_data_3 | newline_to_br | split: '<br />' -%}
+
+{%- comment -%}
+### -------------------
+### 2. Video
+### -------------------
+### line N: title|video
+### -------------------
+{%- endcomment -%}
+
+{%- capture pdp_video_data -%}
+What Fits Inside|https://player.vimeo.com/external/334035751.hd.mp4?s=494b3248df564964730bbd4041ce37d5b41ccabd&profile_id=174
+{%- endcapture -%}
+{%- assign pdp_video_data = pdp_video_data | trim -%}
+
 
 {%- comment -%}
 ### ----------------
