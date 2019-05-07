@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 
 
+## 0.0.25 - 2018-5-7
+### TEAM: Barrel
+### CHANGED:
+- Launches Waverly 2 and Leather Wallet
+
 ## 0.0.23 - 2018-4-19
 ### TEAM: Barrel
 ### CHANGED:
