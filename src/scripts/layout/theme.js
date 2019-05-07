@@ -1025,6 +1025,7 @@ $(document).ready(function() {
 		initialSlide: 1,
 		variableWidth: true,
 		mobileFirst: true,
+		infinite: false,
 		responsive: [
 			{
 				breakpoint: LS.tabletBreakpoint,
