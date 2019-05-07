@@ -1,6 +1,6 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 87934 -%}
+{%- assign assetVersion = 88082 -%}
 {%- assign ctaTitle = 'The Leather Wallet' -%}
 {%- assign ctaPrice = '$138' -%}
 {%- assign ctaLink = '#' -%}
@@ -25,7 +25,7 @@
 
         <div class="row animate mb-large" {{ animateZoomIn }}>
             <div class="col-sm-10 col-sm-offset-1 text-center">
-                {% include 'discover-picture', name: 'leather-wallet-product-image', alt: 'Leather Wallet product shot', retina: true, fw: false, lg: true %}
+                {% include 'discover-picture', name: 'leather-wallet-product-image', alt: 'Leather Wallet product shot', retina: true, fw: true, lg: true %}
             </div>
         </div>
 
@@ -41,232 +41,192 @@
             </div>
         </div>
 
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0"> 
-                <div class="fw-xs">
-                    {% include 'inline-video', ratio: '3-4', index: 1, poster: 'leather-wallet-four-ways-1'
-                    hd: 'https://player.vimeo.com/external/334036790.hd.mp4?s=06e26647a36f52b1bee9358fb8a47e4be493c25b&profile_id=175',
-                    sd: 'https://player.vimeo.com/external/334036790.sd.mp4?s=f782f1c1666b6fe2e67b68c3f7b4cb05cf2de0e3&profile_id=165' %}
-                </div>  
-                <div class="topic-content width-limited">
-                    <h3 class="title">Crossbody Bag</h3>
-                    <p class="description">Wear it casually for a day of shopping, sightseeing or just general weekend-ing.</p>
-                </div>
-            </div>
-            <div class="col-sm-5 col-md-6">
-                <div class="fw-xs">
-                    {% include 'inline-video', ratio: '3-4', index: 2, poster: 'leather-wallet-four-ways-2'
-                    hd: 'https://player.vimeo.com/external/334036400.hd.mp4?s=d8bcad6d750f896f938a9decbe2425b59cadd12b&profile_id=175',
-                    sd: 'https://player.vimeo.com/external/334036400.hd.mp4?s=d8bcad6d750f896f938a9decbe2425b59cadd12b&profile_id=174' %}
-                </div> 
-                <div class="topic-content width-limited">
-                    <h3 class="title">Belt Bag</h3>
-                    <p class="description">Go hands-free and pair it with a backpack to run from one offsite meeting to another.</p>
-                </div>
-            </div>
+        <div class="row mb-large animate" {{ animateFadeInUp }}>
+          <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0"> 
+            {% include 'discover-picture', name: 'leather-wallet-design-1', alt: 'Leather Wallet product shot', retina: true, fw: true, lg: true %}
+          </div>
+          <div class="col-sm-5 col-md-6">
+            {% include 'discover-picture', name: 'leather-wallet-design-2', alt: 'Leather Wallet product shot', retina: true, fw: true, lg: true %}
+          </div>
         </div>
+
         <div class="row animate mb-default" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">   
-                <div class="fw-xs">
-                    {% include 'inline-video', ratio: '3-4', index: 3, poster: 'leather-wallet-four-ways-3'
-                    hd: 'https://player.vimeo.com/external/334036827.hd.mp4?s=513f59b8cedcfaf1764b802bfd24aabacc02520c&profile_id=175',
-                    sd: 'https://player.vimeo.com/external/334036827.hd.mp4?s=513f59b8cedcfaf1764b802bfd24aabacc02520c&profile_id=174' %}
-                </div> 
-                <div class="topic-content width-limited">
-                    <h3 class="title">Shoulder Bag</h3>
-                    <p class="description">Wear it casually for a day of shopping, sightseeing or just general weekend-ing.</p>
-                </div>
+          <div class="col-sm-8 col-sm-offset-2">                    
+              <div class="section-heading">
+                <h2 class="title">Organized Interior</h2>
+                <p class="description">Simply classic on the outside, surprisingly roomy on the inside. No more cramming, no more clutter.</p>
+              </div>
+          </div>
+          <div class="col-xs-12">
+            {% include 'discover-picture', name: 'leather-wallet-features-1', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: true, lg: true %}
+          </div>  
+        </div>
+        <div class="row aligned-center mb-large mb-negate-xs animate" {{ animateFadeInUp }}>   
+          <div class="col-sm-6">   
+            {% include 'discover-picture', name: 'leather-wallet-features-2', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: true, lg: true %}
+            <div class="topic-content width-limited">
+              <h3 class="title">Cash & Card Compartments</h3>
+              <p class="description">Complete with both vertical and horizontal card slots, plus several sections for cash.</p>
             </div>
-            <div class="col-sm-5 col-md-6">
-                <div class="fw-xs">
-                    {% include 'inline-video', ratio: '3-4', index: 4, poster: 'leather-wallet-four-ways-4'
-                    hd: 'https://player.vimeo.com/external/334036861.hd.mp4?s=1a60657c846b6aeaea98b74eb8bbd010a26f8afd&profile_id=175',
-                    sd: 'https://player.vimeo.com/external/334036861.sd.mp4?s=4047a1cdb49367d3eed19cd42d9bca08f7be2053&profile_id=165' %}
-                </div>
-                <div class="topic-content width-limited">
-                    <h3 class="title">Wristlet</h3>
-                    <p class="description">Carry it as a classic clutch and instantly elevate an evening look for that special night out.</p>
-                </div>
+            {% include 'discover-picture', name: 'leather-wallet-features-3', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: true, lg: true %}
+            <div class="topic-content width-limited">
+              <h3 class="title">Zipper Closure</h3>
+              <p class="description">The zipper closure keeps all of your valuables safe and in place.</p>
             </div>
+          </div>
+          <div class="col-sm-6">   
+            <div class="fw-xs">
+              {% include 'inline-video', ratio: '3-4', index: 2, poster: 'leather-wallet-features-4'
+              hd: 'https://player.vimeo.com/external/334036072.hd.mp4?s=b88030a9fb19002be4f63eec8d0a16d8d9f22dd7&profile_id=175',
+              sd: 'https://player.vimeo.com/external/334036072.sd.mp4?s=d599661241f94cf5f3c87e1a12fdee4460087b06&profile_id=165' %}
+            </div> 
+            <div class="topic-content">
+                <h3 class="title">Perfect Travel Companion</h3>
+                <p class="description">Ideal for toting a checkbook and passport, as well as separating foreign bills and US dollars.</p>
+            </div>
+          </div>
         </div>
 
         <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2">                    
-                <div class="section-heading">
-                    <h2 class="title">Easily Within Reach</h2>
-                    <p class="description">The Leather Wallet keeps all your essentials smartly organized and easily accessible when on the go.</p>
-                </div>
+          <div class="col-sm-8 col-sm-offset-2">                    
+            <div class="section-heading">
+              <h2 class="title">Make The Switch</h2>
+              <p class="description">Swap out your old, bulky wallet for our new slim leather wallet that is just as lightweight as it is organized.</p>
             </div>
-        </div>
-        <div class="row aligned-center mb-large mb-negate-xs animate" {{ animateFadeInUp }}>            
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">   
-                {% include 'discover-picture', name: 'leather-wallet-organization-1', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: true, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Interior Slip Pocket</h3>
-                    <p class="description">For the little necessities you can find instantly.</p>
-                </div>
-                {% include 'discover-picture', name: 'leather-wallet-organization-2', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: true, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Interior Zipper Pocket with 3 card slots</h3>
-                    <p class="description">For cards and cash you want to stow securely.</p>
-                </div>
-            </div>
-            <div class="col-sm-5 col-md-6">   
-                {% include 'discover-picture', name: 'leather-wallet-organization-3', alt: 'Leather Wallet as a Wristlet', retina: true, fw: true, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Exterior Card Slot</h3>
-                    <p class="description">For that metro card you need to pull out quickly.</p>
-                </div>
-            </div>
+          </div>
         </div>
     </div>
     
     <div class="fw-container topic-block mb-large animate video-block" {{ animateFadeInUp }}>
-        {% include 'discover-picture', name: 'leather-wallet-video', alt: 'video showing how to pack the Waverley', retina: true, fw: false, xxl: true %}
+        {% include 'discover-picture', name: 'leather-wallet-video', alt: 'video showing how to pack the Leather Wallet', retina: true, fw: false, xxl: true %}
         <a href="#" data-video-id="1" class="video-trigger">See What Fits Inside</a>
     </div>
 
     <div class="container">
-        <a id="nav-target-2" class="jumptarget"></a>
+      <a id="nav-target-2" class="jumptarget"></a>
+      <div class="row animate" {{ animateFadeInUp }}>
+          <div class="col-sm-8 col-sm-offset-2">                    
+              <div class="section-heading">
+                  <h2 class="title">Organized Interior</h2>
+                  <p class="description">Simply classic on the outside, surprisingly roomy on the inside. No more cramming, no more clutter.</p>
+              </div>
+          </div>
+      </div>
+      <div class="row aligned-center mb-large mb-negate-xs animate" {{ animateFadeInUp }}>
+          <div class="col-sm-6">   
+              {% include 'discover-picture', name: 'leather-wallet-materials-1', alt: 'Leather Wallet as a Wristlet', retina: true, fw: true, lg: true %}
+              <div class="topic-content width-limited">
+                  <h3 class="title">Gold Hardware</h3>
+                  <p class="description">A modern zipper closure that’s both eye-catching and long-lasting.</p>
+              </div>
+          </div>            
+          <div class="col-sm-6">   
+              {% include 'discover-picture', name: 'leather-wallet-materials-2', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: true, lg: true %}
+              <div class="topic-content width-limited">
+                  <h3 class="title">Available in Saffiano Leather</h3>
+                  <p class="description">A textured leather, specially treated to be scratch and weather-resistant so it doesn’t show as much wear.</p>
+              </div>
+              {% include 'discover-picture', name: 'leather-wallet-materials-3', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: true, lg: true %}
+              <div class="topic-content width-limited">
+                  <h3 class="title">Available in Nappa Leather</h3>
+                  <p class="description">A lightweight, natural grain leather that’s smooth and soft so it ages beautifully over time.</p>
+              </div>
+          </div>
+      </div>
+      <a id="nav-target-3" class="jumptarget"></a>
+      <div class="row animate mb-default" {{ animateFadeInUp }}>
+          <div class="col-sm-8 col-sm-offset-2">                    
+            <div class="section-heading">
+                <h2 class="title">Specs & Dimensions</h2>
+                <p class="description">After careful research, our Production Team has designed the Leather Wallet to be slimmer than most. On average, the Leather Wallet is 1-2 square inches smaller than other brands.</p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">                    
+            {% include 'discover-picture', name: 'leather-wallet-specs', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: true, lg: true %}
+            <div class="topic-content text-center">
+                <p class="description">The Leather Wallet weighs 0.4 lbs.</p>
+            </div>
+          </div>
+      </div>
+
+      <a id="nav-target-4" class="jumptarget"></a>
+      <div class="row animate" {{ animateFadeInUp }}>
+          <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">                    
+              <div class="section-heading">
+                  <h2 class="title">Seamless Compatibility</h2>
+                  <p class="description">The Leather Wallet is just the right size to be carried inside the Waverley 2 Large, Pearl, O.G. & O.M.G. and Seville bags.</p>
+              </div>
+          </div>
+      </div>
+
+      {% capture slide1 %}
+        {% include 'discover-picture', name: 'leather-wallet-compatibility-1', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: false, lg: true %}
+        <div class="topic-content width-limited">
+          <h3 class="title">The Waverley 2 Large</h3>
+          <p class="description">Slip it into this new crossbody which converts into a shoulder bag, wristlet or belt bag.</p>
+          <div class="btn-set inlined left">
+            <a href="/products/waverley-nappa-leather-black-gold-grey" class="btn btn-secondary">Shop The Waverley 2</a>
+          </div>
+        </div>
+      {% endcapture %}
+      {% capture slide2 %}
+        {% include 'discover-picture', name: 'leather-wallet-compatibility-2', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: false, lg: true %}
+        <div class="topic-content width-limited">
+          <h3 class="title">The Pearl</h3>
+          <p class="description">Day or night, take it just about anywhere with our classic convertible crossbody bag.</p>
+          <div class="btn-set inlined left">
+            <a href="/products/pearl-saffiano-leather-black-gold-grey" class="btn btn-secondary">Shop The Pearl</a>
+          </div>
+        </div>
+      {% endcapture %}
+      {% capture slide3 %}
+        {% include 'discover-picture', name: 'leather-wallet-compatibility-3', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: false, lg: true %}
+        <div class="topic-content width-limited">
+          <h3 class="title">The O.G. &amp; O.M.G.</h3>
+          <p class="description">Pop it into the front pocket of these lightweight laptop bags for extra easy access.</p>
+          <div class="btn-set inlined left">
+            <a href="/products/og-and-omg-nylon-black-gold-lavender" class="btn btn-secondary">Shop The O.G. &amp; O.M.G.</a>
+          </div>
+        </div>
+      {% endcapture %}
+      {% capture slide4 %}
+        {% include 'discover-picture', name: 'leather-wallet-compatibility-4', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: false, lg: true %}
+        <div class="topic-content width-limited">
+          <h3 class="title">The Seville</h3>
+          <p class="description">Bring it along for meetings and travels alike with this two-in-one laptop tote.</p>
+          <div class="btn-set inlined left">
+            <a href="/products/seville-tote-saffiano-leather-black-gold-grey" class="btn btn-secondary">Shop The Seville</a>
+          </div>
+        </div>
+      {% endcapture %}
+      <div class="hidden-xs">
         <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2">                    
-                <div class="section-heading">
-                    <h2 class="title">Quality Craftsmanship</h2>
-                    <p class="description">High-quality leather meets high-impact design.</p>
-                </div>
-            </div>
+          <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            {{ slide1 }}
+          </div>
+          <div class="col-sm-5 col-md-6">
+            {{ slide2 }}
+          </div>
         </div>
-        <div class="row aligned-center mb-large mb-negate-xs animate" {{ animateFadeInUp }}>
-            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">   
-                {% include 'discover-picture', name: 'leather-wallet-materials-1', alt: 'Leather Wallet as a Wristlet', retina: true, fw: true, lg: true %}
-                <div class="topic-content width-limited">
-                    <h3 class="title">Attention to Detail</h3>
-                    <p class="description">Thoughtful decision making is behind every design element — from thread color to hardware shape, our team carefully selects the perfect option for our products.</p>
-                </div>
-            </div>            
-            <div class="col-sm-5 col-md-6">   
-                {% include 'discover-picture', name: 'leather-wallet-materials-2', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: true, lg: true %}
-                <div class="topic-content width-limited">
-                    <h3 class="title">Available in Saffiano Leather</h3>
-                    <p class="description">A textured leather, specially treated to be scratch and weather-resistant so it doesn’t show as much wear.</p>
-                </div>
-                {% include 'discover-picture', name: 'leather-wallet-materials-3', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: true, lg: true %}
-                <div class="topic-content width-limited">
-                    <h3 class="title">Available in Nappa Leather</h3>
-                    <p class="description">A lightweight, natural grain leather that’s smooth and soft so it ages beautifully over time.</p>
-                </div>
-            </div>
-        </div>
-        <a id="nav-target-3" class="jumptarget"></a>
         <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2">                    
-                <div class="section-heading">
-                    <h2 class="title">Specs & Dimensions</h2>
-                </div>
-            </div>
+          <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+            {{ slide3 }}
+          </div>
+          <div class="col-sm-5 col-md-6">
+            {{ slide4 }}
+          </div>
         </div>
+      </div>
+      
     </div>
 
-    <div id="leather-wallet-specs" class="mb-large animate" {{ animateFadeInUp }}>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    {% include 'discover-picture', name: 'leather-wallet-specs-small', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: false, lg: true %}
-                    <h3 class="title">Leather Wallet Small</h3>
-                </div>
-                <div class="col">
-                    {% include 'discover-picture', name: 'leather-wallet-specs-large', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: false, lg: true %}
-                    <h3 class="title">Leather Wallet Large</h3>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <p>On average, the Leather Wallet weighs about  0.7 lbs. Weight may vary slightly depending on size and material.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <a id="nav-target-4" class="jumptarget"></a>
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">                    
-                <div class="section-heading">
-                    <h2 class="title">Updated Design</h2>
-                    <p>The Leather Wallet is a new and improved version of our former Waverley bag. </p>
-                    <p class="description"><a href="#waverley-comparison-overlay" class="more-window-trigger">Compare models +</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-10 col-sm-offset-1">
-                <div id="waverley-2-old-vs-new" class="mb-large fw-xs">
-                    {% include 'discover-picture', name: 'leather-wallet-update-original', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: false, lg: true %}
-                    <div class="new">
-                        {% include 'discover-picture', name: 'leather-wallet-update-new', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: false, lg: true %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="leather-wallet-fit" class="mb-large">
-        <div class="container">
-            <a id="nav-target-5" class="jumptarget"></a>
-            <div class="row animate" {{ animateFadeInUp }}>
-                <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">                    
-                    <div class="section-heading">
-                        <h2 class="title">Comfortable Fit</h2>
-                        <p>The maximum length of the Leather Wallet strap is 57 inches and the shortest length is 23 inches, so it should fit any measurement in between!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row animate" {{ animateFadeInUp }}>
-                <div class="col">
-                    <div class="toggle">
-                        {% include 'discover-picture', name: 'leather-wallet-fit-2-small', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: false, lg: true %}
-                        <div class="alternate">
-                            {% include 'discover-picture', name: 'leather-wallet-fit-2-large', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: false, lg: true %}
-                        </div>
-                        <div class="controls">
-                            <button class="active">Small</button>
-                            <button class="show-alternate">Large</button>
-                        </div>
-                    </div>
-                    <p class="description">Nicola’s pant size is 2.</p>
-                </div>
-                <div class="col">
-                    <div class="toggle">
-                        {% include 'discover-picture', name: 'leather-wallet-fit-6-small', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: false, lg: true %}
-                        <div class="alternate">
-                            {% include 'discover-picture', name: 'leather-wallet-fit-6-large', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: false, lg: true %}
-                        </div>
-                        <div class="controls">
-                            <button class="active">Small</button>
-                            <button class="show-alternate">Large</button>
-                        </div>
-                    </div>
-                    <p class="description">Katie’s pant size is 6.</p>
-                </div>
-                <div class="col">
-                    <div class="toggle">
-                        {% include 'discover-picture', name: 'leather-wallet-fit-12-small', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: false, lg: true %}
-                        <div class="alternate">
-                            {% include 'discover-picture', name: 'leather-wallet-fit-12-large', alt: 'Leather Wallet as a Shoulder Bag', retina: true, fw: false, lg: true %}
-                        </div>
-                        <div class="controls">
-                            <button class="active">Small</button>
-                            <button class="show-alternate">Large</button>
-                        </div>
-                    </div>
-                    <p class="description">Vanessa’s pant size is 12.</p>
-                </div>
-            </div>
-        </div>
+    <div class="visible-xs mb-large">
+      <div id="leather-wallet-slider">
+        <div>{{ slide1 }}</div>
+        <div>{{ slide2 }}</div>
+        <div>{{ slide3 }}</div>
+        <div>{{ slide4 }}</div>
+      </div>
     </div>
 
     <div id="leather-wallet-cta">
@@ -274,96 +234,9 @@
     </div>
 
     <script>// <![CDATA[
-    var video1Embed = '<iframe src="https://player.vimeo.com/video/334035751" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+    var video1Embed = '<iframe src="https://player.vimeo.com/video/334035070" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
     // ]]></script>
 
     {% include 'video-modal' %}
-
-    <div class="more-window" id="waverley-comparison-overlay">
-        <div class="section-heading first">
-            <h2 class="title">Waverley Comparison</h2>
-            <p>This guide compares the similarities and differences between the original Waverley and the updated design of the Leather Wallet Small and Large.</p>
-        </div>
-        <div class="section-heading">
-            <h3 class="title">Specs &amp; Dimensions</h3>
-        </div>
-        <div class="slider mb-large">
-            <div class="slides" id="leather-wallet-comparison-slider">
-                <div>
-                    <div class="slide">
-                        {% include 'discover-picture', name: 'leather-wallet-comparison-specs-orig', alt: 'Waverley dimensions', retina: true, fw: false, lg: true %}
-                        <h4 class="title has-bg">Waverley <small>discontinued as of 5/8/19</small></h4>
-                        <p>The Waverley weighs 0.4 lbs.</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="slide">
-                        {% include 'discover-picture', name: 'leather-wallet-comparison-specs-small', alt: 'Waverley dimensions', retina: true, fw: false, lg: true %}
-                        <h4 class="title has-bg">Leather Wallet Small</h4>
-                        <p>The average weight of the Leather Wallet Small is 0.6 lbs*</p>
-                        <p>*Weight may vary slightly depending on material (Nappa leather vs. Saffiano leather).</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="slide">
-                        {% include 'discover-picture', name: 'leather-wallet-comparison-specs-large', alt: 'Waverley dimensions', retina: true, fw: false, lg: true %}
-                        <h4 class="title has-bg">Leather Wallet Large</h4>
-                        <p>The average weight of the Leather Wallet Large is 0.75 lbs*</p>
-                        <p>*Weight may vary slightly depending on material (Nappa leather vs. Saffiano leather).</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section-heading">
-            <h3 class="title">Behind the Design</h3>
-        </div>
-        <div class="columns">
-            <div class="row">
-                <div class="col">
-                    <h4 class="title has-bg">Waverley <small>discontinued <span class="hidden-xs">as of 5/8/19</span></small></h4>
-                    <div class="swatches">
-                        <p>Nappa Leather:<br>
-                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/leather-wallet-comparison-swatches.png?{{ assetVersion }}" alt="nappa leather swatches"></p>
-                    </div>
-                </div>
-                <div class="col">
-                    <h4 class="title has-bg">Leather Wallet Small &amp; Large</h4>
-                    <div class="swatches">
-                        <p>Nappa Leather:<br>
-                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/leather-wallet-comparison-swatches.png?{{ assetVersion }}" alt="nappa leather swatches"></p>
-                    </div>
-                    <div class="swatches">
-                        <p>Saffiano Leather:<br>
-                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/leather-wallet-comparison-swatches.png?{{ assetVersion }}" alt="saffiano leather swatches"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="two-up mb-large">
-                {% include 'discover-picture', name: 'leather-wallet-comparison-emblem', alt: 'Waverley emblem change', retina: true, fw: false, lg: true %}
-            </div>
-            <div class="two-up mb-default">
-                {% include 'discover-picture', name: 'leather-wallet-comparison-card-slot', alt: 'Leather Wallet with card slot', retina: true, fw: false, lg: true %}
-            </div>
-            <div class="section-heading">
-                <h4 class="title">Exterior Card Slot</h4>
-                <p>The exterior card slot was added to the Leather Wallet Small and Large as a convenient place to store your metro card or hotel key card.</p>
-            </div>
-            <div class="two-up mb-default">
-                {% include 'discover-picture', name: 'leather-wallet-comparison-zipper-pocket', alt: 'Leather Wallet interior zip pocket', retina: true, fw: false, lg: true %}
-            </div>
-            <div class="section-heading">
-                <h4 class="title">Interior Zipper Pocket</h4>
-                <p>The interior zipper pocket was added to the Leather Wallet Small and Large to keep the cards within the card slots safe and secure. Cash and other valuables can be stored in this pocket as well.</p>
-            </div>
-            <div class="two-up">
-                {% include 'discover-picture', name: 'leather-wallet-comparison-slip-pocket', alt: 'Leather Wallet interior slop pocket', retina: true, fw: false, lg: true %}
-            </div>
-            <div class="section-heading">
-                <h4 class="title">Interior Slip Pocket</h4>
-                <p>The interior slip pocket was relocated to the other side of the Leather Wallet Small and Large after the additional of the interior zipper pocket.</p>
-            </div>
-        </div>
-        <button class="panel-close"><span class="sr-only">close</span></button>
-    </div>
 
 </article>

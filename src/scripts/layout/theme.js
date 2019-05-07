@@ -1035,4 +1035,16 @@ $(document).ready(function() {
 		]
 	});
 
+	$('#leather-wallet-slider').slick({
+		dots: true,
+		arrows: false,
+		mobileFirst: true,
+		responsive: [
+			{
+				breakpoint: LS.tabletBreakpoint,
+				settings: "unslick"
+			}
+		]
+	});
+
 });

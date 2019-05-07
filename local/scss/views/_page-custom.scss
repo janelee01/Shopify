@@ -1160,6 +1160,7 @@
 	}
 }
 
+#leather-wallet-cta,
 #waverley2-cta{
 	.discover-cta{
 		@media (min-width: $screen-md) {
@@ -1419,5 +1420,33 @@
 				font-size: 14px;
 			}
 		}
+	}
+}
+
+#leather-wallet-slider{
+	background: $gray-lightest;
+	.topic-content{
+		text-align: center;
+		padding-left: 30px;
+		padding-right: 30px;
+		.btn-set{
+			text-align: center;
+		}
+	}
+}
+#leather-wallet-cta{
+	@media (max-width: $screen-xs-max) {
+		.container{
+			padding: 0;
+		}
+		.row{
+			margin: 0;
+		}
+		.col-md-6{
+			padding: 0;
+		}
+	}
+	picture{
+		max-width: 100%;
 	}
 }
