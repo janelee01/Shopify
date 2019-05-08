@@ -31,14 +31,16 @@
       </div>
       {%- endfor -%}
       </div>
-      <div class="js-pdp-callout-gallery-nav pdp-callout-galleries__carousel-nav">
-      {%- for i in (4..total_rows) -%}
-      {%- assign j = i | minus: 1 -%}
-      {%- assign slide = data[j] -%}
-      {%- assign slide_text = slide | split: '|' | first -%}
-      <span>{{slide_text}}</span>
-      {%- endfor -%}
-      </div>
+      {%- if total_rows > 4 -%}
+        <div class="js-pdp-callout-gallery-nav pdp-callout-galleries__carousel-nav">
+          {%- for i in (4..total_rows) -%}
+            {%- assign j = i | minus: 1 -%}
+            {%- assign slide = data[j] -%}
+            {%- assign slide_text = slide | split: '|' | first -%}
+            <span>{{slide_text}}</span>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
     </div>
   </div>
 

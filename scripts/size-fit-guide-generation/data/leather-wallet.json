@@ -1,0 +1,19 @@
+{
+  "dimensions": {
+    "headings": [
+      "Dimensions",
+      "Width",
+      "Height",
+      "Weight"
+    ],
+    "rows": [{
+      "content": [
+        "",
+        "7\"",
+        "4\"",
+        "0.4 lbs"
+      ]
+    }]
+  },
+  "airline": false
+}
