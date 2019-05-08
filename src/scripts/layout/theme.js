@@ -983,6 +983,69 @@ $(document).ready(function() {
 		e.preventDefault();
 		$('#laptops div').hide();
 		$('.brand-' + $(this).val()).fadeIn();
-});
+	});
+
+	/*
+	Continuous scroll
+	*/
+	$('.continuous-carousel').slick({
+		autoplay: true,
+		autoplaySpeed: 0,
+		speed: 10000,
+		arrows: false,
+		draggable: false,
+		pauseOnHover: false,
+		pauseOnFocus: false, 
+		swipe: false,  
+		cssEase: 'linear',
+		slidesToShow: 1,
+		centerMode: true,
+		variableWidth: true
+	});
+
+	/*
+	Fit / Model Toggles
+	*/
+	$('.toggle .controls button').on('click', function(e){
+		e.preventDefault();
+		var $parent = $(this).closest('.toggle');
+		var $alternate = $parent.find('.alternate');
+		$parent.find('button').removeClass('active');
+		$(this).addClass('active');
+		if( $parent.find('.active').hasClass('show-alternate') ){
+			$alternate.addClass('shown');
+		}else{
+			$alternate.removeClass('shown');
+		}
+	});
+
+	$('#waverley2-comparison-slider').slick({
+		centerMode: true,
+		dots: true,
+		initialSlide: 1,
+		variableWidth: true,
+		mobileFirst: true,
+		infinite: false,
+		responsive: [
+			{
+				breakpoint: LS.tabletBreakpoint,
+				settings: {
+					dots: false
+				}
+			}
+		]
+	});
+
+	$('#leather-wallet-slider').slick({
+		dots: true,
+		arrows: false,
+		mobileFirst: true,
+		responsive: [
+			{
+				breakpoint: LS.tabletBreakpoint,
+				settings: "unslick"
+			}
+		]
+	});
 
 });

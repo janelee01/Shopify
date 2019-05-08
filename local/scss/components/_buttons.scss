@@ -11,6 +11,14 @@
 				margin: 0 3px;
 			}
 		}
+		&.left{
+			width: 100%;
+			text-align: left;
+			.btn{
+				display: inline-block;
+				margin: 0 6px 0 0;
+			}
+		}
 	}
 	&.aligned-left{
 		margin-left: 0;
