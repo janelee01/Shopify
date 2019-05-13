@@ -1036,6 +1036,14 @@ $(document).ready(function() {
 		]
 	});
 
+	$('#neutrals-sand-slider .slides, #neutrals-rose-slider .slides').slick({
+		centerMode: true,
+		initialSlide: 1,
+		variableWidth: true,
+		mobileFirst: true,
+		infinite: false
+	});
+
 	$('#leather-wallet-slider').slick({
 		dots: true,
 		arrows: false,

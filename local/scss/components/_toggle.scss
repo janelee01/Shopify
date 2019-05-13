@@ -1,0 +1,49 @@
+.toggle{
+  position: relative;
+  .alternate{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transition: .3s;
+    &.shown{
+      opacity: 1;
+    }
+  }
+  .controls{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background: #fff;
+    display: flex;
+    button{
+      @include resetButton;
+      width: 50%;
+      border-top: solid 4px #fff;
+      font-family: $font-family-medium;
+      font-size: 21px;
+      color: #9B9B9B;
+      padding: 8px 0 9px;
+      @media (min-width: $screen-sm) {
+        font-size: 14px;
+        padding: 2px 0 4px;
+      }
+      @media (min-width: $screen-md) {
+        font-size: 20px;
+        padding: 6px 0 7px;
+      }
+      @media (min-width: $screen-lg) {
+        border-width: 5px;
+        font-size: 28px;
+        padding: 7px 0 9px;
+      }
+      &.active{
+        border-top-color: $brand-blue;
+        color: #000;
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+  }
+}
