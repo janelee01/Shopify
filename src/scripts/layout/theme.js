@@ -391,8 +391,8 @@ $(document).ready(function() {
 		arrows : false,
 		dots : true,
 		autoplay : true,
-		autoplaySpeed : 2000,
-		speed : 600
+		autoplaySpeed : 3500,
+		speed : 750
 	});
 
 	/*
