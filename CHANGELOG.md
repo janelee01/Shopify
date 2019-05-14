@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 
 
+## 0.0.27 - 2018-5-14
+### TEAM: Barrel
+### CHANGED:
+- Updates thumbnail images
+- Updates review display logic on PDP
+
 ## 0.0.26 - 2018-5-8
 ### TEAM: Barrel
 ### CHANGED:

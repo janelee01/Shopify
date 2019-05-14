@@ -1,6 +1,6 @@
 {%- assign class = class | default: '' -%}
 
-{% if true or product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
+{% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
   <a href="#" class="pdp-main-product-yotpo yotpo {{class}}">
     {% assign reviewsAverage = product.metafields.yotpo.reviewsAverage | default: 4.5 %}
     {% assign reviewsAverageInt = reviewsAverage | floor %}
