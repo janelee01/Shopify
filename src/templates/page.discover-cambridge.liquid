@@ -91,20 +91,21 @@
                 </div>
             </div>
         </div>
-        
-    </div>
-    
-    <a id="nav-target-2" class="jumptarget"></a>
-    <div class="max-container topic-block mb-large has-overlay-xs animate" {{ animateFadeInUp }}>
-        <div class="inline-video ratio-16-9 center full">
-        <div id="inline-video-60" class="embed-container">
-        <video id="video60" width="100%" loop="loop" muted="" playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/Cambridge-7.jpg"></video> <a href="#" class="video-trigger60">Play Video <svg viewbox="0 0 90 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Page-1-6" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <path d="M45,90 C69.8528137,90 90,69.8528137 90,45 C90,20.1471863 69.8528137,0 45,0 C20.1471863,0 0,20.1471863 0,45 C0,69.8528137 20.1471863,90 45,90 Z M35,30 L62,45.5 L35,61 L35,30 Z" id="section-6-item-0-play-icon" fill="#FFFFFF"></path> </g> </svg> </a>
-        <div class="loading"></div>
-        </div>
-        </div>
-    </div>
 
-    <div class="container">
+        <a id="nav-target-2" class="jumptarget"></a>
+        <div class="topic-block mb-large has-overlay-xs animate" {{ animateFadeInUp }}>
+            <picture>
+                <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/Cambridge-7.jpg?{{ assetVersion }}" media="(min-width: 768px)">
+                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/Cambridge-7.jpg?{{ assetVersion }}" alt="cambridge">
+            </picture>
+            <div class="topic-content">
+                <h3 class="title">What Fits Inside</h3>
+                <a href="#" data-video-id="1" class="video-trigger">
+                    <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
+                </a>
+            </div>
+        </div>
+
         <a id="nav-target-3" class="jumptarget"></a>
         <div class="row topic-block aligned-sm mb-negate-xs">
             <div class="col-sm-6">
@@ -157,7 +158,7 @@
 
 
     <script>// <![CDATA[
-    var video1Embed = '<iframe src="https://player.vimeo.com/video/129575639" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-hanover" class="vimeo"></iframe>';
+    var video1Embed = '<iframe src="https://player.vimeo.com/video/129575638" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-hanover" class="vimeo"></iframe>';
     // ]]></script>
 
     {% include 'video-modal' %}

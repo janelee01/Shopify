@@ -59,19 +59,10 @@
 
 	    <div class="animate" {{ animateFadeInUp }}>
 	        <div class="row topic-block">
-	            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">                    
-	                <div class="fw-xs">
-	                    <div class="inline-video ratio-9-16 product-video" id="seville-inlined-1">
-	                        <div class="embed-container"
-	                            data-desktop-url="https://player.vimeo.com/external/293977542.hd.mp4?s=33197fc29d42945a5c939add189dff4b4e029a78&profile_id=175"
-	                            data-mobile-url="https://player.vimeo.com/external/293977542.sd.mp4?s=5035aa9f20e25a892d8ebf686132fe425a093d95&profile_id=165"
-	                            data-autoplay="true"
-	                            data-loops="100">
-	                            <video id="video-1" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/seville-2-in-1-video.jpg?{{ assetVersion }}"></video>
-	                            <div class="loading"></div>
-	                        </div>
-	                   </div>
-	                </div>
+	            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0"> 
+					<div class="fw-xs">
+						{% include 'inline-video', ratio: '9-16', index: 1, poster: 'seville-2-in-1-video', src: 'Discover_The_Seville_-_Travel_Shell_-_9_16_1' %}
+					</div>                    
 	                <div class="topic-content">
 	                    <h3 class="title">Patented Interchangeable Shell Design</h3>
 	                    <p class="description">Transform your bag seamlessly without having to unpack everything. The entire interior organizer slips out of one shell and into another in under a minute.</p>
@@ -385,18 +376,8 @@
 			    </div>
 			</div>
 			
-			 <div class="inline-video ratio-4-3 product-video" id="seville-inlined-3">
-			 	<div class="mb-large">
-				     <div class="embed-container"
-				         data-desktop-url="https://player.vimeo.com/external/293977511.hd.mp4?s=92da55df3882f0d17b1b5a2d46c13d1ddd38ad41&profile_id=175"
-				         data-mobile-url="https://player.vimeo.com/external/293977511.sd.mp4?s=2ca281303ff2e9fd4dddb5b2881b33fbb8952b35&profile_id=165"
-				         data-autoplay="true"
-				         data-force="true"
-				         data-loops="100">
-				         <video id="video-3" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/seville-travel-shell-poster.jpg?{{ assetVersion }}"></video>
-				         <div class="loading"></div>
-				     </div>
-			     </div>
+			<div class="mb-large">
+				{% include 'inline-video', ratio: '4-3', index: 3, poster: 'seville-travel-shell-poster', src: 'Discover_the_Seville_-_TravelShell_-_4_3', force: true %} 
 			</div>
 
 			<div class="row">
