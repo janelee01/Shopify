@@ -4,8 +4,22 @@
   {%- when 'collection' -%}
     {%- assign listName = collection.title -%}
 {%- endcase -%}
-{%- assign price = product.first_available_variant.price -%}
-{%- assign regularPrice = product.first_available_variant.compare_at_price -%}
+{% comment %} find the on sale variant {% endcomment %}
+{%- assign price = nil -%}
+{%- for variant in product.variants -%}
+  {%- if variant.available -%}
+    {%- if variant.compare_at_price > variant.price -%}
+      {%- assign price = variant.price -%}
+      {%- assign regularPrice = variant.compare_at_price -%}
+      {% break %}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{% comment %} if we didn't fine a sale item, use the first available variant {% endcomment %}
+{%- if price == blank -%}
+  {%- assign price = product.first_available_variant.price -%}
+  {%- assign regularPrice = product.first_available_variant.compare_at_price -%}
+{%- endif -%}
 <article class="product">
   <a class="product-link" href="{{ product.url | within: collection }}"
     data-list-name="{{ listName }}"
