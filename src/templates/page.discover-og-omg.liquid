@@ -167,22 +167,21 @@
       </div>
     </div>
 
-    </div>
   
-  <div class="max-container mb-large">
-     <div class="inline-video ratio-16-9 product-video" id="ogomg-inlined-4">
-         <div class="embed-container"
-             data-desktop-url="https://player.vimeo.com/external/293982982.hd.mp4?s=1a0100061143e3a658380f3a329cc9f882de3ee5&profile_id=175"
-             data-mobile-url="https://player.vimeo.com/external/293982982.sd.mp4?s=e1bbaf49da4dc0c35b5233f5c49986aa42015764&profile_id=165"
-             data-autoplay="true"
-             data-loops="100">
-             <video id="video-4" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/ogomg-organized-video.jpg?{{ assetVersion }}"></video>
-             <div class="loading"></div>
-         </div>
+    <div class="mb-large topic-block has-overlay-xs fw-xs animate" {{ animateFadeInUp }}>
+      <picture>
+        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/ogomg-organized-video.jpg?{{ assetVersion }}" media="(min-width: 768px)">
+        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/ogomg-organized-video.jpg?{{ assetVersion }}" alt="items around OG / OMG">
+      </picture>
+      <div class="topic-content">
+        <h3 class="title">What Fits Inside</h3>
+        <a href="#" data-video-id="1" class="video-trigger">
+          <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
+        </a>
+      </div>
     </div>
-  </div>
 
-  <div class="container">
+
     <a id="nav-target-3" class="jumptarget"></a>
     <div class="animate" {{ animateFadeInUp }}>
         <div class="row">
@@ -289,5 +288,11 @@
     </div>
 
   </div>
+
+  <script>// <![CDATA[
+    var video1Embed = '<iframe src="https://player.vimeo.com/video/293982982" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen class="vimeo"></iframe>';
+    // ]]></script>
+
+  {% include 'video-modal' %}
 
 </article>

@@ -106,28 +106,20 @@
         </div>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-                <div class="mb-large fw-xs">
-                     <div class="inline-video ratio-16-9 product-video" id="catalina-inlined-1">
-                        <div class="click-to-play">
-                            <div class="embed-container"
-                                data-desktop-url="https://player.vimeo.com/external/308577378.hd.mp4?s=a6f634bb9ed76cde4850ab7f632680176c11d4c7&profile_id=175"
-                                data-mobile-url="https://player.vimeo.com/external/308577378.sd.mp4?s=71243afd2d5acbd13d010ef03f4c6ce60ccca387&profile_id=165"
-                                data-autoplay="true"
-                                data-loops="100">
-                                <video id="video-1" width="100%" loop muted playsinline="true" poster="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-video-1.jpg?4299392970982497643{{ assetVersion }}"></video>
-                                <div class="loading"></div>
-                            </div>
-                            <a href="#" data-video-id="1" class="video-trigger">
-                                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-video-1-xs.jpg?4299392970982497643{{ assetVersion }}" alt="play video">
-                                <span><img src="{{ 'play.svg' | asset_url }}" alt=""></span>
-                            </a>
-                        </div>
+                <div class="mb-large topic-block has-overlay-xs fw-xs">
+                    <picture>
+                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-video-1.jpg?{{ assetVersion }}" media="(min-width: 768px)">
+                        <img style="width: 100%" src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-video-1-xs.jpg?{{ assetVersion }}" alt="packing the Catalina Deluxe">
+                    </picture>
+                    <div class="topic-content">
+                        <h3 class="title">What Fits Inside</h3>
+                        <a href="#" data-video-id="1" class="video-trigger">
+                            <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
+                        </a>
                     </div>
-                    
                 </div>
             </div>
         </div>
-        
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 text-center">                    
                 <div class="section-heading">
