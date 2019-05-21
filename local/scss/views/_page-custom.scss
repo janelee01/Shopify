@@ -1552,3 +1552,14 @@
 		margin: 0 0 40px;
 	}
 }
+
+#prospect-lifestyle{
+	@media (min-width: $screen-sm) {
+		display: flex;
+		justify-content: space-between;
+		picture{
+			flex: 1;
+			max-width: calc(50vw - 15px);
+		}
+	}
+}

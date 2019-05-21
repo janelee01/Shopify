@@ -1,267 +1,186 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 74557 -%}
-{%- assign ctaTitle = 'The Rowledge' -%}
-{%- assign ctaPrice = '$375' -%}
-{%- assign ctaLink = '/products/rowledge-nylon-black-gold-grey' -%}
-{%- assign ctaImg = 'rowledge-cta' -%}
-{%- assign ctaImgCol = 'col-md-5 col-md-pull-5' -%}
-{%- assign ctaContentCol = 'col-md-6 col-md-push-6' -%}
+{%- assign assetVersion = 109102 -%}
+{%- assign ctaTitle = 'The Prospect' -%}
+{%- assign ctaPrice = '$498' -%}
+{%- assign ctaLink = '/products/prospect-nylon-black-gold-grey' -%}
+{%- assign ctaImg = 'prospect-cta' -%}
 
 <article class="discover">
 
-    {% include 'discover-nav', labels:'Versatile Design,What Fits Inside,Materials,Specs' %}
+    {% comment %} {% include 'discover-nav', labels:'Versatile Design,What Fits Inside,Materials,Specs' %} {% endcomment %}
 
-    <div class="max-container">
-        <div class="hero has-arrow" id="rowledge-hero">
-            {% include 'discover-picture', name: 'rowledge-hero', alt: 'woman with Rowledge on shoulder', retina: true, fw: false, lg: true %}
+    <div class="fw-container">
+        <div class="hero has-arrow">
+            {% include 'discover-picture', name: 'prospect-hero', alt: 'man with Prospect on shoulder', retina: true, fw: false, xxl: true %}
             <div class="hero-content left white">
                 <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
-                <p class="description">A do-it-all nylon backpack for women who mean business. It even converts to a tote.</p>
+                <p class="description">A sleek unisex backpack that converts to a briefcase.</p>
             </div>
             {% include 'hero-jump-btn' %}
         </div>
     </div>
     <div class="container">{% include 'hero-jump-target' %}
-        <div class="row animate mb-gutter" {{ animateFadeInUp }}>
-            <div class="col-sm-6 col-sm-offset-3">
-                {% include 'discover-picture', name: 'rowledge-product-img', alt: 'Rowledge product shot', retina: true, fw: true, lg: true %}
+        <div class="row animate text-center mb-gutter" {{ animateZoomIn }}>
+            <div class="col-sm-10 col-sm-offset-1">
+                {% include 'discover-picture', name: 'prospect-product-image', alt: 'prospect product shot', retina: true, fw: true, lg: true %}
             </div>
         </div>
-         <div class="animate" {{ animateFadeInUp }}>
-            <div class="section-heading">
-                    <h2 class="title" id="rowledge-title">Carry yourself <br class="visible-xs" />with confidence.<br /> Carry your essentials <br class="visible-xs visible-sm" />with a backpack.</h2>
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="section-heading">
+                    <h2 class="title">Functional Design Meets Luxury</h2>
+                    <p>What makes an investment-worthy bag? A precise mix of premium materials and ingenious design features.</p>
+                    <p><a href="{{ ctaLink }}" class="btn btn-secondary">Buy now</a></p>
                 </div>
+            </div>
         </div>
     </div>
     <a id="nav-target-1" class="jumptarget"></a>
-    <div class="max-container animate" {{ animateFadeInUp }}>
-        <div class="topic-block has-overlay-xs mb-gutter fw-sm mb-negate-sm">
-            {% include 'discover-picture', name: 'rowledge-work-hero', alt: 'woman carrying Rowledge with handles', retina: true, fw: true, lg: true %}
-            <div class="topic-content">
-                <h2 class="title">Work Mode</h2>
-            </div>
-        </div>
+    
+    <div class="max-container">
+    <div class="parallax-window" data-parallax="scroll" data-image-src="https://cdn.shopify.com/s/files/1/2185/1497/files/prospect-plax-1-xxl.jpg?{{ assetVersion }}"></div>
     </div>
-    <div class="container has-scrolling">
-        <div class="row side-scrolling mb-default mb-negate-xs">
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-work-1', alt: 'Rowledge luxe details', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">CEO-Tested, <br class="hidden-xs">Client-Approved</h3>
-                    <p class="description">With its luxe details, this bag looks right at home in the boardroom, the courtroom, and beyond.</p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-work-2', alt: 'Rowledge laptop sleeve', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Your Laptop Will Love&hellip;</h3>
-                    <p class="description">&hellip;having its own compartment, with water-resistant zippers to keep rain (and happy-hour spills) out.</p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-work-3', alt: 'Rowledge interior pockets', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Inside That Counts</h3>
-                    <p class="description">A clever array of pockets hold your documents, small electronics, and emergency chocolate stash.</p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-work-4', alt: 'Rowledge front pocket', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Everything in Its Place</h3>
-                    <p class="description">Your days of rifling through a shapeless tote are over. This front pocket keeps pens, keys, and earbuds at the ready.</p>
+
+    <div class="container">
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="topic-content text-center">
+                    <h2 class="title">A Modern Style</h2>
+                    <p class="description">The optimum bag for the busy professional, the Prospect goes from office, to airport, to wherever you’re headed next. </p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="max-container animate" {{ animateFadeInUp }}>
-        <div class="topic-block has-overlay-xs mb-gutter fw-sm mb-negate-sm">
-            {% include 'discover-picture', name: 'rowledge-travel-hero', alt: 'woman getting in car', retina: true, fw: true, lg: true %}
-            <div class="topic-content">
-                <h2 class="title">Travel Mode</h2>
-            </div>
-        </div>
-    </div>
-    <div class="container has-scrolling">
-        <div class="row side-scrolling mb-default mb-negate-xs">
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-travel-1', alt: 'Rowledge handle sleeve slides onto luggage', retina: true, fw: false, lg: true %}
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+                {% include 'inline-video', ratio: '3-4', index: 1, poster: 'prospect-feature-1-lg', src: 'Lo_Sons_-_Leather_Wallet_-_Packing_for_Travel' %}
                 <div class="topic-content">
-                    <h3 class="title">Ready to Roll</h3>
-                    <p class="description">A convenient pass-through sleeve slides onto most roller bags for fuss-free travel.</p>
+                    <h3 class="title">No Velcro, Buckles or Buttons</h3>
+                    <p class="description">Small but ultra-powerful Rare Earth magnets (made in France!) line the closure of the Prospect, making it both flexible and ultra-secure.</p>
                 </div>
             </div>
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-travel-2', alt: 'close up of Rowledge stash pocket', retina: true, fw: false, lg: true %}
+            <div class="col-sm-5 col-md-6">
+                {% include 'inline-video', ratio: '3-4', index: 2, poster: 'prospect-feature-2-lg', src: 'Lo_Sons_-_Leather_Wallet_-_Packing_for_Travel' %}
                 <div class="topic-content">
-                    <h3 class="title">VIP Area</h3>
-                    <p class="description">Keep important items like your passport, phone, and money in the easy-to-reach stash pocket.</p>
+                    <h3 class="title">Convertible 2-in-1</h3>
+                    <p class="description">Carry it as a briefcase in the office, then convert it to a backpack for your commute or travels.</p>
                 </div>
-            </div>
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-travel-3', alt: 'Rowledge sleeve is easily removed', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Speed Through Security</h3>
-                    <p class="description">Need to remove your laptop at TSA? Not a problem when it’s in an easy-to-access sleeve.</p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-travel-4', alt: 'airline seats', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Fit in Everywhere</h3>
-                    <p class="description">The Rowledge qualifies as a personal item and fits under any airline seat. Bon voyage! </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="max-container animate" {{ animateFadeInUp }}>
-        <div class="topic-block has-overlay-xs mb-gutter fw-sm mb-negate-sm">
-            {% include 'discover-picture', name: 'rowledge-weekend-hero', alt: 'woman at coffee shop', retina: true, fw: true, lg: true %}
-            <div class="topic-content">
-                <h2 class="title">Weekend Mode</h2>
-            </div>
-        </div>
-    </div>
-    <div class="container has-scrolling">
-        <div class="row side-scrolling mb-default mb-negate-xs">
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-weekend-1', alt: 'removing the Rowledge laptop sleeve', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Room to Relax</h3>
-                    <p class="description">Did someone say Saturday? Trade out the removable insert for a picnic blanket and a bottle of ros&eacute;.</p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-weekend-2', alt: 'phone inserted into Rowledge stash pocket', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Make It Quick</h3>
-                    <p class="description">A stash pocket provides easy access to essential items like your phone, money, and a few business cards.</p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-weekend-3', alt: 'Rowledge key leash', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Keeper of the Keys</h3>
-                    <p class="description">Never misplace those bad-boys again, thanks to a key leash that attaches to the right or left side of your bag.</p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-weekend-4', alt: 'woman wearing Rowledge as backpack', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Hands-Free Adventures</h3>
-                    <p class="description">Whether you’re hitting the road or exploring a new city, it’s always easier with a backpack.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="max-container animate" {{ animateFadeInUp }}>
-        <div class="topic-block has-overlay-xs mb-gutter fw-sm mb-negate-sm">
-            {% include 'discover-picture', name: 'rowledge-workout-hero', alt: 'woman walking into gym', retina: true, fw: true, lg: true %}
-            <div class="topic-content">
-                <h2 class="title">Workout Mode</h2>
-            </div>
-        </div>
-    </div>
-    <div class="container has-scrolling">
-        <div class="row side-scrolling mb-gutter mb-large-sm mb-negate-xs">
-            <div class="col-sm-4">
-                {% include 'discover-picture', name: 'rowledge-workout-1', alt: 'Rowledge bottle side pocket', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Hydrate, Ladies</h3>
-                    <p class="description">Discreet zippered side pockets lay flat when not in use—but stretch to fit your water bottle when you’re ready to rock.</p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                {% include 'discover-picture', name: 'rowledge-workout-2', alt: 'removable insert keeps things separate', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Keep It Clean</h3>
-                    <p class="description">Sweaty gym clothes have met their match: The removable insert’s water-resistant coating makes it simple to clean.</p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                {% include 'discover-picture', name: 'rowledge-workout-3', alt: 'Rowledge converts from tote to backpack', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">From Desk to <br class="hidden-xs">Downward Dog</h3>
-                    <p class="description">Easily convert your bag from tote to backpack to book it from the office to that 7pm yoga class.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a id="nav-target-2" class="jumptarget"></a>
-    <div class="max-container animate" {{ animateFadeInUp }}>
-        <div class="mb-large fw-xs fw-sm has-overlay-xs topic-block">
-            <picture>
-                <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/rowledge-video-lg.jpg?{{ assetVersion }}" media="(min-width: 768px)">
-                <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/rowledge-video-xs.jpg?{{ assetVersion }}" alt="Edgemont">
-            </picture>
-            <div class="topic-content">
-                <h3 class="title">What Fits Inside</h3>
-                <a href="#" data-video-id="1" class="video-trigger">
-                    <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
-                </a>
             </div>
         </div>
     </div>
     
-    <a id="nav-target-3" class="jumptarget"></a>
-    <div class="max-container animate" {{ animateFadeInUp }}>
-        <div class="topic-block has-overlay-xs mb-gutter fw-sm mb-negate-sm">
-            {% include 'discover-picture', name: 'rowledge-materials-hero', alt: 'womean carrying Rowledge as tote', retina: true, fw: true, lg: true %}
-            <div class="topic-content">
-                <h2 class="title">Premium Materials</h2>
+    <div class="max-container">
+    <div class="parallax-window" data-parallax="scroll" data-image-src="https://cdn.shopify.com/s/files/1/2185/1497/files/prospect-plax-2-xxl.jpg?{{ assetVersion }}"></div>
+    </div>
+
+    <div class="container mb-large">
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="topic-content text-center">
+                    <h2 class="title">Fuss-Free Travel</h2>
+                    <p class="description">Heading straight to the airport? Use the Prospect’s suitcase handle sleeve to seamlessly attach it to your roller bag.</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container has-scrolling">
-        <div class="row side-scrolling mb-default mb-negate-xs">
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-materials-1', alt: 'Rowledge nylon exterior', retina: true, fw: false, lg: true %}
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+                {% include 'inline-video', ratio: '3-4', index: 3, poster: 'prospect-feature-3-lg', src: 'Lo_Sons_-_Leather_Wallet_-_Packing_for_Travel' %}
                 <div class="topic-content">
-                    <h3 class="title">A Sleek Nylon Exterior</h3>
-                    <p class="description">We’ve checked all the boxes with this lightweight, fine-weave, water-resistant nylon.</p>
+                    <h3 class="title">Interior Organization</h3>
+                    <p class="description">No more sifting! The Prospect has compartments for your laptop, documents, small electronics, and pens.</p>
                 </div>
             </div>
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-materials-2', alt: 'Rowledge nappa leather accents', retina: true, fw: false, lg: true %}
+            <div class="col-sm-5 col-md-6">
+                {% include 'inline-video', ratio: '3-4', index: 4, poster: 'prospect-feature-4-lg', src: 'Lo_Sons_-_Leather_Wallet_-_Packing_for_Travel' %}
                 <div class="topic-content">
-                    <h3 class="title">Elevated Nappa Leather Accents</h3>
-                    <p class="description">Known for its buttery texture and adaptable shape, this natural-grain leather adds a luxurious touch to pockets, zipper pulls, and handles.</p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-materials-3', alt: 'Rowledge padded straps', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Extra Comfortable Straps</h3>
-                    <p class="description">Cloud-like memory foam molds to your body without digging, and diamond-shaped stitching prevents your straps from sliding off.</p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-materials-4', alt: 'Jacquard lining pattern', retina: true, fw: false, lg: true %}
-                <div class="topic-content">
-                    <h3 class="title">Our Signature Jacquard Lining</h3>
-                    <p class="description">The final touch? A luxuriously-lined interior that features premium-quality jacquard in our signature hummingbird print.</p>
+                    <h3 class="title">Plenty of Pockets</h3>
+                    <p class="description">Strategically-designed pockets keep your essentials organized and secure.</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="fw-container mb-large">
+        <div class="topic-block mb-gutter">
+            {% include 'discover-picture', name: 'prospect-lifestyle-1', alt: 'woman carrying prospect with handles', retina: true, fw: true, xxl: true %}
+        </div>
+        <div class="topic-block" id="prospect-lifestyle">
+            {% include 'discover-picture', name: 'prospect-lifestyle-2', alt: 'woman carrying prospect with handles', retina: true, fw: true, xxl: true %}
+            {% include 'discover-picture', name: 'prospect-lifestyle-3', alt: 'woman carrying prospect with handles', retina: true, fw: true, xxl: true %}
+        </div>
+    </div>
+
+    <a id="nav-target-2" class="jumptarget"></a>
     <div class="container">
-        <div class="animate" {{ animateFadeInUp }}>
-            <a id="nav-target-4" class="jumptarget"></a>
-            <div class="row">
-                <div class="col-sm-10 col-sm-offset-1">                    
-                    <div class="section-heading">
-                        <h2 class="title">Specs &amp; Dimensions</h2>
-                    </div>
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="section-heading">
+                    <h2 class="title">Behind the Design</h2>
+                    <p class="description">Jan Lo, President of Lo & Sons, on how his team spent three years getting the Prospect just right.</p>
                 </div>
             </div>
-            <div class="row mb-large text-center">
-                <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-                    {% include 'discover-picture', name: 'rowledge-dimensions', alt: 'Rowledge dimensions diagram', retina: true, fw: true, lg: true %}
-                     <div class="topic-content">
-                        <p class="description">The Rowledge weighs 3 lbs.<br> Laptop sleeve fits 13” and select 14” laptops.</p>
-                        <p class="description"><a href="#compatibility-overlay" class="more-window-trigger">Laptop Compatability +</a></p>
-                    </div>
+        </div>
+    </div>
+
+    <div class="fw-container topic-block mb-default animate video-block" {{ animateFadeInUp }}>
+        {% include 'discover-picture', name: 'prospect-behind-design', alt: 'video showing how to pack the Waverley', retina: true, fw: false, xxl: true %}
+        <a href="#" data-video-id="1" class="video-trigger">See What Fits Inside</a>
+    </div>
+    <div class="text-center mb-large">
+        <p><a href="{{ ctaLink }}" class="btn btn-secondary">Buy now</a></p>
+    </div>
+    
+    <a id="nav-target-3" class="jumptarget"></a>
+    <div class="container">
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="section-heading">
+                    <h2 class="title">Premium Materials</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+                {% include 'discover-picture', name: 'prospect-materials-1', alt: 'prospect nylon exterior', retina: true, fw: false, lg: true %}
+            </div>
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="topic-content text-center">
+                    <h3 class="title">Rare Earth Magnets</h3>
+                    <p>These ultra-powerful magnets are made in France from natural elements (neodymium, iron, boron), which makes them much stronger than regular magnets. Always electronic-safe, they pose zero risk to phones, laptops, or other modern devices.
+                    <p class="description">Read more +</p>
+                </div>
+            </div>
+        </div>
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+                {% include 'discover-picture', name: 'prospect-materials-2', alt: 'prospect nappa leather accents', retina: true, fw: false, lg: true %}
+            </div>
+             <div class="col-sm-10 col-sm-offset-1">
+                <div class="topic-content text-center">
+                    <h3 class="title">Vachetta Leather</h3>
+                    <p class="description">Durable and luxuriously smooth, this top-grain leather is vegetable-tanned using natural materials, which are easier on the environment than those used in most tanning processes.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+                {% include 'discover-picture', name: 'prospect-materials-3', alt: 'prospect padded straps', retina: true, fw: false, lg: true %}
+            </div>
+             <div class="col-sm-10 col-sm-offset-1">
+                <div class="topic-content text-center">
+                    <h3 class="title">1200D Recycled Poly</h3>
+                    <p class="description">Made from recycled plastic bottles, this technical fabric is water-resistant, eco-friendly, and super-strong. The “D” stands for denier, a measure of yarn thickness, making this recycled poly our thickest and strongest yet.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+                {% include 'discover-picture', name: 'prospect-materials-4', alt: 'Jacquard lining pattern', retina: true, fw: false, lg: true %}
+            </div>
+             <div class="col-sm-10 col-sm-offset-1">
+                <div class="topic-content text-center">
+                    <h3 class="title">Wave Jacquard Lining</h3>
+                    <p class="description">Our founders designed this lining as an homage to their late father, Fred Lo, whose life was full of waves: He was a radio astronomer who loved the ocean.</p>
                 </div>
             </div>
         </div>
@@ -269,119 +188,54 @@
     
     <div class="discover-cta">
         <div class="container">
-            <div class="row topic-block">
-                <div class="{{ ctaContentCol}}">
+            <div class="row topic-block" style="margin-bottom: 50px">
+                <div class="col-md-6">
                     <div class="topic-content">
                         <h3 class="title">{{ ctaTitle }}</h3>
                         <p class="price">{{ ctaPrice }}</p>
                         <div class="btn-set hidden-xs hidden-sm">
-                            <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">View colors</a>
                             <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">Buy now</a>
                         </div>
                     </div>
                 </div>
-                <div class="{{ ctaImgCol }}">
+                <div class="col-md-6">
                     <a href="{{ ctaLink }}">
-                        <picture>
-                            <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-md.jpg?{{ assetVersion }}{% if (retina) %}, https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-md2x.jpg?{{ assetVersion }} 2x{% endif %}" media="(min-width: {{ screenSm }})">
-                            <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-xs.jpg?{{ assetVersion }}" alt="Shop {{ ctaTitle }}">
-                        </picture>
+                        {% include 'discover-picture', name: 'prospect-cta', alt: 'prospect padded straps', retina: true, fw: true, lg: true %}
                     </a>
                     <div class="btn-set hidden-md hidden-lg">
-                        <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ ctaLink }}">View colors</a>
                         <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">Buy now</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="more-window" id="compatibility-overlay">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-10 col-sm-offset-1">                    
-                    <div class="section-heading">
-                        <h2 class="title">Will my laptop fit?</h2>
-                        <p>Select your laptop brand.</p>
-                        <div class="form-group select-wrapper" id="laptops-select-wrap">
-                            <label for="laptops-select" class="sr-only">Select your birth year</label>
-                            <select class="form-control" name="laptops-select" id="laptops-select">
-                                <option value=""></option>
-                                <option value="acer">Acer</option>
-                                <option value="apple">Apple</option>
-                                <option value="asus">Asus</option>
-                                <option value="dell">Dell</option>
-                                <option value="hp">HP</option>
-                                <option value="ideapad">Ideapad</option>
-                                <option value="lenovo">Lenovo</option>
-                                <option value="lg">LG</option>
-                                <option value="microsoft">Microsoft</option>
-                                <option value="razor">Razor</option>
-                                <option value="samsung">Samsung</option>
-                                <option value="sony">Sony</option>
-                                <option value="toshiba">Toshiba</option>
-                            </select>
-                        </div>
-                        <div id="laptops">
-                            <div class="brand-acer">
-                                {% include 'laptop-compatibility', t: 'sleeve', m: "Aspire S7-392-6411 (13-inch) | Acer TravelMate P645 (14-inch) | Acer Chromebook C720P (11-inch)" %}
-                                {% include 'laptop-compatibility', t: 'main', m: "Acer Aspire R14 (14-inch) | Aspire M5 481PT (14-inch) | Aspire V7 (14-inch)" %}
-                            </div>
-                            <div class="brand-apple">
-                                {% include 'laptop-compatibility', t: 'sleeve', m: "MacBook Air (11-inch, Early 2015) | MacBook Air (13-inch, Early 2015) | MacBook Pro (Retina, 13-inch, Late 2013) | MacBook Air (13-inch, Early 2015) | MacBook Pro (Retina, 13-inch, Early 2015) | MacBook Pro with Touch Bar (13-inch, 2016) | MacBook (Retina, 12-inch, 2017) | MacBook Air (13-inch, 2017) | MacBook Pro (13-inch, 2017, Two Thunderbolt 3 ports) | MacBook Pro 13-Inch (TouchBar)" %}
-                                {% include 'laptop-compatibility', t: 'main', m: "MacBook Pro (15-inch, 2017) | MacBook Air (Retina, 13-inch, 2018)" %}
-                            </div>
-                            <div class="brand-asus">
-                                {% include 'laptop-compatibility', t: 'sleeve', m: "Transformer Book T100TA (10-inch) | Vivobook X202E (11-inch) | VivoBook S301 (13-inch) | ZenBook 3 (12-inch) | Chromebook Flip C302CA (12-inch)" %}
-                                {% include 'laptop-compatibility', t: 'main', m: "VivoBook S400CA (14-inch)" %}
-                            </div>
-                            <div class="brand-dell">
-                                {% include 'laptop-compatibility', t: 'sleeve', m: "Vostro v13 (13-inch) | XPS 13 (13-inch, Fall 2013) | Latitude 6430u (14-inch) | XPS 13 (13-inch, Late 2017) | XPS 13 (13-inch, 2018)" %}
-                                {% include 'laptop-compatibility', t: 'main', m: "Latitude 14 7000 Series Ultrabook (14-inch) | Inspiron 14 7000 Series (14-inch)" %}
-                            </div>
-                            <div class="brand-hp">
-                                {% include 'laptop-compatibility', t: 'sleeve', m: "Elitebook 820 (12-inch) | EliteBook Folio 1040 (13-inch) | Spectre 13 (13-inch) | Spectre 13 x2, (13-inch) | Elitebook 8460 (14-inch) | EliteBook Folio G1 (12-inch) | Spectre x360, 13” (13-inch, 2016) | Spectre (13-inch, 2017) | Spectre Folio (13-inch)" %}
-                                {% include 'laptop-compatibility', t: 'main', m: "Elitebook 840 (14-inch) | Elitebook 9470m (14-inch) | ZBook 14 (14-inch) | Envy TouchSmart Ultrabook 4 (14-inch) | Chromebook Pavilion 14 (14-inch)" %}
-                            </div>
-                            <div class="brand-ideapad">
-                                {% include 'laptop-compatibility', t: 'sleeve', m: "Ideapad 710S (13-inch)" %}
-                            </div>
-                            <div class="brand-lenovo">
-                                {% include 'laptop-compatibility', t: 'sleeve', m: "ThinkPad X240 (12-inch) | IdeaPad Yoga 13 (13-inch) | IdeaPad Yoga 2 (13-inch) | ThinkPad T420s (14-inch) | ThinkPad X1 Carbon (14-inch) | Yoga 900-Series (13-inch) | ThinkPad X1 Yoga (14-inch) | Yoga 920 (14-inch) | Yoga C930 (13-inch)" %}
-                                {% include 'laptop-compatibility', t: 'main', m: "Flex 14 (14-inch) | IdeaPad U430 Touch (14-inch) | ThinkPad T410 2522 (14-inch) | Z40 (14-inch)  | G580 (15-inch) | ThinkPad T470 (14-inch)" %}
-                            </div>
-                            <div class="brand-lg">
-                                {% include 'laptop-compatibility', t: 'sleeve', m: "LG Gram (15-inch)" %}
-                            </div>
-                            <div class="brand-microsoft">
-                                {% include 'laptop-compatibility', t: 'sleeve', m: "Surface Windows 8 Pro (10-inch) | Surface Book 2 (13-inch)" %}
-                                {% include 'laptop-compatibility', t: 'main', m: "Surface Book 2 (15-inch)" %}
-                            </div>
-                            <div class="brand-razor">
-                                {% include 'laptop-compatibility', t: 'sleeve', m: "Blade Stealth (12-inch)" %}
-                                {% include 'laptop-compatibility', t: 'main', m: "Blade 14 (14-inch)" %}
-                            </div>
-                            <div class="brand-samsung">
-                                {% include 'laptop-compatibility', t: 'sleeve', m: "Ativ Book 9 Plus (13-inch) | Series 5 UltraTouch (13-inch) | Chromebook Pro (12-inch)" %}
-                            </div>
-                            <div class="brand-sony">
-                                {% include 'laptop-compatibility', t: 'sleeve', m: "Vaio Duo 13 (13-inch) | Vaio Pro 13 (13-inch) | Vaio Z (13-inch)" %}
-                                {% include 'laptop-compatibility', t: 'main', m: "Vaio Fit 14 (14-inch)" %}
-                            </div>
-                            <div class="brand-toshiba">
-                                {% include 'laptop-compatibility', t: 'sleeve', m: "Chromebook (13-inch) | Kirabook (14-inch)" %}
-                                {% include 'laptop-compatibility', t: 'main', m: "Satellite P845T-S4310 (14-inch) | Satellite U845T (14-inch)" %}
-                            </div>
+            <div class="row topic-block">
+                <div class="col-md-8">
+                    <a href="{{ ctaLink }}">
+                        {% include 'discover-picture', name: 'prospect-compare', alt: 'prospect padded straps', retina: true, fw: true, lg: true %}
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <div class="topic-content">
+                        <h3 class="title">Can't Decide?</h3>
+                        <p class="description">Compare all backpack styles  to find the one that’s right for you.</p>
+                        <div class="btn-set">
+                            <a class="btn btn-secondary more-window-trigger" href="#prospect-compare-overlay">Compare</a>
                         </div>
                     </div>
                 </div>
+                
             </div>
+        </div>
+    </div>
+
+    <div class="more-window" id="prospect-compare-overlay">
+        <div class="container">
+            
         </div>
         <button class="panel-close"><span class="sr-only">close</span></button>
     </div>
 
     <script>// <![CDATA[ 
-    var video1Embed = '<iframe src="//player.vimeo.com/video/329254374?player_id=vimeo-video1&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-catalinadeluxelarge" class="vimeo"></iframe>';
+    var video5Embed = '<iframe src="//player.vimeo.com/video/329254374?player_id=vimeo-video1&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-catalinadeluxelarge" class="vimeo"></iframe>';
     // ]]></script>
 
     {% include 'video-modal' %}
