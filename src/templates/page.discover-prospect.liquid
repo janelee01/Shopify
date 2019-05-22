@@ -1,11 +1,27 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 109102 -%}
+{%- assign assetVersion = 109118 -%}
 {%- assign ctaTitle = 'The Prospect' -%}
 {%- assign ctaPrice = '$498' -%}
 {%- assign ctaLink = '/products/prospect-nylon-black-gold-grey' -%}
 {%- assign ctaImg = 'prospect-cta' -%}
 
+<style>
+#prospect-plax-1{
+  background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/prospect-plax-1-xs.jpg?{{ assetVersion }}');
+}
+#prospect-plax-2{
+  background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/prospect-plax-2-xs.jpg?{{ assetVersion }}');
+}
+@media screen and (min-width: 768px){
+   #prospect-plax-1{
+        background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/prospect-plax-1-xl.jpg?{{ assetVersion }}');
+    }
+    #prospect-plax-2{
+        background-image: url('https://cdn.shopify.com/s/files/1/2185/1497/files/prospect-plax-2-xl.jpg?{{ assetVersion }}');
+    } 
+}
+</style>
 <article class="discover">
 
     {% comment %} {% include 'discover-nav', labels:'Versatile Design,What Fits Inside,Materials,Specs' %} {% endcomment %}
@@ -27,7 +43,7 @@
             </div>
         </div>
         <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2">
+            <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
                 <div class="section-heading">
                     <h2 class="title">Functional Design Meets Luxury</h2>
                     <p>What makes an investment-worthy bag? A precise mix of premium materials and ingenious design features.</p>
@@ -38,8 +54,8 @@
     </div>
     <a id="nav-target-1" class="jumptarget"></a>
     
-    <div class="max-container">
-    <div class="parallax-window" data-parallax="scroll" data-image-src="https://cdn.shopify.com/s/files/1/2185/1497/files/prospect-plax-1-xxl.jpg?{{ assetVersion }}"></div>
+    <div class="fw-container">
+        <div class="parallax" id="prospect-plax-1"></div>
     </div>
 
     <div class="container">
@@ -53,27 +69,31 @@
         </div>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+                <div class="fw-xs">
                 {% include 'inline-video', ratio: '3-4', index: 1, poster: 'prospect-feature-1-lg', src: 'Lo_Sons_-_Leather_Wallet_-_Packing_for_Travel' %}
+                </div>
                 <div class="topic-content">
                     <h3 class="title">No Velcro, Buckles or Buttons</h3>
                     <p class="description">Small but ultra-powerful Rare Earth magnets (made in France!) line the closure of the Prospect, making it both flexible and ultra-secure.</p>
                 </div>
             </div>
             <div class="col-sm-5 col-md-6">
+                <div class="fw-xs">
                 {% include 'inline-video', ratio: '3-4', index: 2, poster: 'prospect-feature-2-lg', src: 'Lo_Sons_-_Leather_Wallet_-_Packing_for_Travel' %}
+                </div>
                 <div class="topic-content">
                     <h3 class="title">Convertible 2-in-1</h3>
                     <p class="description">Carry it as a briefcase in the office, then convert it to a backpack for your commute or travels.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
     
-    <div class="max-container">
-    <div class="parallax-window" data-parallax="scroll" data-image-src="https://cdn.shopify.com/s/files/1/2185/1497/files/prospect-plax-2-xxl.jpg?{{ assetVersion }}"></div>
+    <div class="fw-container">
+        <div class="parallax" id="prospect-plax-2"></div>
     </div>
 
-    <div class="container mb-large">
+    <div class="container mb-default mb-negate-xs mb-negate-sm">
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="topic-content text-center">
@@ -84,14 +104,18 @@
         </div>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0">
+                <div class="fw-xs">
                 {% include 'inline-video', ratio: '3-4', index: 3, poster: 'prospect-feature-3-lg', src: 'Lo_Sons_-_Leather_Wallet_-_Packing_for_Travel' %}
+                </div>
                 <div class="topic-content">
                     <h3 class="title">Interior Organization</h3>
                     <p class="description">No more sifting! The Prospect has compartments for your laptop, documents, small electronics, and pens.</p>
                 </div>
             </div>
             <div class="col-sm-5 col-md-6">
+                <div class="fw-xs">
                 {% include 'inline-video', ratio: '3-4', index: 4, poster: 'prospect-feature-4-lg', src: 'Lo_Sons_-_Leather_Wallet_-_Packing_for_Travel' %}
+                </div>
                 <div class="topic-content">
                     <h3 class="title">Plenty of Pockets</h3>
                     <p class="description">Strategically-designed pockets keep your essentials organized and secure.</p>
@@ -101,7 +125,7 @@
     </div>
 
     <div class="fw-container mb-large">
-        <div class="topic-block mb-gutter">
+        <div class="topic-block mb-gutter mb-negate-xs">
             {% include 'discover-picture', name: 'prospect-lifestyle-1', alt: 'woman carrying prospect with handles', retina: true, fw: true, xxl: true %}
         </div>
         <div class="topic-block" id="prospect-lifestyle">
@@ -141,22 +165,26 @@
         </div>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+                <div class="fw-xs">
                 {% include 'discover-picture', name: 'prospect-materials-1', alt: 'prospect nylon exterior', retina: true, fw: false, lg: true %}
+                </div>
             </div>
             <div class="col-sm-10 col-sm-offset-1">
-                <div class="topic-content text-center">
+                <div class="topic-content text-center text-left-xs">
                     <h3 class="title">Rare Earth Magnets</h3>
                     <p>These ultra-powerful magnets are made in France from natural elements (neodymium, iron, boron), which makes them much stronger than regular magnets. Always electronic-safe, they pose zero risk to phones, laptops, or other modern devices.
-                    <p class="description">Read more +</p>
+                    <p class="description"><a class="more-window-trigger" href="#magnets-overlay">Read more +</a></p>
                 </div>
             </div>
         </div>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+                <div class="fw-xs">
                 {% include 'discover-picture', name: 'prospect-materials-2', alt: 'prospect nappa leather accents', retina: true, fw: false, lg: true %}
+                </div>
             </div>
              <div class="col-sm-10 col-sm-offset-1">
-                <div class="topic-content text-center">
+                <div class="topic-content text-center text-left-xs">
                     <h3 class="title">Vachetta Leather</h3>
                     <p class="description">Durable and luxuriously smooth, this top-grain leather is vegetable-tanned using natural materials, which are easier on the environment than those used in most tanning processes.</p>
                 </div>
@@ -164,10 +192,12 @@
         </div>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+            <div class="fw-xs">
                 {% include 'discover-picture', name: 'prospect-materials-3', alt: 'prospect padded straps', retina: true, fw: false, lg: true %}
             </div>
+            </div>
              <div class="col-sm-10 col-sm-offset-1">
-                <div class="topic-content text-center">
+                <div class="topic-content text-center text-left-xs">
                     <h3 class="title">1200D Recycled Poly</h3>
                     <p class="description">Made from recycled plastic bottles, this technical fabric is water-resistant, eco-friendly, and super-strong. The “D” stands for denier, a measure of yarn thickness, making this recycled poly our thickest and strongest yet.</p>
                 </div>
@@ -175,21 +205,62 @@
         </div>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+            <div class="fw-xs">
                 {% include 'discover-picture', name: 'prospect-materials-4', alt: 'Jacquard lining pattern', retina: true, fw: false, lg: true %}
             </div>
+            </div>
              <div class="col-sm-10 col-sm-offset-1">
-                <div class="topic-content text-center">
+                <div class="topic-content text-center text-left-xs">
                     <h3 class="title">Wave Jacquard Lining</h3>
                     <p class="description">Our founders designed this lining as an homage to their late father, Fred Lo, whose life was full of waves: He was a radio astronomer who loved the ocean.</p>
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+                <div class="expanding-panels mb-large">
+                    <div class="panel">
+                        <button class="toggle collapsed">Specs &amp; Dimensions</button>
+                        <div class="content">
+                            <div class="text-center">
+                                <div class="mb-default">{% include 'discover-picture', name: 'prospect-dimensions', alt: 'Jacquard lining pattern', retina: true, fw: true, lg: true %}</div>
+                                <p>The Prospect weighs 3.8 lbs. <br />Laptop insert fits most 15” laptops.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <button class="toggle collapsed">Reviews</button>
+                        <div class="content">
+                            {%- assign product = all_products['claremont-full-grain-leather-black'] -%}
+                            {%- include 'pdp-reviews' -%}
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <button class="toggle collapsed">Shipping</button>
+                        <div class="content">
+                            <p>Free Ground Shipping for all orders $100 and more (before tax and after discounts). Orders below $100 will be charged $7.95 for ground shipping - only available to US addresses. </p>
+                            <p>Orders can take up to 3-7 business days (does not include holidays and weekends) to be delivered.</p>
+                            <p>Need it sooner? We also offer expedited shipping quoted directly at checkout (excludes Hawaii, Alaska, U.S. Territories and APO/FPO/DPO addresses). Bulk orders over 10+ units do not qualify for expedited shipping, please contact <a href="mailto:support@loandsons.com">support@loandsons.com</a> should there be any concerns with selecting ground service. Additionally, be sure to add one business day to all expedited shipping estimates, and kindly note we do not ship or process on Saturdays or Sundays.</p>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <button class="toggle collapsed">Warranty</button>
+                        <div class="content">
+                            <p>We offer a free one year warranty, which covers product damages/defects. Not to worry though - if your purchase is beyond the year, we do stand by the quality of our products! Please email us at <a href="mailto:support@loandsons.com">support@loandsons.com</a> with a few images of your defective product and someone from our CX team will be sure to assist with your purchase.</p> 
+                            <p>NOTE: Third party purchases are not covered by our warranty, the original Lo & Sons order number and customer information must be provided.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
     
-    <div class="discover-cta">
+    <div class="discover-cta" id="prospect-cta">
         <div class="container">
             <div class="row topic-block" style="margin-bottom: 50px">
-                <div class="col-md-6">
+                <div class="col-sm-12 col-md-6">
                     <div class="topic-content">
                         <h3 class="title">{{ ctaTitle }}</h3>
                         <p class="price">{{ ctaPrice }}</p>
@@ -198,7 +269,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-sm-6 col-sm-offset-3 col-md-offset-0">
                     <a href="{{ ctaLink }}">
                         {% include 'discover-picture', name: 'prospect-cta', alt: 'prospect padded straps', retina: true, fw: true, lg: true %}
                     </a>
@@ -229,7 +300,168 @@
 
     <div class="more-window" id="prospect-compare-overlay">
         <div class="container">
-            
+            <table class="comparison">
+            <thead>
+                <tr>
+                    <td>&nbsp;</td>
+                    {% for i in (1..3) %}
+                    <td>
+                        <div class="form-group select-wrapper">
+                        <label for="options-{{i}}" class="sr-only">Select Backpack</label>
+                        <select class="form-control comparison-options" id="options-{{i}}">
+                            <option>Select Backpack</option>
+                            <option value="prospect">The Prospect</option>
+                            <option value="rowledge">The Rowledge</option>
+                            <option value="hanover-deluxe">The Hanover Deluxe</option>
+                            <option value="hanover">The Hanover</option>
+                            <option value="edgemont">The Edgemont</option>
+                        </select>
+                        </div>
+                    </td>
+                    {% endfor %}
+                </tr>
+                <tr data-key="img">
+                    <th><span class="sr-only">Product Image</span></th>
+                    <td>&nbsp;</td> <td></td> <td></td>
+                </tr>
+                <tr data-key="price">
+                    <th><span class="sr-only">Price</span></th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="section">
+                    <th>Size &amp; Dimensions</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr data-key="height">
+                    <th>Height</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="width">
+                    <th>Width</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="depth">
+                    <th>Depth</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="handleDrop">
+                    <th>Handle Drop</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="weight">
+                    <th>Weight</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="volume">
+                    <th>Volume</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="linearInches">
+                    <th>Linear Inches</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="deviceFit">
+                    <th>Device Fit</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr class="section">
+                    <th>Features</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr data-key="laptopCompat">
+                    <th>Laptop Campatibility</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="extOrg">
+                    <th>Exterior Organization</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="intOrg">
+                    <th>Interior Organization</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="pockets">
+                    <th>Total Pockets</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="convertibility">
+                    <th>Convertibility</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="straps">
+                    <th>Straps</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="sleeve">
+                    <th>Suitcase Handle Sleeve</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="feet">
+                    <th>Protective Feet</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="leash">
+                    <th>Key Leash</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr class="section">
+                    <th>Materials</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr data-key="bodyTrim">
+                    <th>Body/Trim</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="closure">
+                    <th>Closure</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="hardware">
+                    <th>Hardware</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="handle">
+                    <th>Handle</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+                <tr data-key="lining">
+                    <th>Lining</th>
+                    <td></td> <td></td> <td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr data-key="btn">
+                    <td>&nbsp;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+            </table>
+        </div>
+        <button class="panel-close"><span class="sr-only">close</span></button>
+
+    </div>
+
+    <div class="more-window" id="magnets-overlay">
+        <div class="container">
+            <h3 class="title">Technical Information</h3>
+            <p>Rare earth magnets are found in cell phones, laptops, tablets and other electronic devices. They are electronic safe for modern technology like smartphones, laptops, CDs, and BluRays. Avoid contact with “old” technology with magnetic film, such as a 1st generation iPod, VHS, cassette tapes.</p>
+            <p>Nickel free and Oeko-Tex-Certified—guaranteeing skin contact with the magnet will not cause irritation and allergic reactions. Be advised, magnet should be kept away from pacemakers. </p>
+            <p>Keep away from scissors, knives, and needles.</p>
+            <p>Do not iron magnets dry clean magnet.</p>
         </div>
         <button class="panel-close"><span class="sr-only">close</span></button>
     </div>
@@ -239,5 +471,7 @@
     // ]]></script>
 
     {% include 'video-modal' %}
+
+    {% include 'backpack-comparison-data' %}
 
 </article>

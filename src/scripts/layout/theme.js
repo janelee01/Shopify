@@ -25,6 +25,7 @@ import './../lo/customers'
 import './../lo/toggle-menu'
 import './../lo/header'
 import './../lo/more-window'
+import './../lo/comparison'
 
 $(document).ready(function() {
 
@@ -1055,5 +1056,26 @@ $(document).ready(function() {
 			}
 		]
 	});
+
+	$('.expanding-panels .toggle').on('click', function(e){
+		e.preventDefault();
+		$(this).toggleClass('collapsed');
+		$(this).next('.content').slideToggle()
+	});
+
+	$(window).scroll(function() {
+		var scrolled = $(window).scrollTop()
+		$('.parallax').each(function(index, element) {
+			var initY = $(this).offset().top
+			var height = $(this).outerHeight()
+			var endY  = initY + $(this).outerHeight()
+			var visible = LS.isElementInViewport(this);
+			if(visible) {
+				var diff = scrolled - initY;
+				var ratio = Math.round((diff / height) * 100);
+				$(this).css('background-position','center ' + parseInt((ratio * 0.8)) + 'px');
+			}
+		})
+	})
 
 });

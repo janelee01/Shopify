@@ -129,3 +129,52 @@
 		}
 	}
 }
+
+.comparison{
+	th, td{
+		vertical-align: top;
+		padding: 6px 9px;
+		color: $gray;
+		border-right: solid 1px #979797;
+		width: 25%;
+		text-align: center;
+		&:last-child{
+			border-right: 0;
+		}
+	}
+	tbody{
+		th{
+			text-align: left;
+			font-weight: normal;
+		}
+		tr.section{
+			th{
+				font-family: $font-family-medium;
+				font-size: 21px;
+				padding-top: 40px;
+				color: $gray-dark;
+			}
+		}
+		tr:nth-child(even){
+			th, td{
+				background: #F5F5F5;
+			}
+		}
+	}
+	tfoot{
+		th, td{
+			padding-top: 45px;
+			padding-bottom: 45px;
+			.btn{
+				max-width: 187px;
+				margin: 0 auto;
+			}
+		}
+	}
+	.inactive{
+		*{
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+}
