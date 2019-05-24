@@ -130,7 +130,7 @@
 	}
 }
 
-.comparison{
+.products-compare{
 	th, td{
 		vertical-align: top;
 		padding: 6px 9px;
@@ -138,8 +138,18 @@
 		border-right: solid 1px #979797;
 		width: 25%;
 		text-align: center;
+		@media (max-width: $screen-sm-max) {
+			width: 33%;
+		}
 		&:last-child{
 			border-right: 0;
+		}
+	}
+	tr{
+		> *:nth-child(3){ // hide the middle column so the last, borderless one is shown
+			@media (max-width: $screen-sm-max) {
+				display: none;
+			}
 		}
 	}
 	tbody{
@@ -175,6 +185,67 @@
 		*{
 			opacity: 0;
 			pointer-events: none;
+		}
+	}
+}
+@media (max-width: $screen-xs-max) {
+	.products-compare{
+		display: block;
+		.form-group.select-wrapper:before{
+			width: 30px;
+		}
+		thead, tbody, tfoot{
+			display: block;
+		}
+		tr{
+			display: flex;
+			flex-wrap: wrap;
+		}
+		th, td{
+			width: 50%;
+			text-align: center;
+			border: none;
+		}
+		thead, tfoot{
+			tr{
+				> *:first-child{
+					display: none;
+				}
+			}
+		}
+		tbody{
+			tr:nth-child(even){
+				th, td{
+					background: transparent;
+				}
+			}
+			th{
+				text-align: center;
+			}
+			tr.section{
+				th{
+					display: none;
+					&:first-child{
+						display: block;
+						width: 100%;
+						padding-bottom: 15px;
+					}
+				}
+			}
+			tr[data-key]{
+				display: flex;
+				th{
+					width: 100%;
+					background: #F5F5F5;
+					color: $gray-darker;
+				}
+				td{
+					width: 50%;
+					&:nth-child(2){
+						border-right: solid 1px #979797;
+					}
+				}
+			}
 		}
 	}
 }
