@@ -1,6 +1,6 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 109118 -%}
+{%- assign assetVersion = 111112 -%}
 {%- assign ctaTitle = 'The Prospect' -%}
 {%- assign ctaPrice = '$498' -%}
 {%- assign ctaLink = '/products/prospect-nylon-black-gold-grey' -%}
@@ -24,14 +24,14 @@
 </style>
 <article class="discover">
 
-    {% comment %} {% include 'discover-nav', labels:'Versatile Design,What Fits Inside,Materials,Specs' %} {% endcomment %}
+    {% include 'discover-nav', labels:'Features,See What Fits Inside,Materials,Specs' %}
 
-    <div class="fw-container">
+    <div class="max-container">
         <div class="hero has-arrow">
-            {% include 'discover-picture', name: 'prospect-hero', alt: 'man with Prospect on shoulder', retina: true, fw: false, xxl: true %}
+            {% include 'discover-picture', name: 'prospect-hero', alt: 'man with Prospect on shoulder', retina: true, fw: false, lg: true %}
             <div class="hero-content left white">
                 <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
-                <p class="description">A sleek unisex backpack that converts to a briefcase.</p>
+                <p class="description">A sleek unisex backpack that converts<br id="prospect-hero-break" /> to a briefcase.</p>
             </div>
             {% include 'hero-jump-btn' %}
         </div>
@@ -52,12 +52,12 @@
             </div>
         </div>
     </div>
-    <a id="nav-target-1" class="jumptarget"></a>
+
     
     <div class="fw-container">
         <div class="parallax" id="prospect-plax-1"></div>
     </div>
-
+<a id="nav-target-1" class="jumptarget"></a>
     <div class="container">
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2">
@@ -124,18 +124,18 @@
         </div>
     </div>
 
-    <div class="fw-container mb-large">
+    <div class="max-container mb-large">
         <div class="topic-block mb-gutter mb-negate-xs">
-            {% include 'discover-picture', name: 'prospect-lifestyle-1', alt: 'woman carrying prospect with handles', retina: true, fw: true, xxl: true %}
+            {% include 'discover-picture', name: 'prospect-lifestyle-1', alt: 'woman carrying prospect with handles', retina: true, fw: true, lg: true %}
         </div>
         <div class="topic-block" id="prospect-lifestyle">
-            {% include 'discover-picture', name: 'prospect-lifestyle-2', alt: 'woman carrying prospect with handles', retina: true, fw: true, xxl: true %}
-            {% include 'discover-picture', name: 'prospect-lifestyle-3', alt: 'woman carrying prospect with handles', retina: true, fw: true, xxl: true %}
+            {% include 'discover-picture', name: 'prospect-lifestyle-2', alt: 'woman carrying prospect with handles', retina: true, fw: true, lg: true %}
+            {% include 'discover-picture', name: 'prospect-lifestyle-3', alt: 'woman carrying prospect with handles', retina: true, fw: true, lg: true %}
         </div>
     </div>
 
     <a id="nav-target-2" class="jumptarget"></a>
-    <div class="container">
+    {% comment %} <div class="container">
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="section-heading">
@@ -144,10 +144,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> {% endcomment %}
 
-    <div class="fw-container topic-block mb-default animate video-block" {{ animateFadeInUp }}>
-        {% include 'discover-picture', name: 'prospect-behind-design', alt: 'video showing how to pack the Waverley', retina: true, fw: false, xxl: true %}
+    <div class="max-container topic-block mb-default animate video-block" {{ animateFadeInUp }}>
+        {% include 'discover-picture', name: 'prospect-behind-design', alt: 'video showing how to pack the Waverley', retina: true, fw: false, lg: true %}
         <a href="#" data-video-id="1" class="video-trigger">See What Fits Inside</a>
     </div>
     <div class="text-center mb-large">
@@ -216,7 +216,7 @@
                 </div>
             </div>
         </div>
-
+<a id="nav-target-4" class="jumptarget"></a>
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
                 <div class="expanding-panels mb-large">
@@ -259,7 +259,7 @@
     
     <div class="discover-cta" id="prospect-cta">
         <div class="container">
-            <div class="row topic-block" style="margin-bottom: 50px">
+            <div class="row topic-block">
                 <div class="col-sm-12 col-md-6">
                     <div class="topic-content">
                         <h3 class="title">{{ ctaTitle }}</h3>
@@ -278,6 +278,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="discover-cta" id="prospect-compare-cta">
+        <div class="container">
             <div class="row topic-block">
                 <div class="col-md-8">
                     <a href="{{ ctaLink }}">
@@ -293,7 +297,6 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -458,10 +461,9 @@
     <div class="more-window" id="magnets-overlay">
         <div class="container">
             <h3 class="title">Technical Information</h3>
-            <p>Rare earth magnets are found in cell phones, laptops, tablets and other electronic devices. They are electronic safe for modern technology like smartphones, laptops, CDs, and BluRays. Avoid contact with “old” technology with magnetic film, such as a 1st generation iPod, VHS, cassette tapes.</p>
-            <p>Nickel free and Oeko-Tex-Certified—guaranteeing skin contact with the magnet will not cause irritation and allergic reactions. Be advised, magnet should be kept away from pacemakers. </p>
-            <p>Keep away from scissors, knives, and needles.</p>
-            <p>Do not iron magnets dry clean magnet.</p>
+            <p>Rare Earth magnets are electronic-safe and won’t damage modern technology like smartphones, laptops, CDs, or BluRays—they’re even found in cell phones, laptops, and tablets! You should, however, avoid letting them come in contact with “old” technology that has magnetic film, such as a first generation iPods, VHS tapes, and cassette tapes.</p>
+            <p>Rare Earth magnets are nickel-free and Oeko-Tex-Certified, guaranteeing that they won’t cause skin irritation or allergic reactions. But keep in mind: Magnets should be kept away from pacemakers, scissors, knives, and needles. </p>
+            <p>Do not attempt to iron or dry-clean magnets. </p>
         </div>
         <button class="panel-close"><span class="sr-only">close</span></button>
     </div>

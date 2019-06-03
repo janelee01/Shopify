@@ -1571,3 +1571,11 @@
 		}
 	}
 }
+#prospect-cta{
+	margin-bottom: $grid-gutter-width;
+}
+#prospect-hero-break{
+	@media (min-width: $screen-md) and (max-width: 1145px) {
+		display: none;
+	}
+}

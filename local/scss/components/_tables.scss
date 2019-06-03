@@ -162,7 +162,7 @@
 				font-family: $font-family-medium;
 				font-size: 21px;
 				padding-top: 40px;
-				color: $gray-dark;
+				color: $gray-darker;
 			}
 		}
 		tr:nth-child(even){
@@ -205,6 +205,7 @@
 			width: 50%;
 			text-align: center;
 			border: none;
+			padding: 9px;
 		}
 		thead, tfoot{
 			tr{
