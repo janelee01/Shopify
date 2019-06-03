@@ -152,6 +152,11 @@
 			}
 		}
 	}
+	thead{
+		th, td{
+			padding-top: 0;
+		}
+	}
 	tbody{
 		th{
 			text-align: left;
@@ -174,7 +179,7 @@
 	tfoot{
 		th, td{
 			padding-top: 45px;
-			padding-bottom: 45px;
+			padding-bottom: 0;
 			.btn{
 				max-width: 187px;
 				margin: 0 auto;
