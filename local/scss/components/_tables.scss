@@ -177,13 +177,15 @@
 		}
 	}
 	tfoot{
-		th, td{
-			padding-top: 45px;
-			padding-bottom: 0;
-			.btn{
-				max-width: 187px;
-				margin: 0 auto;
+		tr:first-child{
+			th, td{
+				padding-top: 20px;
+				padding-bottom: 20px;
 			}
+		}
+		.btn{
+			max-width: 187px;
+			margin: 0 auto;
 		}
 	}
 	.inactive{
@@ -246,7 +248,15 @@
 					color: $gray-darker;
 				}
 				td{
-					width: 50%;
+					&:nth-child(2){
+						border-right: solid 1px #979797;
+					}
+				}
+			}
+		}
+		tfoot{
+			tr:first-child{
+				td{
 					&:nth-child(2){
 						border-right: solid 1px #979797;
 					}
