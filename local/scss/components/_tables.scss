@@ -129,3 +129,139 @@
 		}
 	}
 }
+
+.products-compare{
+	th, td{
+		vertical-align: top;
+		padding: 6px 9px;
+		color: $gray;
+		border-right: solid 1px #979797;
+		width: 25%;
+		text-align: center;
+		@media (max-width: $screen-sm-max) {
+			width: 33%;
+		}
+		&:last-child{
+			border-right: 0;
+		}
+	}
+	tr{
+		> *:nth-child(3){ // hide the middle column so the last, borderless one is shown
+			@media (max-width: $screen-sm-max) {
+				display: none;
+			}
+		}
+	}
+	thead{
+		th, td{
+			padding-top: 0;
+		}
+	}
+	tbody{
+		th{
+			text-align: left;
+			font-weight: normal;
+		}
+		tr.section{
+			th{
+				font-family: $font-family-medium;
+				font-size: 21px;
+				padding-top: 40px;
+				color: $gray-darker;
+			}
+		}
+		tr:nth-child(even){
+			th, td{
+				background: #F5F5F5;
+			}
+		}
+	}
+	tfoot{
+		tr:first-child{
+			th, td{
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}
+		}
+		.btn{
+			max-width: 187px;
+			margin: 0 auto;
+		}
+	}
+	.inactive{
+		*{
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+}
+@media (max-width: $screen-xs-max) {
+	.products-compare{
+		display: block;
+		.form-group.select-wrapper:before{
+			width: 30px;
+		}
+		thead, tbody, tfoot{
+			display: block;
+		}
+		tr{
+			display: flex;
+			flex-wrap: wrap;
+		}
+		th, td{
+			width: 50%;
+			text-align: center;
+			border: none;
+			padding: 9px;
+		}
+		thead, tfoot{
+			tr{
+				> *:first-child{
+					display: none;
+				}
+			}
+		}
+		tbody{
+			tr:nth-child(even){
+				th, td{
+					background: transparent;
+				}
+			}
+			th{
+				text-align: center;
+			}
+			tr.section{
+				th{
+					display: none;
+					&:first-child{
+						display: block;
+						width: 100%;
+						padding-bottom: 15px;
+					}
+				}
+			}
+			tr[data-key]{
+				display: flex;
+				th{
+					width: 100%;
+					background: #F5F5F5;
+					color: $gray-darker;
+				}
+				td{
+					&:nth-child(2){
+						border-right: solid 1px #979797;
+					}
+				}
+			}
+		}
+		tfoot{
+			tr:first-child{
+				td{
+					&:nth-child(2){
+						border-right: solid 1px #979797;
+					}
+				}
+			}
+		}
+	}
+}

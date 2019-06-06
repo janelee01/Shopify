@@ -1,0 +1,9 @@
+.parallax {
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  padding-bottom: 133.33%;
+  @media screen and (min-width: $screen-sm){
+    padding-bottom: 47.78%;
+  }
+}

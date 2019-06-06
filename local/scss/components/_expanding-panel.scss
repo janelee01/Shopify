@@ -1,0 +1,44 @@
+.expanding-panels{
+  .panel{
+    box-shadow: none;
+    margin: 0;
+    padding: 30px 0;
+    border: 0;
+    border-bottom: solid 1px $gray-lighter;
+    &:last-child{
+      border: 0;
+    }
+  }
+  .toggle{
+    @include resetButton;
+    @include collapsing-panel-toggle;
+    font-family: $font-family-medium;    
+    padding: 0;
+    font-size: 21px;
+    display: block;
+    width: 100%;
+    text-align-last: left;
+    @media screen and (min-width: $screen-sm){
+      font-size: 32px;
+    }
+    @media screen and (min-width: $screen-lg){
+      font-size: 38px;
+    }
+    &::before,
+    &::after{
+      width: 20px;
+    }
+  }
+  .content{
+    padding-top: 30px;
+    font-size: 16px;
+    color: $gray-dark;
+    display: none;
+    @media screen and (min-width: $screen-sm){
+      font-size: 18px;
+    }
+    @media screen and (min-width: $screen-lg){
+      font-size: 22px;
+    }
+  }
+}

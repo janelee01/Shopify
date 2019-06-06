@@ -1410,6 +1410,7 @@
 		}
 	}
 }
+#prospect-cta,
 #leather-wallet-cta{
 	@media (max-width: $screen-xs-max) {
 		.container{
@@ -1418,8 +1419,11 @@
 		.row{
 			margin: 0;
 		}
-		.col-md-6{
+		[class^="col-"]{
 			padding: 0;
+		}
+		.description{
+			padding: 0 $grid-gutter-width;
 		}
 	}
 	picture{
@@ -1550,5 +1554,28 @@
 .neutral-products .col{
 	@media (max-width: $screen-xs-max) {
 		margin: 0 0 40px;
+	}
+}
+
+#prospect-lifestyle{
+	picture{
+		margin-top: 18px;
+	}
+	@media (min-width: $screen-sm) {
+		display: flex;
+		justify-content: space-between;
+		picture{
+			flex: 1;
+			margin: 0;
+			max-width: calc(50vw - 15px);
+		}
+	}
+}
+#prospect-cta{
+	margin-bottom: $grid-gutter-width;
+}
+#prospect-hero-break{
+	@media (min-width: $screen-md) and (max-width: 1145px) {
+		display: none;
 	}
 }
