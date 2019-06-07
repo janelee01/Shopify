@@ -1575,6 +1575,9 @@
 	margin-bottom: $grid-gutter-width;
 }
 #prospect-hero-break{
+	@media (max-width: 374px) {
+		display: none;
+	}
 	@media (min-width: $screen-md) and (max-width: 1145px) {
 		display: none;
 	}
