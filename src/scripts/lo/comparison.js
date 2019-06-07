@@ -6,15 +6,16 @@ $(document).ready(function(){
       $('[data-key="' + key + '"').children().eq(columnIndex).html(value);
     }
   };
-
-  let defaultProductKey = window.comparisonData['default'];
-  $('.comparison-options').eq(0).val(defaultProductKey);
-  setData(window.comparisonData[defaultProductKey],1);
-  
-  $('.comparison-options').on('change',function(){
-    var productKey = $(this).val();
-    if ($(this).val() in window.comparisonData) {
-      setData(window.comparisonData[productKey],$(this).closest('td').index());
-    }
-  });
+  if( typeof window.comparisonData !== 'undefined' ){
+    let defaultProductKey = window.comparisonData['default'];
+    $('.comparison-options').eq(0).val(defaultProductKey);
+    setData(window.comparisonData[defaultProductKey],1);
+    
+    $('.comparison-options').on('change',function(){
+      var productKey = $(this).val();
+      if ($(this).val() in window.comparisonData) {
+        setData(window.comparisonData[productKey],$(this).closest('td').index());
+      }
+    });
+  }
 });
