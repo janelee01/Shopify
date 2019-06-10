@@ -3,7 +3,7 @@ $(document).ready(function(){
     for (let index = 0; index < data.length; index++) {
       let key = data[index][0];
       let value = data[index][1];
-      $('[data-key="' + key + '"').children().eq(columnIndex).html(value);
+      $('[data-key="' + key + '"]').children().eq(columnIndex).html(value);
     }
   };
   if( typeof window.comparisonData !== 'undefined' ){
