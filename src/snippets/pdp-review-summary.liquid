@@ -3,18 +3,17 @@
 {% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
   <a href="#" class="pdp-main-product-yotpo yotpo {{class}}">
     {% assign reviewsAverage = product.metafields.yotpo.reviews_average | default: 4.5 %}
+    {% comment %} break average into integer and decimal {% endcomment %}
     {% assign reviewsAverageInt = reviewsAverage | floor %}
-
-    {% assign reviewsAverageDec = reviewsAverageInt | minus: reviewsAverageInt  %}
+    {% assign reviewsAverageDec = reviewsAverage | minus: reviewsAverageInt  %}
     {% assign emptyStars = 5  %}
-
     <span class="pdp-main-product-yotpo-stars">
     {% for i in (1..reviewsAverageInt)  %}
       <span class="yotpo-icon yotpo-icon-star rating-star pull-left"></span>
-    {% assign emptyStars = emptyStars | minus: 1  %}
+      {% assign emptyStars = emptyStars | minus: 1  %}
     {% endfor %}
-    {% if reviewsAverageDec %}
-    {% assign emptyStars = emptyStars | minus: 1  %}
+    {% if reviewsAverageDec > 0 %}
+      {% assign emptyStars = emptyStars | minus: 1  %}
       <span class="yotpo-icon yotpo-icon-half-star rating-star pull-left"></span>
     {% endif %}
     {% for i in (1..emptyStars)  %}
