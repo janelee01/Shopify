@@ -41,7 +41,7 @@ export default el => {
       const label = ~v.title.indexOf('(')
         ? v.title.replace(/.*\((.*)\)/, '$1')
         : v.title
-      if (!~hiddenVariants.indexOf(id) && !/title/i.test(v.title)) {
+      if (!~hiddenVariants.indexOf(v.id) && !/title/i.test(v.title)) {
         $($sizeBtnContainer).append(
           `<a
             href="#"

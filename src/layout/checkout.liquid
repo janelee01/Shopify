@@ -9,7 +9,6 @@
     {% include 'optimize-page-hiding' %}
     {% include 'google-tag-manager' %}
     {% include 'optimize-tag' %}
-    {% include 'discontinued-ids' %}
 
     <title>{{ page_title }}</title>
 
@@ -19,6 +18,15 @@
     {{ 'lo-checkout.css' | asset_url | stylesheet_tag }} 
 
     {{ checkout_scripts }}
+    {% capture finalSaleIds %}
+      {% for line_item in checkout.line_items %}
+        {% if line_item.variant.metafields["global"]["fina-sale"] == "true" %}
+          {{ line_item.variant_id }}|
+        {% endif %}
+      {% endfor %}
+    {% endcapture %}
+    {% assign finalSaleIds = finalSaleIds | strip_newlines | strip %}
+    <script>var finalSaleItems = "{{finalSaleIds}}"; </script>
   </head>
   <body>
     {{ skip_to_content_link }}
@@ -80,7 +88,7 @@
                 options.push($(this).next('.product__description__variant').text());
               }
               $(this).next('.product__description__variant').text(options.join(' / '));
-              if( discontinued.includes(variant) ){
+              if( finalSaleItems.includes(variant) ){
                 $('<div class="final-sale-warning shown">{{ "products.product.final_sale_html" | t }}</div>').appendTo($(this).closest('.product__description'));
               }
             }

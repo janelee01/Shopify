@@ -86,12 +86,20 @@
     {%- capture hiddenVariants -%}
       {%- for siblingProduct in parentCollection.products -%}
         {%- for variant in siblingProduct.variants -%}
-          {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
-            {{ variant.id }}|
+          {%- if variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+            {% comment %}
+            automatic availability based on shopify inventory level, or
+            manual availability, or
+            manual out of stock inventory level
+            {% endcomment %}
+            {%- if variant.available == false or variant.metafields['global']['availability-status'] == 'unavailable' or variant.metafields['global']['out-of-stock-threshold'] | times: 1 >= variant.inventory_quantity -%}
+              {{ variant.id }}|
+            {%- endif -%}
           {%- endif -%}
         {%- endfor -%}
       {%- endfor -%}
     {%- endcapture -%}
+    {%- assign hiddenVariants = hiddenVariants | strip_newlines | strip -%}
 
     {% comment %} expected instock information can vary between variants {% endcomment %}
     {%- capture variantStockData -%}
@@ -100,8 +108,12 @@
         {%- for variant in siblingProduct.variants -%}
           "{{ variant.id }}" : {
             "stockLevel" : "{{ variant.inventory_quantity }}",
-            "restockMessage" : "{{ variant.metafields['global']['restock-expected'] }}",
-            "oosPolicy" : "{{ variant.metafields['global']['out-of-stock-policy'] }}"
+						"lowStockThreshold" : "{{ variant.metafields['global']['low-stock-threshold'] }}",
+						"outOfStockThreshold" : "{{ variant.metafields['global']['out-of-stock-threshold'] }}",
+						"restockMessage" : "{{ variant.metafields['global']['restock-expected'] }}",
+						"oosPolicy" : "{{ variant.metafields['global']['out-of-stock-policy'] }}",
+						"finalSale" : "{{ variant.metafields['global']['final-sale'] }}",
+						"availabilityStatus" : "{{ variant.metafields['global']['availability-status'] }}"
           },
         {%- endfor -%}
       {%- endfor -%}

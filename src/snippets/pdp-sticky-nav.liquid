@@ -11,17 +11,15 @@
     <div class="pdp-sticky-nav__header-sizes js-pdp-sticky-nav__header-sizes-wrap">
       <label for="variant-selector" class="pdp-sticky-nav__variant-selector">Size:</label>
       <div class="js-pdp-sticky-nav__header-sizes">
+        {% comment %} note: js will replace all this {% endcomment %}
         {%- for variant in product.variants -%}
-          {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
-            {%- continue -%}
-          {%- endif -%}
           {%- assign selected = '' -%}
           {%- if variant.id == current_variant.id -%}
             {%- assign selected = ' selected' -%}
           {%- endif -%}
           <a
             href="#"
-             class="variant-option js-pdp-non-swatch-input {{ selected }}">
+             class="variant-option js-pdp-non-swatch-input">
             {{ variant.title }}
           </a>
         {%- endfor -%}

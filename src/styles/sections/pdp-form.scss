@@ -278,5 +278,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: $gray-lighter;
+  background: rgba($gray-lighter,.3);
+  font-size: 12px;
+  padding: 0;
 }
+
