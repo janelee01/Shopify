@@ -776,9 +776,7 @@ $(document).ready(function() {
 		});
 
 		$('.final-sale-warning').each(function(){
-			if( discontinued.includes( String($(this).data('variant-id')) ) ){
-				$(this).addClass('shown');
-			}
+			$(this).addClass('shown');
 		});
 	}
 

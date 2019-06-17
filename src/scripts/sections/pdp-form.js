@@ -265,19 +265,31 @@ class ProductForm {
     const $addToCartBtn = $('.js-add-to-cart')
     const $addToWaitlistBtn = $('.js-add-to-wishlist')
     const siblingId = $('.pdp-swatch.active').data('sibling')
+    let variantStockData = this.stockData[this.variantID]
+    let isAvailable = this.variant.available
 
     // reset to purchase or waitlist
     $addToCartRow.show()
     $soldOutMsg.hide()
 
-    if (this.variant.available) {
+    // check for manual override of availability
+    if (variantStockData.oosSettings === 'unavailable') {
+      isAvailable = false
+    }
+
+    // check for manual override of out of stock level
+    if (variantStockData.oosThreshold > variantStockData.stockLevel) {
+      isAvailable = false
+    }
+
+    if (isAvailable) {
       this.buttonState = 'Add To Cart'
       $addToCartBtn.show()
       $addToWaitlistBtn.hide()
       return
     }
 
-    if (this.stockData[this.variantID].oosPolicy === 'soldout') {
+    if (variantStockData.oosPolicy === 'soldout') {
       this.buttonState = 'Sold Out'
       $addToCartRow.hide()
       $soldOutMsg.show()
@@ -473,12 +485,14 @@ class ProductForm {
 
   /**
    * Shows a stock warning notification if there
-   * is less than 20 stock items available.
+   * is less than {30 or custom value} stock items available.
    */
   updateLowStockWarning () {
     const inventoryLevel = Number((variantStockData[this.variantID] || {}).stockLevel)
     const $warning = $('.low-stock-warning')
-    if (inventoryLevel > 0 && inventoryLevel <= 20) {
+    const lowStockThreshold = Number(variantStockData[this.variantID].lowStockThreshold || 30)
+    const oosThreshold = Number(variantStockData[this.variantID].oosThreshold || 10)
+    if (inventoryLevel > oosThreshold && inventoryLevel <= lowStockThreshold) {
       $warning.removeClass('hidden')
     } else {
       $warning.addClass('hidden')
@@ -492,7 +506,7 @@ class ProductForm {
    */
   updateFinalSaleMessage () {
     const $warning = $('.final-sale-warning')
-    if (window.discontinued.includes(this.variantID)) {
+    if (variantStockData[this.variantID].finalSale === 'true') {
       $warning.removeClass('hidden')
     } else {
       $warning.addClass('hidden')
