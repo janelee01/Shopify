@@ -20,7 +20,7 @@
     {{ checkout_scripts }}
     {% capture finalSaleIds %}
       {% for line_item in checkout.line_items %}
-        {% if line_item.variant.metafields["global"]["fina-sale"] == "true" %}
+        {% if line_item.variant.metafields["global"]["final-sale"] == "true" %}
           {{ line_item.variant_id }}|
         {% endif %}
       {% endfor %}
