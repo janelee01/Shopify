@@ -273,12 +273,12 @@ class ProductForm {
     $soldOutMsg.hide()
 
     // check for manual override of availability
-    if (variantStockData.availabilityStatus === 'unavailable') {
+    if (variantStockData.oosSettings === 'unavailable') {
       isAvailable = false
     }
 
     // check for manual override of out of stock level
-    if (variantStockData.outOfStockThreshold > variantStockData.stockLevel) {
+    if (variantStockData.oosThreshold > variantStockData.stockLevel) {
       isAvailable = false
     }
 
@@ -490,7 +490,7 @@ class ProductForm {
   updateLowStockWarning () {
     const inventoryLevel = Number((variantStockData[this.variantID] || {}).stockLevel)
     const $warning = $('.low-stock-warning')
-    const lowStockThreshold = Number(variantStockData[this.variantID].lowStockThreshold || 30)
+    const lowStockThreshold = Number(variantStockData[this.variantID].lowStockThreshold || 10)
     if (inventoryLevel > 0 && inventoryLevel <= lowStockThreshold) {
       $warning.removeClass('hidden')
     } else {

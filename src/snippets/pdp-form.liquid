@@ -13,7 +13,7 @@
       {%- assign optionValues = '' -%}
       {%- for variant in product.variants -%}
         {% comment %} manually disabled {% endcomment %}
-        {%- if variant.metafields['global']['availability-status'] == 'unavailable' and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+        {%- if variant.metafields['global']['out-of-stock-settings'] == 'unavailable' and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
           {%- continue -%}
         {%- endif -%}
         {% comment %} automatically disabled {% endcomment %}
@@ -80,7 +80,7 @@
         {%- assign hideWaitlist = false -%}
       {%- endunless -%}
       {% comment %} manually disabled {% endcomment %}
-      {%- if current_variant.metafields['global']['availability-status'] == 'unavailable' and current_variant.metafields['global']['out-of-stock-policy'] == 'waitlist' -%}
+      {%- if current_variant.metafields['global']['out-of-stock-settings'] == 'unavailable' and current_variant.metafields['global']['out-of-stock-policy'] == 'waitlist' -%}
         {%- assign hideAddToCart = true -%}
         {%- assign hideWaitlist = false -%}
       {%- endif -%}
