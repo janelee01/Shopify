@@ -490,8 +490,9 @@ class ProductForm {
   updateLowStockWarning () {
     const inventoryLevel = Number((variantStockData[this.variantID] || {}).stockLevel)
     const $warning = $('.low-stock-warning')
-    const lowStockThreshold = Number(variantStockData[this.variantID].lowStockThreshold || 10)
-    if (inventoryLevel > 0 && inventoryLevel <= lowStockThreshold) {
+    const lowStockThreshold = Number(variantStockData[this.variantID].lowStockThreshold || 30)
+    const oosThreshold = Number(variantStockData[this.variantID].oosThreshold || 10)
+    if (inventoryLevel > oosThreshold && inventoryLevel <= lowStockThreshold) {
       $warning.removeClass('hidden')
     } else {
       $warning.addClass('hidden')

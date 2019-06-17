@@ -16,6 +16,14 @@
         {%- if variant.metafields['global']['out-of-stock-settings'] == 'unavailable' and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
           {%- continue -%}
         {%- endif -%}
+        {% comment %} hidden by default OOS level or custom override {% endcomment %}
+        {%- assign oosThreshold = 10 -%}
+        {%- unless variant.metafields['global']['out-of-stock-threshold'] == blank -%}
+        {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] -%}
+        {%- endunless -%}
+        {%- if variant.inventory_quantity <= oosThreshold and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+          {%- continue -%}
+        {%- endif -%}
         {% comment %} automatically disabled {% endcomment %}
         {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
           {%- continue -%}
@@ -74,16 +82,25 @@
 
       {%- assign hideAddToCart = false -%}
       {%- assign hideWaitlist = true -%}
-      {% comment %} automatically disabled based on shopify inventory {% endcomment %}
-      {%- unless current_variant.available -%}
-        {%- assign hideAddToCart = true -%}
-        {%- assign hideWaitlist = false -%}
-      {%- endunless -%}
       {% comment %} manually disabled {% endcomment %}
       {%- if current_variant.metafields['global']['out-of-stock-settings'] == 'unavailable' and current_variant.metafields['global']['out-of-stock-policy'] == 'waitlist' -%}
         {%- assign hideAddToCart = true -%}
         {%- assign hideWaitlist = false -%}
       {%- endif -%}
+      {% comment %} disabled by custom or default OOS threshold {% endcomment %}
+      {%- assign oosThreshold = 10 -%}
+      {%- unless current_variant.metafields['global']['out-of-stock-threshold'] == blank -%}
+      {%- assign oosThreshold = current_variant.metafields['global']['out-of-stock-threshold'] -%}
+      {%- endunless -%}
+      {%- if current_variant.inventory_quantity <= oosThreshold -%}
+        {%- assign hideAddToCart = true -%}
+        {%- assign hideWaitlist = false -%}
+      {%- endif -%}
+      {% comment %} automatically disabled based on shopify inventory {% endcomment %}
+      {%- unless current_variant.available -%}
+        {%- assign hideAddToCart = true -%}
+        {%- assign hideWaitlist = false -%}
+      {%- endunless -%}
 
       <button
         type="submit"

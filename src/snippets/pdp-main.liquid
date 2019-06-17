@@ -106,12 +106,20 @@
     {
       {%- for siblingProduct in parentCollection.products -%}
         {%- for variant in siblingProduct.variants -%}
+          {%- assign oosThreshold = 10 -%}
+          {%- unless variant.metafields['global']['out-of-stock-threshold'] == blank -%}
+            {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] -%}
+          {%- endunless -%}
+          {%- assign lowStockThreshold = 30 -%}
+          {%- unless variant.metafields['global']['low-stock-threshold'] == blank -%}
+            {%- assign lowStockThreshold = variant.metafields['global']['low-stock-threshold'] -%}
+          {%- endunless -%}
           "{{ variant.id }}" : {
 						"finalSale" : "{{ variant.metafields['global']['final-sale'] }}",
-						"lowStockThreshold" : "{{ variant.metafields['global']['low-stock-threshold'] }}",
+						"lowStockThreshold" : "{{ lowStockThreshold }}",
 						"oosPolicy" : "{{ variant.metafields['global']['out-of-stock-policy'] }}",
 						"oosSettings" : "{{ variant.metafields['global']['out-of-stock-settings'] }}",
-						"oosThreshold" : "{{ variant.metafields['global']['out-of-stock-threshold'] }}",
+						"oosThreshold" : {{ oosThreshold }},
 						"restockMessage" : "{{ variant.metafields['global']['restock-expected'] }}",
             "stockLevel" : "{{ variant.inventory_quantity }}"
           },
