@@ -477,6 +477,7 @@ class ProductForm {
           'productData.url': siblingsSupplimentalJson[selectedSibling].url,
           'productData.imageUrl': siblingsSupplimentalJson[selectedSibling].featuredImage,
           'productData.collections': siblingsSupplimentalJson[selectedSibling].collections,
+          'productData.color': $('.js-pdp-selected-color').text(),
           'pinterestPage': this.product.title
         })
       }
