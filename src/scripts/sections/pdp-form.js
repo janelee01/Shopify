@@ -462,7 +462,7 @@ class ProductForm {
   updateDataLayer () {
     const dataLayer = window.dataLayer || []
     const selectedSibling = $('.pdp-swatch.active').data('sibling')
-    const selectedVariantID = this.$variantInput.value
+    const selectedVariantID = Number(this.$variantInput.value)
     for (var i = 0; i < this.variants.length; i++) {
       if (this.variants[i].id === selectedVariantID) {
         const variant = this.variants[i]
