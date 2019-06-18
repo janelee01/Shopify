@@ -79,7 +79,7 @@
 			'sku' : '{{ current_variant.sku }}',
 			'name' : '{{ product.title }}',
 			'type' : '{{ product.type }}',
-			'collections' : '{{ product.collections | map:"title" | json }}',
+			'collections' : '{{ product.collections | map:"title" | json | escape }}',
 			'url' : '{{ shop.secure_url }}{{ product.url }}',
 			'variant' : '{{ current_variant.title }}',
 			'brand' : '{{ product.vendor }}',
