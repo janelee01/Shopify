@@ -19,7 +19,7 @@
         {% comment %} hidden by default OOS level or custom override {% endcomment %}
         {%- assign oosThreshold = 10 -%}
         {%- unless variant.metafields['global']['out-of-stock-threshold'] == blank -%}
-        {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] -%}
+        {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] | times: 1 -%}
         {%- endunless -%}
         {%- if variant.inventory_quantity <= oosThreshold and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
           {%- continue -%}
