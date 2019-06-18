@@ -82,7 +82,7 @@
 			'collections' : '{{ product.collections | map:"title" | json | escape }}',
 			'url' : '{{ shop.secure_url }}{{ product.url }}',
 			'variant' : '{{ current_variant.title }}',
-			'color' : '{{ current_variant.metafields["global"]["swatch-label"] }}',
+			'color' : '{{ product.metafields["global"]["swatch-label"] }}',
 			'brand' : '{{ product.vendor }}',
 			'imageUrl' : 'https:{{ product.featured_image.src | img_url:"grande" }}',
 			'imagePosition' : 1,
