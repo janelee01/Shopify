@@ -82,17 +82,23 @@
       }
     {%- endcapture -%}
 
+    {%- assign defaultOosThreshold = 10 -%}
+
     {% comment %} some variants should be hidden when the sell out instead of showing the Join Waitlist button {% endcomment %}
     {%- capture hiddenVariants -%}
       {%- for siblingProduct in parentCollection.products -%}
         {%- for variant in siblingProduct.variants -%}
           {%- if variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+            {%- assign oosThreshold = defaultOosThreshold -%}
+            {%- unless variant.metafields['global']['out-of-stock-threshold'] == blank -%}
+              {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] | times: 1 -%}
+            {%- endunless -%}
             {% comment %}
             automatic availability based on shopify inventory level, or
             manual availability, or
-            manual out of stock inventory level
+            custom out of stock inventory level, either 10 or a value set via metafield
             {% endcomment %}
-            {%- if variant.available == false or variant.metafields['global']['out-of-stock-settings'] == 'unavailable' or variant.metafields['global']['out-of-stock-threshold'] | times: 1 >= variant.inventory_quantity -%}
+            {%- if variant.available == false or variant.metafields['global']['out-of-stock-settings'] == 'unavailable' or oosThreshold >= variant.inventory_quantity -%}
               {{ variant.id }}|
             {%- endif -%}
           {%- endif -%}
@@ -106,7 +112,7 @@
     {
       {%- for siblingProduct in parentCollection.products -%}
         {%- for variant in siblingProduct.variants -%}
-          {%- assign oosThreshold = 10 -%}
+          {%- assign oosThreshold = defaultOosThreshold -%}
           {%- unless variant.metafields['global']['out-of-stock-threshold'] == blank -%}
             {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] | times: 1 -%}
           {%- endunless -%}
