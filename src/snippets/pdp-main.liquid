@@ -108,20 +108,20 @@
         {%- for variant in siblingProduct.variants -%}
           {%- assign oosThreshold = 10 -%}
           {%- unless variant.metafields['global']['out-of-stock-threshold'] == blank -%}
-            {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] -%}
+            {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] | times: 1 -%}
           {%- endunless -%}
           {%- assign lowStockThreshold = 30 -%}
           {%- unless variant.metafields['global']['low-stock-threshold'] == blank -%}
-            {%- assign lowStockThreshold = variant.metafields['global']['low-stock-threshold'] -%}
+            {%- assign lowStockThreshold = variant.metafields['global']['low-stock-threshold'] | times: 1 -%}
           {%- endunless -%}
           "{{ variant.id }}" : {
 						"finalSale" : "{{ variant.metafields['global']['final-sale'] }}",
-						"lowStockThreshold" : "{{ lowStockThreshold }}",
+						"lowStockThreshold" : {{ lowStockThreshold }},
 						"oosPolicy" : "{{ variant.metafields['global']['out-of-stock-policy'] }}",
 						"oosSettings" : "{{ variant.metafields['global']['out-of-stock-settings'] }}",
 						"oosThreshold" : {{ oosThreshold }},
 						"restockMessage" : "{{ variant.metafields['global']['restock-expected'] }}",
-            "stockLevel" : "{{ variant.inventory_quantity }}"
+            "stockLevel" : {{ variant.inventory_quantity }}
           },
         {%- endfor -%}
       {%- endfor -%}

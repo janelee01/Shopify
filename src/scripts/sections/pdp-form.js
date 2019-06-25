@@ -278,7 +278,7 @@ class ProductForm {
     }
 
     // check for manual override of out of stock level
-    if (variantStockData.oosThreshold > variantStockData.stockLevel) {
+    if (variantStockData.oosThreshold >= variantStockData.stockLevel) {
       isAvailable = false
     }
 
@@ -489,10 +489,10 @@ class ProductForm {
    * is less than {30 or custom value} stock items available.
    */
   updateLowStockWarning () {
-    const inventoryLevel = Number((variantStockData[this.variantID] || {}).stockLevel)
+    const inventoryLevel = variantStockData[this.variantID].stockLevel
     const $warning = $('.low-stock-warning')
-    const lowStockThreshold = Number(variantStockData[this.variantID].lowStockThreshold || 30)
-    const oosThreshold = Number(variantStockData[this.variantID].oosThreshold || 10)
+    const lowStockThreshold = variantStockData[this.variantID].lowStockThreshold
+    const oosThreshold = variantStockData[this.variantID].oosThreshold
     if (inventoryLevel > oosThreshold && inventoryLevel <= lowStockThreshold) {
       $warning.removeClass('hidden')
     } else {
