@@ -1,0 +1,15 @@
+<div class="fw-xs">
+    <div class="col-slider row animate mb-large" {{ animateFadeInUp }}>
+        <div class="slide col-sm-4">     
+            {{ col1 }}
+        </div>
+        <div class="slide col-sm-4">
+            {{ col2 }}              
+        </div>
+        {% unless col3 == blank %}
+        <div class="slide col-sm-4">
+            {{ col3 }}                    
+        </div>
+        {% endunless %}
+    </div>
+</div>

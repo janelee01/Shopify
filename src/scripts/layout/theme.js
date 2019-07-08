@@ -1074,6 +1074,28 @@ $(document).ready(function() {
 				$(this).css('background-position','center ' + parseInt((ratio * 0.8)) + 'px');
 			}
 		})
-	})
+	});
+
+	$('.col-slider').slick({
+		centerMode: true,
+		centerPadding: '15px',
+		dots: true,
+		arrows: false,
+		variableWidth: true,
+		mobileFirst: true,
+		infinite: false,
+		responsive: [
+			{
+				breakpoint: LS.tabletBreakpoint - 1,
+				settings: "unslick"
+			}
+		]
+	});
+
+	$('.row-slider').slick({
+		dots: true,
+		arrows: false,
+		fade: true
+	});
 
 });
