@@ -16,6 +16,7 @@ class ProductForm {
     this.$colorLabelContainers = select.all('.js-pdp-selected-color', el)
     this.$mobileColorLabelContainer = select('.js-mobile-swatch-label', el)
     this.$quantitySelector = select('.js-add-to-cart-quantity', el)
+    this.$productDescription = select('.js-pdp-main-product-description')
 
     this.siblingsJson = window.siblingsJson
     this.hiddenVariants = window.hiddenVariants
@@ -50,6 +51,7 @@ class ProductForm {
     this.updateLowStockWarning()
     this.updateFinalSaleMessage()
     this.updateWaitlistMeta()
+    this.updateProductDescription()
   }
 
   /**
@@ -83,6 +85,13 @@ class ProductForm {
     this.product = this.siblingsJson[this.productID]
 
     this.updateVariant(null, triggerEvent)
+  }
+
+  /**
+   * Updates main description shown to use the SKUs desc
+   */
+  updateProductDescription () {
+    this.$productDescription.innerHTML = this.siblingsJson[this.productID].description
   }
 
   /**

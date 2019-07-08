@@ -6,16 +6,20 @@
 DETECT PRESELECTED material/color IF ANY
 {%- endcomment -%}
 {%- for siblingProduct in parentCollection.products -%}
-{%- assign siblingProductColor = siblingProduct.title | split: '-' | last | strip -%}
-{%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-1' -%}
-{%- if siblingProductColor == product.metafields["global"]["swatch-label"] -%}
-{%- assign selectedColor1 = siblingProductColor -%}
-{%- endif -%}
-{%- elsif siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-2' -%}
-{%- if siblingProductColor == product.metafields["global"]["swatch-label"] -%}
-{%- assign selectedColor2 = siblingProductColor -%}
-{%- endif -%}
-{%- endif -%}
+  {%- assign siblingProductColor = siblingProduct.title | split: '-' | last | strip -%}
+  {%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-1' -%}
+    {%- if siblingProductColor == product.metafields["global"]["swatch-label"] -%}
+      {%- assign selectedColor1 = siblingProductColor -%}
+    {%- endif -%}
+  {%- elsif siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-2' -%}
+    {%- if siblingProductColor == product.metafields["global"]["swatch-label"] -%}
+      {%- assign selectedColor2 = siblingProductColor -%}
+    {%- endif -%}
+  {%- elsif siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-3' -%}
+    {%- if siblingProductColor == product.metafields["global"]["swatch-label"] -%}
+      {%- assign selectedColor3 = siblingProductColor -%}
+    {%- endif -%}
+  {%- endif -%}
 {%- endfor -%}
 
 {%- if swatchGroup2Label == blank -%}{% comment %} no extra grouping, show them all {% endcomment %}
@@ -93,7 +97,7 @@ DETECT PRESELECTED material/color IF ANY
   {%- endcapture -%}
   {% if swatchGroup3 != blank %}
     <div class="pdp-swatches-wrapper js-pdp-swatches-wrapper">
-      <p class="configuration-label js-pdp-swatch-group-name">{{ swatchGroup3Label }}</p>
+      <p class="configuration-label js-pdp-swatch-group-name">{{ swatchGroup3Label }}<span class="js-pdp-selected-color pdp-selected-color">{{selectedColor3}}</span></p>
       <ul class="pdp-swatches js-pdp-swatches">
        {{ swatchGroup3 }}
       </ul>
