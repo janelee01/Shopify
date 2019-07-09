@@ -1,21 +1,21 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 2816915732642571438 -%}
-{%- assign ctaTitle = 'The Catalina Deluxe' -%}
-{%- assign ctaPrice = '$128 - $158' -%}
-{%- assign ctaLink = '/products/catalina-deluxe-washed-canvas-midnight-ash' -%}
-{%- assign ctaImg = 'catalina-deluxe-cta' -%}
+{%- assign assetVersion = 11633777541598494214 -%}
+{%- assign ctaTitle = 'The Catalina Deluxe Tote' -%}
+{%- assign ctaPrice = '$118 - $128' -%}
+{%- assign ctaLink = '/products/catalina-deluxe-tote-washed-canvas-dove-grey' -%}
+{%- assign ctaImg = 'catalina-deluxe-tote-cta' -%}
 
 <article class="discover">
 
     {% include 'discover-nav', labels:'Features,Size,Materials,Press' %}
     
     <div class="max-container">
-        <div class="hero has-white-arrow" id="catalina-deluxe-hero">
-            {% include 'discover-picture', name: 'catalina-deluxe-hero', alt: 'woman next to Catalina Deluxe attached to luggage handle', retina: true, fw: false, lg: true %}
+        <div class="hero has-arrow" id="catalina-deluxe-tote-hero">
+            {% include 'discover-picture', name: 'catalina-deluxe-tote-hero', alt: 'woman with Catalina Deluxe Tote on luggage', retina: true, fw: false, lg: true %}
             <div class="hero-content white right">
                 <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
-                <p class="description">Everyone’s favorite weekender — perfect for a quick getaway, beach day or gym session.</p>
+                <p class="description">The most compact addition to our line of Catalina bags.</p>
             </div>
             {% include 'hero-jump-btn' %}
         </div>
@@ -35,11 +35,11 @@
         
         {%- capture col1 -%}
             {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
-            {% include 'discover-topic-content', title: "Thoughtful Organization", text: "Designed to keep your shoes separate from clean clothes.", modifiers: 'text-center-xs' %}
+            {% include 'discover-topic-content', title: "Separate Space", text: "The bottom pocket keeps your shoes separate from the clothing.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {%- capture col2 -%}
-            {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'sliding passport into exterior pocket', retina: true, fw: false, lg: true %}
-            {% include 'discover-topic-content', title: "Easy Access", text: "The front pocket keeps your passport within reach.", modifiers: 'text-center-xs' %}
+            {% include 'inline-video', ratio: '3-4', index: 3, poster: 'prospect-feature-3-lg', src: 'Prospect_Discover_Interior-Organization' %}
+            {% include 'discover-topic-content', title: "Easy Access", text: "Your essentials are easily within reach.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {%- capture col3 -%}
             {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'Catalina Deluxe slid onto luggage handle', retina: true, fw: false, lg: true %}
@@ -47,7 +47,7 @@
         {%- endcapture -%}
         {% include 'discover-sliding-3-col' %}
 
-        {% include 'discover-section-heading', title: "Leisure Travel", text: "Towel, change of clothes, sunscreen — carry those necessities in style on your next seaside or poolside escape." %}
+        {% include 'discover-section-heading', title: "Leisure Travel", text: "Towel, change of clothes, extra shoes, sunscreen – carry your necessities in style on your next seaside, poolside, or city escape." %}
         {%- capture col1 -%}
             {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman at beach with The Catalina Deluxe on shoulder', retina: true, fw: false, lg: true %}
             {% include 'discover-topic-content', title: "Functional Freedom", text: "The padded messenger strap lets you go hands-free.", modifiers: 'text-center-xs' %}
@@ -58,7 +58,7 @@
         {%- endcapture -%}
         {%- capture col3 -%}
             {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman sliding sunglasses into exterior pocket', retina: true, fw: false, lg: true %}
-            {% include 'discover-topic-content', title: "Essentials Within Reach", text: "The front pocket allows for easy access to your sunglasses.", modifiers: 'text-center-xs' %}
+            {% include 'discover-topic-content', title: "Clever Accessibility", text: "The key leash securely holds keys right where you need them.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {% include 'discover-sliding-3-col' %}
 
@@ -88,17 +88,25 @@
     </div>
 
     <div class="container">
+        {% include 'discover-section-heading', title: "Expandable Design", text: "Unzip the divider panel to expand the main compartment for extra carrying capacity." %}
+    </div>
+    <div class="max-container topic-block mb-default animate video-block" {{ animateFadeInUp }}>
+        {% include 'discover-picture', name: 'prospect-video', alt: 'video showing how to pack the Prospect', retina: true, fw: false, lg: true %}
+        <a href="#" data-video-id="2" class="video-trigger">How to Expand</a>
+    </div>
+
+    <div class="container">
         <a id="nav-target-3" class="jumptarget"></a>
-        {% include 'discover-section-heading', title: "Carry-On Friendly", text: "We designed our Catalina Deluxe to be the ideal travel partner." %}
+        {% include 'discover-section-heading', title: "Carry-On Friendly", text: "We designed our Catalina Deluxe Tote to be the ideal travel partner." %}
 
         <div class="row animate mb-large" {{ animateFadeInUp }}>
             <div class="col-sm-6">  
                 {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'Catalina Deluxe small and large, side by side', retina: true, fw: false, lg: true %}
-                {% include 'discover-topic-content', title: "Available in 2 Sizes ", text: "The Catalina Deluxe is available in two sizes, Small and Large.", moreWindow: '<a href="#dimensions-overlay" class="more-window-trigger">Size guide +</a>', modifiers: 'text-center-xs' %}               
+                {% include 'discover-topic-content', title: "Under Seat Ready", text: "The Catalina Deluxe Tote fits seamlessly under any airline seat.", modifiers: 'text-center-xs' %}               
             </div>
             <div class="col-sm-6">    
                 {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'airplane overhead bins', retina: true, fw: false, lg: true %}                
-                {% include 'discover-topic-content', title: "Cabin Compatible", text: "The Catalina Deluxe Large can be placed in the overhead compartment of most aircrafts. The Catalina Deluxe Small may fit underneath the airline seat when not fully packed." , modifiers: 'text-center-xs' %}
+                {% include 'discover-topic-content', title: "Cabin Compatible", text: "The Catalina Deluxe Tote fits seamlessly in the overhead cabin storage." , modifiers: 'text-center-xs' %}
             </div>
         </div>
 
@@ -110,61 +118,13 @@
 
     {% include 'discover-cta' %}
 
-    {% include 'discover-catalina-compare', url: '/pages/compare-catalina-collection/' %}
+    {% include 'discover-catalina-compare', url: '/pages/compare-catalina-collection-men/' %}
 
     <script>// <![CDATA[
-    var video1Embed = '<iframe src="//player.vimeo.com/video/308577378?player_id=vimeo-video1&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-catalinadeluxelarge" class="vimeo"></iframe>';
+    var video1Embed = '<iframe src="//player.vimeo.com/video/308618580?player_id=vimeo-video1&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-hanover" class="vimeo"></iframe>';
+    var video2Embed = '<iframe src="//player.vimeo.com/video/309124650?player_id=vimeo-video2&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-hanover" class="vimeo"></iframe>';
     // ]]></script>
 
     {% include 'video-modal' %}
-
-    <div class="more-window" id="dimensions-overlay">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    {% include 'discover-picture', name: 'catalina-deluxe-dimensions', alt: "Catalina Deluxe", retina: true, fw: false, lg: true %}
-                </div>
-                <div class="col-sm-6 col-md-5 col-md-offset-1">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Small</th>
-                                <th>Large</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>Top Width</th>
-                                <td>24&rdquo;</td>
-                                <td>26&rdquo;</td>
-                            </tr>
-                            <tr>
-                                <th>Bottom Width</th>
-                                <td>18&rdquo;</td>
-                                <td>18.5&rdquo;</td>
-                            </tr>
-                            <tr>
-                                <th>Depth</th>
-                                <td>8.5&rdquo;</td>
-                                <td>9&rdquo;</td>
-                            </tr>
-                            <tr>
-                                <th>Height</th>
-                                <td>16&rdquo;</td>
-                                <td>18&rdquo;</td>
-                            </tr>
-                            <tr>
-                                <th>Handle Drop Length</th>
-                                <td>11&rdquo;</td>
-                                <td>11&rdquo;</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <button class="panel-close"><span class="sr-only">close</span></button>
-    </div>
 
 </article>

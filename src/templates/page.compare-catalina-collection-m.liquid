@@ -1,0 +1,321 @@
+{% include 'vars' %}
+{%- assign assetVersion = 143412 -%}
+{%- assign ctaTitle = 'Catalina Comparison' -%}
+{%- assign deluxeUrl = '/pages/catalina-deluxe-womens-weekender-travel-bag' -%}
+{%- assign toteUrl = '/pages/catalina-deluxe-tote-womens-travel-bag' -%}
+
+{% include 'discover-nav', labels:'Features,Fit,Materials,Dimensions,FAQ' %}
+
+<article class="discover">
+
+<div class="max-container">
+	<div class="hero without-image">
+		<div class="hero-content black">
+			<h1 class="title">The Catalina Comparison Guide</h1>
+			<p class="description">This guide compares the similarities and differences between the Catalina weekender collection.</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">{% include 'hero-jump-target' %}
+
+	<a id="nav-target-1" class="jumptarget page-has-nav"></a>
+  {% include 'discover-section-heading', title: "The Features" %}
+
+	<div class="mb-large text-center animate" {{ animateFadeInUp }}>
+		<picture>
+			<source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/compare-catalina-features-sm.jpg?{{ assetVersion }}" media="(min-width: {{ screenSm }})" />
+			<img src="https://cdn.shopify.com/s/files/1/2185/1497/files/compare-catalina-features-xs.jpg?{{ assetVersion }}" alt="features chart" />
+		</picture>
+	</div>
+
+	<a id="nav-target-2" class="jumptarget page-has-nav"></a>
+	{% include 'discover-section-heading', title: 'The Fit', text: 'To help compare the different styles in our weekender collection, we asked two women of different heights to carry each bag.<br/><br/>Francine is 5’ 10”' %}
+	
+	{%- capture fitToteA -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture fitToteB -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture fitToteC -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+
+	{%- capture fitSmallA -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture fitSmallB -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture fitSmallC -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+
+	{%- capture fitLargeA -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture fitLargeB -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture fitLargeC -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	<div class="hidden-xs mb-large animate" {{ animateFadeInUp }}>
+		<div class="row-slider">
+			<div class="row">
+				<div class="col-sm-4">{{ fitToteA }}</div>
+				<div class="col-sm-4">{{ fitSmallA }}</div>
+				<div class="col-sm-4">{{ fitLargeA }}</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">{{ fitToteB }}</div>
+				<div class="col-sm-4">{{ fitSmallB }}</div>
+				<div class="col-sm-4">{{ fitLargeB }}</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">{{ fitToteC }}</div>
+				<div class="col-sm-4">{{ fitSmallC }}</div>
+				<div class="col-sm-4">{{ fitLargeC }}</div>
+			</div>
+		</div>
+	</div>
+	<div class="hidden-sm hidden-md hidden-lg">
+		{%- capture col1 -%} {{ fitToteA }} {%- endcapture -%}
+		{%- capture col2 -%} {{ fitToteB }} {%- endcapture -%}
+		{%- capture col3 -%} {{ fitToteC }} {%- endcapture -%}
+		{% include 'discover-sliding-3-col' %}
+
+		{%- capture col1 -%} {{ fitSmallA }} {%- endcapture -%}
+		{%- capture col2 -%} {{ fitSmallB }} {%- endcapture -%}
+		{%- capture col3 -%} {{ fitSmallC }} {%- endcapture -%}
+		{% include 'discover-sliding-3-col' %}
+
+		{%- capture col1 -%} {{ fitLargeA }} {%- endcapture -%}
+		{%- capture col2 -%} {{ fitLargeB }} {%- endcapture -%}
+		{%- capture col3 -%} {{ fitLargeC }} {%- endcapture -%}
+		{% include 'discover-sliding-3-col' %}
+	</div>
+
+	{% include 'discover-section-heading', text: 'Eyesmin is 5’ 4”' %}
+
+	{%- capture fitToteA -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture fitToteB -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture fitToteC -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+
+	{%- capture fitSmallA -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture fitSmallB -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture fitSmallC -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+
+	{%- capture fitLargeA -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture fitLargeB -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture fitLargeC -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	<div class="hidden-xs mb-large animate" {{ animateFadeInUp }}>
+		<div class="row-slider">
+			<div class="row">
+				<div class="col-sm-4">{{ fitToteA }}</div>
+				<div class="col-sm-4">{{ fitSmallA }}</div>
+				<div class="col-sm-4">{{ fitLargeA }}</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">{{ fitToteB }}</div>
+				<div class="col-sm-4">{{ fitSmallB }}</div>
+				<div class="col-sm-4">{{ fitLargeB }}</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">{{ fitToteC }}</div>
+				<div class="col-sm-4">{{ fitSmallC }}</div>
+				<div class="col-sm-4">{{ fitLargeC }}</div>
+			</div>
+		</div>
+	</div>
+	<div class="hidden-sm hidden-md hidden-lg">
+		{%- capture col1 -%} {{ fitToteA }} {%- endcapture -%}
+		{%- capture col2 -%} {{ fitToteB }} {%- endcapture -%}
+		{%- capture col3 -%} {{ fitToteC }} {%- endcapture -%}
+		{% include 'discover-sliding-3-col' %}
+
+		{%- capture col1 -%} {{ fitSmallA }} {%- endcapture -%}
+		{%- capture col2 -%} {{ fitSmallB }} {%- endcapture -%}
+		{%- capture col3 -%} {{ fitSmallC }} {%- endcapture -%}
+		{% include 'discover-sliding-3-col' %}
+
+		{%- capture col1 -%} {{ fitLargeA }} {%- endcapture -%}
+		{%- capture col2 -%} {{ fitLargeB }} {%- endcapture -%}
+		{%- capture col3 -%} {{ fitLargeC }} {%- endcapture -%}
+		{% include 'discover-sliding-3-col' %}
+	</div>
+
+	<a id="nav-target-3" class="jumptarget page-has-nav"></a>
+  {% include 'discover-catalina-materials' %}
+
+	<a id="nav-target-4" class="jumptarget page-has-nav"></a>
+  {% include 'discover-section-heading', title: 'Dimensions &amp; Weight' %}
+	{%- capture dimsToteA -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture dimsToteB -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'sliding passport into exterior pocket', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+
+	{%- capture dimsSmallA -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture dimsSmallB -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'sliding passport into exterior pocket', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	
+	{%- capture dimsLargeA -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	{%- capture dimsLargeB -%}
+		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'sliding passport into exterior pocket', retina: true, fw: false, lg: true %}
+		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+	{%- endcapture -%}
+	
+	<div class="hidden-xs mb-large animate" {{ animateFadeInUp }}>
+		<div class="row-slider">
+			<div class="row">
+				<div class="col-sm-4">{{ dimsToteA }}</div>
+				<div class="col-sm-4">{{ dimsSmallA }}</div>
+				<div class="col-sm-4">{{ dimsLargeA }}</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">{{ dimsToteB }}</div>
+				<div class="col-sm-4">{{ dimsSmallB }}</div>
+				<div class="col-sm-4">{{ dimsLargeB }}</div>
+			</div>
+		</div>
+	</div>
+	<div class="hidden-sm hidden-md hidden-lg">
+		{%- capture col1 -%} {{ dimsToteA }} {%- endcapture -%}
+		{%- capture col2 -%} {{ dimsToteB }} {%- endcapture -%}
+		{%- assign col3 = false -%}
+		{% include 'discover-sliding-3-col' %}
+
+		{%- capture col1 -%} {{ dimsSmallA }} {%- endcapture -%}
+		{%- capture col2 -%} {{ dimsSmallB }} {%- endcapture -%}
+		{% include 'discover-sliding-3-col' %}
+
+		{%- capture col1 -%} {{ dimsLargeA }} {%- endcapture -%}
+		{%- capture col2 -%} {{ dimsLargeB }} {%- endcapture -%}
+		{% include 'discover-sliding-3-col' %}
+	</div>
+
+	<div style="background: #F8F8F8; padding: 50px 0" class="mb-large fw-xs text-center animate" {{ animateFadeInUp }}>
+		<picture>
+			<source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/compare-catalina-specs-sm.jpg?{{ assetVersion }}" media="(min-width: {{ screenSm }})" />
+			<img src="https://cdn.shopify.com/s/files/1/2185/1497/files/compare-catalina-specs-xs.jpg?{{ assetVersion }}" alt="specs chart" />
+		</picture>
+	</div>
+
+	<a id="nav-target-5" class="jumptarget page-has-nav"></a>
+  {% include 'discover-section-heading', title: 'FAQ', text: 'Below are some of our most frequently asked questions about the Catalina Collection.' %}
+
+	<div class="row mb-default animate" {{ animateFadeInUp }}>
+		<div class="col-sm-10 col-sm-offset-1">
+			<dl class="faqs">
+				<dt>How does the Catalina Deluxe differ from the Catalina Deluxe Tote?</dt>
+				<dd>The <a href="{{ deluxeUrl }}">Catalina Deluxe</a> (both small & large) includes a bottom pocket padded insert, a suitcase handle sleeve, and messenger strap. The <a href="{{ toteUrl }}">Catalina Deluxe Tote</a> includes all features, as well as an interior key leash and an adjustable bottom pocket.</dd>
+				<dt>Is the key leash a feature of the entire Catalina Collection?</dt>
+				<dd>No. The key leash is an exclusive feature for the <a href="{{ toteUrl }}">Catalina Deluxe Tote</a>.</dd>
+				<dt>How do I clean / care for the cotton material?</dt>
+				<dd>The Catalina Collection is available in a soft, yet sturdy pre-washed cotton canvas material. If needed, we recommend spot cleaning the bag with water or a mild soap, and then allow to air dry. However, test a small area of the bag with the mild soap first before applying all over to avoid any possible damage. Some customers have machine washed the bag on the “delicate” or “hand washing” cycle with cold water and mild detergent, then laid flat to air or line dry. This method may cause minor discoloration for some colorways. We DO NOT recommend taking the bag to the dry cleaners.</dd>
+				<dt>Does the Catalina Collection meet airline size requirements for carry-on bags?</dt>
+				<dd>In general, yes. It is always a good idea to confirm carry-on requirements with your airline beforehand. For most airlines: The Catalina Deluxe Large weekender can be placed in the overhead compartment of most aircrafts. The Catalina Deluxe Small weekender can be placed in the overhead compartment of most aircrafts and may fit underneath the airline seat when not fully packed. The Catalina Deluxe Tote should fit underneath the airline seat of most aircrafts, and should comply with the dimension requirements of most aircrafts.</dd>
+			</dl>
+		</div>
+	</div>
+
+	{% include 'discover-section-heading', title: 'Shop The Collection' %}
+
+	{% comment %} 
+	<div class="row fw-xs cta-block">
+		<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-push-6 col-md-offset-0">
+			<a class="btn-gtm-trk" data-gtm-a="7" href="/pages/catalina-weekender-womens-travel-bag">
+				<picture class="legacy-cta-image-fix"> <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-cta-md.jpg?1312692621756025204" media="(min-width: 768px)" /> <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-discover-cta-xs.jpg?1312692621756025204" alt="Shop Catalina" /> </picture>
+			</a>
+		</div>
+		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-5 col-md-pull-5 col-md-offset-0 content-col">
+			<div class="topic-content">
+				<h3 class="title">Catalina</h3>
+				<p class="description">$120 - $130</p>
+				<div class="btn-set"><a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="/pages/catalina-weekender-womens-travel-bag">Learn more</a><a class="btn btn-gtm-trk" data-gtm-a="1" href="/products/catalina-washed-canvas-dove-grey">Buy now</a></div>
+			</div>
+		</div>
+	</div>
+	 {% endcomment %}
+
+	<div class="row fw-xs cta-block">
+		<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-push-6 col-md-offset-0">
+			<a class="btn-gtm-trk" data-gtm-a="7" href="/pages/catalina-deluxe-womens-weekender-travel-bag">
+				<picture class="legacy-cta-image-fix larger"> <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-cta-md.jpg?18132754112649490934" media="(min-width: 768px)" /> <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-cta-xs.jpg?18132754112649490934" alt="Shop Catalina Deluxe" /> </picture>
+			</a>
+		</div>
+		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-5 col-md-pull-5 col-md-offset-0 content-col">
+			<div class="topic-content">
+				<h3 class="title">Catalina Deluxe</h3>
+				<p class="description">$128 - $158</p>
+				<div class="btn-set"><a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="/pages/catalina-deluxe-womens-weekender-travel-bag">Learn more</a><a class="btn btn-gtm-trk" data-gtm-a="1" href="/products/catalina-deluxe-washed-canvas-midnight-ash">Buy now</a></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row fw-xs cta-block">
+		<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-push-6 col-md-offset-0">
+			<a class="btn-gtm-trk" data-gtm-a="7" href="/pages/catalina-deluxe-tote-womens-travel-bag">
+				<picture class="legacy-cta-image-fix"> <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-cta-md.jpg?10032446425132256139" media="(min-width: 768px)" /> <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-cta-xs.jpg?10032446425132256139" alt="Shop Catalina Deluxe Tote" /> </picture>
+			</a>
+		</div>
+		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-5 col-md-pull-5 col-md-offset-0 content-col">
+			<div class="topic-content">
+				<h3 class="title">Catalina Deluxe Tote</h3>
+				<p class="description">$118 - $128</p>
+				<div class="btn-set"><a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="/pages/catalina-deluxe-tote-womens-travel-bag">Learn more</a><a class="btn btn-gtm-trk" data-gtm-a="1" href="/products/catalina-deluxe-tote-washed-canvas-dove-grey">Buy now</a></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+</article>
