@@ -53,13 +53,19 @@
 		font-family: $font-family-medium;
 		font-size: 12px;
 		line-height: 12px;
+		display: flex;
+		flex-wrap: wrap;
 		@media (min-width: $screen-md) {
 			font-size: 18px;
 			line-height: 20px;
 		}
-		span{
-			display: inline-block;
-			vertical-align: middle;
+		&.has-range{
+			.special-price{
+				width: 100%;
+			}
+			.old-price{
+				margin-left: 0;
+			}
 		}
 	}
 	.discount-label, 
