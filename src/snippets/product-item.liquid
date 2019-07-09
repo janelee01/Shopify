@@ -4,7 +4,7 @@
   {%- when 'collection' -%}
     {%- assign listName = collection.title -%}
 {%- endcase -%}
-{% comment %} find the on sale variant {% endcomment %}
+{% comment %} find the on sale variant, likely not used after implementing the range display below but keeping around {% endcomment %}
 {%- assign price = nil -%}
 {%- for variant in product.variants -%}
   {%- if variant.available -%}
@@ -20,6 +20,25 @@
   {%- assign price = product.first_available_variant.price -%}
   {%- assign regularPrice = product.first_available_variant.compare_at_price -%}
 {%- endif -%}
+{% comment %} if we didn't find an available variant, use the price {% endcomment %}
+{%- if price == blank -%}
+  {%- assign price = product.price -%}
+  {%- assign regularPrice = product.compare_at_price -%}
+{%- endif -%}
+{% comment %} show a range for products with variants {% endcomment %}
+{%- assign hasPriceRange = false -%}
+{%- if product.price_varies -%}
+  {%- assign hasPriceRange = true -%}
+  {%- capture priceRange -%}
+    {{ product.price_min | money_without_trailing_zeros }} - {{ product.price_max | money_without_trailing_zeros | remove: "$"  }}
+  {%- endcapture -%}
+  {%- if regularPrice > price -%}
+    {%- capture regularPriceRange -%}
+      {{ product.compare_at_price_min | money_without_trailing_zeros }} - {{ product.compare_at_price_max | money_without_trailing_zeros | remove: "$" }}
+    {%- endcapture -%}
+  {%- endif -%}
+{%- endif -%}
+
 <article class="product">
   <a class="product-link" href="{{ product.url | within: collection }}"
     data-list-name="{{ listName }}"
@@ -37,21 +56,32 @@
     <h3 class="title">{{ productTitleParts[0] | remove: "The " | strip }}</h3>
     <p class="product-color">{{ productTitleParts[2] | strip }}</p>
     <p class="product-material">{{ productTitleParts[1] | strip }}</p>
-    <div class="price">
-        {%- if regularPrice > price -%} {% comment %} product is on sale {% endcomment -%}
-            <span class="special-price">{{ price | money_without_trailing_zeros }}</span>
-            <span class="old-price"><s>{{ regularPrice | money_without_trailing_zeros }}</s></span>
+    <div class="price{% if hasPriceRange %} has-range{% endif %}">
+      {%- if regularPrice > price -%} {% comment %} product is on sale {% endcomment -%}
+        {%- if hasPriceRange -%}
+          <div class="special-price">{{ priceRange }}</div>
+          <div class="old-price"><s>{{ regularPriceRange }}</s></div>
         {%- else -%}
-            <span class="regular-price">{{ price | money_without_trailing_zeros }}</span>
+          <div class="special-price">{{ price | money_without_trailing_zeros }}</div>
+          <div class="old-price"><s>{{ regularPrice | money_without_trailing_zeros }}</s></div>
         {%- endif -%}
-        {%- unless product.available -%}
+      {%- else -%}
+        <div class="regular-price">
+        {%- if hasPriceRange -%}
+          {{ priceRange }}
+        {%- else -%}
+          {{ price | money_without_trailing_zeros }}
+        {%- endif -%}
+        </div>
+      {%- endif -%}
+      {%- if regularPrice > price -%}
+        <span class="discount-label">{{ regularPrice | minus: price | times: 100.0 | divided_by: regularPrice | round: 0 }}% off</span>
+      {%- endif -%}
+      {%- unless product.available -%}
         <span class="low-stock-warning">
           {{ 'products.product.sold_out' | t }}
         </span>
-        {%- endunless -%}
-        {%- if regularPrice > price -%}
-          <span class="discount-label">{{ regularPrice | minus: price | times: 100.0 | divided_by: regularPrice | round: 0 }}% off</span>
-        {%- endif -%}
+      {%- endunless -%}
     </div>
   </a>
 </article>

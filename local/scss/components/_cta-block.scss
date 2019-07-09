@@ -6,7 +6,9 @@ Footer block
 	padding: 55px 0 65px;
 	text-align: center;
 	&.compare{
-		margin-top: $grid-gutter-width;
+		background: #F3F3F3;
+		margin-top: $grid-gutter-width; 
+		padding: 0;
 		picture{
 			@media (max-width: $screen-sm-max) {
 					max-width: none;
