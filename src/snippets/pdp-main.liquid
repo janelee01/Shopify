@@ -1,201 +1,267 @@
-<section class="product-main pdp-main js-pdp-main">
-  <div class="product-main__container pdp__container">
-    <div class="pdp-main-product-heading-mobile">
-      <h1>{{ parentCollection.title | remove: "The " }}</h1>
-      {%- unless parentCollection.metafields["global"]["short-description"] == blank -%}
-      <h4>{{ parentCollection.metafields["global"]["short-description"] }}</h4>
-      {%- endunless -%}
-      {% include 'pdp-review-summary', class:"pdp-main-product-yotpo--mobile" %}
-    </div>
-    <div class="product-main__featured">
-    {%- include 'pdp-gallery', item: product -%}
-    </div>
-    <div class="product-main__holder">
-
-    <div class="pdp-main-product-heading">
-      <h1>{{ parentCollection.title | remove: "The " }}</h1>
-      {%- unless parentCollection.metafields["global"]["short-description"] == blank -%}
-      <div class="pdp-main-product-type">{{ parentCollection.metafields["global"]["short-description"] }}</div>
-      {%- endunless -%}
-    </div>
-
-  <div id="price-wrapper" data-price-wrapper>
-    {%- if current_variant.compare_at_price > current_variant.price -%}
-      {%- assign showSaleElements = true -%}
-    {%- endif -%}
-      <span class="sr-only" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
-      <s class="js-compare-price {% unless showSaleElements %} is-hidden{% endunless %}" data-compare-price>
-        {%- if current_variant.compare_at_price > current_variant.price -%}
-          {{ current_variant.compare_at_price | money_without_trailing_zeros }}
-          {%- assign discountAmount = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0 -%}
-        {%- endif -%}
-      </s>
-      <span data-product-price class="js-product-price">{{ current_variant.price | money_without_trailing_zeros }}</span>
-      <span class="experiment-wrapper-baseline">
-        <span class="discount-label{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>% off</span>
-      </span>
-      <span class="experiment-wrapper-alternate">
-        <span class="discount-badge{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>%<br />OFF</span>
-      </span>
-
-      {% include 'pdp-review-summary', class:"pdp-main-product-yotpo--desktop" %}
-
-     <p class="pdp-main-mobile-swatch-label js-mobile-swatch-label"></p>
+<header class="pdp-header">
+  <div class="container">
+    <h1>{{ parentCollection.title }}</h1>
+    <a href="" class="btn btn-secondary">Discover</a>
   </div>
+</header>
+<section class="product-main container">
+  <div class="gallery-col">
+    {% include 'pdp-gallery' %}
+  </div>
+  <div class="form-col">
+    <div class="form">
+      <div id="price-wrapper" data-price-wrapper>
+        {%- if current_variant.compare_at_price > current_variant.price -%}
+          {%- assign showSaleElements = true -%}
+        {%- endif -%}
+          <span class="sr-only" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+          <s class="js-compare-price {% unless showSaleElements %} is-hidden{% endunless %}" data-compare-price>
+            {%- if showSaleElements -%}
+              {{ current_variant.compare_at_price | money_without_trailing_zeros }}
+              {%- assign discountAmount = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0 -%}
+            {%- endif -%}
+          </s>
+          <span data-product-price class="js-product-price">{{ current_variant.price | money_without_trailing_zeros }}</span>
+          <span class="discount-label{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>% off</span>
+      </div>
+      <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+        <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+        <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
 
-  <div class="pdp-main-product-description js-pdp-main-product-description">{{ product.description }}</div>
-    {%- include 'pdp-form', item: product -%}
-    <div class="pdp-main-product-description-mobile">{{ product.description }}</div>
+        <form action="/cart/add" method="post" enctype="multipart/form-data">
+          <div class="pdp-snap pdp-form-option-group js-pdp-form-option-group pdp-form-option-group--swatches js-pdp-form-option-group--swatches">
+            {% include 'pdp-swatches' %}
+          </div>
+          {%- unless product.has_only_default_variant -%}
+          <div class="pdp-snap pdp-form-option-group js-pdp-form-option-group selector-wrapper">
+            {%- assign optionValues = '' -%}
+            {%- for variant in product.variants -%}
+              {% comment %} manually disabled {% endcomment %}
+              {%- if variant.metafields['global']['out-of-stock-settings'] == 'unavailable' and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+                {%- continue -%}
+              {%- endif -%}
+              {% comment %} hidden by default OOS level or custom override {% endcomment %}
+              {%- assign oosThreshold = 10 -%}
+              {%- unless variant.metafields['global']['out-of-stock-threshold'] == blank -%}
+              {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] | times: 1 -%}
+              {%- endunless -%}
+              {%- if variant.inventory_quantity <= oosThreshold and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+                {%- continue -%}
+              {%- endif -%}
+              {% comment %} automatically disabled {% endcomment %}
+              {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+                {%- continue -%}
+              {%- endif -%}
+              {%- assign optionValues = optionValues
+                | append: '|'
+                | append: variant.id
+                | append: ':'
+                | append: variant.title  -%}
+            {%- endfor -%}
+            {%- assign optionValues = optionValues | replace_first: '|', '' | split: '|' -%}
+            <div class="pdp-form-size-wrapper {% if optionValues.size > 2 %}pdp-form-size-wrapper--reflow{% endif %}">
+              <label class="pdp-form-size-label" for="variant-selector">Size:</label>
+
+              <div id="variant-buttons" class="pdp-variant-buttons variant-buttons js-variant-buttons-wrap">
+                {%- for optionValue in optionValues -%}
+                  {%- assign variantId = optionValue | split: ':' | first -%}
+                  {%- assign variantTitle = optionValue | split: ':' | last -%}
+                  {%- assign selected = '' -%}
+                  {%- if variantId == current_variant.id -%}
+                    {%- assign selected = ' selected' -%}
+                  {%- endif -%}
+                  <a
+                    href="#"
+                    data-id="{{ variantId }}"
+                    class="btn btn-secondary variant-option js-pdp-non-swatch-input {{ selected }}">
+                    {{ variantTitle }}
+                  </a>
+                  {%- assign variantId = nil -%}
+                  {%- assign variantTitle = nil -%}
+                {%- endfor -%}
+              </div>
+
+            </div>
+            {%- assign optionValues = nil -%}
+            <a class="pdp-form-size-fit pdp-modal-link js-pdp-modal-link" href="#" data-modal="size-fit">Size & Fit Guide</a>
+          </div>
+          {%- endunless -%}
+
+          <select name="id" id="variant-selector" class="hidden js-variant-input" data-product-select>
+            {%- for variant in product.variants -%} 
+              {% comment %} options gets replaced by js working with the siblings JSON {% endcomment %}
+              <option value="{{ variant.id }}"{% if variant.id == product.selected_variant.id or variant.id == current_variant.id %} selected="selected"{% endif %}>{{ variant.title }}</option>
+            {%- endfor -%}
+          </select>
+
+          <div class="js-add-to-cart-wrap add-to-cart" id="add-to-cart" {% unless current_variant.available %}{% if oosPolicy == 'soldout' %} style="display: none"{% endif %}{% endunless %}>{% comment %}hide the whole element when OOS and unavailable for a waitlist{% endcomment %}
+            <label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
+            <select id="quantity" name="quantity" class="js-add-to-cart-quantity" >
+            {%- for i in (1..40) -%}
+              <option>{{ i }}</option>
+            {%- endfor -%}
+            </select>
+
+            <span class="pdp-chevron-down"></span>
+
+            {%- assign hideAddToCart = false -%}
+            {%- assign hideWaitlist = true -%}
+            {% comment %} manually disabled {% endcomment %}
+            {%- if current_variant.metafields['global']['out-of-stock-settings'] == 'unavailable' and current_variant.metafields['global']['out-of-stock-policy'] == 'waitlist' -%}
+              {%- assign hideAddToCart = true -%}
+              {%- assign hideWaitlist = false -%}
+            {%- endif -%}
+            {% comment %} disabled by custom or default OOS threshold {% endcomment %}
+            {%- assign oosThreshold = 10 -%}
+            {%- unless current_variant.metafields['global']['out-of-stock-threshold'] == blank -%}
+            {%- assign oosThreshold = current_variant.metafields['global']['out-of-stock-threshold'] -%}
+            {%- endunless -%}
+            {%- if current_variant.inventory_quantity <= oosThreshold -%}
+              {%- assign hideAddToCart = true -%}
+              {%- assign hideWaitlist = false -%}
+            {%- endif -%}
+            {% comment %} automatically disabled based on shopify inventory {% endcomment %}
+            {%- unless current_variant.available -%}
+              {%- assign hideAddToCart = true -%}
+              {%- assign hideWaitlist = false -%}
+            {%- endunless -%}
+
+            <button
+              type="submit"
+              name="add"
+              class="btn-lg js-add-to-cart"
+              data-add-to-cart
+              id="add-product-proceed"
+              {% if hideAddToCart %}style="display: none"{% endif %}>
+                {{ 'products.product.add_to_cart' | t }}
+            </button>
+
+            <button
+              class="btn-lg js-add-to-wishlist"
+              data-add-to-waitlist
+              id="waitlist-open"
+              {% if hideWaitlist %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</button>
+          </div>
+          
+          <div class="pdp-sold-out-message js-pdp-sold-out-message" id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div>
+          <div class="pdp-low-stock-warning js-pdp-low-stock-warning low-stock-warning hidden">{{ 'products.product.low_stock' | t }}</div>
+          <div class="pdp-final-sale-warning js-final-sale-warning final-sale-warning hidden"><span>{{ 'products.product.final_sale_html' | t }}</span></div>
+
+          <a class="pdp-form-size-fit pdp-modal-link js-pdp-modal-link" href="#" data-modal="size-fit">Size & Fit Guide</a>
+          <a class="pdp-shipping-returns-warranty-care pdp-modal-link js-pdp-modal-link" data-modal="shipping" href="#">Shipping, Returns, Warranty & Care</a>
+        </form>
+      </div>
     </div>
   </div>
 </section>
 
-<div data-section-id="{{ section.id }}">
-  {% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
+<div class="pdp-main-product-description js-pdp-main-product-description">{{ product.description }}</div>
+
+<h2>Shipping, Returns, Warranty & Care</h2>
+<div class="pdp-modal__content--shipping">
+  <h3>Shipping & Returns</h3>
+  {{ shop.metafields["global"]["shipping-returns-exchanges"] }}
+  <h3>Warranty</h3>
+  {{ shop.metafields["global"]["warranty"] }}
+  <h3>Care Instructions</h3>
+  {{ parentCollection.metafields["global"]["care-instructions"] }}
+</div>
+{%- include 'pdp-modal', id: 'size-fit', collection_ref: parentCollection, device_compatibility: pdp_size_fit_device_compatibility, size_weight: pdp_size_fit_size_weight -%}
+
+
+{% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
+  <section class="container" id="pdp-reviews">
+    <div class="section-heading">
+      <h2 class="title">Traveler Approved</h2>
+    </div>
     <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
       <meta itemprop="ratingValue" content="{{ product.metafields.yotpo.reviews_average }}">
       <meta itemprop="ratingCount" content="{{ product.metafields.yotpo.reviews_count }}">
     </div>
-  {% endif %}
-  <div class="container">
-    {%- capture siblingsJson -%}
-      {
-        {%- for siblingProduct in parentCollection.products -%}
-          {%- if siblingsList contains siblingProduct.id -%}
-            "{{ siblingProduct.id }}" : {{ siblingProduct | json }}{% unless forloop.last %},{% endunless %}
-          {%- endif -%}
-        {%- endfor -%}
-      }
-    {%- endcapture -%}
-    {% comment %} some information isn't included in the normal product object {% endcomment %}
-    {%- capture siblingsSupplimentalJson -%}
-      {
-        {%- for siblingProduct in parentCollection.products -%}
-          {%- if siblingsList contains siblingProduct.id -%}
-            "{{ siblingProduct.id }}" : {
-              "url" : "{{ shop.secure_url }}{{ siblingProduct.url }}",
-              "collections" : {{ siblingProduct.collections | map:"title" | json }},
-              "featuredImage" : "https:{{ siblingProduct.featured_image.src | img_url:"grande" }}"
-            }{% unless forloop.last %},{% endunless %}
-          {%- endif -%}
-        {%- endfor -%}
-      }
-    {%- endcapture -%}
+    {%- include 'pdp-reviews' -%}
+  </section>
+{% endif %}
 
-    {%- assign defaultOosThreshold = 10 -%}
+{%- capture siblingsJson -%}
+  {
+    {%- for siblingProduct in parentCollection.products -%}
+      {%- if siblingsList contains siblingProduct.id -%}
+        "{{ siblingProduct.id }}" : {{ siblingProduct | json }}{% unless forloop.last %},{% endunless %}
+      {%- endif -%}
+    {%- endfor -%}
+  }
+{%- endcapture -%}
+{% comment %} some information isn't included in the normal product object {% endcomment %}
+{%- capture siblingsSupplimentalJson -%}
+  {
+    {%- for siblingProduct in parentCollection.products -%}
+      {%- if siblingsList contains siblingProduct.id -%}
+        "{{ siblingProduct.id }}" : {
+          "url" : "{{ shop.secure_url }}{{ siblingProduct.url }}",
+          "collections" : {{ siblingProduct.collections | map:"title" | json }},
+          "featuredImage" : "https:{{ siblingProduct.featured_image.src | img_url:"grande" }}"
+        }{% unless forloop.last %},{% endunless %}
+      {%- endif -%}
+    {%- endfor -%}
+  }
+{%- endcapture -%}
 
-    {% comment %} some variants should be hidden when the sell out instead of showing the Join Waitlist button {% endcomment %}
-    {%- capture hiddenVariants -%}
-      {%- for siblingProduct in parentCollection.products -%}
-        {%- for variant in siblingProduct.variants -%}
-          {%- if variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
-            {%- assign oosThreshold = defaultOosThreshold -%}
-            {%- unless variant.metafields['global']['out-of-stock-threshold'] == blank -%}
-              {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] | times: 1 -%}
-            {%- endunless -%}
-            {% comment %}
-            automatic availability based on shopify inventory level, or
-            manual availability, or
-            custom out of stock inventory level, either 10 or a value set via metafield
-            {% endcomment %}
-            {%- if variant.available == false or variant.metafields['global']['out-of-stock-settings'] == 'unavailable' or oosThreshold >= variant.inventory_quantity -%}
-              {{ variant.id }}|
-            {%- endif -%}
-          {%- endif -%}
-        {%- endfor -%}
-      {%- endfor -%}
-    {%- endcapture -%}
-    {%- assign hiddenVariants = hiddenVariants | strip_newlines | strip -%}
+{%- assign defaultOosThreshold = 10 -%}
 
-    {% comment %} expected instock information can vary between variants {% endcomment %}
-    {%- capture variantStockData -%}
-    {
-      {%- for siblingProduct in parentCollection.products -%}
-        {%- for variant in siblingProduct.variants -%}
-          {%- assign oosThreshold = defaultOosThreshold -%}
-          {%- unless variant.metafields['global']['out-of-stock-threshold'] == blank -%}
-            {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] | times: 1 -%}
-          {%- endunless -%}
-          {%- assign lowStockThreshold = 30 -%}
-          {%- unless variant.metafields['global']['low-stock-threshold'] == blank -%}
-            {%- assign lowStockThreshold = variant.metafields['global']['low-stock-threshold'] | times: 1 -%}
-          {%- endunless -%}
-          "{{ variant.id }}" : {
-						"finalSale" : "{{ variant.metafields['global']['final-sale'] }}",
-						"lowStockThreshold" : {{ lowStockThreshold }},
-						"oosPolicy" : "{{ variant.metafields['global']['out-of-stock-policy'] }}",
-						"oosSettings" : "{{ variant.metafields['global']['out-of-stock-settings'] }}",
-						"oosThreshold" : {{ oosThreshold }},
-						"restockMessage" : "{{ variant.metafields['global']['restock-expected'] }}",
-            "stockLevel" : {{ variant.inventory_quantity }}
-          },
-        {%- endfor -%}
-      {%- endfor -%}
-    }
-    {%- endcapture -%}
-    <script>
-      var productID = "{{product.id}}";
-      var siblingsJson = {{ siblingsJson }};
-      var siblingsSupplimentalJson = {{ siblingsSupplimentalJson }};
-      var hiddenVariants = "{{ hiddenVariants }}";
-      var variantStockData = {{ variantStockData }};
-    </script>
-  </div>
-</div>
+{% comment %} some variants should be hidden when the sell out instead of showing the Join Waitlist button {% endcomment %}
+{%- capture hiddenVariants -%}
+  {%- for siblingProduct in parentCollection.products -%}
+    {%- for variant in siblingProduct.variants -%}
+      {%- if variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+        {%- assign oosThreshold = defaultOosThreshold -%}
+        {%- unless variant.metafields['global']['out-of-stock-threshold'] == blank -%}
+          {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] | times: 1 -%}
+        {%- endunless -%}
+        {% comment %}
+        automatic availability based on shopify inventory level, or
+        manual availability, or
+        custom out of stock inventory level, either 10 or a value set via metafield
+        {% endcomment %}
+        {%- if variant.available == false or variant.metafields['global']['out-of-stock-settings'] == 'unavailable' or oosThreshold >= variant.inventory_quantity -%}
+          {{ variant.id }}|
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign hiddenVariants = hiddenVariants | strip_newlines | strip -%}
 
-{%- unless parentCollection.metafields["global"]["product-video"] == blank -%}
+{% comment %} expected instock information can vary between variants {% endcomment %}
+{%- capture variantStockData -%}
+{
+  {%- for siblingProduct in parentCollection.products -%}
+    {%- for variant in siblingProduct.variants -%}
+      {%- assign oosThreshold = defaultOosThreshold -%}
+      {%- unless variant.metafields['global']['out-of-stock-threshold'] == blank -%}
+        {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] | times: 1 -%}
+      {%- endunless -%}
+      {%- assign lowStockThreshold = 30 -%}
+      {%- unless variant.metafields['global']['low-stock-threshold'] == blank -%}
+        {%- assign lowStockThreshold = variant.metafields['global']['low-stock-threshold'] | times: 1 -%}
+      {%- endunless -%}
+      "{{ variant.id }}" : {
+        "finalSale" : "{{ variant.metafields['global']['final-sale'] }}",
+        "lowStockThreshold" : {{ lowStockThreshold }},
+        "oosPolicy" : "{{ variant.metafields['global']['out-of-stock-policy'] }}",
+        "oosSettings" : "{{ variant.metafields['global']['out-of-stock-settings'] }}",
+        "oosThreshold" : {{ oosThreshold }},
+        "restockMessage" : "{{ variant.metafields['global']['restock-expected'] }}",
+        "stockLevel" : {{ variant.inventory_quantity }}
+      },
+    {%- endfor -%}
+  {%- endfor -%}
+}
+{%- endcapture -%}
 <script>
-  var video1Embed = '{{ parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" }}';
+  var productID = "{{product.id}}";
+  var siblingsJson = {{ siblingsJson }};
+  var siblingsSupplimentalJson = {{ siblingsSupplimentalJson }};
+  var hiddenVariants = "{{ hiddenVariants }}";
+  var variantStockData = {{ variantStockData }};
 </script>
-<div id="product-video" class="pdp-video-modal">
-  <div id="product-video-container"></div>
-  <a href="#" class="panel-close"><span class="sr-only">close</span></a>
-</div>
-{%- endunless -%}
-
-<div id="wl-overlay">
-  <div id="wl-window">
-    <form id="wl-form" action="">
-      <div id="wl-content" style="display: none">
-        <h2 class="has-divider">{{ 'products.waitlist.title' | t }}</h2>
-        <p id="wl-product-name">{{ parentCollection.title }}<br />
-        <span data-wl-meta></span></p>
-        <p>{{ 'products.waitlist.content' | t }}</p>
-        <p data-wl-expected></p>
-        <div id="wl-error" class="validation-error"></div>
-        <div class="form-group floating-label">
-          <label for="wl-email">{{ 'products.waitlist.email_label' | t }}</label>
-          <input type="email" class="form-control" id="wl-email" placeholder="{{ 'products.waitlist.email_label' | t }}" />
-          <div class="validation-error"></div>
-        </div>
-        <input type="hidden" id="wl-product" value="{{ product.id }}" />
-        <input type="hidden" id="wl-variant" value="{{ current_variant.id }}" />
-        <button type="submit" class="btn btn-block">{{ 'products.waitlist.submit' | t }}</button>
-        <button class="btn btn-block btn-text" id="waitlist-cancel" data-wl-cancel>{{ 'products.waitlist.cancel' | t }}</button>
-      </div>
-      <div id="wl-confirmation">
-        <div class="flexer">
-          <h2 class="has-divider">{{ 'products.waitlist.confirmation_title' | t }}</h2>
-          <p>{{ 'products.waitlist.confirmation' | t }}</p>
-          <button class="btn btn-block" data-wl-cancel>{{ 'products.waitlist.back' | t }}</button>
-        </div>
-      </div>
-      {% comment %} <div class="wl-image">
-        {%- assign img_src = product.featured_image | img_url: '375x500' -%}
-        {% include 'image',
-          src: img_src,
-          attrs: 'id="wl-image"'
-          alt: '' %}
-        {%- assign img_src = nil -%}
-      </div> {% endcomment %}
-    </form>
-  </div>
-</div>
-
-{%- assign emptyStars = nil -%}
-{%- assign showSaleElements = nil -%}
-{%- assign discountAmount = nil -%}
-{%- assign reviewsAverage = nil -%}
-{%- assign reviewsAverageInt = nil -%}
-{%- assign reviewsAverageDec = nil -%}
-{%- assign emptyStars = nil -%}

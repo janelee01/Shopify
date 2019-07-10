@@ -1,3 +1,44 @@
+.pdp-header{
+  border-bottom: solid 1px $gray-lighter;
+  .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &::before, &::after{
+      display: none;
+    }
+    h1{
+      font-size: 28px;
+      font-family: $font-family-medium; 
+    }
+  }
+}
+.product-main{
+  display: flex;
+  padding-top: 55px;
+  .gallery-col{
+    flex: 1 1 auto;
+    .sibling-image-set{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    img{
+      display: block;
+      margin-bottom: 10px;
+      width: calc(50% - 5px);
+    }
+  }
+  .form-col{
+    padding-left: 50px;
+    min-width: 444px;
+  }
+  .form{
+    position: sticky;
+    top: 160px;
+  }
+}
+
 #product-video{
 	display: none;
 	position: fixed;

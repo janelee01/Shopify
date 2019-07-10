@@ -1,79 +1,28 @@
 
 {%- for siblingProduct in parentCollection.products -%}
-{%- if siblingsList contains siblingProduct.id -%}
-<div class="pdp-gallery js-pdp-gallery {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
-  <div class="js-pdp-gallery-featured pdp-gallery-featured">
-    <span class="pdp-gallery-magnify-icon pdp-gallery-magnify-icon--featured" aria-label="Magnify Image">
-      {% include 'pdp-icons', icon: 'icon-magnify' %}
-    </span>
-    {%- assign img_src = siblingProduct.featured_image | img_url: 'original' -%}
-    {% include 'image',
-      lazy: false,
-      src: img_src,
-      object_fit: 'contain',
-      alt: '' %}
-    {%- assign img_src = nil -%}
-  </div>
-  <div class="js-pdp-gallery-mobile pdp-gallery-mobile">
-    {%- for image in siblingProduct.images -%}
-    {%- unless image.alt contains 'swatch' -%}
-      <div class="js-pdp-gallery-mobile-image pdp-gallery-mobile-image">
-      <span class="pdp-gallery-magnify-icon" aria-label="Magnify Image">
-        {% include 'pdp-icons', icon: 'icon-magnify' %}
-      </span>
-      {%- assign img_src = image | img_url: 'original' -%}
-      {% include 'image',
-        src: img_src,
-        object_fit: 'contain',
-        alt: '' %}
-      {%- assign img_src = nil -%}
-      </div>
-    {%- endunless -%}
-    {%- endfor -%}
+  {%- if siblingsList contains siblingProduct.id -%}
+  <div class="sibling-image-set {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
+    
+    {% for image in product.images %}
+      {%- unless image.alt contains 'swatch' -%}
+      {{ image | img_tag: image.alt, '', '433x' }}
+      {%- endunless -%}
+    {% endfor %}
 
     {%- unless parentCollection.metafields["global"]["product-video"] == blank and pdp_video_url == blank -%}
       {%- if pdp_mobile_video_thumb != blank -%}
         <div class="pdp-gallery-mobile-image pdp-gallery-mobile-image--video" id="product-video-trigger">
         <span class="pdp-gallery-video-icon" aria-label="Play Video"></span>
         {%- assign img_src = pdp_mobile_video_thumb | file_img_url: 'original' -%}
-        {% include 'image',
-          src: img_src,
-          object_fit: 'contain',
-          alt: '' %}
-        {%- assign img_src = nil -%}
+        <img src="{{- img_src | strip -}}">
         </div>
       {%- endif -%}
     {%- endunless -%}
 
-  </div>
-  <div class="pdp-gallery-thumbs-wrapper">
-    <a href="#" class="js-gallery-up pdp-chevron-up"></a>
-    <div class="js-pdp-gallery-thumbs pdp-gallery-thumbs">
-      <div class="js-pdp-thumbs-container pdp-gallery-thumbs-inner">
-        {%- for image in siblingProduct.images -%}
-        {%- unless image.alt contains 'swatch' -%}
-        <a
-          href="#"
-          data-src="{{ image | img_url: '1024x' }}"
-          data-zoom="{{ image | img_url: 'master' }}"
-          data-small="{{ image | img_url: '500x' }}"
-          data-height="{{ image.height }}"
-          data-width="{{ image.width }}">
-          {%- assign img_src = image | img_url: '100x100' -%}
-          {% include 'image',
-            src: img_src,
-            alt: '' %}
-          {%- assign img_src = nil -%}
-        </a>
-        {%- endunless -%}
-        {%- endfor -%}
-      </div>
-    </div>
-    <a href="#" class="js-gallery-down pdp-chevron-down"></a>
     {%- unless parentCollection.metafields["global"]["product-video"] == blank and pdp_video_url == blank -%}
-    <a href="#" id="product-video-trigger" class="pdp-gallery-thumbs-video"></a>
+      <a href="#" id="product-video-trigger" class="pdp-gallery-thumbs-video"></a>
     {%- endunless -%}
+
   </div>
-</div>
-{%- endif -%}
+  {%- endif -%}
 {%- endfor -%}

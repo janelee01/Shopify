@@ -11,7 +11,7 @@ module.exports = {
         exclude: /node_modules/,
         include: [
           path.resolve(__dirname, "src/scripts/sections"),
-          path.resolve(__dirname, "src/scripts/templates/product.js")
+          // path.resolve(__dirname, "src/scripts/templates/product.js")
         ],
         loader: "eslint-loader"
       },{
