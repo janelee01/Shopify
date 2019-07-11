@@ -8,11 +8,11 @@
 
 <article class="discover">
 
-    {% include 'discover-nav', labels:'Features,Size,Materials,Press' %}
+    {% include 'discover-nav', labels:'Functional,Size,Materials' %}
     
     <div class="max-container">
         <div class="hero has-white-arrow" id="catalina-deluxe-hero">
-            {% include 'discover-picture', name: 'catalina-deluxe-hero', alt: 'woman next to Catalina Deluxe attached to luggage handle', retina: true, fw: false, lg: true %}
+            {% include 'discover-picture', name: 'CatalinaDeluxe-hero-1', alt: 'woman next to Catalina Deluxe attached to luggage handle', retina: true, fw: false, lg: true %}
             <div class="hero-content white right">
                 <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
                 <p class="description">Everyone’s favorite weekender — perfect for a quick getaway, beach day or gym session.</p>
@@ -23,9 +23,9 @@
     
     <div class="container">{% include 'hero-jump-target' %}
 
-        <div class="row animate mb-large" {{ animateFadeInUp }}>
+        <div class="row animate mb-large" {{ animateZoomIn }}>
             <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
-                {% include 'discover-picture', name: 'catalina-deluxe-product-shot', alt: 'Catalina Deluxe product shot', retina: true, fw: true, lg: true %}
+                {% include 'discover-picture', name: 'CatalinaDeluxe-hero-2', alt: 'Catalina Deluxe in two colors', retina: true, fw: true, lg: true %}
             </div>
         </div>
         
@@ -34,45 +34,45 @@
         {% include 'discover-section-heading', title: "Weekend Travel", text: "Whether you’re going near or far, pack everything you need for that upcoming vacation." %}
         
         {%- capture col1 -%}
-            {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+            {% include 'discover-picture', name: 'CatalinaDeluxe-weekend-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
             {% include 'discover-topic-content', title: "Thoughtful Organization", text: "Designed to keep your shoes separate from clean clothes.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {%- capture col2 -%}
-            {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'sliding passport into exterior pocket', retina: true, fw: false, lg: true %}
+            {% include 'discover-picture', name: 'CatalinaDeluxe-weekend-2', alt: 'sliding passport into exterior pocket', retina: true, fw: false, lg: true %}
             {% include 'discover-topic-content', title: "Easy Access", text: "The front pocket keeps your passport within reach.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {%- capture col3 -%}
-            {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'Catalina Deluxe slid onto luggage handle', retina: true, fw: false, lg: true %}
+            {% include 'discover-picture', name: 'CatalinaDeluxe-weekend-3', alt: 'Catalina Deluxe slid onto luggage handle', retina: true, fw: false, lg: true %}
             {% include 'discover-topic-content', title: "Seamless Security", text: "The luggage sleeve slides right over a suitcase handle.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {% include 'discover-sliding-3-col' %}
 
         {% include 'discover-section-heading', title: "Leisure Travel", text: "Towel, change of clothes, sunscreen — carry those necessities in style on your next seaside or poolside escape." %}
         {%- capture col1 -%}
-            {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman at beach with The Catalina Deluxe on shoulder', retina: true, fw: false, lg: true %}
+            {% include 'discover-picture', name: 'CatalinaDeluxe-leisure-1', alt: 'woman at beach with The Catalina Deluxe on shoulder', retina: true, fw: false, lg: true %}
             {% include 'discover-topic-content', title: "Functional Freedom", text: "The padded messenger strap lets you go hands-free.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {%- capture col2 -%}
-            {% include 'inline-video', ratio: '3-4', index: 3, poster: 'prospect-feature-3-lg', src: 'Prospect_Discover_Interior-Organization' %}
+            {% include 'inline-video', ratio: '3-4', index: 3, poster: 'Catalina-Deluxe-leisure-2', src: 'Prospect_Discover_Interior-Organization' %}
             {% include 'discover-topic-content', title: "Convenient Storage", text: "The bottom pocket keeps your items organized and close by.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {%- capture col3 -%}
-            {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman sliding sunglasses into exterior pocket', retina: true, fw: false, lg: true %}
+            {% include 'discover-picture', name: 'CatalinaDeluxe-leisure-3', alt: 'woman sliding sunglasses into exterior pocket', retina: true, fw: false, lg: true %}
             {% include 'discover-topic-content', title: "Essentials Within Reach", text: "The front pocket allows for easy access to your sunglasses.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {% include 'discover-sliding-3-col' %}
 
         {% include 'discover-section-heading', title: "Workout Session", text: "The definition of form meets function — this is the bag you’ll want to add to your fitness routine." %}
         {%- capture col1 -%}
-            {% include 'inline-video', ratio: '3-4', index: 4, poster: 'prospect-feature-3-lg', src: 'Prospect_Discover_Interior-Organization' %}
+            {% include 'inline-video', ratio: '3-4', index: 4, poster: 'Catalina-Deluxe-workout-1', src: 'Prospect_Discover_Interior-Organization' %}
             {% include 'discover-topic-content', title: "Carrier Comfort", text: "The padded strap handles give you a firm grip on things.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {%- capture col2 -%}
-            {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman with Catalina Deluxe at track', retina: true, fw: false, lg: true %}
+            {% include 'discover-picture', name: 'CatalinaDeluxe-workout-2', alt: 'woman with Catalina Deluxe at track', retina: true, fw: false, lg: true %}
             {% include 'discover-topic-content', title: "Sweat Zone", text: "The bottom pocket separates your sweaty towel and clothing.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {%- capture col3 -%}
-            {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman headphones into front pocket', retina: true, fw: false, lg: true %}
+            {% include 'discover-picture', name: 'CatalinaDeluxe-workout-3', alt: 'sliding headphones into front pocket', retina: true, fw: false, lg: true %}
             {% include 'discover-topic-content', title: "Quick Access", text: "The front pocket assures headphones are easy to find.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {% include 'discover-sliding-3-col' %}
@@ -83,7 +83,7 @@
     </div>
 
     <div class="max-container topic-block mb-default animate video-block" {{ animateFadeInUp }}>
-        {% include 'discover-picture', name: 'prospect-video', alt: 'video showing how to pack the Prospect', retina: true, fw: false, lg: true %}
+        {% include 'discover-picture', name: 'CatalinaDeluxe-packing', alt: 'video showing how to pack the Catalina Deluxe', retina: true, fw: false, lg: true %}
         <a href="#" data-video-id="1" class="video-trigger">See What Fits Inside</a>
     </div>
 
@@ -93,11 +93,11 @@
 
         <div class="row animate mb-large" {{ animateFadeInUp }}>
             <div class="col-sm-6">  
-                {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'Catalina Deluxe small and large, side by side', retina: true, fw: false, lg: true %}
+                {% include 'discover-picture', name: 'CatalinaDeluxe-Tote-carry-on-1', alt: 'airplane seats', retina: true, fw: false, lg: true %}
                 {% include 'discover-topic-content', title: "Available in 2 Sizes ", text: "The Catalina Deluxe is available in two sizes, Small and Large.", moreWindow: '<a href="#dimensions-overlay" class="more-window-trigger">Size guide +</a>', modifiers: 'text-center-xs' %}               
             </div>
             <div class="col-sm-6">    
-                {% include 'discover-picture', name: 'waverley2-organization-3', alt: 'airplane overhead bins', retina: true, fw: false, lg: true %}                
+                {% include 'discover-picture', name: 'CatalinaDeluxe-Tote-carryon-2', alt: 'airplane overhead bins', retina: true, fw: false, lg: true %}                
                 {% include 'discover-topic-content', title: "Cabin Compatible", text: "The Catalina Deluxe Large can be placed in the overhead compartment of most aircrafts. The Catalina Deluxe Small may fit underneath the airline seat when not fully packed." , modifiers: 'text-center-xs' %}
             </div>
         </div>
@@ -110,7 +110,7 @@
 
     {% include 'discover-cta' %}
 
-    {% include 'discover-catalina-compare', url: '/pages/compare-catalina-collection-men/' %}
+    {% include 'discover-catalina-compare', url: '/pages/compare-catalina-collection/' %}
 
     <script>// <![CDATA[
     var video1Embed = '<iframe src="//player.vimeo.com/video/308577378?player_id=vimeo-video1&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-catalinadeluxelarge" class="vimeo"></iframe>';
@@ -122,7 +122,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    {% include 'discover-picture', name: 'catalina-deluxe-dimensions', alt: "Catalina Deluxe", retina: true, fw: false, lg: true %}
+                    {% include 'discover-picture', name: 'catalinadeluxe-dimensions', alt: "Catalina Deluxe", retina: true, fw: false, lg: true %}
                 </div>
                 <div class="col-sm-6 col-md-5 col-md-offset-1">
                     <table>

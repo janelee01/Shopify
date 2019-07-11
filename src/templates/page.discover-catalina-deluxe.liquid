@@ -8,7 +8,7 @@
 
 <article class="discover">
 
-    {% include 'discover-nav', labels:'Features,Size,Materials,Press' %}
+    {% include 'discover-nav', labels:'Functional,Size,Materials' %}
     
     <div class="max-container">
         <div class="hero has-white-arrow" id="catalina-deluxe-hero">
@@ -23,9 +23,9 @@
     
     <div class="container">{% include 'hero-jump-target' %}
 
-        <div class="row animate mb-large" {{ animateFadeInUp }}>
+        <div class="row animate mb-large" {{ animateZoomIn }}>
             <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
-                {% include 'discover-picture', name: 'Catalina-Deluxe-hero-2', alt: 'Catalina Deluxe product shot', retina: true, fw: true, lg: true %}
+                {% include 'discover-picture', name: 'Catalina-Deluxe-hero-2', alt: 'Catalina Deluxe in two colors', retina: true, fw: true, lg: true %}
             </div>
         </div>
         
@@ -72,7 +72,7 @@
             {% include 'discover-topic-content', title: "Sweat Zone", text: "The bottom pocket separates your sweaty towel and clothing.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {%- capture col3 -%}
-            {% include 'discover-picture', name: 'Catalina-Deluxe-workout-3', alt: 'woman headphones into front pocket', retina: true, fw: false, lg: true %}
+            {% include 'discover-picture', name: 'Catalina-Deluxe-workout-3', alt: 'sliding headphones into front pocket', retina: true, fw: false, lg: true %}
             {% include 'discover-topic-content', title: "Quick Access", text: "The front pocket assures headphones are easy to find.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {% include 'discover-sliding-3-col' %}
@@ -83,7 +83,7 @@
     </div>
 
     <div class="max-container topic-block mb-default animate video-block" {{ animateFadeInUp }}>
-        {% include 'discover-picture', name: 'Catalina-Deluxe-packing', alt: 'video showing how to pack the Prospect', retina: true, fw: false, lg: true %}
+        {% include 'discover-picture', name: 'Catalina-Deluxe-packing', alt: 'video showing how to pack the Catalina Deluxe', retina: true, fw: false, lg: true %}
         <a href="#" data-video-id="1" class="video-trigger">See What Fits Inside</a>
     </div>
 
@@ -93,11 +93,11 @@
 
         <div class="row animate mb-large" {{ animateFadeInUp }}>
             <div class="col-sm-6">  
-                {% include 'discover-picture', name: 'Catalina-Deluxe-carry-on-1', alt: 'Catalina Deluxe small and large, side by side', retina: true, fw: false, lg: true %}
+                {% include 'discover-picture', name: 'Catalina-Deluxe-Tote-carry-on-1', alt: 'airplane seats', retina: true, fw: false, lg: true %}
                 {% include 'discover-topic-content', title: "Available in 2 Sizes ", text: "The Catalina Deluxe is available in two sizes, Small and Large.", moreWindow: '<a href="#dimensions-overlay" class="more-window-trigger">Size guide +</a>', modifiers: 'text-center-xs' %}               
             </div>
             <div class="col-sm-6">    
-                {% include 'discover-picture', name: 'Catalina-Deluxe-carry-on-2', alt: 'airplane overhead bins', retina: true, fw: false, lg: true %}                
+                {% include 'discover-picture', name: 'Catalina-Deluxe-Tote-carryon-2', alt: 'airplane overhead bins', retina: true, fw: false, lg: true %}                
                 {% include 'discover-topic-content', title: "Cabin Compatible", text: "The Catalina Deluxe Large can be placed in the overhead compartment of most aircrafts. The Catalina Deluxe Small may fit underneath the airline seat when not fully packed." , modifiers: 'text-center-xs' %}
             </div>
         </div>
