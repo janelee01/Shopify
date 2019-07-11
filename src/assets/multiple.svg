@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Multiple_Objects 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2" transform="translate(-996.000000, -509.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="Product-Information" transform="translate(993.000000, 251.000000)">
+                <g id="Choose-Material-/-Color" transform="translate(0.000000, 60.000000)">
+                    <g id="Compare-Materials" transform="translate(3.000000, 198.000000)">
+                        <g id="Multiple_Objects-2">
+                            <path d="M19,0 L6.6,0 C6.048,0 5.6,0.448 5.6,1 L5.6,5.6 L1,5.6 C0.448,5.6 0,6.048 0,6.6 L0,19 C0,19.552 0.448,20 1,20 L13.4,20 C13.952,20 14.4,19.552 14.4,19 L14.4,14.4 L19,14.4 C19.552,14.4 20,13.952 20,13.4 L20,1 C20,0.448 19.552,0 19,0 Z M13.6,19 C13.6,19.112 13.512,19.2 13.4,19.2 L1,19.2 C0.888,19.2 0.8,19.112 0.8,19 L0.8,6.6 C0.8,6.488 0.888,6.4 1,6.4 L13.4,6.4 C13.512,6.4 13.6,6.488 13.6,6.6 L13.6,19 Z M19.2,13.4 C19.2,13.512 19.112,13.6 19,13.6 L14.4,13.6 L14.4,6.6 C14.4,6.048 13.952,5.6 13.4,5.6 L6.4,5.6 L6.4,1 C6.4,0.888 6.488,0.8 6.6,0.8 L19,0.8 C19.112,0.8 19.2,0.888 19.2,1 L19.2,13.4 Z" id="Multiple_Objects"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

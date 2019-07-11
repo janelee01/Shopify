@@ -3,9 +3,9 @@
   {%- if siblingsList contains siblingProduct.id -%}
   <div class="sibling-image-set {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
     
-    {% for image in product.images %}
+    {% for image in siblingProduct.images %}
       {%- unless image.alt contains 'swatch' -%}
-      {{ image | img_tag: image.alt, '', '433x' }}
+        {{ image | img_tag: image.alt, '', '433x' }}
       {%- endunless -%}
     {% endfor %}
 

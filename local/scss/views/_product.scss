@@ -1,5 +1,15 @@
+$pdp-spacing-md: 55px;
 .pdp-header{
+  background: #fff;
+  border-top: solid 1px $gray-lighter;
   border-bottom: solid 1px $gray-lighter;
+  padding: 15px 0;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  transition: all .25s ease-out;
+  z-index: 9000;
   .container{
     display: flex;
     justify-content: space-between;
@@ -10,24 +20,19 @@
     h1{
       font-size: 28px;
       font-family: $font-family-medium; 
+      margin: 0;
+    }
+    .btn-secondary{
+      border-color: #E5E5E5;
     }
   }
 }
 .product-main{
   display: flex;
-  padding-top: 55px;
+  padding-top: 137px; // pdp-header height + $pdp-spacing-md
+  padding-bottom: $pdp-spacing-md;
   .gallery-col{
     flex: 1 1 auto;
-    .sibling-image-set{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-    img{
-      display: block;
-      margin-bottom: 10px;
-      width: calc(50% - 5px);
-    }
   }
   .form-col{
     padding-left: 50px;
@@ -35,7 +40,137 @@
   }
   .form{
     position: sticky;
-    top: 160px;
+    top: 180px;
+  }
+  .form-row{
+    margin-bottom: 15px;
+    &.swatch-group{
+      .group-name{
+        font-size: 13px;
+        margin-bottom: 7px;
+      }
+    }
+    label{
+      font-size: 11px;
+      color: $gray;
+      font-family: $font-family-medium;
+      font-weight: 400;
+    }
+  }
+}
+
+.sibling-image-set{
+  flex-wrap: wrap;
+  justify-content: space-between;
+  display: none;
+  &.active{
+    display: flex;
+  }
+  img{
+    display: block;
+    margin-bottom: 10px;
+    width: calc(50% - 5px);
+  }
+}
+
+#selected-color{
+  font-size: 11px;
+  color: $gray;
+  font-family: $font-family-medium;
+}
+
+.swatches{
+  @include resetList;
+  display: flex;
+  flex-wrap: wrap;
+  li{
+    margin-right: 4px;
+    min-width: 28px;
+  }
+}
+.swatch{
+  border: solid 1px #fff;
+  padding: 2px;
+  border-radius: 50%;
+  display: block;
+  transition: all .3s ease;
+  &:hover,
+  &.active{
+    border-color: $gray;
+  }
+  img{
+    border-radius: 50%;
+    display: block;
+  }
+}
+
+.variants{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-top: solid 1px #E5E5E5;
+  padding-top: 15px;
+  label{
+    width: 100%;
+  }
+  .btn{
+    width: calc(50% - 5px);
+    border-color: #E5E5E5;
+    font-size: 13px;
+    padding: 1.35em;
+    &.selected{
+      border-color: $gray-darker;
+      pointer-events: none;
+    }
+  }
+}
+
+.pdp-modal-trigger{
+  font-size: 13px;
+  color: $gray-darker;
+  text-decoration: underline;
+  &::before{
+    content: '';
+    width: 20px;
+    height: 100%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+}
+#compare-materials-trigger{
+  &::before{
+    background-image: url("multiple.svg");
+  }
+}
+#size-fit-trigger{
+  &::before{
+    background-image: url("ruler.svg");
+  }
+}
+
+#add-to-cart{
+  border-top: solid 1px #E5E5E5;
+  padding-top: 15px;
+}
+#add-to-cart-row{
+  position: relative;
+  .btn{
+    width: 100%;
+  }
+  select{
+    -webkit-appearance:none;
+    background: url('caret-down-white.svg') no-repeat right 4px center;
+    border-radius: 0;
+    border: 0;
+    width: $pdp-spacing-md;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }
 
@@ -153,5 +288,82 @@
         justify-content: center;
         flex-direction: column;
       }
+  }
+}
+
+.product-secondary{
+  background: $gray-lightest;
+  padding: $pdp-spacing-md 0;
+  color: $gray;
+}
+#product-description{
+  font-size: 24px;
+}
+.pdp-reviews{
+  padding: $pdp-spacing-md 0;
+}
+.pdp-related{
+  border-top: solid 1px $gray-lighter;
+  padding-top: $pdp-spacing-md;
+}
+
+.pdp-expandable{
+  border-bottom: solid 1px #E5E5E5;
+  button{
+    @include resetButton;
+    padding: 15px 0;
+    color: $gray-darker;
+    font-size: 20px;
+    line-height: 1;
+    font-family: $font-family-medium;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    &:hover{
+      svg path{
+        fill: $brand-blue;
+      }
+    }
+    &.active{
+      svg{
+        transform: rotate(45deg);
+      }
+    }
+    svg{
+      @include transition-off;
+      path{
+        @include transition-off;
+      }
+    }
+  }
+  .content{
+    display: none;
+  }
+  dl{
+    dt{
+      font-family: $font-family-medium;
+      font-weight: 400;
+      color: $gray-darker;
+    }
+    dd{
+      margin-bottom: 1.4em;
+      font-size: 14px;
+      table{
+        width: 100%;
+        td, th{
+          padding: 5px 0;
+          text-align: right;
+        }
+        tr td:first-child{
+          text-align: left;
+        }
+        strong{
+          font-family: $font-family-medium;
+          font-weight: 400;
+          color: $gray-darker;
+        }
+      }
+    }
   }
 }

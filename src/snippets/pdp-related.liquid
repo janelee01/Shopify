@@ -1,21 +1,23 @@
-{%- unless data == blank -%}
-
-<section class="related">
+<section class="pdp-related">
   <div class="container">
     <div class="section-heading">
-      <h2>You May Also Like</h2>
+      <h2 class="title">You May Also Like</h2>
     </div>
-    {%- for row in data -%}
-      {%- assign handle = row | strip -%}
-      {%- if handle contains ' ' -%}
-        {%- assign handle = handle | handleize -%}
-      {%- endif -%}
-      {%- assign product = all_products[handle] -%}
-      {%- unless product == blank -%}
-        {% include 'product-item' %}
-      {%- endunless -%}
-    {%- endfor -%}
+    <div class="product-grid">
+      <div class="row">
+        {%- for row in data -%}
+          {%- assign handle = row | strip -%}
+          {%- if handle contains ' ' -%}
+            {%- assign handle = handle | handleize -%}
+          {%- endif -%}
+          {%- assign product = all_products[handle] -%}
+          {%- unless product == blank -%}
+            <div class="col-sm-4">
+              {% include 'product-item' with product %}
+            </div>
+          {%- endunless -%}
+        {%- endfor -%}
+      </div>
+    </div>
   </div>
 </section>
-
-{%- endunless -%}

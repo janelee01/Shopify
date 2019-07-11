@@ -9,10 +9,19 @@
   {%- else -%}
     {%- include 'pdp-get-sibling-products' -%}
     {%- include 'pdp-main'-%}
+    {% comment %} reviews are in main to stay within the Product itemscope {% endcomment %}
   {%- endif -%}
 </div>  
-    
-{%- include 'pdp-related', data: pdp_cross_sell_data -%}
+
+{%- capture pdp_cross_sell_handles -%}
+{{ parentCollection.metafields["global"]["related-product-1"] }}
+{{ parentCollection.metafields["global"]["related-product-2"] }}
+{{ parentCollection.metafields["global"]["related-product-3"] }}
+{%- endcapture -%}
+{% if pdp_cross_sell_handles != blank %}
+  {%- assign handles = pdp_cross_sell_handles | newline_to_br | split: '<br />' -%}
+  {%- include 'pdp-related', data: handles -%}
+{% endif %}
 
 {%- if pdp_video_url != blank -%}
   {%- capture pdp_video_embed -%}

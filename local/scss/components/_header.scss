@@ -51,7 +51,8 @@
 	@media (min-width: $screen-md) {
 		position: absolute;
 		top: 50%;
-		right: 0;
+		right: $grid-gutter-width/2;
+		padding-right: 0;
 		transform: translate;
 		transform: translate(0, -50%);
 		padding-top: 5px;

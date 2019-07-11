@@ -1,4 +1,34 @@
-<header class="pdp-header">
+{% comment %} default display {% endcomment %}
+{%- assign hideAddToCart = false -%}
+{%- assign hideWaitlist = true -%}
+{% comment %} manually disabled {% endcomment %}
+{%- if current_variant.metafields['global']['out-of-stock-settings'] == 'unavailable' and current_variant.metafields['global']['out-of-stock-policy'] == 'waitlist' -%}
+  {%- assign hideAddToCart = true -%}
+  {%- assign hideWaitlist = false -%}
+{%- endif -%}
+{% comment %} disabled by custom or default OOS threshold {% endcomment %}
+{%- assign oosThreshold = 10 -%}
+{%- unless current_variant.metafields['global']['out-of-stock-threshold'] == blank -%}
+  {%- assign oosThreshold = current_variant.metafields['global']['out-of-stock-threshold'] -%}
+{%- endunless -%}
+{%- if current_variant.inventory_quantity <= oosThreshold -%}
+  {%- assign hideAddToCart = true -%}
+  {%- assign hideWaitlist = false -%}
+{%- endif -%}
+{% comment %} automatically disabled based on shopify inventory {% endcomment %}
+{%- unless current_variant.available -%}
+  {%- assign hideAddToCart = true -%}
+  {%- assign hideWaitlist = false -%}
+{%- endunless -%}
+
+{%- assign showSaleElements = false -%}
+{%- assign discountAmount = nil -%}
+{%- if current_variant.compare_at_price > current_variant.price -%}
+  {%- assign showSaleElements = true -%}
+  {%- assign discountAmount = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0 -%}
+{%- endif -%}
+
+<header class="pdp-header js-marque-push-down">
   <div class="container">
     <h1>{{ parentCollection.title }}</h1>
     <a href="" class="btn btn-secondary">Discover</a>
@@ -10,19 +40,10 @@
   </div>
   <div class="form-col">
     <div class="form">
-      <div id="price-wrapper" data-price-wrapper>
-        {%- if current_variant.compare_at_price > current_variant.price -%}
-          {%- assign showSaleElements = true -%}
-        {%- endif -%}
-          <span class="sr-only" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
-          <s class="js-compare-price {% unless showSaleElements %} is-hidden{% endunless %}" data-compare-price>
-            {%- if showSaleElements -%}
-              {{ current_variant.compare_at_price | money_without_trailing_zeros }}
-              {%- assign discountAmount = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0 -%}
-            {%- endif -%}
-          </s>
-          <span data-product-price class="js-product-price">{{ current_variant.price | money_without_trailing_zeros }}</span>
-          <span class="discount-label{% unless showSaleElements %} is-hidden{% endunless %}"><span data-discount-amount>{{ discountAmount }}</span>% off</span>
+      <div class="form-row" id="price-wrapper">
+        <s class="{% unless showSaleElements %}hidden{% endunless %}" id="compare-price">{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+        <span id="price">{{ current_variant.price | money_without_trailing_zeros }}</span>
+        <span class="discount-label{% unless showSaleElements %} hidden{% endunless %}"><span class="discount-amount">{{ discountAmount }}</span>% off</span>
       </div>
       <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
         <meta itemprop="priceCurrency" content="{{ shop.currency }}">
@@ -30,157 +51,78 @@
         <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
 
         <form action="/cart/add" method="post" enctype="multipart/form-data">
-          <div class="pdp-snap pdp-form-option-group js-pdp-form-option-group pdp-form-option-group--swatches js-pdp-form-option-group--swatches">
-            {% include 'pdp-swatches' %}
+
+          <div class="form-row" id="selected-color">{{ product.metafields["global"]["swatch-label"] }}</div>
+          
+          {% include 'pdp-swatches' %}
+
+          <div class="form-row">
+            <a href="#compare-materials" class="pdp-modal-trigger" id="compare-materials-trigger">Compare Materials</a>
           </div>
-          {%- unless product.has_only_default_variant -%}
-          <div class="pdp-snap pdp-form-option-group js-pdp-form-option-group selector-wrapper">
-            {%- assign optionValues = '' -%}
-            {%- for variant in product.variants -%}
-              {% comment %} manually disabled {% endcomment %}
-              {%- if variant.metafields['global']['out-of-stock-settings'] == 'unavailable' and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
-                {%- continue -%}
-              {%- endif -%}
-              {% comment %} hidden by default OOS level or custom override {% endcomment %}
-              {%- assign oosThreshold = 10 -%}
-              {%- unless variant.metafields['global']['out-of-stock-threshold'] == blank -%}
-              {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] | times: 1 -%}
-              {%- endunless -%}
-              {%- if variant.inventory_quantity <= oosThreshold and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
-                {%- continue -%}
-              {%- endif -%}
-              {% comment %} automatically disabled {% endcomment %}
-              {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
-                {%- continue -%}
-              {%- endif -%}
-              {%- assign optionValues = optionValues
-                | append: '|'
-                | append: variant.id
-                | append: ':'
-                | append: variant.title  -%}
-            {%- endfor -%}
-            {%- assign optionValues = optionValues | replace_first: '|', '' | split: '|' -%}
-            <div class="pdp-form-size-wrapper {% if optionValues.size > 2 %}pdp-form-size-wrapper--reflow{% endif %}">
-              <label class="pdp-form-size-label" for="variant-selector">Size:</label>
 
-              <div id="variant-buttons" class="pdp-variant-buttons variant-buttons js-variant-buttons-wrap">
-                {%- for optionValue in optionValues -%}
-                  {%- assign variantId = optionValue | split: ':' | first -%}
-                  {%- assign variantTitle = optionValue | split: ':' | last -%}
-                  {%- assign selected = '' -%}
-                  {%- if variantId == current_variant.id -%}
-                    {%- assign selected = ' selected' -%}
-                  {%- endif -%}
-                  <a
-                    href="#"
-                    data-id="{{ variantId }}"
-                    class="btn btn-secondary variant-option js-pdp-non-swatch-input {{ selected }}">
-                    {{ variantTitle }}
-                  </a>
-                  {%- assign variantId = nil -%}
-                  {%- assign variantTitle = nil -%}
-                {%- endfor -%}
-              </div>
+          {% include 'pdp-variants' %}
 
+          <div class="form-row">
+            <a href="#size-fit-guide" class="pdp-modal-trigger" id="size-fit-trigger">Size & Fit Guide</a>
+          </div>
+
+          {% comment %} can add to cart {% endcomment %}
+          <div id="add-to-cart" {% if hideAddToCart %}style="display: none"{% endif %}>
+            <div id="add-to-cart-row">
+              <label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
+              <select id="quantity" name="quantity">
+              {%- for i in (1..40) -%}
+                <option>{{ i }}</option>
+              {%- endfor -%}
+              </select>
+              <button type="submit" class="btn">{{ 'products.product.add_to_cart' | t }}</button>
             </div>
-            {%- assign optionValues = nil -%}
-            <a class="pdp-form-size-fit pdp-modal-link js-pdp-modal-link" href="#" data-modal="size-fit">Size & Fit Guide</a>
-          </div>
-          {%- endunless -%}
-
-          <select name="id" id="variant-selector" class="hidden js-variant-input" data-product-select>
-            {%- for variant in product.variants -%} 
-              {% comment %} options gets replaced by js working with the siblings JSON {% endcomment %}
-              <option value="{{ variant.id }}"{% if variant.id == product.selected_variant.id or variant.id == current_variant.id %} selected="selected"{% endif %}>{{ variant.title }}</option>
-            {%- endfor -%}
-          </select>
-
-          <div class="js-add-to-cart-wrap add-to-cart" id="add-to-cart" {% unless current_variant.available %}{% if oosPolicy == 'soldout' %} style="display: none"{% endif %}{% endunless %}>{% comment %}hide the whole element when OOS and unavailable for a waitlist{% endcomment %}
-            <label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
-            <select id="quantity" name="quantity" class="js-add-to-cart-quantity" >
-            {%- for i in (1..40) -%}
-              <option>{{ i }}</option>
-            {%- endfor -%}
-            </select>
-
-            <span class="pdp-chevron-down"></span>
-
-            {%- assign hideAddToCart = false -%}
-            {%- assign hideWaitlist = true -%}
-            {% comment %} manually disabled {% endcomment %}
-            {%- if current_variant.metafields['global']['out-of-stock-settings'] == 'unavailable' and current_variant.metafields['global']['out-of-stock-policy'] == 'waitlist' -%}
-              {%- assign hideAddToCart = true -%}
-              {%- assign hideWaitlist = false -%}
-            {%- endif -%}
-            {% comment %} disabled by custom or default OOS threshold {% endcomment %}
-            {%- assign oosThreshold = 10 -%}
-            {%- unless current_variant.metafields['global']['out-of-stock-threshold'] == blank -%}
-            {%- assign oosThreshold = current_variant.metafields['global']['out-of-stock-threshold'] -%}
-            {%- endunless -%}
-            {%- if current_variant.inventory_quantity <= oosThreshold -%}
-              {%- assign hideAddToCart = true -%}
-              {%- assign hideWaitlist = false -%}
-            {%- endif -%}
-            {% comment %} automatically disabled based on shopify inventory {% endcomment %}
-            {%- unless current_variant.available -%}
-              {%- assign hideAddToCart = true -%}
-              {%- assign hideWaitlist = false -%}
-            {%- endunless -%}
-
-            <button
-              type="submit"
-              name="add"
-              class="btn-lg js-add-to-cart"
-              data-add-to-cart
-              id="add-product-proceed"
-              {% if hideAddToCart %}style="display: none"{% endif %}>
-                {{ 'products.product.add_to_cart' | t }}
-            </button>
-
-            <button
-              class="btn-lg js-add-to-wishlist"
-              data-add-to-waitlist
-              id="waitlist-open"
-              {% if hideWaitlist %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</button>
           </div>
           
-          <div class="pdp-sold-out-message js-pdp-sold-out-message" id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div>
-          <div class="pdp-low-stock-warning js-pdp-low-stock-warning low-stock-warning hidden">{{ 'products.product.low_stock' | t }}</div>
-          <div class="pdp-final-sale-warning js-final-sale-warning final-sale-warning hidden"><span>{{ 'products.product.final_sale_html' | t }}</span></div>
+          {% comment %} sold out, but waitlist enabled {% endcomment %}
+          <button class="btn btn-secondary" id="waitlist-open" {% if hideWaitlist %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</button>
 
-          <a class="pdp-form-size-fit pdp-modal-link js-pdp-modal-link" href="#" data-modal="size-fit">Size & Fit Guide</a>
-          <a class="pdp-shipping-returns-warranty-care pdp-modal-link js-pdp-modal-link" data-modal="shipping" href="#">Shipping, Returns, Warranty & Care</a>
+          {% comment %} sold out {% endcomment %}
+          <div id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div>
+          
+          {% comment %} addtional warnings {% endcomment %}
+          <div class="low-stock-warning hidden">{{ 'products.product.low_stock' | t }}</div>
+          <div class="final-sale-warning hidden"><span>{{ 'products.product.final_sale_html' | t }}</span></div>
+
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<div class="pdp-main-product-description js-pdp-main-product-description">{{ product.description }}</div>
+<section class="product-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-1">
+        <div id="product-description">{{ product.description }}</div>
+      </div>
+      <div class="col-md-5 col-md-offset-1">
+        {% comment %} smart collection metafields {% endcomment %}
+        {% assign blocks = "Overview|Device Compatibility|Size & Weight|Materials|Care Instructions" | split: '|'%}
+        {% for block in blocks %}
+          {% assign handle = block | replace: ' ', '-' | downcase %}
+          {% assign content = parentCollection.metafields["global"][handle] %}
+          {% if content != blank %}
+            {% include 'pdp-expandable', title: block, copy: content %}
+          {% endif %}
+        {% endfor %}
+        {% comment %} global metafield {% endcomment %}
+        {% include 'pdp-expandable', title: 'Shipping, Returns, Exchanges', copy: shop.metafields["global"]["shipping-returns-exchanges"] %}
+      </div>
+    </div>
+  </div>
+</section>
 
-<h2>Shipping, Returns, Warranty & Care</h2>
-<div class="pdp-modal__content--shipping">
-  <h3>Shipping & Returns</h3>
-  {{ shop.metafields["global"]["shipping-returns-exchanges"] }}
-  <h3>Warranty</h3>
-  {{ shop.metafields["global"]["warranty"] }}
-  <h3>Care Instructions</h3>
-  {{ parentCollection.metafields["global"]["care-instructions"] }}
-</div>
 {%- include 'pdp-modal', id: 'size-fit', collection_ref: parentCollection, device_compatibility: pdp_size_fit_device_compatibility, size_weight: pdp_size_fit_size_weight -%}
 
 
 {% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
-  <section class="container" id="pdp-reviews">
-    <div class="section-heading">
-      <h2 class="title">Traveler Approved</h2>
-    </div>
-    <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-      <meta itemprop="ratingValue" content="{{ product.metafields.yotpo.reviews_average }}">
-      <meta itemprop="ratingCount" content="{{ product.metafields.yotpo.reviews_count }}">
-    </div>
-    {%- include 'pdp-reviews' -%}
-  </section>
+  {%- include 'pdp-reviews' -%}
 {% endif %}
 
 {%- capture siblingsJson -%}

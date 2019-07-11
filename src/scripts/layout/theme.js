@@ -882,7 +882,13 @@ $(document).ready(function() {
 	            srollaEnabled = true;
 			}
 		});
-    }
+		}
+		
+		$('.pdp-expandable button').on('click', function(e){
+			e.preventDefault();
+			$(this).toggleClass('active');
+			$(this).next('.content').slideToggle();
+		});
 
     /*
     Simple Sharing

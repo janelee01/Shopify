@@ -1,0 +1,53 @@
+{%- unless product.has_only_default_variant -%}
+  {% comment %} 
+  {%- assign optionValues = '' -%}
+  {%- for variant in product.variants -%}
+    manually disabled
+    {%- if variant.metafields['global']['out-of-stock-settings'] == 'unavailable' and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+      {%- continue -%}
+    {%- endif -%}
+    hidden by default OOS level or custom override 
+    {%- assign oosThreshold = 10 -%}
+    {%- unless variant.metafields['global']['out-of-stock-threshold'] == blank -%}
+      {%- assign oosThreshold = variant.metafields['global']['out-of-stock-threshold'] | times: 1 -%}
+    {%- endunless -%}
+    {%- if variant.inventory_quantity <= oosThreshold and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+      {%- continue -%}
+    {%- endif -%}
+    automatically disabled 
+    {%- if variant.available == false and variant.metafields['global']['out-of-stock-policy'] == 'hide' -%}
+      {%- continue -%}
+    {%- endif -%}
+    {%- assign optionValues = optionValues | append: '|' | append: variant.id | append: ':' | append: variant.title  -%}
+  {%- endfor -%}
+  {{ optionValues }}
+  {%- assign optionValues = optionValues | replace_first: '|', '' | split: '|' -%}
+   {% endcomment %}
+  <div class="form-row">
+    <div class="variants">
+      <label for="variant-selector">Select Size</label>
+      {% comment %} {%- for optionValue in optionValues -%}
+        {%- assign variantId = optionValue | split: ':' | first -%}
+        {%- assign variantTitle = optionValue | split: ':' | last -%}
+        {%- assign selected = '' -%}
+        {%- if variantId == current_variant.id -%}
+          {%- assign selected = ' selected' -%} 
+        {%- endif -%}
+        {% endfor %} {% endcomment %}
+      {% for variant in product.variants %}
+        {%- assign selected = nil -%}
+        {%- if variant.id == current_variant.id -%}
+          {%- assign selected = 'selected' -%}
+        {%- endif -%}
+        <button data-id="{{ variant.id }}" class="btn btn-secondary {{ selected }}">{{ variant.title }}</button>
+      {% endfor %}
+    </div>
+  </div>
+{%- endunless -%}
+
+<select name="id" id="variant-selector" class="hidden" data-product-select>
+  {%- for variant in product.variants -%} 
+    {% comment %} options gets replaced by js working with the siblings JSON {% endcomment %}
+    <option value="{{ variant.id }}"{% if variant.id == product.selected_variant.id or variant.id == current_variant.id %} selected="selected"{% endif %}>{{ variant.title }}</option>
+  {%- endfor -%}
+</select>

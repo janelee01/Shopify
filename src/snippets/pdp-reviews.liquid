@@ -1,3 +1,14 @@
-<div class="pdp-reviews" id="reviews-widget">
-  <div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
-</div>
+<section class="pdp-reviews">
+  <div class="container">
+    <div class="section-heading">
+      <h2 class="title">Traveler Approved</h2>
+    </div>
+    <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+      <meta itemprop="ratingValue" content="{{ product.metafields.yotpo.reviews_average }}">
+      <meta itemprop="ratingCount" content="{{ product.metafields.yotpo.reviews_count }}">
+    </div>
+    <div id="reviews-widget">
+      <div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
+    </div>
+  </div>
+</section>
