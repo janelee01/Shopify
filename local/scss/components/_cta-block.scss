@@ -17,6 +17,9 @@ Footer block
 		.btn{
 			min-width: 177px;
 		}
+		.topic-content{
+			padding: $grid-gutter-width 0;
+		}
 	}
 	@media (min-width: $screen-md) {
 		.row{
