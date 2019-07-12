@@ -906,71 +906,54 @@ $(document).ready(function() {
         $('#credo-tc').fadeOut();
     });
 	$("#credo-subscribe").on('submit', function(e) {
-        e.preventDefault();
-        var $form = $(this);
-        var numErrors = 0;
-        $form.find('.validation-error').remove();
-        $form.find('.form-control.required').each(function(){
-        	if( !$(this).val() ){
-        		numErrors++;
-        		$('<small class="validation-error">This field is required.</small>')
-        			.insertAfter($(this))
-        			.fadeIn()
-        			.css('display','block');
-        	}
-        });
+			e.preventDefault();
+			var $form = $(this);
+			var numErrors = 0;
+			$form.find('.validation-error').remove();
+			$form.find('.form-control.required').each(function(){
+				if( !$(this).val() ){
+					numErrors++;
+					$('<small class="validation-error">This field is required.</small>')
+						.insertAfter($(this))
+						.fadeIn()
+						.css('display','block');
+				}
+			});
 
-        if( numErrors > 0 ) return;
+			if( numErrors > 0 ) return;
 
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://manage.kmail-lists.com/subscriptions/external/subscribe",
-            "method": "POST",
-            "headers": {
-                "content-type": "application/x-www-form-urlencoded",
-                "cache-control": "no-cache"
-            },
-            "data": {
-                "g": "Kh3kFv", // KUBRaR main list
-                "$fields": "Sign Up Source, Country",
-                "email": $('#credo-email').val(),
-                "first_name": $('#credo-fname').val(),
-                "last_name": $('#credo-lname').val(),
-                "Sign Up Source": "Credo Giveaway May 2018"
-            }
-        };
-        $.ajax(settings)
-        	.fail(function(jqXHR, textStatus, errorThrown){
-        		$('<small class="validation-error">Something went wrong. Perhaps you\'ve already subscribed to our list? <a href="/pages/support#contact">Contact us</a> for further assistance.</small>')
-        			.appendTo($form)
-        			.fadeIn()
-        			.css('display','block');
-        	})
-        	.done(function (response) {
-	            if( response.success ){
-	            	$form.hide();
-	            	$("#credo-subscribe-success").fadeIn();
-	            }
-	        });
-    });
-
-	/*
-	Skimm LP
-	 */
-
-	// things are flexed so we need a width on the disclaimer to left-align it with the code box
-	var syncSkimmDisclaimer = function(){
-		if( $(window).width() >= LS.desktopBreakpoint ){
-			$('#skimm-code-disclaimer').width($('#skimm-code').width());
-		}else{
-			$('#skimm-code-disclaimer').removeAttr('style');
-		}
-	}
-	if( $('#skimm-code').length ){
-		syncSkimmDisclaimer();
-		$(window).resize( syncSkimmDisclaimer );
-	}
+			var settings = {
+					"async": true,
+					"crossDomain": true,
+					"url": "https://manage.kmail-lists.com/subscriptions/external/subscribe",
+					"method": "POST",
+					"headers": {
+							"content-type": "application/x-www-form-urlencoded",
+							"cache-control": "no-cache"
+					},
+					"data": {
+							"g": "Kh3kFv", // KUBRaR main list
+							"$fields": "Sign Up Source, Country",
+							"email": $('#credo-email').val(),
+							"first_name": $('#credo-fname').val(),
+							"last_name": $('#credo-lname').val(),
+							"Sign Up Source": "Credo Giveaway May 2018"
+					}
+			};
+			$.ajax(settings)
+				.fail(function(jqXHR, textStatus, errorThrown){
+					$('<small class="validation-error">Something went wrong. Perhaps you\'ve already subscribed to our list? <a href="/pages/support#contact">Contact us</a> for further assistance.</small>')
+						.appendTo($form)
+						.fadeIn()
+						.css('display','block');
+				})
+				.done(function (response) {
+						if( response.success ){
+							$form.hide();
+							$("#credo-subscribe-success").fadeIn();
+						}
+				});
+	});
 
 	$('#zodiac-select').on('change', function(e){
 	    e.preventDefault();
