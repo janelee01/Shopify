@@ -170,6 +170,32 @@
 	}
 }
 
+#catalina-collection-cta{
+	text-align: center;
+	picture img{
+		height: 250px;
+		width: auto;
+		@media (min-width: $screen-md) {
+			height: 350px;
+		}
+	}
+	p{
+		width: 100%;
+		max-width: 175px;
+		margin: 0 auto 15px;
+		@media (min-width: $screen-md) {
+			max-width: 235px;
+		}
+		&.description{
+			max-width: 250px;
+			margin-bottom: 30px;
+			@media (min-width: $screen-md) {
+				max-width: 300px;
+			}
+		}
+	}
+}
+
 #catalina-collection-bottom-pocket,
 #catalina-deluxe-tote-materials-description{
 	@media (max-width: $screen-xs-max) {

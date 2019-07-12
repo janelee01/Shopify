@@ -1,151 +1,100 @@
 {% include 'vars' %}
-{%- assign assetVersion = 10430709846004379422 -%}
+{%- assign assetVersion = 146384 -%}
 
-<article class="discover">
+<article class="discover" style="background: #F8F8F8">
     
-    <div class="blocks-bg mb-large">
         
-        <div class="max-container">
-            <div class="hero has-black-arrow soft-load">
-                {% include 'discover-picture', name: 'catalina-collection-hero-image', alt: 'the Catalina Collection', retina: false, fw: false %}
-                <div class="hero-content center medium">
-                    <h1 class="title">Catalina Collection</h1>
-                    <p class="description">Classic travel bags for any weekend getaway.</p>
-                </div>
-                {% include 'hero-jump-btn' %}
+    <div class="max-container">
+        <div class="hero has-black-arrow soft-load">
+            {% include 'discover-picture', name: 'catalina-collection-hero-image', alt: 'the Catalina Collection', retina: false, fw: false %}
+            <div class="hero-content center medium">
+                <h1 class="title">The Catalina Collection</h1>
+                <p class="description">Classic travel bags for any weekend getaway.</p>
             </div>
-        </div>
-        <div class="container">{% include 'hero-jump-target' %}
-            <div class="row animate" {{ animateFadeInUp }}>
-                <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
-                    <div class="section-heading">
-                        <h2 class="title">Travel Smart</h2>
-                        <p class="description">We believe that travel should be as stress free and easy as possible, so we designed a collection of bags with thoughtful features and high-quality lightweight materials to help make any flight as enjoyable as the destination.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="catalina-collection-handle-sleeve-content" class="row topic-block aligned-md animate" {{ animateFadeInUp }}>
-                <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-2">                    
-                    {% include 'discover-picture', name: 'catalina-collection-suitcase-handle-sleeve-02', alt: 'suitcase handle sleeve', retina: false, fw: true %}
-                </div>
-                <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
-                    <div class="topic-content text-center-sm">
-                        <h3 class="title">Suitcase Handle Sleeve</h3>
-                        <p class="description">Our deluxe editions feature a suitcase handle sleeve that helps take a load off your shoulders.</p>     
-                    </div>
-                </div>
-            </div>
-
-            <div id="catalina-collection-bottom-pocket" class="row animate mb-large" {{ animateFadeInUp }}>
-                <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-                    {% include 'discover-picture', name: 'catalina-collection-bottom-pocket-01', alt: 'acking the bottom pocket', retina: false, fw: true %}
-                </div>
-            </div>
-
-            <div id="catalina-collection-bottom-pocket-content" class="row topic-block aligned-md animate" {{ animateFadeInUp }}>
-                <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 content-col">                    
-                    <div class="topic-content text-center-sm">
-                        <h3 class="title">Bottom Pocket</h3>
-                        <p class="description">Designed to help separate shoes, dirty clothes, or anything you want.</p>
-                    </div>
-                </div>
-                <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-0">                    
-                    {% include 'discover-picture', name: 'catalina-collection-bottom-pocket-02', alt: 'bottom pocket', retina: false, fw: true %}
-                </div>
-            </div>
+            {% include 'hero-jump-btn' %}
         </div>
     </div>
 
-    <div class="container">
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">     
-                <div class="section-heading">               
-                    <h2 class="title">Pack all the Essentials</h2>
-                    <p class="description">Each of our weekender bags is surprisingly spacious bags and designed to fit all your essentials—whether it be a long weekend trip or a weeklong trip.</p>
-                </div>
+    <div class="container">{% include 'hero-jump-target' %}
+        
+        {% include 'discover-section-heading', title: "Travel Smart", text: "We believe that travel should be as stress free and easy as possible, so we designed a collection of bags with thoughtful features and high-quality lightweight materials to help make any flight as enjoyable as the destination." %}
+
+        <div class="row animate mb-large" {{ animateFadeInUp }}>
+            <div class="col-sm-6 col-md-5 col-md-offset-1">  
+                {% include 'discover-picture', name: 'Catalina-Collection-travel-smart-1', alt: 'Catalina with handle sleeve on luggage', retina: true, fw: true, lg: true %}
+                {% include 'discover-topic-content', title: "Luggage Handle Sleeve", text: "A convenient pass through sleeve that secures your bag to a suitcase.", modifiers: 'text-center' %}               
             </div>
+            <div class="col-sm-6 col-md-5">    
+                {% include 'discover-picture', name: 'Catalina-Collection-travel-smart-2', alt: 'Catalina with opened bottom pocket', retina: true, fw: true, lg: true %}                
+                {% include 'discover-topic-content', title: "Bottom Pocket", text: "Designed to help separate shoes, dirty clothes, or anything you want." , modifiers: 'text-center' %}
+            </div>
+        </div>
+        
+        {% include 'discover-catalina-materials' %}
+
+        {% include 'discover-section-heading', title: "Fits all the Essentials", text: "Each of our weekender bags is surprisingly spacious bags and designed to fit all your essentials—whether it be a long weekend trip or a weeklong trip." %}
+
+    </div>
+    
+    <div class="max-container">
+        <div class="mb-large">
+        {% include 'discover-picture', name: 'Catalina-Deluxe-packing', alt: 'Catalina with items ready to be packed on bed', retina: true, fw: true, lg: true %}
         </div>
     </div>
     
-    <div class="max-container topic-block has-overlay-xs mb-large animate" {{ animateFadeInUp }}>
-        {% include 'discover-picture', name: 'catalina-collection-pack-all-the-essentials', alt: 'video showing how to pack the Catalina', retina: false, fw: false %}
-        <div class="topic-content">
-            <a href="#" data-video-id="1" class="video-trigger">
-                <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
-            </a>                    
-        </div>
-    </div>
-
     <div class="container">
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2">
-                <div class="section-heading">                    
-                    <h2 class="title">An Option for Every Trip</h2>
-                    <p class="description">Whether it be a European vacation, destination wedding, or weekend excursion to the beach, we have 3 editions that are perfect for any kind of destination.</p>
-                </div>
-            </div>
-        </div>
+        {% include 'discover-section-heading', title: "An Option for Every Trip", text: "Whether it be a European vacation, trip to the gym, or a weekend getaway to the beach — the Catalina Collection is perfect for any kind of destination." %}
+        {%- capture col1 -%}
+            {% include 'discover-picture', name: 'Catalina-Collection-travel', alt: 'woman standing next to luggage with Catalina on handle', retina: true, fw: false, lg: true %}
+            {% include 'discover-topic-content', title: "Travel", text: "Whether you’re going near or far, pack everything you need for that upcoming vacation.", modifiers: 'text-center-xs' %}
+        {%- endcapture -%}
+        {%- capture col2 -%}
+            {% include 'discover-picture', name: 'Catalina-Collection-weekend', alt: "woman with feet in pool with Catalina's bottom pocket opened", retina: true, fw: false, lg: true %}
+            {% include 'discover-topic-content', title: "Weekend", text: "Carry your necessities in style on your next seaside, poolside, or city escape. ", modifiers: 'text-center-xs' %}
+        {%- endcapture -%}
+        {%- capture col3 -%}
+            {% include 'discover-picture', name: 'Catalina-Collection-workout-session', alt: 'woman with Catalina at track', retina: true, fw: false, lg: true %}
+            {% include 'discover-topic-content', title: "Workout Session", text: "The definition of form meets function — this is the bag you’ll want to add to your fitness routine.", modifiers: 'text-center-xs' %}
+        {%- endcapture -%}
+        {% include 'discover-sliding-3-col' %}
 
-        <div class="row fw-xs animate cta-block has-overlay" {{ animateFadeInUp }}>
-            <a class="btn-gtm-trk" data-gtm-a="7" href="/pages/catalina-weekender-womens-travel-bag">
-                {% include 'discover-picture', name: 'catalina-collection-product-photo-01', alt: 'Shop Catalina', retina: false, fw: false %}
-            </a>
-            <div class="row overlay">
-                <div class="col-md-5 col-md-offset-1 col-lg-4 content-col">
-                    <div class="topic-content">
-                        <h3 class="title">Catalina</h3>
-                        <p class="description">A classic travel bag for any weekend getaway.</p>
-                        <div class="btn-set">
-                           <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="/pages/catalina-weekender-womens-travel-bag">Learn more</a><a class="btn btn-gtm-trk" data-gtm-a="1" href="/products/catalina-washed-canvas-dove-grey">Buy now</a> 
-                        </div>
-                    </div>
+        {% include 'discover-section-heading', title: "Shop The Collection" %}
+
+        <div id="catalina-collection-cta" class="row animate" {{ animateFadeInUp }}>
+            <div class="col-sm-6">
+                <a href="{{ catalinaDeluxePdp }}" data-gtm-a="7">
+                    <picture>
+                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-cta-md.jpg?18132754112649490934" media="(min-width: 768px)">
+                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-cta-xs.jpg?18132754112649490934" alt="Shop Catalina Deluxe">
+                    </picture>
+                </a>
+                <div class="topic-content text-center">
+                    <h3 class="title">Catalina Deluxe</h3>
+                    <p class="description">Our best-selling weekender, available in 2 sizes.</p>
+                    <p><a href="{{ catalinaDeluxeDiscoverW }}" class="btn btn-block btn-secondary" data-gtm-a="8">Discover womens</a></p>
+                    <p><a href="{{ catalinaDeluxeDiscoverM }}" class="btn btn-block btn-secondary" data-gtm-a="8">Discover mens</a></p>
+                    <p><a href="{{ catalinaDeluxePdp }}" class="btn btn-block" data-gtm-a="1">Buy now</a></p>
                 </div>
             </div>
-        </div>
-        
-        <div class="row fw-xs animate cta-block has-overlay" {{ animateFadeInUp }}>
-            <a class="btn-gtm-trk" data-gtm-a="7" href="/pages/catalina-deluxe-womens-weekender-travel-bag">
-                {% include 'discover-picture', name: 'catalina-collection-product-photo-02', alt: 'Shop Catalina Deluxe', retina: false, fw: false %}
-            </a>
-            <div class="row overlay">
-                <div class="col-md-5 col-md-offset-1 col-lg-4 content-col">
-                    <div class="topic-content">
-                        <h3 class="title">Catalina Deluxe</h3>
-                        <p class="description">Our best selling weekender bag, now with even more features.</p>
-                        <div class="btn-set">
-                           <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="/pages/catalina-deluxe-womens-weekender-travel-bag">Learn more</a><a class="btn btn-gtm-trk" data-gtm-a="1" href="/products/catalina-deluxe-washed-canvas-midnight-ash">Buy now</a> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row fw-xs animate cta-block has-overlay" {{ animateFadeInUp }}>
-            <a class="btn-gtm-trk" data-gtm-a="7" href="/pages/catalina-deluxe-tote-womens-travel-bag">
-                {% include 'discover-picture', name: 'catalina-collection-product-photo-03', alt: 'Shop Catalina Deluxe Tote', retina: false, fw: false %}
-            </a>
-            <div class="row overlay">
-                <div class="col-md-5 col-md-offset-1 col-lg-4 content-col">
-                    <div class="topic-content">
-                        <h3 class="title">Catalina Deluxe Tote</h3>
-                        <p class="description">A compact tote edition of the Catalina Deluxe.</p>
-                        <div class="btn-set">
-                           <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="/pages/catalina-deluxe-tote-womens-travel-bag">Learn more</a><a class="btn btn-gtm-trk" data-gtm-a="1" href="/products/catalina-deluxe-tote-washed-canvas-dove-grey">Buy now</a> 
-                        </div>
-                    </div>
+            <div class="col-sm-6">
+                <a href="{{ catalinaTotePdp }}" data-gtm-a="7">
+                    <picture>
+                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-cta-md.jpg?10032446425132256139" media="(min-width: 768px)">
+                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-cta-xs.jpg?10032446425132256139" alt="Shop Catalina Deluxe Tote">
+                    </picture>
+                </a>
+                <div class="topic-content text-center">
+                    <h3 class="title">Catalina Deluxe Tote</h3>
+                    <p class="description">A compact tote edition of the Catalina Deluxe.</p>
+                    <p><a href="{{ catalinaToteDiscoverW }}" class="btn btn-block btn-secondary" data-gtm-a="8">Discover womens</a></p>
+                    <p><a href="{{ catalinaToteDiscoverM }}" class="btn btn-block btn-secondary" data-gtm-a="8">Discover mens</a></p>
+                    <p><a href="{{ catalinaTotePdp }}" class="btn btn-block" data-gtm-a="1">Buy now</a></p>
                 </div>
             </div>
         </div>
 
     </div>
 
-    {% include 'discover-catalina-compare' %}
-
-    <script>// <![CDATA[
-    var video1Embed = '<iframe src="//player.vimeo.com/video/267350806?player_id=vimeo-catalinadeluxelarge&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-catalinadeluxelarge" class="vimeo"></iframe>';
-    // ]]></script>
-
-    {% include 'video-modal' %}
+    {% include 'discover-catalina-compare', url: catalinaCompareW %}
 
 </article>
