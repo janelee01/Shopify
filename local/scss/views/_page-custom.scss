@@ -1608,3 +1608,48 @@
 		display: none;
 	}
 }
+#skimm-hero{
+	.hero-content{
+		padding: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 200px;
+		@media (min-width: $screen-sm) {
+			width: 442px;
+		}
+		@media (min-width: $screen-md) {
+			width: 530px;
+		}
+		@media (min-width: $screen-lg) {
+			width: 610px;
+		}
+	}
+}
+#skimm-content{
+	text-align: center;
+	font-family: $font-family-medium;
+	font-size: 36px;
+	padding: 0 $grid-gutter-width;
+	@media (min-width: $screen-sm) {
+		font-size: 40px;
+	}
+	@media (min-width: $screen-lg) {
+		font-size: 46px;
+	}
+	strong{
+		display: block;
+		color: $brand-blue;
+		font-weight: 400;
+	}
+	p{
+		color: $gray;
+		font-size: 18px;
+		font-family: $font-family-base;
+		@media (min-width: $screen-sm) {
+			font-size: 20px;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 24px;
+		}
+	}
+}

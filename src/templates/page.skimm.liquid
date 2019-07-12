@@ -1,87 +1,106 @@
 {% include 'vars' %}
-{%- assign assetVersion = 6826103209124575142 -%}
-{%- assign skimmCode = 'SKIMMSUMMER' -%}
+{%- assign assetVersion = 146810 -%}
 
 <article class="discover">
     
     <div class="max-container">
         <div class="hero" id="skimm-hero">
-            {% include 'discover-picture', name: 'skimm-hero', alt: 'woman with luggage', retina: true, fw: false %}
-            <div class="hero-content theme-white">
+            {% include 'discover-picture', name: 'skimm-19-hero', alt: 'Catalina Deluxe with bottom pocket open at edge of pool', retina: true, fw: false, lg: true %}
+            <div class="hero-content">
                 <div class="block-title">
-                    <picture>
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/LSxSKIMM-md.png?14233646419525235457, https://cdn.shopify.com/s/files/1/2185/1497/files/LSxSKIMM-md2x.png?14233646419525235457 2x" media="(min-width: 1025px)">
-                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/LSxSKIMM-sm.png?14233646419525235457" media="(min-width: 768px)">
-                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/LSxSKIMM-xs.png?14233646419525235457" alt="Lo &amp; Sons and The Skimm logos">
-                    </picture>
-                </div>
-                <div id="skimm-offer">
-                    <div id="skimm-code">
-                      <span>Get 25% OFF <small>with the code</small></span> <span class="code">{{ skimmCode }}</span>
-                    </div>
-                    <div id="skimm-code-disclaimer">* Only applies to full-price items. Offer valid June 12 - 26, 2018</div>
+                   <h1><picture>
+                        <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/skimm-19-hero-text.png?{{ assetVersion }}" media="(min-width: {{ screenSm }})" />
+                        <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/skimm-19-hero-text-xs.png?{{ assetVersion }}" alt="{{ page.title }}" />
+                    </picture></h1>
                 </div>
             </div>
         </div>
     </div>
     
-    <div class="container">
+    <div id="skimm-content" class="mb-large">
+        25% OFF your order with code <strong>SKIMM2019</strong>
+        <p>Does not apply to sale items. Valid through 8/15/19.</p>
+    </div>
 
-        <div class="row skimm-topic-end animate" {{ animateFadeInUp }}>
-            <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center text-left-xs">   
-                <p class="skimm-lead">We believe that travel shouldn’t be stressful. So we design all of our products with thoughtful features and elements to make travel as smooth as possible. Translation: less fumbling, more globetrotting.</p>
-            </div>
-        </div>
-
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
-                <h2 class="block-title">Thoughtful Features</h2>
-                <p class="block-description">Designed with cleverly placed pockets, protection for tech essentials, and smart features like an adjustable suitcase handle sleeve.</p>
-            </div>
-        </div>
-
-        <div class="row skimm-topic-end animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2 col-md-12 col-md-offset-0">
-                {% include 'discover-picture', name: 'skimm-features', alt: 'showing suitcase sleeve and bottom pocket features', retina: true, fw: true %}                 
-            </div>
-        </div>
-        
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
-                <h2 class="block-title">Super Spacious</h2>
-                <p class="block-description">Lightweight and carry-on friendly, yet still spacious enough to fit all your travel essentials.</p>
-            </div>
-        </div>
-
-        <div class="skimm-topic-end animate" {{ animateFadeInUp }}>
-            {% include 'discover-picture', name: 'skimm-spacious', alt: 'layout of items', retina: true, fw: true %}  
-        </div>
-
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
-                <h2 class="block-title">High-quality Materials</h2>
-                <p class="block-description">Premium grade materials that are durable yet still sophisticated.</p>
-            </div>
-        </div>
-
-        <div class="row skimm-topic-end animate" {{ animateFadeInUp }}>
-          <div class="col-sm-10 col-sm-offset-1">        
-            {% include 'discover-picture', name: 'skimm-materials', alt: 'product shot', retina: true, fw: true %}  
+    <div id="recycled-poly-process" class="mb-default mb-gutter-xs">
+      <div class="container">
+        <h2 class="text-center">Shop our Recycled Poly Collection:<br /> From Bottles to Bags</h2>
+        <div class="row">
+          <div class="col-sm-6 col-md-3">
+            <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/recycled-poly-bottles.gif?{{assetVersion}}" alt="bottles animation" />
+            <p>1.<br/> Clear plastic bottles are collected.</p>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/recycled-poly-wash.gif?{{assetVersion}}" alt="wash animation" />
+            <p>2.<br/> The bottles are washed and cut into small pieces.</p>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <img style="margin-right: 6px" src="https://cdn.shopify.com/s/files/1/2185/1497/files/recycled-poly-spool.gif?{{assetVersion}}" alt="spool animation" />
+            <p>3.<br/> The plastic is melted, spun into yarn, and woven into fabric.</p>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/recycled-poly-backpack.gif?{{assetVersion}}" alt="backpack animation" />
+            <p>4.<br/> The water-resistant, eco-friendly fabric is used to make our bags.</p>
           </div>
         </div>
-        
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-                <div id="skimm-cta">
-                    <h6>Exclusive Deal</h6>
-                    <p>Get 25% OFF <small>with the code <span class="code">{{ skimmCode }}</span></small></p>
-                    <div class="btn-set">
-                        <a href="/" class="btn">Shop now</a>
+        <div class="text-center">
+            <a href="/pages/featured-material-recycled-poly" class="btn btn-secondary inverted">Learn more</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="discover-cta mb-gutter">
+        <div class="container">
+            <div class="row topic-block">
+                <div class="col-md-5">
+                    <div class="topic-content hidden-md hidden-lg">
+                        <h3 class="title">{{ catalinaToteTitle }}</h3>
+                        <p class="price">{{ catalinaTotePrice }}</p>
+                    </div>
+                    <a class="btn-gtm-trk" data-gtm-a="7" href="{{ catalinaTotePdp }}">
+                        {% include 'discover-picture', name: 'skimm-19-deluxe-tote-cta', alt: 'Catalina Deluxe Tote', retina: true, fw: false, lg: true %}
+                    </a>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <div class="topic-content">
+                        <div class="hidden-xs hidden-sm">
+                            <h3 class="title">{{ catalinaToteTitle }}</h3>
+                            <p class="price">{{ catalinaTotePrice }}</p>
+                        </div>
+                        <div class="btn-set">
+                            <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ catalinaTotePdp }}">Shop now</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+    </div>
+
+    <div class="discover-cta mb-gutter">
+        <div class="container">
+            <div class="row topic-block">
+                <div class="col-md-5">
+                    <div class="topic-content hidden-md hidden-lg">
+                        <h3 class="title">{{ catalinaDeluxeTitle }}</h3>
+                        <p class="price">{{ catalinaDeluxePrice }}</p>
+                    </div>
+                    <a class="btn-gtm-trk" data-gtm-a="7" href="{{ catalinaDeluxePdp }}">
+                        {% include 'discover-picture', name: 'skimm-19-deluxe-cta', alt: 'Catalina Deluxe Tote', retina: true, fw: false, lg: true %}
+                    </a>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <div class="topic-content">
+                        <div class="hidden-xs hidden-sm">
+                            <h3 class="title">{{ catalinaDeluxeTitle }}</h3>
+                            <p class="price">{{ catalinaDeluxePrice }}</p>
+                        </div>
+                        <div class="btn-set">
+                            <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ catalinaDeluxePdp }}">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </article>
