@@ -1,5 +1,5 @@
 {%- include 'vars' -%}
-{%- assign assetVersion = 143412 -%}
+{%- assign assetVersion = 146775 -%}
 {%- assign ctaTitle = 'Catalina Comparison' -%}
 {% include 'discover-nav', labels:'Features,Fit,Materials,Dimensions,FAQ' %}
 
@@ -20,51 +20,48 @@
   {% include 'discover-section-heading', title: "The Features" %}
 
 	<div class="mb-large text-center animate" {{ animateFadeInUp }}>
-		<picture>
-			<source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/compare-catalina-features-sm.jpg?{{ assetVersion }}" media="(min-width: {{ screenSm }})" />
-			<img src="https://cdn.shopify.com/s/files/1/2185/1497/files/compare-catalina-features-xs.jpg?{{ assetVersion }}" alt="features chart" />
-		</picture>
+		{% include 'discover-picture', name: 'Catalina-Comparison-features', alt: 'features chart', retina: true, fw: false, lg: true %}
 	</div>
 
 	<a id="nav-target-2" class="jumptarget page-has-nav"></a>
 	{% include 'discover-section-heading', title: 'The Fit', text: 'To help compare the different styles in our weekender collection, we asked two women of different heights to carry each bag.<br/><br/>Francine is 5’ 10”' %}
 	
 	{%- capture fitToteA -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-tall-tote-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture fitToteB -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-tall-tote-2', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture fitToteC -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-tall-tote-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 
 	{%- capture fitSmallA -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-tall-small-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture fitSmallB -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-tall-small-2', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture fitSmallC -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-tall-small-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 
 	{%- capture fitLargeA -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-tall-large-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture fitLargeB -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-tall-large-2', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture fitLargeC -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-tall-large-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	<div class="hidden-xs mb-large animate" {{ animateFadeInUp }}>
@@ -106,41 +103,41 @@
 	{% include 'discover-section-heading', text: 'Eyesmin is 5’ 4”' %}
 
 	{%- capture fitToteA -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-short-tote-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture fitToteB -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-short-tote-2', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture fitToteC -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-short-tote-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 
 	{%- capture fitSmallA -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-short-small-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture fitSmallB -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-short-small-2', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture fitSmallC -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-short-small-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 
 	{%- capture fitLargeA -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-short-large-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture fitLargeB -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-short-large-2', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture fitLargeC -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-short-large-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	<div class="hidden-xs mb-large animate" {{ animateFadeInUp }}>
@@ -185,29 +182,29 @@
 	<a id="nav-target-4" class="jumptarget page-has-nav"></a>
   {% include 'discover-section-heading', title: 'Dimensions &amp; Weight' %}
 	{%- capture dimsToteA -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-dimensions-tote-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture dimsToteB -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'sliding passport into exterior pocket', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-dimensions-tote-2', alt: 'sliding passport into exterior pocket', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 
 	{%- capture dimsSmallA -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-dimensions-small-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture dimsSmallB -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'sliding passport into exterior pocket', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-dimensions-small-2', alt: 'sliding passport into exterior pocket', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	
 	{%- capture dimsLargeA -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-dimensions-large-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture dimsLargeB -%}
-		{% include 'discover-picture', name: 'waverley2-organization-3', alt: 'sliding passport into exterior pocket', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'Catalina-Comparison-dimensions-large-2', alt: 'sliding passport into exterior pocket', retina: true, fw: false, lg: true %}
 		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	
@@ -241,10 +238,7 @@
 	</div>
 
 	<div style="background: #F8F8F8; padding: 50px 0" class="mb-large fw-xs text-center animate" {{ animateFadeInUp }}>
-		<picture>
-			<source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/compare-catalina-specs-sm.jpg?{{ assetVersion }}" media="(min-width: {{ screenSm }})" />
-			<img src="https://cdn.shopify.com/s/files/1/2185/1497/files/compare-catalina-specs-xs.jpg?{{ assetVersion }}" alt="specs chart" />
-		</picture>
+		{% include 'discover-picture', name: 'Catalina-Comparison-weight-dimensions', alt: 'specs chart', retina: true, fw: false, lg: true %}
 	</div>
 
 	<a id="nav-target-5" class="jumptarget page-has-nav"></a>
