@@ -6,7 +6,7 @@
                     <h3 class="title">{{ ctaTitle }}</h3>
                     <p class="price">{{ ctaPrice }}</p>
                     <div class="btn-set hidden-xs hidden-sm">
-                        <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ ctaLink }}">View colors &amp; sizes</a>
+                        {% unless hideSecondaryButton %}<a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ ctaLink }}">View colors &amp; sizes</a>{% endunless %}
                         <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">Buy now</a>
                     </div>
                 </div>
@@ -14,12 +14,13 @@
             <div class="{{ ctaImgCol }}">
                 <a href="{{ ctaLink }}" class="btn-gtm-trk" data-gtm-a="7">
                     <picture>
+                        {% if lg %}<source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-lg.jpg?{{ assetVersion }}{% if (retina) %}, https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-lg2x.jpg?{{ assetVersion }} 2x{% endif %}" media="(min-width: {{ screenLg }})">{% endif %}
                         <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-md.jpg?{{ assetVersion }}{% if (retina) %}, https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-md2x.jpg?{{ assetVersion }} 2x{% endif %}" media="(min-width: {{ screenSm }})">
                         <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-xs.jpg?{{ assetVersion }}" alt="Shop {{ ctaTitle }}">
                     </picture>
                 </a>
                 <div class="btn-set hidden-md hidden-lg">
-                    <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ ctaLink }}">View colors &amp; sizes</a>
+                    {% unless hideSecondaryButton %}<a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ ctaLink }}">View colors &amp; sizes</a>{% endunless %}
                     <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">Buy now</a>
                 </div>
             </div>
