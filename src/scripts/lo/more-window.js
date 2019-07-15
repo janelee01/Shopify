@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('.more-window-trigger').on('click', function(e){
-	    e.preventDefault();
+	  e.preventDefault();
 		window.previousLocation = $(window).scrollTop();
 		var $targetWindow = $($(this).attr('href'));
 		$targetWindow.scrollTop(0);
@@ -8,13 +8,15 @@ $(document).ready(function(){
 			$('.more-window').hide();
 			$targetWindow.show();
 		}
-	    $('body').addClass('more-window-open');
+		$('body').addClass('more-window-open');
 	});
+
 	$('.more-window .panel-close').on('click', function(e){
 	    e.preventDefault();
 	    $('body').removeClass('more-window-open');
 	    $('window').scrollTop(window.previousLocation);
 	});
+
 	$('body').on('keyup', function(e){
 	    // keyCode is getting deprecated use key instead when supported, which makes this messy
 	    var evt = e || window.event;

@@ -88,6 +88,7 @@ $(document).ready(function(){
 
 	// jump to section
 	$topics.on('click', function(e){
+		
 		e.preventDefault();
 
 		var $btn = $(this);
@@ -96,6 +97,11 @@ $(document).ready(function(){
 		// If the target isn't an on-page anchor, treat it like a normal link
 		if (!selector.match(/^#/)) {
 			window.location = selector;
+			return;
+		}
+
+		// Don't scroll for items that open a more window
+		if( $btn.hasClass('more-window-trigger') ){
 			return;
 		}
 

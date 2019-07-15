@@ -6,7 +6,13 @@
         <span id="price-xs">{{ ctaPrice }}</span>
         <nav class="items">
             {% for label in navLabels %}
-            <a href="#nav-target-{{ forloop.index }}" class="btn-gtm-trk {% if forloop.first == true %}active{% endif %}" data-gtm-a="4">{{ label }}</a>
+                {% capture itemTarget %}nav-target-{{ forloop.index }}{% endcapture %}
+                {% capture itemClasses %}btn-gtm-trk {% if forloop.first == true %}active{% endif %}{% endcapture %}
+                {%- if label contains '#' -%}
+                    {%- assign itemTarget = label | handleize | append: '-overlay' -%}
+                    {%- assign itemClasses = 'more-window-trigger' -%}
+                {%- endif-%}
+                <a href="#{{ itemTarget }}" class="{{ itemClasses }}" data-gtm-a="4">{{ label | remove: '#' }}</a>
             {% endfor %}
             <span class="active-bar"></span>
         </nav>
