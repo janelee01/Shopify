@@ -27,6 +27,9 @@
       <meta name="robots" content="noindex,follow" />
     {%- endif -%}
   {%- endif -%}
+  {%- if page.template_suffix == 'skimm' -%}
+    <meta name="robots" content="noindex,follow" />
+  {%- endif -%}
 
   <link rel="canonical" href="{{ canonical_url }}">
 
@@ -154,7 +157,7 @@
               </nav>
             </header>
             <main id="MainContent">
-                {{ content_for_layout }}
+              {{ content_for_layout }}
             </main>
             {% section 'footer' %}
         </div>
