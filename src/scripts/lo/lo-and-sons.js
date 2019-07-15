@@ -10,7 +10,8 @@ LS.getPageNav = function(){
   return $('.page-nav');
 }
 LS.getScrollTo = function(el, offset){
-  return el.offset().top - offset - 30; // offset added to accomodate fixed header plus a little extra for space below header after the scroll
+  return el.offset().top;
+  // return el.offset().top - offset - 30; // offset added to accomodate fixed header plus a little extra for space below header after the scroll
 };
 LS.isTransparentHeader = function(){
   return $('body').hasClass('has-tw-header') || $('body').hasClass('has-tb-header');
@@ -227,3 +228,9 @@ LS.isElementInViewport = function(el) {
         rect.top <= (window.innerHeight || document.documentElement.clientHeight)
     );
 };
+
+// dynamically calculate our page jump position based on fixed element visibility
+LS.setJumpHeight = function(jumpHeight){
+  $('#jumpheight').remove();
+  $('head').append('<style id="jumpheight">.jumptarget::before{height:' + jumpHeight + 'px;margin-top:-' + jumpHeight + 'px}</style>');
+}

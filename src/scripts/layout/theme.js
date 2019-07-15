@@ -29,6 +29,7 @@ import './../lo/comparison'
 
 $(document).ready(function() {
 
+	var $marquee = $('#shopify-section-marquee');
 	var $pageNav = LS.getPageNav();
 	var $header = LS.getHeader();
 
@@ -176,7 +177,6 @@ $(document).ready(function() {
   }
 
   // slide the marquee out of the way on scroll
-  var $marquee = $('#shopify-section-marquee');
   var trigger = 100;
   var lastScrollPos = 0;
 
@@ -194,7 +194,7 @@ $(document).ready(function() {
 		$('body').removeClass('menu-open');
 		$('.navbar-toggle').removeClass('mega-menu-active');
 	}
-  });
+	});
 
 	function LSOnScroll (e, firstTime) {
 		if (!firstTime) {
@@ -205,7 +205,6 @@ $(document).ready(function() {
 		var isMovingDown = $(window).scrollTop() > lastScrollPos
 		var isMovingUp = $(window).scrollTop() < lastScrollPos
 		var isMegaMenuActive = $('body').hasClass('mega-menu-active')
-		var marqueeheight = $marquee.outerHeight()
 		var isPageNav = $pageNav.length
 		var isMarquee = $marquee.is(':visible')
 
@@ -288,6 +287,11 @@ $(document).ready(function() {
 			return
 		}
 	}
+
+	// set the jump target offset to the max height of the header.
+	// the header will shift up and down during page scrolls, so we could try to reset it on the fly but sometimes the scroll gets missed due to throttling
+	// this will at least prevent targets from being hidden under it
+	LS.setJumpHeight($header.outerHeight());
 
 	// adjust on scroll
 	$(window).scroll( $.throttle(250, LSOnScroll) );

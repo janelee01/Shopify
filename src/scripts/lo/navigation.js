@@ -26,10 +26,12 @@ $(document).ready(function(){
 		var $bar = $nav.find('.active-bar');
 		var $active = $nav.find('.active');
 		var barOffset = $(window).width() >= LS.largeBreakpoint ? 20 : 11; // margins on the nav items
-		$bar.css({
-			'left': $active.position().left + barOffset,
-			'width': $active.outerWidth()
-		});
+		if( $active.length ){
+			$bar.css({
+				'left': $active.position().left + barOffset,
+				'width': $active.outerWidth()
+			});
+		}
 	};
 
 	var setActiveText = function(){
@@ -48,13 +50,16 @@ $(document).ready(function(){
 
 		// jump to/show a section
 		if( location.hash ){
-			$topics.removeClass('active');
-			$('[href="'+location.hash+'"]').addClass('active');
-			setActiveBar();
-			$('html,body').animate({
-				scrollTop: LS.getScrollTo( $(location.hash), trigger )
-			});
-			setActiveText();
+			var $btn = $('[href="' + location.hash + '"]');
+			if( !$btn.hasClass('more-window-trigger') ){ 
+				$topics.removeClass('active');
+				$btn.addClass('active');
+				setActiveBar();
+				$('html,body').animate({
+					scrollTop: LS.getScrollTo( $(location.hash), trigger )
+				});
+				setActiveText();
+			}
 		}
 
 		// scroll spy

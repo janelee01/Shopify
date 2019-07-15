@@ -9,7 +9,7 @@
                 {% capture itemTarget %}nav-target-{{ forloop.index }}{% endcapture %}
                 {% capture itemClasses %}btn-gtm-trk {% if forloop.first == true %}active{% endif %}{% endcapture %}
                 {%- if label contains '#' -%}
-                    {%- assign itemTarget = label | handleize | append: '-overlay' -%}
+                    {%- assign itemTarget = label | handleize -%}
                     {%- assign itemClasses = 'more-window-trigger' -%}
                 {%- endif-%}
                 <a href="#{{ itemTarget }}" class="{{ itemClasses }}" data-gtm-a="4">{{ label | remove: '#' }}</a>
