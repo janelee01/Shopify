@@ -1,0 +1,319 @@
+<header id="backpacks-compare">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="hidden-xs hidden-sm">
+          {% include 'discover-picture', name: 'prospect-compare', alt: 'group of Lo &amp; Sons backpacks', retina: true, fw: false, lg: true %}
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="topic-content">
+          <h1 class="title">Can't Decide?</h1>
+          <p class="description">Compare all backpack styles to find the one that’s right for you.</p>
+        </div>
+      </div>
+    </div>
+    <div class="hidden-md hidden-lg">
+      {% include 'discover-picture', name: 'prospect-compare', alt: 'group of Lo &amp; Sons backpacks', retina: true, fw: false, lg: true %}
+    </div>
+  </div>
+</header>
+
+<div class="container">
+    <table class="products-compare">
+    <thead>
+        <tr>
+            <td>&nbsp;</td>
+            {% for i in (1..3) %}
+            <td>
+                <div class="form-group select-wrapper">
+                <label for="options-{{i}}" class="sr-only">Select Backpack</label>
+                <select class="form-control comparison-options" id="options-{{i}}">
+                    <option>Select</option>
+                    <option value="prospect">The Prospect</option>
+                    <option value="rowledge">The Rowledge</option>
+                    <option value="hanover-deluxe">The Hanover Deluxe</option>
+                    <option value="hanover">The Hanover</option>
+                    <option value="edgemont">The Edgemont</option>
+                </select>
+                </div>
+            </td>
+            {% endfor %}
+        </tr>
+        <tr data-key="img">
+            <th><span class="sr-only">Product Image</span></th>
+            <td>&nbsp;</td> <td></td> <td></td>
+        </tr>
+        <tr data-key="btn">
+            <td>&nbsp;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="section">
+            <th>Size &amp; Dimensions</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr data-key="height">
+            <th>Height</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="width">
+            <th>Width</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="depth">
+            <th>Depth</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="handleDrop">
+            <th>Handle Drop</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="weight">
+            <th>Weight</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="volume">
+            <th>Volume</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="linearInches">
+            <th>Linear Inches</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="deviceFit">
+            <th>Device Fit</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr class="section">
+            <th>Features</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr data-key="laptopCompat">
+            <th>Laptop Campatibility</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="extOrg">
+            <th>Exterior Organization</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="intOrg">
+            <th>Interior Organization</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="pockets">
+            <th>Total Pockets</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="convertibility">
+            <th>Convertibility</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="straps">
+            <th>Straps</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="sleeve">
+            <th>Suitcase Handle Sleeve</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="feet">
+            <th>Protective Feet</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="leash">
+            <th>Key Leash</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr class="section">
+            <th>Materials</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr data-key="bodyTrim">
+            <th>Body/Trim</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="closure">
+            <th>Closure</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="hardware">
+            <th>Hardware</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="handle">
+            <th>Handle</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="lining">
+            <th>Lining</th>
+            <td></td> <td></td> <td></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr data-key="price">
+            <th><span class="sr-only">Price</span></th>
+            <td></td> <td></td> <td></td>
+        </tr>
+        <tr data-key="btn">
+            <td>&nbsp;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tfoot>
+    </table>
+</div>
+<script>
+var comparisonData = {
+  "default" : "prospect",
+  "prospect" : [
+    ["height","15.5&rdquo;"],
+    ["width","12.25&rdquo;"],
+    ["depth","6.25&rdquo;"],
+    ["handleDrop","1.5&rdquo;"],
+    ["weight","3.8 lbs"],
+    ["volume","19.4 L"],
+    ["linearInches","34&rdquo;"],
+    ["deviceFit","12.25&rdquo; x 14.5&rdquo;"],
+    ["laptopCompat","Padded laptop compartment"],
+    ["extOrg","2 zippered stash pockets<br /> 1 back pocket"],
+    ["intOrg","1 document sleeve<br /> 2 mesh pockets<br /> 2 small pockets<br /> 2 pen slips<br /> 1 zippered pocket"],
+    ["pockets","11"],
+    ["convertibility","Backpack to briefcase"],
+    ["straps","Detachable<br/ > Adjustable<br/ > Memory foam padding<br/ > Non-slip quilting"],
+    ["sleeve","Yes"],
+    ["feet","Yes"],
+    ["leash","Yes"],
+    ["bodyTrim","1200D recycled poly and Vachetta leather"],
+    ["closure","Magnetic flap"],
+    ["hardware","Black"],
+    ["handle","Vachetta leather"],
+    ["lining","Wave jacquard lining"],
+    ["btn","<a href=\"/products/prospect-1200d-recycled-poly-black-black-grey-wave\" class=\"btn btn-block\">Buy now</a>"],
+    ["price","$495"],
+    ["img","<img src=\"https://cdn.shopify.com/s/files/1/2185/1497/files/compare-prospect.jpg?109131\" alt=\"The Prospect\" />"]
+  ],
+  "hanover-deluxe" : [
+    ["height", "18&rdquo;"],
+    ["width", "12&rdquo;"],
+    ["depth", "6&rdquo;"],
+    ["handleDrop", "2.95&rdquo;"],
+    ["weight","2.2 lbs"],
+    ["volume","24.3 L"],
+    ["linearInches","36&rdquo;"],
+    ["deviceFit","12&rdquo; x 16.5&rdquo;"],
+    ["laptopCompat","Padded laptop compartment in removable insert"],
+    ["extOrg","2 side pockets<br /> 1 front zipper pocket"],
+    ["intOrg","1 document sleeve<br /> 1 large slip pocket<br /> 2 mesh pockets<br /> 1 zipper pocket<br /> 2 slip pockets"],
+    ["pockets","10"],
+    ["convertibility","&mdash;"],
+    ["straps","Adjustable<br /> Memory foam padding<br /> Non-slip air mesh"],
+    ["sleeve","Yes"],
+    ["feet","&mdash;"],
+    ["leash","Yes"],
+    ["bodyTrim","600D recycled poly"],
+    ["closure","Zipper top"],
+    ["hardware","Black"],
+    ["handle","Polyester webbing"],
+    ["lining","Solid lining"],
+    ["btn","<a href=\"/products/hanover-deluxe-600d-recycled-poly-onyx\" class=\"btn btn-block\">Buy now</a>"],
+    ["price","$148"],
+    ["img","<img src=\"https://cdn.shopify.com/s/files/1/2185/1497/files/compare-hanover-deluxe.jpg?109131\" alt=\"The Hanover Deluxe\" />"]
+  ],
+  "hanover" : [
+    ["height", "16.25&rdquo;"],
+    ["width", "11.5&rdquo;"],
+    ["depth", "7&rdquo;"],
+    ["handleDrop", "2.75&rdquo;"],
+    ["weight","1.75 lbs"],
+    ["volume","21.4 L"],
+    ["linearInches","34.75&rdquo;"],
+    ["deviceFit","11.5&rdquo; x 16&rdquo;"],
+    ["laptopCompat","Padded laptop compartment in removable insert"],
+    ["extOrg","1 front zipper pocket<br /> 2 zippered stash pockets"],
+    ["intOrg","1 document sleeve<br /> 1 large slip pocket<br /> 1 mesh pocket"],
+    ["pockets","6"],
+    ["convertibility","&mdash;"],
+    ["straps","Adjustable<br /> Memory foam padding<br /> Non-slip air mesh"],
+    ["sleeve","Yes"],
+    ["feet","&mdash;"],
+    ["leash","Yes"],
+    ["bodyTrim","600D recycled poly"],
+    ["closure","Zipper top"],
+    ["hardware","Black"],
+    ["handle","Polyester webbing"],
+    ["lining","Solid lining"],
+    ["btn","<a href=\"/products/hanover-600d-recycled-poly-onyx\" class=\"btn btn-block\">Buy now</a>"],
+    ["price","$128"],
+    ["img","<img src=\"https://cdn.shopify.com/s/files/1/2185/1497/files/compare-hanover.jpg?109131\" alt=\"The Hanover\" />"]
+  ],
+  "edgemont" : [
+    ["height", "14.5&rdquo;"],
+    ["width", "13&rdquo;"],
+    ["depth", "5&rdquo;"],
+    ["handleDrop", "9&rdquo;"],
+    ["weight","2.2 lbs"],
+    ["volume","18.5 L"],
+    ["linearInches","32.5&rdquo;"],
+    ["deviceFit","11.75&rdquo; x 13.25&rdquo;"],
+    ["laptopCompat","Padded laptop compartment in removable insert"],
+    ["extOrg","2 zippered stash pockets"],
+    ["intOrg","1 document sleeve<br /> 1 large slip pocket<br/> 2 mesh pockets"],
+    ["pockets","6"],
+    ["convertibility","Backpack to tote"],
+    ["straps","Convertible<br /> Adjustable<br/> Memory foam padding<br /> Non-slip air mesh"],
+    ["sleeve","Yes"],
+    ["feet","&mdash;"],
+    ["leash","Yes"],
+    ["bodyTrim","600D recycled poly"],
+    ["closure","Zipper top"],
+    ["hardware","Black"],
+    ["handle","Nylon webbing"],
+    ["lining","Solid lining"],
+    ["btn","<a href=\"/products/edgemont-600d-recycled-poly-onyx\" class=\"btn btn-block\">Buy now</a>"],
+    ["price","$128"],
+    ["img","<img src=\"https://cdn.shopify.com/s/files/1/2185/1497/files/compare-edgemont.jpg?109131\" alt=\"The Edgemont\" />"]
+  ],
+  "rowledge" : [
+    ["height", "16.5&rdquo;"],
+    ["width", "11.5&rdquo;"],
+    ["depth", "6.75&rdquo;"],
+    ["handleDrop", "2.75&rdquo;"],
+    ["weight","3 lbs"],
+    ["volume","21 L"],
+    ["linearInches","36.5&rdquo;"],
+    ["deviceFit","9&rdquo; x 13.5&rdquo;"],
+    ["laptopCompat","Separate padded laptop sleeve"],
+    ["extOrg","1 zippered stash pocket<br /> 2 expandable side pockets<br /> 1 front zipper pocket"],
+    ["intOrg","1 document sleeve<br /> 2 mesh pockets<br /> 2 small pockets<br /> 2 pen slips<br /> 1 zippered pocket"],
+    ["pockets","12"],
+    ["convertibility","Backpack to tote"],
+    ["straps","Convertible<br /> Adjustable<br /> Memory foam padding<br /> Non-slip quilting"],
+    ["sleeve","Yes"],
+    ["feet","Yes"],
+    ["leash","Yes"],
+    ["bodyTrim","Nylon and Nappa leather"],
+    ["closure","Zipper top, tote handle clasp"],
+    ["hardware","Gold"],
+    ["handle","Rolled Nappa leather"],
+    ["lining","Hummingbird jacquard lining"],
+    ["btn","<a href=\"/products/rowledge-nylon-black-gold-grey\" class=\"btn btn-block\">Buy now</a>"],
+    ["price","$375"],
+    ["img","<img src=\"https://cdn.shopify.com/s/files/1/2185/1497/files/compare-rowledge.jpg?109131\" alt=\"The Rowledge\" />"]
+  ]
+} 
+</script>

@@ -233,168 +233,11 @@
 
   {% include 'backpacks-compare-cta' %}
 
-  <div class="more-window" id="compare">
-      <div class="container">
-          <table class="products-compare">
-          <thead>
-              <tr>
-                  <td>&nbsp;</td>
-                  {% for i in (1..3) %}
-                  <td>
-                      <div class="form-group select-wrapper">
-                      <label for="options-{{i}}" class="sr-only">Select Backpack</label>
-                      <select class="form-control comparison-options" id="options-{{i}}">
-                          <option>Select</option>
-                          <option value="prospect">The Prospect</option>
-                          <option value="rowledge">The Rowledge</option>
-                          <option value="hanover-deluxe">The Hanover Deluxe</option>
-                          <option value="hanover">The Hanover</option>
-                          <option value="edgemont">The Edgemont</option>
-                      </select>
-                      </div>
-                  </td>
-                  {% endfor %}
-              </tr>
-              <tr data-key="img">
-                  <th><span class="sr-only">Product Image</span></th>
-                  <td>&nbsp;</td> <td></td> <td></td>
-              </tr>
-              <tr data-key="btn">
-                  <td>&nbsp;</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-              </tr>
-          </thead>
-          <tbody>
-              <tr class="section">
-                  <th>Size &amp; Dimensions</th>
-                  <th>&nbsp;</th>
-                  <th>&nbsp;</th>
-                  <th>&nbsp;</th>
-              </tr>
-              <tr data-key="height">
-                  <th>Height</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="width">
-                  <th>Width</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="depth">
-                  <th>Depth</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="handleDrop">
-                  <th>Handle Drop</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="weight">
-                  <th>Weight</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="volume">
-                  <th>Volume</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="linearInches">
-                  <th>Linear Inches</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="deviceFit">
-                  <th>Device Fit</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-          </tbody>
-          <tbody>
-              <tr class="section">
-                  <th>Features</th>
-                  <th>&nbsp;</th>
-                  <th>&nbsp;</th>
-                  <th>&nbsp;</th>
-              </tr>
-              <tr data-key="laptopCompat">
-                  <th>Laptop Campatibility</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="extOrg">
-                  <th>Exterior Organization</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="intOrg">
-                  <th>Interior Organization</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="pockets">
-                  <th>Total Pockets</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="convertibility">
-                  <th>Convertibility</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="straps">
-                  <th>Straps</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="sleeve">
-                  <th>Suitcase Handle Sleeve</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="feet">
-                  <th>Protective Feet</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="leash">
-                  <th>Key Leash</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-          </tbody>
-          <tbody>
-              <tr class="section">
-                  <th>Materials</th>
-                  <th>&nbsp;</th>
-                  <th>&nbsp;</th>
-                  <th>&nbsp;</th>
-              </tr>
-              <tr data-key="bodyTrim">
-                  <th>Body/Trim</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="closure">
-                  <th>Closure</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="hardware">
-                  <th>Hardware</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="handle">
-                  <th>Handle</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="lining">
-                  <th>Lining</th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-          </tbody>
-          <tfoot>
-              <tr data-key="price">
-                  <th><span class="sr-only">Price</span></th>
-                  <td></td> <td></td> <td></td>
-              </tr>
-              <tr data-key="btn">
-                  <td>&nbsp;</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-              </tr>
-          </tfoot>
-          </table>
-      </div>
+  {% comment %} <div class="more-window" id="compare">
+      
       <button class="panel-close"><span class="sr-only">close</span></button>
 
-  </div>
+  </div> {% endcomment %}
 
   <div class="more-window" id="magnets-overlay">
     <div class="container">
@@ -411,7 +254,5 @@
   // ]]></script>
 
   {% include 'video-modal' %}
-
-  {% include 'backpack-comparison-data' %}
 
 </article>
