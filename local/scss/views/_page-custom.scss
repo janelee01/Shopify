@@ -1597,8 +1597,14 @@
 		}
 	}
 }
-#prospect-cta{
-	margin-bottom: $grid-gutter-width;
+#backpacks-compare-cta{
+	margin-top: $grid-gutter-width;
+	@media (max-width: $screen-sm-max) {
+		picture{
+			max-width: none;
+			margin-bottom: 30px;
+		}
+	}
 }
 #prospect-hero-break{
 	@media (max-width: 374px) {

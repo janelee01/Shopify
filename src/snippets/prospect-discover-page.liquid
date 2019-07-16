@@ -230,25 +230,8 @@
   <div id="prospect-cta">
     {% include 'discover-cta', hideSecondaryButton: true, lg: true %}
   </div>
-  
-  <div class="discover-cta" id="prospect-compare-cta">
-    <div class="container">
-      <div class="row topic-block">
-        <div class="col-md-8">
-          {% include 'discover-picture', name: 'prospect-compare', alt: 'group of Lo &amp; Sons backpacks', retina: true, fw: true, lg: true %}
-        </div>
-        <div class="col-md-4">
-          <div class="topic-content">
-            <h3 class="title">Can't Decide?</h3>
-            <p class="description">Compare all backpack styles to find the one that’s right for you.</p>
-            <div class="btn-set">
-              <a class="btn btn-secondary more-window-trigger" href="#compare">Compare</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+  {% include 'backpacks-compare-cta' %}
 
   <div class="more-window" id="compare">
       <div class="container">
@@ -275,6 +258,12 @@
               <tr data-key="img">
                   <th><span class="sr-only">Product Image</span></th>
                   <td>&nbsp;</td> <td></td> <td></td>
+              </tr>
+              <tr data-key="btn">
+                  <td>&nbsp;</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
               </tr>
           </thead>
           <tbody>
