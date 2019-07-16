@@ -1597,6 +1597,44 @@
 		}
 	}
 }
+
+#backpacks-compare{
+	background: #f8f8f8;
+	padding: 50px 0;
+	text-align: center;
+	.title{
+		font-family: $font-family-medium;
+		font-size: 42px;
+	}
+	.description{
+		color: $gray;
+		font-size: 22px;
+	}
+	@media (min-width: $screen-sm) {
+		padding: 65px 0;
+		.title{
+			font-size: 44px;
+		}
+		.description{
+			font-size: 20px;
+		}
+	}
+	@media (min-width: $screen-md) {
+		.row{
+			display: flex;
+			align-items: center;
+		}
+	}
+	@media (min-width: $screen-lg) {
+		padding: 130px 0;
+		.title{
+			font-size: 46px;
+		}
+		.description{
+			font-size: 22px;
+		}
+	}
+}
 #backpacks-compare-cta{
 	margin-top: $grid-gutter-width;
 	@media (max-width: $screen-sm-max) {
