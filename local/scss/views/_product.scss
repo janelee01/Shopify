@@ -38,6 +38,13 @@ $pdp-spacing-md: 55px;
   .form-col{
     padding-left: 50px;
     min-width: 444px;
+    .final-sale-warning,
+    .low-stock-warning{
+      padding: 0;
+      font-size: 13px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
   }
   .form{
     position: sticky;
@@ -169,11 +176,13 @@ $pdp-spacing-md: 55px;
 .form-actions{
   border-top: solid 1px #E5E5E5;
   padding-top: 15px;
+  margin-bottom: 15px;
 }
 #add-to-cart-row{
   position: relative;
   .btn{
     width: 100%;
+    font-size: 16px;
   }
   select{
     -webkit-appearance:none;
@@ -194,6 +203,13 @@ $pdp-spacing-md: 55px;
   width: 100%;
   font-size: 13px;
   padding: 1.35em;
+}
+#sold-out-message{
+  text-align: center;
+  padding: 1.35em;
+  font-size: 13px;
+  background: $gray-lightest;
+  font-family: $font-family-medium;
 }
 
 #product-video{

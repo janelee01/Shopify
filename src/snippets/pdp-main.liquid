@@ -1,33 +1,7 @@
-{% comment %} default display {% endcomment %}
-{%- assign hideAddToCart = false -%}
-{%- assign hideWaitlist = true -%}
-{% comment %} manually disabled {% endcomment %}
-{%- if current_variant.metafields['global']['out-of-stock-settings'] == 'unavailable' and current_variant.metafields['global']['out-of-stock-policy'] == 'waitlist' -%}
-  {%- assign hideAddToCart = true -%}
-  {%- assign hideWaitlist = false -%}
-{%- endif -%}
-{% comment %} disabled by custom or default OOS threshold {% endcomment %}
-{%- assign oosThreshold = 10 -%}
-{%- unless current_variant.metafields['global']['out-of-stock-threshold'] == blank -%}
-  {%- assign oosThreshold = current_variant.metafields['global']['out-of-stock-threshold'] -%}
-{%- endunless -%}
-{%- if current_variant.inventory_quantity <= oosThreshold -%}
-  {%- assign hideAddToCart = true -%}
-  {%- assign hideWaitlist = false -%}
-{%- endif -%}
-{% comment %} automatically disabled based on shopify inventory {% endcomment %}
-{%- unless current_variant.available -%}
-  {%- assign hideAddToCart = true -%}
-  {%- assign hideWaitlist = false -%}
-{%- endunless -%}
-
-{%- assign showSaleElements = false -%}
-{%- assign discountAmount = nil -%}
-{%- if current_variant.compare_at_price > current_variant.price -%}
-  {%- assign showSaleElements = true -%}
-  {%- assign discountAmount = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0 -%}
-{%- endif -%}
-
+{% comment %}
+  Note: pdp.js will show sale pricing, hide/show waitlist button, final sale messaging, etc.
+  UI is updated on page load so we don't have to duplicate all the variant metafield logic in here
+{% endcomment %}
 <header class="pdp-header js-marque-push-down">
   <div class="container">
     <h1>{{ parentCollection.title }}</h1>
@@ -42,8 +16,8 @@
     <div class="form">
       <div class="form-row" id="price-wrapper">
         <span id="price">{{ current_variant.price | money_without_trailing_zeros }}</span>
-        <s id="compare-price"{% unless showSaleElements %}style="display:none"{% endunless %}>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
-        <span class="discount-label"{% unless showSaleElements %}style="display:none"{% endunless %}><span class="discount-amount">{{ discountAmount }}</span>% off</span>
+        <s id="compare-price"style="display:none"></s>
+        <span class="discount-label"style="display:none"><span class="discount-amount"></span>% off</span>
       </div>
       <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
         <meta itemprop="priceCurrency" content="{{ shop.currency }}">
@@ -68,7 +42,7 @@
 
           <div class="form-actions">
             {% comment %} can add to cart {% endcomment %}
-            <div id="add-to-cart" {% if hideAddToCart %}style="display: none"{% endif %}>
+            <div id="add-to-cart">
               <div id="add-to-cart-row">
                 <label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
                 <select id="quantity" name="quantity">
@@ -81,16 +55,16 @@
             </div>
             
             {% comment %} sold out, but waitlist enabled {% endcomment %}
-            <button class="btn btn-secondary" id="waitlist-open" {% if hideWaitlist %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</button>
+            <button class="btn btn-secondary" id="waitlist-open" style="display: none">{{ 'products.waitlist.title' | t }}</button>
         
           </div>
 
           {% comment %} sold out {% endcomment %}
-          <div id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div>
+          <div id="sold-out-message" style="display: none">{{ 'products.product.sold_out' | t }}</div>
           
           {% comment %} addtional warnings {% endcomment %}
-          <div class="low-stock-warning hidden">{{ 'products.product.low_stock' | t }}</div>
-          <div class="final-sale-warning hidden"><span>{{ 'products.product.final_sale_html' | t }}</span></div>
+          <div class="low-stock-warning" style="display: none">{{ 'products.product.low_stock' | t }}</div>
+          <div class="final-sale-warning" style="display: none">{{ 'products.product.final_sale_html' | t }}</div>
 
         </form>
       </div>

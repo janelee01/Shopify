@@ -4,11 +4,14 @@ $(document).ready(function(){
   const $variantButtons = $('.variants');
   const $swatches = $('.swatch');
   const $selectedColor = $('#selected-color');
+  const $soldOutMsg = $('#sold-out-message');
+  const $addToCartRow = $('#add-to-cart');
+  const $addToWaitlistBtn = $('#waitlist-open');
 
   var dataLayer = window.dataLayer || [];
 
   // helper to set a new active item
-  function setActive($elGroup,$el,className){
+  function setActiveElement($elGroup,$el,className){
     $elGroup.removeClass(className);
     $el.addClass(className);
   }
@@ -100,7 +103,7 @@ $(document).ready(function(){
     }
   };
 
-  var updateDataLayer = function(){
+  function updateDataLayer(){
     var productId = getActiveProductId();
     var product = getProduct(productId);
     var variant = getActiveVariantData();
@@ -118,33 +121,164 @@ $(document).ready(function(){
       'productData.color': $selectedColor.text(),
       'pinterestPage': product.title
     };
-    console.log(update);
-    // dataLayer.push(update);
-  }
+    dataLayer.push(update);
+  };
+
+  function updateGallery(){
+    setActiveElement(
+      $('.sibling-image-set'),
+      $('.sibling-image-set[data-sibling="' + getActiveProductId() + '"]'),
+      'active');
+  };
+
+  function updateUrl(){
+    const url = $('.swatch.active').data('url');
+    if (history.replaceState) {
+      const newurl = window.location.protocol + '//' + window.location.host + url
+      window.history.replaceState({ path: newurl }, '', newurl)
+      sessionStorage.setItem('lo-back-to', newurl) // for use in the cart
+
+      dataLayer.push({
+        'event': 'afterUrlUpdate'
+      })
+    }
+  };
+
+  function updateWaitlistMeta() {
+    var productId = getActiveProductId();
+    var variantId = getActiveVariantId();
+    var product = getProduct(productId);
+
+    $('#wl-image').attr('src', product.featured_image);
+    $('#wl-product').val(productId);
+    $('#wl-variant').val(variantId);
+
+    var swatch = $selectedColor.text();
+    var size = '';
+    if( $variantButtons.length ){
+      size = '- ' + $('.variants .selected').text();
+    }
+    $('[data-wl-meta]').text(`${swatch} ${size}`);
+
+    var wlExpected = (variantStockData[variantId] || {}).restockMessage;
+
+    if (wlExpected) {
+      $('[data-wl-expected]').text('Expected in stock: ' + wlExpected);
+    } else {
+      $('[data-wl-expected]').text('');
+    }
+  };
+
+  function updateCta(variantId){
+    var variant = getActiveVariantData(variantId);
+    let stockData = variantStockData[variantId];
+    let isAvailable = variant.available;
+
+    // reset to normal
+    $addToCartRow.show();
+    $soldOutMsg.hide();
+    $addToWaitlistBtn.hide();
+
+    // check for manual override of availability
+    if (stockData.oosSettings === 'unavailable') {
+      isAvailable = false;
+    }
+
+    // check for manual override of out of stock level
+    if (stockData.oosThreshold >= stockData.stockLevel) {
+      isAvailable = false;
+    }
+
+    // normal, nothing left to do
+    if (isAvailable) {
+      return;
+    }
+
+    // Unavailable and won't be later, show sold out
+    if (stockData.oosPolicy === 'soldout') {
+      $addToCartRow.hide();
+      $soldOutMsg.show();
+      return;
+    }
+
+    // Unavailable but will be later, show waitlist
+    $addToWaitlistBtn.data('variant-id', variantId).show();
+    $addToCartRow.hide();
+
+    $('#wl-variant').val(variantId);
+  };
+
+  function updateLowStockWarning(variantId) {
+    const inventoryLevel = variantStockData[variantId].stockLevel;
+    const $warning = $('.low-stock-warning');
+    const lowStockThreshold = variantStockData[variantId].lowStockThreshold;
+    const oosThreshold = variantStockData[variantId].oosThreshold;
+    if (inventoryLevel > oosThreshold && inventoryLevel <= lowStockThreshold) {
+      $warning.show();
+    } else {
+      $warning.hide();
+    }
+  };
+
+  function updateFinalSaleMessage(variantId) {
+    const $warning = $('.final-sale-warning');
+    let finalSaleValue = variantStockData[variantId].finalSale;
+    if (finalSaleValue.toLowerCase() === 'true') {
+      $warning.show();
+    } else {
+      $warning.hide();
+    }
+  };
+
+  // visual changes when variants change
+  function updateUi(){
+    var variantId = getActiveVariantId();
+    updatePrice();
+    updateCta(variantId);
+    updateLowStockWarning(variantId);
+    updateFinalSaleMessage(variantId);
+  };
+
+  // doing this on page load so we don't duplicate logic in the template
+  updateUi();
 
   // changing colors, which also changes the entire product
   $swatches.on('click', function(e){
     e.preventDefault();
-    setActive($swatches, $(this), 'active');
+    let $selectedSwatch = $(this);
+    // show swatch as selected
+    setActiveElement($swatches, $selectedSwatch, 'active');
+    // stash the currently selected size for use when we rebuild the variants
     if( $variantButtons.length ){
       window.selectedVariantText = $variantButtons.find('.btn.selected').text();
     }
-    $selectedColor.text($(this).find('img').data('color-label'));
+    // update the active color
+    $selectedColor.text($selectedSwatch.find('img').data('color-label'));
+    // rebuild variant buttons and the hidden select element
     updateVariants();
+    // show the color's images
+    updateGallery();
+    // switch to this color's PDP, also triggers GTM
+    updateUrl();
+    // rebuild
+    updateUi();
     updateDataLayer();
-    updatePrice();
-    // TODO: update cta, url, images
+    updateWaitlistMeta();
   });
 
   // changing sizes, product remains the same
   if( $variantButtons.length ){
     $('body').on('click', '.variants .btn', function(e){
       e.preventDefault();
-      setActive($('.variants .btn'), $(this), 'selected');
-      setVariantInputValue($(this).data('id'));
-      updatePrice();
+      let $selectedSize = $(this);
+      // show variant as selected
+      setActiveElement($('.variants .btn'), $selectedSize, 'selected');
+      // set the hidden select element to the new value
+      setVariantInputValue($selectedSize.data('id'));
+      // rebuild
+      updateUi();
       updateDataLayer();
-      // TODO: update update CTA
+      updateWaitlistMeta();
     });
   }
 
