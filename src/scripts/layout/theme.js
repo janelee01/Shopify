@@ -26,6 +26,7 @@ import './../lo/toggle-menu'
 import './../lo/header'
 import './../lo/more-window'
 import './../lo/comparison'
+import './../lo/pdp'
 
 $(document).ready(function() {
 

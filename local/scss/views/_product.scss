@@ -24,6 +24,7 @@ $pdp-spacing-md: 55px;
     }
     .btn-secondary{
       border-color: #E5E5E5;
+      font-size: 13px;
     }
   }
 }
@@ -71,6 +72,22 @@ $pdp-spacing-md: 55px;
     margin-bottom: 10px;
     width: calc(50% - 5px);
   }
+}
+
+#price-wrapper{
+  display: flex;
+  align-items: center;
+  #compare-price{
+    color: $gray;
+    font-size: 13px;
+    margin-left: 1em;
+  }
+  .discount-label{
+		font-family: $font-family-bold;
+    color: $brand-red;
+    font-size: 13px;
+    margin-left: 1em;
+	}
 }
 
 #selected-color{
@@ -149,7 +166,7 @@ $pdp-spacing-md: 55px;
   }
 }
 
-#add-to-cart{
+.form-actions{
   border-top: solid 1px #E5E5E5;
   padding-top: 15px;
 }
@@ -172,6 +189,11 @@ $pdp-spacing-md: 55px;
     left: 0;
     top: 0;
   }
+}
+#waitlist-open{
+  width: 100%;
+  font-size: 13px;
+  padding: 1.35em;
 }
 
 #product-video{

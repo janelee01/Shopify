@@ -41,9 +41,9 @@
   <div class="form-col">
     <div class="form">
       <div class="form-row" id="price-wrapper">
-        <s class="{% unless showSaleElements %}hidden{% endunless %}" id="compare-price">{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
         <span id="price">{{ current_variant.price | money_without_trailing_zeros }}</span>
-        <span class="discount-label{% unless showSaleElements %} hidden{% endunless %}"><span class="discount-amount">{{ discountAmount }}</span>% off</span>
+        <s id="compare-price"{% unless showSaleElements %}style="display:none"{% endunless %}>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+        <span class="discount-label"{% unless showSaleElements %}style="display:none"{% endunless %}><span class="discount-amount">{{ discountAmount }}</span>% off</span>
       </div>
       <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
         <meta itemprop="priceCurrency" content="{{ shop.currency }}">
@@ -66,21 +66,24 @@
             <a href="#size-fit-guide" class="pdp-modal-trigger" id="size-fit-trigger">Size & Fit Guide</a>
           </div>
 
-          {% comment %} can add to cart {% endcomment %}
-          <div id="add-to-cart" {% if hideAddToCart %}style="display: none"{% endif %}>
-            <div id="add-to-cart-row">
-              <label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
-              <select id="quantity" name="quantity">
-              {%- for i in (1..40) -%}
-                <option>{{ i }}</option>
-              {%- endfor -%}
-              </select>
-              <button type="submit" class="btn">{{ 'products.product.add_to_cart' | t }}</button>
+          <div class="form-actions">
+            {% comment %} can add to cart {% endcomment %}
+            <div id="add-to-cart" {% if hideAddToCart %}style="display: none"{% endif %}>
+              <div id="add-to-cart-row">
+                <label class="sr-only" for="quantity">{{ 'products.product.quantity' | t }}</label>
+                <select id="quantity" name="quantity">
+                {%- for i in (1..40) -%}
+                  <option>{{ i }}</option>
+                {%- endfor -%}
+                </select>
+                <button type="submit" class="btn">{{ 'products.product.add_to_cart' | t }}</button>
+              </div>
             </div>
+            
+            {% comment %} sold out, but waitlist enabled {% endcomment %}
+            <button class="btn btn-secondary" id="waitlist-open" {% if hideWaitlist %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</button>
+        
           </div>
-          
-          {% comment %} sold out, but waitlist enabled {% endcomment %}
-          <button class="btn btn-secondary" id="waitlist-open" {% if hideWaitlist %}style="display: none"{% endif %}>{{ 'products.waitlist.title' | t }}</button>
 
           {% comment %} sold out {% endcomment %}
           <div id="sold-out-message" {% if current_variant.available or oosPolicy == 'waitlist' or oosPolicy == blank %}style="display: none"{% endif %}>{{ 'products.product.sold_out' | t }}</div>
