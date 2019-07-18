@@ -1,5 +1,6 @@
+{%- assign withAnimations = withAnimations | default: true -%}
 <div class="fw-xs">
-    <div class="col-slider row animate mb-large" {{ animateFadeInUp }}>
+    <div class="col-slider row mb-large{% if withAnimations %} animate{% endif %}" {{ animateFadeInUp }}>
         <div class="slide col-sm-4">     
             {{ col1 }}
         </div>

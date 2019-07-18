@@ -1,7 +1,17 @@
+{% include 'vars' %}
+
 {% comment %}
   Note: pdp.js will show sale pricing, hide/show waitlist button, final sale messaging, etc.
   UI is updated on page load so we don't have to duplicate all the variant metafield logic in here
 {% endcomment %}
+
+{% comment %} grab the content for our more windows {% endcomment %}
+{% assign snippetSlug = parentCollection.title | handleize | remove: 'the-' %}
+{% capture fileName %}materials-{{ snippetSlug }}{% endcapture %}
+{% capture materialsGuide %}{% include fileName %}{% endcapture %}
+{% capture fileName %}size-fit-{{ snippetSlug }}{% endcapture %}
+{% capture sizeFitGuide %}{% include fileName %}{% endcapture %}
+
 <header class="pdp-header js-marque-push-down">
   <div class="container">
     <h1>{{ parentCollection.title }}</h1>
@@ -29,21 +39,18 @@
           <div class="form-row" id="selected-color">{{ product.metafields["global"]["swatch-label"] }}</div>
           
           {% include 'pdp-swatches' %}
-
-          {% if parentCollection.metafields["global"]["compare-materials-snippet"] != blank %}
+          
+          {% unless materialsGuide contains 'Liquid error' %}
           <div class="form-row">
-            <a href="#compare-materials" class="pdp-modal-trigger" id="compare-materials-trigger">Compare Materials</a>
+            <a href="#materials-guide" class="more-window-trigger" id="materials-guide-trigger">Compare Materials</a>
           </div>
-          {% endif %}
+          {% endunless %}
 
           {% include 'pdp-variants' %}
-
-          {% comment %} check to see if we have a snippet for this {% endcomment %}
-          {% capture fileName %}pdp-size-fit-{{ parentCollection.title | handleize | remove: 'the-' }}{% endcapture %}
-          {% capture sizeFitGuide %}{% include fileName %}{% endcapture %}
+          
           {% unless sizeFitGuide contains 'Liquid error' %}
             <div class="form-row">
-              <a href="#size-fit-guide" class="pdp-modal-trigger" id="size-fit-trigger">Size & Fit Guide</a>
+              <a href="#size-fit-guide" class="more-window-trigger" id="size-fit-trigger">Size & Fit Guide</a>
             </div>
           {% endunless %}
 
@@ -102,12 +109,26 @@
   </div>
 </section>
 
-{%- include 'pdp-modal', id: 'size-fit', collection_ref: parentCollection, device_compatibility: pdp_size_fit_device_compatibility, size_weight: pdp_size_fit_size_weight -%}
-
-
 {% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
   {%- include 'pdp-reviews' -%}
 {% endif %}
+
+{% unless sizeFitGuide contains 'Liquid error' %}
+  <div class="more-window" id="size-fit-guide">
+    <div class="container">
+      {{ sizeFitGuide }}
+    </div>
+    <button class="panel-close"><span class="sr-only">close</span></button>
+  </div>
+{% endunless %}
+{% unless materialsGuide contains 'Liquid error' %}
+  <div class="more-window" id="materials-guide">
+    <div class="container">
+      {{ materialsGuide }}
+    </div>
+    <button class="panel-close"><span class="sr-only">close</span></button>
+  </div>
+{% endunless %}
 
 {%- capture siblingsJson -%}
   {
@@ -191,14 +212,3 @@
   var hiddenVariants = "{{ hiddenVariants }}";
   var variantStockData = {{ variantStockData }};
 </script>
-
-{% unless sizeFitGuide contains 'Liquid error' %}
-  <div class="pdp-modal" id="size-fit-guide">
-    <a href="#" class="panel-close"><span class="sr-only">close</span></a>
-    <div class="pdp-modal-content">
-      <div>
-      {{ sizeFitGuide }}
-      </div>
-    </div>
-  </div>
-{% endunless %}

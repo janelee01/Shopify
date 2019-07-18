@@ -1,4 +1,11 @@
 $pdp-spacing-md: 55px;
+
+body.product{
+  #site-header-items {
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
 .pdp-header{
   background: #fff;
   border-top: solid 1px $gray-lighter;
@@ -36,8 +43,10 @@ $pdp-spacing-md: 55px;
     flex: 1 1 auto;
   }
   .form-col{
-    padding-left: 50px;
-    min-width: 444px;
+    @media (min-width: $screen-md) {
+      padding-left: 50px;
+      min-width: 444px;
+    }
     .final-sale-warning,
     .low-stock-warning{
       padding: 0;
@@ -149,7 +158,7 @@ $pdp-spacing-md: 55px;
   }
 }
 
-.pdp-modal-trigger{
+.product-main .more-window-trigger{
   font-size: 13px;
   color: $gray-darker;
   text-decoration: underline;
@@ -162,7 +171,7 @@ $pdp-spacing-md: 55px;
     background-position: left center;
   }
 }
-#compare-materials-trigger{
+#materials-guide-trigger{
   &::before{
     background-image: url("multiple.svg");
   }
@@ -210,6 +219,47 @@ $pdp-spacing-md: 55px;
   font-size: 13px;
   background: $gray-lightest;
   font-family: $font-family-medium;
+}
+
+.size-fit-slider{
+  border: solid 1px $gray-lighter;
+  @include mb;
+  h4{
+    border-bottom: solid 1px $gray-lighter;
+    text-align: center;
+    padding: 20px;
+    line-height: 1;
+    font-size: 14px;
+    margin: 0;
+  }
+  .slick-arrow{
+    @include resetButton;
+    position: absolute;
+    z-index: 10;
+    width: 30px;
+    height: 24px;
+    background: url('slide-next-gray.svg') no-repeat center center;
+    background-size: auto 100%;
+    text-indent: -999em;
+    top: 50%;
+    transform: translate3d(0, -50%, 0); // 3d fixes slides overlap
+    right: 10px;
+    padding: 0;
+    @media (min-width: $screen-sm) {
+      right: 40px;
+    }
+    &.slick-prev{
+      background-image: url('slide-prev-gray.svg');
+      right: auto;
+      left: 10px;
+      @media (min-width: $screen-sm) {
+        left: 40px;
+      }
+    }
+  }
+  img{
+    display: block;
+  }
 }
 
 #product-video{

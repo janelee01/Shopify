@@ -268,3 +268,42 @@
 		}
 	}
 }
+
+.table-label{
+	border-bottom: 1px solid $gray-lighter;
+	line-height: 1;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	font-size: 18px;
+	font-family: $font-family-medium;
+}
+.product-specs{
+	@include mb(lg);
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+	@media (min-width: $screen-md) {
+		overflow-x: initial;
+	}
+	table{
+		width: 100%;
+		border-bottom: solid 1px $gray-lighter;
+		border-left: solid 1px $gray-lighter;
+		thead{
+			background: $gray-lightest;
+		}
+		th, td{
+			text-align: center;
+			padding: 15px;
+			font-weight: 400;
+			font-size: 12px;
+			border-top: solid 1px $gray-lighter;
+			border-right: solid 1px $gray-lighter;
+		}
+		th{
+			color: $gray;
+		}
+		td{
+			color: $gray-darker;
+		}
+	}
+}
