@@ -156,6 +156,12 @@
 		th, td{
 			padding-top: 0;
 		}
+		td{
+			padding-bottom: $grid-gutter-width;
+		}
+		tr:last-child td{
+			padding-bottom: 0;
+		}
 	}
 	tbody{
 		th{
@@ -183,9 +189,11 @@
 				padding-bottom: 20px;
 			}
 		}
-		.btn{
-			max-width: 187px;
-			margin: 0 auto;
+		tr:last-child{
+			td{
+				padding-top: 0;
+				padding-bottom: 0;
+			}
 		}
 	}
 	.inactive{
@@ -193,6 +201,10 @@
 			opacity: 0;
 			pointer-events: none;
 		}
+	}
+	.btn{
+		max-width: 187px;
+		margin: 0 auto;
 	}
 }
 @media (max-width: $screen-xs-max) {

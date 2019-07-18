@@ -26,10 +26,12 @@ $(document).ready(function(){
 		var $bar = $nav.find('.active-bar');
 		var $active = $nav.find('.active');
 		var barOffset = $(window).width() >= LS.largeBreakpoint ? 20 : 11; // margins on the nav items
-		$bar.css({
-			'left': $active.position().left + barOffset,
-			'width': $active.outerWidth()
-		});
+		if( $active.length ){
+			$bar.css({
+				'left': $active.position().left + barOffset,
+				'width': $active.outerWidth()
+			});
+		}
 	};
 
 	var setActiveText = function(){
@@ -48,13 +50,16 @@ $(document).ready(function(){
 
 		// jump to/show a section
 		if( location.hash ){
-			$topics.removeClass('active');
-			$('[href="'+location.hash+'"]').addClass('active');
-			setActiveBar();
-			$('html,body').animate({
-				scrollTop: LS.getScrollTo( $(location.hash), trigger )
-			});
-			setActiveText();
+			var $btn = $('[href="' + location.hash + '"]');
+			if( !$btn.hasClass('more-window-trigger') ){ 
+				$topics.removeClass('active');
+				$btn.addClass('active');
+				setActiveBar();
+				$('html,body').animate({
+					scrollTop: LS.getScrollTo( $(location.hash), trigger )
+				});
+				setActiveText();
+			}
 		}
 
 		// scroll spy
@@ -88,6 +93,7 @@ $(document).ready(function(){
 
 	// jump to section
 	$topics.on('click', function(e){
+		
 		e.preventDefault();
 
 		var $btn = $(this);
@@ -96,6 +102,11 @@ $(document).ready(function(){
 		// If the target isn't an on-page anchor, treat it like a normal link
 		if (!selector.match(/^#/)) {
 			window.location = selector;
+			return;
+		}
+
+		// Don't scroll for items that open a more window
+		if( $btn.hasClass('more-window-trigger') ){
 			return;
 		}
 

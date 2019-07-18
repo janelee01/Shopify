@@ -7,14 +7,21 @@
 	border: none;
 	line-height: 1;
 	font-size: 18px;
-	@media (min-width: $screen-md) {
+	@media (min-width: $screen-sm) {
 		padding: 2em 0;
+	}
+	&.is-search{
+		h1, h2{
+			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+				font-size: 1.5em;
+			}
+		}
 	}
 	h1, h2{
 		font-size: 1.5em;
 		margin: 0;
 		font-family: $font-family-medium;
-		@media (min-width: $screen-md) {
+		@media (min-width: $screen-sm) {
 			font-size: 2.3em;
 		}
 	}

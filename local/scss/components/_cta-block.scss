@@ -5,6 +5,22 @@ Footer block
 	background: #f8f8f8;
 	padding: 55px 0 65px;
 	text-align: center;
+	&.compare{
+		background: #F3F3F3;
+		margin-top: $grid-gutter-width; 
+		padding: 0;
+		picture{
+			@media (max-width: $screen-sm-max) {
+					max-width: none;
+			}
+		}
+		.btn{
+			min-width: 177px;
+		}
+		.topic-content{
+			padding: $grid-gutter-width 0;
+		}
+	}
 	@media (min-width: $screen-md) {
 		.row{
 			display: flex;

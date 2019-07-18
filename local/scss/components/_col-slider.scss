@@ -1,0 +1,37 @@
+@media screen and (max-width: $screen-xs-max){
+  .col-slider{
+    margin-left: 0;
+    margin-right: 0;
+    .slide{
+      width: 320px;
+    }
+  }
+}
+
+.col-slider,
+.row-slider{
+  .slick-dots{
+    li{
+      margin: 0;
+    }
+    button{
+      width: 20px;
+      &::after{
+        border: solid 1px $gray;
+        background: #fff;
+        width: 10px;
+        height: 10px;
+        bottom: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        border-radius: 50%;
+      }
+    }
+    .slick-active{
+      button::after{
+        background: $gray;
+      }
+    }
+  }
+}

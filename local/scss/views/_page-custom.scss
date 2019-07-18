@@ -17,27 +17,27 @@
 		}
 	}
 }
-#catalina-deluxe-hero{
-	@media (max-width: $screen-xs-max) {
-		.title,.description{
-			color: #FFF;
-		}
-		.scroll-down-indicator{
-			background-image: url(hero-arrow.svg);
-		}
-	}
-	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-		.hero-content{
-			width: 50%;
-			padding: 0 10%;
-		}
-	}
-	@media (min-width: $screen-lg) {
-		.hero-content{
-			padding: 0 12%;
-		}
-	}
-}
+// #catalina-deluxe-hero{
+// 	@media (max-width: $screen-xs-max) {
+// 		.title,.description{
+// 			color: #FFF;
+// 		}
+// 		.scroll-down-indicator{
+// 			background-image: url(hero-arrow.svg);
+// 		}
+// 	}
+// 	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+// 		.hero-content{
+// 			width: 50%;
+// 			padding: 0 10%;
+// 		}
+// 	}
+// 	@media (min-width: $screen-lg) {
+// 		.hero-content{
+// 			padding: 0 12%;
+// 		}
+// 	}
+// }
 #dimensions-overlay{
 	table{
 		width: 100%;
@@ -91,10 +91,10 @@
 	}
 }
 #catalina-deluxe-tote-hero{
-	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-		.hero-content{
-			width: 50%;
-			padding: 0 6%;
+	.hero-content{
+		padding: 0 $grid-gutter-width;
+		p{
+			max-width: 340px;
 		}
 	}
 }
@@ -167,6 +167,32 @@
 #catalina-deluxe-tote-key-leash{
 	@media (max-width: $screen-sm-max) {
 		margin-bottom: 0;
+	}
+}
+
+#catalina-collection-cta{
+	text-align: center;
+	picture img{
+		height: 250px;
+		width: auto;
+		@media (min-width: $screen-md) {
+			height: 350px;
+		}
+	}
+	p{
+		width: 100%;
+		max-width: 175px;
+		margin: 0 auto 15px;
+		@media (min-width: $screen-md) {
+			max-width: 235px;
+		}
+		&.description{
+			max-width: 250px;
+			margin-bottom: 30px;
+			@media (min-width: $screen-md) {
+				max-width: 300px;
+			}
+		}
 	}
 }
 
@@ -1571,8 +1597,52 @@
 		}
 	}
 }
-#prospect-cta{
-	margin-bottom: $grid-gutter-width;
+
+#backpacks-compare{
+	background: #f8f8f8;
+	padding: 50px 0;
+	text-align: center;
+	.title{
+		font-family: $font-family-medium;
+		font-size: 42px;
+	}
+	.description{
+		color: $gray;
+		font-size: 22px;
+	}
+	@media (min-width: $screen-sm) {
+		padding: 65px 0;
+		.title{
+			font-size: 44px;
+		}
+		.description{
+			font-size: 20px;
+		}
+	}
+	@media (min-width: $screen-md) {
+		.row{
+			display: flex;
+			align-items: center;
+		}
+	}
+	@media (min-width: $screen-lg) {
+		padding: 80px 0;
+		.title{
+			font-size: 46px;
+		}
+		.description{
+			font-size: 22px;
+		}
+	}
+}
+#backpacks-compare-cta{
+	margin-top: $grid-gutter-width;
+	@media (max-width: $screen-sm-max) {
+		picture{
+			max-width: none;
+			margin-bottom: 30px;
+		}
+	}
 }
 #prospect-hero-break{
 	@media (max-width: 374px) {
@@ -1580,5 +1650,50 @@
 	}
 	@media (min-width: $screen-md) and (max-width: 1145px) {
 		display: none;
+	}
+}
+#skimm-hero{
+	.hero-content{
+		padding: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 200px;
+		@media (min-width: $screen-sm) {
+			width: 442px;
+		}
+		@media (min-width: $screen-md) {
+			width: 530px;
+		}
+		@media (min-width: $screen-lg) {
+			width: 610px;
+		}
+	}
+}
+#skimm-content{
+	text-align: center;
+	font-family: $font-family-medium;
+	font-size: 36px;
+	padding: 0 $grid-gutter-width;
+	@media (min-width: $screen-sm) {
+		font-size: 40px;
+	}
+	@media (min-width: $screen-lg) {
+		font-size: 46px;
+	}
+	strong{
+		display: block;
+		color: $brand-blue;
+		font-weight: 400;
+	}
+	p{
+		color: $gray;
+		font-size: 18px;
+		font-family: $font-family-base;
+		@media (min-width: $screen-sm) {
+			font-size: 20px;
+		}
+		@media (min-width: $screen-lg) {
+			font-size: 24px;
+		}
 	}
 }

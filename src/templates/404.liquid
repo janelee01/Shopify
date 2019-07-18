@@ -1,12 +1,33 @@
-<article>
-	<header class="page-header">
-		<h1>{{ 'general.404.title' | t }}</h1>
-	</header>
-	<div class="account-form">
-		<p>{{ 'general.404.subtext_html' | t }}</p>
-		<div id="in-page-search-container">
-		  {%- assign fieldId = 'in-page-search' -%}
-		  {% include 'search-form' with fieldId, placeholder %}
+<header class="page-header">
+	<h1>{{ 'general.404.title' | t }}</h1>
+</header>
+<div class="not-found">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+				<div class="text-center">
+					{{ 'general.404.subtext_html' | t }}
+				</div>
+				{%- assign field_id = 'in-page-search' -%}
+				{% include 'search-form' %}
+			</div>
 		</div>
 	</div>
-</article>
+</div>
+<div class="container">
+	<div class="section-heading">
+		<h2 class="title">Best Sellers</h2>
+	</div>
+	<div class="product-grid">
+		<div class="row">
+			{% assign collection = collections['best-selling-products'] %}
+			{% paginate collection.products by 4 %}
+			{% for product in collection.products %}
+			<div class="col-xs-6 col-sm-3">
+				{% include 'product-item' with product %}
+			</div>
+			{% endfor %}
+			{% endpaginate %}
+		</div>
+	</div>
+</div>

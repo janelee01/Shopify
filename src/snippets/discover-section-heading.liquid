@@ -1,0 +1,8 @@
+<div class="row animate" {{ animateFadeInUp }}>
+    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">                    
+        <div class="section-heading">
+            {%- unless title == blank -%}<h2 class="title">{{ title }}</h2>{%- endunless -%}
+            {%- unless text == blank -%}<p class="description">{{ text }}</p>{%- endunless -%}
+        </div>
+    </div>
+</div>

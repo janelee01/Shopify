@@ -30,6 +30,7 @@ import './../lo/pdp'
 
 $(document).ready(function() {
 
+	var $marquee = $('#shopify-section-marquee');
 	var $pageNav = LS.getPageNav();
 	var $header = LS.getHeader();
 
@@ -177,7 +178,6 @@ $(document).ready(function() {
   }
 
   // slide the marquee out of the way on scroll
-  var $marquee = $('#shopify-section-marquee');
   var trigger = 100;
   var lastScrollPos = 0;
 
@@ -195,7 +195,7 @@ $(document).ready(function() {
 		$('body').removeClass('menu-open');
 		$('.navbar-toggle').removeClass('mega-menu-active');
 	}
-  });
+	});
 
 	function LSOnScroll (e, firstTime) {
 		if (!firstTime) {
@@ -206,7 +206,6 @@ $(document).ready(function() {
 		var isMovingDown = $(window).scrollTop() > lastScrollPos
 		var isMovingUp = $(window).scrollTop() < lastScrollPos
 		var isMegaMenuActive = $('body').hasClass('mega-menu-active')
-		var marqueeheight = $marquee.outerHeight()
 		var isPageNav = $pageNav.length
 		var isMarquee = $marquee.is(':visible')
 
@@ -289,6 +288,11 @@ $(document).ready(function() {
 			return
 		}
 	}
+
+	// set the jump target offset to the max height of the header.
+	// the header will shift up and down during page scrolls, so we could try to reset it on the fly but sometimes the scroll gets missed due to throttling
+	// this will at least prevent targets from being hidden under it
+	LS.setJumpHeight($header.outerHeight());
 
 	// adjust on scroll
 	$(window).scroll( $.throttle(250, LSOnScroll) );
@@ -913,71 +917,54 @@ $(document).ready(function() {
         $('#credo-tc').fadeOut();
     });
 	$("#credo-subscribe").on('submit', function(e) {
-        e.preventDefault();
-        var $form = $(this);
-        var numErrors = 0;
-        $form.find('.validation-error').remove();
-        $form.find('.form-control.required').each(function(){
-        	if( !$(this).val() ){
-        		numErrors++;
-        		$('<small class="validation-error">This field is required.</small>')
-        			.insertAfter($(this))
-        			.fadeIn()
-        			.css('display','block');
-        	}
-        });
+			e.preventDefault();
+			var $form = $(this);
+			var numErrors = 0;
+			$form.find('.validation-error').remove();
+			$form.find('.form-control.required').each(function(){
+				if( !$(this).val() ){
+					numErrors++;
+					$('<small class="validation-error">This field is required.</small>')
+						.insertAfter($(this))
+						.fadeIn()
+						.css('display','block');
+				}
+			});
 
-        if( numErrors > 0 ) return;
+			if( numErrors > 0 ) return;
 
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://manage.kmail-lists.com/subscriptions/external/subscribe",
-            "method": "POST",
-            "headers": {
-                "content-type": "application/x-www-form-urlencoded",
-                "cache-control": "no-cache"
-            },
-            "data": {
-                "g": "Kh3kFv", // KUBRaR main list
-                "$fields": "Sign Up Source, Country",
-                "email": $('#credo-email').val(),
-                "first_name": $('#credo-fname').val(),
-                "last_name": $('#credo-lname').val(),
-                "Sign Up Source": "Credo Giveaway May 2018"
-            }
-        };
-        $.ajax(settings)
-        	.fail(function(jqXHR, textStatus, errorThrown){
-        		$('<small class="validation-error">Something went wrong. Perhaps you\'ve already subscribed to our list? <a href="/pages/support#contact">Contact us</a> for further assistance.</small>')
-        			.appendTo($form)
-        			.fadeIn()
-        			.css('display','block');
-        	})
-        	.done(function (response) {
-	            if( response.success ){
-	            	$form.hide();
-	            	$("#credo-subscribe-success").fadeIn();
-	            }
-	        });
-    });
-
-	/*
-	Skimm LP
-	 */
-
-	// things are flexed so we need a width on the disclaimer to left-align it with the code box
-	var syncSkimmDisclaimer = function(){
-		if( $(window).width() >= LS.desktopBreakpoint ){
-			$('#skimm-code-disclaimer').width($('#skimm-code').width());
-		}else{
-			$('#skimm-code-disclaimer').removeAttr('style');
-		}
-	}
-	if( $('#skimm-code').length ){
-		syncSkimmDisclaimer();
-		$(window).resize( syncSkimmDisclaimer );
-	}
+			var settings = {
+					"async": true,
+					"crossDomain": true,
+					"url": "https://manage.kmail-lists.com/subscriptions/external/subscribe",
+					"method": "POST",
+					"headers": {
+							"content-type": "application/x-www-form-urlencoded",
+							"cache-control": "no-cache"
+					},
+					"data": {
+							"g": "Kh3kFv", // KUBRaR main list
+							"$fields": "Sign Up Source, Country",
+							"email": $('#credo-email').val(),
+							"first_name": $('#credo-fname').val(),
+							"last_name": $('#credo-lname').val(),
+							"Sign Up Source": "Credo Giveaway May 2018"
+					}
+			};
+			$.ajax(settings)
+				.fail(function(jqXHR, textStatus, errorThrown){
+					$('<small class="validation-error">Something went wrong. Perhaps you\'ve already subscribed to our list? <a href="/pages/support#contact">Contact us</a> for further assistance.</small>')
+						.appendTo($form)
+						.fadeIn()
+						.css('display','block');
+				})
+				.done(function (response) {
+						if( response.success ){
+							$form.hide();
+							$("#credo-subscribe-success").fadeIn();
+						}
+				});
+	});
 
 	$('#zodiac-select').on('change', function(e){
 	    e.preventDefault();
@@ -1081,6 +1068,28 @@ $(document).ready(function() {
 				$(this).css('background-position','center ' + parseInt((ratio * 0.8)) + 'px');
 			}
 		})
-	})
+	});
+
+	$('.col-slider').slick({
+		centerMode: true,
+		centerPadding: '15px',
+		dots: true,
+		arrows: false,
+		variableWidth: true,
+		mobileFirst: true,
+		infinite: false,
+		responsive: [
+			{
+				breakpoint: LS.tabletBreakpoint - 1,
+				settings: "unslick"
+			}
+		]
+	});
+
+	$('.row-slider').slick({
+		dots: true,
+		arrows: false,
+		fade: true
+	});
 
 });

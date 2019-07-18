@@ -25,7 +25,7 @@ class ProductForm {
 
     this.updateProductID()
     this.bindContexts()
-    this.updateDynamicElements()
+    this.updateDynamicElements(false)
     this.scrollToYotpo()
     this.attachEventListeners()
     this.initSwatchCarousels()
@@ -43,15 +43,22 @@ class ProductForm {
     })
   }
 
-  updateDynamicElements () {
+  /**
+   * Updates UI when selections are made and on page load
+   *
+   * @param {Boolean} productChange Conditionally update items only when the product or variant changes
+   */
+  updateDynamicElements (productChange = true) {
     this.updatePrice()
     this.updateCta()
     this.updateLabels()
-    this.updateDataLayer()
     this.updateLowStockWarning()
     this.updateFinalSaleMessage()
     this.updateWaitlistMeta()
     this.updateProductDescription()
+    if (productChange) {
+      this.updateDataLayer()
+    }
   }
 
   /**
