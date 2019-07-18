@@ -30,15 +30,22 @@
           
           {% include 'pdp-swatches' %}
 
+          {% if parentCollection.metafields["global"]["compare-materials-snippet"] != blank %}
           <div class="form-row">
             <a href="#compare-materials" class="pdp-modal-trigger" id="compare-materials-trigger">Compare Materials</a>
           </div>
+          {% endif %}
 
           {% include 'pdp-variants' %}
 
-          <div class="form-row">
-            <a href="#size-fit-guide" class="pdp-modal-trigger" id="size-fit-trigger">Size & Fit Guide</a>
-          </div>
+          {% comment %} check to see if we have a snippet for this {% endcomment %}
+          {% capture fileName %}pdp-size-fit-{{ parentCollection.title | handleize | remove: 'the-' }}{% endcapture %}
+          {% capture sizeFitGuide %}{% include fileName %}{% endcapture %}
+          {% unless sizeFitGuide contains 'Liquid error' %}
+            <div class="form-row">
+              <a href="#size-fit-guide" class="pdp-modal-trigger" id="size-fit-trigger">Size & Fit Guide</a>
+            </div>
+          {% endunless %}
 
           <div class="form-actions">
             {% comment %} can add to cart {% endcomment %}
@@ -184,3 +191,14 @@
   var hiddenVariants = "{{ hiddenVariants }}";
   var variantStockData = {{ variantStockData }};
 </script>
+
+{% unless sizeFitGuide contains 'Liquid error' %}
+  <div class="pdp-modal" id="size-fit-guide">
+    <a href="#" class="panel-close"><span class="sr-only">close</span></a>
+    <div class="pdp-modal-content">
+      <div>
+      {{ sizeFitGuide }}
+      </div>
+    </div>
+  </div>
+{% endunless %}

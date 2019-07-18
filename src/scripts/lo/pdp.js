@@ -282,4 +282,16 @@ $(document).ready(function(){
     });
   }
 
+  /*
+  Modals
+  */
+  $('.pdp-modal-trigger').on('click', function(e){
+    e.preventDefault();
+    $($(this).attr('href')).addClass('active');
+  });
+  $('.pdp-modal .panel-close').on('click', function(e){
+    e.preventDefault();
+    $(this).closest('.pdp-modal').removeClass('active');
+  });
+
 });
