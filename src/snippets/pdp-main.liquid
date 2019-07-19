@@ -1,9 +1,5 @@
 {% include 'vars' %}
-
-{% comment %}
-  Note: pdp.js will show sale pricing, hide/show waitlist button, final sale messaging, etc.
-  UI is updated on page load so we don't have to duplicate all the variant metafield logic in here
-{% endcomment %}
+{% assign discoverPageHandle = parentCollection.metafields.global.discover_page %}
 
 {% comment %} grab the content for our more windows {% endcomment %}
 {% assign snippetSlug = parentCollection.title | handleize | remove: 'the-' %}
@@ -12,15 +8,20 @@
 {% capture fileName %}size-fit-{{ snippetSlug }}{% endcapture %}
 {% capture sizeFitGuide %}{% include fileName %}{% endcapture %}
 
+{% comment %}
+  Note: pdp.js will show sale pricing, hide/show waitlist button, final sale messaging, etc.
+  UI is updated on page load so we don't have to duplicate all the variant metafield logic in here
+{% endcomment %}
+
 <header class="pdp-header js-marque-push-down">
   <div class="container">
     <h1>{{ parentCollection.title }}</h1>
-    <a href="" class="btn btn-secondary">Discover</a>
+    {% unless discoverPageHandle == blank %}<a href="{{ pages[discoverPageHandle].url }}" class="btn btn-secondary">Discover</a>{% endunless %}
   </div>
 </header>
 <section class="product-main container">
   <div class="gallery-col">
-    {% include 'pdp-gallery' %}
+    {% include 'pdp-galleries' %}
   </div>
   <div class="form-col">
     <div class="form">
@@ -129,6 +130,16 @@
     <button class="panel-close"><span class="sr-only">close</span></button>
   </div>
 {% endunless %}
+
+{% include 'pdp-zoomed-galleries' %}
+
+{%- if parentCollection.metafields.global.video_embed_code -%}
+  {% assign embedCode = parentCollection.metafields.global.video_embed_code %}
+  <script>// <![CDATA[
+    var video1Embed = '{{ embedCode }}';
+    // ]]></script>
+  {% include 'video-modal' %}
+{%- endif -%}
 
 {%- capture siblingsJson -%}
   {

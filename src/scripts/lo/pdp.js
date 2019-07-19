@@ -301,5 +301,20 @@ $(document).ready(function(){
     dots: false,
     arrows: true
   });
+
+  $('.sibling-zoomed-gallery').slick({
+    dots: false,
+    arrows: true,
+    lazyLoad: 'ondemand',
+    fade: true
+  });
+
+  $('.zoomable').on('click', function(e){
+    e.preventDefault();
+    let slickInstance = $($(this).attr('href')).find('.sibling-zoomed-gallery');
+    let slideToShow = $(this).data('index');
+    slickInstance.slick('slickGoTo',slideToShow,true);
+  });
+
   
 });

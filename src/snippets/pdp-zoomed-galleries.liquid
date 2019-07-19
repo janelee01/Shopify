@@ -1,0 +1,20 @@
+
+{%- for siblingProduct in parentCollection.products -%}
+  {%- if siblingsList contains siblingProduct.id -%}
+  <div class="more-window negate-p" id="zoomed-gallery-{{ siblingProduct.id }}">
+    <div class="sibling-zoomed-gallery">
+        {% for image in siblingProduct.images %}
+          {%- unless image.alt contains 'swatch' -%}
+          <div class="item"><img data-lazy="{{ image | img_url: 'master' }}"></div>
+          {%- endunless -%}
+        {% endfor %}
+        {% if parentCollection.metafields.global.global_images %}
+          {% for image in parentCollection.metafields.global.global_images %}
+            <div class="item"><img data-lazy="{{ image }}"></div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    <button class="panel-close"><span class="sr-only">close</span></button>
+  </div>
+  {%- endif -%}
+{%- endfor -%}

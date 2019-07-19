@@ -83,10 +83,53 @@ body.product{
   &.active{
     display: flex;
   }
-  img{
+  .item{
     display: block;
     margin-bottom: 10px;
     width: calc(50% - 5px);
+    overflow: hidden;
+    position: relative;
+    &.video-trigger{
+      &:hover{
+        &::after{
+          opacity: .7;
+        }
+      }
+      &::after{
+        content: '';
+        width: 70px;
+        height: 70px;
+        background: url('icon-play-v2.svg') no-repeat center center;
+        background-size: cover;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 10;
+        transition: .3s ease-out;
+      }
+    }
+    &.zoomable{
+      &:hover{
+        &::before{
+          opacity: 1;
+        }
+      }
+      &::before{
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: url('icon-magnify.svg') center center no-repeat;
+        position: absolute;
+        opacity: 0;
+        top: 5px;
+        left: 5px;
+        transition: .3s ease-out;
+        z-index: 10;
+      }
+    }
   }
 }
 
@@ -158,27 +201,33 @@ body.product{
   }
 }
 
-.product-main .more-window-trigger{
+.form-col .more-window-trigger{
   font-size: 13px;
   color: $gray-darker;
   text-decoration: underline;
+  display: flex;
+  &:hover{
+    text-decoration: none;
+    opacity: .7;
+  }
   &::before{
     content: '';
     width: 20px;
-    height: 100%;
-    display: inline-block;
+    height: 20px;
+    display: block;
     background-repeat: no-repeat;
     background-position: left center;
+    margin-right: 10px;
   }
 }
 #materials-guide-trigger{
   &::before{
-    background-image: url("multiple.svg");
+    background-image: url('multiple.svg');
   }
 }
 #size-fit-trigger{
   &::before{
-    background-image: url("ruler.svg");
+    background-image: url('ruler.svg');
   }
 }
 
@@ -259,6 +308,39 @@ body.product{
   }
   img{
     display: block;
+  }
+}
+
+.sibling-zoomed-gallery{
+  img{
+    max-height: 90vh;
+    display: block;
+    margin: 5vh auto;
+  }
+  .slick-arrow{
+    @include resetButton;
+    position: absolute;
+    z-index: 10;
+    width: 30px;
+    height: 24px;
+    background: url('slide-next-gray.svg') no-repeat center center;
+    background-size: auto 100%;
+    text-indent: -999em;
+    top: 50%;
+    transform: translate3d(0, -50%, 0); // 3d fixes slides overlap
+    right: 10px;
+    padding: 0;
+    @media (min-width: $screen-sm) {
+      right: 40px;
+    }
+    &.slick-prev{
+      background-image: url('slide-prev-gray.svg');
+      right: auto;
+      left: 10px;
+      @media (min-width: $screen-sm) {
+        left: 40px;
+      }
+    }
   }
 }
 
