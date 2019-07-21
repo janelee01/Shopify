@@ -16,7 +16,7 @@ concat([
   // `${base}/jquery.film_roll.js`,
   `${base}/jquery.zoom.min.js`,
   `${base}/slick.min.js`,
-  // `${base}/bodyScrollLock.min.js`,
+  `${base}/bodyScrollLock.min.js`,
   `${base}/jquery.debounce.min.js`,
   `${base}/scrolla.js`
 ], './src/assets/vendors.min.js')

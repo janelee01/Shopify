@@ -20,7 +20,7 @@
   </div>
 </header>
 <section class="product-main container">
-  <div class="gallery-col fw-xs">
+  <div class="gallery-col fw-xs fw-sm">
     {% include 'pdp-galleries' %}
   </div>
   <div class="form-col">
@@ -90,7 +90,7 @@
 <section class="product-secondary">
   <div class="container">
     <div class="row">
-      <div class="col-md-5">
+      <div class="col-sm-5">
         <div id="product-description" class="fw-xs">
           {{ product.description }}
           {%- if parentCollection.metafields["global"]["product-video"] -%}
@@ -98,7 +98,7 @@
           {%- endif -%}
         </div>
       </div>
-      <div class="col-md-5 col-md-offset-2">
+      <div class="col-sm-7 col-md-5 col-md-offset-2">
         {% comment %} smart collection metafields {% endcomment %}
         {% assign blocks = "Overview|Device Compatibility|Size & Weight|Materials|Care Instructions" | split: '|'%}
         {% for block in blocks %}

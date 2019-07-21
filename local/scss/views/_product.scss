@@ -58,10 +58,14 @@ body.product{
   }
   .form-col{
     padding-top: $pdp-spacing-xs;
+    @media (min-width: $screen-sm) {
+      width: 50%;
+    }
     @media (min-width: $screen-md) {
       padding-top: 0;
       padding-left: 50px;
       min-width: 444px;
+      width: auto;
     }
     .final-sale-warning,
     .low-stock-warning{
@@ -198,14 +202,14 @@ body.product{
 
 #swatch-groups{
   padding: 0 $pdp-spacing-xs;
-  @media (min-width: $screen-md) {
+  @media (min-width: $screen-sm) {
     padding: 0;
   }
   &.ready{ // added by js
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     display: flex;
-    @media (min-width: $screen-md) {
+    @media (min-width: $screen-sm) {
       display: block;
       overflow-x: initial;
       &::after{
@@ -252,7 +256,7 @@ body.product{
   height: 4px;
   border-radius: 2px;
   position: relative;
-  @media (min-width: $screen-md) {
+  @media (min-width: $screen-sm) {
     display: none;
   }
   div{
@@ -403,17 +407,20 @@ body.product{
   .item{
     height: 100%;
   }
-  .item{
+  .item{ // align the whole zoom window
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .zoom-window{
-    height: 90vh;
+  .zoom-window{ // align the image inside it when the window is taller than wide
+    height: 100vh;
     width: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    @media (min-width: $screen-md) {
+      height: 90vh;
+    }
   }
   img{
     display: block;
@@ -567,7 +574,7 @@ body.product{
 
 .product-secondary{
   color: $gray;
-  @media (min-width: $screen-md) {
+  @media (min-width: $screen-sm) {
     padding: $pdp-spacing-md 0;
     background: $gray-lightest;
   }
@@ -577,11 +584,13 @@ body.product{
   padding: $pdp-spacing-xs;
   background: $gray-lightest;
   line-height: 1.6;
-  @media (min-width: $screen-md) {
-    font-size: 24px;
+  @media (min-width: $screen-sm) {
     padding: 0;
     background: none;
     color: inherit;
+  }
+  @media (min-width: $screen-md) {
+    font-size: 24px;
   }
   .video-trigger{
     font-size: 13px;
@@ -615,6 +624,11 @@ body.product{
 
 .pdp-expandable{
   border-bottom: solid 1px #E5E5E5;
+  &:first-child{
+    button{
+      padding-top: 0;
+    }
+  }
   button{
     @include resetButton;
     padding: 20px 0;
