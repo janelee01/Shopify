@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="39px" height="38px" viewBox="0 0 39 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Waverley2-desktop" transform="translate(-1160.000000, -4929.000000)">
+            <g id="SECTION-3" transform="translate(0.000000, 4410.000000)">
+                <g id="Play-Button" transform="translate(1161.761905, 520.357143)">
+                    <circle id="Oval" stroke="#111111" stroke-width="2.21428571" cx="17.7142857" cy="17.7142857" r="17.7142857"></circle>
+                    <polygon id="Triangle" fill="#111111" transform="translate(19.375000, 18.267857) rotate(-270.000000) translate(-19.375000, -18.267857) " points="19.375 13.2857143 24.3571429 23.25 14.3928571 23.25"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

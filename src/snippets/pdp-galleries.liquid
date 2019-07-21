@@ -12,17 +12,18 @@
       {%- endunless -%}
     {% endfor %}
 
-    {% if parentCollection.metafields.global.global_images %}
-      {% for image in parentCollection.metafields.global.global_images %}
+    {% if parentCollection.metafields["global"]["collection-images"] %}
+      {% assign images = parentCollection.metafields["global"]["collection-images"] | split: ',' %}
+      {% for image in images %}
         <a class="item zoomable more-window-trigger" href="#zoomed-gallery-{{ siblingProduct.id }}" data-index="{{ forloop.index0 | plus: siblingImageCount }}">
           {{ image | img_tag }}
         </a>
       {% endfor %}
     {% endif %}
 
-    {%- if parentCollection.metafields.global.video_embed_code -%}
-      <a class="item video-trigger" href="#">
-        {{ parentCollection.metafields.global.video_thumb | img_tag: 'play product video' }}
+    {%- if parentCollection.metafields["global"]["product-video"] -%}
+      <a class="item video-trigger" data-video-id="1" href="#">
+        {{ parentCollection.metafields["global"]["product-video-thumb"] | img_tag: 'play product video', '', '343x' }}
       </a>
     {%- endif -%}
 

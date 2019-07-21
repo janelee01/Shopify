@@ -8,8 +8,9 @@
           <div class="item"><img data-lazy="{{ image | img_url: 'master' }}"></div>
           {%- endunless -%}
         {% endfor %}
-        {% if parentCollection.metafields.global.global_images %}
-          {% for image in parentCollection.metafields.global.global_images %}
+        {% if parentCollection.metafields["global"]["collection-images"] %}
+          {% assign images = parentCollection.metafields["global"]["collection-images"] | split: ',' %}
+          {% for image in images %}
             <div class="item"><img data-lazy="{{ image }}"></div>
           {% endfor %}
         {% endif %}

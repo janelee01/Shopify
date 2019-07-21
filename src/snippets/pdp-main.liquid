@@ -1,5 +1,5 @@
 {% include 'vars' %}
-{% assign discoverPageHandle = parentCollection.metafields.global.discover_page %}
+{% assign discoverPageHandle = parentCollection.metafields["global"]["discover-page-handle"] %}
 
 {% comment %} grab the content for our more windows {% endcomment %}
 {% assign snippetSlug = parentCollection.title | handleize | remove: 'the-' %}
@@ -20,7 +20,7 @@
   </div>
 </header>
 <section class="product-main container">
-  <div class="gallery-col">
+  <div class="gallery-col fw-xs">
     {% include 'pdp-galleries' %}
   </div>
   <div class="form-col">
@@ -90,10 +90,15 @@
 <section class="product-secondary">
   <div class="container">
     <div class="row">
-      <div class="col-md-4 col-md-offset-1">
-        <div id="product-description">{{ product.description }}</div>
+      <div class="col-md-5">
+        <div id="product-description" class="fw-xs">
+          {{ product.description }}
+          {%- if parentCollection.metafields["global"]["product-video"] -%}
+            <a class="video-trigger" data-video-id="1" href="#">Play Video</a>
+          {%- endif -%}
+        </div>
       </div>
-      <div class="col-md-5 col-md-offset-1">
+      <div class="col-md-5 col-md-offset-2">
         {% comment %} smart collection metafields {% endcomment %}
         {% assign blocks = "Overview|Device Compatibility|Size & Weight|Materials|Care Instructions" | split: '|'%}
         {% for block in blocks %}
@@ -133,8 +138,8 @@
 
 {% include 'pdp-zoomed-galleries' %}
 
-{%- if parentCollection.metafields.global.video_embed_code -%}
-  {% assign embedCode = parentCollection.metafields.global.video_embed_code %}
+{%- if parentCollection.metafields["global"]["product-video"] -%}
+  {% assign embedCode = parentCollection.metafields["global"]["product-video"] | remove: '<p>' | remove: '</p>' %}
   <script>// <![CDATA[
     var video1Embed = '{{ embedCode }}';
     // ]]></script>

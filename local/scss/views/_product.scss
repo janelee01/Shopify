@@ -1,3 +1,4 @@
+$pdp-spacing-xs: $grid-gutter-width;
 $pdp-spacing-md: 55px;
 
 body.product{
@@ -9,25 +10,34 @@ body.product{
 .pdp-header{
   background: #fff;
   border-top: solid 1px $gray-lighter;
-  border-bottom: solid 1px $gray-lighter;
   padding: 15px 0;
   position: fixed;
-  top: 64px;
+  top: 59px;
   left: 0;
   width: 100%;
   transition: all .25s ease-out;
   z-index: 9000;
+  height: 73px;
+  @media (min-width: $screen-md) {
+    top: 64px;
+    border-bottom: solid 1px $gray-lighter;
+    height: auto;
+  }
   .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
     &::before, &::after{
       display: none;
     }
     h1{
-      font-size: 28px;
+      font-size: 18px;
       font-family: $font-family-medium; 
       margin: 0;
+      @media (min-width: $screen-md) {
+        font-size: 28px;
+      }
     }
     .btn-secondary{
       border-color: #E5E5E5;
@@ -36,14 +46,20 @@ body.product{
   }
 }
 .product-main{
-  display: flex;
-  padding-top: 137px; // pdp-header height + $pdp-spacing-md
-  padding-bottom: $pdp-spacing-md;
+  padding-top: 73px; // pdp-header height + $pdp-spacing-xs
+  padding-bottom: $pdp-spacing-xs;
+  @media (min-width: $screen-md) {
+    display: flex;
+    padding-top: 137px; // pdp-header height + $pdp-spacing-md
+    padding-bottom: $pdp-spacing-md;
+  }
   .gallery-col{
     flex: 1 1 auto;
   }
   .form-col{
+    padding-top: $pdp-spacing-xs;
     @media (min-width: $screen-md) {
+      padding-top: 0;
       padding-left: 50px;
       min-width: 444px;
     }
@@ -56,8 +72,10 @@ body.product{
     }
   }
   .form{
-    position: sticky;
-    top: 180px;
+    @media (min-width: $screen-md) {
+      position: sticky;
+      top: 180px;
+    }
   }
   .form-row{
     margin-bottom: 15px;
@@ -65,6 +83,10 @@ body.product{
       .group-name{
         font-size: 13px;
         margin-bottom: 7px;
+        display: inline-block; // so js can get its actual width
+        @media (min-width: $screen-md) {
+          display: block;
+        }
       }
     }
     label{
@@ -77,19 +99,34 @@ body.product{
 }
 
 .sibling-image-set{
-  flex-wrap: wrap;
-  justify-content: space-between;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  @media (min-width: $screen-md) {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow-x: initial;
+  }
   display: none;
   &.active{
     display: flex;
   }
   .item{
     display: block;
-    margin-bottom: 10px;
-    width: calc(50% - 5px);
+    min-width: 300px;
+    width: 300px;
     overflow: hidden;
     position: relative;
+    margin-right: 10px;
+    @media (min-width: $screen-md) {
+      margin-right: 0;
+      margin-bottom: 10px;
+      width: calc(50% - 5px);
+      min-width: none;
+    }
     &.video-trigger{
+      @media (max-width: $screen-sm-max) {
+        display: none;
+      }
       &:hover{
         &::after{
           opacity: .7;
@@ -107,13 +144,15 @@ body.product{
         left: 50%;
         transform: translate(-50%,-50%);
         z-index: 10;
-        transition: .3s ease-out;
+        
       }
     }
     &.zoomable{
-      &:hover{
-        &::before{
-          opacity: 1;
+      @media (min-width: $screen-md) {
+        &:hover{
+          &::before{
+            opacity: 1;
+          }
         }
       }
       &::before{
@@ -123,11 +162,13 @@ body.product{
         height: 20px;
         background: url('icon-magnify.svg') center center no-repeat;
         position: absolute;
-        opacity: 0;
-        top: 5px;
-        left: 5px;
+        bottom: 5px;
+        right: 5px;
         transition: .3s ease-out;
         z-index: 10;
+        @media (min-width: $screen-md) {
+          opacity: 0;
+        }
       }
     }
   }
@@ -155,6 +196,33 @@ body.product{
   font-family: $font-family-medium;
 }
 
+#swatch-groups{
+  padding: 0 $pdp-spacing-xs;
+  @media (min-width: $screen-md) {
+    padding: 0;
+  }
+  &.ready{ // added by js
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    @media (min-width: $screen-md) {
+      display: block;
+      overflow-x: initial;
+      &::after{
+        display: none;
+      }
+    }
+  }
+  &::after{ // so the last group has a right margin
+    content: '';
+    min-width: 1px;
+    display: block;
+  }
+  .swatch-group{
+    margin-right: $grid-gutter-width;
+    // js will set the width so the color don't collapse into rows
+  }
+}
 .swatches{
   @include resetList;
   display: flex;
@@ -177,6 +245,23 @@ body.product{
   img{
     border-radius: 50%;
     display: block;
+  }
+}
+#swatch-groups-scrollbar{
+  background: $gray-lightest;
+  height: 4px;
+  border-radius: 2px;
+  position: relative;
+  @media (min-width: $screen-md) {
+    display: none;
+  }
+  div{
+    background: $gray-lighter;
+    height: 4px;
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
 
@@ -462,12 +547,44 @@ body.product{
 }
 
 .product-secondary{
-  background: $gray-lightest;
-  padding: $pdp-spacing-md 0;
   color: $gray;
+  @media (min-width: $screen-md) {
+    padding: $pdp-spacing-md 0;
+    background: $gray-lightest;
+  }
 }
 #product-description{
-  font-size: 24px;
+  color: $gray-darker;
+  padding: $pdp-spacing-xs;
+  background: $gray-lightest;
+  line-height: 1.6;
+  @media (min-width: $screen-md) {
+    font-size: 24px;
+    padding: 0;
+    background: none;
+    color: inherit;
+  }
+  .video-trigger{
+    font-size: 13px;
+    text-decoration: underline;
+    color: $gray-darker;
+    display: flex;
+    width: auto;
+    margin-top: 1em;
+    @media (min-width: $screen-md) {
+      display: none;
+    }
+    &::before{
+      content: '';
+      width: 20px;
+      height: 20px;
+      display: block;
+      background: url('icon-play-v2-black.svg') no-repeat left center;
+      background-size: cover;
+      margin-right: 10px;
+    }
+
+  }
 }
 .pdp-reviews{
   padding: $pdp-spacing-md 0;
@@ -481,18 +598,22 @@ body.product{
   border-bottom: solid 1px #E5E5E5;
   button{
     @include resetButton;
-    padding: 15px 0;
+    padding: 20px 0;
     color: $gray-darker;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1;
     font-family: $font-family-medium;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    &:hover{
-      svg path{
-        fill: $brand-blue;
+    @media (min-width: $screen-md) {
+      font-size: 20px;
+      padding: 15px 0;
+      &:hover{
+        svg path{
+          fill: $brand-blue;
+        }
       }
     }
     &.active{

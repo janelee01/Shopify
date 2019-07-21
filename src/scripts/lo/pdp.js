@@ -238,6 +238,7 @@ $(document).ready(function(){
       updateCta(variantId);
       updateLowStockWarning(variantId);
       updateFinalSaleMessage(variantId);
+      updateWaitlistMeta();
     };
 
     // doing this on page load so we don't duplicate logic in the template
@@ -295,26 +296,67 @@ $(document).ready(function(){
       $(this).closest('.pdp-modal').removeClass('active');
     });
 
-  }
+    $('.size-fit-slider .slides').slick({
+      dots: false,
+      arrows: true
+    });
 
-  $('.size-fit-slider .slides').slick({
-    dots: false,
-    arrows: true
-  });
+    $('.sibling-zoomed-gallery').slick({
+      dots: false,
+      arrows: true,
+      lazyLoad: 'ondemand',
+      fade: true
+    });
 
-  $('.sibling-zoomed-gallery').slick({
-    dots: false,
-    arrows: true,
-    lazyLoad: 'ondemand',
-    fade: true
-  });
+    $('.zoomable').on('click', function(e){
+      e.preventDefault();
+      let slickInstance = $($(this).attr('href')).find('.sibling-zoomed-gallery');
+      let slideToShow = $(this).data('index');
+      slickInstance.slick('slickGoTo',slideToShow,true);
+    });
 
-  $('.zoomable').on('click', function(e){
-    e.preventDefault();
-    let slickInstance = $($(this).attr('href')).find('.sibling-zoomed-gallery');
-    let slideToShow = $(this).data('index');
-    slickInstance.slick('slickGoTo',slideToShow,true);
-  });
+    /*
+    Mobile swatch scrolling
+    */
+    const $swatchGroups = $('#swatch-groups');
+    // $swatchGroups gets flexed, so each group needs a min-width to avoid collapsing and to trigger side scrolling
+    $('.swatches').each(function(){
+      let $group = $(this).closest('.swatch-group');
+      let swatchTotalWidth = Number($(this).find('li').outerWidth()) + Number($(this).find('li').css('margin-right').replace('px',''));
+      let swatchesWidth = $(this).find('li').length * swatchTotalWidth;
+      let swatchLabelWidth = Number($(this).prev('.group-name').outerWidth()) + 1; // text can have fractional widths so bump the result by 1px to prevent wrapping
+      if (swatchesWidth > swatchLabelWidth){
+        $group.css('min-width', swatchesWidth);
+      }else{
+        $group.css('min-width', swatchLabelWidth);
+      }
+    });
+    // trigger the flex display after calculations above have run;
+    $swatchGroups.addClass('ready');
+    // do we have sidescrolling?
+    let swatchGroupsWidth = Number($swatchGroups.css('padding-left').replace('px',''));
+    $('.swatch-group').each(function(){
+      swatchGroupsWidth += Number($(this).outerWidth()) + Number($(this).css('margin-right').replace('px',''));
+    });
+    // gonna need to scroll
+    if( swatchGroupsWidth > $(window).outerWidth() ){
+      // how many pixels are we hanging off the side
+      let amountToScroll = swatchGroupsWidth - $(window).outerWidth();
+      // let the indicator size represent how many groups we have
+      let indicatorWidth = Number(100/$('.swatch-group').length).toPrecision(2);
+      // inject the bar
+      $('<div class="form-row" id="swatch-groups-scrollbar"><div id="position-indicator" style="width:' + indicatorWidth + '%"></div></div>').insertAfter($swatchGroups);
+      $swatchGroups.on('scroll', function(){
+        // of the distance we need to scroll, how far have we gone?
+        let percentScrolled = $swatchGroups.scrollLeft()/amountToScroll * 100;
+        // we can't move the indicator 1:1 with the scroll amount, otherwise its left edge would be at 100% of the width
+        // so, move it a percentage of the percentage moved to accomodate its width
+        // Example: if the indicator is 33% wide, then it can only move 66% of the bar area, so at 100% of the percent scrolled, the indicator should be at 66%;
+        let modifier = (100 - indicatorWidth) / 100;
+        $('#position-indicator').css('left', percentScrolled * modifier + '%');
+      });
+    }
 
+  }// end if PDP
   
 });
