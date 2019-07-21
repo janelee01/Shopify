@@ -303,19 +303,6 @@ $(document).ready(function() {
 		$('body').addClass('has-page-nav');
 	}
 
-  	// swipable bs carousels
-  	$(".carousel").swipe({
-  		allowPageScroll:"auto",
-  		threshold: 40,
-  		excludedElements: "label, button, input, select, textarea, .noSwipe",
-  		swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
-          	$(this).carousel('next');
-          },
-  		swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
-          	$(this).carousel('prev');
-          }
-  	});
-
 	/*
 		Floating form labels
 	 */

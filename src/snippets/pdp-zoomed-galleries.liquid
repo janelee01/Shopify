@@ -5,13 +5,17 @@
     <div class="sibling-zoomed-gallery">
         {% for image in siblingProduct.images %}
           {%- unless image.alt contains 'swatch' -%}
-          <div class="item"><img data-lazy="{{ image | img_url: 'master' }}"></div>
+          <div class="item">
+            <div class="zoom-window"><img class="unzoomed" data-lazy="{{ image | img_url: 'master' }}"></div>
+          </div>
           {%- endunless -%}
         {% endfor %}
         {% if parentCollection.metafields["global"]["collection-images"] %}
           {% assign images = parentCollection.metafields["global"]["collection-images"] | split: ',' %}
           {% for image in images %}
-            <div class="item"><img data-lazy="{{ image }}"></div>
+            <div class="item">
+              <div class="zoom-window"><img class="unzoomed" data-lazy="{{ image }}"></div>
+            </div>
           {% endfor %}
         {% endif %}
       </div>

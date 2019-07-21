@@ -121,7 +121,7 @@ body.product{
       margin-right: 0;
       margin-bottom: 10px;
       width: calc(50% - 5px);
-      min-width: none;
+      min-width: unset;
     }
     &.video-trigger{
       @media (max-width: $screen-sm-max) {
@@ -397,10 +397,29 @@ body.product{
 }
 
 .sibling-zoomed-gallery{
+  height: 100vh;
+  .slick-list,
+  .slick-track,
+  .item{
+    height: 100%;
+  }
+  .item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .zoom-window{
+    height: 90vh;
+    width: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   img{
-    max-height: 90vh;
     display: block;
-    margin: 5vh auto;
+    &.unzoomed{
+      margin: 0 auto;
+    }
   }
   .slick-arrow{
     @include resetButton;

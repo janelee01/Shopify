@@ -314,6 +314,12 @@ $(document).ready(function(){
       let slideToShow = $(this).data('index');
       slickInstance.slick('slickGoTo',slideToShow,true);
     });
+    $('.sibling-zoomed-gallery').find('.zoom-window').each(function(){
+      $(this).zoom({
+        url: $(this).find('img').data('lazy'),
+        on: 'mouseover'
+      });
+    });
 
     /*
     Mobile swatch scrolling
