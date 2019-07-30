@@ -1,6 +1,9 @@
 $(document).ready(function(){
   if( $('body').hasClass('product') ){
 
+    // move the pdp header to the main header so it can slide in sync with it
+    $('.pdp-header').detach().appendTo('#site-header'); 
+
     const $variantInput = $('#variant-selector');
     const $variantButtons = $('.variants');
     const $swatches = $('.swatch');
@@ -322,8 +325,7 @@ $(document).ready(function(){
     });
 
     /*
-    Mobile swatch scrolling
-    */
+    Mobile swatch scrolling - initially planned for, then bailed. leaving this around in case they want to revisit because this took a while to figure out
     const $swatchGroups = $('#swatch-groups');
     // $swatchGroups gets flexed, so each group needs a min-width to avoid collapsing and to trigger side scrolling
     $('.swatches').each(function(){
@@ -362,6 +364,7 @@ $(document).ready(function(){
         $('#position-indicator').css('left', percentScrolled * modifier + '%');
       });
     }
+    */
 
   }// end if PDP
   

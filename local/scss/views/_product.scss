@@ -2,26 +2,23 @@ $pdp-spacing-xs: $grid-gutter-width;
 $pdp-spacing-md: 55px;
 
 body.product{
-  #site-header-items {
-    border-bottom: 1px solid $gray-lighter;
+  #site-header.after-scroll .pdp-header {
+    border-top-color: #fff;
+    border-bottom-color: $gray-lighter;
   }
 }
 
 .pdp-header{
   background: #fff;
-  border-top: solid 1px $gray-lighter;
   padding: 15px 0;
-  position: fixed;
-  top: 59px;
-  left: 0;
-  width: 100%;
-  transition: all .25s ease-out;
   z-index: 9000;
   height: 73px;
+  border-top: solid 1px $gray-lighter;
+  border-bottom: solid 1px #fff;
+  transition: all .25s ease-out;
   @media (min-width: $screen-md) {
-    top: 64px;
-    border-bottom: solid 1px $gray-lighter;
     height: auto;
+    border-bottom-color: $gray-lighter;
   }
   .container{
     display: flex;
@@ -40,7 +37,7 @@ body.product{
       }
     }
     .btn-secondary{
-      border-color: #E5E5E5;
+      border-color: $gray-lighter;
       font-size: 13px;
     }
   }
@@ -87,10 +84,12 @@ body.product{
       .group-name{
         font-size: 13px;
         margin-bottom: 7px;
+        /* side scrolling swatches 
         display: inline-block; // so js can get its actual width
         @media (min-width: $screen-md) {
           display: block;
         }
+        */
       }
     }
     label{
@@ -205,6 +204,7 @@ body.product{
   @media (min-width: $screen-sm) {
     padding: 0;
   }
+  /* side scrolling swatches 
   &.ready{ // added by js
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
@@ -226,6 +226,7 @@ body.product{
     margin-right: $grid-gutter-width;
     // js will set the width so the color don't collapse into rows
   }
+  */
 }
 .swatches{
   @include resetList;
@@ -251,6 +252,7 @@ body.product{
     display: block;
   }
 }
+/* side scrolling swatches 
 #swatch-groups-scrollbar{
   background: $gray-lightest;
   height: 4px;
@@ -268,6 +270,7 @@ body.product{
     left: 0;
   }
 }
+*/
 
 .variants{
   display: flex;
@@ -626,7 +629,9 @@ body.product{
   border-bottom: solid 1px #E5E5E5;
   &:first-child{
     button{
-      padding-top: 0;
+      @media (min-width: $screen-sm) {
+        padding-top: 0; 
+      }
     }
   }
   button{

@@ -13,7 +13,7 @@
   UI is updated on page load so we don't have to duplicate all the variant metafield logic in here
 {% endcomment %}
 
-<header class="pdp-header js-marque-push-down">
+<header class="pdp-header">
   <div class="container">
     <h1>{{ parentCollection.title }}</h1>
     {% unless discoverPageHandle == blank %}<a href="{{ pages[discoverPageHandle].url }}" class="btn btn-secondary">Discover</a>{% endunless %}
