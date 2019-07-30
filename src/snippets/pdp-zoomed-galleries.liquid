@@ -1,25 +1,41 @@
-
-{%- for siblingProduct in parentCollection.products -%}
-  {%- if siblingsList contains siblingProduct.id -%}
-  <div class="more-window negate-p" id="zoomed-gallery-{{ siblingProduct.id }}">
-    <div class="sibling-zoomed-gallery">
+{% comment %} Root element of PhotoSwipe. Must have class pswp. {% endcomment %}
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" id="zoomed-gallery">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+    </div>
+    <button class="panel-close"><span class="sr-only">close</span></button>
+</div>
+<script>
+  var zoomItemsData = [];
+  {%- for siblingProduct in parentCollection.products -%}
+    {%- if siblingsList contains siblingProduct.id -%}
+      zoomItemsData[{{ siblingProduct.id }}] = [
         {% for image in siblingProduct.images %}
           {%- unless image.alt contains 'swatch' -%}
-          <div class="item">
-            <div class="zoom-window"><img class="unzoomed" data-lazy="{{ image | img_url: 'master' }}"></div>
-          </div>
+          {
+            src: "{{ image | img_url: 'master' }}",
+            msrc: "{{ image | img_url: '343x' }}",
+            w: {{ image.width }},
+            h: {{ image.height }},
+          },
           {%- endunless -%}
         {% endfor %}
         {% if parentCollection.metafields["global"]["collection-images"] %}
           {% assign images = parentCollection.metafields["global"]["collection-images"] | split: ',' %}
           {% for image in images %}
-            <div class="item">
-              <div class="zoom-window"><img class="unzoomed" data-lazy="{{ image }}"></div>
-            </div>
+          {
+            src: "{{ image }}",
+            w: 1500,
+            h: 1500,
+          },
           {% endfor %}
         {% endif %}
-      </div>
-    <button class="panel-close"><span class="sr-only">close</span></button>
-  </div>
-  {%- endif -%}
-{%- endfor -%}
+      ];
+    {%- endif -%}
+  {%- endfor -%}
+</script>

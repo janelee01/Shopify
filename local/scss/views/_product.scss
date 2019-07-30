@@ -696,3 +696,10 @@ body.product{
     }
   }
 }
+
+#zoomed-gallery{
+  z-index: 9010;
+  .pswp__bg{
+    background: #fff;
+  }
+}

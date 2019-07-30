@@ -14,7 +14,7 @@ concat([
   `${base}/jquery.cookie.js`,
   // `${base}/jquery.touchSwipe.min.js`,
   // `${base}/jquery.film_roll.js`,
-  `${base}/jquery.zoom.min.js`,
+  `${base}/photoswipe.min.js`,
   `${base}/slick.min.js`,
   `${base}/bodyScrollLock.min.js`,
   `${base}/jquery.debounce.min.js`,

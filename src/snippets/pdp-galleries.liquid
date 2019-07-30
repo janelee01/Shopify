@@ -5,7 +5,7 @@
     {% assign siblingImageCount = 0 %}
     {% for image in siblingProduct.images %}
       {%- unless image.alt contains 'swatch' -%}
-      <a class="item zoomable more-window-trigger" href="#zoomed-gallery-{{ siblingProduct.id }}" data-index="{{ forloop.index0 }}">
+      <a class="item zoomable more-window-trigger" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-index="{{ forloop.index0 }}">
         {{ image | img_tag: image.alt, '', '343x' }}
       </a>
       {% assign siblingImageCount = siblingImageCount | plus: 1 %}
@@ -15,7 +15,7 @@
     {% if parentCollection.metafields["global"]["collection-images"] %}
       {% assign images = parentCollection.metafields["global"]["collection-images"] | split: ',' %}
       {% for image in images %}
-        <a class="item zoomable more-window-trigger" href="#zoomed-gallery-{{ siblingProduct.id }}" data-index="{{ forloop.index0 | plus: siblingImageCount }}">
+        <a class="item zoomable more-window-trigger" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-index="{{ forloop.index0 | plus: siblingImageCount }}">
           {{ image | img_tag }}
         </a>
       {% endfor %}

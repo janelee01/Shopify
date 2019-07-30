@@ -304,25 +304,41 @@ $(document).ready(function(){
       arrows: true
     });
 
-    $('.sibling-zoomed-gallery').slick({
-      dots: false,
-      arrows: true,
-      lazyLoad: 'ondemand',
-      fade: true
-    });
+    let activeGallery = null;
 
     $('.zoomable').on('click', function(e){
       e.preventDefault();
-      let slickInstance = $($(this).attr('href')).find('.sibling-zoomed-gallery');
-      let slideToShow = $(this).data('index');
-      slickInstance.slick('slickGoTo',slideToShow,true);
+      let pswpElement = $('.pswp')[0];
+      let items = zoomItemsData[$(this).data('gallery-id')];
+      var options = {
+        showHideOpacity: true,
+        showAnimationDuration: 500,
+        loop: true,
+        history: false,
+        closeOnVerticalDrag: false,
+        allowPanToNext: false,
+        pinchToClose: false,
+        closeEl: true,
+        captionEl: false,
+        fullscreenEl: false,
+        zoomEl: false,
+        shareEl: false,
+        counterEl: false,
+        arrowEl: true,
+        preloaderEl: false,
+        tapToToggleControls: false,
+        index: $(this).data('index')
+      }
+      var gallery = new PhotoSwipe( pswpElement, false, items, options);
+      gallery.init();
+      activeGallery = gallery;
     });
-    $('.sibling-zoomed-gallery').find('.zoom-window').each(function(){
-      $(this).zoom({
-        url: $(this).find('img').data('lazy'),
-        on: 'mouseover'
-      });
+
+    $('#zoomed-gallery .panel-close').on('click', function(e){
+      e.preventDefault();
+      activeGallery.close();
     });
+    
 
     /*
     Mobile swatch scrolling - initially planned for, then bailed. leaving this around in case they want to revisit because this took a while to figure out
