@@ -5,8 +5,12 @@
     {% assign siblingImageCount = 0 %}
     {% for image in siblingProduct.images %}
       {%- unless image.alt contains 'swatch' -%}
-      <a class="item zoomable more-window-trigger" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-index="{{ forloop.index0 }}">
-        {{ image | img_tag: image.alt, '', '343x' }}
+      <a class="item zoomable" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-index="{{ forloop.index0 }}">
+        {% if siblingProduct.id == product.id %}
+          {{ image | img_tag: image.alt, '', '343x' }}
+        {% else %}
+          <img src="//:0" class="lazy" width="343" data-lazy="{{ image | img_url: '343x' }}" alt="{{ image.alt }}">
+        {% endif %}
       </a>
       {% assign siblingImageCount = siblingImageCount | plus: 1 %}
       {%- endunless -%}
@@ -15,8 +19,8 @@
     {% if parentCollection.metafields["global"]["collection-images"] %}
       {% assign images = parentCollection.metafields["global"]["collection-images"] | split: ',' %}
       {% for image in images %}
-        <a class="item zoomable more-window-trigger" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-index="{{ forloop.index0 | plus: siblingImageCount }}">
-          {{ image | img_tag }}
+        <a class="item zoomable" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-index="{{ forloop.index0 | plus: siblingImageCount }}">
+          <img src="//:0" class="lazy" width="343" data-lazy="{{ image }}" alt="">
         </a>
       {% endfor %}
     {% endif %}
@@ -26,7 +30,65 @@
         {{ parentCollection.metafields["global"]["product-video-thumb"] | img_tag: 'play product video', '', '343x' }}
       </a>
     {%- endif -%}
+    {%- if parentCollection.metafields["global"]["product-video-2"] -%}
+      <a class="item video-trigger" data-video-id="2" href="#">
+        {{ parentCollection.metafields["global"]["product-video-2-thumb"] | img_tag: 'play second product video', '', '343x' }}
+      </a>
+    {%- endif -%}
 
   </div>
   {%- endif -%}
 {%- endfor -%}
+
+{% comment %} Root element of PhotoSwipe. Must have class pswp. {% endcomment %}
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" id="zoomed-gallery">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+      {% comment %} has to be here or zooming breaks {% endcomment %}
+      <div class="pswp__ui pswp__ui--hidden">
+        <div class="pswp__top-bar"></div>
+      </div>
+    </div>
+    <button class="panel-close"><span class="sr-only">close</span></button>
+    <button class="arrow next"><span class="sr-only">next</span></button>
+    <button class="arrow prev"><span class="sr-only">previous</span></button>
+</div>
+{% comment %} Photoswipe data, easier to read outside of the script tag below {% endcomment %}
+{% capture pswpData %}
+  var pswpData = {
+  {%- for siblingProduct in parentCollection.products -%}
+    {%- if siblingsList contains siblingProduct.id -%}
+      {{ siblingProduct.id }} : [
+        {%- for image in siblingProduct.images -%}
+          {%- unless image.alt contains 'swatch' -%}
+          {
+            src: "{{ image | img_url: 'master' }}",
+            msrc: "{{ image | img_url: '343x' }}",
+            w: {{ image.width }},
+            h: {{ image.height }},
+          },
+          {%- endunless -%}
+        {%- endfor -%}
+        {%- if parentCollection.metafields["global"]["collection-images"] -%}
+          {%- assign images = parentCollection.metafields["global"]["collection-images"] | split: ',' -%}
+          {%- for image in images -%}
+          {
+            src: "{{ image }}",
+            w: 1500,
+            h: 1500,
+          },
+          {%- endfor -%}
+        {%- endif -%}
+      ],
+    {%- endif -%}
+  {%- endfor -%}
+  };
+{% endcapture %}
+<script>
+  {{ pswpData }}
+</script>

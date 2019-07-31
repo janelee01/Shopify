@@ -92,7 +92,7 @@
     <div class="row">
       <div class="col-sm-5">
         <div id="product-description" class="fw-xs">
-          {{ product.description }}
+          {{ parentCollection.description }}
           {%- if parentCollection.metafields["global"]["product-video"] -%}
             <a class="video-trigger" data-video-id="1" href="#">Play Video</a>
           {%- endif -%}
@@ -136,14 +136,23 @@
   </div>
 {% endunless %}
 
-{% include 'pdp-zoomed-galleries' %}
-
+{%- assign embedCode = nil -%}
+{%- assign embedCode2 = nil -%}
 {%- if parentCollection.metafields["global"]["product-video"] -%}
   {% assign embedCode = parentCollection.metafields["global"]["product-video"] | remove: '<p>' | remove: '</p>' %}
   <script>// <![CDATA[
     var video1Embed = '{{ embedCode }}';
     // ]]></script>
-  {% include 'video-modal' %}
+{%- endif -%}
+{%- if parentCollection.metafields["global"]["product-video-2"] -%}
+  {% assign embedCode2 = parentCollection.metafields["global"]["product-video-2"] | remove: '<p>' | remove: '</p>' %}
+  <script>// <![CDATA[
+    var video2Embed = '{{ embedCode2 }}';
+    // ]]></script>
+{%- endif -%}
+
+{%- if embedCode or embedCode2 -%}
+{%- include 'video-modal' -%}
 {%- endif -%}
 
 {%- capture siblingsJson -%}

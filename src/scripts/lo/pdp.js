@@ -1,3 +1,5 @@
+import PhotoSwipe from './../vendor/photoswipe.min.js'
+import PhotoSwipeUI from './../vendor/photoswipe-ui-default.min.js'
 $(document).ready(function(){
   if( $('body').hasClass('product') ){
 
@@ -129,10 +131,15 @@ $(document).ready(function(){
     };
 
     function updateGallery(){
+      // show the new gallery
       setActiveElement(
         $('.sibling-image-set'),
         $('.sibling-image-set[data-sibling="' + getActiveProductId() + '"]'),
         'active');
+      // get our lazy images
+      $('.sibling-image-set.active').find('.lazy').each(function(){
+        $(this).attr('src',$(this).data('lazy')).addClass('in');
+      });
     };
 
     function updateUrl(){
@@ -309,7 +316,7 @@ $(document).ready(function(){
     $('.zoomable').on('click', function(e){
       e.preventDefault();
       let pswpElement = $('.pswp')[0];
-      let items = zoomItemsData[$(this).data('gallery-id')];
+      let items = pswpData[$(this).data('gallery-id')];
       var options = {
         showHideOpacity: true,
         showAnimationDuration: 500,
@@ -324,12 +331,16 @@ $(document).ready(function(){
         zoomEl: false,
         shareEl: false,
         counterEl: false,
-        arrowEl: true,
+        arrowEl: false,
         preloaderEl: false,
         tapToToggleControls: false,
-        index: $(this).data('index')
+        index: $(this).data('index'),
+        errorMsg: '<p class="pswp__error-msg">Error Message..</p>',
+        getDoubleTapZoom (e, t) {
+          return 1
+        }
       }
-      var gallery = new PhotoSwipe( pswpElement, false, items, options);
+      var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI, items, options);
       gallery.init();
       activeGallery = gallery;
     });
@@ -337,6 +348,14 @@ $(document).ready(function(){
     $('#zoomed-gallery .panel-close').on('click', function(e){
       e.preventDefault();
       activeGallery.close();
+    });
+    $('#zoomed-gallery .prev').on('click', function(e){
+      e.preventDefault();
+      activeGallery.prev();
+    });
+    $('#zoomed-gallery .next').on('click', function(e){
+      e.preventDefault();
+      activeGallery.next();
     });
     
 

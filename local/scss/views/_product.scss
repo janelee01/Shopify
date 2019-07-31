@@ -702,4 +702,29 @@ body.product{
   .pswp__bg{
     background: #fff;
   }
+  .arrow{
+    @include resetButton;
+    position: absolute;
+    z-index: 10;
+    width: 30px;
+    height: 24px;
+    background: url('slide-next-gray.svg') no-repeat center center;
+    background-size: auto 100%;
+    text-indent: -999em;
+    top: 50%;
+    transform: translate3d(0, -50%, 0); // 3d fixes slides overlap
+    right: 10px;
+    padding: 0;
+    @media (min-width: $screen-sm) {
+      right: 40px;
+    }
+    &.prev{
+      background-image: url('slide-prev-gray.svg');
+      right: auto;
+      left: 10px;
+      @media (min-width: $screen-sm) {
+        left: 40px;
+      }
+    }
+  }
 }
