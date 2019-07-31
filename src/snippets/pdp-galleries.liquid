@@ -8,7 +8,7 @@
       <a class="item zoomable" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-index="{{ forloop.index0 }}">
         {% if siblingProduct.id == product.id %}
           {{ image | img_tag: image.alt, '', '343x' }}
-        {% else %}
+        {% else %} {% comment %} lazy load for all the siblings {% endcomment %}
           <img src="//:0" class="lazy" width="343" data-lazy="{{ image | img_url: '343x' }}" alt="{{ image.alt }}">
         {% endif %}
       </a>
@@ -20,7 +20,7 @@
       {% assign images = parentCollection.metafields["global"]["collection-images"] | split: ',' %}
       {% for image in images %}
         <a class="item zoomable" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-index="{{ forloop.index0 | plus: siblingImageCount }}">
-          <img src="//:0" class="lazy" width="343" data-lazy="{{ image }}" alt="">
+          {{ image | img_tag }} {% comment %} not lazy loading this since the active product download will cache the rest {% endcomment %}
         </a>
       {% endfor %}
     {% endif %}
