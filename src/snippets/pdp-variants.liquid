@@ -7,7 +7,7 @@
         {%- if variant.id == current_variant.id -%}
           {%- assign selected = 'selected' -%}
         {%- endif -%}
-        <button data-id="{{ variant.id }}" class="btn btn-secondary {{ selected }}">{{ variant.title }}</button>
+        <a href="#" data-id="{{ variant.id }}" class="btn btn-secondary {{ selected }}">{{ variant.title }}</a>
       {% endfor %}
     </div>
   {%- endunless -%}

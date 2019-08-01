@@ -70,7 +70,7 @@ $(document).ready(function(){
           `<option value="${variant.id}">${variant.title}</option>`
         );
         $variantButtons.append(
-          `<button data-id="${variant.id}" class="btn btn-secondary">${variant.title}</buton>`
+          `<a href="#" data-id="${variant.id}" class="btn btn-secondary">${variant.title}</a>`
         )
       });
 
