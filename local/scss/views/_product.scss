@@ -159,6 +159,8 @@ body.product{
       }
     }
     &.zoomable{
+      background: url('tail-spin.svg') no-repeat center center;
+      background-size: 80px auto;
       @media (min-width: $screen-md) {
         &:hover{
           &::before{
