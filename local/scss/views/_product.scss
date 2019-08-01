@@ -640,7 +640,7 @@ body.product{
 .pdp-expandable{
   border-bottom: solid 1px #E5E5E5;
   &:first-child{
-    margin-top: $grid-gutter-width/2;
+    margin-top: $grid-gutter-width;
     @media (min-width: $screen-sm) {
       margin-top: 0;
     }
@@ -698,6 +698,7 @@ body.product{
   }
   table{
     width: 100%;
+    margin-bottom: 1.4em;
     td, th{
       padding: 5px 0;
       text-align: right;
