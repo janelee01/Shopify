@@ -94,7 +94,18 @@
         <div id="product-description" class="fw-xs">
           {{ parentCollection.description }}
           {%- if parentCollection.metafields["global"]["product-video"] -%}
-            <a class="video-trigger" data-video-id="1" href="#">Play Video</a>
+            {%- assign buttonText1 = 'Play Video' -%}
+            {%- if parentCollection.metafields["global"]["product-video-title"] -%}
+              {%- assign buttonText1 = parentCollection.metafields["global"]["product-video-title"] -%}
+            {%- endif-%}
+            <a class="video-trigger" data-video-id="1" href="#">{{ buttonText1 }}</a>
+          {%- endif -%}
+          {%- if parentCollection.metafields["global"]["product-video-2"] -%}
+            {%- assign buttonText2 = 'Play Video' -%}
+            {%- if parentCollection.metafields["global"]["product-video-2-title"] -%}
+              {%- assign buttonText2 = parentCollection.metafields["global"]["product-video-2-title"] -%}
+            {%- endif-%}
+            <a class="video-trigger" data-video-id="2" href="#">{{ buttonText2 }}</a>
           {%- endif -%}
         </div>
       </div>
