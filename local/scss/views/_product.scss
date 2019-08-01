@@ -123,6 +123,7 @@ body.product{
   }
   .item{
     display: block;
+    min-height: 300px;
     min-width: 300px;
     width: 300px;
     overflow: hidden;
@@ -133,6 +134,7 @@ body.product{
       margin-bottom: 10px;
       width: calc(50% - 5px);
       min-width: unset;
+      min-height: unset;
     }
     &.video-trigger{
       @media (max-width: $screen-sm-max) {
@@ -692,21 +694,21 @@ body.product{
     dd{
       margin-bottom: 1.4em;
       font-size: 14px;
-      table{
-        width: 100%;
-        td, th{
-          padding: 5px 0;
-          text-align: right;
-        }
-        tr td:first-child{
-          text-align: left;
-        }
-        strong{
-          font-family: $font-family-medium;
-          font-weight: 400;
-          color: $gray-darker;
-        }
-      }
+    }
+  }
+  table{
+    width: 100%;
+    td, th{
+      padding: 5px 0;
+      text-align: right;
+    }
+    tr td:first-child{
+      text-align: left;
+    }
+    strong{
+      font-family: $font-family-medium;
+      font-weight: 400;
+      color: $gray-darker; 
     }
   }
 }
