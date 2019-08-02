@@ -1,0 +1,19 @@
+<div class="form-row">
+  {%- unless product.has_only_default_variant -%}
+    <div class="variants">
+      <label for="variant-selector">Select Size</label>
+      {% for variant in product.variants %}
+        {%- assign selected = nil -%}
+        {%- if variant.id == current_variant.id -%}
+          {%- assign selected = 'selected' -%}
+        {%- endif -%}
+        <a href="#" data-id="{{ variant.id }}" class="btn btn-secondary {{ selected }}">{{ variant.title }}</a>
+      {% endfor %}
+    </div>
+  {%- endunless -%}
+  <select name="id" id="variant-selector" class="hidden" data-product-select>
+    {%- for variant in product.variants -%} 
+      <option value="{{ variant.id }}"{% if variant.id == product.selected_variant.id or variant.id == current_variant.id %} selected="selected"{% endif %}>{{ variant.title }}</option>
+    {%- endfor -%}
+  </select>
+</div>

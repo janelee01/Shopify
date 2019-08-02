@@ -1,88 +1,55 @@
-{%- if product.type == 'Gift Card' -%}
-  <div itemscope itemtype="http://schema.org/Product">
-    <meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
-    <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
-    <meta itemprop="brand" content="{{ product.vendor }}">
-    <meta itemprop="image" content="https:{{ featured_image | img_url: '600x600' }}">
-    <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+<div itemscope itemtype="http://schema.org/Product">
+  <meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
+  <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
+  <meta itemprop="brand" content="{{ product.vendor }}">
+  <meta itemprop="image" content="https:{{ featured_image | img_url: '600x600' }}">
+  <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+  {%- if product.type == 'Gift Card' -%}
     {%- include 'pdp-gift-card' -%}
-  </div>
-{%- else -%}
-  {%- include 'pdp-get-sibling-products' -%}
+  {%- else -%}
+    {%- include 'pdp-get-sibling-products' -%}
+    {%- include 'pdp-main'-%}
+    {% comment %} reviews are in main to stay within the Product itemscope {% endcomment %}
+  {%- endif -%}
+</div>  
 
-  {%- capture data_file -%}pdp-data-{{parentCollection.title| downcase | remove_first: 'the' | strip | replace: ' ', '-' | replace: '.', '' }}{%- endcapture -%}
+{%- capture pdp_cross_sell_handles -%}
+{{ parentCollection.metafields["global"]["related-product-1"] }}
+{{ parentCollection.metafields["global"]["related-product-2"] }}
+{{ parentCollection.metafields["global"]["related-product-3"] }}
+{%- endcapture -%}
+{% if pdp_cross_sell_handles != blank %}
+  {%- assign handles = pdp_cross_sell_handles | newline_to_br | split: '<br />' -%}
+  {%- include 'pdp-related', data: handles -%}
+{% endif %}
 
-  {%- capture test_data_file -%}{%- include data_file -%}{%- endcapture -%}
-  {%- unless test_data_file contains 'Liquid error' -%}{%- include data_file -%}{%- endunless -%}
-
-  {%- include 'pdp-photoswipe-template' -%}
-
-  {%- include 'pdp-sticky-nav' -%}
-
-  <div itemscope itemtype="http://schema.org/Product">
-    <meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
-    <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
-    <meta itemprop="brand" content="{{ product.vendor }}">
-    <meta itemprop="image" content="https:{{ featured_image | img_url: '600x600' }}">
-    <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
-
-    {%- include 'pdp-main' -%}
-
-    <div class="pdp__white-wrapper">
-    {%- include 'pdp-instagram' -%}
-    </div>
-
-    <div class="pdp__container">
-      {%- if pdp_instagram_data == blank -%}
-        {%- assign remove_top_padding = true -%}
-      {%- endif -%}
-      {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_1, remove_top_padding: remove_top_padding -%}
-      {%- include 'pdp-callout-galleries', alternate: true, data: pdp_callout_galleries_data_2 -%}
-      {%- include 'pdp-callout-galleries', data: pdp_callout_galleries_data_3 -%}
-      {%- include 'pdp-callout-galleries', alternate: true, data: pdp_callout_galleries_data_4 -%}
-
-      {%- if pdp_instagram_data == blank and pdp_callout_galleries_data_1 == blank -%}
-        {%- assign remove_top_padding = true -%}
-      {%- endif -%}
-      {%- include 'pdp-material', data: pdp_material_data, remove_top_padding: remove_top_padding -%}
-    </div>
-
-    <div class="pdp__white-wrapper">
-      <div class="pdp__container">
-      {%- include 'pdp-stories', data: pdp_stories_data -%}
-      {%- include 'pdp-testimonials', testimonials: pdp_testimonials_data -%}
-      {%- include 'pdp-reviews' -%}
+<div id="wl-overlay">
+  <div id="wl-window">
+    <form id="wl-form" action="">
+      <div id="wl-content" style="display: none">
+        <h2 class="has-divider">{{ 'products.waitlist.title' | t }}</h2>
+        <p id="wl-product-name">{{ parentCollection.title }}<br />
+        <span data-wl-meta></span></p>
+        <p>{{ 'products.waitlist.content' | t }}</p>
+        <p data-wl-expected></p>
+        <div id="wl-error" class="validation-error"></div>
+        <div class="form-group floating-label">
+          <label for="wl-email">{{ 'products.waitlist.email_label' | t }}</label>
+          <input type="email" class="form-control" id="wl-email" placeholder="{{ 'products.waitlist.email_label' | t }}" />
+          <div class="validation-error"></div>
+        </div>
+        <input type="hidden" id="wl-product" value="{{ product.id }}" />
+        <input type="hidden" id="wl-variant" value="{{ current_variant.id }}" />
+        <button type="submit" class="btn btn-block">{{ 'products.waitlist.submit' | t }}</button>
+        <button class="btn btn-block btn-text" id="waitlist-cancel" data-wl-cancel>{{ 'products.waitlist.cancel' | t }}</button>
       </div>
-    </div>
-
-    <div class="pdp__container">
-      {%- include 'pdp-cross-sell', data: pdp_cross_sell_data -%}
-    </div>
+      <div id="wl-confirmation">
+        <div class="flexer">
+          <h2 class="has-divider">{{ 'products.waitlist.confirmation_title' | t }}</h2>
+          <p>{{ 'products.waitlist.confirmation' | t }}</p>
+          <button class="btn btn-block" data-wl-cancel>{{ 'products.waitlist.back' | t }}</button>
+        </div>
+      </div>
+    </form>
   </div>
-
-  {%- include 'pdp-sticky-nav', collection: parentCollection -%}
-  {%- include 'pdp-modal', id: 'shipping', collection_ref: parentCollection -%}
-  {%- include 'pdp-modal', id: 'size-fit', collection_ref: parentCollection, device_compatibility: pdp_size_fit_device_compatibility, size_weight: pdp_size_fit_size_weight -%}
-
-  {%- if pdp_video_url != blank -%}
-  {%- capture pdp_video_embed -%}
-  <iframe id="vimeo-hanover" class="vimeo" src="{{pdp_video_url}}?title=0&amp;byline=0&amp;portrait=0" width="528" height="297" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-  {%- endcapture -%}
-  {%- elsif parentCollection.metafields["global"]["product-video"] != blank -%}
-    {%- assign pdp_video_embed = parentCollection.metafields["global"]["product-video"] | remove: "api=1&amp;" -%}
-  {%- endif -%}
-  {%- if pdp_video_embed != blank -%}
-  <script>
-    var video1Embed = '{{pdp_video_embed}}';
-  </script>
-  <div id="product-video">
-    <div id="product-video-container"></div>
-    <a href="#" class="js-panel-close panel-close">
-      <span class="sr-only">close</span>
-    </a>
-  </div>
-  {%- endif -%}
-{%- endif -%}
-
-{%- include 'pdp-icon-sprites' -%}
-
+</div>

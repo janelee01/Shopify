@@ -51,11 +51,11 @@ gulp.task('notifications', function () {
         .pipe($.size())
 });
 
-gulp.task('pages', function () {
-    return gulp.src('pages/*')
-        .pipe(gulp.dest('../src/assets')) 
-        .pipe($.size())
-});
+// gulp.task('pages', function () {
+//     return gulp.src('pages/*')
+//         .pipe(gulp.dest('../src/assets')) 
+//         .pipe($.size())
+// });
 
 gulp.task('default', function () {
   /**
@@ -70,7 +70,7 @@ gulp.task('watch', function () {
         return runSequence('styles', 'checkout', 'notifications');
     });
 
-    gulp.watch('pages/*', function() {
-        return runSequence('pages');
-    });
+    // gulp.watch('pages/*', function() {
+    //     return runSequence('pages');
+    // });
 });

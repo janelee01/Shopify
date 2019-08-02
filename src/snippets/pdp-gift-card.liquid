@@ -6,10 +6,7 @@
     <div class="product-main__featured">
       <div class="product-main__gift-card-img">
         {%- assign img_src = product.featured_image | img_url: '1025x' -%}
-        {%- include 'image',
-          src: img_src,
-          alt: 'Lo & Sons Gift Card' -%}
-        {%- assign img_src = nil -%}
+        <img src="{{- img_src | strip -}}" alt="Lo & Sons Gift Card">
       </div>
     </div>
     <div class="product-main__holder">
@@ -70,11 +67,3 @@
     var productJson = {{ product | json }};
   </script>
 </section>
-
-{%- assign emptyStars = nil -%}
-{%- assign showSaleElements = nil -%}
-{%- assign discountAmount = nil -%}
-{%- assign reviewsAverage = nil -%}
-{%- assign reviewsAverageInt = nil -%}
-{%- assign reviewsAverageDec = nil -%}
-{%- assign emptyStars = nil -%}

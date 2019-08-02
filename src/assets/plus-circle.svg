@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="21px" viewBox="0 0 20 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Plus_Circle</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2" transform="translate(-1249.000000, -4281.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="Tabs" transform="translate(0.000000, 3814.000000)">
+                <g transform="translate(724.000000, 95.000000)" id="1">
+                    <g transform="translate(0.000000, 372.000000)">
+                        <g id="Plus-2" transform="translate(525.000000, 0.500000)">
+                            <g id="Plus_Circle-2">
+                                <path d="M10,20 C4.488,20 0,15.512 0,10 C0,4.488 4.488,0 10,0 C15.512,0 20,4.488 20,10 C20,15.512 15.512,20 10,20 Z M10,0.8 C4.928,0.8 0.8,4.928 0.8,10 C0.8,15.072 4.928,19.2 10,19.2 C15.072,19.2 19.2,15.072 19.2,10 C19.2,4.928 15.072,0.8 10,0.8 Z M10.4,14.4 L9.6,14.4 L9.6,10.4 L5.6,10.4 L5.6,9.6 L9.6,9.6 L9.6,5.6 L10.4,5.6 L10.4,9.6 L14.4,9.6 L14.4,10.4 L10.4,10.4 L10.4,14.4 Z" id="Plus_Circle"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

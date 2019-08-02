@@ -1,0 +1,14 @@
+{%- assign withAnimations = withAnimations | default: true -%}
+<div class="row mb-large{% if withAnimations %} animate{% endif %}" {{ animateFadeInUp }}>
+  <div class="col-sm-4">     
+    {{ col1 }}
+  </div>
+  <div class="col-sm-4">
+    {{ col2 }}              
+  </div>
+  {% unless col3 == blank %}
+  <div class="col-sm-4">
+    {{ col3 }}                    
+  </div>
+  {% endunless %}
+</div>

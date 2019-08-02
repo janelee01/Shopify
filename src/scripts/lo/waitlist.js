@@ -3,7 +3,7 @@ $(document).ready(function(){
 	var waitlistClose = function(){
 		$wlOverlay.fadeOut();
 	};
-	$('[data-add-to-waitlist]').on('click', function(e){
+	$('#waitlist-open').on('click', function(e){
 	    e.preventDefault();
 	    $('#wl-content').show();
 	    $('#wl-confirmation').hide();

@@ -233,8 +233,8 @@
 
 .side-scrolling{
 	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-		margin-left: -$grid-gutter-width;
-		margin-right: -$grid-gutter-width;
+		margin-left: -24px;
+		margin-right: -24px;
 		overflow-x: scroll;
 		overflow-y: hidden;
 		-webkit-overflow-scrolling: touch;

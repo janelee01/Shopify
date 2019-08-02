@@ -5,7 +5,7 @@ $navigation-carousel-breakpoint: 569px;
 		display: inline-block;
 		position: absolute;
 		top: 19px;
-		left: 0;
+		left: $grid-gutter-width/2;
 	}
 }
 

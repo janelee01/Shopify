@@ -35,9 +35,9 @@ body{
 	    padding-right: $mobile-gutter;
 	}
 }
-.site-window{
-	overflow: hidden;
-}
+// .site-window{
+// 	overflow: hidden;
+// }
 .site-content{
 	position: relative;
 	left: 0;
@@ -219,8 +219,8 @@ blockquote{
 }
 .fw-sm{
 	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-	    margin-left: -40px;
-	    margin-right: -40px;
+	    margin-left: -24px;
+	    margin-right: -24px;
 	}
 }
 
@@ -271,3 +271,11 @@ blockquote{
 		display: block;
 	}
 } 
+
+.lazy{
+	opacity: 0;
+	transition: .3s;
+	&.in{
+		opacity: 1;
+	}
+}
