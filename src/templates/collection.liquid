@@ -1,43 +1,34 @@
 {% paginate collection.products by 25 %}
 
-{%- capture productNames -%}
-{%- for product in collection.products -%}
-  {%- assign productNameParts = product.title | split: ' - ' -%}
-  {{ productNameParts[0] }}|
-{%- endfor -%}
-{%- endcapture -%}
-
-{%- capture allProductTypes -%}
-{%- for product in collection.products -%}
-  {{ product.type | handleize }}|
-{%- endfor -%}
-{%- endcapture -%}
-
-{%- assign parentProducts = productNames | split: '|' | uniq -%}
-{%- assign productTypes = allProductTypes | split: '|' | uniq -%}
-
 {% case collection.metafields["global"]["layout"] %}
   {% when 'by-collection' %}
     shopping by collection
 
-  {% when 'by-type' %}
+  {% when 'by-color' %}
+  
+    {%- capture allProducts -%}
+    {%- for product in collection.products -%}
+      {{ product.title | split: '-' | last | split: '/' | first | handleize }}|
+    {%- endfor -%}
+    {%- endcapture -%}
+    {%- assign productGroups = allProducts | split: '|' | uniq -%}
 
     <header class="page-header is-collection" data-collection="{{ collection.id }}">
-      <h1>{{ collection.title | remove: "Shop " }}</h1>
+      <h1>{{ collection.title }}</h1>
       {{ collection.description }}
     </header>
-    {% for collectionHandle in productTypes %}
+    {% for groupHandle in productGroups %}
     <div class="max-container">
-      {% assign parentCollection = collections[collectionHandle] %}
+      {% assign groupCollection = collections[groupHandle] %}
       <div class="container">
         <div class="section-heading">
-            <h2 class="title">{{ parentCollection.title }}</h2>
-            <p class="description">{{ parentCollection.description }}</p>
+            <h2 class="title">{{ groupCollection.title }}</h2>
+            <p class="description">{{ groupCollection.description }}</p>
         </div>
         <div class="product-grid">
           <div class="row">
-            {% paginate parentCollection.products by 4 %}
-            {% for product in parentCollection.products %}
+            {% paginate groupCollection.products by 4 %}
+            {% for product in groupCollection.products %}
             <div class="col-xs-6 col-sm-3">
               {% include 'product-item' with product %}
             </div>
@@ -49,11 +40,52 @@
     </div>
     {% endfor %}
 
+  {% when 'by-type' %}
+
+    {%- capture allProducts -%}
+    {%- for product in collection.products -%}
+      {{ product.type | handleize }}|
+    {%- endfor -%}
+    {%- endcapture -%}
+    {%- assign productGroups = allProducts | split: '|' | uniq -%}
+
+    <header class="page-header group-of-collections">
+      <h1>{{ collection.title }}</h1>
+      <p>{{ collection.description }}</p>
+    </header>
+    {% for groupHandle in productGroups %}
+    <section class="max-container">
+      {% assign groupCollection = collections[groupHandle] %}
+      {% include 'collection-hero' %}
+      <div class="container">
+        {{ groupCollection.metafields["global"]["configuration-options"] }} / {{ groupCollection.products_count }} colors available
+        <div class="product-grid">
+          <div class="row">
+            {% paginate groupCollection.products by 25 %}
+            {% for product in groupCollection.products %}
+            <div class="col-xs-6 col-sm-3">
+              {% include 'product-item' with product %}
+            </div>
+            {% endfor %}
+            {% endpaginate %}
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endfor %}
+
   {% when 'generic-with-image' %}
 
     generic layout, but has an image
 
   {% else %}
+
+    {%- capture allProducts -%}
+    {%- for product in collection.products -%}
+      {{ product.title | split: ' - ' | first }}|
+    {%- endfor -%}
+    {%- endcapture -%}
+    {%- assign productGroups = allProducts | split: '|' | uniq -%}
 
     <header class="page-header is-collection" data-collection="{{ collection.id }}">
       <h1>{{ collection.title | remove: "Shop " }}</h1>
@@ -102,7 +134,7 @@
     </header>
 
     <div class="container" id="product-families">
-      {%- for parentProductName in parentProducts -%}
+      {%- for parentProductName in productGroups -%}
       <div class="product-family" data-family-name="{{ parentProductName | handleize }}" data-content-category="{{ parentProductName }}">
         <div class="section-heading">
           <h2 class="title">{{ parentProductName | remove: "The " }}</h2>

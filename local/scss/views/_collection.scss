@@ -1,24 +1,38 @@
-.page-header.is-collection{
-	background: none;
-	border-bottom: solid 1px #e6e6e6;
-	padding-bottom: 0;
-	margin-bottom: 30px;
-	z-index: 10;
-	@media (min-width: $screen-md) {
-		margin-bottom: 70px;
-	}
-	h1{
-		margin-bottom: 35px;
-	}
-	&.has-active-filters{
-		.filter-options{
-			margin-bottom: 0;
-			@media (min-width: $screen-md) {
-			    margin-bottom: 62px;
+.page-header{
+	&.is-collection{
+		background: none;
+		border-bottom: solid 1px #e6e6e6;
+		padding-bottom: 0;
+		margin-bottom: 30px;
+		z-index: 10;
+		@media (min-width: $screen-md) {
+			margin-bottom: 70px;
+		}
+		h1{
+			margin-bottom: 35px;
+		}
+		&.has-active-filters{
+			.filter-options{
+				margin-bottom: 0;
+				@media (min-width: $screen-md) {
+						margin-bottom: 62px;
+				}
+			}
+			#active-filters{
+				display: block;
 			}
 		}
-		#active-filters{
-			display: block;
+	}
+	&.group-of-collections{
+		padding: 55px 0;
+		color: $gray;
+		background: none;
+		margin: 0;
+		h1{
+			margin-bottom: .5em; 
+		}
+		p{
+			margin: 0;
 		}
 	}
 }
