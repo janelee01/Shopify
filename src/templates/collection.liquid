@@ -58,17 +58,15 @@
       {% assign groupCollection = collections[groupHandle] %}
       {% include 'collection-hero' %}
       <div class="container">
-        {{ groupCollection.metafields["global"]["configuration-options"] }} / {{ groupCollection.products_count }} colors available
-        <div class="product-grid">
-          <div class="row">
-            {% paginate groupCollection.products by 25 %}
+        <div class="group-options">
+          {{ groupCollection.metafields["global"]["configuration-options"] }} / {{ groupCollection.products_count }} colors available <a href="{{ groupCollection.products.first.url }}">Shop all colors &gt;</a>
+        </div>
+        <div class="product-row">
+          {% paginate groupCollection.products by 25 %}
             {% for product in groupCollection.products %}
-            <div class="col-xs-6 col-sm-3">
-              {% include 'product-item' with product %}
-            </div>
+              <div class="item">{% include 'product-item', product: product, hideName: true %}</div>
             {% endfor %}
-            {% endpaginate %}
-          </div>
+          {% endpaginate %}
         </div>
       </div>
     </section>

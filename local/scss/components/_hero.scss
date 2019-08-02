@@ -193,8 +193,11 @@
 		color: #fff;
 	}
 	.title{
-		font-family: $font-family-medium;
+		@include sectionTitle;
 		color: currentColor;
+	}
+	.description{
+		@include sectionDescription;
 	}
 	.btn{
 		@include invertedSecondaryBtn;

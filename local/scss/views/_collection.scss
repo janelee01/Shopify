@@ -24,15 +24,26 @@
 		}
 	}
 	&.group-of-collections{
-		padding: 55px 0;
+		padding: 50px 0;
 		color: $gray;
 		background: none;
 		margin: 0;
+		@media (min-width: $screen-sm) {
+			padding: 60px 0;
+		}
+		@media (min-width: $screen-md) {
+			padding: 65px 0;
+		}
+		@media (min-width: $screen-lg) {
+			padding: 75px 0;
+		}
 		h1{
 			margin-bottom: .5em; 
+			@include heroTitle;
 		}
 		p{
 			margin: 0;
+			@include heroDescription;
 		}
 	}
 }
@@ -211,6 +222,20 @@ body.fixed-filters{
 	@media (max-width: $screen-xs-max) {
 		[class^="col-"]{
 			width: 70%;
+		}
+	}
+}
+
+.group-options{
+	@include sectionDescription;
+	margin-bottom: 1.5em;
+	a{
+		color: $gray;
+		font-size: 1em;
+		display: block;
+		@media (min-width: $screen-sm) {
+			margin-left: 38px;
+			display: inline;
 		}
 	}
 }

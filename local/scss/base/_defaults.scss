@@ -13,6 +13,16 @@ body{
 		padding-top: 0;
 	}
 }
+
+
+/*
+Kill scrollbars
+*/
+html { -ms-overflow-style: none; } // IE
+* { scrollbar-width: none } // FF
+::-webkit-scrollbar{ width: 0 !important; height: 0 !important; } // Chrome / Safari
+
+
 .fw-container{
 	max-width: 2560px;
 	margin-left: auto;
