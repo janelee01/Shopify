@@ -6,6 +6,8 @@
   <div class="content">
     <h2 class="title">{{ groupCollection.title }}</h2>
     <p class="description">{{ groupCollection.metafields["global"]["hero-description"] }}</p>
+    {% unless noHeroButton == true %}
     <a class="btn btn-secondary" href="{{ groupCollection.metafields["global"]["discover-page-handle"] }}">Learn more</a>
+    {% endunless %}
   </div>
 </header>
