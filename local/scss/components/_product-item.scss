@@ -40,7 +40,6 @@
 }
 
 .product-row{
-  width: 100%;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   display: flex;
@@ -49,9 +48,9 @@
   margin-right: -$grid-gutter-width/2;
   .item{
     margin: 0 $grid-gutter-width/2;
-    min-width: 290px; width: 290px;
-    @media (min-width: $screen-sm) {  min-width: 226px; width: 226px; }
-    @media (min-width: $screen-md) {  min-width: 293px; width: 293px; }
-    @media (min-width: $screen-lg) {  min-width: 360px; width: 360px; }
+    min-width: 290px;;
+    @media (min-width: $screen-sm) {  min-width: 226px; }
+    @media (min-width: $screen-md) {  min-width: 293px; }
+    @media (min-width: $screen-lg) {  min-width: 360px; }
   }
 }
