@@ -85,51 +85,9 @@
     {%- endcapture -%}
     {%- assign productGroups = allProducts | split: '|' | uniq -%}
 
-    <header class="page-header is-collection" data-collection="{{ collection.id }}">
-      <h1>{{ collection.title | remove: "Shop " }}</h1>
-      <div data-filters-wrap>{% comment%} both .has-bar and #filters are inline-block, so we need a newline somehow {% endcomment %}
-        <div id="filters">
-          <ul>
-            <li><a href="#price-filters" class="filter-toggle">Price</a></li>
-            <li><a href="#function-filters" class="filter-toggle">Function</a></li>
-            <li><a href="#fit-filters" class="filter-toggle">Device Fit</a></li>
-            <li><a href="#category-filters" class="filter-toggle">Category</a></li>
-          </ul>
-        </div>
-        <div id="filters-panel">
-          <ul class="filter-options" style="display: none" id="price-filters">
-            <li><button class="filter-option is-price-range" data-hook="p-0-100">$0.00 - $100.00</button></li>
-            <li><button class="filter-option is-price-range" data-hook="p-100-200">$100.00 - $200.00</button></li>
-            <li><button class="filter-option is-price-range" data-hook="p-200-300">$200.00 - $300.00</button></li>
-            <li><button class="filter-option is-price-range" data-hook="p-300-400">$300.00 - $400.00</button></li>
-            <li><button class="filter-option is-price-range" data-hook="p-400-500">$400.00 - $500.00</button></li>
-          </ul>
-          <ul class="filter-options" style="display: none" id="function-filters">
-            {%- assign tagsList = shop.metafields["global"]["function-tags"] | split: ',' -%}
-              {%- for tag in tagsList -%}
-                  {%- include 'filter-option' -%}
-              {%- endfor -%}
-          </ul>
-          <ul class="filter-options" style="display: none" id="fit-filters">
-            {%- assign tagsList = shop.metafields["global"]["device-fit-tags"] | split: ',' -%}
-              {%- for tag in tagsList -%}
-                  {%- include 'filter-option' -%}
-              {%- endfor -%}
-          </ul>
-          <ul class="filter-options" style="display: none" id="category-filters">
-            {%- assign tagsList = shop.metafields["global"]["category-tags"] | split: ',' -%}
-              {%- for tag in tagsList -%}
-                  {%- include 'filter-option' -%}
-              {%- endfor -%}
-          </ul>
-
-          <div id="active-filters">
-            <span data-active-filters></span>
-            <a href="#" id="reset-filters">Reset Filters</a>
-          </div>
-        </div>
-      </div>
-    </header>
+    {% assign groupCollection = collection %}
+    {% assign noHeroButton = true %}
+    {% include 'collection-hero' %}
 
     <div class="container" id="product-families">
       {%- for parentProductName in productGroups -%}
