@@ -11,7 +11,7 @@
     <{{tag}} class="title">{{ collection.title }}</{{tag}}>
     <p class="description">{{ collection.metafields["global"]["hero-description"] }}</p>
     {% unless collection.metafields["global"]["discover-page-handle"] == blank %}
-    <a class="btn btn-secondary" href="{{ collection.metafields["global"]["discover-page-handle"] }}">Learn more</a>
+    <a class="btn btn-secondary" href="{{ pages[collection.metafields["global"]["discover-page-handle"]].url }}">Learn more</a>
     {% endunless %}
   </div>
 </header>

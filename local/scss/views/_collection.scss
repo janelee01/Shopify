@@ -235,13 +235,9 @@ body.fixed-filters{
 		margin-right: 40px;
 	}
 	a{
-		color: $gray;
+		color: $gray-darker;
 		font-size: 1em;
 		display: block;
-		@media (min-width: $screen-sm) {
-			margin-left: 38px;
-			display: inline;
-		}
 	}
 }
 

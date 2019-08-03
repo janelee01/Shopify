@@ -56,8 +56,7 @@ $(document).ready(function(){
 					options.push(sizes + ' sizes')
 				}
 				options.push($items.length + ' colors available');
-				$optionsEl.html(options.join(' / '));
-				$optionsEl.append('<a href="' + $sampleItem.find('.product-link').attr('href') + '">Shop all colors &gt;</a>');
+				$optionsEl.html('<a href="' + $sampleItem.find('.product-link').attr('href') + '">' + options.join(' / ') + '</a>');
 			}
 		});
 	};
