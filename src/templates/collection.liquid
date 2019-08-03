@@ -20,16 +20,16 @@
     </header>
     {% for groupHandle in productGroups %}
     <div class="max-container">
-      {% assign groupCollection = collections[groupHandle] %}
+      {% assign collection = collections[groupHandle] %}
       <div class="container">
         <div class="section-heading">
-            <h2 class="title">{{ groupCollection.title }}</h2>
-            <p class="description">{{ groupCollection.description }}</p>
+            <h2 class="title">{{ collection.title }}</h2>
+            <p class="description">{{ collection.description }}</p>
         </div>
         <div class="product-grid">
           <div class="row">
-            {% paginate groupCollection.products by 4 %}
-            {% for product in groupCollection.products %}
+            {% paginate collection.products by 4 %}
+            {% for product in collection.products %}
             <div class="col-xs-6 col-sm-3">
               {% include 'product-item' with product %}
             </div>
@@ -56,30 +56,22 @@
     </header>
     {% for groupHandle in productGroups %}
     <section class="max-container">
-      {% assign groupCollection = collections[groupHandle] %}
-      {% assign productsCount = groupCollection.products_count %}
-      {% include 'collection-hero' %}
+      {% assign collection = collections[groupHandle] %}
+      {% include 'collection-hero' with collection, tag: 'h2' %}
       <div class="container">
-        <div class="group-options">
-          {{ groupCollection.metafields["global"]["configuration-options"] }} / {{ productsCount }} colors available <a href="{{ groupCollection.products.first.url }}">Shop all colors &gt;</a>
+        <div class="product-row-title">
+          <span class="configuration-options"></span>
         </div>
-        <div class="product-row{% if productsCount <= 3 %} without-scroll{% endif %}">
-          {% paginate groupCollection.products by 25 %}
-            {% for product in groupCollection.products %}
-              <div class="item">{% include 'product-item', product: product, hideName: true %}</div>
+        <div class="product-row">
+          {% paginate collection.products by 25 %}
+            {% for product in collection.products %}
+              <div class="item">{% include 'product-item' with product, hideName: true %}</div>
             {% endfor %}
           {% endpaginate %}
         </div>
-        {% if productsCount > 3 %}
-        <div class="product-row-bar"><div class="handle" style="width: {{ productsCount | divided_by: 100.0 | times: 100 }}%"></div></div>
-        {% endif %}
       </div>
     </section>
     {% endfor %}
-
-  {% when 'generic-with-image' %}
-
-    generic layout, but has an image
 
   {% else %}
 
@@ -91,8 +83,9 @@
     {%- assign productGroups = allProducts | split: '|' | uniq -%}
 
     {% if collection.metafields["global"]["hero-image"] %}
-      {% assign groupCollection = collection %}
-      {% include 'collection-hero' %}
+      <div class="max-container">
+        {% include 'collection-hero' with collection, tag: 'h1' %}
+      </div>
     {% else %}
       <header class="page-header is-collection" data-collection="{{ collection.id }}">
         <h1>{{ collection.title | remove: "Shop " }}</h1>
@@ -140,32 +133,30 @@
         </div>
       </header>
     {% endif %}
-
-    <div class="container" id="product-families">
-      {%- for parentProductName in productGroups -%}
-      <div class="product-family" data-family-name="{{ parentProductName | handleize }}" data-content-category="{{ parentProductName }}">
-        <div class="section-heading">
-          <h2 class="title">{{ parentProductName | remove: "The " }}</h2>
+   
+    {%- for parentProductName in productGroups -%}
+      <div class="container product-family" data-family-name="{{ parentProductName | handleize }}" data-content-category="{{ parentProductName }}">
+        <div class="product-row-title">
+          <h2 class="title">{{ parentProductName | remove: "The " }}</h2><span class="configuration-options"></span>
         </div>
-        <div class="product-grid">
-          <div class="row">
-            {% for product in collection.products %}
-              {%- assign productNameParts = product.title | split: ' - ' -%}
-              {% if productNameParts[0] != parentProductName %}{% continue %}{% endif %}
-              {%- assign priceClass = 'p-0-100' -%}
-              {%- assign thisPrice = product.price | divided_by: 100 -%}
-              {%- if thisPrice >= 100 and thisPrice <= 200 -%}{%- assign priceClass = 'p-100-200' -%}{%- endif -%}
-              {%- if thisPrice >= 200 and thisPrice <= 300 -%}{%- assign priceClass = 'p-200-300' -%}{%- endif -%}
-              {%- if thisPrice >= 300 and thisPrice <= 400 -%}{%- assign priceClass = 'p-300-400' -%}{%- endif -%}
-              {%- if thisPrice >= 400 and thisPrice <= 500 -%}{%- assign priceClass = 'p-400-500' -%}{%- endif -%}
-              <div class="col-xs-6 col-sm-3 f-hook{% for tag in product.tags %} f-{{ tag | handleize }}{% endfor %} {{ priceClass }}">
-                {% include 'product-item' with product %}
-              </div>
-            {% endfor %}
-          </div>
+        <div class="product-row">
+          {% for product in collection.products %}
+            {%- assign productNameParts = product.title | split: ' - ' -%}
+            {% if productNameParts[0] != parentProductName %}{% continue %}{% endif %}
+            {%- assign priceClass = 'p-0-100' -%}
+            {%- assign thisPrice = product.price | divided_by: 100 -%}
+            {%- if thisPrice >= 100 and thisPrice <= 200 -%}{%- assign priceClass = 'p-100-200' -%}{%- endif -%}
+            {%- if thisPrice >= 200 and thisPrice <= 300 -%}{%- assign priceClass = 'p-200-300' -%}{%- endif -%}
+            {%- if thisPrice >= 300 and thisPrice <= 400 -%}{%- assign priceClass = 'p-300-400' -%}{%- endif -%}
+            {%- if thisPrice >= 400 and thisPrice <= 500 -%}{%- assign priceClass = 'p-400-500' -%}{%- endif -%}
+            <div class="item f-hook{% for tag in product.tags %} f-{{ tag | handleize }}{% endfor %} {{ priceClass }}">
+              {% include 'product-item' with product, hideName: true %}
+            </div>
+          {% endfor %}
         </div>
       </div>
-      {%- endfor -%}
+    {%- endfor -%}
+    <div class="container">
       <div id="filter-alert" style="display: none" class="alert alert-warning">No products match your filter selections.</div>
       {% if paginate.pages > 1 %}
       {% comment %}{% include 'pagination' %}{% endcomment %}

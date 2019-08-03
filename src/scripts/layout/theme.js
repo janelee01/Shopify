@@ -18,7 +18,7 @@ import './../templates/customers-login'
 import './../lo/lo-and-sons'
 import './../lo/navigation'
 import './../lo/videos'
-import './../lo/collection-filters'
+import './../lo/collection'
 import './../lo/waitlist'
 import './../lo/product-reviews'
 import './../lo/customers'
@@ -27,7 +27,7 @@ import './../lo/header'
 import './../lo/more-window'
 import './../lo/comparison'
 import './../lo/pdp'
-import './../lo/product-row'
+
 
 $(document).ready(function() {
 

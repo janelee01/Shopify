@@ -1,5 +1,72 @@
 $(document).ready(function(){
 
+	var productRowInit = function(isResize){
+		if( !$('.product-row').length ){
+			return
+		}
+		$('.product-row-bar').remove();// clear out on re-init
+		$('.product-row').each(function(){
+			var $items = $(this).find('.item');
+			var $sampleItem = $items.first();
+			var gutter = $sampleItem.css('padding-right').replace('px','');
+			var naturalWidth = $sampleItem.outerWidth() * $items.length; 
+			var availableWidth = $(this).outerWidth();
+			if( naturalWidth - gutter > availableWidth ){ // take off one gutter value to handle last item
+				$('<div class="product-row-bar"><div class="handle" style="width: ' + availableWidth/naturalWidth*100 + '%"></div></div>').insertAfter($(this));
+				var $handle = $(this).next('.product-row-bar').find('.handle');
+				if( $(window).outerWidth() < LS.tabletBreakpoint ){
+					var mobileGutter = Number($sampleItem.css('padding-left').replace('px',''));
+					availableWidth = availableWidth - mobileGutter; // reduce the actual scrolling amount by the gutters
+				}
+				// how many pixels are we hanging off the side
+				var amountToScroll = naturalWidth - availableWidth;
+				// how far does the handle need to move
+				var handleAmountToScroll = availableWidth - $handle.outerWidth(); 
+				$(this).on('scroll', function(){
+					// of the distance we need to scroll, how far have we gone?
+					var percentScrolled = $(this).scrollLeft()/amountToScroll;
+					// apply this progress how far the handle should move
+					var translateAmt = percentScrolled * handleAmountToScroll;
+					$handle.css('transform', 'translate3d(' + translateAmt + 'px, 0, 0)');
+				});
+			}else{ 
+				$(this).addClass('without-scroll');
+			}
+
+			// set up row heading text (when not resizing)
+			if( !isResize ){
+				var $optionsEl = $(this).closest('.container').find('.configuration-options');
+				var options = [];
+				var materials = [];
+				var sizes = 1;
+				$items.each(function(){
+					var materialName = $(this).find('.material').text();
+					var variantCount = $(this).find('.product-link').data('variant-count');
+					if($.inArray(materialName, materials) === -1){
+						materials.push(materialName);
+					}
+					if( variantCount > sizes) {
+						sizes = variantCount;
+					}
+				});
+				if( materials.length > 1 ){
+					options.push(materials.length + ' materials')
+				}
+				if( sizes > 1 ){
+					options.push(sizes + ' sizes')
+				}
+				options.push($items.length + ' colors available');
+				$optionsEl.html(options.join(' / '));
+				$optionsEl.append('<a href="' + $sampleItem.find('.product-link').attr('href') + '">Shop all colors &gt;</a>');
+			}
+		});
+	};
+
+	productRowInit(false); 
+	$(window).resize(function(){
+		productRowInit(true); 
+	});
+
 	if( $('body').hasClass('template-collection') ){
 	
 		var sessionKey = 'lo'+$('.page-header').data('collection');
@@ -95,13 +162,16 @@ $(document).ready(function(){
 								var $firstSet = $('[data-family-name="' + duplicates[i] + '"]').eq(0);
 								var $secondSet = $('[data-family-name="' + duplicates[i] + '"]').eq(1);
 								var $productsToMove = $secondSet.find('.f-hook');
-								$productsToMove.detach().appendTo($firstSet.find('.row'));
+								$productsToMove.detach().appendTo($firstSet.find('.product-row'));
 								$secondSet.remove();
 							};
 						}
 
 						// update our filter options
 						setFilterOptions();
+
+						// update side scrolling rows
+						productRowInit(false);
 					}
 				});
 			});

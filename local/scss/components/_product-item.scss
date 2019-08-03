@@ -3,8 +3,6 @@
     margin-bottom: 15px;
   }
   .details{
-    // display: flex;
-    // justify-content: space-between;
     @include blockDescription;
   }
   .title{
@@ -13,30 +11,28 @@
   }
   a{
     color: $gray-darker;
+    &:focus,
     &:hover{
       text-decoration: none;
     }
   }
   .material,
-  .old-price{
+  .old-price,
+  .low-stock-warning{
     color: #a9a9a9;
   }
-	.price{
-    // text-align: right;
-		&.has-range{
-			.special-price{
-			}
-			.old-price{
-			}
-		}
-	}
 	.discount-label, 
 	.old-price{
     margin-left: 10px;
 	}
 	.discount-label{
     color: $brand-red;
-	}
+  }
+  .low-stock-warning{
+    padding: 0;
+    font-size: 1em;
+    text-align: left;
+  }
 }
 
 .product-row{
@@ -57,10 +53,11 @@
     position: relative; // fixes body side scrolling even with overflow scrolling 
     padding: 0 $mobile-gutter 0 0;
     min-width: 290px;
+    width: 290px;
     box-sizing: content-box;
-    @media (min-width: $screen-sm) {  min-width: 226px; padding-right: $grid-gutter-width; }
-    @media (min-width: $screen-md) {  min-width: 293px; }
-    @media (min-width: $screen-lg) {  min-width: 360px; }
+    @media (min-width: $screen-sm) {  min-width: 226px; width: 226px; padding-right: $grid-gutter-width; }
+    @media (min-width: $screen-md) {  min-width: 293px; width: 293px; }
+    @media (min-width: $screen-lg) {  min-width: 360px; width: 360px; }
     &:first-child{
       padding-left: $mobile-gutter;
       @media (min-width: $screen-sm) {  padding-left: 0; }

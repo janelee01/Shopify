@@ -234,3 +234,5 @@ LS.setJumpHeight = function(jumpHeight){
   $('#jumpheight').remove();
   $('head').append('<style id="jumpheight">.jumptarget::before{height:' + jumpHeight + 'px;margin-top:-' + jumpHeight + 'px}</style>');
 }
+
+

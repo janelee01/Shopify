@@ -226,9 +226,14 @@ body.fixed-filters{
 	}
 }
 
-.group-options{
+.product-row-title{
 	@include sectionDescription;
 	margin-bottom: 1.5em;
+	h2.title{
+		@include sectionTitle;
+		display: inline;
+		margin-right: 40px;
+	}
 	a{
 		color: $gray;
 		font-size: 1em;
@@ -242,6 +247,7 @@ body.fixed-filters{
 
 .collection-hero{
 	position: relative;
+	@include mb;
 	.content{
 		position: absolute;
 		left: 0;
@@ -257,11 +263,23 @@ body.fixed-filters{
 		text-align: center;
 	}
 	.title{
-		@include sectionTitle;
 		color: currentColor;
 	}
-	.description{
-		@include sectionDescription;
+	&.as-h1{
+		.title{
+			@include heroTitle;
+		}
+		.description{
+			@include heroDescription;
+		}
+	}
+	&.as-h2{
+		.title{
+			@include sectionTitle;
+		}
+		.description{
+			@include sectionDescription;
+		}
 	}
 	.btn{
 		@include invertedSecondaryBtn;
