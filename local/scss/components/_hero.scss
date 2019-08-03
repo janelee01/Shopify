@@ -177,29 +177,3 @@
 		
 	}
 }
-
-.collection-hero{
-	position: relative;
-	.content{
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		color: #fff;
-	}
-	.title{
-		@include sectionTitle;
-		color: currentColor;
-	}
-	.description{
-		@include sectionDescription;
-	}
-	.btn{
-		@include invertedSecondaryBtn;
-	}
-}

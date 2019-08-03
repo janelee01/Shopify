@@ -24,7 +24,7 @@
 		}
 	}
 	&.group-of-collections{
-		padding: 50px 0;
+		padding: 50px $grid-gutter-width;
 		color: $gray;
 		background: none;
 		margin: 0;
@@ -237,5 +237,33 @@ body.fixed-filters{
 			margin-left: 38px;
 			display: inline;
 		}
+	}
+}
+
+.collection-hero{
+	position: relative;
+	.content{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		color: #fff;
+		padding: $mobile-gutter;
+		text-align: center;
+	}
+	.title{
+		@include sectionTitle;
+		color: currentColor;
+	}
+	.description{
+		@include sectionDescription;
+	}
+	.btn{
+		@include invertedSecondaryBtn;
 	}
 }

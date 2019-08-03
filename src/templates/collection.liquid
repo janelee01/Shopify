@@ -1,3 +1,4 @@
+{% include 'vars' %}
 {% paginate collection.products by 25 %}
 
 {% case collection.metafields["global"]["layout"] %}
@@ -56,18 +57,22 @@
     {% for groupHandle in productGroups %}
     <section class="max-container">
       {% assign groupCollection = collections[groupHandle] %}
+      {% assign productsCount = groupCollection.products_count %}
       {% include 'collection-hero' %}
       <div class="container">
         <div class="group-options">
-          {{ groupCollection.metafields["global"]["configuration-options"] }} / {{ groupCollection.products_count }} colors available <a href="{{ groupCollection.products.first.url }}">Shop all colors &gt;</a>
+          {{ groupCollection.metafields["global"]["configuration-options"] }} / {{ productsCount }} colors available <a href="{{ groupCollection.products.first.url }}">Shop all colors &gt;</a>
         </div>
-        <div class="product-row">
+        <div class="product-row{% if productsCount <= 3 %} without-scroll{% endif %}">
           {% paginate groupCollection.products by 25 %}
             {% for product in groupCollection.products %}
               <div class="item">{% include 'product-item', product: product, hideName: true %}</div>
             {% endfor %}
           {% endpaginate %}
         </div>
+        {% if productsCount > 3 %}
+        <div class="product-row-bar"><div class="handle" style="width: {{ productsCount | divided_by: 100.0 | times: 100 }}%"></div></div>
+        {% endif %}
       </div>
     </section>
     {% endfor %}
@@ -85,9 +90,8 @@
     {%- endcapture -%}
     {%- assign productGroups = allProducts | split: '|' | uniq -%}
 
-    {% if(collection.metafields["global"]["hero-image"]) %}
+    {% if collection.metafields["global"]["hero-image"] %}
       {% assign groupCollection = collection %}
-      {% assign noHeroButton = true %}
       {% include 'collection-hero' %}
     {% else %}
       <header class="page-header is-collection" data-collection="{{ collection.id }}">

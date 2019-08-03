@@ -27,6 +27,7 @@ import './../lo/header'
 import './../lo/more-window'
 import './../lo/comparison'
 import './../lo/pdp'
+import './../lo/product-row'
 
 $(document).ready(function() {
 
@@ -530,7 +531,7 @@ $(document).ready(function() {
 		slidesToScroll: 1
 	});
 
-	
+
 	$("#newsletter-signup").on('submit', function(e) {
         e.preventDefault();
 		$('#newsletter-signup .form-group .validation-error').remove();

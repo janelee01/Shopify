@@ -1,12 +1,16 @@
 <header class="collection-hero mb-default">
-  <picture>
-    <source srcset="{{ groupCollection.metafields['global']['hero-image'] }}" media="(min-width: 1025px)">
-    <img src="{{ groupCollection.metafields['global']['hero-image-mobile'] }}" alt="">
-  </picture>
+  {% if groupCollection.metafields['global']['hero-image-mobile'] %}
+    <picture>
+      <source srcset="{{ groupCollection.metafields['global']['hero-image'] }}" media="(min-width: {{ screenSm }})">
+      <img src="{{ groupCollection.metafields['global']['hero-image-mobile'] }}" alt="{{ groupCollection.metafields["global"]["hero-image-description"] }}">
+    </picture>
+  {% else %}
+    <img src="{{ groupCollection.metafields['global']['hero-image'] }}" alt="{{ groupCollection.metafields["global"]["hero-image-description"] }}">
+  {% endif %}
   <div class="content">
     <h2 class="title">{{ groupCollection.title }}</h2>
     <p class="description">{{ groupCollection.metafields["global"]["hero-description"] }}</p>
-    {% unless noHeroButton == true %}
+    {% unless groupCollection.metafields["global"]["discover-page-handle"] == blank %}
     <a class="btn btn-secondary" href="{{ groupCollection.metafields["global"]["discover-page-handle"] }}">Learn more</a>
     {% endunless %}
   </div>
