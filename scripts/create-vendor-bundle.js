@@ -15,7 +15,7 @@ concat([
   // `${base}/jquery.touchSwipe.min.js`,
   // `${base}/jquery.film_roll.js`,
   // `${base}/photoswipe.min.js`,
-  // `${base}/photoswipe-ui-default.min.js`,
+  `${base}/imagesloaded.pkgd.min.js`,
   `${base}/slick.min.js`,
   `${base}/bodyScrollLock.min.js`,
   `${base}/jquery.debounce.min.js`,

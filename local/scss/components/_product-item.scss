@@ -35,10 +35,8 @@
   }
 }
 
-.product-row{
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
-  display: flex;
+.product-row-wrap{
+  overflow: hidden; // hide scrollbar because css isn't strong enough. js will set the size
   margin-bottom: 30px;
   margin-left: -$mobile-gutter;
   margin-right: -$mobile-gutter;
@@ -46,6 +44,12 @@
     margin-left: 0;
     margin-right: 0;
   }
+}
+.product-row{
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  padding-bottom: 15px;
   &.without-scroll{
     @include mb; // normally the scrollbar add the margin between sections
   }

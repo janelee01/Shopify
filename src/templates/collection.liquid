@@ -62,12 +62,14 @@
         <div class="product-row-title">
           <span class="configuration-options"></span>
         </div>
-        <div class="product-row">
-          {% paginate collection.products by 25 %}
-            {% for product in collection.products %}
-              <div class="item">{% include 'product-item' with product, hideName: true %}</div>
-            {% endfor %}
-          {% endpaginate %}
+        <div class="product-row-wrap">
+          <div class="product-row">
+            {% paginate collection.products by 25 %}
+              {% for product in collection.products %}
+                <div class="item">{% include 'product-item' with product, hideName: true %}</div>
+              {% endfor %}
+            {% endpaginate %}
+          </div>
         </div>
       </div>
     </section>
@@ -139,20 +141,22 @@
         <div class="product-row-title">
           <h2 class="title">{{ parentProductName | remove: "The " }}</h2><span class="configuration-options"></span>
         </div>
-        <div class="product-row">
-          {% for product in collection.products %}
-            {%- assign productNameParts = product.title | split: ' - ' -%}
-            {% if productNameParts[0] != parentProductName %}{% continue %}{% endif %}
-            {%- assign priceClass = 'p-0-100' -%}
-            {%- assign thisPrice = product.price | divided_by: 100 -%}
-            {%- if thisPrice >= 100 and thisPrice <= 200 -%}{%- assign priceClass = 'p-100-200' -%}{%- endif -%}
-            {%- if thisPrice >= 200 and thisPrice <= 300 -%}{%- assign priceClass = 'p-200-300' -%}{%- endif -%}
-            {%- if thisPrice >= 300 and thisPrice <= 400 -%}{%- assign priceClass = 'p-300-400' -%}{%- endif -%}
-            {%- if thisPrice >= 400 and thisPrice <= 500 -%}{%- assign priceClass = 'p-400-500' -%}{%- endif -%}
-            <div class="item f-hook{% for tag in product.tags %} f-{{ tag | handleize }}{% endfor %} {{ priceClass }}">
-              {% include 'product-item' with product, hideName: true %}
-            </div>
-          {% endfor %}
+        <div class="product-row-wrap">
+          <div class="product-row">
+            {% for product in collection.products %}
+              {%- assign productNameParts = product.title | split: ' - ' -%}
+              {% if productNameParts[0] != parentProductName %}{% continue %}{% endif %}
+              {%- assign priceClass = 'p-0-100' -%}
+              {%- assign thisPrice = product.price | divided_by: 100 -%}
+              {%- if thisPrice >= 100 and thisPrice <= 200 -%}{%- assign priceClass = 'p-100-200' -%}{%- endif -%}
+              {%- if thisPrice >= 200 and thisPrice <= 300 -%}{%- assign priceClass = 'p-200-300' -%}{%- endif -%}
+              {%- if thisPrice >= 300 and thisPrice <= 400 -%}{%- assign priceClass = 'p-300-400' -%}{%- endif -%}
+              {%- if thisPrice >= 400 and thisPrice <= 500 -%}{%- assign priceClass = 'p-400-500' -%}{%- endif -%}
+              <div class="item f-hook{% for tag in product.tags %} f-{{ tag | handleize }}{% endfor %} {{ priceClass }}">
+                {% include 'product-item' with product, hideName: true %}
+              </div>
+            {% endfor %}
+          </div>
         </div>
       </div>
     {%- endfor -%}

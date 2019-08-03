@@ -9,8 +9,10 @@
     }
     .press-item{
         text-align: center;
-        padding-left: $mobile-gutter;
-        padding-right: $mobile-gutter;
+        @media (min-width: $screen-sm) {
+            padding-left: $grid-gutter-width;
+            padding-right: $grid-gutter-width;
+        }
         @media (min-width: $screen-md) {
             padding: 0 13% 0 0;
             text-align: left;
