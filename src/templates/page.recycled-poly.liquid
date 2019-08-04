@@ -106,19 +106,8 @@
       </div>
     </div>
 
-    <div class="product-family container">
-      <div class="section-heading">
-        <h2 class="title">Shop the Collection</h2>
-      </div>
-      <div class="product-row-wrap">
-        <div class="product-row">
-          {% for product in collections['recycled-poly'].products %}
-          <div class="item">
-            {% include 'product-item' with product %} 
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
+    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
+    {% endunless %}
 
 </article>
