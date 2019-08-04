@@ -265,4 +265,7 @@ body.fixed-filters{
 	.btn{
 		@include invertedSecondaryBtn;
 	}
+	img{
+		width: 100%;
+	}
 }
