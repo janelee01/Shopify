@@ -151,7 +151,8 @@ $(document).ready(function(){
 					success : function( data, textStatus, jqXHR ){
 						// insert the product families from the requested page
 						var $productFamilies = $(data).find('#MainContent .product-family');
-						$productFamilies.insertBefore('#filter-alert');
+						var $insertPoint = $('#filter-alert').closest('.container');
+						$productFamilies.insertBefore($insertPoint);
 						contentIds += $(data).find('#content-ids').text();
 					},
 					complete : function(){

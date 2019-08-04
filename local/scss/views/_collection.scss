@@ -226,28 +226,6 @@ body.fixed-filters{
 	}
 }
 
-.product-family{
-	@include mb;
-}
-
-.product-row-title{
-	@include sectionDescription;
-	margin-bottom: 1.5em;
-	h2.title{
-		@include sectionTitle;
-		display: inline;
-		margin-right: 40px;
-	}
-	a{
-		color: $gray-darker;
-		font-size: 1em;
-		display: block;
-		@media (min-width: $screen-sm){
-			display: inline;
-		}
-	}
-}
-
 .collection-hero{
 	position: relative;
 	@include mb;
