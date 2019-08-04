@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	var productRowInit = function(isResize){
+	var productRowInit = function(firstInit){
 		if( !$('.product-row').length ){
 			return
 		}
@@ -8,22 +8,35 @@ $(document).ready(function(){
 		$('.product-row').each(function(){
 			var $this = $(this);
 			var $items = $this.find('.item');
+			var hiddenItems = $this.find('.hidden'); // .find().not() breaks things
 			var $sampleItem = $items.first();
-			var gutter = $sampleItem.css('padding-right').replace('px','');
-			var naturalWidth = $sampleItem.outerWidth() * $items.length; 
+			var gutter = Number($sampleItem.css('padding-right').replace('px',''));
+			var itemWidth = $sampleItem.outerWidth();
+			// first item has an extra left gutter on mobile, so remove that value for an accurate size for all items
+			if( $(window).outerWidth() < LS.tabletBreakpoint ){
+				itemWidth = itemWidth - gutter;
+			}
+			// figure out how wide this row would be
+			var naturalWidth = itemWidth * ($items.length - hiddenItems.length); 
+			// remove one gutter value on tablet and up due to last child having it's padding removed
+			if( $(window).outerWidth() >= LS.tabletBreakpoint ){
+				naturalWidth = naturalWidth - gutter;
+			}
+			// visible area of the row
 			var availableWidth = $this.outerWidth();
-			if( naturalWidth - gutter > availableWidth ){ // take off one gutter value to handle last item
+			// do we need to scroll?
+			if( naturalWidth > availableWidth ){ 
+				// add our scrollbar
 				$('<div class="product-row-bar"><div class="handle" style="width: ' + availableWidth/naturalWidth*100 + '%"></div></div>').insertAfter($this.closest('.product-row-wrap'));
-				// figure out how far the handle can scroll
-				var $handle = $this.closest('.container').find('.handle');
-				if( $(window).outerWidth() < LS.tabletBreakpoint ){
-					var mobileGutter = Number($sampleItem.css('padding-left').replace('px',''));
-					availableWidth = availableWidth - mobileGutter; // reduce the actual scrolling amount by the gutters
-				}
 				// how many pixels are we hanging off the side
 				var amountToScroll = naturalWidth - availableWidth;
+				if( $(window).outerWidth() < LS.tabletBreakpoint ){
+					// account for the extra gutter on the first item
+					amountToScroll = amountToScroll + gutter;
+				}
 				// how far does the handle need to move
-				var handleAmountToScroll = availableWidth - $handle.outerWidth(); 
+				var $handle = $this.closest('.product-family').find('.handle');
+				var handleAmountToScroll = $('.product-row-bar').outerWidth() - $handle.outerWidth(); 
 				$this.on('scroll', function(){
 					// of the distance we need to scroll, how far have we gone?
 					var percentScrolled = $this.scrollLeft()/amountToScroll;
@@ -31,17 +44,17 @@ $(document).ready(function(){
 					var translateAmt = percentScrolled * handleAmountToScroll;
 					$handle.css('transform', 'translate3d(' + translateAmt + 'px, 0, 0)');
 				});
+				// set the cropping window's height to hide iOS scrollbar
+				$this.imagesLoaded( function() {
+					$this.closest('.product-row-wrap').height($this.outerHeight() - $this.css('padding-bottom').replace('px',''));
+				});
 			}else{ 
 				$this.addClass('without-scroll');
 			}
 
-			$this.imagesLoaded( function() {
-				$this.closest('.product-row-wrap').height($this.outerHeight() - $this.css('padding-bottom').replace('px',''));
-			});
-
-			// set up row heading text (when not resizing)
-			if( !isResize ){
-				var $optionsEl = $(this).closest('.container').find('.configuration-options');
+			// set up row heading text
+			if( firstInit ){
+				var $optionsEl = $(this).closest('.product-family').find('.configuration-options');
 				var options = [];
 				var materials = [];
 				var sizes = 1;
@@ -61,24 +74,28 @@ $(document).ready(function(){
 				if( sizes > 1 ){
 					options.push(sizes + ' sizes')
 				}
-				options.push($items.length + ' colors available');
+				if( $items.length > 1 ){
+					options.push($items.length + ' colors available');
+				}else{
+					options.push('1 color available');
+				}
 				$optionsEl.html('<a href="' + $sampleItem.find('.product-link').attr('href') + '">' + options.join(' / ') + ' &gt;</a>');
 			}
 		});
 	};
 
-	productRowInit(false); 
+	productRowInit(true); 
 	$(window).resize(function(){
-		productRowInit(true); 
+		productRowInit(false); 
 	});
 
 	if( $('body').hasClass('template-collection') ){
 	
 		var sessionKey = 'lo'+$('.page-header').data('collection');
 		var savedState = sessionStorage.getItem(sessionKey);
-		if( savedState ){
-			$('#MainContent').html(savedState);
-		}
+		// if( savedState ){
+		// 	$('#MainContent').html(savedState);
+		// }
 
 		var setFilterOptions = function(){
 			// show/hide filter options
@@ -176,7 +193,7 @@ $(document).ready(function(){
 						setFilterOptions();
 
 						// update side scrolling rows
-						productRowInit(false);
+						productRowInit(true);
 					}
 				});
 			});
@@ -298,7 +315,10 @@ $(document).ready(function(){
 		    	}else{
 		    		$(this).fadeIn();
 		    	}
-		    });
+				});
+				
+				// redo the scrolling areas
+				productRowInit(false);
 		});
 		$('#reset-filters').on('click', function(e){
 		    e.preventDefault();
@@ -309,7 +329,8 @@ $(document).ready(function(){
 		    $('.pagination').show();
 		    $('#filters-collapse').hide();
 		    $('#filter-alert').hide();
-		    sessionStorage.removeItem(sessionKey);
+				sessionStorage.removeItem(sessionKey);
+				productRowInit(false);
 		});
 		$('body').on('click', '#filters-collapse', function(e){
 		    e.preventDefault();

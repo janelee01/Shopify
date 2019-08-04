@@ -55,7 +55,7 @@
       <p>{{ collection.description }}</p>
     </header>
     {% for groupHandle in productGroups %}
-    <section class="max-container">
+    <section class="product-family max-container">
       {% assign collection = collections[groupHandle] %}
       {% include 'collection-hero' with collection, tag: 'h2' %}
       <div class="container">
@@ -137,7 +137,7 @@
     {% endif %}
    
     {%- for parentProductName in productGroups -%}
-      <div class="container product-family" data-family-name="{{ parentProductName | handleize }}" data-content-category="{{ parentProductName }}">
+      <section class="container product-family" data-family-name="{{ parentProductName | handleize }}" data-content-category="{{ parentProductName }}">
         <div class="product-row-title">
           <h2 class="title">{{ parentProductName | remove: "The " }}</h2><span class="configuration-options"></span>
         </div>
@@ -158,7 +158,7 @@
             {% endfor %}
           </div>
         </div>
-      </div>
+      </section>
     {%- endfor -%}
     <div class="container">
       <div id="filter-alert" style="display: none" class="alert alert-warning">No products match your filter selections.</div>

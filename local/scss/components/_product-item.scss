@@ -37,7 +37,6 @@
 
 .product-row-wrap{
   overflow: hidden; // hide scrollbar because css isn't strong enough. js will set the size
-  margin-bottom: 30px;
   margin-left: -$mobile-gutter;
   margin-right: -$mobile-gutter;
   @media (min-width: $screen-sm) { 
@@ -50,9 +49,6 @@
   -webkit-overflow-scrolling: touch;
   display: flex;
   padding-bottom: 15px;
-  &.without-scroll{
-    @include mb; // normally the scrollbar add the margin between sections
-  }
   .item{
     position: relative; // fixes body side scrolling even with overflow scrolling 
     padding: 0 $mobile-gutter 0 0;
@@ -66,6 +62,9 @@
       padding-left: $mobile-gutter;
       @media (min-width: $screen-sm) {  padding-left: 0; }
     }
+    &:last-child{
+      @media (min-width: $screen-sm) {  padding-right: 0; }
+    }
   }
 }
 .product-row-bar{
@@ -73,7 +72,7 @@
   height: 4px;
   border-radius: 2px;
   position: relative;
-  @include mb;
+  margin-top: 30px;
   .handle{
     background: #9B9B9B;
     height: 4px;

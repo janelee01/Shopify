@@ -226,6 +226,10 @@ body.fixed-filters{
 	}
 }
 
+.product-family{
+	@include mb;
+}
+
 .product-row-title{
 	@include sectionDescription;
 	margin-bottom: 1.5em;
@@ -238,6 +242,9 @@ body.fixed-filters{
 		color: $gray-darker;
 		font-size: 1em;
 		display: block;
+		@media (min-width: $screen-sm){
+			display: inline;
+		}
 	}
 }
 
