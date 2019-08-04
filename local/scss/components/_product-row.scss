@@ -10,16 +10,18 @@
 		display: inline;
 		margin-right: 40px;
 	}
-	a{
-		color: $gray-darker;
-		font-size: 1em;
+  .configuration-options{
     display: block;
     margin-top: 12px;
-		@media (min-width: $screen-sm){
+    @media (min-width: $screen-sm){
       display: inline;
       margin-top: 0;
 		}
-	}
+  }
+  a{
+		color: $gray-darker;
+		font-size: 1em;
+  }
 }
 
 .product-row-wrap{

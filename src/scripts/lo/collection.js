@@ -4,7 +4,11 @@ $(document).ready(function(){
 		if( !$('.product-row').length ){
 			return
 		}
-		$('.product-row-bar').remove();// clear out on re-init
+
+		// clear values
+		$('.product-row-bar').remove();
+		$('.product-row-wrap').removeAttr('style');
+
 		$('.product-row').each(function(){
 			var $this = $(this);
 			var $items = $this.find('.item');
@@ -48,8 +52,6 @@ $(document).ready(function(){
 				$this.imagesLoaded( function() {
 					$this.closest('.product-row-wrap').height($this.outerHeight() - $this.css('padding-bottom').replace('px',''));
 				});
-			}else{ 
-				$this.addClass('without-scroll');
 			}
 
 			// set up row heading text

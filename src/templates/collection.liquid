@@ -2,9 +2,7 @@
 {% paginate collection.products by 25 %}
 
 {% case collection.metafields["global"]["layout"] %}
-  {% when 'by-collection' %}
-    shopping by collection
-
+  
   {% when 'by-color' %}
   
     {%- capture allProducts -%}
@@ -14,31 +12,26 @@
     {%- endcapture -%}
     {%- assign productGroups = allProducts | split: '|' | uniq -%}
 
-    <header class="page-header is-collection" data-collection="{{ collection.id }}">
+    <header class="page-header group-of-collections">
       <h1>{{ collection.title }}</h1>
-      {{ collection.description }}
+      <p>{{ collection.description }}</p>
     </header>
     {% for groupHandle in productGroups %}
-    <div class="max-container">
+    <section class="product-family container">
       {% assign collection = collections[groupHandle] %}
-      <div class="container">
-        <div class="section-heading">
-            <h2 class="title">{{ collection.title }}</h2>
-            <p class="description">{{ collection.description }}</p>
-        </div>
-        <div class="product-grid">
-          <div class="row">
-            {% paginate collection.products by 4 %}
+      <div class="product-row-title">
+        <h2 class="title">{{{ collection.title }}</h2><span class="configuration-options"></span>
+      </div>
+      <div class="product-row-wrap">
+        <div class="product-row">
+          {% paginate collection.products by 25 %}
             {% for product in collection.products %}
-            <div class="col-xs-6 col-sm-3">
-              {% include 'product-item' with product %}
-            </div>
+              <div class="item">{% include 'product-item' with product, hideName: true %}</div>
             {% endfor %}
-            {% endpaginate %}
-          </div>
+          {% endpaginate %}
         </div>
       </div>
-    </div>
+    </section>
     {% endfor %}
 
   {% when 'by-type' %}
