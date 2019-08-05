@@ -17,7 +17,7 @@
 
 {% case collection.metafields["global"]["layout"] %}
   
-  {% when 'sections-only' %}
+  {% when 'product-sections-only' %} 
 
     {% if collection.metafields["global"]["hero-image"] %}
       <div class="max-container">
@@ -50,7 +50,7 @@
       {% endunless %}
     {% endfor %}
 
-  {% when 'heroes-only' %}
+  {% when 'hero-sections-only' %}
 
     {{ collectionHeader }}
     {% for handle in handles %}
@@ -62,7 +62,7 @@
       {% endunless %}
     {% endfor %}
 
-  {% when 'sections-with-heroes' %}
+  {% when 'hero-and-product-sections' %}
 
     {{ collectionHeader }}
     {% for handle in handles %}

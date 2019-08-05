@@ -8,10 +8,16 @@
     <img src="{{ collection.metafields['global']['hero-image'] }}" alt="{{ collection.metafields["global"]["hero-image-description"] }}">
   {% endif %}
   <div class="content">
-    <{{tag}} class="title">{{ collection.title }}</{{tag}}>
-    <p class="description">{{ collection.metafields["global"]["hero-description"] }}</p>
-    {% unless collection.metafields["global"]["discover-page-handle"] == blank %}
-    <a class="btn btn-secondary" href="{{ pages[collection.metafields["global"]["discover-page-handle"]].url }}">Learn more</a>
-    {% endunless %}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
+          <{{tag}} class="title">{{ collection.title }}</{{tag}}>
+          <p class="description">{{ collection.metafields["global"]["hero-description"] }}</p>
+          {% unless collection.metafields["global"]["discover-page-handle"] == blank %}
+          <a class="btn btn-secondary" href="{{ pages[collection.metafields["global"]["discover-page-handle"]].url }}">Learn more</a>
+          {% endunless %}
+        </div>
+      </div>
+    </div>
   </div>
 </header>
