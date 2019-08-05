@@ -50,7 +50,10 @@
     data-variant-count="{{ product.variants | size }}">
     {%- if product.featured_image != blank -%}
     <div class="image">
-      {{ product.featured_image.src | img_url: '360x360' | img_tag: product.featured_image.alt }}
+      <picture>
+        <source srcset="{{ product.featured_image.src | img_url: '360x360' }}, {{ product.featured_image.src | img_url: '720x720' }} 2x" media="(min-width: {{ screenMd }}" />
+        <img src="{{ product.featured_image.src | img_url: '580x580' }}" alt="{{ product.featured_image.alt }}">
+      </picture>
     </div>  
     {%- endif -%}
     {%- assign productTitleParts = product.title | split: '-' -%}

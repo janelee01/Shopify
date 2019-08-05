@@ -246,20 +246,17 @@ body.fixed-filters{
 	.title{
 		color: currentColor;
 	}
+	.description{
+		@include heroDescription;
+	}
 	&.as-h1{
 		.title{
 			@include heroTitle;
-		}
-		.description{
-			@include heroDescription;
 		}
 	}
 	&.as-h2{
 		.title{
 			@include sectionTitle;
-		}
-		.description{
-			@include sectionDescription;
 		}
 	}
 	.btn{
