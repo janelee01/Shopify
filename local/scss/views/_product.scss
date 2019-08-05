@@ -699,6 +699,7 @@ body.product{
   table{ 
     width: 100%;
     margin-bottom: 1.4em;
+    font-size: 14px;
     td, th{
       padding: 5px 0;
       text-align: right;
@@ -710,6 +711,18 @@ body.product{
       font-family: $font-family-medium;
       font-weight: 400;
       color: $gray-darker; 
+    }
+    tbody{
+      tr:first-child{
+        th{
+          font-family: $font-family-medium;
+          font-weight: 400;
+          color: $gray-darker;
+          text-align: left;
+          font-size: 16px;
+          padding: 12px 0 0;
+        }
+      }
     }
   }
 }
