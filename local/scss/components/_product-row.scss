@@ -1,5 +1,25 @@
 .product-family{
-	@include mb;
+  @include mb;
+  .hero{ // for home page
+    @media (max-width: $screen-sm-max) { 
+        @include mb(sm);
+        .description,
+        picture{
+            display: none;
+        }
+        .title{
+            color: $gray-darker;
+            margin: 0;
+            @include sectionTitle;
+        }
+        .hero-content{
+            display: block;
+            position: static;
+            padding: 0;
+            @include sectionDescription;
+        }
+    }
+  }
 }
 
 .product-row-title{
