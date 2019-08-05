@@ -55,8 +55,13 @@
     {%- endif -%}
     {%- assign productTitleParts = product.title | split: '-' -%}
     <div class="details">
-      <h3 class="title{% if hideName %} sr-only{% endif %}">{{ productTitleParts[0] | remove: "The " | strip }}</h3>
-      <div class="color">{{ productTitleParts[2] | trim }}</div>
+      {% comment %} if we're not showing the name, use the color for the h tag because the product title is in an h2 above this element{% endcomment %}
+      {% if hideName %}
+        <h3 class="color">{{ productTitleParts[2] | trim }}</h3>
+      {% else %}
+        <h3 class="title">{{ productTitleParts[0] | remove: "The " | strip }}</h3>
+        <div class="color">{{ productTitleParts[2] | trim }}</div>
+      {% endif %}
       <div class="material">{{ productTitleParts[1] | strip }}</div>
       {%- if product.available -%}
         <div class="price{% if hasPriceRange %} has-range{% endif %}">
