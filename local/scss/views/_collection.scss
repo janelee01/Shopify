@@ -24,7 +24,7 @@
 		}
 	}
 	&.group-of-collections{
-		padding: 50px $grid-gutter-width;
+		padding: 50px;
 		color: $gray;
 		background: none;
 		margin: 0;
@@ -246,20 +246,17 @@ body.fixed-filters{
 	.title{
 		color: currentColor;
 	}
+	.description{
+		@include heroDescription;
+	}
 	&.as-h1{
 		.title{
 			@include heroTitle;
-		}
-		.description{
-			@include heroDescription;
 		}
 	}
 	&.as-h2{
 		.title{
 			@include sectionTitle;
-		}
-		.description{
-			@include sectionDescription;
 		}
 	}
 	.btn{

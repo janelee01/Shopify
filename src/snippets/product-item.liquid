@@ -50,13 +50,21 @@
     data-variant-count="{{ product.variants | size }}">
     {%- if product.featured_image != blank -%}
     <div class="image">
-      {{ product.featured_image.src | img_url: '360x360' | img_tag: product.featured_image.alt }}
+      <picture>
+        <source srcset="{{ product.featured_image.src | img_url: '360x360' }}, {{ product.featured_image.src | img_url: '720x720' }} 2x" media="(min-width: {{ screenMd }}" />
+        <img src="{{ product.featured_image.src | img_url: '580x580' }}" alt="{{ product.featured_image.alt }}">
+      </picture>
     </div>  
     {%- endif -%}
     {%- assign productTitleParts = product.title | split: '-' -%}
     <div class="details">
-      <h3 class="title{% if hideName %} sr-only{% endif %}">{{ productTitleParts[0] | remove: "The " | strip }}</h3>
-      <div class="color">{{ productTitleParts[2] | trim }}</div>
+      {% comment %} if we're not showing the name, use the color for the h tag because the product title is in an h2 above this element{% endcomment %}
+      {% if hideName %}
+        <h3 class="color">{{ productTitleParts[2] | trim }}</h3>
+      {% else %}
+        <h3 class="title">{{ productTitleParts[0] | remove: "The " | strip }}</h3>
+        <div class="color">{{ productTitleParts[2] | trim }}</div>
+      {% endif %}
       <div class="material">{{ productTitleParts[1] | strip }}</div>
       {%- if product.available -%}
         <div class="price{% if hasPriceRange %} has-range{% endif %}">

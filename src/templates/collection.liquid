@@ -17,21 +17,23 @@
       <p>{{ collection.description }}</p>
     </header>
     {% for groupHandle in productGroups %}
-    <section class="product-family container">
       {% assign collection = collections[groupHandle] %}
-      <div class="product-row-title">
-        <h2 class="title">{{{ collection.title }}</h2><span class="configuration-options"></span>
-      </div>
-      <div class="product-row-wrap">
-        <div class="product-row">
-          {% paginate collection.products by 25 %}
-            {% for product in collection.products %}
-              <div class="item">{% include 'product-item' with product, hideName: true %}</div>
-            {% endfor %}
-          {% endpaginate %}
-        </div>
-      </div>
-    </section>
+      {% unless collection.title == blank %}
+        <section class="product-family container">
+          <div class="product-row-title">
+            <h2 class="title">{{{ collection.title }}</h2><span class="configuration-options"></span>
+          </div>
+          <div class="product-row-wrap">
+            <div class="product-row">
+              {% paginate collection.products by 25 %}
+                {% for product in collection.products %}
+                  <div class="item">{% include 'product-item' with product, hideName: true %}</div>
+                {% endfor %}
+              {% endpaginate %}
+            </div>
+          </div>
+        </section>
+      {% endunless %}
     {% endfor %}
 
   {% when 'by-type' %}
@@ -44,28 +46,36 @@
     {%- assign productGroups = allProducts | split: '|' | uniq -%}
 
     <header class="page-header group-of-collections">
-      <h1>{{ collection.title }}</h1>
-      <p>{{ collection.description }}</p>
-    </header>
-    {% for groupHandle in productGroups %}
-    <section class="product-family max-container">
-      {% assign collection = collections[groupHandle] %}
-      {% include 'collection-hero' with collection, tag: 'h2' %}
       <div class="container">
-        <div class="product-row-title">
-          <span class="configuration-options"></span>
-        </div>
-        <div class="product-row-wrap">
-          <div class="product-row">
-            {% paginate collection.products by 25 %}
-              {% for product in collection.products %}
-                <div class="item">{% include 'product-item' with product, hideName: true %}</div>
-              {% endfor %}
-            {% endpaginate %}
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
+              <h1>{{ collection.title }}</h1>
+              <p>{{ collection.description }}</p>
           </div>
         </div>
       </div>
-    </section>
+    </header>
+    {% for groupHandle in productGroups %}
+      {% assign collection = collections[groupHandle] %}
+      {% unless collection.title == blank %}
+        <section class="product-family max-container">
+          {% include 'collection-hero' with collection, tag: 'h2' %}
+          <div class="container">
+            <div class="product-row-title">
+              <span class="configuration-options"></span>
+            </div>
+            <div class="product-row-wrap">
+              <div class="product-row">
+                {% paginate collection.products by 25 %}
+                  {% for product in collection.products %}
+                    <div class="item">{% include 'product-item' with product, hideName: true %}</div>
+                  {% endfor %}
+                {% endpaginate %}
+              </div>
+            </div>
+          </div>
+        </section>
+      {% endunless %}
     {% endfor %}
 
   {% else %}

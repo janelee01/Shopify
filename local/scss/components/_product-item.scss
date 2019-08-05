@@ -5,7 +5,8 @@
   .details{
     @include blockDescription;
   }
-  .title{
+  .title,
+  .color{
     font-size: 1em;
     margin: 0;
   }
