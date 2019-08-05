@@ -13,6 +13,7 @@ $(document).ready(function(){
 			var $this = $(this);
 			var $items = $this.find('.item');
 			var hiddenItems = $this.find('.hidden'); // .find().not() breaks things
+			var $excludedItems = $this.find('.exclude'); // visible, but don't count them
 			var $sampleItem = $items.first();
 			var gutter = Number($sampleItem.css('padding-right').replace('px',''));
 			var itemWidth = $sampleItem.outerWidth();
@@ -77,7 +78,7 @@ $(document).ready(function(){
 					options.push(sizes + ' sizes')
 				}
 				if( $items.length > 1 ){
-					options.push($items.length + ' colors available');
+					options.push(($items.length - $excludedItems.length) + ' colors available');
 				}else{
 					options.push('1 color available');
 				}

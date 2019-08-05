@@ -1,35 +1,87 @@
 {% include 'vars' %}
 {% paginate collection.products by 25 %}
 
+{% capture collectionHeader %}
+<header class="page-header group-of-collections">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
+          <h1>{{ collection.title }}</h1>
+          <p>{{ collection.description }}</p>
+      </div>
+    </div>
+  </div>
+</header>
+{% endcapture %}
+{% assign handles = collection.metafields["global"]["collection-handles"] | replace: '<p>' | replace: '</p>' | split: '<br />' %}
+
 {% case collection.metafields["global"]["layout"] %}
   
-  {% when 'by-color' %}
-  
-    {%- capture allProducts -%}
-    {%- for product in collection.products -%}
-      {{ product.title | split: '-' | last | split: '/' | first | handleize }}|
-    {%- endfor -%}
-    {%- endcapture -%}
-    {%- assign productGroups = allProducts | split: '|' | uniq -%}
+  {% when 'sections-only' %}
 
-    <header class="page-header group-of-collections">
-      <h1>{{ collection.title }}</h1>
-      <p>{{ collection.description }}</p>
-    </header>
-    {% for groupHandle in productGroups %}
-      {% assign collection = collections[groupHandle] %}
+    {% if collection.metafields["global"]["hero-image"] %}
+      <div class="max-container">
+        {% include 'collection-hero' with collection, tag: 'h1' %}
+      </div>
+    {% else %}
+      {{ collectionHeader }}
+    {% endif %}
+
+    {% for handle in handles %}
+      {% assign collection = collections[handle] %}
       {% unless collection.title == blank %}
         <section class="product-family container">
           <div class="product-row-title">
-            <h2 class="title">{{{ collection.title }}</h2><span class="configuration-options"></span>
+            <h2 class="title">{{ collection.title }}</h2><span class="configuration-options"></span>
           </div>
           <div class="product-row-wrap">
             <div class="product-row">
+              {% if collection.metafields["global"]["row-item-image"] %}
+                <div class="item exclude">{{ collection.metafields["global"]["row-item-image"] | img_tag: collection.metafields["global"]["row-item-image-description"] }}</div>
+              {% endif %}
               {% paginate collection.products by 25 %}
                 {% for product in collection.products %}
                   <div class="item">{% include 'product-item' with product, hideName: true %}</div>
                 {% endfor %}
               {% endpaginate %}
+            </div>
+          </div>
+        </section>
+      {% endunless %}
+    {% endfor %}
+
+  {% when 'heroes-only' %}
+
+    {{ collectionHeader }}
+    {% for handle in handles %}
+      {% assign collection = collections[handle] %}
+      {% unless collection.title == blank %}
+        <section class="product-family max-container hero-only">
+          {% include 'collection-hero' with collection, tag: 'h2' %}
+        </section>
+      {% endunless %}
+    {% endfor %}
+
+  {% when 'sections-with-heroes' %}
+
+    {{ collectionHeader }}
+    {% for handle in handles %}
+      {% assign collection = collections[handle] %}
+      {% unless collection.title == blank %}
+        <section class="product-family max-container">
+          {% include 'collection-hero' with collection, tag: 'h2' %}
+          <div class="container">
+            <div class="product-row-title">
+              <span class="configuration-options"></span>
+            </div>
+            <div class="product-row-wrap">
+              <div class="product-row">
+                {% paginate collection.products by 25 %}
+                  {% for product in collection.products %}
+                    <div class="item">{% include 'product-item' with product, hideName: true %}</div>
+                  {% endfor %}
+                {% endpaginate %}
+              </div>
             </div>
           </div>
         </section>
@@ -45,16 +97,7 @@
     {%- endcapture -%}
     {%- assign productGroups = allProducts | split: '|' | uniq -%}
 
-    <header class="page-header group-of-collections">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
-              <h1>{{ collection.title }}</h1>
-              <p>{{ collection.description }}</p>
-          </div>
-        </div>
-      </div>
-    </header>
+    {{ collectionHeader }}
     {% for groupHandle in productGroups %}
       {% assign collection = collections[groupHandle] %}
       {% unless collection.title == blank %}
