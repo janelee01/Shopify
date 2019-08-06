@@ -4,13 +4,19 @@
     margin-bottom: 0;
     .collection-hero{
       margin: 0;
+      .price{
+        display: block;
+      }
+      .to-pdp{
+        display: inline-block;
+      }
     }
   }
   .hero{ // for home page
     @media (max-width: $screen-sm-max) { 
         @include mb(sm);
         .description,
-        picture{
+        picture{ 
             display: none;
         }
         .title{

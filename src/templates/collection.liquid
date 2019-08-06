@@ -15,6 +15,9 @@
 {% endcapture %}
 {% assign handles = collection.metafields["global"]["collection-handles"] | replace: '<p>' | replace: '</p>' | split: '<br />' %}
 
+{% comment %} so the Buy now link in a colleciton hero uses this collection and not the product family {% endcomment %}
+{% assign referringCollection = collection %}
+
 {% case collection.metafields["global"]["layout"] %}
   
   {% when 'product-sections-only' %} 
@@ -51,7 +54,7 @@
     {% endfor %}
 
   {% when 'hero-sections-only' %}
-
+    
     {{ collectionHeader }}
     {% for handle in handles %}
       {% assign collection = collections[handle] %}

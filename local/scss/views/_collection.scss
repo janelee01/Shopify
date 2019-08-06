@@ -260,8 +260,15 @@ body.fixed-filters{
 	}
 	.btn{
 		@include invertedSecondaryBtn;
+		min-width: 135px;
+		margin: 0 6px;
 	}
 	img{
 		width: 100%;
+	}
+	// price and Buy now button shown when it's a hero-only layout
+	.to-pdp,
+	.price{
+		display: none;
 	}
 }

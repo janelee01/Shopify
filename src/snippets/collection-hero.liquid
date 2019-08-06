@@ -1,3 +1,5 @@
+{% assign firstProduct = collection.products | first %}
+{% unless collection.metafields['global']['hero-image'] == blank %}
 <header class="collection-hero as-{{tag}}" data-collection="{{ collection.id }}">
   {% if collection.metafields['global']['hero-image-mobile'] %}
     <picture>
@@ -13,11 +15,16 @@
         <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
           <{{tag}} class="title">{{ collection.title }}</{{tag}}>
           <p class="description">{{ collection.metafields["global"]["hero-description"] }}</p>
-          {% unless collection.metafields["global"]["discover-page-handle"] == blank %}
-          <a class="btn btn-secondary" href="{{ pages[collection.metafields["global"]["discover-page-handle"]].url }}">Learn more</a>
-          {% endunless %}
+          <p class="description price">{{ firstProduct.price | money_without_trailing_zeros }}</p>
+          <div class="actions">
+            {% unless collection.metafields["global"]["discover-page-handle"] == blank %}
+            <a class="btn btn-secondary" href="{{ pages[collection.metafields["global"]["discover-page-handle"]].url }}">Learn more</a>
+            {% endunless %}
+            <a class="btn btn-secondary to-pdp" href="{{ firstProduct.url | within: referringCollection }}">Buy now</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </header>
+{% endunless %}
