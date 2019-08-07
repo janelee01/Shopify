@@ -1,5 +1,4 @@
 {% include 'vars' %}
-{% paginate collection.products by 25 %}
 
 {% capture collectionHeader %}
 <header class="page-header group-of-collections">
@@ -7,7 +6,7 @@
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
           <h1>{{ collection.title }}</h1>
-          <p>{{ collection.description }}</p>
+          {% if collection.description != blank %}<p>{{ collection.description }}</p>{% endif %}
       </div>
     </div>
   </div>
@@ -59,8 +58,8 @@
     {% for handle in handles %}
       {% assign collection = collections[handle] %}
       {% unless collection.title == blank %}
-        <section class="product-family max-container hero-only">
-          {% include 'collection-hero' with collection, tag: 'h2' %}
+        <section class="product-family max-container without-products">
+          {% include 'collection-hero' with collection, tag: 'h2', mode: 'hero-only' %}
         </section>
       {% endunless %}
     {% endfor %}
@@ -72,7 +71,7 @@
       {% assign collection = collections[handle] %}
       {% unless collection.title == blank %}
         <section class="product-family max-container">
-          {% include 'collection-hero' with collection, tag: 'h2' %}
+          {% include 'collection-hero' with collection, tag: 'h2', mode: 'hero-and-products' %}
           <div class="container">
             <div class="product-row-title">
               <span class="configuration-options"></span>
@@ -90,8 +89,8 @@
         </section>
       {% endunless %}
     {% endfor %}
-
-  {% when 'by-type' %}
+  
+  {% when 'by-type' %} {% comment %} legacy, to be removed for "hero-and-product-sections" {% endcomment %}
 
     {%- capture allProducts -%}
     {%- for product in collection.products -%}
@@ -125,7 +124,8 @@
     {% endfor %}
 
   {% else %}
-
+  
+    {% paginate collection.products by 25 %}
     {%- capture allProducts -%}
     {%- for product in collection.products -%}
       {{ product.title | split: ' - ' | first }}|
@@ -232,7 +232,6 @@
     <div id="content-ids" style="display: none"> 
       {%- for product in collection.products -%}{{ product.variants.first.sku }},{%- endfor -%}
     </div>
+    {% endpaginate %}
     
 {% endcase %}
-
-{% endpaginate %}

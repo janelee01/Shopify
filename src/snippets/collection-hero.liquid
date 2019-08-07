@@ -1,30 +1,91 @@
-{% assign firstProduct = collection.products | first %}
-{% unless collection.metafields['global']['hero-image'] == blank %}
-<header class="collection-hero as-{{tag}}" data-collection="{{ collection.id }}">
-  {% if collection.metafields['global']['hero-image-mobile'] %}
-    <picture>
-      <source srcset="{{ collection.metafields['global']['hero-image'] }}" media="(min-width: {{ screenSm }})">
-      <img src="{{ collection.metafields['global']['hero-image-mobile'] }}" alt="{{ collection.metafields["global"]["hero-image-description"] }}">
-    </picture>
-  {% else %}
-    <img src="{{ collection.metafields['global']['hero-image'] }}" alt="{{ collection.metafields["global"]["hero-image-description"] }}">
-  {% endif %}
-  <div class="content">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
-          <{{tag}} class="title">{{ collection.title }}</{{tag}}>
-          <p class="description">{{ collection.metafields["global"]["hero-description"] }}</p>
-          <p class="description price">{{ firstProduct.price | money_without_trailing_zeros }}</p>
-          <div class="actions">
-            {% unless collection.metafields["global"]["discover-page-handle"] == blank %}
-            <a class="btn btn-secondary" href="{{ pages[collection.metafields["global"]["discover-page-handle"]].url }}">Learn more</a>
-            {% endunless %}
-            <a class="btn btn-secondary to-pdp" href="{{ firstProduct.url | within: referringCollection }}">Buy now</a>
+{% comment %} skip all of this if we have nothing to show {% endcomment %}
+{%- unless collection.metafields['global']['hero-image'] == blank -%}
+
+  {%- assign heroDescription = collection.metafields["global"]["hero-description"] -%}
+  {%- assign firstProduct = collection.products | first -%}
+  {%- assign discoverPageHandle = collection.metafields["global"]["discover-page-handle"] -%}
+  {%- assign isParentCollection = collection.metafields['global']['is-parent-collection'] -%}
+  {% comment %} find the price or price range for a parent collection in hero only mode {% endcomment %}
+  {%- if isParentCollection == "true" -%}
+    {%- assign priceMin = 99999999 -%}
+    {%- assign priceMax = 0 -%}
+    {%- for product in collection.products -%}
+      {% comment %} find the max price {% endcomment %}
+      {%- if product.compare_at_price_max > product.price_max -%}
+        {% comment %} if compare_at is more than price, the product is on sale but we still want the regular price {% endcomment %}
+        {%- if product.compare_at_price_max > priceMax -%}
+          {%- assign priceMax = product.compare_at_price_max -%}
+        {%- endif -%}
+      {%- else -%}
+        {% comment %} not on sale {% endcomment %}
+        {%- if product.price_max > priceMax -%}
+          {%- assign priceMax = product.price_max -%}
+        {%- endif -%}
+      {%- endif -%}
+      {% comment %} find the min price, same logic as above but comparing for less than the initial priceMin {% endcomment %}
+      {%- if product.compare_at_price_min > product.price_min -%}
+        {%- if product.compare_at_price_min < priceMin -%}
+          {%- assign priceMin = product.compare_at_price_min -%}
+        {%- endif -%}
+      {%- else -%}
+        {%- if product.price_min < priceMin -%}
+          {%- assign priceMin = product.price_min -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+
+  {%- capture discoverBtn -%}
+    {%- unless discoverPageHandle == blank -%}
+      <a class="btn btn-secondary" href="{{ pages[discoverPageHandle].url }}">Learn more</a>
+    {%- endunless -%}
+  {%- endcapture -%}
+
+  <header class="collection-hero as-{{tag}}" data-collection="{{ collection.id }}">
+    {% if collection.metafields['global']['hero-image-mobile'] %}
+      <picture>
+        <source srcset="{{ collection.metafields['global']['hero-image'] }}" media="(min-width: {{ screenSm }})">
+        <img src="{{ collection.metafields['global']['hero-image-mobile'] }}" alt="{{ collection.metafields["global"]["hero-image-description"] }}">
+      </picture>
+    {% else %}
+      <img src="{{ collection.metafields['global']['hero-image'] }}" alt="{{ collection.metafields["global"]["hero-image-description"] }}">
+    {% endif %}
+    <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
+            <{{tag}} class="title">{{ collection.title }}</{{tag}}>
+            {% if heroDescription != blank %}<p class="description">{{ heroDescription }}</p>{% endif %}
+            {%- if mode == "hero-only" -%}
+              {%- if isParentCollection == "true" -%}
+                <p class="description price">
+                  {%- if priceMin != priceMax -%}
+                    {{ priceMin | money_without_trailing_zeros }} - {{ priceMax | money_without_trailing_zeros | remove: "$" }}
+                  {%- else -%}
+                    {{ priceMin | money_without_trailing_zeros }} }}
+                  {%- endif -%}
+                </p>
+                <div class="actions">
+                  {{ discoverBtn }}
+                  <a class="btn btn-secondary" href="{{ firstProduct.url | within: referringCollection }}">Buy now</a>
+                </div>
+              {%- else -%}
+                <div class="actions">
+                  {{ discoverBtn }}
+                  <a class="btn btn-secondary" href="{{ collection.url }}">Shop</a>
+                </div>
+              {%- endif -%}
+            {%- else -%}
+              {%- unless discoverPageHandle == blank -%}
+                <div class="actions">
+                  {{ discoverBtn }}
+                </div>
+              {%- endunless -%}
+            {%- endif -%}
           </div>
         </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
+
 {% endunless %}

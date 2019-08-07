@@ -1,15 +1,9 @@
 .product-family{
   @include mb;
-  &.hero-only{
+  &.without-products{
     margin-bottom: 0;
     .collection-hero{
       margin: 0;
-      .price{
-        display: block;
-      }
-      .to-pdp{
-        display: inline-block;
-      }
     }
   }
   .hero{ // for home page

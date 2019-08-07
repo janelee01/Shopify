@@ -45,6 +45,9 @@
 			margin: 0;
 			@include heroDescription;
 		}
+		[class^="col-"] *:last-child{
+			margin-bottom: 0;
+		}
 	}
 }
 body.fixed-filters{
@@ -241,6 +244,9 @@ body.fixed-filters{
 		justify-content: center;
 		color: #fff;
 		text-align: center;
+		[class^="col-"] *:last-child{
+			margin-bottom: 0;
+		}
 	}
 	.title{
 		color: currentColor;
@@ -265,10 +271,5 @@ body.fixed-filters{
 	}
 	img{
 		width: 100%;
-	}
-	// price and Buy now button shown when it's a hero-only layout
-	.to-pdp,
-	.price{
-		display: none;
 	}
 }
