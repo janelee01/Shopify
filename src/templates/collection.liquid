@@ -104,7 +104,7 @@
       {% assign collection = collections[groupHandle] %}
       {% unless collection.title == blank %}
         <section class="product-family max-container">
-          {% include 'collection-hero' with collection, tag: 'h2' %}
+          {% include 'collection-hero' with collection, tag: 'h2', mode: 'hero-and-products' %}
           <div class="container">
             <div class="product-row-title">
               <span class="configuration-options"></span>
