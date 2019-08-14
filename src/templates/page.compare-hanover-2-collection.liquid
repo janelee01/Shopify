@@ -20,68 +20,23 @@
   	{% include 'discover-section-heading', title: "The Features" %}
 
 	<div class="mb-large text-center animate" {{ animateFadeInUp }}>
-		{% include 'discover-picture', name: 'hanover2-comparison-section-1-', alt: 'features chart', retina: true, fw: false, lg: true %}
+		{% include 'discover-picture', name: 'hanover2-comparison-section-1', alt: 'features chart', retina: true, fw: false, lg: true %}
 	</div>
 
 	<a id="nav-target-2" class="jumptarget page-has-nav"></a>
 
-	{% include 'catalina-fit-w' %}
+	{% include 'hanover-2-fit' %}
 
 	<a id="nav-target-3" class="jumptarget page-has-nav"></a>
-  {% include 'catalina-materials' %}
+  	{% include 'hanover-materials' %}
 
 	<a id="nav-target-4" class="jumptarget page-has-nav"></a>
-	{% include 'catalina-size' %}
+	{% include 'hanover-2-size' %}
 
-	<a id="nav-target-5" class="jumptarget page-has-nav"></a>
-  {% include 'discover-section-heading', title: 'FAQ', text: 'Below are some of our most frequently asked questions about the Catalina Collection.' %}
 
-	<div class="row mb-default animate" {{ animateFadeInUp }}>
-		<div class="col-sm-10 col-sm-offset-1">
-			<dl class="faqs">
-				<dt>How does the Catalina Deluxe differ from the Catalina Deluxe Tote?</dt>
-				<dd>The <a href="{{ catalinaDeluxeDiscoverW }}">Catalina Deluxe</a> (both small & large) includes a bottom pocket padded insert, a suitcase handle sleeve, and messenger strap. The <a href="{{ catalinaToteDiscoverW }}">Catalina Deluxe Tote</a> includes all features, as well as an interior key leash and an adjustable bottom pocket.</dd>
-				<dt>Is the key leash a feature of the entire Catalina Collection?</dt>
-				<dd>No. The key leash is an exclusive feature for the <a href="{{ catalinaToteDiscoverW }}">Catalina Deluxe Tote</a>.</dd>
-				<dt>How do I clean / care for the cotton material?</dt>
-				<dd>The Catalina Collection is available in a soft, yet sturdy pre-washed cotton canvas material. If needed, we recommend spot cleaning the bag with water or a mild soap, and then allow to air dry. However, test a small area of the bag with the mild soap first before applying all over to avoid any possible damage. Some customers have machine washed the bag on the “delicate” or “hand washing” cycle with cold water and mild detergent, then laid flat to air or line dry. This method may cause minor discoloration for some colorways. We DO NOT recommend taking the bag to the dry cleaners.</dd>
-				<dt>Does the Catalina Collection meet airline size requirements for carry-on bags?</dt>
-				<dd>In general, yes. It is always a good idea to confirm carry-on requirements with your airline beforehand. For most airlines: The Catalina Deluxe Large weekender can be placed in the overhead compartment of most aircrafts. The Catalina Deluxe Small weekender can be placed in the overhead compartment of most aircrafts and may fit underneath the airline seat when not fully packed. The Catalina Deluxe Tote should fit underneath the airline seat of most aircrafts, and should comply with the dimension requirements of most aircrafts.</dd>
-			</dl>
-		</div>
-	</div>
-
-	{% include 'discover-section-heading', title: 'Shop The Collection' %}
-
-	<div class="row fw-xs cta-block">
-		<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-push-6 col-md-offset-0">
-			<a class="btn-gtm-trk" data-gtm-a="7" href="{{ catalinaDeluxeDiscoverW }}">
-				<picture class="legacy-cta-image-fix larger"> <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-cta-md.jpg?18132754112649490934" media="(min-width: 768px)" /> <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-cta-xs.jpg?18132754112649490934" alt="Shop Catalina Deluxe" /> </picture>
-			</a>
-		</div>
-		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-5 col-md-pull-5 col-md-offset-0 content-col">
-			<div class="topic-content">
-				<h3 class="title">{{ catalinaDeluxeTitle }}</h3>
-				<p class="description">{{ catalinaDeluxePrice }}</p>
-				<div class="btn-set"><a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ catalinaDeluxeDiscoverW }}">Learn more</a><a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ catalinaDeluxePdp }}">Buy now</a></div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row fw-xs cta-block">
-		<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-push-6 col-md-offset-0">
-			<a class="btn-gtm-trk" data-gtm-a="7" href="{{ catalinaToteDiscoverW }}">
-				<picture class="legacy-cta-image-fix"> <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-cta-md.jpg?10032446425132256139" media="(min-width: 768px)" /> <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/catalina-deluxe-tote-cta-xs.jpg?10032446425132256139" alt="Shop Catalina Deluxe Tote" /> </picture>
-			</a>
-		</div>
-		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-5 col-md-pull-5 col-md-offset-0 content-col">
-			<div class="topic-content">
-				<h3 class="title">{{ catalinaToteTitle }}</h3>
-				<p class="description">{{ catalinaTotePrice }}</p>
-				<div class="btn-set"><a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ catalinaToteDiscoverW }}">Learn more</a><a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ catalinaTotePdp }}">Buy now</a></div>
-			</div>
-		</div>
-	</div>
+	{% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
+    {% endunless %}
 
 </div>
 </article>
