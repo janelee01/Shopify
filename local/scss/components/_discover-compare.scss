@@ -14,9 +14,6 @@
 			display: inline-block;
 		}
 	}
-	&.light-bg {
-		background: #F8F8F8;
-	}
 }
 .compare-labels{
 	@include resetList;

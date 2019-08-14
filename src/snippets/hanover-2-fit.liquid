@@ -1,0 +1,142 @@
+{% include 'discover-section-heading', title: 'The Fit', text: 'To help compare the different styles in our Hanover 2 collection, we asked men and women of different heights to carry each bag.' %}
+	
+{%- capture fitHanover1A -%}
+  {% include 'discover-topic-content', title: "The Hanover 2", modifiers: 'text-center smaller' %}
+  {% include 'discover-picture', name: 'Catalina-Comparison-tall-tote-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+{%- endcapture -%}
+{%- capture fitToteB -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-tall-tote-2', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+{%- capture fitToteC -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-tall-tote-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+
+{%- capture fitSmallA -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-tall-small-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+{%- capture fitSmallB -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-tall-small-2', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+{%- capture fitSmallC -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-tall-small-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+
+{%- capture fitLargeA -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-tall-large-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+{%- capture fitLargeB -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-tall-large-2', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+{%- capture fitLargeC -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-tall-large-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+<div class="hidden-xs mb-large{% if withAnimations %} animate{% endif %}" {{ animateFadeInUp }}>
+  <div class="row-slider">
+    <div class="row">
+      <div class="col-sm-8">{{ fitHanover1A }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">{{ fitHanover1B}}</div>
+    </div>
+  </div>
+</div>
+<div class="hidden-sm hidden-md hidden-lg">
+  {%- capture col1 -%} {{ fitToteA }} {%- endcapture -%}
+  {%- capture col2 -%} {{ fitToteB }} {%- endcapture -%}
+  {%- capture col3 -%} {{ fitToteC }} {%- endcapture -%}
+  {% include 'discover-sliding-3-col' %}
+
+  {%- capture col1 -%} {{ fitSmallA }} {%- endcapture -%}
+  {%- capture col2 -%} {{ fitSmallB }} {%- endcapture -%}
+  {%- capture col3 -%} {{ fitSmallC }} {%- endcapture -%}
+  {% include 'discover-sliding-3-col' %}
+
+  {%- capture col1 -%} {{ fitLargeA }} {%- endcapture -%}
+  {%- capture col2 -%} {{ fitLargeB }} {%- endcapture -%}
+  {%- capture col3 -%} {{ fitLargeC }} {%- endcapture -%}
+  {% include 'discover-sliding-3-col' %}
+</div>
+
+{% include 'discover-section-heading', text: 'Eyesmin is 5’ 4”' %}
+
+{%- capture fitToteA -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-short-tote-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+{%- capture fitToteB -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-short-tote-2', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+{%- capture fitToteC -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-short-tote-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+
+{%- capture fitSmallA -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-short-small-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+{%- capture fitSmallB -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-short-small-2', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+{%- capture fitSmallC -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-short-small-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+
+{%- capture fitLargeA -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-short-large-1', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+{%- capture fitLargeB -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-short-large-2', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+{%- capture fitLargeC -%}
+  {% include 'discover-picture', name: 'Catalina-Comparison-short-large-3', alt: 'woman packing The Catalina Deluxe', retina: true, fw: false, lg: true %}
+  {% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+{%- endcapture -%}
+<div class="hidden-xs mb-large{% if withAnimations %} animate{% endif %}" {{ animateFadeInUp }}>
+  <div class="row-slider">
+    <div class="row">
+      <div class="col-sm-4">{{ fitToteA }}</div>
+      <div class="col-sm-4">{{ fitSmallA }}</div>
+      <div class="col-sm-4">{{ fitLargeA }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">{{ fitToteB }}</div>
+      <div class="col-sm-4">{{ fitSmallB }}</div>
+      <div class="col-sm-4">{{ fitLargeB }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">{{ fitToteC }}</div>
+      <div class="col-sm-4">{{ fitSmallC }}</div>
+      <div class="col-sm-4">{{ fitLargeC }}</div>
+    </div>
+  </div>
+</div>
+<div class="hidden-sm hidden-md hidden-lg">
+  {%- capture col1 -%} {{ fitToteA }} {%- endcapture -%}
+  {%- capture col2 -%} {{ fitToteB }} {%- endcapture -%}
+  {%- capture col3 -%} {{ fitToteC }} {%- endcapture -%}
+  {% include 'discover-sliding-3-col' %}
+
+  {%- capture col1 -%} {{ fitSmallA }} {%- endcapture -%}
+  {%- capture col2 -%} {{ fitSmallB }} {%- endcapture -%}
+  {%- capture col3 -%} {{ fitSmallC }} {%- endcapture -%}
+  {% include 'discover-sliding-3-col' %}
+
+  {%- capture col1 -%} {{ fitLargeA }} {%- endcapture -%}
+  {%- capture col2 -%} {{ fitLargeB }} {%- endcapture -%}
+  {%- capture col3 -%} {{ fitLargeC }} {%- endcapture -%}
+  {% include 'discover-sliding-3-col' %}
+</div>

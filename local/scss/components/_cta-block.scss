@@ -20,7 +20,11 @@ Footer block
 		.topic-content{
 			padding: $grid-gutter-width 0;
 		}
+		&.light-bg {
+			background: #F8F8F8;
+		}
 	}
+	
 	@media (min-width: $screen-md) {
 		.row{
 			display: flex;
