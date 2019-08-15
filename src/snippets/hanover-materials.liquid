@@ -1,14 +1,15 @@
 {% include 'discover-section-heading', title: "High Quality Materials", text: "Each backpack is crafted from the best fabric with a keen attention to design details." %}
-{%- capture col1 -%}
-    {% include 'discover-picture', name: 'hanover2-discover-section7-block1', alt: 'close up of Recylced Poly material', retina: true, fw: false, lg: true %} 
-    {% include 'discover-topic-content', title: "600D Recycled Poly", text: "Water-resistant, extra durable and eco-friendly.", modifiers: 'text-center-xs' %}
-{%- endcapture -%}
-{%- capture col2 -%}
-    {% include 'discover-picture', name: 'hanover2-discover-section7-block2', alt: 'close up of bag shoulder straps', retina: true, fw: false, lg: true %} 
-    {% include 'discover-topic-content', title: "Shoulder Straps", text: "Comfy memory foam padding that stays put on your shoulders.", modifiers: 'text-center-xs' %}
-{%- endcapture -%}
-{%- capture col3 -%}
-    {% include 'discover-picture', name: 'hanover2-discover-section7-block3', alt: 'close up of bag inner lining', retina: true, fw: false, lg: true %} 
-    {% include 'discover-topic-content', title: "Wave Lining", text: "Our founders designed this lining as an homage to their late father, Fred Lo, whose life was full of waves — he was a radio astronomer who loved the ocean.", modifiers: 'text-center-xs' %}
-{%- endcapture -%}
-{% include 'discover-sliding-3-col' %}
+<div class="row">
+    <div class="col-sm-4">
+        {% include 'discover-picture', name: 'hanover2-discover-section7-block1', alt: 'close up of Recylced Poly material', retina: true, fw: false, lg: true %} 
+        {% include 'discover-topic-content', title: "600D Recycled Poly", text: "Water-resistant, extra durable and eco-friendly.", %}
+    </div>
+    <div class="col-sm-4">
+        {% include 'discover-picture', name: 'hanover2-discover-section7-block2', alt: 'close up of bag shoulder straps', retina: true, fw: false, lg: true %} 
+        {% include 'discover-topic-content', title: "Shoulder Straps", text: "Comfy memory foam padding that stays put on your shoulders.", %}
+    </div>
+    <div class="col-sm-4">
+        {% include 'discover-picture', name: 'hanover2-discover-section7-block3', alt: 'close up of bag inner lining', retina: true, fw: false, lg: true %} 
+        {% include 'discover-topic-content', title: "Wave Lining", text: "Our founders designed this lining as an homage to their late father, Fred Lo, whose life was full of waves — he was a radio astronomer who loved the ocean.", %}
+    </div>
+</div>
