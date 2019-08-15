@@ -25,7 +25,7 @@
     <div class="container">{% include 'hero-jump-target' %}
 
         <div class="row animate mb-large" {{ animateZoomIn }}>
-            <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+            <div class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
                 <div class="text-center">
                     {% include 'discover-picture', name: 'hanoverdlx2-discover-hero2', alt: 'The Hanover Deluxe 2 backpack', retina: true, fw: false, lg: true %}
                 </div>
@@ -68,7 +68,7 @@
         {% include 'discover-section-heading', title: "Work", text: "Effortlessly get through the daily grind and take care of business in true style." %}
         {%- capture col1 -%}
             {% include 'discover-picture', name: 'hanoverdlx2-discover-section3-block1', alt: 'man putting laptop in backpack', retina: true, fw: false, lg: true %}
-            {% include 'discover-topic-content', title: "Even Smart Storage", text: "Now with a NEW separate sleeve to slip your laptop right in.", modifiers: 'text-center-xs' %}
+            {% include 'discover-topic-content', title: "Smarter Storage", text: "Now with a NEW separate sleeve to slip your laptop right in.", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {%- capture col2 -%}
             {% include 'discover-picture', name: 'hanoverdlx2-discover-section3-block2', alt: 'woman entering subway train with backpack', retina: true, fw: false, lg: true %}
@@ -83,7 +83,7 @@
         {% include 'discover-section-heading', title: "Workout Session", text: "The definition of form meets function — this is the bag you’ll want to add to your fitness routine." %}
         {%- capture col1 -%}
             {% include 'discover-picture', name: 'hanoverdlx2-discover-section4-block1', alt: 'man putting waterbottle in bag', retina: true, fw: false, lg: true %}
-            {% include 'discover-topic-content', title: "Genius Convenience", text: "A water bottle stays in place with the interior mesh pocket. ", modifiers: 'text-center-xs' %}
+            {% include 'discover-topic-content', title: "Genius Convenience", text: "A water bottle stays in place with the updated expandable side pocket. ", modifiers: 'text-center-xs' %}
         {%- endcapture -%}
         {%- capture col2 -%}
             {% include 'discover-picture', name: 'hanoverdlx2-discover-section4-block2', alt: 'man opening front of bage', retina: true, fw: false, lg: true %}
@@ -115,9 +115,9 @@
       {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The Hanover Deluxe 2" %}
     {% endunless %}
 
-    <a id="nav-target-5" class="jumptarget"></a>        
+    <a id="nav-target-4" class="jumptarget"></a>        
     {% include 'discover-hanover-compare', url: hanoverCompare %}
-    {% include 'compare-backpacks-cta' %}
+    {% include 'compare-backpacks-cta', mtSmall: true %}
 
     <script>// <![CDATA[
     var video1Embed = '<iframe src="https://player.vimeo.com/video/353796733" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
