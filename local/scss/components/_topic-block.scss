@@ -192,6 +192,11 @@
 			}
 		}
 	}
+	&.xs-padding-small {
+		@media (max-width: $screen-xs-max) {
+			padding-bottom: 20px;
+		}
+	}
 	.title{
 		font-size: 1.3em;
 		font-family: $font-family-medium;

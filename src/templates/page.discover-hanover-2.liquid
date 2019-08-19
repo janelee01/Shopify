@@ -1,0 +1,134 @@
+{% include 'vars' %}
+
+{%- assign assetVersion = 150848 -%}
+{%- assign ctaTitle = hanoverTitle -%}
+{%- assign ctaPrice = hanoverPrice -%}
+{%- assign ctaLink = hanoverPdp -%}
+
+<article class="discover">
+
+    {% include 'discover-nav', labels:'Features,Size,Materials,Compare' %}
+    
+    <div class="max-container">
+        <div class="hero has-white-arrow" id="hanover-hero">
+            {% include 'discover-picture', name: 'hanover2-discover-hero1', alt: 'two people with hanover backpacks', retina: true, fw: false, lg: true %}
+            <div class="hero-content white center">
+                <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
+                <p class="description">
+                    A new and improved version of the Hanover travel backpack — versatile, eco-friendly, and even more thoughtfully designed.
+                </p>
+            </div>
+            {% include 'hero-jump-btn' %}
+        </div>
+    </div>
+    
+    <div class="container">{% include 'hero-jump-target' %}
+
+        <div class="row animate mb-large" {{ animateZoomIn }}>
+            <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+                <div class="text-center">
+                    {% include 'discover-picture', name: 'hanover2-discover-hero2', alt: 'The Hanover 2 backpack', retina: true, fw: false, lg: true %}
+                </div>
+            </div>
+        </div>
+        
+        <a id="nav-target-1" class="jumptarget"></a>
+
+        {% include 'discover-section-heading', title: "Travel", text: "Whether you’re going near or far, pack everything you need for that upcoming vacation." %}
+        
+        <div class="row">
+            <div class="col-sm-4">
+                {% include 'discover-picture', name: 'hanover2-discover-section1-block1', alt: 'man walking across cross-walk with luggage', retina: true, fw: false, lg: true %}
+                {% include 'discover-topic-content', title: "Seamless Security", text: "The luggage sleeve slides right over a suitcase handle." %}
+            </div>
+            <div class="col-sm-4">
+                {% include 'inline-video', ratio: '3-4', index: 3, poster: 'hanover2-discover-section1-block2-md', src: '660d-Collection-Launch-Discover-Refresh-Catalina-and-Hanover-2_Sophie-Sahara_Williamsburg-Hotel_June-2019_Shot_18_Female' %}
+                {% include 'discover-topic-content', title: "Easy Access", text: "Plenty of pockets to keep your travel essentials within reach." %}
+            </div>
+            <div class="col-sm-4">
+                {% include 'discover-picture', name: 'hanover2-discover-section1-block3', alt: 'man putting passport in bag', retina: true, fw: false, lg: true %}
+                {% include 'discover-topic-content', title: "Improved Design", text: "Passports fit and stay secure in the newly added top stash pocket." %}
+            </div>
+        </div>
+
+        {% include 'discover-section-heading', title: "Weekend", text: "Keep your necessities neat and organized on your next weekend adventure." %}
+        <div class="row">
+            <div class="col-sm-4">
+                {% include 'inline-video', ratio: '3-4', index: 4, poster: 'hanover2-discover-section2-block1-md', src: '660d-Collection-Launch-Discover-Refresh-Catalina-and-Hanover-2_Sophie-Sahara_Williamsburg-Hotel_June-2019_Shot_20_Female' %}
+                {% include 'discover-topic-content', title: "Functional Freedom", text: "Remove the interior insert to lighten your load." %}
+            </div>
+            <div class="col-sm-4">
+                {% include 'discover-picture', name: 'hanover2-discover-section2-block2', alt: 'woman wearing hat and backpack', retina: true, fw: false, lg: true %}
+                {% include 'discover-topic-content', title: "Carrier Comfort", text: "The adjustable shoulder straps are lined with Memory Foam." %}
+            </div>
+            <div class="col-sm-4">
+                {% include 'discover-picture', name: 'hanover2-discover-section2-block3', alt: 'man putting phone in backpack', retina: true, fw: false, lg: true %}
+                {% include 'discover-topic-content', title: "New Clever Compartments", text: "The top stash pocket is the perfect place to stow your phone." %}
+            </div>
+        </div>
+
+        {% include 'discover-section-heading', title: "Work", text: "Effortlessly get through the daily grind and take care of business in true style." %}
+        <div class="row">
+            <div class="col-sm-4">
+                {% include 'discover-picture', name: 'hanover2-discover-section3-block1', alt: 'man putting laptop in backpack', retina: true, fw: false, lg: true %}
+                {% include 'discover-topic-content', title: "Smarter Storage", text: "Now with a NEW separate sleeve to slip your laptop right in." %}
+            </div>
+            <div class="col-sm-4">
+                {% include 'discover-picture', name: 'hanover2-discover-section3-block2', alt: 'woman entering subway train with backpack', retina: true, fw: false, lg: true %}
+                {% include 'discover-topic-content', title: "Practical Portability", text: "Lightweight and just the right size for crowded commutes." %}
+            </div>
+            <div class="col-sm-4">
+                {% include 'discover-picture', name: 'hanover2-discover-section3-block3', alt: 'woman crossing street with luggage', retina: true, fw: false, lg: true %}
+                {% include 'discover-topic-content', title: "Transit Friendly", text: "Easily secure onto your luggage and go straight from work to business trip." %}
+            </div>
+        </div>
+
+        {% include 'discover-section-heading', title: "Workout Session", text: "The definition of form meets function — this is the bag you’ll want to add to your fitness routine." %}
+        <div class="row">
+            <div class="col-sm-4">
+                {% include 'discover-picture', name: 'hanover2-discover-section4-block1', alt: 'man putting waterbottle in bag', retina: true, fw: false, lg: true %}
+                {% include 'discover-topic-content', title: "Genius Convenience", text: "A water bottle stays in place with the interior mesh pocket. " %}
+            </div>
+            <div class="col-sm-4">
+                {% include 'discover-picture', name: 'hanover2-discover-section4-block2', alt: 'man putting phone in front pocket of bag', retina: true, fw: false, lg: true %}
+                {% include 'discover-topic-content', title: "Streamlined Security", text: "Keep your phone safe and sound in the sleek front pocket." %}
+            </div>
+            <div class="col-sm-4">
+                {% include 'discover-picture', name: 'hanover2-discover-section4-block3', alt: 'removing headphones from bag', retina: true, fw: false, lg: true %}
+                {% include 'discover-topic-content', title: "Quick Access", text: "The top stash pocket assures headphones are easy to find." %}
+            </div>
+        </div>
+
+        <a id="nav-target-2" class="jumptarget"></a>
+        {% include 'discover-section-heading', title: "Organized Interior", text: "Designed to maximize what you can take on your travels." %}
+
+    </div>
+
+    <div class="max-container topic-block mb-default animate video-block" {{ animateFadeInUp }}>
+        {% include 'discover-picture', name: 'hanover2-discover-section5-block1', alt: 'video showing how to pack the Hanover 2', retina: true, fw: false, lg: true %}
+        <a href="#" data-video-id="1" class="video-trigger">See What Fits Inside</a>
+    </div>
+
+    <div class="container">
+        {% include 'hanover-carry-on' %}
+        <a id="nav-target-3" class="jumptarget"></a>        
+        {% include 'hanover-materials' %}
+    </div>
+
+    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The Hanover 2" %}
+    {% endunless %}
+
+    <a id="nav-target-4" class="jumptarget"></a>        
+    {% include 'discover-hanover-compare', url: hanoverCompare %}
+    {% include 'compare-backpacks-cta-hanover' %}
+
+    <script>// <![CDATA[
+    var video1Embed = '<iframe src="https://player.vimeo.com/video/353797228" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+    // ]]></script>
+
+    {% include 'video-modal' %}
+
+    {% comment %} {% include 'catalina-deluxe-dimensions' %} {% endcomment %}
+
+</article>

@@ -1,0 +1,42 @@
+{%- include 'vars' -%}
+{%- assign assetVersion = 146775 -%}
+{%- assign ctaTitle = 'Hanover 2 Comparison' -%}
+{% comment %} {% include 'discover-nav', labels:'Features,Fit,Materials,Dimensions,FAQ' %} {% endcomment %}
+
+<article class="discover">
+
+<div class="max-container">
+	<div class="hero without-image">
+		<div class="hero-content black">
+			<h1 class="title">The Hanover 2 Comparison Guide</h1>
+			<p class="description">This guide compares the similarities and differences between the Hanover 2 backpack collection.</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">{% include 'hero-jump-target' %}
+
+	<a id="nav-target-1" class="jumptarget page-has-nav"></a>
+  	{% include 'discover-section-heading', title: "The Features" %}
+
+	<div class="mb-large text-center animate" {{ animateFadeInUp }}>
+		{% include 'discover-picture', name: 'hanover2-comparison-section-1', alt: 'features chart', retina: true, fw: false, lg: true %}
+	</div>
+
+	<a id="nav-target-2" class="jumptarget page-has-nav"></a>
+
+	{% include 'hanover-2-fit' %}
+
+	<a id="nav-target-3" class="jumptarget page-has-nav"></a>
+  	{% include 'hanover-materials' %}
+
+	<a id="nav-target-4" class="jumptarget page-has-nav"></a>
+	{% include 'hanover-2-size' %}
+
+
+	{% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
+    {% endunless %}
+
+</div>
+</article>
