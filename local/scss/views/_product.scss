@@ -290,6 +290,11 @@ body.product{
   justify-content: space-between;
   border-top: solid 1px #E5E5E5;
   padding-top: 15px;
+  &.has-4{
+    .btn{
+      width: calc(25% - 5px);
+    }
+  }
   label{
     width: 100%;
   }

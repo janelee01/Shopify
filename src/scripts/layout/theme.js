@@ -27,6 +27,7 @@ import './../lo/header'
 import './../lo/more-window'
 import './../lo/comparison'
 import './../lo/pdp'
+import './../lo/gift-card'
 
 
 $(document).ready(function() {
