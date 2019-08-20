@@ -290,6 +290,15 @@ body.product{
   justify-content: space-between;
   border-top: solid 1px #E5E5E5;
   padding-top: 15px;
+  &.has-4{
+    .btn{
+      margin-bottom: 10px;
+      @media (min-width: $screen-md) {
+        width: calc(25% - 5px);
+        margin-bottom: 0;
+      }
+    }
+  }
   label{
     width: 100%;
   }
