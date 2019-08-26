@@ -6,7 +6,7 @@ concat([
   // `${base}/modernizr.min.js`,
   `${base}/jquery-2.2.3.min.js`,
   // `${base}/picturefill.min.js`,
-  // `${base}/bootstrap.min.js`,
+  `${base}/bootstrap.min.js`,
   `${base}/jquery-ui-1.10.4.custom.min.js`,
   `${base}/jquery-ui.min.js`,
   `${base}/moment.min.js`,
