@@ -107,7 +107,7 @@ $(document).ready(function() {
     	event.preventDefault();
     	window.location = window.location.protocol + '//' + window.location.hostname + ui.item.value;
     }
-  });
+	});
 
   $('#article-body').fitVids();
 
@@ -304,6 +304,19 @@ $(document).ready(function() {
 	if( $('.page-nav').length ){
 		$('body').addClass('has-page-nav');
 	}
+
+	// swipable bs carousels
+	$(".carousel").swipe({
+		allowPageScroll:"auto",
+		threshold: 40,
+		excludedElements: "label, button, input, select, textarea, .noSwipe",
+		swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
+					$(this).carousel('next');
+				},
+		swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
+					$(this).carousel('prev');
+				}
+	});
 
 	/*
 		Floating form labels

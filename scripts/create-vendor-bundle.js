@@ -12,7 +12,7 @@ concat([
   `${base}/moment.min.js`,
   `${base}/jquery.fitvids.js`,
   `${base}/jquery.cookie.js`,
-  // `${base}/jquery.touchSwipe.min.js`,
+  `${base}/jquery.touchSwipe.min.js`,
   // `${base}/jquery.film_roll.js`,
   // `${base}/photoswipe.min.js`,
   `${base}/imagesloaded.pkgd.min.js`,
