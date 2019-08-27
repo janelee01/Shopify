@@ -32,11 +32,13 @@
 	@include sectionDescription;
 	margin-bottom: 1.5em;
 	h2.title{
-		@include sectionTitle;
-		display: inline;
-		margin-right: 40px;
+    @include sectionTitle;
+    margin-bottom: 0;
+		// display: inline;
+		// margin-right: 40px;
 	}
   .configuration-options{
+    // part of the original design, but hidden for now
     // display: block;
     // margin-top: 12px;
     // @media (min-width: $screen-sm){
@@ -48,6 +50,9 @@
   a{
 		color: $gray-darker;
 		font-size: 1em;
+  }
+  .description{
+    color: $gray;
   }
 }
 

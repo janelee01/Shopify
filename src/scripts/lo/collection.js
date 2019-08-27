@@ -13,7 +13,6 @@ $(document).ready(function(){
 			var $this = $(this);
 			var $items = $this.find('.item');
 			var hiddenItems = $this.find('.hidden'); // .find().not() breaks things
-			var $excludedItems = $this.find('.exclude'); // visible, but don't count them
 			var $sampleItem = $items.first();
 			var gutter = Number($sampleItem.css('padding-right').replace('px',''));
 			var itemWidth = $sampleItem.outerWidth();
@@ -41,7 +40,7 @@ $(document).ready(function(){
 				}
 				// how far does the handle need to move
 				var $handle = $this.closest('.product-family').find('.handle');
-				var handleAmountToScroll = $('.product-row-bar').outerWidth() - $handle.outerWidth(); 
+				var handleAmountToScroll = $this.closest('.product-family').find('.product-row-bar').outerWidth() - $handle.outerWidth(); 
 				$this.on('scroll', function(){
 					// of the distance we need to scroll, how far have we gone?
 					var percentScrolled = $this.scrollLeft()/amountToScroll;
@@ -78,7 +77,7 @@ $(document).ready(function(){
 					options.push(sizes + ' sizes')
 				}
 				if( $items.length > 1 ){
-					options.push(($items.length - $excludedItems.length) + ' colors available');
+					options.push($items.length + ' colors available');
 				}else{
 					options.push('1 color available');
 				}

@@ -62,7 +62,7 @@
                   {%- if priceMin != priceMax -%}
                     {{ priceMin | money_without_trailing_zeros }} - {{ priceMax | money_without_trailing_zeros | remove: "$" }}
                   {%- else -%}
-                    {{ priceMin | money_without_trailing_zeros }} }}
+                    {{ priceMin | money_without_trailing_zeros }}
                   {%- endif -%}
                 </p>
                 <div class="actions">

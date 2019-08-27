@@ -272,4 +272,14 @@ body.fixed-filters{
 	img{
 		width: 100%;
 	}
+	.actions{
+		@media (max-width: $screen-xs-max) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			.btn{
+				margin-bottom: 10px;
+			}
+		}
+	}
 }
