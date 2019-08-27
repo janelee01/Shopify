@@ -14,7 +14,7 @@
 {% endcapture %}
 {% assign handles = collection.metafields["global"]["collection-handles"] | replace: '<p>' | replace: '</p>' | split: '<br />' %}
 
-{% comment %} so the Buy now link in a colleciton hero uses this collection and not the product family {% endcomment %}
+{% comment %} so the Buy now link in a collection hero uses this collection and not the product family {% endcomment %}
 {% assign referringCollection = collection %}
 
 {% case collection.metafields["global"]["layout"] %}
@@ -235,3 +235,30 @@
     {% endpaginate %}
     
 {% endcase %}
+
+{% if referringCollection.metafields["global"]["compare-page-handle"] %}
+  {% assign comparePage = pages[referringCollection.metafields["global"]["compare-page-handle"]] %}
+  {% unless comparePage.url == blank %}
+    <div class="discover-cta mt-small" id="compare-cta">
+      <div class="container">
+        <div class="row topic-block">
+          <div class="col-md-8">
+            <picture class="fw-xs">
+              <source srcset="{{ comparePage.metafields["global"]["cta-image-desktop"] }}" media="(min-width: {{ screenMd }})">
+              <img src="{{ comparePage.metafields["global"]["cta-image-mobile"] }}" alt="{{ comparePage.metafields["global"]["cta-image-description"] }}">
+            </picture>  
+          </div>
+          <div class="col-md-4">
+            <div class="topic-content">
+              <h2 class="title">{{ comparePage.metafields["global"]["cta-title"] }}</h2>
+              <p class="description">{{ comparePage.metafields["global"]["cta-text"] }}</p>
+              <div class="btn-set">
+                <a class="btn btn-secondary" href="{{ comparePage.url }}">Compare</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endunless %}
+{% endif %}
