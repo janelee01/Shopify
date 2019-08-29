@@ -44,10 +44,25 @@
         </div>
         {% endcapture %}
 
+        {% comment %} support gendered layouts {% endcomment %}
+        {%- assign gender = referringCollection.metafields["global"]["gender"] -%}
+        {%- if gender == "default" -%}
+          {%- assign gender = "" -%}
+        {%- else -%}
+          {%- assign gender = gender | append: '-' -%}
+        {%- endif -%}
+        {%- capture rowImageKey -%}{{ gender }}row-image{%- endcapture -%}
+        {%- capture rowImageAltKey -%}{{ gender }}row-image-alt{%- endcapture -%}
+        {% comment %} fall back to default if we don't have a gender-specific image {% endcomment %}
+        {%- if collection.metafields['global'][rowImageKey] == blank -%}
+        {%- assign rowImageKey = "row-image" -%}
+        {%- assign rowImageAltKey = "row-image-alt" -%}
+        {%- endif -%}
+
         {% assign productRowImage = nil %}
-        {% if collection.metafields["global"]["row-item-image"] %}
+        {% if collection.metafields["global"][rowImageKey] %}
           {% capture productRowImage %}
-            {{ collection.metafields["global"]["row-item-image"] | img_tag: collection.metafields["global"]["row-item-image-description"] }}
+            {{ collection.metafields["global"][rowImageKey] | img_tag: collection.metafields["global"][rowImageAltKey] }}
           {% endcapture %}
         {% endif %}
 
@@ -257,7 +272,7 @@
     </div>
     {% endpaginate %}
     
-{% endcase %}
+{% endcase %} 
 
 {% if referringCollection.metafields["global"]["compare-page-handle"] %}
   {% assign comparePage = pages[referringCollection.metafields["global"]["compare-page-handle"]] %}
@@ -268,7 +283,7 @@
           <div class="col-md-8">
             <picture class="fw-xs">
               <source srcset="{{ comparePage.metafields["global"]["cta-image-desktop"] }}" media="(min-width: {{ screenMd }})">
-              <img src="{{ comparePage.metafields["global"]["cta-image-mobile"] }}" alt="{{ comparePage.metafields["global"]["cta-image-description"] }}">
+              <img src="{{ comparePage.metafields["global"]["cta-image-mobile"] }}" alt="{{ comparePage.metafields["global"]["cta-image-alt"] }}">
             </picture>  
           </div>
           <div class="col-md-4">

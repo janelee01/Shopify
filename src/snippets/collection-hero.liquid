@@ -35,6 +35,23 @@
     {%- endfor -%}
   {%- endif -%}
 
+  {% comment %} support gendered layouts {% endcomment %}
+  {%- assign gender = referringCollection.metafields["global"]["gender"] -%}
+  {%- if gender == "default" -%}
+    {%- assign gender = "" -%}
+  {%- else -%}
+    {%- assign gender = gender | append: '-' -%}
+  {%- endif -%}
+  {%- capture heroImageDKey -%}{{ gender }}hero-image{%- endcapture -%}
+  {%- capture heroImageMKey -%}{{ gender }}hero-image-mobile{%- endcapture -%}
+  {%- capture heroImageAltKey -%}{{ gender }}hero-image-alt{%- endcapture -%}
+  {% comment %} fall back to default if we don't have a gender-specific image {% endcomment %}
+  {%- if collection.metafields['global'][heroImageDKey] == blank -%}
+  {%- assign heroImageDKey = "hero-image" -%}
+  {%- assign heroImageMKey = "hero-image-mobile" -%}
+  {%- assign heroImageAltKey = "hero-image-alt" -%}
+  {%- endif -%}
+
   {%- capture discoverBtn -%}
     {%- unless discoverPageHandle == blank -%}
       <a class="btn btn-secondary" href="{{ pages[discoverPageHandle].url }}">Learn more</a>
@@ -42,13 +59,13 @@
   {%- endcapture -%}
 
   <header class="collection-hero as-{{tag}}" data-collection="{{ collection.id }}">
-    {% if collection.metafields['global']['hero-image-mobile'] %}
+    {% if collection.metafields['global'][heroImageMKey] %}
       <picture>
-        <source srcset="{{ collection.metafields['global']['hero-image'] }}" media="(min-width: {{ screenSm }})">
-        <img src="{{ collection.metafields['global']['hero-image-mobile'] }}" alt="{{ collection.metafields["global"]["hero-image-description"] }}">
+        <source srcset="{{ collection.metafields['global'][heroImageDKey] }}" media="(min-width: {{ screenSm }})">
+        <img src="{{ collection.metafields['global'][heroImageMKey] }}" alt="{{ collection.metafields["global"][heroImageAltKey] }}">
       </picture>
     {% else %}
-      <img src="{{ collection.metafields['global']['hero-image'] }}" alt="{{ collection.metafields["global"]["hero-image-description"] }}">
+      <img src="{{ collection.metafields['global'][heroImageDKey] }}" alt="{{ collection.metafields["global"][heroImageAltKey] }}">
     {% endif %}
     <div class="content">
       <div class="container">
