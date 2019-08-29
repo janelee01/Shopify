@@ -11,6 +11,9 @@
     {% include 'optimize-tag' %}
 
     <title>{{ page_title }}</title>
+    {% if settings.favicon != blank %}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+    {% endif %}
 
     {{ content_for_header }} 
   
