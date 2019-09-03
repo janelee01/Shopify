@@ -21,9 +21,9 @@
 	<div class="product-grid">
 		<div class="row">
 			{% assign collection = collections['best-selling-products'] %}
-			{% paginate collection.products by 4 %}
+			{% paginate collection.products by 3 %}
 			{% for product in collection.products %}
-			<div class="col-xs-6 col-sm-3">
+			<div class="col-sm-4">
 				{% include 'product-item' with product %}
 			</div>
 			{% endfor %}

@@ -35,7 +35,7 @@
         <div class="row">
           {% assign results = search.results | sort: 'title' %}
           {% for item in results %}
-            <div class="col-xs-6 col-sm-3">
+            <div class="col-sm-4">
               {% if item.object_type == 'product' %}
                 {% assign product = item %}
                 {% include 'product-item' with product %}
@@ -55,8 +55,8 @@
       {% if search.performed == false or search.performed and search.results_count == 0 %}
         <h2 class="has-divider">Best Sellers</h2>
         <div class="row">
-          {% for product in collections['best-sellers'].products limit: 4 %}
-            <div class="col-xs-6 col-sm-3">
+          {% for product in collections['best-sellers'].products limit: 3 %}
+            <div class="col-sm-4">
               {% include 'product-item' with product %}
             </div>
           {% endfor %}
