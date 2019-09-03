@@ -1,10 +1,16 @@
 .product-family{
   @include mb;
+  &.without-products{
+    margin-bottom: 0;
+    .collection-hero{
+      margin: 0;
+    }
+  }
   .hero{ // for home page
     @media (max-width: $screen-sm-max) { 
         @include mb(sm);
         .description,
-        picture{
+        picture{ 
             display: none;
         }
         .title{
@@ -26,21 +32,27 @@
 	@include sectionDescription;
 	margin-bottom: 1.5em;
 	h2.title{
-		@include sectionTitle;
-		display: inline;
-		margin-right: 40px;
+    @include sectionTitle;
+    margin-bottom: 0;
+		// display: inline;
+		// margin-right: 40px;
 	}
   .configuration-options{
-    display: block;
-    margin-top: 12px;
-    @media (min-width: $screen-sm){
-      display: inline;
-      margin-top: 0;
-		}
+    // part of the original design, but hidden for now
+    // display: block;
+    // margin-top: 12px;
+    // @media (min-width: $screen-sm){
+    //   display: inline;
+    //   margin-top: 0;
+    // }
+    display: none;
   }
   a{
 		color: $gray-darker;
 		font-size: 1em;
+  }
+  .description{
+    color: $gray;
   }
 }
 

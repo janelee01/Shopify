@@ -1,42 +1,134 @@
 {% include 'vars' %}
-{% paginate collection.products by 25 %}
+
+{% capture collectionHeader %}
+<header class="page-header group-of-collections">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
+          <h1>{{ collection.title }}</h1>
+          {% if collection.description != blank %}<p>{{ collection.description }}</p>{% endif %}
+      </div>
+    </div>
+  </div>
+</header>
+{% endcapture %}
+{% assign handles = collection.metafields["global"]["collection-handles"] | replace: '<p>' | replace: '</p>' | split: '<br />' %}
+
+{% comment %} so the Buy now link in a collection hero uses this collection and not the product family {% endcomment %}
+{% assign referringCollection = collection %}
 
 {% case collection.metafields["global"]["layout"] %}
   
-  {% when 'by-color' %}
-  
-    {%- capture allProducts -%}
-    {%- for product in collection.products -%}
-      {{ product.title | split: '-' | last | split: '/' | first | handleize }}|
-    {%- endfor -%}
-    {%- endcapture -%}
-    {%- assign productGroups = allProducts | split: '|' | uniq -%}
+  {% when 'product-sections-only' %} 
 
-    <header class="page-header group-of-collections">
-      <h1>{{ collection.title }}</h1>
-      <p>{{ collection.description }}</p>
-    </header>
-    {% for groupHandle in productGroups %}
-      {% assign collection = collections[groupHandle] %}
+    {% if collection.metafields["global"]["hero-image"] %}
+      <div class="max-container">
+        {% include 'collection-hero' with collection, tag: 'h1' %}
+      </div>
+    {% else %}
+      {{ collectionHeader }}
+    {% endif %}
+
+    {% for handle in handles %}
+      {% assign collection = collections[handle] %}
       {% unless collection.title == blank %}
-        <section class="product-family container">
-          <div class="product-row-title">
-            <h2 class="title">{{{ collection.title }}</h2><span class="configuration-options"></span>
+        {% capture productRow %}
+        <div class="product-row-wrap">
+          <div class="product-row">
+            {% paginate collection.products by 25 %}
+              {% for product in collection.products %}
+                <div class="item">{% include 'product-item' with product, hideName: true %}</div>
+              {% endfor %}
+            {% endpaginate %}
           </div>
-          <div class="product-row-wrap">
-            <div class="product-row">
-              {% paginate collection.products by 25 %}
-                {% for product in collection.products %}
-                  <div class="item">{% include 'product-item' with product, hideName: true %}</div>
-                {% endfor %}
-              {% endpaginate %}
+        </div>
+        {% endcapture %}
+
+        {% comment %} support gendered layouts {% endcomment %}
+        {%- assign gender = referringCollection.metafields["global"]["gender"] -%}
+        {%- if gender == "default" -%}
+          {%- assign gender = "" -%}
+        {%- else -%}
+          {%- assign gender = gender | append: '-' -%}
+        {%- endif -%}
+        {%- capture rowImageKey -%}{{ gender }}row-image{%- endcapture -%}
+        {%- capture rowImageAltKey -%}{{ gender }}row-image-alt{%- endcapture -%}
+        {% comment %} fall back to default if we don't have a gender-specific image {% endcomment %}
+        {%- if collection.metafields['global'][rowImageKey] == blank -%}
+        {%- assign rowImageKey = "row-image" -%}
+        {%- assign rowImageAltKey = "row-image-alt" -%}
+        {%- endif -%}
+
+        {% assign productRowImage = nil %}
+        {% if collection.metafields["global"][rowImageKey] %}
+          {% capture productRowImage %}
+            {{ collection.metafields["global"][rowImageKey] | img_tag: collection.metafields["global"][rowImageAltKey] }}
+          {% endcapture %}
+        {% endif %}
+
+        <section class="product-family container">
+          {% if productRowImage %}
+            <div class="fw-xs mb-gutter hidden-sm hidden-md hidden-lg">{{ productRowImage }}</div>
+          {% endif %}
+          <div class="product-row-title">
+            <h2 class="title">{{ collection.title }}</h2><span class="configuration-options"></span>
+            <p class="description">{{ collection.metafields["global"]["row-description"] }}</p>
+          </div>
+          {% if productRowImage %}
+            <div class="row">
+              <div class="col-sm-4 hidden-xs">
+                {{ productRowImage }}
+              </div>
+              <div class="col-sm-8">
+                {{ productRow }}
+              </div>
+            </div>
+          {% else %}
+            {{ productRow }}
+          {% endif %}
+        </section>
+      {% endunless %}
+    {% endfor %}
+
+  {% when 'hero-sections-only' %}
+    
+    {{ collectionHeader }}
+    {% for handle in handles %}
+      {% assign collection = collections[handle] %}
+      {% unless collection.title == blank %}
+        <section class="product-family max-container without-products">
+          {% include 'collection-hero' with collection, tag: 'h2', mode: 'hero-only' %}
+        </section>
+      {% endunless %}
+    {% endfor %}
+
+  {% when 'hero-and-product-sections' %}
+
+    {{ collectionHeader }}
+    {% for handle in handles %}
+      {% assign collection = collections[handle] %}
+      {% unless collection.title == blank %}
+        <section class="product-family max-container">
+          {% include 'collection-hero' with collection, tag: 'h2', mode: 'hero-and-products' %}
+          <div class="container">
+            <div class="product-row-title">
+              <span class="configuration-options"></span>
+            </div>
+            <div class="product-row-wrap">
+              <div class="product-row">
+                {% paginate collection.products by 25 %}
+                  {% for product in collection.products %}
+                    <div class="item">{% include 'product-item' with product, hideName: true %}</div>
+                  {% endfor %}
+                {% endpaginate %}
+              </div>
             </div>
           </div>
         </section>
       {% endunless %}
     {% endfor %}
-
-  {% when 'by-type' %}
+  
+  {% when 'by-type' %} {% comment %} legacy, to be removed for "hero-and-product-sections" {% endcomment %}
 
     {%- capture allProducts -%}
     {%- for product in collection.products -%}
@@ -45,21 +137,12 @@
     {%- endcapture -%}
     {%- assign productGroups = allProducts | split: '|' | uniq -%}
 
-    <header class="page-header group-of-collections">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
-              <h1>{{ collection.title }}</h1>
-              <p>{{ collection.description }}</p>
-          </div>
-        </div>
-      </div>
-    </header>
+    {{ collectionHeader }}
     {% for groupHandle in productGroups %}
       {% assign collection = collections[groupHandle] %}
       {% unless collection.title == blank %}
         <section class="product-family max-container">
-          {% include 'collection-hero' with collection, tag: 'h2' %}
+          {% include 'collection-hero' with collection, tag: 'h2', mode: 'hero-and-products' %}
           <div class="container">
             <div class="product-row-title">
               <span class="configuration-options"></span>
@@ -79,7 +162,8 @@
     {% endfor %}
 
   {% else %}
-
+  
+    {% paginate collection.products by 25 %}
     {%- capture allProducts -%}
     {%- for product in collection.products -%}
       {{ product.title | split: ' - ' | first }}|
@@ -186,7 +270,33 @@
     <div id="content-ids" style="display: none"> 
       {%- for product in collection.products -%}{{ product.variants.first.sku }},{%- endfor -%}
     </div>
+    {% endpaginate %}
     
-{% endcase %}
+{% endcase %} 
 
-{% endpaginate %}
+{% if referringCollection.metafields["global"]["compare-page-handle"] %}
+  {% assign comparePage = pages[referringCollection.metafields["global"]["compare-page-handle"]] %}
+  {% unless comparePage.url == blank %}
+    <div class="discover-cta mt-small" id="compare-cta">
+      <div class="container">
+        <div class="row topic-block">
+          <div class="col-md-8">
+            <picture class="fw-xs">
+              <source srcset="{{ comparePage.metafields["global"]["cta-image-desktop"] }}" media="(min-width: {{ screenMd }})">
+              <img src="{{ comparePage.metafields["global"]["cta-image-mobile"] }}" alt="{{ comparePage.metafields["global"]["cta-image-alt"] }}">
+            </picture>  
+          </div>
+          <div class="col-md-4">
+            <div class="topic-content">
+              <h2 class="title">{{ comparePage.metafields["global"]["cta-title"] }}</h2>
+              <p class="description">{{ comparePage.metafields["global"]["cta-text"] }}</p>
+              <div class="btn-set">
+                <a class="btn btn-secondary" href="{{ comparePage.url }}">Compare</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endunless %}
+{% endif %}

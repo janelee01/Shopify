@@ -40,7 +40,7 @@ $(document).ready(function(){
 				}
 				// how far does the handle need to move
 				var $handle = $this.closest('.product-family').find('.handle');
-				var handleAmountToScroll = $('.product-row-bar').outerWidth() - $handle.outerWidth(); 
+				var handleAmountToScroll = $this.closest('.product-family').find('.product-row-bar').outerWidth() - $handle.outerWidth(); 
 				$this.on('scroll', function(){
 					// of the distance we need to scroll, how far have we gone?
 					var percentScrolled = $this.scrollLeft()/amountToScroll;

@@ -209,6 +209,9 @@ blockquote{
 			@include mb('lg');
 	}
 }
+.mb-negate{
+	margin-bottom: 0 !important;
+}
 .mb-negate-xs{
 	@media (max-width: $screen-xs-max) {
 	    margin-bottom: 0 !important;
