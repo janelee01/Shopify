@@ -10,7 +10,7 @@
     {% include 'discover-nav', labels:'Functionality,What Fits Inside,Materials,Design,Specs' %}
     
     <div class="max-container">
-      <div class="hero has-white-arrow" id="hanover-hero">
+      <div class="hero has-arrow" id="hanover-hero">
         {% include 'discover-picture', name: 'hanover2-discover-hero1', alt: 'woman holding O.G. 2 at top of stairs', retina: true, fw: false, lg: true %}
         <div class="hero-content white right">
           <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
@@ -126,28 +126,15 @@
       
       <a id="nav-target-4" class="jumptarget"></a>
       {% include 'discover-section-heading', title: "Updated Design", text: "An illustrated guide to every new upgrade" %}
-      <div class="fw-xs mb-default animate" {{ animateFadeInUp }}>
-        <div class="card-stack-windowZZ">
-          <div class="card-stack vertical-slider">
-            {% include 'card-stack-card', title: 'Laptop Sleeve', text: 'Going through security? Your laptop now has a dedicated sleeve outside the main compartment so that it is easy to access even when your bag is fully packed.', img: 'og2-discover-cards-1.png' %}
-            {% include 'card-stack-card', title: 'Reinforced Framework ', text: 'We’ve upgraded the design with reinforced framework to prevent leaning when fully packed. TK Tory to add how structured still means lightweight and flexible.', img: 'og2-discover-cards-2.png' %}
-            {% include 'card-stack-card', title: 'New water bottle pocket', text: 'You asked, we listened. The inside of the new OG2 now comes with a side mesh pocket. Also great for chargers and eyeglass cases!', img: 'og2-discover-cards-3.png' %}
-            {% include 'card-stack-card', title: 'New messenger strap pad', text: 'The messenger strap now comes with a removable memory foam shoulderr pad for added comfort.', img: 'og2-discover-cards-4.png' %}
-            {% include 'card-stack-card', title: 'Improved leather', text: 'We’ve upgraded the leather handles to the flexible and buttery nappa leather. This higher grade leather means straps are easier on your hands and shoulders and no more fraying edges!', img: 'og2-discover-cards-5.png' %}
-            {% include 'card-stack-card', title: 'Medallion sold seperately', text: 'In an effort to not be wasteful with materials, the medallion is now sold seperately for those who wish to keep the adornment.', img: 'og2-discover-cards-6.png' %}
-          </div>
-          <ul class="card-stack-nav">
-            {% for i in (1..6) %}
-              <li{% if forloop.first %} class="active"{% endif %}><a href="#" data-index="{{ i | minus: 1 }}"><span class="sr-only">go to card {{ i }}</span></a></li>
-            {% endfor %}
-          </ul>
-        </div>
+      <div class="text-center mb-large">
+        {% include 'discover-picture', name: 'waverley2-update-original', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+        <p class="description"><a href="#comparison-overlay" class="more-window-trigger">Compare versions +</a></p>
       </div>
 
       <a id="nav-target-5" class="jumptarget"></a>
       {% include 'discover-section-heading', title: "Available in 2 Sizes", text: "The O.G. 2 is available in both Medium and Large" %}
       <div class="text-center">
-        {% include 'discover-picture', name: 'hanover2-discover-section8-block1', alt: 'O.G. 2 in medium and large', retina: true, fw: false, lg: true %}
+        {% include 'discover-picture', name: 'waverley2-update-original', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
         <p><a href="#">Size &amp; Fit</a></p>
       </div>
     </div>
@@ -159,15 +146,15 @@
     <div class="discover-cta mt-small" id="compare-cta">
       <div class="container">
         <div class="row topic-block">
-          <div class="col-md-8">
+          <div class="col-md-9">
             {% include 'discover-picture', name: 'hanover2-discover-section6-block2', alt: 'group shot of products in Signature Collection', retina: true, fw: true, lg: true %}                
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="topic-content">
               <h2 class="title">The Signature Collection</h2>
               <p class="description">Learn more about our practical yet professional line</p>
               <div class="btn-set">
-                <a class="btn btn-secondary" href="#">Shop now TODO</a>
+                <a class="btn btn-secondary" href="/pages/the-signature-collection">Shop now</a>
               </div>
             </div>
           </div>
@@ -180,5 +167,63 @@
     // ]]></script>
 
     {% include 'video-modal' %}
+
+    <div class="more-window" id="comparison-overlay">
+        <div class="section-heading first">
+            <h2 class="title">O.G. 2 Comparison</h2>
+            <p>This guide compares the similarities and differences between the original O.G. and O.M.G. and the updated design of the O.G. 2 Medium and Large.</p>
+        </div>
+        <div class="columns">
+            <div class="two-up mb-large">
+                {% include 'discover-picture', name: 'waverley2-comparison-emblem', alt: 'Waverley emblem change', retina: true, fw: false, lg: true %}
+            </div>
+            <div class="section-heading">
+                <h4 class="title">Laptop Sleeve</h4>
+                <p>Going through security? Your laptop now has a dedicated sleeve outside the main compartment so that it is easy to access even when your bag is fully packed.</p>
+            </div>
+
+            <div class="two-up mb-default">
+                {% include 'discover-picture', name: 'waverley2-comparison-card-slot', alt: 'Waverley 2 with card slot', retina: true, fw: false, lg: true %}
+            </div>
+            <div class="section-heading">
+                <h4 class="title">Reinforced Framework</h4>
+                <p>We’ve upgraded the design with reinforced framework to prevent leaning when fully packed. TK Tory to add how structured still means lightweight and flexible.</p>
+            </div>
+
+            <div class="two-up mb-default">
+                {% include 'discover-picture', name: 'waverley2-comparison-zipper-pocket', alt: 'Waverley 2 interior zip pocket', retina: true, fw: false, lg: true %}
+            </div>
+            <div class="section-heading">
+                <h4 class="title">New water bottle pocket</h4>
+                <p>You asked, we listened. The inside of the new OG2 now comes with a side mesh pocket. Also great for chargers and eyeglass cases!</p>
+            </div>
+
+            <div class="two-up mb-default">
+                {% include 'discover-picture', name: 'waverley2-comparison-zipper-pocket', alt: 'Waverley 2 interior zip pocket', retina: true, fw: false, lg: true %}
+            </div>
+            <div class="section-heading">
+                <h4 class="title">New messenger strap pad</h4>
+                <p>The messenger strap now comes with a removable memory foam shoulderr pad for added comfort.</p>
+            </div>
+
+            <div class="two-up mb-default">
+                {% include 'discover-picture', name: 'waverley2-comparison-zipper-pocket', alt: 'Waverley 2 interior zip pocket', retina: true, fw: false, lg: true %}
+            </div>
+            <div class="section-heading">
+                <h4 class="title">Improved leather</h4>
+                <p>We’ve upgraded the leather handles to the flexible and buttery nappa leather. This higher grade leather means straps are easier on your hands and shoulders and no more fraying edges!</p>
+            </div>
+
+            <div class="two-up mb-default">
+                {% include 'discover-picture', name: 'waverley2-comparison-zipper-pocket', alt: 'Waverley 2 interior zip pocket', retina: true, fw: false, lg: true %}
+            </div>
+            <div class="section-heading">
+                <h4 class="title">Medallion sold seperately</h4>
+                <p>In an effort to not be wasteful with materials, the medallion is now sold seperately for those who wish to keep the adornment.</p>
+            </div>
+            
+        </div>
+        <button class="panel-close"><span class="sr-only">close</span></button>
+    </div>
 
 </article>
