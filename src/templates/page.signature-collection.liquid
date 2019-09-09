@@ -1,0 +1,91 @@
+{% include 'vars' %}
+{%- assign assetVersion = 158227 -%}
+
+<article class="discover">
+
+    {% comment %} {% include 'discover-nav', labels:'Functionality,What Fits Inside,Materials,Design,Specs' %} {% endcomment %}
+    
+    <div class="max-container">
+      <div class="hero has-white-arrow" id="hanover-hero">
+        {% include 'discover-picture', name: 'hanover2-discover-hero1', alt: 'woman holding O.G. 2 at top of stairs', retina: true, fw: false, lg: true %}
+        <div class="hero-content white left">
+          <h1 class="title">The Signature Collection</h1>
+          <p class="description">Shop our signature bags that are sleek enough for the office but functional enough for the road.</p>
+        </div>
+        {% include 'hero-jump-btn' %}
+      </div>
+    </div>
+    
+    <div class="container">{% include 'hero-jump-target' %}
+      {% include 'discover-section-heading', title: "Travel Light", text: "A fineweave nylon is perfect for the traveling businesswoman." %}
+      <div class="row mb-default animate" {{ animateFadeInUp }}>
+          <div class="col-sm-6">
+              {% include 'discover-picture', name: 'hanover2-discover-section6-block1', alt: 'airplane seating', retina: true, fw: false, lg: true %}
+              {% include 'discover-topic-content', title: "Easy on your shoulders", text: "A lighter alternative to leather that is water-resistant." %}
+          </div>
+          <div class="col-sm-6">
+              {% include 'discover-picture', name: 'hanover2-discover-section6-block2', alt: 'bag in airplane overhead compartment', retina: true, fw: false, lg: true %}                
+              {% include 'discover-topic-content', title: "All under 3 lbs", text: "You have enough to carry, our bags won’t weight you down" %}
+          </div>
+      </div>
+
+      {% include 'discover-section-heading', title: "Travel Smart", text: "Thoughtfully designed features meet the needs of frequent travelers, movers and shakers." %}
+      <div class="row mb-default animate" {{ animateFadeInUp }}>
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section1-block1', alt: 'woman walking with O.G. 2 on luggage', retina: true, fw: false, lg: true %}
+          {% include 'discover-topic-content', title: "Suitcase Sleeve", text: "A pass-through sleeve slides onto most roller bags for fuss-free travel." %}
+        </div>
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section1-block2', alt: 'close up of laptop compartment', retina: true, fw: false, lg: true %}
+          {% include 'discover-topic-content', title: "Carry-On Friendly", text: "Every bag is made to maximize the space in your personal item" %}
+        </div>
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section1-block3', alt: 'close up of laptop compartment', retina: true, fw: false, lg: true %}
+          {% include 'discover-topic-content', title: "TSA Friendly", text: "Easy access to your laptop means going through the security line without repacking." %}
+        </div>
+      </div>
+    </div>
+
+    <div class="max-container topic-block mb-large animate" {{ animateFadeInUp }}>
+        {% include 'discover-picture', name: 'hanover2-discover-section5-block1', alt: 'video showing how to pack the O.G. 2', retina: true, fw: false, lg: true %}
+    </div>
+
+    <div class="container">
+      {% include 'discover-section-heading', title: "All in the Details", text: "These nylon bags all have our signature business style details" %}
+      <div class="row mb-default animate" {{ animateFadeInUp }}>
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section1-block1', alt: 'woman walking with O.G. 2 on luggage', retina: true, fw: false, lg: true %}
+          {% include 'discover-topic-content', title: "Signature Jacquard Lining", text: "A luxuriously-lined interior in our signature hummingbird print." %}
+        </div>
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section1-block2', alt: 'close up of laptop compartment', retina: true, fw: false, lg: true %}
+          {% include 'discover-topic-content', title: "Branded Hardware", text: "Signature light and smart stamped branding for a sleek and classic look." %}
+        </div>
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section1-block3', alt: 'close up of laptop compartment', retina: true, fw: false, lg: true %}
+          {% include 'discover-topic-content', title: "Nappa Leather Accents", text: "Known for its adaptable shape, Nappa leather provides comfortable and flexible handles." %}
+        </div>
+      </div>
+
+      {% include 'discover-section-heading', title: "Stay Organized", text: "Perfectly placed pockets and everything you need to get you through the day" %}
+      <div class="row mb-default animate" {{ animateFadeInUp }}>
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section1-block1', alt: 'woman walking with O.G. 2 on luggage', retina: true, fw: false, lg: true %}
+          {% include 'discover-topic-content', title: "Laptop Storage", text: "Protect your laptop in an interior padded compartment." %}
+        </div>
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section1-block2', alt: 'close up of laptop compartment', retina: true, fw: false, lg: true %}
+          {% include 'discover-topic-content', title: "Plenty of Pockets", text: "Well placed pockets keep business documents, tech devices, and personal items organized." %}
+        </div>
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section1-block3', alt: 'close up of laptop compartment', retina: true, fw: false, lg: true %}
+          {% include 'discover-topic-content', title: "Front Zipper Pocket", text: "Keep all your essentials neatly in place and easily accessible." %}
+        </div>
+      </div>
+    </div>
+
+    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop the Collection" %}
+    {% endunless %}
+
+</article>
