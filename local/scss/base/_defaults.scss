@@ -49,18 +49,6 @@ html { -ms-overflow-style: none; } // IE
 	    padding-right: $mobile-gutter;
 	}
 }
-// .site-window{
-// 	overflow: hidden;
-// }
-.site-content{
-	position: relative;
-	left: 0;
-	@include transition(left .25s ease-out);
-	padding-top: $ls-navbar-height-xs;
-	@media (min-width: $screen-md) {
-	    padding-top: $ls-navbar-height;
-	}
-}
 
 h1, .h1,
 h2, .h2,
@@ -135,6 +123,8 @@ hr.mini-divider{
 		content: "";
 		display: block;
 		visibility: hidden; 
+		height: 102px; // page nav height + 30px
+		margin-top: -102px;
 	}
 }
 

@@ -23,7 +23,7 @@
 	display: block;
 	position: absolute;
 	left: 0;
-	bottom: -1px;
+	bottom: -3px;
 	height: 2px;
 	background: $brand-blue;
 	@include transition(all .3s ease-out);

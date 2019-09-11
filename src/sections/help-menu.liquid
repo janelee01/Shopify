@@ -1,43 +1,21 @@
 {%- assign help_menu = linklists[section.settings.help_linklist] -%}
-<div class="help-menu js-toggle-menu-overlay">
-  <button class="top-close-button">
-    {% include 'header-icons', icon: 'close' %}
-    <span class="sr-only">{{ 'layout.help.close' | t }}</span>
-  </button>
-
-  <ul class="primary-links">
-    <li class="primary-link help-chat-link">
-      <a class="primary-link-inner" onclick="olark('api.box.expand')" href="#">
-        <span class="icon primary-icon">
-          {% include 'header-icons', icon: 'chat' %}
-        </span>
-        <p class="primary-link-text">{{ 'layout.help.chat' | t }}</p>
-      </a>
-    </li>
-    <li class="primary-link help-email-link">
-      <a class="primary-link-inner" href="mailto:{{settings['social_email_address']}}" target="_blank">
-        {% include 'header-icons', icon: 'email' %}
-        <p class="primary-link-text">{{ 'layout.help.email' | t }}</p>
-      </a>
-    </li>
-  </ul>
-  {%- if help_menu.links != blank -%}
-    <ul class="secondary-links">
-      {%- for link in help_menu.links -%}
-        <li class="secondary-link">
-          <a href="{{link.url}}">{{link.title}}</a>
-        </li>
-      {%- endfor -%}
-      <div cla>
-    </ul>
-  {%- endif -%}
-  <div class="bottom-close-container">
-    <button class="bottom-close-button">
-      {% include 'header-icons', icon: 'close' %}
-      <span>{{ 'layout.help.close' | t }}</span>
-    </button>
-  </div>
-</div>
+<nav class="primary-links">
+  <a onclick="olark('api.box.expand')" href="#">
+    {% include 'header-icons', icon: 'chat' %}
+    {{ 'layout.help.chat' | t }}
+  </a>
+  <a href="mailto:{{settings['social_email_address']}}" target="_blank">
+    {% include 'header-icons', icon: 'email' %}
+    {{ 'layout.help.email' | t }}
+  </a>
+</nav>
+{%- if help_menu.links != blank -%}
+  <nav class="secondary-links">
+    {%- for link in help_menu.links -%}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+    {%- endfor -%}
+  </nav>
+{%- endif -%}
 
 {% schema %}
   {

@@ -93,86 +93,66 @@
   <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/1BRcvEm4otuzCinl2NlZx7eeyApg3H6EPGJ0Zv74/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
 </head>
 
-<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }} {{ template | handle }} {{ page.metafields['global']['header-theme'] }} js-mega-menu">
-
+<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }} {{ template | handle }}">
 
   {% include 'body-before-start' %}
 
-    <a class="in-page-link skip-link sr-only" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
-
-    <div class="site-window" id="site-window">
-        <div class="site-content">
-            <header id="site-header" class="js-header {% unless page.metafields['global']['header-theme'] == 'default' %}showing-alternate{% endunless %}">
-              {% section 'marquee' %}
-              <nav id="site-header-items">
-                <div class="container">
-                  {% section 'mega-menu' %}
-
-                  {% if template.name == 'index' %}
-                    <h1 id="site-logo" itemscope itemtype="http://schema.org/Organization">{{ shop.name }}</h1>
-                  {% else %}
-                    <a href="/" id="site-logo" itemscope itemtype="http://schema.org/Organization">{{ shop.name }}</a>
-                  {% endif %}
-
-                  <div class="site-header-icons">
-                    <div class="site-header-icons__icon help-link js-toggle-menu toggle-menu">
-                      <a href="#help">
-                        {% include 'header-icons', icon: 'help' %}
-                        <span class="sr-only">{{ 'layout.help.title' | t }}</span>
-                      </a>
-                      {% section 'help-menu' %}
-                    </div>
-                    <div class="site-header-icons__icon search-link js-toggle-menu toggle-menu">
-                      <a href="#search" class="search-icon">
-                        {% include 'header-icons', icon: 'search' %}
-                        <span class="sr-only">{{ 'layout.help.search' | t }}</span>
-                        {%- assign placeholder = 'general.search.placeholder' | t -%}
-                        {% include 'search-form', field_id: 'in-menu-search', class: 'is-desktop js-toggle-menu-overlay', placeholder: placeholder %}
-                        {%- assign placeholder = nil -%}
-                      </a>
-                    </div>
-                    <div class="site-header-icons__icon">
-                      <a href="/account/login" class="login-link">
-                        {% include 'header-icons', icon: 'login' %}
-                        <span class="sr-only">{{ 'layout.login.title' | t }}</span>
-                      </a>
-                    </div>
-                    <div class="site-header-icons__icon">
-                      <a href="/cart" class="cart-link {% if cart.item_count < 1 %}empty{% endif %}">
-                        {% include 'header-icons', icon: 'cart' %}
-                        <span class="sr-only">{{ 'layout.cart.title' | t }}</span>
-                        <span class="cart-count">{{ cart.item_count }}</span>
-                      </a>
-                    </div>
-                    <a href="#" class="site-header-icons__icon navbar-toggle">
-                      <span class="sr-only">Menu</span>
-                      <span class="icon-bar icon-bar1"></span>
-                      <span class="icon-bar icon-bar2"></span>
-                      <span class="icon-bar icon-bar3"></span>
-                    </a>
-                  </div>
-                </div>
-              </nav>
-            </header>
-            <main id="MainContent">
-              {{ content_for_layout }}
-            </main>
-            {% section 'footer' %}
-        </div>
-        {% comment %}
-        <div class="closed" id="newsletter-prompt">
-          <div class="container">
-            <div class="col-md-10">
-              <p>Get <strong>15% OFF</strong> your next order just for signing up.</p>
-            </div>
-            <div class="col-md-2">
-              <button type="button" class="btn btn-secondary btn-md" data-toggle="modal" data-target="#newsletter">Join now</button>
-            </div>
-          </div>
-          <button type="button" class="panel-close"><span aria-hidden="true">Close</span></button>
-        </div>
-        {% endcomment %}
+  <a class="in-page-link skip-link sr-only" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+  {% section 'site-menu' %}
+  {% section 'marquee' %}
+  <header id="site-header">
+    <div class="icon-set">
+      <div class="icon">
+        <a href="#" id="site-menu-open">
+          {% include 'header-icons', icon: 'menu' %}
+          <span class="sr-only">Menu</span>
+        </a>
+      </div>
+      <div class="icon">
+        <a href="#" id="help-menu-toggle">
+          {% include 'header-icons', icon: 'help' %}
+          <span class="sr-only">{{ 'layout.help.title' | t }}</span>
+        </a>
+        {% section 'help-menu' %}
+      </div>
     </div>
+    
+
+    {% if template.name == 'index' %}
+      <h1 id="site-logo" itemscope itemtype="http://schema.org/Organization">
+        {% include 'header-icons', icon: 'logo' %}
+        <span class="sr-only">{{ shop.name }}</span>
+      </h1>
+    {% else %}
+      <a href="/" id="site-logo" itemscope itemtype="http://schema.org/Organization">
+        {% include 'header-icons', icon: 'logo' %}
+        <span class="sr-only">{{ shop.name }}</span>
+      </a>
+    {% endif %}
+
+    <div class="icon-set">
+      <div class="icon">
+        <a href="/account/login" class="login-link">
+          {% include 'header-icons', icon: 'login' %}
+          <span class="sr-only">{{ 'layout.login.title' | t }}</span>
+        </a>
+      </div>
+      <div class="icon">
+        <a href="/cart" class="cart-link {% if cart.item_count < 1 %}empty{% endif %}">
+          {% include 'header-icons', icon: 'cart' %}
+          <span class="sr-only">{{ 'layout.cart.title' | t }}</span>
+          <span class="cart-count">{{ cart.item_count }}</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="site-content">
+    <main id="MainContent">
+      {{ content_for_layout }}
+    </main>
+    {% section 'footer' %}
+  </div>
+
 
  {% include 'sweettooth-initializer' %}
  {% include 'sweettooth-tab-widget' %}

@@ -1,11 +1,14 @@
+#shopify-section-marquee{
+	position: sticky;
+	top: 0;
+}
 .marquee {
 	padding: 10px 45px 11px;
 	background: $brand-blue;
 	font-size: $font-size-small;
 	line-height: 1.3;
-	z-index: 1000;
+	z-index: $zi-ui;
 	color: #FFF;
-	position: relative;
 	a{
 		color: #FFF;
 	}
@@ -42,6 +45,9 @@
 	}
 }
 
+.marquee-push-down{
+	transition: margin .25s ease-out;
+}
 .reset-marquee-offset{
 	margin-top: 0 !important;
 }

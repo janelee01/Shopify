@@ -8,20 +8,9 @@ $screen-lg:               1400px;
 
 $grid-gutter-width:       30px;
 $grid-float-breakpoint:   $screen-md; 
-  
-$menu-width-sm:           100%;
-$menu-width-md:           400px;
  
 $ls-navbar-height-xs:     56px;
 $ls-navbar-height:        66px;
-$ls-navbar-height-pagenav-xs: 111px;
-$ls-navbar-height-pagenav: 147px;
- 
-$page-nav-height-xs:      50px;
-$page-nav-height:         80px;
- 
-$local-nav-height-xs:     60px;
-$local-nav-height:        80px;
  
 $mobile-gutter:           28px;
  
@@ -98,5 +87,7 @@ $mb-large-sm:             90px;
 $mb-large-md:             105px;
 $mb-large-lg:             120px;
 
-$header-z-index: 1000;
-$page-nav-z-index: 999;
+$zi-base: 1;
+$zi-above: 100;
+$zi-ui: 1000;
+$zi-overlay: 2000;

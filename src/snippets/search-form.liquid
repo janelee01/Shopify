@@ -3,19 +3,18 @@
 {%- assign field_id = field_id | default: '' -%}
 {%- assign auto_complete = auto_complete | default: true -%}
 
-<form action="/search" method="get" role="search" class="header-search ui-front {{class}}">
+<form action="/search" method="get" role="search" class="search-form ui-front {{class}}">
   <label for="{{ field_id }}" class="sr-only">{{placeholder}}</label>
   <input type="search"
          name="q"
          id="{{ field_id }}"
-         class="form-control header-search__input{% if auto_complete %} js-autocomplete{% endif %}"
+         class="form-control {% if auto_complete %} js-autocomplete{% endif %}"
          value=""
          placeholder="{{placeholder}}">
   <input type="hidden" name="type" value="product" />
-  <button type="submit" class="btn">
+  <button type="submit">
+    {% include 'header-icons', icon: 'search' %}
     <span class="sr-only">{{ 'general.search.submit' | t }}</span>
-      {% include 'header-icons', icon: 'search' %}
-
   </button>
 </form> 
 

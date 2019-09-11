@@ -1,0 +1,51 @@
+{%- assign placeholder = 'general.search.placeholder' | t -%}
+{% include 'search-form', field_id: 'in-menu-search', class: 'in-menu', placeholder: placeholder %}
+{%- assign placeholder = nil -%}
+<nav id="site-menu">
+<ul class="level-1">
+{%- for level1 in linklists[section.settings.main_linklist].links -%}
+  <li>
+    {%- if level1.levels < 1 -%}
+      <a class="btn-gtm-trk" data-gtm-a="3" href="{{ level1.url }}">{{ level1.title }}</a>
+    {%- else -%}
+      <a class="navigate-down" href="#">{{ level1.title }}{% include 'header-icons', icon: 'menu-right' %}</a>
+      <ul class="sub-menu level-2">
+        <li class="level-title"><a class="navigate-up" href="#">{% include 'header-icons', icon: 'menu-left' %}{{ level1.title }}</a></li>
+        {%- for level2 in level1.links -%}
+          <li>
+            {%- if level2.levels < 1 -%}
+              <a class="btn-gtm-trk" data-gtm-a="3" href="{{ level2.url }}">{{ level2.title }}</a>
+            {%- else -%}
+              <a class="navigate-down" href="#">{{ level2.title }}{% include 'header-icons', icon: 'menu-right' %}</a>
+              <ul class="sub-menu level-3">
+                <li class="level-title"><a class="navigate-up" href="#">{% include 'header-icons', icon: 'menu-left' %}{{ level2.title }}</a></li>
+                {%- for level3 in level2.links -%}
+                  <li><a class="btn-gtm-trk" data-gtm-a="3" href="{{ level3.url }}">{{ level3.title }}</a></li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </li>
+{%- endfor -%}
+</ul>
+</nav>
+<nav class="social">
+  {% include 'connect-menus' %}
+</nav>
+
+{% schema %}
+  {
+    "name": "Menu Panel",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "main_linklist",
+        "label": "Menu",
+        "default": "main-menu"
+      }
+    ]
+  }
+{% endschema %}
