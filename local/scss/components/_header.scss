@@ -217,10 +217,9 @@ body.site-menu-open{
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		// transition: .2s;
+		text-decoration: none;
 		@media (min-width: $screen-md) {
 			&:hover{
-				text-decoration: none;
 				color: $brand-blue;
 			}
 		}
@@ -254,7 +253,6 @@ body.site-menu-open{
 		font-size: 14px;
 		color: $gray;
 		text-align: center;
-		// transition: .2s;
 		@media (min-width: $screen-md) {
 			&:hover{
 				color: $brand-blue;
