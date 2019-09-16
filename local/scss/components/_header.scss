@@ -15,7 +15,10 @@
 	justify-content: space-between;
 	align-items: center;
 	height: $ls-navbar-height-xs;
-	padding: 0 $mobile-gutter;
+	padding: 0 $mobile-gutter/2;
+	@media (min-width: $screen-xs) {
+		padding: 0 $mobile-gutter;
+	}
 	@media (min-width: $screen-md) {
 		padding: 0 30px;
 		height: $ls-navbar-height;
@@ -31,7 +34,7 @@
 			position: relative;
 			// things switch orders so this is messy
 			&:last-child{
-				margin-right: 20px;
+				margin-right: 17px;
 			}
 			@media (min-width: $screen-md) {
 				&:first-child{
@@ -43,9 +46,10 @@
 			}
 			> a{
 				display: block;
-				height: 22px;
+				height: 18px;
 				color: $brand-black;
 				@media (min-width: $screen-md) {
+					height: 22px;
 					&:hover{
 						color: $brand-blue;
 					}
@@ -92,20 +96,19 @@
 
 #shopify-section-site-menu{
 	position: fixed;
-	z-index: $zi-ui + 10;
+	z-index: $zi-ui;
 	right: 0;
-	top: $ls-navbar-height-xs; 
+	top: 0; 
 	background: #fff;
-	height: calc(100vh - #{$ls-navbar-height-xs});
-	width: 340px;
+	height: 100%;
+	width: $menu-width;
+	max-width: 100%;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	transform: translateX(100%);
 	transition: .3s ease-in-out;
 	@media (min-width: $screen-md) {
-		top: $ls-navbar-height; 
-		height: calc(100vh - #{$ls-navbar-height});
 		left: 0;
 		right: auto;
 		transform: translateX(-100%);
@@ -114,17 +117,29 @@
 	Search
 	*/
 	[role="search"]{
-		padding: 15px 30px;
+		padding: $mobile-gutter/2;
+		@media (min-width: $screen-xs) {
+			padding: 15px 30px;
+		}
 		.form-control{
 			box-shadow: none;
+			height: 45px;
 		}
 	}
 	.social-menu{
 		margin-bottom: 40px;
+		padding-top: 15px;
 	}
 }
 
 body.site-menu-open{
+	overflow-x: hidden;
+	#site-window{
+		transform: translateX(-$menu-width);
+		@media (min-width: $screen-md) {
+			transform: translateX($menu-width);
+		}
+	}
 	#shopify-section-site-menu{
 		transform: translateX(0);
 		box-shadow: 0 2px 4px rgba(147,147,147,.5);
@@ -135,13 +150,18 @@ body.site-menu-open{
 	border-top: solid 1px $gray-lighter;
 	position: relative;
 	flex: 1;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
 	ul{
 		@include resetList;
 		height: 100%;
 	}
 	li{
-		padding: 0 30px;
+		padding: 0 $mobile-gutter/2;
 		border-bottom: solid 1px $gray-lighter;
+		@media (min-width: $screen-xs) {
+			padding: 0 $mobile-gutter;
+		}
 		&.active{
 			> .sub-menu{
 				transform: translateX(0);
@@ -155,7 +175,10 @@ body.site-menu-open{
 				justify-content: space-around;
 				svg{
 					position: absolute;
-					left: 30px;
+					left: $mobile-gutter/2;
+					@media (min-width: $screen-xs) {
+						left: 30px;
+					}
 				}
 			}
 		}
@@ -169,9 +192,11 @@ body.site-menu-open{
 		justify-content: space-between;
 		align-items: center;
 		// transition: .2s;
-		&:hover{
-			text-decoration: none;
-			color: $brand-blue;
+		@media (min-width: $screen-md) {
+			&:hover{
+				text-decoration: none;
+				color: $brand-blue;
+			}
 		}
 	}
 	.sub-menu{
@@ -188,25 +213,27 @@ body.site-menu-open{
 #shopify-section-help-menu{
 	position: absolute;
 	background: #fff;
-	box-shadow: 0 2px 10px 0 rgba(203,203,203,0.5);
+	box-shadow: 0 2px 4px rgba(147,147,147,.5);
 	width: 200px;
 	top: 100%;
 	left: 50%;
-	transform: translate(-75%,0);
+	transform: translate(-75%,9px);
 	opacity: 0;
 	pointer-events: none;
 	transition: .3s;
 	@media (min-width: $screen-md) {
-		transform: translate(-28%,0);
+		transform: translate(-25%,12px);
 	}
 	a{
 		font-size: 14px;
 		color: $gray;
 		text-align: center;
-		transition: .2s;
-		&:hover{
-			color: $brand-blue;
-			text-decoration: none;
+		// transition: .2s;
+		@media (min-width: $screen-md) {
+			&:hover{
+				color: $brand-blue;
+				text-decoration: none;
+			}
 		}
 	}
 	.primary-links{
@@ -249,11 +276,11 @@ body.site-menu-open{
 
 body.help-menu-shown{
 	#shopify-section-help-menu{
-		transform: translate(-75%,10px);
+		transform: translate(-75%,19px);
 		opacity: 1;
 		pointer-events: initial;
 		@media (min-width: $screen-md) {
-			transform: translate(-28%,10px);
+			transform: translate(-25%,22px);
 		}
 	}
 	#shopify-section-site-menu,

@@ -52,10 +52,12 @@ body.product{
 //   }
 // }
 .product-main{
-  padding: $pdp-spacing-xs 0;
+  padding-top: $pdp-spacing-xs;
+  padding-bottom: $pdp-spacing-xs;
   @media (min-width: $screen-md) {
     display: flex;
-    padding: $pdp-spacing-md 0;
+    padding-top: $pdp-spacing-md;
+    padding-bototm: $pdp-spacing-md;
   }
   .gallery-col{
     flex: 1 1 auto;

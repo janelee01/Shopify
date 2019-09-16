@@ -5,8 +5,7 @@ $(document).ready(function(){
   var $marquee = LS.getMarquee();
 
   var closeHeaderPanels = function(){
-    $('body').removeClass('site-menu-open');
-    $('#shopify-section-help-menu').removeClass('is-shown');
+    $('body').removeClass('site-menu-open help-menu-shown');
   };
   
   // keyboard close things
@@ -23,8 +22,6 @@ $(document).ready(function(){
       closeHeaderPanels();
     }
   });
-
-  $(window).scroll( $.throttle(250, closeHeaderPanels) );
   
   // click anywhere to close things
   $('.site-content').on('click', function(e){
@@ -34,14 +31,14 @@ $(document).ready(function(){
   $('#site-menu-open').on('click', function(e){
     e.stopPropagation();
     e.preventDefault();
-		$('body').toggleClass('site-menu-open');
+    $('body').toggleClass('site-menu-open');
 	});
 
-	$('#site-menu .navigate-down').on('click', function(e){
+	$('body').on('click', '.navigate-down', function(e){
     e.preventDefault();
 		$(this).closest('li').addClass('active');
 	});
-	$('#site-menu .navigate-up').on('click', function(e){
+	$('body').on('click', '.navigate-up', function(e){
     e.preventDefault();
 		$(this).closest('li.active').removeClass('active');
   });
@@ -56,13 +53,23 @@ $(document).ready(function(){
   $('#site-menu-panel').on('click', function(e){
     e.stopPropagation();
   });
+
+  // save the menu state
+  $('body').on('click', '.navigate-down, .navigate-up', function(e){
+    e.preventDefault();
+    sessionStorage.setItem("lo-menu-state", $('#site-menu').html());
+  });
+  // load menu state
+  if ( 'lo-menu-state' in sessionStorage) {
+    $('#site-menu').html(sessionStorage.getItem('lo-menu-state'));
+  }
   
   /*
   Marquee
     */
   $('body').on('click', '.marquee .panel-close', function(e){
     e.preventDefault();
-    $('#shopify-section-marquee').fadeOut('fast');
+    $marquee.fadeOut('fast');
     sessionStorage.setItem("lo-marquee-dismissed", "1");
   });
 
@@ -70,7 +77,7 @@ $(document).ready(function(){
   if ( 'lo-marquee-dismissed' in sessionStorage) {
     // no nothing
   }else{
-    $('#shopify-section-marquee .marquee').removeClass('hidden');
+    $marquee.find('.marquee').removeClass('hidden');
   }
 
   // Autocomplete search
@@ -111,6 +118,6 @@ $(document).ready(function(){
     	event.preventDefault();
     	window.location = window.location.protocol + '//' + window.location.hostname + ui.item.value;
     }
-	});
+  });
   
 });
