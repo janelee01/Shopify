@@ -37,6 +37,7 @@
 				margin-right: 17px;
 			}
 			@media (min-width: $screen-md) {
+				min-width: 20px;
 				&:first-child{
 					margin-right: 20px;
 				}
@@ -48,6 +49,8 @@
 				display: block;
 				height: 18px;
 				color: $brand-black;
+				text-decoration: none;
+				text-align: center;
 				@media (min-width: $screen-md) {
 					height: 22px;
 					&:hover{
@@ -96,7 +99,7 @@
 
 #shopify-section-site-menu{
 	position: fixed;
-	z-index: $zi-ui;
+	z-index: $zi-ui + 10;
 	right: 0;
 	top: 0; 
 	background: #fff;
@@ -127,15 +130,25 @@
 		}
 	}
 	.social-menu{
-		margin-bottom: 40px;
-		padding-top: 15px;
+		margin-bottom: $mobile-gutter;
+		padding-top: $mobile-gutter;
+		@media (min-width: $screen-md) {
+			margin-bottom: 40px;
+			padding-top: 15px;
+		}
+	}
+}
+
+#site-menu-open{
+	svg:nth-child(2){
+		display: none;
 	}
 }
 
 body.site-menu-open{
 	overflow-x: hidden;
 	#site-window{
-		transform: translateX(-$menu-width);
+		// transform: translateX(-$menu-width);
 		@media (min-width: $screen-md) {
 			transform: translateX($menu-width);
 		}
@@ -144,14 +157,26 @@ body.site-menu-open{
 		transform: translateX(0);
 		box-shadow: 0 2px 4px rgba(147,147,147,.5);
 	}
+	#site-menu-open{
+		@media (min-width: $screen-md) {
+			svg:nth-child(1){
+				display: none;
+			}
+			svg:nth-child(2){
+				display: initial;
+			}
+		}
+	}
 }
 
 #site-menu{
 	border-top: solid 1px $gray-lighter;
 	position: relative;
 	flex: 1;
+	overflow-x: hidden;
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
+	width: 100%;
 	ul{
 		@include resetList;
 		height: 100%;
@@ -283,7 +308,6 @@ body.help-menu-shown{
 			transform: translate(-25%,22px);
 		}
 	}
-	#shopify-section-site-menu,
 	.page-nav{
 		z-index: $zi-ui - 10;
 	}
