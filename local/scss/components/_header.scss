@@ -1,28 +1,23 @@
-
 #site-header {
-	font-family: $font-family-sans-serif;
-	@include transition(all .25s ease-out);
 	position:sticky;
 	top: 0;
-	left: 0;
-	right: 0;
 	margin: 0;
 	z-index: $zi-ui;
 	background-color: #fff;
 	border-bottom: 1px solid $gray-lighter;
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: space-between;
-	align-items: center;
-	height: $ls-navbar-height-xs;
-	padding: 0 $mobile-gutter/2;
-	@media (min-width: $screen-xs) {
-		padding: 0 $mobile-gutter;
-	}
-	@media (min-width: $screen-md) {
-		padding: 0 30px;
-		height: $ls-navbar-height;
-		flex-direction: row;
+	.container{
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		align-items: center;
+		height: $ls-navbar-height-xs;
+		&::before, &::after{
+			display: none;
+		}
+		@media (min-width: $screen-md) {
+			height: $ls-navbar-height;
+			flex-direction: row;
+		}
 	}
 	.icon-set {
 		display: flex;
@@ -139,33 +134,32 @@
 	}
 }
 
-#site-menu-open{
-	svg:nth-child(2){
-		display: none;
+#site-menu-close{
+	color: $gray;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 15px 30px 0;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	@media (min-width: $screen-md) {
+		&:hover{
+			color: $brand-blue;
+			text-decoration: none;
+		}
+	}
+	svg{
+		height: 10px;
+		margin-left: 4px;
 	}
 }
 
+
 body.site-menu-open{
-	overflow-x: hidden;
-	#site-window{
-		// transform: translateX(-$menu-width);
-		@media (min-width: $screen-md) {
-			transform: translateX($menu-width);
-		}
-	}
 	#shopify-section-site-menu{
 		transform: translateX(0);
 		box-shadow: 0 2px 4px rgba(147,147,147,.5);
-	}
-	#site-menu-open{
-		@media (min-width: $screen-md) {
-			svg:nth-child(1){
-				display: none;
-			}
-			svg:nth-child(2){
-				display: initial;
-			}
-		}
 	}
 }
 

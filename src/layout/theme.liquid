@@ -100,16 +100,15 @@
   <a class="in-page-link skip-link sr-only" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
   
   {% section 'site-menu' %}
-  
-  <div id="site-window">
-    {% section 'marquee' %}
-    <header id="site-header">
+  {% section 'marquee' %}
+
+  <header id="site-header">
+    <div class="container">
       <div class="icon-set">
         <div class="icon">
           <a href="#" id="site-menu-open">
             {% include 'header-icons', icon: 'menu' %}
-            {% include 'header-icons', icon: 'close' %}
-            <span class="sr-only">Menu</span>
+            <span class="sr-only">Open Menu</span>
           </a>
         </div>
         <div class="icon">
@@ -120,7 +119,6 @@
           {% section 'help-menu' %}
         </div>
       </div>
-      
       {% if template.name == 'index' %}
         <h1 id="site-logo" itemscope itemtype="http://schema.org/Organization">
           {% include 'header-icons', icon: 'logo' %}
@@ -132,7 +130,6 @@
           <span class="sr-only">{{ shop.name }}</span>
         </a>
       {% endif %}
-
       <div class="icon-set">
         <div class="icon">
           <a href="/account/login" class="login-link">
@@ -148,15 +145,16 @@
           </a>
         </div>
       </div>
-
-    </header>
-    <div class="site-content">
-      <main id="MainContent">
-        {{ content_for_layout }}
-      </main>
-      {% section 'footer' %}
     </div>
+  </header>
+
+  <div class="site-content">
+    <main id="MainContent">
+      {{ content_for_layout }}
+    </main>
+    {% section 'footer' %}
   </div>
+  
 
  {% include 'sweettooth-initializer' %}
  {% include 'sweettooth-tab-widget' %}

@@ -32,6 +32,11 @@ $(document).ready(function(){
     e.stopPropagation();
     e.preventDefault();
     $('body').toggleClass('site-menu-open');
+  });
+  $('#site-menu-close').on('click', function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    $('body').removeClass('site-menu-open');
 	});
 
 	$('body').on('click', '.navigate-down', function(e){
