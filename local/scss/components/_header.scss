@@ -5,19 +5,16 @@
 	z-index: $zi-ui;
 	background-color: #fff;
 	border-bottom: 1px solid $gray-lighter;
-	.container{
-		display: flex;
-		flex-direction: row-reverse;
-		justify-content: space-between;
-		align-items: center;
-		height: $ls-navbar-height-xs;
-		&::before, &::after{
-			display: none;
-		}
-		@media (min-width: $screen-md) {
-			height: $ls-navbar-height;
-			flex-direction: row;
-		}
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	align-items: center;
+	height: $ls-navbar-height-xs;
+	padding: 0 $mobile-gutter/2;
+	@media (min-width: $screen-md) {
+		height: $ls-navbar-height;
+		flex-direction: row;
+		padding: 0 30px;
 	}
 	.icon-set {
 		display: flex;
@@ -115,9 +112,10 @@
 	Search
 	*/
 	[role="search"]{
-		padding: $mobile-gutter/2;
+		padding: 0 $mobile-gutter/2;
+		margin-bottom: 30px;
 		@media (min-width: $screen-xs) {
-			padding: 15px 30px;
+			padding: 0 30px;
 		}
 		.form-control{
 			box-shadow: none;
@@ -125,8 +123,8 @@
 		}
 	}
 	.social-menu{
-		margin-bottom: $mobile-gutter/2;
-		padding-top: $mobile-gutter/2;
+		margin-bottom: $mobile-gutter;
+		padding-top: $mobile-gutter;
 		@media (min-width: $screen-md) {
 			margin-bottom: 40px;
 			padding-top: 15px;
@@ -137,12 +135,8 @@
 #site-menu-close{
 	color: $gray;
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 15px 30px 0;
-	font-size: 12px;
-	text-transform: uppercase;
-	letter-spacing: 1px;
+	justify-content: flex-end;
+	padding: 20px 30px;
 	@media (min-width: $screen-md) {
 		&:hover{
 			color: $brand-blue;
@@ -150,8 +144,7 @@
 		}
 	}
 	svg{
-		height: 10px;
-		margin-left: 4px;
+		height: 14px;
 	}
 }
 

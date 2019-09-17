@@ -1,5 +1,6 @@
 <a href="#" id="site-menu-close">
-  Close {% include 'header-icons', icon: 'close' %}
+  {% include 'header-icons', icon: 'close' %}
+  <span class="sr-only">Close menu</span>
 </a>
 {%- assign placeholder = 'general.search.placeholder' | t -%}
 {% include 'search-form', field_id: 'in-menu-search', class: 'in-menu', placeholder: placeholder %}
