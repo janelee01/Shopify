@@ -64,12 +64,11 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	font-size: 18px;
 	text-align: center;
 	padding: 0 $mobile-gutter;
 	color: #FFF;
+	@include heroDescription;
 	@media (min-width: $screen-sm) {
-		font-size: 20px;
 		padding: 0 25%;
 	}
 	@media (min-width: $screen-md) {
@@ -84,9 +83,6 @@
 		&.left{
 			left: 0;
 		}
-	}
-	@media (min-width: $screen-lg) {
-		font-size: 23px;
 	}
 	&.black{
 		color: $brand-black;
@@ -116,8 +112,7 @@
 	}
 	.title{
 		color: #FFF;
-		font-size: 2.3em;
-		font-family: $font-family-medium;	
+		@include heroTitle;
 		@media (min-width: $screen-md) {
 		    color: $brand-black;
 		}

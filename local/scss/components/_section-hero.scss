@@ -1,0 +1,21 @@
+.section-hero{
+	position: relative;
+	margin-bottom: $grid-gutter-width;
+	.content{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #fff;
+		text-align: center;
+	}
+	.title{
+    @include sectionTitle;
+    color: currentColor;
+    margin: 0;
+  }
+}

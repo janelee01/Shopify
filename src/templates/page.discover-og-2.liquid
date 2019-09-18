@@ -1,0 +1,230 @@
+{% include 'vars' %}
+
+{%- assign assetVersion = 158227 -%}
+{%- assign ctaTitle = 'The O.G. 2' -%}
+{%- assign ctaPrice = '$TBD' -%}
+{%- assign ctaLink = '/products/og-and-omg-nylon-black-gold-lavender' -%}
+
+<article class="discover">
+
+    {% include 'discover-nav', labels:'Functionality,What Fits Inside,Materials,Design,Specs' %}
+    
+    <div class="max-container">
+      <div class="hero has-arrow" id="hanover-hero">
+        {% include 'discover-picture', name: 'hanover2-discover-hero1', alt: 'woman holding O.G. 2 at top of stairs', retina: true, fw: false, lg: true %}
+        <div class="hero-content white right">
+          <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
+          <p class="description">The anticipated upgrade to our covetted original overnight bag. Versatile, chic, and even more thoughtfully designed.</p>
+        </div>
+        {% include 'hero-jump-btn' %}
+      </div>
+    </div>
+    
+    <div class="container">{% include 'hero-jump-target' %}
+      <div class="row animate mb-large" {{ animateZoomIn }}>
+        <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+          <div class="text-center">
+            {% include 'discover-picture', name: 'hanover2-discover-hero2', alt: 'The O.G. 2 isolated on white background', retina: true, fw: false, lg: true %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a id="nav-target-1" class="jumptarget"></a>
+    {% include 'section-hero', title: 'Travel Smart', imgName: 'hanover2-discover-hero1', imgAlt: 'woman boarding plane' %}   
+    <div class="container mb-default">
+      <div class="row">
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section1-block1', alt: 'woman walking with O.G. 2 on luggage', retina: true, fw: false, lg: true %}
+          {% include 'discover-topic-content', title: "Suitcase Handle Sleeve", text: "A convenient pass-through sleeve slides onto most roller bags for fuss-free travel." %}
+        </div>
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section1-block2', alt: 'close up of laptop compartment', retina: true, fw: false, lg: true %}
+          {% include 'discover-topic-content', title: "Laptop Compartment", text: "A new dedicated sleeve means quick and easy access to your computer at TSA." %}
+        </div>
+        <div class="col-sm-4">
+          {% include 'inline-video', ratio: '3-4', index: 2, poster: 'hanover2-discover-section1-block3-md', src: '660d-Collection-Launch-Discover-Refresh-Catalina-and-Hanover-2_Sophie-Sahara_Williamsburg-Hotel_June-2019_Shot_18_Female' %}
+          {% include 'discover-topic-content', title: "Padded Comfort", text: "Now with a memory foam pad, the messenger strap promises easy, slip-resistent travel." %}
+        </div>
+      </div>
+    </div>
+
+    {% include 'section-hero', title: 'Work Friendly', imgName: 'hanover2-discover-hero1', imgAlt: 'woman at desk putting laptop into O.G. 2' %}   
+    <div class="container mb-default">
+      <div class="row">
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section2-block1', alt: 'overhead view of packed interior', retina: true, fw: false, lg: true %}
+          {% include 'discover-topic-content', title: "Organized Interior", text: "A clever array of pockets hold your documents and small electronics." %}
+        </div>
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section2-block2', alt: 'front pocket opened to showcase storage', retina: true, fw: false, lg: true %}
+          {% include 'discover-topic-content', title: "Easy-to-Reach Essentials", text: "Keep all your essentials and keys secure and within easy reach." %}
+        </div>
+        <div class="col-sm-4">
+          {% include 'inline-video', ratio: '3-4', index: 3, poster: 'hanover2-discover-section2-block3-md', src: '660d-Collection-Launch-Discover-Refresh-Catalina-and-Hanover-2_Sophie-Sahara_Williamsburg-Hotel_June-2019_Shot_18_Female' %}
+          {% include 'discover-topic-content', title: "Side Pocket", text: "Commuting? Switching into heels at the office has never neen easier. " %}
+        </div>
+      </div>
+    </div>
+
+    {% include 'section-hero', title: 'Gym Bag', imgName: 'hanover2-discover-hero1', imgAlt: 'woman sliding gym bottle into side pocket' %}   
+    <div class="container mb-default">
+      <div class="row">
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section3-block1', alt: 'close up of interior bottle pocket', retina: true, fw: false, lg: true %}
+          {% include 'discover-topic-content', title: "Water-bottle pocket", text: "Now with a mesh water-bottle pocket so you can stay hydrated on-the-go." %}
+        </div>
+        <div class="col-sm-4">
+          {% include 'discover-picture', name: 'hanover2-discover-section3-block2', alt: 'woman sliding shoe into side pocket', retina: true, fw: false, lg: true %}
+        {% include 'discover-topic-content', title: "Side pocket", text: "Keep your work documents clean and protected by keeping your sneakers in the shoe compartment." %}
+        </div>
+        <div class="col-sm-4">
+          {% include 'inline-video', ratio: '3-4', index: 4, poster: 'hanover2-discover-section3-block3-md', src: '660d-Collection-Launch-Discover-Refresh-Catalina-and-Hanover-2_Sophie-Sahara_Williamsburg-Hotel_June-2019_Shot_18_Female' %}
+          {% include 'discover-topic-content', title: "Change of clothes", text: "Enough room to bring a change of clothes and any toiletries on the go." %}
+        </div>
+      </div>
+    </div> 
+
+    <div class="container">
+      <a id="nav-target-2" class="jumptarget"></a>
+      {% include 'discover-section-heading', title: "Organized Interior", text: "Designed to maximize what you can take on your travels." %}
+    </div>
+    <div class="max-container topic-block mb-default animate video-block" {{ animateFadeInUp }}>
+        {% include 'discover-picture', name: 'hanover2-discover-section5-block1', alt: 'video showing how to pack the O.G. 2', retina: true, fw: false, lg: true %}
+        <a href="#" data-video-id="1" class="video-trigger">See What Fits Inside</a>
+    </div>
+
+    <a id="nav-target-3" class="jumptarget"></a>
+    <div class="container mb-default">
+      {% include 'discover-section-heading', title: "Premium Materials", text: "Lorem ipsum details." %}
+      <div class="row animate" {{ animateFadeInUp }}>
+          <div class="col-sm-4">
+              {% include 'discover-picture', name: 'hanover2-discover-section5-block1', alt: 'close up of nylon exterior material', retina: true, fw: false, lg: true %} 
+              {% include 'discover-topic-content', title: "Nylon Exterior", text: "We’ve checked all the boxes with this lightweight, fine-weave, water-resistant nylon." %}
+          </div>
+          <div class="col-sm-4">
+              {% include 'discover-picture', name: 'hanover2-discover-section5-block2', alt: 'close up of nappa leather accents', retina: true, fw: false, lg: true %} 
+              {% include 'discover-topic-content', title: "Nappa Leather Accents", text: "We've upgraded the straps and trim to a luxurious and buttery leather known for its adaptable shape." %}
+          </div>
+          <div class="col-sm-4">
+              {% include 'discover-picture', name: 'hanover2-discover-section5-block3', alt: 'close up of zipper', retina: true, fw: false, lg: true %} 
+              {% include 'discover-topic-content', title: "Water-Resistant Zippers", text: "The laptop sleeve comes with water-resistant zippers to keep rain and spills out." %}
+          </div>
+      </div>
+
+      {% include 'discover-section-heading', title: "Carry-On Friendly", text: "We designed the O.G. 2 to be the ideal travel partner." %}
+      <div class="row mb-default animate" {{ animateFadeInUp }}>
+          <div class="col-sm-6">
+              {% include 'discover-picture', name: 'hanover2-discover-section6-block1', alt: 'airplane seating', retina: true, fw: false, lg: true %}
+              {% include 'discover-topic-content', title: "Under Seat Ready", text: "The O.G. 2 fits seamlessly under any airline seat." %}
+          </div>
+          <div class="col-sm-6">
+              {% include 'discover-picture', name: 'hanover2-discover-section6-block2', alt: 'bag in airplane overhead compartment', retina: true, fw: false, lg: true %}                
+              {% include 'discover-topic-content', title: "Compatible with Overhead Storage", text: "The O.G. 2 fits seamlessly in the overhead cabin storage." %}
+          </div>
+      </div>
+      
+      <a id="nav-target-4" class="jumptarget"></a>
+      {% include 'discover-section-heading', title: "Updated Design", text: "An illustrated guide to every new upgrade" %}
+      <div class="text-center mb-large">
+        {% include 'discover-picture', name: 'waverley2-update-original', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+        <p class="description"><a href="#update-overlay" class="more-window-trigger">Compare versions +</a></p>
+      </div>
+
+      <a id="nav-target-5" class="jumptarget"></a>
+      {% include 'discover-section-heading', title: "Available in 2 Sizes", text: "The O.G. 2 is available in both Medium and Large" %}
+      <div class="text-center">
+        {% include 'discover-picture', name: 'waverley2-update-original', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+        <p><a href="#">Size &amp; Fit</a></p>
+      </div>
+    </div>
+
+    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The O.G. 2" %}
+    {% endunless %}
+
+    <div class="discover-cta mt-small" id="compare-cta">
+      <div class="container">
+        <div class="row topic-block">
+          <div class="col-md-9">
+            {% include 'discover-picture', name: 'hanover2-discover-section6-block2', alt: 'group shot of products in Signature Collection', retina: true, fw: true, lg: true %}                
+          </div>
+          <div class="col-md-3">
+            <div class="topic-content">
+              <h2 class="title">The Signature Collection</h2>
+              <p class="description">Learn more about our practical yet professional line</p>
+              <div class="btn-set">
+                <a class="btn btn-secondary" href="/pages/discover-signature-collection">Shop now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>// <![CDATA[
+    var video1Embed = '<iframe src="https://player.vimeo.com/video/341883316" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen class="vimeo"></iframe>';
+    // ]]></script>
+
+    {% include 'video-modal' %}
+
+    <div class="more-window" id="update-overlay">
+        <div class="section-heading first">
+            <h2 class="title">Updated Design</h2>
+            <p>A decade of customer feedback informed the O.G. 2. Here’s what’s new.</p>
+        </div>
+        <div class="columns">
+            <div class="max-container">
+                {% include 'discover-picture', name: 'waverley2-comparison-emblem', alt: 'Waverley emblem change', retina: true, fw: false, lg: true %}
+            </div>
+            {% capture topicOpen %}
+            <div class="container"><div class="row"><div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            {% endcapture %}
+            {% capture topicClose %}
+            </div></div></div>
+            {% endcapture %}
+
+            {{ topicOpen }}
+            {% include 'discover-topic-content', title: "External Laptop Sleeve", text: "Sprinting through security? The O.G. 2’s laptop sleeve is now separate from the main compartment, providing easy access even when your bag is full.", modifiers: "text-center text-left-xs" %}
+            {{ topicClose }}
+
+            <div class="max-container">
+                {% include 'discover-picture', name: 'waverley2-comparison-card-slot', alt: 'Waverley 2 with card slot', retina: true, fw: false, lg: true %}
+            </div>
+            {{ topicOpen }}
+            {% include 'discover-topic-content', title: "No-Tip Framework", text: "We’ve re-engineered the design to add structure and stability—without added weight. The new reinforced framework prevents the O.G. 2 from leaning when fully packed.", modifiers: "text-center text-left-xs" %}
+            {{ topicClose }}
+
+            <div class="max-container">
+                {% include 'discover-picture', name: 'waverley2-comparison-zipper-pocket', alt: 'Waverley 2 interior zip pocket', retina: true, fw: false, lg: true %}
+            </div>
+            {{ topicOpen }}
+            {% include 'discover-topic-content', title: "Mesh Water-Bottle Pocket", text: "We support your hydration goals! The O.G. 2 now has an interior pocket so your H2O is always close at hand.", modifiers: "text-center text-left-xs" %}
+            {{ topicClose }}
+
+            <div class="max-container">
+                {% include 'discover-picture', name: 'waverley2-comparison-zipper-pocket', alt: 'Waverley 2 interior zip pocket', retina: true, fw: false, lg: true %}
+            </div>
+            {{ topicOpen }}
+            {% include 'discover-topic-content', title: "Ultra-Comfy Messenger Strap", text: "You have no patience for straps that dig—and neither do we. Our slip-resistant strap comes with a removable memory-foam pad for extra comfort.", modifiers: "text-center text-left-xs" %}
+            {{ topicClose }}
+
+            <div class="max-container">
+                {% include 'discover-picture', name: 'waverley2-comparison-zipper-pocket', alt: 'Waverley 2 interior zip pocket', retina: true, fw: false, lg: true %}
+            </div>
+            {{ topicOpen }}
+            {% include 'discover-topic-content', title: "Extra-Luxe Leather", text: "We’ve upgraded our handles using buttery, high-grade Nappa leather that’s easy on the hands and shoulders.", modifiers: "text-center text-left-xs" %}
+            {{ topicClose }}
+
+            <div class="max-container">
+                {% include 'discover-picture', name: 'waverley2-comparison-zipper-pocket', alt: 'Waverley 2 interior zip pocket', retina: true, fw: false, lg: true %}
+            </div>
+            {{ topicOpen }}
+            {% include 'discover-topic-content', title: "Medallion Now Optional", text: "Some of you loved our branded medallion; some of you could do without it. To minimize waste, we now sell it separately for those who like a little flair.", modifiers: "text-center text-left-xs" %}
+            {{ topicClose }}
+            
+        </div>
+        <button class="panel-close"><span class="sr-only">close</span></button>
+    </div>
+
+</article>
