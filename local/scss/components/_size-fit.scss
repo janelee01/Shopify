@@ -17,6 +17,10 @@
             margin-left: 0;
         }
     }
+
+    picture img {
+        width: 100%;
+    }
 }
 .product-row.fit-row {
     scroll-snap-type: x mandatory;
