@@ -1,13 +1,13 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 158228 -%}
+{%- assign assetVersion = 158822 -%}
 {%- assign ctaTitle = 'The O.G. 2' -%}
 {%- assign ctaPrice = '$333 - $338' -%}
 {%- assign ctaLink = '/products/og-2-nylon-black-gold-lavender' -%}
 
 <article class="discover">
 
-    {% include 'discover-nav', labels:'Functionality,What Fits Inside,Materials,Design,Specs' %}
+    {% include 'discover-nav', labels:"Functionality,What Fits Inside,Materials,What's New" %}
     
     <div class="max-container">
       <div class="hero has-arrow" id="hanover-hero">
@@ -89,15 +89,15 @@
       <a id="nav-target-2" class="jumptarget"></a>
       {% include 'discover-section-heading', title: "Organized Interior", text: "Maximizes what you can carry—and keeps it all within easy reach." %}
     </div>
-    <div class="max-container topic-block mb-default animate video-block" {{ animateFadeInUp }}>
+    <div class="max-container topic-block mb-large animate video-block" {{ animateFadeInUp }}>
         {% include 'discover-picture', name: 'og2-discover-section4-block1', alt: 'video showing how to pack the O.G. 2', retina: true, fw: false, lg: true %}
         <a href="#" data-video-id="1" class="video-trigger">See What Fits Inside</a>
     </div>
 
     <a id="nav-target-3" class="jumptarget"></a>
-    <div class="container mb-default">
+    <div class="container">
       {% include 'discover-section-heading', title: "Premium Materials", text: "Enduring design starts with uncompromising attention to detail. " %}
-      <div class="row animate" {{ animateFadeInUp }}>
+      <div class="row mb-default animate" {{ animateFadeInUp }}>
           <div class="col-sm-4">
               {% include 'discover-picture', name: 'og2-discover-section5-block1', alt: 'close up of nylon exterior material', retina: true, fw: false, lg: true %} 
               {% include 'discover-topic-content', title: "High-Quality Nylon", text: "Lightweight, fine-weave, water-resistant nylon provides a sturdy and chic exterior." %}
@@ -130,9 +130,8 @@
         {% include 'discover-picture', name: 'og2-discover-section7-block1', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
       </div>
 
-      <a id="nav-target-5" class="jumptarget"></a>
       {% include 'discover-section-heading', title: "Available in Two Sizes", text: "The O.G. 2 comes in Medium and Large." %}
-      <div class="text-center">
+      <div class="mb-default text-center">
         {% include 'discover-picture', name: 'og2-discover-section8-block1', alt: 'O.G. 2 shown in two sizes', retina: true, fw: false, lg: true %}
         <p id="og2-section8-text"><a href="#size-fit" class="more-window-trigger">Size &amp; Fit +</a></p>
       </div>
@@ -187,42 +186,42 @@
             {% endcapture %}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-1', alt: 'O.G. 2 laptop sleeve illustration', gif: true %}
+                {% include 'discover-picture', name: 'og2-discover-compare-1', alt: 'O.G. 2 laptop sleeve illustration', gif: true, lg: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "External Laptop Sleeve", text: "Sprinting through security? The O.G. 2’s laptop sleeve is now separate from the main compartment, providing easy access even when your bag is full.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-2', alt: 'O.G. 2 structure illustration', gif: true %}
+                {% include 'discover-picture', name: 'og2-discover-compare-2', alt: 'O.G. 2 structure illustration', gif: true, lg: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Reinforced for Stability", text: "We’ve re-engineered the design to add structure and stability—without added weight. The new reinforced framework prevents the O.G. 2 from leaning when fully packed.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-3', alt: 'O.G. 2 water bottle pocket illustration', gif: true %}
+                {% include 'discover-picture', name: 'og2-discover-compare-3', alt: 'O.G. 2 water bottle pocket illustration', gif: true, lg: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Mesh Water-Bottle Pocket", text: "We support your hydration goals! The O.G. 2 now has an interior pocket so your H2O is always close at hand.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-4', alt: 'O.G. 2 strap pad illustration', gif: true %}
+                {% include 'discover-picture', name: 'og2-discover-compare-4', alt: 'O.G. 2 strap pad illustration', gif: true, lg: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Ultra-Comfy Messenger Strap", text: "You have no patience for straps that dig—and neither do we. Our slip-resistant strap comes with a removable memory-foam pad for extra comfort.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-5', alt: 'O.G. 2 straps illustration', gif: true %}
+                {% include 'discover-picture', name: 'og2-discover-compare-5', alt: 'O.G. 2 straps illustration', gif: true, lg: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Extra-Luxe Leather", text: "We’ve upgraded our handles using buttery, high-grade Nappa leather that’s easy on the hands and shoulders.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-6', alt: 'O.G. 2 medallion illustration', gif: true %}
+                {% include 'discover-picture', name: 'og2-discover-compare-6', alt: 'O.G. 2 medallion illustration', gif: true, lg: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Medallion Now Optional", text: "Some of you loved our branded medallion; some of you could do without it. To minimize waste, we now sell it separately for those who like a little flair.", modifiers: "text-center text-left-xs" %}

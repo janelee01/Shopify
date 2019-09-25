@@ -1,9 +1,7 @@
 {% assign navLabels = labels | split: ',' %}
-<div class="page-nav{% if ctaLink == blank %} without-actions{% endif %}">
+<div class="page-nav">
     <div class="container">
         <span class="title">{{ ctaTitle }}</span>
-        <button id="items-toggle">{{ navLabels[0] }}</button>
-        <span id="price-xs">{{ ctaPrice }}</span>
         <nav class="items">
             {% for label in navLabels %}
                 {% capture itemTarget %}nav-target-{{ forloop.index }}{% endcapture %}
@@ -16,12 +14,9 @@
             {% endfor %}
             <span class="active-bar"></span>
         </nav>
+        <span class="price">{{ ctaPrice }}</span>
         {% unless ctaLink == blank %}
-        <ul class="actions">
-            <li id="price-md">{{ ctaPrice }}</li>
-            <li class="hidden-md hidden-lg"><a href="{{ ctaLink }}" class="btn btn-secondary btn-md btn-gtm-trk" data-gtm-a="9">View colors</a></li>
-            <li><a href="{{ ctaLink }}" class="btn btn-md btn-gtm-trk" data-gtm-a="5">Buy now</a></li>
-        </ul>
+            <a href="{{ ctaLink }}" class="btn btn-md btn-gtm-trk" data-gtm-a="5">Buy now</a>
         {% endunless %}
     </div>
 </div>

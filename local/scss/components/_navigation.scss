@@ -593,69 +593,45 @@ body.menu-open{
 			.title{
 				@include sr-only;
 			}
-		}
-	}
-	&.without-actions{
-		@media (min-width: $screen-md) {
-			.items{
-				justify-content: flex-end;
+			.container{
+				justify-content: center;
 			}
+		}
+		.items{
+			flex: 0;		
 		}
 	}
 	.container{
 		position: relative;
 		height: $page-nav-height-xs;
+		display: flex;
+		align-items: center;
 		@media (min-width: $screen-md) {
 			height: $page-nav-height;
 		}
 	}
 	.items{
-		position: absolute;
-		right: $grid-gutter-width;
-		top: $page-nav-height-xs;
-		width: 50%;
 		display: none;
-		background: #FFF;
-		padding: 0 $grid-gutter-width/2;
-		@include headerShadow;
-		&.active{
-			display: block;
-		}
+		position: relative;
 		@media (min-width: $screen-md) {
-			position: relative;
-			z-index: 1;
-			top: 0;
-			background: none;
-			padding: 0;
 			display: flex;
-			justify-content: center;
 			align-items: center;
-			width: auto;
-			right: auto;
-			box-shadow: none;
-			height: 100%;
+			flex: 1;
 		}
 		a{
 			color: $gray;
-			padding: $grid-gutter-width/2 0;
-			border-bottom: solid 1px #ededed;
-			font-size: $font-size-sm;
 			text-decoration: none;
 			display: block;
+			font-size: $font-size-base;
+			margin: 0 11px;
+			white-space: nowrap;
 			@media (min-width: $screen-md) {
-				font-size: $font-size-base;
-				margin: 0 11px;
-				border: 0;
-				padding: 0;
 				&:hover{
 					color: $gray-darker;
 				}
 			}
 			@media (min-width: $screen-lg) {
 				margin: 0 20px;
-			}
-			&:last-child{
-				border: 0;
 			}
 			&.active{
 				color: $gray-darker;
@@ -665,122 +641,33 @@ body.menu-open{
 			display: none;
 			@media (min-width: $screen-md) {
 				display: block;
-				bottom: 22px;
+				bottom: -3px;
 			}
 		}
 	}
 	.title{
 		font-family: $font-family-medium;
-		position: absolute;
-		left: $grid-gutter-width;
-		top: 50%;
-		transform: translateY(-50%);
-		z-index: 10;
 		@include fslh(18,18);
-		@media (min-width: $screen-sm) {
-			left: $grid-gutter-width/2;
-		}
+		flex: 1;
+		white-space: nowrap;
+		margin-right: 20px;
 		@media (min-width: $screen-md) {
 			@include fslh(28,28);
+			flex: 0;
 		}
 	}
-	#price-xs{
-		display: block;
-		position: absolute;
-		right: $grid-gutter-width;
-		top: 50%;
-		transform: translateY(-50%);
+	.price{
 		color: $gray;
-		@media (min-width: $screen-sm) {
-			right: $grid-gutter-width/2;
-		}
 		@media (min-width: $screen-md) {
+			margin: 0 20px;
+		}
+	}
+	.btn{
+		@media (max-width: $screen-sm-max) {
 			display: none;
-		}
-	}
-	.actions{
-		@include resetList;
-		color: $gray;
-		z-index: 10;
-		position: fixed;
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		background: #FFF;
-		padding: 15px 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		@include headerShadow;
-		display: none;
-		@media (min-width: $screen-md) {
-			position: absolute;
-			right: $grid-gutter-width/2;
-			top: 50%;
-			bottom: auto;
-			left: auto;
-			width: auto;
-			transform: translateY(-50%);
-			display: block;
-			background: none;
-			padding: 0;
-			box-shadow: none;
-		}
-		li{
-			display: inline-block;
-			vertical-align: middle;
-			margin: 0 8px;
-			@media (min-width: $screen-md) {
-				margin-left: 18px;
-			}
-			&#price-md{
-				@media (max-width: $screen-sm-max) {
-				    display: none;
-				}
-			}
 		}
 	}
 }
 #items-toggle{
-	display: block;
-	position: absolute;
-	right: $grid-gutter-width;
-	top: 50%;
-	transform: translateY(-50%);
-	color: $gray;
-	padding-right: 21px;
-	border: 0;
-	background: 0;
-	-webkit-appearance: none;
-	// disabled
 	display: none;
-	@media (min-width: $screen-sm) {
-		right: $grid-gutter-width/2;
-	}
-	@media (min-width: $screen-md) {
-		display: none;
-	}
-	&:focus,
-	&:hover{
-		text-decoration: none;
-	}
-	&::after{
-		content: '';
-		display: block;
-		background: url('caret-down.svg') no-repeat center right;
-		background-size: 13px auto;
-		width: 13px;
-		height: 13px;
-		position: absolute;
-		right: 0;
-		top: 50%;
-		transform: translateY(-50%);
-		transition: .2s;
-	}
-	&.active{
-		&::after{
-			transform: translateY(-50%) rotate(180deg);
-		}
-	}
-	
 }
