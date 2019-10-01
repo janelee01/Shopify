@@ -66,7 +66,7 @@ $(document).ready(function(){
   });
   // load menu state
   if ( 'lo-menu-state' in sessionStorage) {
-    // $('#site-menu').html(sessionStorage.getItem('lo-menu-state'));
+    $('#site-menu').html(sessionStorage.getItem('lo-menu-state'));
   }
   
   /*
