@@ -40,10 +40,12 @@ $(document).ready(function(){
 	$('body').on('click', '.navigate-down', function(e){
     e.preventDefault();
 		$(this).closest('li').addClass('active');
+		$(this).closest('ul').addClass('locked').scrollTop(0);
 	});
 	$('body').on('click', '.navigate-up', function(e){
     e.preventDefault();
-		$(this).closest('li.active').removeClass('active');
+    $(this).closest('li.active').removeClass('active');
+    $(this).parents('ul').removeClass('locked');
   });
 
   $('#help-menu-toggle').on('click', function(e){
@@ -64,7 +66,7 @@ $(document).ready(function(){
   });
   // load menu state
   if ( 'lo-menu-state' in sessionStorage) {
-    $('#site-menu').html(sessionStorage.getItem('lo-menu-state'));
+    // $('#site-menu').html(sessionStorage.getItem('lo-menu-state'));
   }
   
   /*

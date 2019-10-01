@@ -169,14 +169,14 @@ body.site-menu-open{
 	border-top: solid 1px $gray-lighter;
 	position: relative;
 	flex: 1;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
 	width: 100%;
 	ul{
 		@include resetList;
+		overflow: hidden;
 		height: 100%;
-		overflow-x: hidden;
-		overflow-y: scroll;
-		-webkit-overflow-scrolling: touch;
 	}
 	li{
 		padding: 0 $mobile-gutter/2;
@@ -187,6 +187,11 @@ body.site-menu-open{
 		&.active{
 			> .sub-menu{
 				transform: translateX(0);
+				overflow-y: scroll;
+				-webkit-overflow-scrolling: touch;
+				&.locked{
+					overflow: hidden;
+				}
 			}
 		}
 		&.level-title{
@@ -222,7 +227,7 @@ body.site-menu-open{
 	}
 	.sub-menu{
 		position: absolute;
-		left: 0%;
+		left: 0;
 		width: 100%;
 		top: 0;
 		transition: .3s ease-out;
