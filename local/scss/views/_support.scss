@@ -1,9 +1,7 @@
 .support{
-	.page-nav + .container{
-		padding-top: 30px;
-		@media (min-width: $screen-md) {
-			padding-top: 55px;
-		}
+	padding-top: 30px;
+	@media (min-width: $screen-md) {
+		padding-top: 55px;
 	}
 	nav.local{
 		.active-bar{

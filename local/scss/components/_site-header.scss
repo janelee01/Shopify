@@ -1,20 +1,21 @@
 #site-header {
-	position:sticky;
+	position: sticky;
 	top: 0;
 	margin: 0;
 	z-index: $zi-ui;
 	background-color: #fff;
 	border-bottom: 1px solid $gray-lighter;
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: space-between;
-	align-items: center;
-	height: $ls-navbar-height-xs;
-	padding: 0 $mobile-gutter/2;
-	@media (min-width: $screen-md) {
-		height: $ls-navbar-height;
-		flex-direction: row;
-		padding: 0 30px;
+	.inner{ // page nav gets appended to parent so group regular items in here
+		position: relative;
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		align-items: center;
+		padding: 17px $mobile-gutter/2;
+		@media (min-width: $screen-md) {
+			flex-direction: row;
+			padding: 22px 30px;
+		}
 	}
 	.icon-set {
 		display: flex;
@@ -67,6 +68,7 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
+	font-size: 0;
 	@media only screen and (min-width: $screen-md) {
 		width: 153px;
 	}
@@ -87,6 +89,11 @@
 	width: 14px;
 	font-size: 10px;
 	text-align: center;
+}
+.cart-link.empty{
+	.cart-count{
+		display: none;
+	}
 }
 
 #shopify-section-site-menu{
@@ -122,13 +129,15 @@
 			height: 45px;
 		}
 	}
-	.social-menu{
-		margin-bottom: $mobile-gutter;
-		padding-top: $mobile-gutter;
+	.social{
+		display: none;
 		@media (min-width: $screen-md) {
-			margin-bottom: 40px;
-			padding-top: 15px;
+			display: block;
 		}
+	}
+	.social-menu{
+		margin-bottom: 40px;
+		padding-top: 15px;
 	}
 }
 

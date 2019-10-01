@@ -84,7 +84,7 @@ body.product{
   .form{
     @media (min-width: $screen-md) {
       position: sticky;
-      top: 102px;
+      top: $stickyHeaderOffset;
     }
   }
   .form-row{

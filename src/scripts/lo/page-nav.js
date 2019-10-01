@@ -1,13 +1,15 @@
 $(document).ready(function(){
 
+	var $siteHeader = LS.getHeader();
 	var $pageNav = LS.getPageNav();
 	var $topics = $pageNav.find('.items a');
 	var $targets = $('.jumptarget');
 	var spacer = 30;
 	var trigger = $pageNav.outerHeight();
 
-	if( $('.page-nav').length ){
-    $('body').addClass('has-page-nav');
+	if( $pageNav.length ){
+		$('body').addClass('has-page-nav');
+		$pageNav.detach().appendTo($siteHeader);
   }
 
 	// move a page nav into the header for less fixed position conflicts

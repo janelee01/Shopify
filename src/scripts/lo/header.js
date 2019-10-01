@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-  var $pageNav = LS.getPageNav();
-	var $header = LS.getHeader();
   var $marquee = LS.getMarquee();
 
   var closeHeaderPanels = function(){

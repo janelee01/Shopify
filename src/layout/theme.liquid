@@ -103,45 +103,47 @@
   {% section 'marquee' %}
 
   <header id="site-header">
-    <div class="icon-set">
-      <div class="icon">
-        <a href="#" id="site-menu-open">
-          {% include 'header-icons', icon: 'menu' %}
-          <span class="sr-only">Open Menu</span>
-        </a>
+    <div class="inner">
+      <div class="icon-set">
+        <div class="icon">
+          <a href="#" id="site-menu-open">
+            {% include 'header-icons', icon: 'menu' %}
+            <span class="sr-only">Open Menu</span>
+          </a>
+        </div>
+        <div class="icon">
+          <a href="#" id="help-menu-toggle">
+            {% include 'header-icons', icon: 'help' %}
+            <span class="sr-only">{{ 'layout.help.title' | t }}</span>
+          </a>
+          {% section 'help-menu' %}
+        </div>
       </div>
-      <div class="icon">
-        <a href="#" id="help-menu-toggle">
-          {% include 'header-icons', icon: 'help' %}
-          <span class="sr-only">{{ 'layout.help.title' | t }}</span>
+      {% if template.name == 'index' %}
+        <h1 id="site-logo" itemscope itemtype="http://schema.org/Organization">
+          {% include 'header-icons', icon: 'logo' %}
+          <span class="sr-only">{{ shop.name }}</span>
+        </h1>
+      {% else %}
+        <a href="/" id="site-logo" itemscope itemtype="http://schema.org/Organization">
+          {% include 'header-icons', icon: 'logo' %}
+          <span class="sr-only">{{ shop.name }}</span>
         </a>
-        {% section 'help-menu' %}
-      </div>
-    </div>
-    {% if template.name == 'index' %}
-      <h1 id="site-logo" itemscope itemtype="http://schema.org/Organization">
-        {% include 'header-icons', icon: 'logo' %}
-        <span class="sr-only">{{ shop.name }}</span>
-      </h1>
-    {% else %}
-      <a href="/" id="site-logo" itemscope itemtype="http://schema.org/Organization">
-        {% include 'header-icons', icon: 'logo' %}
-        <span class="sr-only">{{ shop.name }}</span>
-      </a>
-    {% endif %}
-    <div class="icon-set">
-      <div class="icon">
-        <a href="/account/login" class="login-link">
-          {% include 'header-icons', icon: 'login' %}
-          <span class="sr-only">{{ 'layout.login.title' | t }}</span>
-        </a>
-      </div>
-      <div class="icon">
-        <a href="/cart" class="cart-link {% if cart.item_count < 1 %}empty{% endif %}">
-          {% include 'header-icons', icon: 'cart' %}
-          <span class="sr-only">{{ 'layout.cart.title' | t }}</span>
-          <span class="cart-count">{{ cart.item_count }}</span>
-        </a>
+      {% endif %}
+      <div class="icon-set">
+        <div class="icon">
+          <a href="/account/login" class="login-link">
+            {% include 'header-icons', icon: 'login' %}
+            <span class="sr-only">{{ 'layout.login.title' | t }}</span>
+          </a>
+        </div>
+        <div class="icon">
+          <a href="/cart" class="cart-link {% if cart.item_count < 1 %}empty{% endif %}">
+            {% include 'header-icons', icon: 'cart' %}
+            <span class="sr-only">{{ 'layout.cart.title' | t }}</span>
+            <span class="cart-count">{{ cart.item_count }}</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>

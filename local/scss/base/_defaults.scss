@@ -58,18 +58,6 @@ html { -ms-overflow-style: none; } // IE
 	    padding-right: 0;
 	}
 }
-// .site-window{
-// 	overflow: hidden;
-// }
-.site-content{
-	position: relative;
-	left: 0;
-	@include transition(left .25s ease-out);
-	padding-top: $ls-navbar-height-xs;
-	@media (min-width: $screen-md) {
-	    padding-top: $ls-navbar-height;
-	}
-}
 
 h1, .h1,
 h2, .h2,
@@ -144,6 +132,16 @@ hr.mini-divider{
 		content: "";
 		display: block;
 		visibility: hidden; 
+		height: 97px;
+		margin-top: -97px;
+	}
+}
+body.has-page-nav{
+	.jumptarget{
+		&::before {
+			height: $stickyHeaderOffset;
+			margin-top: $stickyHeaderOffset * -1;
+		}
 	}
 }
 
