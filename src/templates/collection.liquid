@@ -127,39 +127,6 @@
         </section>
       {% endunless %}
     {% endfor %}
-  
-  {% when 'by-type' %} {% comment %} legacy, to be removed for "hero-and-product-sections" {% endcomment %}
-
-    {%- capture allProducts -%}
-    {%- for product in collection.products -%}
-      {{ product.type | handleize }}|
-    {%- endfor -%}
-    {%- endcapture -%}
-    {%- assign productGroups = allProducts | split: '|' | uniq -%}
-
-    {{ collectionHeader }}
-    {% for groupHandle in productGroups %}
-      {% assign collection = collections[groupHandle] %}
-      {% unless collection.title == blank %}
-        <section class="product-family max-container">
-          {% include 'collection-hero' with collection, tag: 'h2', mode: 'hero-and-products' %}
-          <div class="container">
-            <div class="product-row-title">
-              <span class="configuration-options"></span>
-            </div>
-            <div class="product-row-wrap">
-              <div class="product-row">
-                {% paginate collection.products by 25 %}
-                  {% for product in collection.products %}
-                    <div class="item">{% include 'product-item' with product, hideName: true %}</div>
-                  {% endfor %}
-                {% endpaginate %}
-              </div>
-            </div>
-          </div>
-        </section>
-      {% endunless %}
-    {% endfor %}
 
   {% else %}
   

@@ -1,0 +1,109 @@
+.more-window.size-fit {
+    padding: 70px 0;
+
+    @media (min-width: $screen-sm-max) {
+        padding: 100px 0;
+    }
+
+    .product-family {
+        margin-bottom: 60px;
+
+        @media (min-width: $screen-sm-max) {
+            margin-bottom: 70px;
+        }
+        
+        .product-row-wrap {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+
+    picture img {
+        width: 100%;
+    }
+}
+.product-row.fit-row {
+    scroll-snap-type: x mandatory;
+    .item{
+        scroll-snap-align: start;
+        padding: 0;
+        min-width: 0;
+        width: 100%;
+        flex-shrink: 0;
+        @media (min-width: $screen-sm) {  min-width: 0; width: 100%; padding-right: 0; }
+        @media (min-width: $screen-md) {  min-width: 0; width: 100%; }
+        @media (min-width: $screen-lg) {  min-width: 0; width: 100%; }
+        &:first-child{
+          padding-left: 0;
+        }
+    }
+}
+
+.fit-heading {
+    padding: 0 42px;
+
+    h2 {
+        font-family: "Circular-Pro-Medium";
+        font-size: 26px;
+        line-height: 36px;
+        margin-bottom: 11px;
+
+        @media (min-width: $screen-sm) {
+            font-size: 32px;
+        }
+        @media (min-width: $screen-md) {
+            font-size: 36px;
+            line-height: 46px;
+        }
+        @media (min-width: $screen-lg) {
+            font-size: 40px;
+        }
+    }
+   
+    .description {
+        color: #9b9b9b;
+        max-width: 555px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.fit-sub-heading {
+    margin-bottom: 30px;
+
+    h3 {
+        font-family: "Circular-Pro-Medium";
+        font-size: 18px;
+        line-height: 28px;
+
+        @media (min-width: $screen-sm) {
+            font-size: 22px;
+        }
+        @media (min-width: $screen-lg) {
+            font-size: 24px;
+        }
+
+    }
+    h4 {
+        font-size: 14px;
+        line-height: 1.4;
+        color: #646464;
+
+        @media (min-width: $screen-sm) {
+            font-size: 12px;
+        }
+        @media (min-width: $screen-md) {
+            font-size: 14px;
+        }
+        @media (min-width: $screen-lg) {
+            font-size: 16px;
+        }
+    }
+}
+
+.mb-fit {
+    margin-bottom: 60px;
+
+    @media (min-width: $screen-sm-max) {
+        margin-bottom: 70px;
+    }
+}

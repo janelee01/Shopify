@@ -1,0 +1,6 @@
+<div class="section-hero max-container">
+	{% include 'discover-picture', name: imgName, alt: imgAlt, retina: true, fw: false, lg: true %}
+  <div class="content">
+    <{{tag | default: 'h2'}} class="title">{{ title }}</{{tag | default: 'h2'}}>
+  </div>
+</div>

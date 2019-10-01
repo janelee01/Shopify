@@ -307,3 +307,53 @@
 		}
 	}
 }
+
+.dimensions-weight-table {
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+	@media (min-width: $screen-md) {
+		overflow-x: initial;
+	}
+	background-color: $gray-lightest;
+	padding: 50px;
+	table{
+		width: 100%;
+		outline: solid 1px #979797;
+		thead{
+			background: $gray-lightest;
+
+			th:last-child {
+				border-right: 0;
+			}
+		}
+		tbody {
+			tr:nth-child(odd) {
+				background-color: #f1f1f1;
+			}
+			tr td:last-child {
+				border-right: 0;
+			}
+		}
+		th, td{
+			text-align: center;
+			padding: 15px;
+			font-weight: 400;
+			font-size: 11px;
+			border-top: 0;
+			border-right: solid 1px #979797;
+
+			@media (min-width: $screen-sm) {
+				font-size: 12.6px;
+			}
+			@media (min-width: $screen-md) {
+				font-size: 14px;
+			}
+		}
+		th{
+			color: $gray-darker
+		}
+		td{
+			color: $gray-darker;
+		}
+	}
+}

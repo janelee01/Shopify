@@ -1171,7 +1171,7 @@
 	}
 }
 
-#waverley-comparison-overlay{
+#comparison-overlay{
 	padding-bottom: 0;
 	.slider{
 		background: #F8F8F8;
@@ -1700,4 +1700,8 @@
 			font-size: 24px;
 		}
 	}
+}
+
+#og2-section8-text{
+	@include sectionDescription;
 }
