@@ -1,6 +1,7 @@
 @import 'base/variables';
 @import 'base/mixins'; 
 @import 'base/fonts';
+@import 'base/spacing';
 
 @import 'vendor/animate'; 
 @import 'vendor/bootstrap';  // do this before defaults since some bootstrap mixins are referenced
@@ -15,6 +16,7 @@
 @import 'components/alerts';
 @import 'components/breadcrumbs';
 @import 'components/buttons';
+@import 'components/card';
 @import 'components/col-slider';
 @import 'components/comparison';
 @import 'components/continuous-carousel';

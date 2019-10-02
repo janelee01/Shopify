@@ -26,3 +26,16 @@
 	}
 }
 
+.section-title{
+  margin-bottom: 30px;
+  text-align: center;
+  color: $gray;
+  @include sectionDescription;
+  .title{
+    @include sectionTitle;
+    margin-bottom: 5px;
+  }
+  *:last-child{
+    margin-bottom: 0;
+  }
+}

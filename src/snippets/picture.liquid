@@ -1,0 +1,18 @@
+{%- assign format = 'jpg' -%}
+{%- if (gif) -%}
+	{%- assign format = 'gif' -%}
+{%- endif -%}
+{%- assign classes = extraClasses -%}
+{%- if (fw) -%}
+	{%- assign classes = classes | append: ' fw-xs' -%}
+{%- endif -%}
+<picture {% if classes %}class="{{ classes }}"{% endif %}>
+    {% if (xxl) %}
+    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-xxl.{{ format }}?{{ assetVersion }}" media="(min-width: 1921px)" />
+    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-xl.{{ format }}?{{ assetVersion }}" media="(min-width: 1700px)" />
+    {% endif %}
+    {% if (lg or xxl) %}<source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-lg.{{ format }}?{{ assetVersion }}{% if (retina) %}, https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-lg2x.{{ format }}?{{ assetVersion }} 2x{% endif %}" media="(min-width: {{ screenLg }})" />{% endif %}
+    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-md.{{ format }}?{{ assetVersion }}{% if (retina) %}, https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-md2x.{{ format }}?{{ assetVersion }} 2x{% endif %}" media="(min-width: {{ screenMd }})" />
+    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-sm.{{ format }}?{{ assetVersion }}" media="(min-width: {{ screenSm }})" />
+    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-xs.{{ format }}?{{ assetVersion }}" alt="{{ alt }}" />
+</picture>

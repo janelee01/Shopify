@@ -54,6 +54,40 @@
 		}
 	}
 }
+.content{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	@include heroDescription;
+	color: white;
+	&.black{
+		color: $brand-black;
+	}
+	.title{
+		@include heroTitle;
+		margin-bottom: 5px;
+		color: currentColor;
+	}
+	.subtitle{
+		display: block;
+		font-size: 40%;
+		text-transform: uppercase;
+		letter-spacing: .125ex;
+		margin: 0 0 7px;
+		line-height: 1.25;
+		font-family: $font-family-base;
+	}
+	*:last-child{
+		margin-bottom: 0;
+	}
+}
+// legacy
 .hero-content{
 	position: absolute;
 	height: 100%;
@@ -113,6 +147,7 @@
 	.title{
 		color: #FFF;
 		@include heroTitle;
+		margin-bottom: 5px;
 		@media (min-width: $screen-md) {
 		    color: $brand-black;
 		}
@@ -122,7 +157,7 @@
 		font-size: 40%;
 		text-transform: uppercase;
 		letter-spacing: .125ex;
-		margin: 0 0 .5em;
+		margin: 0 0 5px;
 		line-height: 1.25;
 		font-family: $font-family-base;
 	}
@@ -133,42 +168,43 @@
 	}
 }
 
-.hero.legacy-hero{
-	.hero-content{
-		@media (max-width: $screen-xs-max) {
-		    position: static;
-		    padding-top: $mobile-gutter;
-		    // don't allow white text on mobile since the content drops blow the image
-		    &.white{
-		    	.title, .description{
-		    		color: $brand-black;
-		    	}
-		    	.btn.btn-secondary{
-		    		color: $brand-black;
-		    		border-color: $brand-black;
-		    	}
-		    }
-		}
-		@media (min-width: $screen-sm) {
-			width: 50%;
-			left: 25%;
-			padding: 0 10%;
-			&.right{
-				right: 0;
-				left: auto;
-			}
-			&.left{
-				left: 0;
-			}
-		}
-		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-			font-size: 18px;
-		}
-		.title{
-			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-				font-size: 1.6em;
-			}
-		}
+// .hero.legacy-hero{
+// 	.hero-content{
+// 		@media (max-width: $screen-xs-max) {
+// 		    position: static;
+// 		    padding-top: $mobile-gutter;
+// 		    // don't allow white text on mobile since the content drops blow the image
+// 		    &.white{
+// 		    	.title, .description{
+// 		    		color: $brand-black;
+// 		    	}
+// 		    	.btn.btn-secondary{
+// 		    		color: $brand-black;
+// 		    		border-color: $brand-black;
+// 		    	}
+// 		    }
+// 		}
+// 		@media (min-width: $screen-sm) {
+// 			width: 50%;
+// 			left: 25%;
+// 			padding: 0 10%;
+// 			&.right{
+// 				right: 0;
+// 				left: auto;
+// 			}
+// 			&.left{
+// 				left: 0;
+// 			}
+// 		}
+// 		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+// 			font-size: 18px;
+// 		}
+// 		.title{
+// 			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+// 				font-size: 1.6em;
+// 			}
+// 		}
 		
-	}
-}
+// 	}
+// }
+

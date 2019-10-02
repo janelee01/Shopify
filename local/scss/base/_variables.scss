@@ -6,6 +6,10 @@ $screen-sm:               768px;
 $screen-md:               1025px; 
 $screen-lg:               1400px; 
 
+$screen-xs-max:           $screen-sm - 1;
+$screen-sm-max:           $screen-md - 1;
+$screen-md-max:           $screen-lg - 1;
+
 $grid-gutter-width:       30px;
 $grid-float-breakpoint:   $screen-md; 
   

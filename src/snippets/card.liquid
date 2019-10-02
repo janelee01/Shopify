@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="media">
+    {% if video %}
+      {% include 'inline-video', ratio: '3-4', index: index, poster: poster, src: src %}
+    {% else %}
+      {% include 'picture', name: img, alt: alt, retina: retina, fw: fw, lg: lg %}
+    {% endif %}
+  </div>
+  <{{ tag | default: 'h3'}} class="title">{{ title }}</{{ tag | default: 'h3' }}>
+  {% if text %}<p>{{ text }}</p>{% endif %}
+  {% if text2 %}<p>{{ text2 }}</p>{% endif %}
+</div>

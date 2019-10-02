@@ -1,8 +1,6 @@
 <div class="max-container animate" {{ animateFadeInUp }}>
-  <div class="section-hero">
+  <div class="block video-block">
     {% include 'picture', name: img, alt: alt, retina: true, fw: false, lg: true %}
-    <div class="content">
-      <{{tag | default: 'h2'}} class="title">{{ title }}</{{tag | default: 'h2'}}>
-    </div>
+    <a href="#" data-video-id="{{ id }}" class="video-trigger">{{ text | default: 'See What Fits Inside' }}</a>
   </div>
 </div>

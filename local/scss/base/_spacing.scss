@@ -1,0 +1,18 @@
+/*
+2019-10 spacing clean up
+*/
+.block,
+.hero.block{ // temp selector to override existing rules
+  margin-bottom: 70px;
+  &.has-cards{
+    @media (max-width: $screen-xs-max) {
+      margin-bottom: 20px; // each card has 50px margin
+    }
+  }
+  @media (min-width: $screen-sm) {
+    margin-bottom: 100px;
+  }
+  @media (min-width: $screen-lg) {
+    margin-bottom: 120px;
+  }
+}

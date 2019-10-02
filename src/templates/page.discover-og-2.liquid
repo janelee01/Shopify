@@ -9,131 +9,201 @@
 
     {% include 'discover-nav', labels:'Functionality,What Fits Inside,Materials,Design,Specs' %}
     
-    <div class="max-container">
-      <div class="hero has-arrow" id="hanover-hero">
-        {% include 'discover-picture', name: 'og2-discover-hero1', alt: 'woman holding O.G. 2 at top of stairs', retina: true, fw: false, lg: true %}
-        <div class="hero-content white left">
-          <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
-          <p class="description">What do you get when you combine our bestselling bag with a decade of spot-on customer feedback? A new legend in its own right.</p>
-        </div>
-        {% include 'hero-jump-btn' %}
-      </div>
-    </div>
-    
-    <div class="container">{% include 'hero-jump-target' %}
-      <div class="row animate mb-large" {{ animateZoomIn }}>
-        <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-          <div class="text-center">
-            {% include 'discover-picture', name: 'og2-discover-hero2', alt: 'The O.G. 2 isolated on white background', retina: true, fw: false, lg: true %}
+    {% include 'hero',
+      img: 'og2-discover-hero1',
+      alt: 'woman holding O.G. 2 at top of stairs',
+      title: ctaTitle,
+      subtitle: 'Discover',
+      text: 'What do you get when you combine our bestselling bag with a decade of spot-on customer feedback? A new legend in its own right.'
+      align: 'left' %}
+
+    <div class="container animate" {{ animateZoomIn }}>
+      <div class="block">
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+            <div class="text-center">
+              {% include 'picture', name: 'og2-discover-hero2', alt: 'The O.G. 2 isolated on white background', retina: true, fw: false, lg: true %}
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <a id="nav-target-1" class="jumptarget"></a>
-    {% include 'section-hero', title: 'Travel Smart', imgName: 'og2-discover-section1-hero', imgAlt: 'woman boarding plane' %}   
-    <div class="container mb-default">
-      <div class="row">
-        <div class="col-sm-4">
-          {% include 'discover-picture', name: 'og2-discover-section1-block1', alt: 'woman walking with O.G. 2 on luggage', retina: true, fw: false, lg: true %}
-          {% include 'discover-topic-content', title: "Suitcase Handle Sleeve", text: "A pass-through sleeve slides onto most bags for fuss-free travel." %}
-        </div>
-        <div class="col-sm-4">
-          {% include 'discover-picture', name: 'og2-discover-section1-block2', alt: 'close up of laptop compartment', retina: true, fw: false, lg: true %}
-          {% include 'discover-topic-content', title: "Easy Laptop Access", text: "An external laptop compartment means no more rifling through your bag at TSA." %}
-        </div>
-        <div class="col-sm-4">
-          {% include 'inline-video', ratio: '3-4', index: 2, poster: 'og2-discover-section1-block3-md', src: 'og2-discover-section1-block3' %}
-          {% include 'discover-topic-content', title: "Memory-Foam Shoulder Pad", text: "This removable slip-resistant pad slides onto your strap for extra comfort." %}
-        </div>
-      </div>
-    </div>
-
-    {% include 'section-hero', title: 'Work Friendly', imgName: 'og2-discover-section2-hero', imgAlt: 'woman at desk putting laptop into O.G. 2' %}   
-    <div class="container mb-default">
-      <div class="row">
-        <div class="col-sm-4">
-          {% include 'discover-picture', name: 'og2-discover-section2-block1', alt: 'overhead view of packed interior', retina: true, fw: false, lg: true %}
-          {% include 'discover-topic-content', title: "Ultra-Organized Interior", text: "A thoughtful array of pockets keep your documents and electronics safe." %}
-        </div>
-        <div class="col-sm-4">
-          {% include 'discover-picture', name: 'og2-discover-section2-block2', alt: 'front pocket opened to showcase storage', retina: true, fw: false, lg: true %}
-          {% include 'discover-topic-content', title: "Easy-to-Reach Essentials", text: "Keys, wallet, phone—your most important items are always at the ready." %}
-        </div>
-        <div class="col-sm-4">
-          {% include 'inline-video', ratio: '3-4', index: 3, poster: 'og2-discover-section2-block3-md', src: 'og2-discover-section2-block3' %}
-          {% include 'discover-topic-content', title: "Shoe Compartment", text: "Commuters, rejoice! A discreet side pocket makes it simple to switch from flats to heels (and back again)." %}
+    {% include 'section-hero', title: 'Travel Smart', img: 'og2-discover-section1-hero', alt: 'woman boarding plane' %}   
+    <div class="container animate" {{ animateFadeInUp }}">
+      <div class="block has-cards">
+        <div class="row">
+          <div class="col-sm-4">
+            {% include 'card',
+              img: 'og2-discover-section1-block1',
+              alt: 'woman walking with O.G. 2 on luggage',
+              retina: true, fw: false, lg: true,
+              title: "Suitcase Handle Sleeve",
+              text: "A pass-through sleeve slides onto most bags for fuss-free travel.." %}
+          </div>
+          <div class="col-sm-4">
+            {% include 'card',
+              img: 'og2-discover-section1-block2',
+              alt: 'close up of laptop compartment',
+              retina: true, fw: false, lg: true,
+              title: "Easy Laptop Access",
+              text: "An external laptop compartment means no more rifling through your bag at TSA." %}
+          </div>
+          <div class="col-sm-4">
+            {% include 'card',
+                video: true,
+                src: 'og2-discover-section1-block3',
+                poster: 'og2-discover-section1-block3-md',
+                index: 2,
+                title: "Memory-Foam Shoulder Pad",
+                text: "This removable slip-resistant pad slides onto your strap for extra comfort." %}
+          </div>
         </div>
       </div>
     </div>
 
-    {% include 'section-hero', title: 'Gym Ready', imgName: 'og2-discover-section3-hero', imgAlt: 'woman sliding gym bottle into side pocket' %}   
-    <div class="container mb-default">
-      <div class="row">
-        <div class="col-sm-4">
-          {% include 'discover-picture', name: 'og2-discover-section3-block1', alt: 'close up of interior bottle pocket', retina: true, fw: false, lg: true %}
-          {% include 'discover-topic-content', title: "Water Bottle Pocket", text: "This new mesh pocket means you have no excuse not to hydrate (and hydrate some more)." %}
+
+    {% include 'section-hero', title: 'Work Friendly', img: 'og2-discover-section2-hero', alt: 'woman at desk putting laptop into O.G. 2' %}
+    <div class="container animate" {{ animateFadeInUp }}">
+      <div class="block has-cards">
+        <div class="row">
+          <div class="col-sm-4">
+            {% include 'card',
+              img: 'og2-discover-section2-block1',
+              alt: 'overhead view of packed interior',
+              retina: true, fw: false, lg: true,
+              title: "Ultra-Organized Interior",
+              text: "A thoughtful array of pockets keep your documents and electronics safe." %}
+          </div>
+          <div class="col-sm-4">
+            {% include 'card',
+              img: 'og2-discover-section2-block2',
+              alt: 'front pocket opened to showcase storage',
+              retina: true, fw: false, lg: true,
+              title: "Easy-to-Reach Essentials",
+              text: "Keys, wallet, phone—your most important items are always at the ready." %}
+          </div>
+          <div class="col-sm-4">
+            {% include 'card',
+                video: true,
+                src: 'og2-discover-section2-block3',
+                poster: 'og2-discover-section2-block3-md',
+                index: 3,
+                title: "Shoe Compartment",
+                text: "Commuters, rejoice! A discreet side pocket makes it simple to switch from flats to heels (and back again)." %}
+          </div>
         </div>
-        <div class="col-sm-4">
-          {% include 'discover-picture', name: 'OG2-discover-section3-block2', alt: 'woman sliding shoe into side pocket', retina: true, fw: false, lg: true %}
-        {% include 'discover-topic-content', title: "Shoe Compartment", text: "Important work documents and gym shoes need not mix, thanks to a convenient side pocket." %}
+      </div>
+    </div>   
+
+    {% include 'section-hero', title: 'Gym Ready', img: 'og2-discover-section3-hero', alt: 'woman sliding gym bottle into side pocket' %}   
+    <div class="container animate" {{ animateFadeInUp }}">
+      <div class="block has-cards">
+        <div class="row">
+          <div class="col-sm-4">
+            {% include 'card',
+              img: 'og2-discover-section3-block1',
+              alt: 'close up of interior bottle pocket',
+              retina: true, fw: false, lg: true,
+              title: "Water Bottle Pocket",
+              text: "This new mesh pocket means you have no excuse not to hydrate (and hydrate some more)." %}
+          </div>
+          <div class="col-sm-4">
+            {% include 'card',
+              img: 'OG2-discover-section3-block2',
+              alt: 'front pocket opened to showcase storage',
+              retina: true, fw: false, lg: true,
+              title: "Shoe Compartment",
+              text: "Important work documents and gym shoes need not mix, thanks to a convenient side pocket." %}
+          </div>
+          <div class="col-sm-4">
+            {% include 'card',
+                video: true,
+                src: 'og2-discover-section3-block3',
+                poster: 'og2-discover-section3-block3-md',
+                index: 4,
+                title: "Change of Clothes",
+                text: "A fresh look. Some dry shampoo. There’s room for everything in the O.G. 2." %}
+          </div>
         </div>
-        <div class="col-sm-4">
-          {% include 'inline-video', ratio: '3-4', index: 4, poster: 'og2-discover-section3-block3-md', src: 'og2-discover-section3-block3' %}
-          {% include 'discover-topic-content', title: "Change of Clothes", text: "A fresh look. Some dry shampoo. There’s room for everything in the O.G. 2." %}
+      </div>
+    </div> 
+  
+    <a id="nav-target-2" class="jumptarget"></a>
+    {% include 'section-title', title: "Organized Interior", text: "Maximizes what you can carry—and keeps it all within easy reach." %}
+    {% include 'video-block', img: 'og2-discover-section4-block1', alt: 'video showing how to pack the O.G. 2', id: 1 %}
+
+    <a id="nav-target-3" class="jumptarget"></a>
+    {% include 'section-title', title: "Premium Materials", text: "Enduring design starts with uncompromising attention to detail. " %}
+    <div class="container animate" {{ animateFadeInUp }}">
+      <div class="block has-cards">
+        <div class="row">
+          <div class="col-sm-4">
+            {% include 'card',
+              img: 'og2-discover-section5-block1',
+              alt: 'close up of nylon exterior material',
+              retina: true, fw: false, lg: true,
+              title: "High-Quality Nylon",
+              text: "Lightweight, fine-weave, water-resistant nylon provides a sturdy and chic exterior." %}
+          </div>
+          <div class="col-sm-4">
+            {% include 'card',
+              img: 'og2-discover-section5-block2',
+              alt: 'close up of nappa leather accents',
+              retina: true, fw: false, lg: true,
+              title: "Nappa Leather Accents",
+              text: "Handles and trim are made from a buttery, luxurious leather that molds to your hand or shoulder." %}
+          </div>
+          <div class="col-sm-4">
+            {% include 'card',
+              img: 'og2-discover-section5-block3',
+              alt: 'close up of zipper',
+              retina: true, fw: false, lg: true,
+              title: "Water-Resistant Zippers",
+              text: "Specially designed to keep rain (and coffee) out of your laptop sleeve." %}
+          </div>
         </div>
       </div>
     </div> 
 
-    <div class="container">
-      <a id="nav-target-2" class="jumptarget"></a>
-      {% include 'discover-section-heading', title: "Organized Interior", text: "Maximizes what you can carry—and keeps it all within easy reach." %}
-    </div>
-    <div class="max-container topic-block mb-default animate video-block" {{ animateFadeInUp }}>
-        {% include 'discover-picture', name: 'og2-discover-section4-block1', alt: 'video showing how to pack the O.G. 2', retina: true, fw: false, lg: true %}
-        <a href="#" data-video-id="1" class="video-trigger">See What Fits Inside</a>
-    </div>
-
-    <a id="nav-target-3" class="jumptarget"></a>
-    <div class="container mb-default">
-      {% include 'discover-section-heading', title: "Premium Materials", text: "Enduring design starts with uncompromising attention to detail. " %}
-      <div class="row animate" {{ animateFadeInUp }}>
-          <div class="col-sm-4">
-              {% include 'discover-picture', name: 'og2-discover-section5-block1', alt: 'close up of nylon exterior material', retina: true, fw: false, lg: true %} 
-              {% include 'discover-topic-content', title: "High-Quality Nylon", text: "Lightweight, fine-weave, water-resistant nylon provides a sturdy and chic exterior." %}
-          </div>
-          <div class="col-sm-4">
-              {% include 'discover-picture', name: 'og2-discover-section5-block2', alt: 'close up of nappa leather accents', retina: true, fw: false, lg: true %} 
-              {% include 'discover-topic-content', title: "Nappa Leather Accents", text: "Handles and trim are made from a buttery, luxurious leather that molds to your hand or shoulder." %}
-          </div>
-          <div class="col-sm-4">
-              {% include 'discover-picture', name: 'og2-discover-section5-block3', alt: 'close up of zipper', retina: true, fw: false, lg: true %} 
-              {% include 'discover-topic-content', title: "Water-Resistant Zippers", text: "Specially designed to keep rain (and coffee) out of your laptop sleeve." %}
-          </div>
-      </div>
-
-      {% include 'discover-section-heading', title: "Carry-On Friendly", text: "The preferred bag of savvy travelers." %}
-      <div class="row mb-default animate" {{ animateFadeInUp }}>
+    {% include 'section-title', title: "Carry-On Friendly", text: "The preferred bag of savvy travelers." %}
+    <div class="container animate" {{ animateFadeInUp }}">
+      <div class="block has-cards">
+        <div class="row">
           <div class="col-sm-6">
-              {% include 'discover-picture', name: 'og2-discover-section6-block1', alt: 'woman walking toward plane with bag on luggage', retina: true, fw: false, lg: true %}
-              {% include 'discover-topic-content', title: "The Perfect Personal Item", text: 'Every bag is designed to maximize space, so your “personal item” can hold all your in-flight essentials.' %}
+            {% include 'card',
+              img: 'og2-discover-section6-block1',
+              alt: 'woman walking toward plane with bag on luggage',
+              retina: true, fw: false, lg: true,
+              title: "The Perfect Personal Item",
+              text: "Every bag is designed to maximize space, so your “personal item” can hold all your in-flight essentials." %}
           </div>
           <div class="col-sm-6">
-              {% include 'discover-picture', name: 'og2-discover-section6-block2', alt: 'airline seating', retina: true, fw: false, lg: true %}                
-              {% include 'discover-topic-content', title: "Fits Under Your Seat", text: "The O.G. 2 slides easily under most airline seats for easy access. Linear inches range from 37 (Medium) to 37.5 (Large)." %}
+            {% include 'card',
+              img: 'og2-discover-section6-block2',
+              alt: 'close up of nappa leather accents',
+              retina: true, fw: false, lg: true,
+              title: "Fits Under Your Seat",
+              text: "The O.G. 2 slides easily under most airline seats for easy access. Linear inches range from 37 (Medium) to 37.5 (Large)." %}
           </div>
+        </div>
       </div>
-      
-      <a id="nav-target-4" class="jumptarget"></a>
-      {% include 'discover-section-heading', title: "Updated Design", text: 'See what’s new with an illustrated guide to every upgrade.<br /><br /><a href="#update-overlay" class="more-window-trigger">Compare versions +</a>' %}
-      <div class="text-center mb-large">
-        {% include 'discover-picture', name: 'og2-discover-section7-block1', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
-      </div>
+    </div> 
 
-      <a id="nav-target-5" class="jumptarget"></a>
-      {% include 'discover-section-heading', title: "Available in Two Sizes", text: "The O.G. 2 comes in Medium and Large." %}
-      <div class="text-center">
-        {% include 'discover-picture', name: 'og2-discover-section8-block1', alt: 'O.G. 2 shown in two sizes', retina: true, fw: false, lg: true %}
+    <a id="nav-target-4" class="jumptarget"></a>
+    {% include 'section-title', title: "Updated Design", text: 'See what’s new with an illustrated guide to every upgrade.<br /><br /><a href="#update-overlay" class="more-window-trigger">Compare versions +</a>' %}
+    <div class="container animate" {{ animateFadeInUp }}">
+      <div class="block text-center">
+        {% include 'picture', name: 'og2-discover-section7-block1', alt: 'diagram showing O.G. 2 updates', retina: true, fw: false, lg: true %}
+      </div>
+    </div>
+
+    <a id="nav-target-5" class="jumptarget"></a>
+    {% include 'section-title', title: "Available in Two Sizes", text: "The O.G. 2 comes in Medium and Large." %}
+    <div class="container animate" {{ animateFadeInUp }}">
+      <div class="block text-center">
+        {% include 'picture', name: 'og2-discover-section8-block1', alt: 'O.G. 2 shown in two sizes', retina: true, fw: false, lg: true %}
         <p id="og2-section8-text"><a href="#size-fit" class="more-window-trigger">Size &amp; Fit +</a></p>
       </div>
     </div>

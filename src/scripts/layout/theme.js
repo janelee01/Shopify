@@ -748,24 +748,24 @@ $(document).ready(function() {
 		sessionStorage.setItem('lo-back-to', window.location.href); // for use in the cart
 	}
 
-    if( $('article.edgemont').length || $('article.discover').length ) {
-    	var srollaEnabled = false;
-        if($(window).width() >= LS.desktopBreakpoint) {
-            $('.animate').scrolla({
-                once: true
-            });
-            srollaEnabled = true;
+	if( $('body').hasClass('template-page') ) {
+		var srollaEnabled = false;
+		if($(window).width() >= LS.desktopBreakpoint) {
+				$('.animate').scrolla({
+						once: true
+				});
+				srollaEnabled = true;
 		}
 		// images will stay missing if you start small and resize large
 		$(window).resize(function(){
-	        if($(window).width() >= LS.desktopBreakpoint && !srollaEnabled) {
-	            $('.animate').scrolla({
-	                once: true
-	            });
-	            srollaEnabled = true;
+			if($(window).width() >= LS.desktopBreakpoint && !srollaEnabled) {
+				$('.animate').scrolla({
+						once: true
+				});
+				srollaEnabled = true;
 			}
 		});
-		}
+	}
 		
 		$('.pdp-expandable button').on('click', function(e){
 			e.preventDefault();
