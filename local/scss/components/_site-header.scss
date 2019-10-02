@@ -7,6 +7,7 @@
 	border-bottom: 1px solid $gray-lighter;
 	.inner{ // page nav gets appended to parent so group regular items in here
 		position: relative;
+		z-index: $zi-above;
 		display: flex;
 		flex-direction: row-reverse;
 		justify-content: space-between;
@@ -301,14 +302,11 @@ body.site-menu-open{
 
 body.help-menu-shown{
 	#shopify-section-help-menu{
-		transform: translate(-75%,19px);
+		transform: translate(-75%,18px);
 		opacity: 1;
 		pointer-events: initial;
 		@media (min-width: $screen-md) {
-			transform: translate(-25%,22px);
+			transform: translate(-25%,23px);
 		}
-	}
-	.page-nav{
-		z-index: $zi-ui - 10;
 	}
 }
