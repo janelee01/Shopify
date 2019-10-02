@@ -210,3 +210,30 @@ In page blocks
 		margin-bottom: 15px;
 	}
 }
+
+.block.cta{
+	background: $gray-lightest;
+	padding: 55px 0;
+	margin: 0;
+	@media (min-width: $screen-sm) {
+		.container{
+			display: flex;
+			align-items: center;
+		}
+		.media{
+			width: 70%;
+		}
+	}
+	.content{
+		@include sectionDescription;
+		text-align: center;
+		color: $gray;
+		@media (min-width: $screen-sm) {
+			width: 30%;
+			padding: 0 $grid-gutter-width/2;
+		}
+	}
+	.title{
+		@include sectionTitle;
+	}
+}

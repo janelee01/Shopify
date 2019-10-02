@@ -327,3 +327,13 @@ blockquote{
 		padding: 100px 0;
 	}
 }
+
+.hero-description{
+	@include heroDescription;
+}
+.section-description{
+	@include sectionDescription;
+}
+.block-description{
+	@include blockDescription;
+}

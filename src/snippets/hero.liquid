@@ -1,9 +1,9 @@
-{% assign alignment = 'col-md-offset-3' %}
+{% assign desktopLayout = 'col-md-6 col-md-offset-3' %}
 {% if align == 'left' %}
- {% assign alignment = 'col-md-offset-0' %}
+ {% assign desktopLayout = 'col-md-6 col-lg-5 col-md-offset-0' %}
 {% endif %}
 {% if align == 'right' %}
- {% assign alignment = 'col-md-offset-6' %}
+ {% assign desktopLayout = 'col-md-6 col-md-offset-6 col-lg-5 col-lg-offset-7' %}
 {% endif %}
 <div class="max-container">
     <div class="block hero has-arrow">
@@ -11,7 +11,7 @@
         <div class="content {{ color | default: 'white' }}">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2 col-md-6 {{ alignment }}">
+                    <div class="col-sm-8 col-sm-offset-2 {{ desktopLayout }}">
                         <h1 class="title">{% if subtitle %}<span class="subtitle">{{ subtitle }}</span>{% endif %} {{ title }}</h1>
                         {% if text %}<p>{{ text }}</p>{% endif %}
                     </div>            

@@ -17,17 +17,7 @@
       text: 'What do you get when you combine our bestselling bag with a decade of spot-on customer feedback? A new legend in its own right.'
       align: 'left' %}
 
-    <div class="container animate" {{ animateZoomIn }}>
-      <div class="block">
-        <div class="row">
-          <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-            <div class="text-center">
-              {% include 'picture', name: 'og2-discover-hero2', alt: 'The O.G. 2 isolated on white background', retina: true, fw: false, lg: true %}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% include 'product-hero', img: 'og2-discover-hero2', alt: 'The O.G. 2 isolated on white background'%}
 
     <a id="nav-target-1" class="jumptarget"></a>
     {% include 'section-hero', title: 'Travel Smart', img: 'og2-discover-section1-hero', alt: 'woman boarding plane' %}   
@@ -203,8 +193,8 @@
     {% include 'section-title', title: "Available in Two Sizes", text: "The O.G. 2 comes in Medium and Large." %}
     <div class="container animate" {{ animateFadeInUp }}">
       <div class="block text-center">
-        {% include 'picture', name: 'og2-discover-section8-block1', alt: 'O.G. 2 shown in two sizes', retina: true, fw: false, lg: true %}
-        <p id="og2-section8-text"><a href="#size-fit" class="more-window-trigger">Size &amp; Fit +</a></p>
+        {% include 'picture', name: 'og2-discover-section8-block1', alt: 'O.G. 2 shown in two sizes', retina: true, fw: false, lg: true, extraClasses: 'mb-gutter' %}
+        <p class="section-description"><a href="#size-fit" class="more-window-trigger">Size &amp; Fit +</a></p>
       </div>
     </div>
 
@@ -212,24 +202,13 @@
       {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The O.G. 2" %}
     {% endunless %}
 
-    <div class="discover-cta mt-small" id="compare-cta">
-      <div class="container">
-        <div class="row topic-block">
-          <div class="col-md-9">
-            {% include 'discover-picture', name: 'og2-discover-section9-block1', alt: 'group shot of products in Signature Collection', retina: true, fw: true, lg: true %}                
-          </div>
-          <div class="col-md-3">
-            <div class="topic-content">
-              <h2 class="title">The Signature Collection</h2>
-              <p class="description">Learn more about our practical yet professional line.</p>
-              <div class="btn-set">
-                <a class="btn btn-secondary" href="/pages/discover-signature-collection">Shop now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% include 'cta-block',
+      img: 'og2-discover-section9-block1',
+      alt: 'group shot of products in Signature Collection',
+      title: 'The Signature Collection',
+      text: 'Learn more about our practical yet professional line.',
+      link: '/pages/discover-signature-collection',
+      linkText: 'Shop now' %}
 
     <script>// <![CDATA[
     var video1Embed = '<iframe src="https://player.vimeo.com/video/360897975" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
