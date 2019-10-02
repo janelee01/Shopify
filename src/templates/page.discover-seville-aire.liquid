@@ -132,7 +132,7 @@
     </div>
 
     {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
-      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The Seville Prima" %}
+      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The Seville Aire" %}
     {% endunless %}
 
     {% include 'seville-collection-cta' %}
@@ -142,5 +142,10 @@
     // ]]></script>
 
     {% include 'video-modal' %}
+
+    <div class="more-window size-fit" id="size-fit">
+      {% include 'size-fit-seville-tote' %}
+      <button class="panel-close"><span class="sr-only">close</span></button>
+    </div>
 
 </article>
