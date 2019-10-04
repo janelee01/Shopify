@@ -1,7 +1,11 @@
 <div class="container animate" {{ animateZoomIn }}>
   <div class="block">
-    <div class="text-center">
-      {% include 'picture', name: img, alt: alt, retina: true, fw: false, lg: true %}
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="text-center">
+          {% include 'picture', name: img, alt: alt, retina: true, fw: false, lg: true %}
+        </div>
+      </div>
     </div>
   </div>
 </div>

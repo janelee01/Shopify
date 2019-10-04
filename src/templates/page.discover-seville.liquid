@@ -97,12 +97,16 @@
     {% include 'section-title', title: "Available in Two Sizes", text: "The Seville Tote is available in 13” and 15”." %}
     <div class="container animate" {{ animateFadeInUp }}">
       <div class="block text-center">
-        {% include 'picture', name: 'seville-classic-discover-section5-block1', alt: 'Seville Tote shown in two sizes', retina: true, fw: false, lg: true, extraClasses: 'mb-gutter' %}
-        <p class="section-description"><a href="#size-fit" class="more-window-trigger">Size &amp; Fit +</a></p>
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            {% include 'picture', name: 'seville-classic-discover-section5-block1', alt: 'Seville Tote shown in two sizes', retina: true, fw: false, lg: true, extraClasses: 'mb-gutter' %}
+            <p class="section-description"><a href="#size-fit" class="more-window-trigger">Size &amp; Fit +</a></p>
+          </div>
+        </div>
       </div>
     </div>
 
-     <a id="nav-target-3" class="jumptarget"></a>
+    <a id="nav-target-3" class="jumptarget"></a>
     {% include 'section-title', title: "Premium Materials", text: "We use a carefully-considered mix of materials that maximize elegance and performance." %}
     <div class="container animate" {{ animateFadeInUp }}">
       <div class="block has-cards">
