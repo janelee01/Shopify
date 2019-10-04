@@ -5,6 +5,7 @@
     "start": "slate-tools start --skipFirstDeploy",
     "start:staging": "slate-tools start --env=staging --skipFirstDeploy",
     "start:deploy": "slate-tools start",
+    "deploy:env": "npm run build; slate-tools deploy",
     "deploy:staging": "npm run build; slate-tools deploy --env=staging",
     "deploy:production": "npm run build; slate-tools deploy --env=production",
     "build:vendors": "node scripts/create-vendor-bundle.js",
