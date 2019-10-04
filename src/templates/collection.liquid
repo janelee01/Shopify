@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
-          <h1>{{ collection.title }}</h1>
+          <h1>{{ collection.title | remove: "Men's" | remove: "Women's" | remove: "Mens" | remove: "Womens" }}</h1>
           {% if collection.description != blank %}<p>{{ collection.description }}</p>{% endif %}
       </div>
     </div>
