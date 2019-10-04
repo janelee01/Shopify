@@ -1,14 +1,16 @@
-{% include 'section-title', title: title %}
-<div class="container animate" {{ animateFadeInUp }}>
-  <div class="block">
-    <div class="product-row-wrap">
-      <div class="product-row">
-        {% for product in collections[handle].products %}
-        <div class="item">
-          {% include 'product-item' with product %} 
+{% unless collections[handle].id == blank %}
+  {% include 'section-title', title: title %}
+  <div class="container animate" {{ animateFadeInUp }}>
+    <div class="block">
+      <div class="product-row-wrap">
+        <div class="product-row">
+          {% for product in collections[handle].products %}
+          <div class="item">
+            {% include 'product-item' with product %} 
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
-      </div>
-    </div> 
+      </div> 
+    </div>
   </div>
-</div>
+{% endunless %}
