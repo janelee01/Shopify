@@ -16,47 +16,48 @@ body.product{
   }
 }
 
-.pdp-header{
-  background: #fff;
-  padding: 15px 0;
-  z-index: 9000;
-  height: 73px;
-  border-top: solid 1px $gray-lighter;
-  border-bottom: solid 1px #fff;
-  transition: all .25s ease-out;
-  @media (min-width: $screen-md) {
-    height: auto;
-    border-bottom-color: $gray-lighter;
-  }
-  .container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    &::before, &::after{
-      display: none;
-    }
-    h1{
-      font-size: 18px;
-      font-family: $font-family-medium; 
-      margin: 0;
-      @media (min-width: $screen-md) {
-        font-size: 28px;
-      }
-    }
-    .btn-secondary{
-      border-color: $gray-lighter;
-      font-size: 13px;
-    }
-  }
-}
+// .pdp-header{
+//   background: #fff;
+//   padding: 15px 0;
+//   z-index: $zi-ui;
+//   height: 73px;
+//   border-bottom: solid 1px #fff;
+//   transition: all .25s ease-out;
+//   position: sticky;
+//   top: 0;
+//   @media (min-width: $screen-md) {
+//     height: auto;
+//     border-bottom-color: $gray-lighter;
+//   }
+//   .container{
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     height: 100%;
+//     &::before, &::after{
+//       display: none;
+//     }
+//     h1{
+//       font-size: 18px;
+//       font-family: $font-family-medium; 
+//       margin: 0;
+//       @media (min-width: $screen-md) {
+//         font-size: 28px;
+//       }
+//     }
+//     .btn-secondary{
+//       border-color: $gray-lighter;
+//       font-size: 13px;
+//     }
+//   }
+// }
 .product-main{
-  padding-top: 73px; // pdp-header height + $pdp-spacing-xs
+  padding-top: $pdp-spacing-xs;
   padding-bottom: $pdp-spacing-xs;
   @media (min-width: $screen-md) {
     display: flex;
-    padding-top: 137px; // pdp-header height + $pdp-spacing-md
-    padding-bottom: $pdp-spacing-md;
+    padding-top: $pdp-spacing-md;
+    padding-bototm: $pdp-spacing-md;
   }
   .gallery-col{
     flex: 1 1 auto;
@@ -83,7 +84,7 @@ body.product{
   .form{
     @media (min-width: $screen-md) {
       position: sticky;
-      top: 180px;
+      top: $stickyHeaderOffset;
     }
   }
   .form-row{

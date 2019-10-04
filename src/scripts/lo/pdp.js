@@ -5,7 +5,7 @@ $(document).ready(function(){
   if( $('body').hasClass('product') ){
 
     // move the pdp header to the main header so it can slide in sync with it
-    $('.pdp-header').detach().appendTo('#site-header'); 
+    // $('.pdp-header').detach().appendTo('#site-header'); 
 
     // gift card and regular PDP are too different to share the rest of this file
     if( $('body').attr('id') == 'digital-gift-card' ){

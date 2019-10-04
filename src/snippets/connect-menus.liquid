@@ -1,23 +1,17 @@
 {%- assign social_accounts = 'facebook,twitter,instagram,pinterest' | split: ',' -%}
 
-<div class="connect-menus">
-  <ul class="menu social-menu">
-    {% for social in social_accounts %}
-      {%- assign social_handle = social | handleize -%}
-      {%- capture social_link %}social_{{ social_handle }}_link{% endcapture -%}
-      {%- capture social_icon %}icon-{{ social_handle }}{% endcapture -%}
-      {%- if settings[social_link] != blank -%}
-        <li>
-          <a href="{{ settings[social_link] }}" target="_blank">
-            <div class="social-icon-wrapper">
-              {%- include 'header-icons', icon: social_icon -%}
-            </div>
-            <span class="sr-only">{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}</span>
-          </a>
-        </li>
-      {%- endif -%}
-    {%- endfor -%}
-  </ul>
-</div>
+<nav class="social-menu">
+  {% for social in social_accounts %}
+    {%- assign social_handle = social | handleize -%}
+    {%- capture social_link %}social_{{ social_handle }}_link{% endcapture -%}
+    {%- capture social_icon %}icon-{{ social_handle }}{% endcapture -%}
+    {%- if settings[social_link] != blank -%}
+      <a href="{{ settings[social_link] }}" target="_blank" rel="nofollow">
+        {%- include 'header-icons', icon: social_icon -%}
+        <span class="sr-only">{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}</span>
+      </a>
+    {%- endif -%}
+  {%- endfor -%}
+</nav>
 
 {%- assign social_accounts = false -%}

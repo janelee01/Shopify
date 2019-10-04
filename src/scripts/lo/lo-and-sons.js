@@ -9,6 +9,11 @@ LS.getPageNav = function(){
   var $ = jQuery;
   return $('.page-nav');
 }
+LS.getMarquee = function(){
+  var $ = jQuery;
+  return $('#shopify-section-marquee');
+}
+
 LS.getScrollTo = function(el, offset){
   return el.offset().top;
   // return el.offset().top - offset - 30; // offset added to accomodate fixed header plus a little extra for space below header after the scroll

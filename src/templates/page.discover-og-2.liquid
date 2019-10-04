@@ -1,13 +1,13 @@
 {% include 'vars' %}
 
-{%- assign assetVersion = 158228 -%}
+{%- assign assetVersion = 158822 -%}
 {%- assign ctaTitle = 'The O.G. 2' -%}
 {%- assign ctaPrice = '$333 - $338' -%}
 {%- assign ctaLink = '/products/og-2-nylon-black-gold-lavender' -%}
 
 <article class="discover">
 
-    {% include 'discover-nav', labels:'Functionality,What Fits Inside,Materials,Design,Specs' %}
+    {% include 'discover-nav', labels:"Functionality,What Fits Inside,Materials,What's New" %}
     
     {% include 'hero',
       img: 'og2-discover-hero1',
@@ -221,7 +221,7 @@
       <button class="panel-close"><span class="sr-only">close</span></button>
     </div>
 
-    <div class="more-window" id="update-overlay">
+    <div class="more-window" id="whatsnew">
         <div class="section-heading first">
             <h2 class="title">Updated Design</h2>
             <p style="padding: 0 28px">A decade of customer feedback informed the O.G. 2. Here’s what’s new.</p>
@@ -236,42 +236,42 @@
             {% endcapture %}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-1', alt: 'O.G. 2 laptop sleeve illustration', gif: true %}
+                {% include 'discover-picture', name: 'og2-discover-compare-1', alt: 'O.G. 2 laptop sleeve illustration', gif: true, lg: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "External Laptop Sleeve", text: "Sprinting through security? The O.G. 2’s laptop sleeve is now separate from the main compartment, providing easy access even when your bag is full.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-2', alt: 'O.G. 2 structure illustration', gif: true %}
+                {% include 'discover-picture', name: 'og2-discover-compare-2', alt: 'O.G. 2 structure illustration', gif: true, lg: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Reinforced for Stability", text: "We’ve re-engineered the design to add structure and stability—without added weight. The new reinforced framework prevents the O.G. 2 from leaning when fully packed.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-3', alt: 'O.G. 2 water bottle pocket illustration', gif: true %}
+                {% include 'discover-picture', name: 'og2-discover-compare-3', alt: 'O.G. 2 water bottle pocket illustration', gif: true, lg: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Mesh Water-Bottle Pocket", text: "We support your hydration goals! The O.G. 2 now has an interior pocket so your H2O is always close at hand.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-4', alt: 'O.G. 2 strap pad illustration', gif: true %}
+                {% include 'discover-picture', name: 'og2-discover-compare-4', alt: 'O.G. 2 strap pad illustration', gif: true, lg: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Ultra-Comfy Messenger Strap", text: "You have no patience for straps that dig—and neither do we. Our slip-resistant strap comes with a removable memory-foam pad for extra comfort.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-5', alt: 'O.G. 2 straps illustration', gif: true %}
+                {% include 'discover-picture', name: 'og2-discover-compare-5', alt: 'O.G. 2 straps illustration', gif: true, lg: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Extra-Luxe Leather", text: "We’ve upgraded our handles using buttery, high-grade Nappa leather that’s easy on the hands and shoulders.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-6', alt: 'O.G. 2 medallion illustration', gif: true %}
+                {% include 'discover-picture', name: 'og2-discover-compare-6', alt: 'O.G. 2 medallion illustration', gif: true, lg: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Medallion Now Optional", text: "Some of you loved our branded medallion; some of you could do without it. To minimize waste, we now sell it separately for those who like a little flair.", modifiers: "text-center text-left-xs" %}

@@ -1,0 +1,97 @@
+.page-nav{
+	background: #fff;
+	border-top: solid 1px $gray-lighter;
+	padding: 15px 0;
+	&.is-shown{
+		opacity: 1;
+	}
+	&.persistent{
+		background: #FAFAFA;
+		@media (min-width: $screen-md) {
+			.title{
+				@include sr-only;
+			}
+			.container{
+				justify-content: center;
+			}
+		}
+		.items{
+			flex: 0;		
+		}
+	}
+	&.without-items{
+		.title{
+			flex: 1;
+		}
+	}
+	.container{
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
+	.items{
+		display: none;
+		position: relative;
+		@media (min-width: $screen-md) {
+			display: flex;
+			align-items: center;
+			flex: 1;
+		}
+		a{
+			color: $gray;
+			text-decoration: none;
+			display: block;
+			font-size: $font-size-base;
+			margin: 0 11px;
+			white-space: nowrap;
+			@media (min-width: $screen-md) {
+				&:hover{
+					color: $gray-darker;
+				}
+			}
+			@media (min-width: $screen-lg) {
+				margin: 0 20px;
+			}
+			&.active{
+				color: $gray-darker;
+			}
+		}	
+		.active-bar{
+			display: none;
+			@media (min-width: $screen-md) {
+				display: block;
+				bottom: -3px;
+			}
+		}
+	}
+	.title{
+		font-family: $font-family-medium;
+		@include fslh(18,18);
+		flex: 1;
+		white-space: nowrap;
+		margin-bottom: 0;
+		margin-right: 20px;
+		@media (min-width: $screen-md) {
+			@include fslh(28,28);
+			flex: 0;
+		}
+	}
+	.price{
+		color: $gray;
+		@media (min-width: $screen-md) {
+			margin: 0 20px;
+		}
+	}
+	.btn{
+		font-size: 13px;
+		@media (max-width: $screen-sm-max) {
+			display: none;
+		}
+	}
+	.btn-secondary{
+		border-color: $gray-lighter;
+	}
+}
+#items-toggle{
+	display: none;
+}

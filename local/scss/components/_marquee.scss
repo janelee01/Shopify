@@ -3,7 +3,7 @@
 	background: $brand-blue;
 	font-size: $font-size-small;
 	line-height: 1.3;
-	z-index: 1000;
+	z-index: $zi-ui;
 	color: #FFF;
 	position: relative;
 	a{
@@ -42,6 +42,9 @@
 	}
 }
 
+.marquee-push-down{
+	transition: margin .25s ease-out;
+}
 .reset-marquee-offset{
 	margin-top: 0 !important;
 }

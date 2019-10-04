@@ -31,3 +31,37 @@
 		}
 	}
 }
+
+.social-menu {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 0 auto 20px;
+	@media (min-width: $screen-md) {
+		margin-bottom: 14px;
+	}
+	a {
+		border: solid 1px $gray;
+		border-radius: 50%;
+		height: 40px;
+		width: 40px;
+		margin-right: 20px;
+		color: $gray;
+		// transition: .2s;
+		&:last-child {
+			margin-right: 0;
+		}
+		&:hover,
+		&:focus,
+		&:active {
+			border-color: $brand-blue;
+			color: $brand-blue;
+		}
+	}
+	svg {
+		height: 100%;
+		width: 100%;
+		fill: currentColor;
+		padding: 10px;
+	}
+}

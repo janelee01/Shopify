@@ -1,23 +1,19 @@
 $(document).ready(function(){
 
+	var $siteHeader = LS.getHeader();
 	var $pageNav = LS.getPageNav();
-	var $header = LS.getHeader();
 	var $topics = $pageNav.find('.items a');
 	var $targets = $('.jumptarget');
 	var spacer = 30;
 	var trigger = $pageNav.outerHeight();
 
-	// move a page nav into the header for less fixed position conflicts
-	$pageNav.detach().appendTo($header);
+	if( $pageNav.length ){
+		$('body').addClass('has-page-nav');
+		$pageNav.detach().appendTo($siteHeader);
+  }
 
-	// reload nav state
-	var savedState = sessionStorage.getItem('lo-main-menu');
-	if( savedState ){
-		// $('#mega-menu__nav').html(savedState);
-	}
-	$('#mega-menu a').on('click', function(){
-		sessionStorage.setItem('lo-main-menu', $('#mega-menu__nav').html());
-	});
+	// move a page nav into the header for less fixed position conflicts
+	// $pageNav.detach().appendTo($header);
 
 	// local nav for updated shopify designs,
  	// other local navs exist for transferred WP pages
@@ -32,10 +28,6 @@ $(document).ready(function(){
 				'width': $active.outerWidth()
 			});
 		}
-	};
-
-	var setActiveText = function(){
-		$('#items-toggle').text($('nav.items a.active').text());
 	};
 
 	if( $('.page-nav .items').length ){
@@ -58,7 +50,7 @@ $(document).ready(function(){
 				$('html,body').animate({
 					scrollTop: LS.getScrollTo( $(location.hash), trigger )
 				});
-				setActiveText();
+				
 			}
 		}
 
@@ -86,7 +78,7 @@ $(document).ready(function(){
 				setActiveBar();
 			}
 			// update toggle text for current section
-			setActiveText();
+			
 		});
 
 	}
@@ -126,16 +118,10 @@ $(document).ready(function(){
 			$('nav.items').removeClass('active');
 			$topics.removeClass('active');
 			$btn.addClass('active');
-			setActiveText();
+			
 		}
 
-		$('#items-toggle').removeClass('active');
+		
 	});
 
-	// open the items on mobile
-	$('#items-toggle').on('click', function(e){
-	    e.preventDefault();
-	    $(this).toggleClass('active');
-	    $('nav.items').toggleClass('active');
-	});
 });

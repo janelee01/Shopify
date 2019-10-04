@@ -1,7 +1,7 @@
 .support{
-	padding-top: $page-nav-height-xs + $grid-gutter-width;
+	padding-top: 30px;
 	@media (min-width: $screen-md) {
-		padding-top: $page-nav-height + 80px;
+		padding-top: 55px;
 	}
 	nav.local{
 		.active-bar{
@@ -129,8 +129,7 @@ dl.faq{
 		}
 		&:before,
 		&:after{
-			top: 50%;
-			margin-top: -11px;
+			top: 12px;
 		}
 		&:last-child{
 			border: 0;

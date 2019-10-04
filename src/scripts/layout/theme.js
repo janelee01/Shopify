@@ -16,14 +16,13 @@ import './../templates/customers-addresses'
 import './../templates/customers-login'
 
 import './../lo/lo-and-sons'
-import './../lo/navigation'
+import './../lo/header'
+import './../lo/page-nav'
 import './../lo/videos'
 import './../lo/collection'
 import './../lo/waitlist'
 import './../lo/product-reviews'
 import './../lo/customers'
-import './../lo/toggle-menu'
-import './../lo/header'
 import './../lo/more-window'
 import './../lo/comparison'
 import './../lo/pdp'
@@ -32,8 +31,6 @@ import './../lo/gift-card'
 
 $(document).ready(function() {
 
-	var $marquee = $('#shopify-section-marquee');
-	var $pageNav = LS.getPageNav();
 	var $header = LS.getHeader();
 
   var sections = new slate.Sections();
@@ -68,46 +65,6 @@ $(document).ready(function() {
   if (slate.cart.cookiesEnabled()) {
 	document.documentElement.className = document.documentElement.className.replace('supports-no-cookies', 'supports-cookies');
   }
-
-  // Autocomplete search
-  $.widget( "custom.catcomplete", $.ui.autocomplete, {
-    _create: function() {
-      this._super();
-      this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
-    },
-    _renderMenu: function( ul, items ) {
-      var that = this,
-        currentCategory = "";
-      $.each( items, function( index, item ) {
-        var li;
-        if ( item.category != currentCategory ) {
-          ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
-          currentCategory = item.category;
-        }
-        li = that._renderItemData( ul, item );
-        if ( item.category ) {
-          li.attr( "aria-label", item.category + " : " + item.label );
-        }
-      });
-    }
-  });
-
-  $(".js-autocomplete").catcomplete({
-  delay: 0,
-	source: window.autocompletedata,
-	open: function ( event, ui ) {
-		if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
-			$('.ui-autocomplete').off('menufocus hover mouseover');
-		}
-	},
-	focus: function( event, ui ){
-		event.preventDefault(); // default is to show the value of the item, which will be the page path
-	},
-    select: function( event, ui ) {
-    	event.preventDefault();
-    	window.location = window.location.protocol + '//' + window.location.hostname + ui.item.value;
-    }
-	});
 
   $('#article-body').fitVids();
 
@@ -153,157 +110,7 @@ $(document).ready(function() {
 
   });
 
-  /*
-  Marquees
-   */
-  $('body').on('click', '.marquee .panel-close', function(e){
-	e.preventDefault();
-	$('#shopify-section-marquee').fadeOut('fast', function(){
-		$('.site-content').removeAttr('style');
-		$('.js-marque-push-down').removeAttr('style');
-		$('body').trigger('marquee-hidden');
-	});
-	sessionStorage.setItem("lo-marquee-dismissed", "1");
-  });
-
-  // marquees are hidden by default, so show if they haven't been closed
-  if ( 'lo-marquee-dismissed' in sessionStorage) {
-	// no nothing
-  }else{
-	$('#shopify-section-marquee .marquee').removeClass('hidden');
-	$('body').trigger('marquee-shown');
-  }
-
-  // hide marquees on pages with local navs
-  if( $('nav.local').length ){
-  	$('#shopify-section-marquee').hide();
-  }
-
-  // slide the marquee out of the way on scroll
-  var trigger = 100;
-  var lastScrollPos = 0;
-
-  // Set the marginTop initially if Marquee active
-  if ($marquee.is(':visible')) {
-		$('.js-marque-push-down').css({'marginTop': $marquee.outerHeight()})
-		$('.site-content').css({'marginTop': $marquee.outerHeight()})
-  }
-
-  // remove menu-open class on window resize
-  $(window).resize(function () {
-	var viewportWidth = $(window).width();
-	var megaMenuBreakpoint = 1024;
-	if (viewportWidth > megaMenuBreakpoint) {
-		$('body').removeClass('menu-open');
-		$('.navbar-toggle').removeClass('mega-menu-active');
-	}
-	});
-
-	function LSOnScroll (e, firstTime) {
-		if (!firstTime) {
-			firstTime = false
-		}
-
-		var isPastTrigger = $(window).scrollTop() > trigger
-		var isMovingDown = $(window).scrollTop() > lastScrollPos
-		var isMovingUp = $(window).scrollTop() < lastScrollPos
-		var isMegaMenuActive = $('body').hasClass('mega-menu-active')
-		var isPageNav = $pageNav.length
-		var isMarquee = $marquee.is(':visible')
-
-		lastScrollPos = $(window).scrollTop()
-
-		if (firstTime) {
-			// add a delay so the header position change can finish before we animate the fade in (fixes weird flickering)
-			window.setTimeout(function(){
-				$pageNav.addClass('is-shown');
-			}, 250);
-		}
-
-		// No Page navigation edge
-		// Marquee
-		// Moving Down
-		if (!isPageNav && isMarquee && isPastTrigger && isMovingDown) {
-			$header.css({'top' : $marquee.outerHeight() * -1});
-			if ($(window).width() > LS.desktopBreakpoint) {
-				$('.js-marque-push-down').addClass('reset-marquee-offset');
-			}
-			return
-		}
-
-		// No Page navigation edge
-		// Marquee
-		// Moving Up
-		if (!isPageNav && isMarquee && isMovingUp) {
-			if (isPastTrigger) {
-				$header.css({'top' : $marquee.outerHeight() * -1});
-			} else {
-				$header.removeAttr('style');
-				if ($(window).width() > LS.desktopBreakpoint) {
-					$('.js-marque-push-down').removeClass('reset-marquee-offset')
-				}
-			}
-			return
-		}
-
-		// Page navigation edge cases
-		// No Marquee
-		// Moving Down
-		if (isPageNav && !isMarquee && isMovingDown && isPastTrigger) {
-			if (!isMegaMenuActive) {
-				$header.css({'top' : $('#site-header-items').outerHeight() * -1});
-			}
-			return
-		}
-
-		// Page navigation edge cases
-		// No Marquee
-		// Moving Up
-		if (isPageNav && !isMarquee && isMovingUp) {
-			$header.removeAttr('style');
-			return
-		}
-
-		// Page navigation edge cases
-		// Marquee
-		// Moving Down
-		if (isPageNav && isMarquee && isPastTrigger && isMovingDown) {
-			if (!isMegaMenuActive) {
-				$header.css({'top' : ($marquee.outerHeight() + $('#site-header-items').outerHeight()) * -1});
-				$('.js-marque-push-down').addClass('reset-marquee-offset');
-			}
-			return
-		}
-
-		// Page navigation edge cases
-		// Marquee
-		// Moving up
-		if (isPageNav && isMarquee && isMovingUp) {
-			if (isPastTrigger) {
-				$header.css({'top' : $marquee.outerHeight() * -1});
-			} else {
-				$header.removeAttr('style');
-				if ($(window).width() > LS.desktopBreakpoint) {
-					$('.js-marque-push-down').removeClass('reset-marquee-offset')
-				}
-			}
-			return
-		}
-	}
-
-	// set the jump target offset to the max height of the header.
-	// the header will shift up and down during page scrolls, so we could try to reset it on the fly but sometimes the scroll gets missed due to throttling
-	// this will at least prevent targets from being hidden under it
-	LS.setJumpHeight($header.outerHeight());
-
-	// adjust on scroll
-	$(window).scroll( $.throttle(250, LSOnScroll) );
-	LSOnScroll(false, true)
-
-  	// header shadow
-	if( $('.page-nav').length ){
-		$('body').addClass('has-page-nav');
-	}
+  
 
 	// swipable bs carousels
 	$(".carousel").swipe({
@@ -401,41 +208,6 @@ $(document).ready(function() {
 		autoplay : true,
 		autoplaySpeed : 3500,
 		speed : 750
-	});
-
-	/*
-	 mega-menu featured pages
-	*/
-
-	$('.mega-menu__featured__carousel--slick-carousel').each(function(){
-		const $carousel = $(this)
-		const $rightArrow = $(this).find('.mega-menu-carousel-next');
-		const $leftArrow = $(this).find('.mega-menu-carousel-prev');
-
-		$carousel.slick ({
-			arrows : true,
-			dots: false,
-			infinite: false,
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			prevArrow: $leftArrow,
-			nextArrow: $rightArrow,
-			slide: '.mega-menu__subnav__item__child',
-			responsive: [
-				{
-					breakpoint: 768,
-					settings: {
-						arrows : false,
-						slidesToShow: 2.5,
-						slidesToScroll: 1,
-					}
-				},
-				{
-					breakpoint: 569,
-					settings: "unslick"
-				}
-			]
-		});
 	});
 
 	/*

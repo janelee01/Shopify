@@ -1,0 +1,312 @@
+#site-header {
+	position: sticky;
+	top: 0;
+	margin: 0;
+	z-index: $zi-ui;
+	background-color: #fff;
+	border-bottom: 1px solid $gray-lighter;
+	.inner{ // page nav gets appended to parent so group regular items in here
+		position: relative;
+		z-index: $zi-above;
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		align-items: center;
+		padding: 17px $mobile-gutter/2;
+		@media (min-width: $screen-md) {
+			flex-direction: row;
+			padding: 22px 30px;
+		}
+	}
+	.icon-set {
+		display: flex;
+		flex-direction: row-reverse;
+		@media (min-width: $screen-md) {
+			flex-direction: row;
+		}
+		.icon{
+			position: relative;
+			// things switch orders so this is messy
+			&:last-child{
+				margin-right: 17px;
+			}
+			@media (min-width: $screen-md) {
+				min-width: 20px;
+				&:first-child{
+					margin-right: 20px;
+				}
+				&:last-child{
+					margin-right: 0;
+				}
+			}
+			> a{
+				display: block;
+				height: 18px;
+				color: $brand-black;
+				text-decoration: none;
+				text-align: center;
+				@media (min-width: $screen-md) {
+					height: 22px;
+					&:hover{
+						color: $brand-blue;
+					}
+				}
+				svg{
+					height: 100%;
+				}
+			}
+		}
+	}
+}
+
+#site-logo {
+	width: 130px;
+	margin:0;
+	display: block;
+	position: absolute;
+	font-size: 1em;
+	color: $brand-black;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 0;
+	@media only screen and (min-width: $screen-md) {
+		width: 153px;
+	}
+	svg{
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+.cart-count{
+	color: #fff;
+	position: absolute;
+	top: -4px;
+	right: -7px;
+	background-color: $brand-blue;
+	border-radius: 50%;
+	height: 14px;
+	width: 14px;
+	font-size: 10px;
+	text-align: center;
+}
+.cart-link.empty{
+	.cart-count{
+		display: none;
+	}
+}
+
+#shopify-section-site-menu{
+	position: fixed;
+	z-index: $zi-ui + 10;
+	right: 0;
+	top: 0; 
+	background: #fff;
+	height: 100%;
+	width: $menu-width;
+	max-width: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	transform: translateX(100%);
+	transition: .3s ease-in-out;
+	@media (min-width: $screen-md) {
+		left: 0;
+		right: auto;
+		transform: translateX(-100%);
+	}
+	/*
+	Search
+	*/
+	[role="search"]{
+		padding: 0 $mobile-gutter/2;
+		margin-bottom: 30px;
+		@media (min-width: $screen-xs) {
+			padding: 0 30px;
+		}
+		.form-control{
+			box-shadow: none;
+			height: 45px;
+		}
+	}
+	.social{
+		display: none;
+		@media (min-width: $screen-md) {
+			display: block;
+		}
+	}
+	.social-menu{
+		margin-bottom: 40px;
+		padding-top: 15px;
+	}
+}
+
+#site-menu-close{
+	color: $gray;
+	display: flex;
+	justify-content: flex-end;
+	padding: 20px 30px;
+	@media (min-width: $screen-md) {
+		&:hover{
+			color: $brand-blue;
+			text-decoration: none;
+		}
+	}
+	svg{
+		height: 14px;
+	}
+}
+
+
+body.site-menu-open{
+	#shopify-section-site-menu{
+		transform: translateX(0);
+		box-shadow: 0 2px 4px rgba(147,147,147,.5);
+	}
+}
+
+#site-menu{
+	border-top: solid 1px $gray-lighter;
+	position: relative;
+	flex: 1;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	width: 100%;
+	ul{
+		@include resetList;
+		overflow: hidden;
+		height: 100%;
+	}
+	li{
+		padding: 0 $mobile-gutter/2;
+		border-bottom: solid 1px $gray-lighter;
+		@media (min-width: $screen-xs) {
+			padding: 0 $mobile-gutter;
+		}
+		&.active{
+			> .sub-menu{
+				transform: translateX(0);
+				overflow-y: scroll;
+				-webkit-overflow-scrolling: touch;
+				&.locked{
+					overflow: hidden;
+				}
+			}
+		}
+		&.level-title{
+			background: $gray-lightest;
+			a{
+				font-size: 16px;
+				font-family: $font-family-medium;
+				justify-content: space-around;
+				svg{
+					position: absolute;
+					left: $mobile-gutter/2;
+					@media (min-width: $screen-xs) {
+						left: 30px;
+					}
+				}
+			}
+		}
+	}
+	a{
+		padding: 16px 0 15px;
+		color: $brand-black;
+		font-size: 14px;
+		height: 50px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		text-decoration: none;
+		@media (min-width: $screen-md) {
+			&:hover{
+				color: $brand-blue;
+			}
+		}
+	}
+	.sub-menu{
+		position: absolute;
+		left: 0;
+		width: 100%;
+		top: 0;
+		transition: .3s ease-out;
+		background: #fff;
+		transform: translateX(100%);
+	}
+}
+
+#shopify-section-help-menu{
+	position: absolute;
+	background: #fff;
+	box-shadow: 0 2px 4px rgba(147,147,147,.5);
+	width: 200px;
+	top: 100%;
+	left: 50%;
+	transform: translate(-75%,9px);
+	opacity: 0;
+	pointer-events: none;
+	transition: .3s;
+	@media (min-width: $screen-md) {
+		transform: translate(-25%,12px);
+	}
+	a{
+		font-size: 14px;
+		color: $gray;
+		text-align: center;
+		@media (min-width: $screen-md) {
+			&:hover{
+				color: $brand-blue;
+				text-decoration: none;
+			}
+		}
+	}
+	.primary-links{
+		display: flex;
+		align-items: center;
+		position: relative;
+		&::after{
+			content: '';
+			height: 80px;
+			width: 1px;
+			background: $gray-lighter;
+			order: 1;
+		}
+		a{
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			&:last-child{
+				order: 2;
+				svg{
+					height: 18px;
+					margin-bottom: 7px;
+				}
+			}
+			svg{
+				height: 20px;
+				margin-bottom: 5px;
+			}
+		}
+	}
+	.secondary-links{
+		padding: 25px 0;
+		border-top: 1px solid $gray-lighter;
+		a{
+			display: block;
+			padding-top: 5px;
+		}
+	}
+}
+
+body.help-menu-shown{
+	#shopify-section-help-menu{
+		transform: translate(-75%,18px);
+		opacity: 1;
+		pointer-events: initial;
+		@media (min-width: $screen-md) {
+			transform: translate(-25%,23px);
+		}
+	}
+}

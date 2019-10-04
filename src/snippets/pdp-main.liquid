@@ -13,10 +13,14 @@
   UI is updated on page load so we don't have to duplicate all the variant metafield logic in here
 {% endcomment %}
 
-<header class="pdp-header">
+<header class="page-nav without-items">
   <div class="container">
-    <h1>{{ parentCollection.title }}</h1>
-    {% unless discoverPageHandle == blank %}<a href="{{ pages[discoverPageHandle].url }}" class="btn btn-secondary">Discover</a>{% endunless %}
+    <h1 class="title">{{ parentCollection.title }}</h1>
+    {%- unless discoverPageHandle == blank -%}
+      <div class="actions">
+        <a href="{{ pages[discoverPageHandle].url }}" class="btn btn-secondary" id="discover-link">Discover</a>
+      </div>
+    {%- endunless -%}
   </div>
 </header>
 <section class="product-main container">
