@@ -66,7 +66,7 @@
           {% endcapture %}
         {% endif %}
 
-        <section class="product-family container">
+        <section class="block product-family container">
           {% if productRowImage %}
             <div class="fw-xs mb-gutter hidden-sm hidden-md hidden-lg">{{ productRowImage }}</div>
           {% endif %}
@@ -96,7 +96,7 @@
     {% for handle in handles %}
       {% assign collection = collections[handle] %}
       {% unless collection.title == blank %}
-        <section class="product-family max-container without-products">
+        <section class="block product-family max-container without-products">
           {% include 'collection-hero' with collection, tag: 'h2', mode: 'hero-only' %}
         </section>
       {% endunless %}
@@ -108,7 +108,7 @@
     {% for handle in handles %}
       {% assign collection = collections[handle] %}
       {% unless collection.title == blank %}
-        <section class="product-family max-container">
+        <section class="block product-family max-container">
           {% include 'collection-hero' with collection, tag: 'h2', mode: 'hero-and-products' %}
           <div class="container">
             <div class="product-row-title">

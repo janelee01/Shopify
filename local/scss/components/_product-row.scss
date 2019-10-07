@@ -1,5 +1,4 @@
 .product-family{
-  @include mb;
   &.without-products{
     margin-bottom: 0;
     .collection-hero{

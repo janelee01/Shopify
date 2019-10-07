@@ -1,4 +1,4 @@
- <section class="product-family max-container">
+ <section class="block product-family max-container">
     <div class="hero">
 		<picture>
             {% unless block.settings.image == blank %}<source srcset="{{ block.settings.image | img_url: 'master' }}" media="(min-width: {{ screenMd }})" />{% endunless %}
