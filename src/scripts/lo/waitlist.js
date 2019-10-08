@@ -21,7 +21,8 @@ $(document).ready(function(){
 
 	var notificationCallback = function(data) {
 		var msg = '';
-		if (data.status == 'OK') {
+		console.log(data);
+		if (data.success) {
 			$('#wl-content').hide();
 			$('#wl-confirmation').fadeIn();
 		} else { // it was an error
@@ -42,8 +43,19 @@ $(document).ready(function(){
 	    	return false;
 	    }
 	    var variantId = $('#wl-variant').val();
-	    var productId = $('#wl-product').val();
-	    BIS.create(email, variantId, productId).then(notificationCallback); // create the notification
+			var productId = $('#wl-product').val();
+			// klaviyo integration
+			$.ajax({
+				type: "POST",
+				url: 'https://a.klaviyo.com/api/v1/catalog/subscribe',
+				data: 'a=NuVG2M&email='+email+'&variant='+variantId+'&platform=shopify',
+				dataType: 'json',
+				success: function(data, extStatus, jqXHR){
+					notificationCallback(data);
+				}
+			});
+			// back in stock app
+			// BIS.create(email, variantId, productId).then(notificationCallback); // create the notification
 	});
 
 	var $img = $('#wl-image');
