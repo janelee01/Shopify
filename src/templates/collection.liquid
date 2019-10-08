@@ -191,7 +191,7 @@
     {% endif %}
    
     {%- for parentProductName in productGroups -%}
-      <section class="container product-family" data-family-name="{{ parentProductName | handleize }}" data-content-category="{{ parentProductName }}">
+      <section class="block container product-family" data-family-name="{{ parentProductName | handleize }}" data-content-category="{{ parentProductName }}">
         <div class="product-row-title">
           <h2 class="title">{{ parentProductName | remove: "The " }}</h2><span class="configuration-options"></span>
         </div>
