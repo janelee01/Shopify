@@ -99,7 +99,11 @@
           });
           $('table.product-table').addClass('in');
         }
+        
+        // format on load
+        formatProductNames();
 
+        // watch for changes to format again
         if (window.MutationObserver) { // format our titles when they become available
           var targetNodes         = $(".sidebar__content");
           var MutationObserver    = window.MutationObserver || window.WebKitMutationObserver;
@@ -123,12 +127,6 @@
         }else{
           $('table.product-table').addClass('in'); // just show the cart contents unformatted
         }
-
-        if( Shopify.Checkout.step != 'contact_information' ){
-          // titles are available on page load
-          formatProductNames();
-        }
-
       });
     </script>
   </body>
