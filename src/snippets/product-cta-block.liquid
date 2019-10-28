@@ -1,0 +1,19 @@
+{% unless collections[handle].id == blank %}
+  <div class="block cta animate" {{ animateFadeInUp }}>
+    <div class="container">
+      <div class="media">
+        <a href="{{ ctaLink }}">
+          {{ firstProduct | img_tag: 'title', '', 'large' }}
+        </a>
+      </div>
+      <div class="content">
+        <h2 class="title"><span class="subtitle">Shop</span> {{ ctaTitle }}</h2>
+          <p>{{ ctaPrice }}</p>
+        <div class="btn-set">
+          <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ ctaLink }}">View colors</a>
+          <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">Buy now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endunless %}

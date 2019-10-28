@@ -228,12 +228,32 @@ In page blocks
 		@include sectionDescription;
 		text-align: center;
 		color: $gray;
+		display: flex;
+		flex-direction: column;
 		@media (min-width: $screen-sm) {
 			width: 30%;
 			padding: 0 $grid-gutter-width/2;
 		}
 	}
+	.media{
+		text-align: center;
+	}
 	.title{
 		@include sectionTitle;
 	}
+	.subtitle{
+		display: block;
+		font-size: 40%;
+		text-transform: uppercase;
+		letter-spacing: .125ex;
+		margin: 0 0 7px;
+		line-height: 1.25;
+		font-family: $font-family-base;
+	}
+	.btn-set{
+		width: auto;
+	}
+}
+.block.cta + .block.cta{
+	margin-top: $grid-gutter-width;
 }

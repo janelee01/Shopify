@@ -1,0 +1,21 @@
+{% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+  {% assign handle = page.metafields["global"]["shop-block-collection-handle"] %}
+  {% assign firstProduct = collections[handle].products | first %}
+  {% assign ctaLink = firstProduct.url %}
+  {% comment %} determine pricing {% endcomment %}
+  {% assign priceMin = 999999 %}
+  {% assign priceMax = 0 %}
+  {% for product in collections[handle].products %}
+    {% if product.price_min < priceMin %}
+      {% assign priceMin = product.price_min %}
+    {% endif %}
+    {% if product.price_max > priceMax %}
+      {% assign priceMax = product.price_max %}
+    {% endif %}
+  {% endfor %}
+  {% if priceMin == priceMax %}
+    {%- assign ctaPrice = priceMin | money_without_trailing_zeros -%}
+  {% else %}
+    {%- capture ctaPrice -%}{{ priceMin | money_without_trailing_zeros }} - {{ priceMax | money_without_trailing_zeros }}{%- endcapture -%}
+  {% endif %}
+{% endunless %}

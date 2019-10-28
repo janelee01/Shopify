@@ -5,6 +5,9 @@
 {%- assign ctaPrice = catalinaDeluxePrice -%}
 {%- assign ctaLink = catalinaDeluxePdp -%}
 {%- assign ctaImg = catalinaDeluxeCtaImg -%}
+
+{% include 'cta-overrides' %}
+
 <article class="discover">
 
     {% include 'discover-nav', labels:'Functionality,Size,Materials' %}
@@ -126,7 +129,9 @@
     <a id="nav-target-3" class="jumptarget"></a>    
     {% include 'catalina-materials' %}
 
-    {% include 'discover-cta' %}
+    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+      {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
+    {% endunless %}
 
     {% include 'discover-catalina-compare', url: catalinaCompareW %}
 

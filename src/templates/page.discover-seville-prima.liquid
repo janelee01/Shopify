@@ -4,6 +4,8 @@
 {%- assign ctaPrice = '$485 - $495' -%}
 {%- assign ctaLink = '/products/seville-prima-tote-nappa-saffiano-leather-black-gold-grey' -%}
 
+{% include 'cta-overrides' %}
+
 <article>
 
     {% include 'discover-nav', labels:'Functionality,What Fits Inside,Materials' %}
@@ -140,7 +142,7 @@
     </div>
 
     {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
-      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The Seville Prima" %}
+      {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
     {% endunless %}
 
     {% include 'seville-collection-cta' %}

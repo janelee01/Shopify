@@ -1,9 +1,12 @@
 {% include 'vars' %}
 
 {%- assign assetVersion = 158822 -%}
+
 {%- assign ctaTitle = 'The O.G. 2' -%}
 {%- assign ctaPrice = '$333 - $338' -%}
 {%- assign ctaLink = '/products/og-2-nylon-black-gold-lavender' -%}
+
+{% include 'cta-overrides' %}
 
 <article class="discover">
 
@@ -199,7 +202,7 @@
     </div>
 
     {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
-      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The O.G. 2" %}
+      {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
     {% endunless %}
 
     {% include 'cta-block',

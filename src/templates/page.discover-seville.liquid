@@ -4,6 +4,8 @@
 {%- assign ctaPrice = '$418 - $488' -%}
 {%- assign ctaLink = '/products/seville-tote-saffiano-leather-black-gold-grey' -%}
 
+{% include 'cta-overrides' %}
+
 <article>
 
     {% include 'discover-nav', labels:'Functionality,What Fits Inside,Materials' %}
@@ -140,7 +142,7 @@
     </div>
 
     {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
-      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The Seville Tote" %}
+      {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
     {% endunless %}
 
     {% include 'seville-collection-cta' %}

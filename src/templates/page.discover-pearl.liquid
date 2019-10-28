@@ -7,6 +7,7 @@
 {%- assign ctaLink = '/products/pearl-saffiano-leather-black-gold-grey' -%}
 {%- assign ctaImg = 'pearl-cta' -%}
 
+{% include 'cta-overrides' %}
 
 <article class="discover">
     
@@ -270,9 +271,9 @@
        </div>
     </div>
     
-    <div id="pearl-cta">
-      {% include 'discover-cta', retina: true %}
-    </div>
+    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+      {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
+    {% endunless %}
 
     <script>// <![CDATA[
     var video1Embed = '<iframe src="//player.vimeo.com/video/272650872?player_id=vimeo-pearl&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-pearl" class="vimeo"></iframe>';

@@ -227,9 +227,9 @@
       
   </div>
 
-  <div id="prospect-cta">
-    {% include 'discover-cta', hideSecondaryButton: true, lg: true %}
-  </div>
+  {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+    {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
+  {% endunless %}
 
   <a id="nav-target-5" class="jumptarget"></a>
   {% include 'compare-backpacks-cta' %}
