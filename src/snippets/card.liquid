@@ -3,7 +3,7 @@
     {% if video %}
       {% include 'inline-video', ratio: '3-4', index: index, poster: poster, src: src %}
     {% else %}
-      {% include 'picture', name: img, alt: alt, retina: retina, fw: fw, lg: lg %}
+      {% include 'picture', name: img, alt: alt, fw: fw %}
     {% endif %}
   </div>
   <{{ tag | default: 'h3'}} class="title">{{ title }}</{{ tag | default: 'h3' }}>

@@ -12,6 +12,11 @@
   .media{
     margin-bottom: 20px;
   }
+  p{
+    @media (min-width: $screen-sm) {
+      max-width: 75%;
+    }
+  }
   *:last-child{
     margin-bottom: 0;
   }

@@ -13,11 +13,13 @@ $screen-md-max:           $screen-lg - 1;
 $grid-gutter-width:       30px;
 $grid-float-breakpoint:   $screen-md; 
 
+$container-sm: 738px;
+
 $stickyHeaderOffset: 178px;
 
 $menu-width: 340px;
  
-$mobile-gutter:           28px;
+$mobile-gutter:           $grid-gutter-width;
  
 $gray-darker:             #111; 
 $gray-dark:               #414B56;   
@@ -95,4 +97,4 @@ $mb-large-lg:             120px;
 $zi-base: 1;
 $zi-above: 100;
 $zi-ui: 1000;
-$zi-overlay: 2000;
+$zi-overlay: 2000; 

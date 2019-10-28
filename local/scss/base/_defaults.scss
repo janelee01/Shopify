@@ -42,22 +42,29 @@ html { -ms-overflow-style: none; } // IE
 	margin-left: auto;
 	margin-right: auto;
 }
+
 .container{
 	@media (max-width: $screen-xs-max) {
-	    padding-left: $mobile-gutter;
-	    padding-right: $mobile-gutter;
+		max-width: calc(100% - 30px);
 	}
 }
-.container-fw-mobile {
-	@extend .container;
-	padding-left: 80px;
-	padding-right: 80px;
 
-	@media (max-width: $screen-xs-max) {
-	    padding-left: 0;
-	    padding-right: 0;
-	}
-}
+// .container{
+// 	@media (max-width: $screen-xs-max) {
+// 	    padding-left: $mobile-gutter;
+// 	    padding-right: $mobile-gutter;
+// 	}
+// }
+// .container-fw-mobile {
+// 	@extend .container;
+// 	padding-left: 80px;
+// 	padding-right: 80px;
+
+// 	@media (max-width: $screen-xs-max) {
+// 	    padding-left: 0;
+// 	    padding-right: 0;
+// 	}
+// }
 
 h1, .h1,
 h2, .h2,
@@ -243,8 +250,8 @@ blockquote{
 }
 .fw-sm{
 	@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-	    margin-left: -24px;
-	    margin-right: -24px;
+	    margin-left: -$grid-gutter-width;
+	    margin-right: -$grid-gutter-width;
 	}
 }
 
