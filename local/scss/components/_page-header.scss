@@ -10,6 +10,10 @@
 	@media (min-width: $screen-sm) {
 		padding: 2em 0;
 	}
+	&.is-404,
+	&.is-search-no-results{
+		margin-bottom: 0;
+	}
 	&.is-search{
 		h1, h2{
 			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {

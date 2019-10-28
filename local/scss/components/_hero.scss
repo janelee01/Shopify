@@ -68,6 +68,16 @@
 		&.black{
 			color: $brand-black;
 		}
+		&.black-sm{
+			@media (min-width: $screen-sm) {
+				color: $brand-black;
+			}
+		}
+		&.black-md{
+			@media (min-width: $screen-md) {
+				color: $brand-black;
+			}
+		}
 		.title{
 			@include heroTitle;
 			margin-bottom: 5px;

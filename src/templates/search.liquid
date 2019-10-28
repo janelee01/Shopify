@@ -1,6 +1,6 @@
 {% paginate search.results by 50 %}
 
-  <header class="page-header is-search">
+  <header class="page-header is-search{% if search.results_count == 0 %} is-search-no-results{% endif %}">
     <h1>
     {%- if search.performed -%}
       {%- if search.results_count == 0 -%}
@@ -14,18 +14,26 @@
       {{ 'general.search.title' | t }}
     {%- endif -%}
     </h1>
-
-    {% if search.performed == false or search.performed and search.results_count == 0 %}
-      <div id="in-page-search-container">
-        {%- assign field_id= 'in-page-search' -%}
-        {%- if search.performed -%}
-          {%- assign placeholder = 'Search products again' -%}
-        {%- endif -%}
-        {% include 'search-form' with field_id, placeholder, auto_complete: false, class: "is-search-template" %}
-      </div>
-    {% endif %}
-
   </header>
+
+  {% if search.performed == false or search.performed and search.results_count == 0 %}
+    <div class="not-found">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+            <div id="in-page-search-container">
+              {%- assign field_id= 'in-page-search' -%}
+              {%- assign placeholder = 'Search products' -%}
+              {%- if search.performed -%}
+                {%- assign placeholder = 'Search products again' -%}
+              {%- endif -%}
+              {% include 'search-form' with field_id, placeholder, auto_complete: false, class: "is-search-template" %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
   
   <div class="product-grid">
     <div class="container">
@@ -53,13 +61,20 @@
       {% endif %}
 
       {% if search.performed == false or search.performed and search.results_count == 0 %}
-        <h2 class="has-divider">Best Sellers</h2>
-        <div class="row">
-          {% for product in collections['best-sellers'].products limit: 3 %}
+        <div class="section-heading">
+          <h2 class="title">Best Sellers</h2>
+        </div>
+        <div class="product-grid">
+          <div class="row">
+            {% assign collection = collections['best-selling-products'] %}
+            {% paginate collection.products by 3 %}
+            {% for product in collection.products %}
             <div class="col-sm-4">
               {% include 'product-item' with product %}
             </div>
-          {% endfor %}
+            {% endfor %}
+            {% endpaginate %}
+          </div>
         </div>
       {% endif %}
     

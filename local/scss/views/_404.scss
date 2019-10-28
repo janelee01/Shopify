@@ -1,19 +1,14 @@
-body.template-404{
-  .page-header{
-    margin-bottom: 0;
+.not-found{
+  background: #fafafa;
+  padding: 0 0 1em;
+  @include mb;
+  @media (min-width: $screen-md) {
+    padding: 0 0 2em;
   }
-  .not-found{
-    background: #fafafa;
-    padding: 0 0 1em;
-    @include mb;
+  p{
+    color: $gray;
     @media (min-width: $screen-md) {
-      padding: 0 0 2em;
-    }
-    p{
-      color: $gray;
-      @media (min-width: $screen-md) {
-        font-size: 18px;
-      }
+      font-size: 18px;
     }
   }
 }
