@@ -51,33 +51,57 @@
         {%- else -%}
           {%- assign gender = gender | append: '-' -%}
         {%- endif -%}
+        
+        {% comment %} determine the metafield key to use {% endcomment %}
         {%- capture rowImageKey -%}{{ gender }}row-image{%- endcapture -%}
         {%- capture rowImageAltKey -%}{{ gender }}row-image-alt{%- endcapture -%}
+        {%- capture rowVideoKey -%}{{ gender }}row-video{%- endcapture -%}
+
         {% comment %} fall back to default if we don't have a gender-specific image {% endcomment %}
         {%- if collection.metafields['global'][rowImageKey] == blank -%}
-        {%- assign rowImageKey = "row-image" -%}
-        {%- assign rowImageAltKey = "row-image-alt" -%}
+          {%- assign rowImageKey = "row-image" -%}
+          {%- assign rowImageAltKey = "row-image-alt" -%}
+          {%- assign rowVideoKey = "row-video" -%}
         {%- endif -%}
-
-        {% assign productRowImage = nil %}
+        
+        {% comment %} generate row media {% endcomment %}
+        {% assign productRowMedia = nil %}
+        {% assign productRowMedi2 = nil %}
         {% if collection.metafields["global"][rowImageKey] %}
-          {% capture productRowImage %}
+          {% comment %} our image, duplicated to support video velow {% endcomment %}
+          {% capture productRowMedia %}
             {{ collection.metafields["global"][rowImageKey] | img_tag: collection.metafields["global"][rowImageAltKey] }}
           {% endcapture %}
+          {% capture productRowMedia2 %}
+            {{ collection.metafields["global"][rowImageKey] | img_tag: collection.metafields["global"][rowImageAltKey] }}
+          {% endcapture %}
+          {% comment %} prefer video when it's available {% endcomment %}
+          {% if collection.metafields["global"][rowVideoKey] %}
+            {% comment %} since the output is doubled, we need two captures for unique indexes {% endcomment %}
+            {% comment %} customPoster inserts the full URL of the row image above {% endcomment %}
+            {% assign index1 = forloop.index0 | append: '1' %}
+            {% assign index2 = forloop.index0 | append: '2' %}
+            {% capture productRowMedia %}
+              {% include 'inline-video', ratio: '3-4', index: index1, customPoster: collection.metafields["global"][rowImageKey], src: collection.metafields["global"][rowVideoKey] %}
+            {% endcapture %}
+            {% capture productRowMedia2 %}
+              {% include 'inline-video', ratio: '3-4', index: index2, customPoster: collection.metafields["global"][rowImageKey], src: collection.metafields["global"][rowVideoKey] %}
+            {% endcapture%}
+          {% endif %}
         {% endif %}
-
+        
         <section class="block product-family container">
-          {% if productRowImage %}
-            <div class="fw-xs mb-gutter hidden-sm hidden-md hidden-lg">{{ productRowImage }}</div>
+          {% if productRowMedia2 %}
+            <div class="fw-xs mb-gutter hidden-sm hidden-md hidden-lg">{{ productRowMedia2 }}</div>
           {% endif %}
           <div class="product-row-title">
             <h2 class="title">{{ collection.title }}</h2><span class="configuration-options"></span>
             <p class="description">{{ collection.metafields["global"]["row-description"] }}</p>
           </div>
-          {% if productRowImage %}
+          {% if productRowMedia %}
             <div class="row">
               <div class="col-sm-4 hidden-xs">
-                {{ productRowImage }}
+                {{ productRowMedia }}
               </div>
               <div class="col-sm-8">
                 {{ productRow }}
