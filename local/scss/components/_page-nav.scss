@@ -28,6 +28,9 @@
 		position: relative;
 		display: flex;
 		align-items: center;
+		@media (max-width: $screen-xs-max) {
+			max-width: none;
+		}
 	}
 	.items{
 		display: none;
@@ -81,12 +84,12 @@
 		@media (min-width: $screen-md) {
 			margin: 0 20px;
 		}
-	}
-	.btn{
-		font-size: 13px;
 		@media (max-width: $screen-sm-max) {
 			display: none;
 		}
+	}
+	.btn{
+		font-size: 13px;
 	}
 	.btn-secondary{
 		border-color: $gray-lighter;
