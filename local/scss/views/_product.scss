@@ -138,12 +138,11 @@ body.product{
       min-height: unset;
     }
     &.video-trigger{
-      @media (max-width: $screen-sm-max) {
-        display: none;
-      }
-      &:hover{
-        &::after{
-          opacity: .7;
+      @media (min-width: $screen-md) {
+        &:hover{
+          &::after{
+            opacity: .7;
+          }
         }
       }
       &::after{

@@ -97,20 +97,6 @@
       <div class="col-sm-5">
         <div id="product-description" class="fw-xs">
           {{ parentCollection.description }}
-          {%- if parentCollection.metafields["global"]["product-video"] -%}
-            {%- assign buttonText1 = 'Play Video' -%}
-            {%- if parentCollection.metafields["global"]["product-video-title"] -%}
-              {%- assign buttonText1 = parentCollection.metafields["global"]["product-video-title"] -%}
-            {%- endif-%}
-            <a class="video-trigger btn-gtm-trk" data-gtm-a="11" data-video-id="1" href="#">{{ buttonText1 }}</a>
-          {%- endif -%}
-          {%- if parentCollection.metafields["global"]["product-video-2"] -%}
-            {%- assign buttonText2 = 'Play Video' -%}
-            {%- if parentCollection.metafields["global"]["product-video-2-title"] -%}
-              {%- assign buttonText2 = parentCollection.metafields["global"]["product-video-2-title"] -%}
-            {%- endif-%}
-            <a class="video-trigger btn-gtm-trk" data-gtm-a="11" data-video-id="2" href="#">{{ buttonText2 }}</a>
-          {%- endif -%}
         </div>
       </div>
       <div class="col-sm-7 col-md-5 col-md-offset-2">
@@ -134,6 +120,8 @@
   {%- include 'pdp-reviews' -%}
 {% endif %}
 
+{% include 'video-modal' %}
+
 {% unless sizeFitGuide contains 'Liquid error' %}
   <div class="more-window" id="size-fit-guide">
     <div class="container">
@@ -150,25 +138,6 @@
     <button class="panel-close"><span class="sr-only">close</span></button>
   </div>
 {% endunless %}
-
-{%- assign embedCode = nil -%}
-{%- assign embedCode2 = nil -%}
-{%- if parentCollection.metafields["global"]["product-video"] -%}
-  {% assign embedCode = parentCollection.metafields["global"]["product-video"] | remove: '<p>' | remove: '</p>' %}
-  <script>// <![CDATA[
-    var video1Embed = '{{ embedCode }}';
-    // ]]></script>
-{%- endif -%}
-{%- if parentCollection.metafields["global"]["product-video-2"] -%}
-  {% assign embedCode2 = parentCollection.metafields["global"]["product-video-2"] | remove: '<p>' | remove: '</p>' %}
-  <script>// <![CDATA[
-    var video2Embed = '{{ embedCode2 }}';
-    // ]]></script>
-{%- endif -%}
-
-{%- if embedCode or embedCode2 -%}
-{%- include 'video-modal' -%}
-{%- endif -%}
 
 {%- capture siblingsJson -%}
   {
