@@ -9,36 +9,27 @@ $(document).ready(function(){
 	    // play hasn't been clicked
     	if ( $(window).width() < LS.tabletBreakpoint && $embed.parent('.click-to-play').length && !$embed.parent('.click-to-play').hasClass('playing') ) {
             return;
-				}
-				
-		var playPromise = video.play();
-		if (playPromise !== undefined) {
-			playPromise.then(function() {
-				// successfully started
-			}).catch(function(error) {
-				console.log('Playback did not start. Reason: ' + error)
-			});
-		}
+        }
 
-		// if( LS.isElementInViewport(video) && $embed.data('autoplay') || forceStart ){
-		// 	var playPromise = video.play();
-		// 	if (playPromise !== undefined) {
-		// 		playPromise.then(function() {
-		// 			// successfully started
-		// 		}).catch(function(error) {
-		// 			console.log('Playback did not start. Reason: ' + error)
-		// 		});
-		// 	}
-		// }else if( !video.paused ){
-		// 	var pausePromise = video.pause();
-		// 	if (pausePromise !== undefined) {
-		// 		pausePromise.then(function() {
-		// 			// sucessfully paused
-		// 		}).catch(function(error) {
-		// 			console.log('Pause error. Reason: ' + error)
-		// 		});
-		// 	}
-		// }
+		if( LS.isElementInViewport(video) && $embed.data('autoplay') || forceStart ){
+			var playPromise = video.play();
+			if (playPromise !== undefined) {
+				playPromise.then(function() {
+					// successfully started
+				}).catch(function(error) {
+					console.log('Playback did not start. Reason: ' + error)
+				});
+			}
+		}else if( !video.paused ){
+			var pausePromise = video.pause();
+			if (pausePromise !== undefined) {
+				pausePromise.then(function() {
+					// sucessfully paused
+				}).catch(function(error) {
+					console.log('Pause error. Reason: ' + error)
+				});
+			}
+		}
 	};
 
 	$videos.each(function(){
@@ -58,34 +49,34 @@ $(document).ready(function(){
 		};
 
 		// play/pause based on visibility
-		// $(window).scroll(function(){
-		// 	startStopVideo($embed, video, forceStart);
-		// });
+		$(window).scroll(function(){
+			startStopVideo($embed, video, forceStart);
+		});
 
-		// // limit number of plays and maybe hide overlay text
-		// var playCount = 0;
-		// var lastTime = 0;
-		// video.addEventListener("timeupdate", function() {
-		// 	if( playCount === loops ){
-		// 		video.pause();
-		// 		$embed.addClass('ended');
-		// 		$embed.find('.video-trigger').fadeIn('slow');
-		// 	}
+		// limit number of plays and maybe hide overlay text
+		var playCount = 0;
+		var lastTime = 0;
+		video.addEventListener("timeupdate", function() {
+			if( playCount === loops ){
+				video.pause();
+				$embed.addClass('ended');
+				$embed.find('.video-trigger').fadeIn('slow');
+			}
 
-		// 	// watch the first loop to see how long the user watches it
-		// 	// the video will only be playing while in the viewport so can assume they're seeing it intentially (in theory)
-		// 	if( playCount == 0 ){
-		// 		LS.reportVideoProgress(video.currentTime, video.duration);
-		// 	}
+			// watch the first loop to see how long the user watches it
+			// the video will only be playing while in the viewport so can assume they're seeing it intentially (in theory)
+			if( playCount == 0 ){
+				LS.reportVideoProgress(video.currentTime, video.duration);
+			}
 
-		// 	// catching the start of the video is tricky with the loop, so see if the current time is the last time we saved ?>
-		// 	if( video.currentTime < lastTime ){
-		// 		playCount++;
-		// 		lastTime = 0;
-		// 	}else{
-		// 		lastTime = video.currentTime;
-		// 	}
-		// }, true);
+			// catching the start of the video is tricky with the loop, so see if the current time is the last time we saved ?>
+			if( video.currentTime < lastTime ){
+				playCount++;
+				lastTime = 0;
+			}else{
+				lastTime = video.currentTime;
+			}
+		}, true);
 
 		// that was cool, play it again ?>
 		$embed.find('.video-trigger').on('click', function(e){
