@@ -34,10 +34,10 @@
   {% comment %} videos common to all siblings, only include once to avoid ID crashes {% endcomment %}
   {%- if parentCollection.metafields["global"]["collection-video-1"] -%}
     {% assign video = parentCollection.metafields["global"]["collection-video-1"] | split: ',' %}
-    <a class="item active video-trigger btn-gtm-trk" data-gtm-a="10" data-video-id="video-{{ siblingProduct.id }}-1" href="#">
+    <a class="item active video-trigger btn-gtm-trk" data-gtm-a="10" data-video-id="video-{{ parentCollection.id }}-1" href="#">
       {% if video[2] %}
       <div class="pdp-gallery-video">
-        <video id="video-{{ siblingProduct.id }}-1" width="100%" loop muted playsinline="true" poster="{{ video[1] }}">
+        <video id="video-{{ parentCollection.id }}-1" width="100%" loop muted playsinline="true" poster="{{ video[1] }}">
           <source src="{{ video[2] }}" type="video/mp4" />
         </video>
       </div>
@@ -50,10 +50,10 @@
 
   {%- if parentCollection.metafields["global"]["collection-video-2"] -%}
     {% assign video = parentCollection.metafields["global"]["collection-video-2"] | split: ',' %}
-    <a class="item active video-trigger btn-gtm-trk" data-gtm-a="10" data-video-id="video-{{ siblingProduct.id }}-2" href="#">
+    <a class="item active video-trigger btn-gtm-trk" data-gtm-a="10" data-video-id="video-{{ parentCollection.id }}-2" href="#">
       {% if video[2] %}
       <div class="pdp-gallery-video">
-        <video id="vvideo-{{ siblingProduct.id }}-2" width="100%" loop muted playsinline="true" poster="{{ video[1] }}">
+        <video id="video-{{ parentCollection.id }}-2" width="100%" loop muted playsinline="true" poster="{{ video[1] }}">
           <source src="{{ video[2] }}" type="video/mp4" />
         </video>
       </div>
