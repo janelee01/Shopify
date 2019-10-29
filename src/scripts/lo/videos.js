@@ -9,27 +9,36 @@ $(document).ready(function(){
 	    // play hasn't been clicked
     	if ( $(window).width() < LS.tabletBreakpoint && $embed.parent('.click-to-play').length && !$embed.parent('.click-to-play').hasClass('playing') ) {
             return;
-        }
-
-		if( LS.isElementInViewport(video) && $embed.data('autoplay') || forceStart ){
-			var playPromise = video.play();
-			if (playPromise !== undefined) {
-				playPromise.then(function() {
-					// successfully started
-				}).catch(function(error) {
-					console.log('Playback did not start. Reason: ' + error)
-				});
-			}
-		}else if( !video.paused ){
-			var pausePromise = video.pause();
-			if (pausePromise !== undefined) {
-				pausePromise.then(function() {
-					// sucessfully paused
-				}).catch(function(error) {
-					console.log('Pause error. Reason: ' + error)
-				});
-			}
+				}
+				
+		var playPromise = video.play();
+		if (playPromise !== undefined) {
+			playPromise.then(function() {
+				// successfully started
+			}).catch(function(error) {
+				console.log('Playback did not start. Reason: ' + error)
+			});
 		}
+
+		// if( LS.isElementInViewport(video) && $embed.data('autoplay') || forceStart ){
+		// 	var playPromise = video.play();
+		// 	if (playPromise !== undefined) {
+		// 		playPromise.then(function() {
+		// 			// successfully started
+		// 		}).catch(function(error) {
+		// 			console.log('Playback did not start. Reason: ' + error)
+		// 		});
+		// 	}
+		// }else if( !video.paused ){
+		// 	var pausePromise = video.pause();
+		// 	if (pausePromise !== undefined) {
+		// 		pausePromise.then(function() {
+		// 			// sucessfully paused
+		// 		}).catch(function(error) {
+		// 			console.log('Pause error. Reason: ' + error)
+		// 		});
+		// 	}
+		// }
 	};
 
 	$videos.each(function(){
