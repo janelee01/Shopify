@@ -139,11 +139,11 @@ $(document).ready(function(){
     function updateGallery(){
       // show the new gallery
       setActiveElement(
-        $('.sibling-image-set'),
-        $('.sibling-image-set[data-sibling="' + getActiveProductId() + '"]'),
+        $('.pdp-gallery .sibling-item'),
+        $('.pdp-gallery .sibling-item[data-sibling="' + getActiveProductId() + '"]'),
         'active');
       // get our lazy images
-      $('.sibling-image-set.active').find('.lazy').each(function(){
+      $('.pdp-gallery .item.active').find('.lazy').each(function(){
         $(this).attr('src',$(this).data('lazy')).addClass('in');
       });
     };

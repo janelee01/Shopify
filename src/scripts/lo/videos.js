@@ -111,11 +111,12 @@ $(document).ready(function(){
 	    	LS.productVideoClose();
 	    }
 	});
-	
 	// Gallery Videos
 	$('.pdp-gallery-video').each(function(){
 		var video = document.getElementById($(this).find('video').attr('id'));
+		console.log($(this).find('video').attr('id'));
 		video.oncanplay = function() {
+			console.log('video ready');
 			var playPromise = video.play();
 			if (playPromise !== undefined) {
 				playPromise.then(function() {

@@ -110,26 +110,26 @@ body.product{
   }
 }
 
-.sibling-image-set{
+.pdp-gallery{
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
+  display: flex;
   @media (min-width: $screen-md) {
     flex-wrap: wrap;
     justify-content: space-between;
     overflow-x: initial;
   }
-  display: none;
-  &.active{
-    display: flex;
-  }
   .item{
-    display: block;
     min-height: 300px;
     min-width: 300px;
     width: 300px;
     overflow: hidden;
     position: relative;
     margin-right: 10px;
+    display: none;
+    &.active{
+      display: block;
+    }
     @media (min-width: $screen-md) {
       margin-right: 0;
       margin-bottom: 10px;
