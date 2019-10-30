@@ -1,13 +1,13 @@
 {%- assign format = 'jpg' -%}
-{%- if (gif) -%}
+{%- if gif -%}
 	{%- assign format = 'gif' -%}
 {%- endif -%}
 {%- assign classes = extraClasses -%}
-{%- if (fw) -%} 
+{%- if fw -%} 
 	{%- assign classes = classes | append: ' fw-xs' -%}
 {%- endif -%}
 <picture {% if classes %}class="{{ classes }}"{% endif %}>
-    {% if (xxl) %}
+    {% if xxl %}
     <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-xxl.{{ format }}?{{ assetVersion }}" media="(min-width: 1921px)" />
     <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-xl.{{ format }}?{{ assetVersion }}" media="(min-width: 1700px)" />
     {% endif %}

@@ -1,0 +1,94 @@
+{% include 'vars' %}
+{% for block in section.blocks %} 
+  {% case block.settings.contentPosition %}
+    {% when 'left' %}
+    {% assign contentClasses = 'col-sm-8 col-sm-offset-2 col-md-6 col-lg-5 col-md-offset-0' %}
+
+    {% when 'center' %}
+    {% assign contentClasses = 'col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3' %}
+    
+    {% when 'right' %}
+    {% assign contentClasses = 'col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-6 col-lg-5 col-lg-offset-7' %}
+  {% endcase %}
+	<section class="block hero coming-soon mb-negate">
+    {% include 'picture', name: block.settings.imageHandle, alt: block.settings.imageAlt %}
+    <div class="content {{ block.settings.contentColor }}">
+      <div class="container">
+        <div class="row">
+          <div class="{{ contentClasses }}">
+            <h2 class="title"><span class="subtitle">{{ block.settings.subtitle }}</span> {{ block.settings.title }}</h2>
+            {{ block.settings.content }}
+            <a href="#" class="btn waitlist-trigger" data-kid="{{ block.settings.klaviyoListId }}">{{ block.settings.btnText }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endfor %}
+{% schema %}
+{
+	"name": "Content Manager",
+	"blocks": [
+		{
+			"type": "hero",
+			"name": "Hero",
+			"settings": [
+				{
+					"id": "imageHandle",
+					"type": "text",
+					"label": "Image name"
+				},
+        {
+					"id": "imageAlt",
+					"type": "text",
+					"label": "Image Description"
+				},
+        {
+					"id": "title",
+					"type": "text",
+					"label": "Title"
+				},
+        {
+					"id": "subtitle",
+					"type": "text",
+					"label": "Subtitle"
+				},
+        {
+					"id": "content",
+					"type": "richtext",
+					"label": "Content"
+				},
+        {
+					"id": "btnText",
+					"type": "text",
+					"label": "Button Text"
+				},
+        {
+					"id": "klaviyoListId",
+					"type": "text",
+					"label": "Klaviyo List ID"
+				},
+        {
+					"type": "radio",
+					"id": "contentPosition",
+					"label": "Content Position",
+					"options": [
+						{ "value": "left", "label": "Left" },
+						{ "value": "center", "label": "Center" },
+						{ "value": "right", "label": "Right" }
+					]
+				},
+        {
+					"type": "radio",
+					"id": "contentColor",
+					"label": "Content Color",
+					"options": [
+						{ "value": "black", "label": "Black" },
+						{ "value": "white", "label": "White" }
+					]
+				}
+			]
+		}
+	]
+}
+{% endschema %}
