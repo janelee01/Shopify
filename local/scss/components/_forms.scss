@@ -237,3 +237,36 @@
 		border-radius: 0 !important;
 	}
 }
+
+#coming-soon-signup.has-errors{
+	.validation-error{
+		display: block;
+	}
+}
+#coming-soon-email{
+	padding-right: 60px;
+}
+#coming-soon-submit{
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 16px;
+	padding: 0 15px;
+	display: flex;
+	align-items: center;
+	height: 48px;
+	svg{
+		width: 14px;
+		height: 14px;
+		margin-left: 5px;
+		path{
+			fill: currentColor
+		}
+	} 
+}
+#coming-soon-success{
+	strong{
+		display: block;
+		margin-bottom: 20px;
+	}
+}

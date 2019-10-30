@@ -78,6 +78,11 @@
 				color: $brand-black;
 			}
 		}
+		&.white{
+			.btn.btn-secondary{
+				@include invertedSecondaryBtn;
+			}
+		}
 		.title{
 			@include heroTitle;
 			margin-bottom: 5px;

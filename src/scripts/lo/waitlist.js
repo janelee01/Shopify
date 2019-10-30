@@ -62,4 +62,60 @@ $(document).ready(function(){
 	$(window).resize(function(){
 		positionWaitlistImage();
 	});
+
+	/*
+	Coming Soon subscriptions
+	*/
+	var $comingSoonForm = $('#coming-soon-signup');
+	var $comingSoonField = $('#coming-soon-email');
+	var $comingSoonSuccess = $('#coming-soon-success');
+	$('.more-window-trigger').on('click', function(e){
+	  e.preventDefault();
+		if( $(this).attr('href') === '#comingsoon' ){
+			window.comingSoonListId = $(this).data('listid');
+			// reset form
+			$comingSoonForm
+				.show()
+				.removeClass("has-errors")
+				.find('.validation-error').remove();
+			$comingSoonSuccess.hide();
+		}
+	});
+	$comingSoonForm.on('submit', function(e) {
+		e.preventDefault();
+		$comingSoonForm
+			.removeClass("has-errors")
+			.find('.validation-error').remove();
+
+				var email = $comingSoonField.val();
+				if( !email ){
+					$comingSoonForm.addClass("has-errors").find('.form-group').append('<small class="validation-error">Please enter your email.</small>');
+					$comingSoonForm;
+					return;
+				}
+				var settings = {
+						"async": true,
+						"crossDomain": true,
+						"url": "https://manage.kmail-lists.com/ajax/subscriptions/subscribe",
+						"method": "POST",
+						"headers": {
+								"content-type": "application/x-www-form-urlencoded",
+								"cache-control": "no-cache"
+						},
+						"data": {
+								"g": window.comingSoonListId,
+								"email": email
+						}
+				};
+				$.ajax(settings)
+					.fail(function(jqXHR, textStatus, errorThrown){
+						$comingSoonForm.addClass("has-errors").find('.form-group').append('<small class="validation-error">Something went wrong. Perhaps you\'ve already subscribed to our list? <a href="/pages/support#contact">Contact us</a> for further assistance.</small>');
+					})
+					.done(function (response) {
+							if( response.success ){
+								$comingSoonForm.hide();
+								$comingSoonSuccess.fadeIn();
+							}
+					});
+		});
 });
