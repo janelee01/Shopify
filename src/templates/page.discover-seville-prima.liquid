@@ -4,7 +4,7 @@
 {%- assign ctaPrice = '$485 - $495' -%}
 {%- assign ctaLink = '/products/seville-prima-tote-nappa-saffiano-leather-black-gold-grey' -%}
 
-{% comment %} {% include 'cta-overrides' %} {% endcomment %}
+{% include 'cta-overrides' %}
 
 <article>
 
@@ -141,14 +141,10 @@
       </div>
     </div>
 
-    {% comment %} {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
-      {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
-    {% endunless %} {% endcomment %}
-
     {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
-      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The Seville Prima" %}
+      {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
     {% endunless %}
-
+    
     {% include 'seville-collection-cta' %}
 
     <script>// <![CDATA[

@@ -6,7 +6,7 @@
 {%- assign ctaLink = '/products/waverley-2-nappa-leather-black-gold-grey' -%}
 {%- assign ctaImg = 'waverley2-cta' -%}
 
-{% comment %} {% include 'cta-overrides' %} {% endcomment %}
+{% include 'cta-overrides' %}
 
 <article class="discover">
 
@@ -263,13 +263,9 @@
         </div>
     </div>
 
-    {% comment %} {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
       {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
-    {% endunless %} {% endcomment %}
-
-    <div id="waverley2-cta">
-    {% include 'discover-cta' %}
-    </div>
+    {% endunless %}
 
     <script>// <![CDATA[
     var video1Embed = '<iframe src="https://player.vimeo.com/video/334035751" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
