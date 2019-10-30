@@ -6,7 +6,7 @@
 {%- assign ctaLink = '/products/leather-wallet-saffiano-leather-black-gold-grey' -%}
 {%- assign ctaImg = 'leather-wallet-cta' -%}
 
-{% include 'cta-overrides' %}
+{% comment %} {% include 'cta-overrides' %} {% endcomment %}
 
 <article class="discover">
 
@@ -229,9 +229,12 @@
       </div>
     </div>
 
-    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+    {% comment %} {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
       {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
-    {% endunless %}
+    {% endunless %} {% endcomment %}
+    <div id="leather-wallet-cta">
+    {% include 'discover-cta' %}
+    </div>
 
     <script>// <![CDATA[
     var video1Embed = '<iframe src="https://player.vimeo.com/video/334035070" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';

@@ -6,7 +6,7 @@
 {%- assign ctaPrice = '$333 - $338' -%}
 {%- assign ctaLink = '/products/og-2-nylon-black-gold-lavender' -%}
 
-{% include 'cta-overrides' %}
+{% comment %} {% include 'cta-overrides' %} {% endcomment %}
 
 <article class="discover">
 
@@ -201,8 +201,11 @@
       </div>
     </div>
 
-    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+    {% comment %} {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
       {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
+    {% endunless %} {% endcomment %}
+    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The O.G. 2" %}
     {% endunless %}
 
     {% include 'cta-block',

@@ -8,7 +8,7 @@
 {%- assign ctaImgCol = 'col-md-5 col-md-pull-5' -%}
 {%- assign ctaContentCol = 'col-md-6 col-md-push-6' -%}
 
-{% include 'cta-overrides' %}
+{% comment %} {% include 'cta-overrides' %} {% endcomment %}
 
 <article class="discover">
 
@@ -268,10 +268,39 @@
             </div>
         </div>
     </div>
+
+     <div class="discover-cta">
+        <div class="container">
+            <div class="row topic-block">
+                <div class="{{ ctaContentCol}}">
+                    <div class="topic-content">
+                        <h3 class="title">{{ ctaTitle }}</h3>
+                        <p class="price">{{ ctaPrice }}</p>
+                        <div class="btn-set hidden-xs hidden-sm">
+                            <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ ctaLink }}">View colors</a>
+                            <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="{{ ctaImgCol }}">
+                    <a href="{{ ctaLink }}">
+                        <picture>
+                            <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-md.jpg?{{ assetVersion }}{% if (retina) %}, https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-md2x.jpg?{{ assetVersion }} 2x{% endif %}" media="(min-width: {{ screenSm }})">
+                            <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ ctaImg }}-xs.jpg?{{ assetVersion }}" alt="Shop {{ ctaTitle }}">
+                        </picture>
+                    </a>
+                    <div class="btn-set hidden-md hidden-lg">
+                        <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ ctaLink }}">View colors</a>
+                        <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">Buy now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+    {% comment %} {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
       {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
-    {% endunless %}
+    {% endunless %} {% endcomment %}
 
     <a id="nav-target-5" class="jumptarget"></a>
     {% include 'compare-backpacks-cta' %}

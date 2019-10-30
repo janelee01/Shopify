@@ -6,7 +6,7 @@
 {%- assign ctaLink = '/products/edgemont-600d-recycled-poly-onyx' -%}
 {%- assign ctaImg = 'edgemont-cta' -%}
 
-{% include 'cta-overrides' %}
+{% comment %} {% include 'cta-overrides' %} {% endcomment %}
 
 <article class="discover">
 
@@ -318,9 +318,13 @@
 
     </div>
     
-    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+    {% comment %} {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
       {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
-    {% endunless %}
+    {% endunless %} {% endcomment %}
+
+    <div id="edgemont-cta">
+    {% include 'discover-cta' %}
+    </div>
 
     <a id="nav-target-4" class="jumptarget"></a>
     {% include 'compare-backpacks-cta' %}

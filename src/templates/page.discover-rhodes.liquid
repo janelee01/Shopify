@@ -3,7 +3,7 @@
 {%- assign ctaPrice = '$348' -%}
 {%- assign ctaLink = '/products/rhodes-waxed-twill-charcoal' -%}
 
-{% include 'cta-overrides' %}
+{% comment %} {% include 'cta-overrides' %} {% endcomment %}
 
 <article class="discover">
 
@@ -155,12 +155,27 @@
                 </div>
             </div>
         </div>
+
+        <div class="image-panel legacy-cta right ">
+        <div id="section-10-item-0" class="item active"><picture> <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/Rhodes-desktop.jpg" media="(min-width: 768px)" /> <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/Rhodes-mobile.jpg" alt="" /> </picture>
+        <div class="image-panel-content h-aligned-right v-aligned-m-top v-aligned-d-center">
+        <div class="flexer">
+        <p class="noSwipe title">{{ ctaTitle }}</p>
+        <p class="noSwipe final-price">{{ ctaPrice }}</p>
+        <div class="btn-set">
+            <a class="btn btn-secondary btn-gtm-trk" data-gtm-a="8" href="{{ ctaLink }}">View colors</a>
+            <a class="btn btn-gtm-trk" data-gtm-a="1" href="{{ ctaLink }}">Buy now</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
         
     </div>
 
-    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+    {% comment %} {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
       {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
-    {% endunless %}
+    {% endunless %} {% endcomment %}
 
     <script>// <![CDATA[
     var video1Embed = '<iframe src="https://player.vimeo.com/video/129575639" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-hanover" class="vimeo"></iframe>';

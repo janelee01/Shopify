@@ -6,7 +6,7 @@
 {%- assign ctaLink = catalinaTotePdp -%}
 {%- assign ctaImg = catalinaToteCtaImg -%}
 
-{% include 'cta-overrides' %}
+{% comment %} {% include 'cta-overrides' %} {% endcomment %}
 
 <article class="discover">
 
@@ -133,9 +133,11 @@
     <a id="nav-target-3" class="jumptarget"></a>    
     {% include 'catalina-materials' %}
 
-    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+    {% include 'discover-cta' %}
+
+    {% comment %} {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
       {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
-    {% endunless %}
+    {% endunless %} {% endcomment %}
 
     {% include 'discover-catalina-compare', url: catalinaCompareW %}
 
