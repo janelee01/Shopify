@@ -25,17 +25,42 @@
         }
     }
   }
+  &.reduced-gutters{
+    .product-row{
+      .item{
+        padding-right: 10px;
+        min-width: 280px;
+        width: 280px;
+        padding-right: 10px;
+        &:first-child{
+          padding-left: 0;
+        }
+        &:last-child{
+          padding-right: 0;
+        }
+      }
+    }
+    .product-row-bar{
+      margin-top: 20px;
+    }
+  }
 }
 
 .product-row-title{
 	@include sectionDescription;
-	margin-bottom: 1.5em;
+  margin-bottom: 1.5em;
+  &.is-h3{
+    @include blockDescription;
+    h3.title{
+      @include blockTitle;
+    }
+  }
 	h2.title{
     @include sectionTitle;
     margin-bottom: 0;
 		// display: inline;
 		// margin-right: 40px;
-	}
+  }
   .configuration-options{
     // part of the original design, but hidden for now
     // display: block;
@@ -101,4 +126,11 @@
     top: 0;
     left: 0;
   }
+}
+
+.product-row-cta{
+  @include blockDescription;
+  color: $gray;
+  text-align: center;
+  padding-top: 20px;
 }

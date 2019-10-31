@@ -5,6 +5,29 @@
   @media (min-width: $screen-sm) {
     margin-bottom: 0; // use .block margins when in columns
   }
+  &.title-card{
+    @media (min-width: $screen-sm) {
+      display: flex;
+      flex-direction: column-reverse;
+      .title{
+        order: 3;
+      }
+      .media{
+        margin-bottom: 0;
+      }
+      p:last-child{
+        margin-bottom: 23px;
+      }
+    }
+  }
+  &.cta-card{
+    .media{
+      margin-bottom: 0;
+    }
+    p{
+      margin: 10px 0;
+    }
+  }
   .title{
     @include blockTitle;
     margin-bottom: 5px;
@@ -17,7 +40,7 @@
       max-width: 75%;
     }
   }
-  *:last-child{
+  > *:last-child{
     margin-bottom: 0;
   }
   img{

@@ -1,0 +1,208 @@
+{% include 'vars' %}
+
+{%- assign assetVersion = 162329 -%}
+
+<article class="discover">
+
+  <header class="page-title">
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">                    
+              <h1 class="title">Must-Have Metallics</h1>
+              <p>Take a shine to our latest drop. Three favorite styles now available in two new colors, glistening Champagne and shimmering Graphite — perfect for any occassion.</p>
+          </div>
+      </div>
+    </div>
+  </header>
+
+  {% assign ctaCardText = 'The Pearl in Champagne' %}
+  {% assign ctaCardBtn = '<a href="#" class="btn btn-secondary">Shop now</a>' %}
+  <section class="block has-cards container animate" {{ animateFadeInUp }}">
+    <div class="row">
+      <div class="col-sm-4">
+          {% include 'card',
+            cardModifiers: 'title-card'
+            img: 'metallics-holiday-1',
+            alt: 'passport and wallet packed into zipper pocket',
+            fw: false,
+            title: "Holiday Parties",
+            tag: 'h2',
+            text: "RSVPed “yes” to everything? Add a shining touch to the season's festivities with a metallic accessory." %}
+      </div>
+      <div class="col-sm-4 hidden-xs">
+        {% include 'picture', name: 'metallics-holiday-2', alt: '', fw: false %}
+      </div>
+      <div class="col-sm-4 hidden-xs">
+        {% include 'card',
+          cardModifiers: 'cta-card'
+          img: 'metallics-holiday-3',
+          alt: 'passport and wallet packed into zipper pocket',
+          fw: false,
+          text: ctaCardText,
+          text2: ctaCardBtn %}
+      </div>
+    </div>
+    <div class="hidden-sm hidden-md hidden-lg">
+      <div class="product-family reduced-gutters">
+        <div class="product-row-wrap">
+          <div class="product-row">
+            <div class="item"> {% include 'picture', name: 'metallics-holiday-2', alt: '', fw: false %} </div>
+            <div class="item"> {% include 'picture', name: 'metallics-holiday-3', alt: '', fw: false %} </div>
+          </div>
+        </div> 
+      </div>
+      <div class="product-row-cta">
+        <p>{{ ctaCardText }}</p>
+        {{ ctaCardBtn }}
+      </div>
+    </div>
+  </section>
+
+  {% assign ctaCardText = 'The Waverley 2 Large in Graphite' %}
+  {% assign ctaCardBtn = '<a href="#" class="btn btn-secondary">Shop now</a>' %}
+  <section class="block has-cards container animate" {{ animateFadeInUp }}">
+    <div class="row">
+      <div class="col-sm-4">
+          {% include 'card',
+            cardModifiers: 'title-card'
+            img: 'metallics-nye-1',
+            alt: 'passport and wallet packed into zipper pocket',
+            fw: false,
+            title: "New Year’s Eve",
+            tag: 'h2',
+            text: "Ringing in the new year is the best reason to dress up a look with gleaming accents." %}
+      </div>
+      <div class="col-sm-4 hidden-xs">
+        {% include 'picture', name: 'metallics-nye-2', alt: '', fw: false %}
+      </div>
+      <div class="col-sm-4 hidden-xs">
+        {% include 'card',
+          cardModifiers: 'cta-card'
+          img: 'metallics-nye-3',
+          alt: 'passport and wallet packed into zipper pocket',
+          fw: false,
+          text: ctaCardText,
+          text2: ctaCardBtn %}
+      </div>
+    </div>
+    <div class="hidden-sm hidden-md hidden-lg">
+      <div class="product-family reduced-gutters">
+        <div class="product-row-wrap">
+          <div class="product-row">
+            <div class="item"> {% include 'picture', name: 'metallics-nye-2', alt: '', fw: false %} </div>
+            <div class="item"> {% include 'picture', name: 'metallics-nye-3', alt: '', fw: false %} </div>
+          </div>
+        </div> 
+      </div>
+      <div class="product-row-cta">
+        <p>{{ ctaCardText }}</p>
+        {{ ctaCardBtn }}
+      </div>
+    </div>
+  </section>
+
+  {% assign ctaCardText = 'The Waverley 2 Small in Champagne' %}
+  {% assign ctaCardBtn = '<a href="#" class="btn btn-secondary">Shop now</a>' %}
+  <section class="block has-cards container animate" {{ animateFadeInUp }}">
+    <div class="row">
+      <div class="col-sm-4">
+          {% include 'card',
+            cardModifiers: 'title-card'
+            img: 'metallics-wedding-1',
+            alt: 'passport and wallet packed into zipper pocket',
+            fw: false,
+            title: "Wedding Season",
+            tag: 'h2',
+            text: "Celebrating the lovely couple? Commit to your wedding party look with a refined hint of glam. " %}
+      </div>
+      <div class="col-sm-4 hidden-xs">
+        {% include 'picture', name: 'metallics-wedding-2', alt: '', fw: false %}
+      </div>
+      <div class="col-sm-4 hidden-xs">
+        {% include 'card',
+          cardModifiers: 'cta-card'
+          img: 'metallics-wedding-3',
+          alt: 'passport and wallet packed into zipper pocket',
+          fw: false,
+          text: ctaCardText,
+          text2: ctaCardBtn %}
+      </div>
+    </div>
+    <div class="hidden-sm hidden-md hidden-lg">
+      <div class="product-family reduced-gutters">
+        <div class="product-row-wrap">
+          <div class="product-row">
+            <div class="item"> {% include 'picture', name: 'metallics-wedding-2', alt: '', fw: false %} </div>
+            <div class="item"> {% include 'picture', name: 'metallics-wedding-3', alt: '', fw: false %} </div>
+          </div>
+        </div> 
+      </div>
+      <div class="product-row-cta">
+        <p>{{ ctaCardText }}</p>
+        {{ ctaCardBtn }}
+      </div>
+    </div>
+  </section>
+
+  {% assign ctaCardText = 'The Leather Wallet in Graphite' %}
+  {% assign ctaCardBtn = '<a href="#" class="btn btn-secondary">Shop now</a>' %}
+  <section class="block has-cards container animate" {{ animateFadeInUp }}">
+    <div class="row">
+      <div class="col-sm-4">
+          {% include 'card',
+            cardModifiers: 'title-card'
+            img: 'metallics-nye-1',
+            alt: 'passport and wallet packed into zipper pocket',
+            fw: false,
+            title: "Every Single Day",
+            tag: 'h2',
+            text: "Your everyday outfit gets an instant upgrade thanks to a neutral metallic bag. " %}
+      </div>
+      <div class="col-sm-4 hidden-xs">
+        {% include 'picture', name: 'metallics-nye-2', alt: '', fw: false %}
+      </div>
+      <div class="col-sm-4 hidden-xs">
+        {% include 'card',
+          cardModifiers: 'cta-card'
+          img: 'metallics-nye-3',
+          alt: 'passport and wallet packed into zipper pocket',
+          fw: false,
+          text: ctaCardText,
+          text2: ctaCardBtn %}
+      </div>
+    </div>
+    <div class="hidden-sm hidden-md hidden-lg">
+      <div class="product-family reduced-gutters">
+        <div class="product-row-wrap">
+          <div class="product-row">
+            <div class="item"> {% include 'picture', name: 'metallics-nye-2', alt: '', fw: false %} </div>
+            <div class="item"> {% include 'picture', name: 'metallics-nye-3', alt: '', fw: false %} </div>
+          </div>
+        </div> 
+      </div>
+      <div class="product-row-cta">
+        <p>{{ ctaCardText }}</p>
+        {{ ctaCardBtn }}
+      </div>
+    </div>
+  </section>
+  
+  {% include 'section-title', title: "Shop the Collection", text: "No matter the dress code, a flash of metallic will boost any look." %}
+
+  <div class="container animate" {{ animateFadeInUp }}">
+    <div class="product-row-title is-h3">
+      <h3 class="title">Champagne</h3>
+      <p class="description">A glistening ivory.</p>
+    </div>
+  </div>
+  {% include 'shop-block', title: nil, handle: 'deep-navy' %}
+
+  <div class="container animate" {{ animateFadeInUp }}">
+    <div class="product-row-title is-h3">
+      <h3 class="title">Graphite</h3>
+      <p class="description">A shimmering steel-grey.</p>
+    </div>
+  </div>
+  {% include 'shop-block', title: nil, handle: 'sage-green' %}
+
+</article>
