@@ -10,7 +10,7 @@
     {% if xxl %}
     <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-xxl.{{ format }}?{{ assetVersion }}" media="(min-width: 1921px)" />
     <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-xl.{{ format }}?{{ assetVersion }}" media="(min-width: 1700px)" />
-    {% endif %}
+    {% endif %} 
     {% comment %} using lg here instead of md for backwards compatibility after dropping md support {% endcomment %}
     <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-lg.{{ format }}?{{ assetVersion }}, https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-lg2x.{{ format }}?{{ assetVersion }} 2x" media="(min-width: {{ screenMd }})" />
     <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ name }}-sm.{{ format }}?{{ assetVersion }}" media="(min-width: {{ screenSm }})" />
