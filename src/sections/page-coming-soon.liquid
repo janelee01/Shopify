@@ -19,12 +19,11 @@
             <h2 class="title"><span class="subtitle">{{ block.settings.subtitle }}</span> {{ block.settings.title }}</h2>
             {{ block.settings.content }}
             <a href="#comingsoon" class="btn btn-secondary more-window-trigger" data-listid="{{ block.settings.klaviyoListId }}">{{ block.settings.btnText }}</a>
-						<div style="display: none" class="more-window-content">{{ overlayContent }}</div>
+						<div style="display: none" class="more-window-content">{{ block.settings.overlayContent }}</div>
           </div>
         </div>
       </div>
     </div>
-		
   </section>
 {% endfor %}
 {% schema %}

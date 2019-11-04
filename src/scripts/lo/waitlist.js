@@ -69,6 +69,7 @@ $(document).ready(function(){
 	var $comingSoonForm = $('#coming-soon-signup');
 	var $comingSoonField = $('#coming-soon-email');
 	var $comingSoonSuccess = $('#coming-soon-success');
+	var $comingSoonTitle = $('#comingsoon .section-title');
 	$('.more-window-trigger').on('click', function(e){
 	  e.preventDefault();
 		if( $(this).attr('href') === '#comingsoon' ){
@@ -79,6 +80,8 @@ $(document).ready(function(){
 				.removeClass("has-errors")
 				.find('.validation-error').remove();
 			$comingSoonSuccess.hide();
+			$comingSoonTitle.find('p').remove();
+			$comingSoonTitle.append($(this).next('.more-window-content').html());
 		}
 	});
 	$comingSoonForm.on('submit', function(e) {
