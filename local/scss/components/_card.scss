@@ -15,8 +15,16 @@
       .media{
         margin-bottom: 0;
       }
-      p:last-child{
-        margin-bottom: 23px;
+    }
+    p:last-child{
+      @media (min-width: $screen-sm) {
+        margin-bottom: 28px;
+      }
+      @media (min-width: $screen-md) {
+        margin-bottom: 27px;
+      }
+      @media (min-width: $screen-lg) {
+        margin-bottom: 45px;
       }
     }
   }
