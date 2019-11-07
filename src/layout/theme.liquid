@@ -86,7 +86,10 @@
 
   <script src="https://player.vimeo.com/api/player.js"></script>
 
-  {{ content_for_header }}
+  {% comment %} {{ content_for_header }} {% endcomment %}
+
+  {{ content_for_header | replace: "<body onload='document._boomrl();'>", "<bodx onload='document._boomrl();'>" }}
+
 
   {% comment %} {% include 'page-assets' %} {% endcomment %}
 
