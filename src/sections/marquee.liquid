@@ -3,7 +3,7 @@
   {%- if section.settings.url == blank -%}
     {{ section.settings.marquee_text }}
   {%- else -%}
-    <a href="{{ section.settings.url }}">{{ section.settings.marquee_text }} {% include 'header-icons', icon: 'arrow'%}</a>
+    <a href="{{ section.settings.url }}">{{ section.settings.marquee_text }} {% include 'get-icon', icon: 'arrow'%}</a>
   {%- endif -%}
   {% comment %} <a href="#" class="panel-close"><span class="sr-only">Close</span></a> {% endcomment %}
 </div>
