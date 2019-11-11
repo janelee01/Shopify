@@ -36,24 +36,24 @@
 	{% case block.type %}
 
 		{% when 'sectionHeading' %}
-		{% include 'section-heading' %}
+		{% include 'section-title', title: block.settings.title, text: block.settings.description, withAnimations: false %}
 
 		{% when 'productGroup' %}
 		<section class="block product-family max-container">
 			<div class="hero">
 				<picture>
 					{% unless block.settings.image == blank %}
-						<source srcset="{{ block.settings.image | img_url: 'master' }}" media="(min-width: {{ screenMd }})" />{
-					% endunless %}
+						<source srcset="{{ block.settings.image | img_url: 'master' }}" media="(min-width: {{ screenMd }})" />
+					{% endunless %}
 					<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ block.settings.altText }}" />
 				</picture>
 				<div class="hero-content {{ block.settings.textPosition }} {{ block.settings.textColor }}">
-						{% unless block.settings.title == blank %}
-								<h2 class="title"><span class="subtitle">{{ block.settings.subtitle }} </span>{{ block.settings.title }}</h2>
-						{% endunless %}
-						{% unless block.settings.description == blank %}
-								<p class="description">{{ block.settings.description }}</p>
-						{% endunless %}
+					{% unless block.settings.title == blank %}
+						<h2 class="title"><span class="subtitle">{{ block.settings.subtitle }} </span>{{ block.settings.title }}</h2>
+					{% endunless %}
+					{% unless block.settings.description == blank %}
+						<p class="description">{{ block.settings.description }}</p>
+					{% endunless %}
 				</div>
 			</div>
 			<div class="container">

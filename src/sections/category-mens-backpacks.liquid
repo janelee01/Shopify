@@ -4,7 +4,11 @@
 	{% case block.type %}
 
 		{% when 'lead' %}
-		{% include 'section-heading' %}
+		{% assign tag = 'h2' %}
+		{% if block.settings.isPageTitle %}
+			{% assign tag = 'h1' %}
+		{% endif %}
+		{% include 'section-title', title: block.settings.title, text: block.settings.description, hTag: tag, withAnimations: false %}
 
 		{% when 'feature' %}
 		{% include 'feature-single' %}
