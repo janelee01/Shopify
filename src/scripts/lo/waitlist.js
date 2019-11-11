@@ -21,17 +21,20 @@ $(document).ready(function(){
 
 	var notificationCallback = function(data) {
 		var msg = '';
-		console.log(data);
 		if (data.success) {
 			$('#wl-content').hide();
 			$('#wl-confirmation').fadeIn();
 		} else { // it was an error
-			for (var k in data.errors) {  // collect all the error messages into a string
-				msg += (k + " " + data.errors[k].join());
-			}
+			// back in stock app
+			// for (var k in data.errors) {  // collect all the error messages into a string
+			// 	msg += (k + " " + data.errors[k].join());
+			// }
+			console.log(data);
+			// klaviyo integration
+			msg = data.message
 		}
 		$('#wl-error').text(msg).show();
-	};
+	}; 
 
 	$('#wl-form').on('submit', function(e) {
 	    e.preventDefault();
@@ -42,19 +45,24 @@ $(document).ready(function(){
 	    	$('#wl-email').addClass('has-error').next('.validation-error').text('Please enter your email address').show();
 	    	return false;
 	    }
-	    var variantId = $('#wl-variant').val();
-			var productId = $('#wl-product').val();
+			var variantId = $('#wl-variant').val();
 			// klaviyo integration
 			$.ajax({
 				type: "POST",
-				url: 'https://a.klaviyo.com/api/v1/catalog/subscribe',
-				data: 'a=NuVG2M&email='+email+'&variant='+variantId+'&platform=shopify',
+				url: 'https://a.klaviyo.com/onsite/components/back-in-stock/subscribe',
+				data: {
+					a: 'NuVG2M',
+					email: email,
+					variant: variantId,
+					platform: 'shopify'
+				},
 				dataType: 'json',
 				success: function(data, extStatus, jqXHR){
 					notificationCallback(data);
 				}
 			});
 			// back in stock app
+			// var productId = $('#wl-product').val();
 			// BIS.create(email, variantId, productId).then(notificationCallback); // create the notification
 	});
 
