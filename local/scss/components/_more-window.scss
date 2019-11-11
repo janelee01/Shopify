@@ -29,6 +29,9 @@
 	h3.title{
 		font-family: $font-family-medium;
 	}
+	.animate{
+		opacity: 1;
+	}
 }
 body.more-window-open{
 	overflow: hidden;
