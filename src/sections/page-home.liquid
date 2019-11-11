@@ -4,7 +4,29 @@
 	<div class="hero has-slides">
 		{% for block in section.blocks %}
 			{% if block.type == 'heroSlide' %}
-	 			{% include 'hero-slide' %}
+	 			<div class="slide">
+					<picture>
+							{% unless block.settings.desktopImage == blank %}<source srcset="{{ block.settings.desktopImage | img_url: 'master' }}" media="(min-width: {{ screenMd }})" />{% endunless %}
+							{% unless block.settings.tabletImage == blank %}<source srcset="{{ block.settings.tabletImage | img_url: 'master' }}" media="(min-width: {{ screenSm }})" />{% endunless %}
+							<img src="{{ block.settings.mobileImage | img_url: 'master' }}" alt="{{ block.settings.altText }}" />
+					</picture>
+					<div class="hero-content {{ block.settings.textPosition }} {{ block.settings.textColor }}">
+						{% unless block.settings.title == blank %}
+								<h2 class="title"><span class="subtitle">{{ block.settings.subtitle }} </span>{{ block.settings.title }}</h2>
+						{% endunless %}
+						{% unless block.settings.description == blank %}
+								<p class="description">{{ block.settings.description }}</p>
+						{% endunless %}
+						<div class="btn-set">
+								{% unless block.settings.linkText == blank %}
+										<a class="btn{% if block.settings.linkStyle == 'outline' %} btn-secondary{% if block.settings.textColor == 'white' %} inverted{% endif %}{% endif %}" href="{{ block.settings.linkUrl }}">{{ block.settings.linkText }}</a>
+								{% endunless %}
+								{% unless block.settings.linkBText == blank %}
+										<a class="btn{% if block.settings.linkBStyle == 'outline' %} btn-secondary{% if block.settings.textColor == 'white' %} inverted{% endif %}{% endif %}" href="{{ block.settings.linkBUrl }}">{{ block.settings.linkBText }}</a>
+								{% endunless %}
+						</div>
+					</div>
+				</div>
 			{% endif %}
 		{% endfor %}
 	</div>
@@ -17,7 +39,142 @@
 		{% include 'section-heading' %}
 
 		{% when 'productGroup' %}
-		{% include 'product-group' %}
+		<section class="block product-family max-container">
+			<div class="hero">
+				<picture>
+					{% unless block.settings.image == blank %}
+						<source srcset="{{ block.settings.image | img_url: 'master' }}" media="(min-width: {{ screenMd }})" />{
+					% endunless %}
+					<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ block.settings.altText }}" />
+				</picture>
+				<div class="hero-content {{ block.settings.textPosition }} {{ block.settings.textColor }}">
+						{% unless block.settings.title == blank %}
+								<h2 class="title"><span class="subtitle">{{ block.settings.subtitle }} </span>{{ block.settings.title }}</h2>
+						{% endunless %}
+						{% unless block.settings.description == blank %}
+								<p class="description">{{ block.settings.description }}</p>
+						{% endunless %}
+				</div>
+			</div>
+			<div class="container">
+				<div class="product-row-wrap">
+						<div class="product-row">
+						{% unless block.settings.image1 == blank %}
+						<div class="item">
+								<div class="product-item">
+										<a href="{{ block.settings.imageLink1 }}">
+												<div class="image">
+														<img src="{{ block.settings.image1 | img_url: 'master' }}" alt="">
+												</div>
+												<div class="details">
+														<h3 class="title">{{ block.settings.imageLabel1 }}</h3>
+												</div>
+										</a>
+								</div>
+						</div>
+						{% endunless %}
+						{% unless block.settings.image2 == blank %}
+						<div class="item">
+								<div class="product-item">
+										<a href="{{ block.settings.imageLink2 }}">
+												<div class="image">
+														<img src="{{ block.settings.image2 | img_url: 'master' }}" alt="">
+												</div>
+												<div class="details">
+														<h3 class="title">{{ block.settings.imageLabel2 }}</h3>
+												</div>
+										</a>
+								</div>
+						</div>
+						{% endunless %}
+						{% unless block.settings.image3 == blank %}
+						<div class="item">
+								<div class="product-item">
+										<a href="{{ block.settings.imageLink3 }}">
+												<div class="image">
+														<img src="{{ block.settings.image3 | img_url: 'master' }}" alt="">
+												</div>
+												<div class="details">
+														<h3 class="title">{{ block.settings.imageLabel3 }}</h3>
+												</div>
+										</a>
+								</div>
+						</div>
+						{% endunless %}
+						{% unless block.settings.image4 == blank %}
+						<div class="item">
+								<div class="product-item">
+										<a href="{{ block.settings.imageLink4 }}">
+												<div class="image">
+														<img src="{{ block.settings.image4 | img_url: 'master' }}" alt="">
+												</div>
+												<div class="details">
+														<h3 class="title">{{ block.settings.imageLabel4 }}</h3>
+												</div>
+										</a>
+								</div>
+						</div>
+						{% endunless %}
+						{% unless block.settings.image5 == blank %}
+						<div class="item">
+								<div class="product-item">
+										<a href="{{ block.settings.imageLink5 }}">
+												<div class="image">
+														<img src="{{ block.settings.image5 | img_url: 'master' }}" alt="">
+												</div>
+												<div class="details">
+														<h3 class="title">{{ block.settings.imageLabel5 }}</h3>
+												</div>
+										</a>
+								</div>
+						</div>
+						{% endunless %}
+						{% unless block.settings.image6 == blank %}
+						<div class="item">
+								<div class="product-item">
+										<a href="{{ block.settings.imageLink6 }}">
+												<div class="image">
+														<img src="{{ block.settings.image6 | img_url: 'master' }}" alt="">
+												</div>
+												<div class="details">
+														<h3 class="title">{{ block.settings.imageLabel6 }}</h3>
+												</div>
+										</a>
+								</div>
+						</div>
+						{% endunless %}
+						{% unless block.settings.image7 == blank %}
+						<div class="item">
+								<div class="product-item">
+										<a href="{{ block.settings.imageLink7 }}">
+												<div class="image">
+														<img src="{{ block.settings.image7 | img_url: 'master' }}" alt="">
+												</div>
+												<div class="details">
+														<h3 class="title">{{ block.settings.imageLabel7 }}</h3>
+												</div>
+										</a>
+								</div>
+						</div>
+						{% endunless %}
+						{% unless block.settings.image8 == blank %}
+						<div class="item">
+								<div class="product-item">
+										<a href="{{ block.settings.imageLink8 }}">
+												<div class="image">
+														<img src="{{ block.settings.image8 | img_url: 'master' }}" alt="">
+												</div>
+												<div class="details">
+														<h3 class="title">{{ block.settings.imageLabel8 }}</h3>
+												</div>
+										</a>
+								</div>
+						</div>
+						{% endunless %}
+						</div>
+				</div>
+			</div>
+		</section>
 
 		{% when 'feature' %}
 		{% include 'feature-single' %}
@@ -33,7 +190,12 @@
 		<div class="row ui-black">
 		{% for block in section.blocks %}
 			{% if block.type == 'review' %}
-	 			{% include 'press-item-slide' %}
+	 			<div class="col-sm-6">
+					<div class="press-item">
+						<img src="{{ block.settings.logo | img_url: 'master' }}" alt="{{ block.settings.altText }} logo" />
+						<p>&ldquo;{{ block.settings.content }}&rdquo;</p>
+					</div>
+				</div>
 			{% endif %}
 		{% endfor %}
 		</div>
