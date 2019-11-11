@@ -11,15 +11,27 @@
 
   {% include 'style-tags' %}
 
-  {% include 'optimize-page-hiding' %}
-  {% include 'google-tag-manager' %}
-  {% include 'optimize-tag' %}
-  {% include 'sentry' %}
+  {% include 'head-common' %}
+  
+  <!-- sentry.io -->
+  <script src="https://browser.sentry-cdn.com/4.6.4/bundle.min.js" crossorigin="anonymous"></script>
+  <script>
+  Sentry.init({
+    dsn: 'https://4535afa6763441cabf738a5947fb6308@sentry.io/1417909',
+    environment: ~document.location.href.indexOf('localhost') ? 'dev' : 'production',
+    debug: false,
+    whitelistUrls: [
+      "{{ 'test.jpg' | asset_url }}".replace(/test.jpg\?\d*/,'')
+    ],
+    ignoreErrors: ['localhost']
+  });
+  </script>
 
-    {%- comment -%}Include polyfill for IE browser only{%- endcomment -%}
-    {%- if template contains 'product' -%}
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.includes-polyfill%2CArray.prototype.forEach-polyfill"></script>
-    {%- endif -%}
+
+  {%- comment -%}Include polyfill for IE browser only{%- endcomment -%}
+  {%- if template contains 'product' -%}
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.includes-polyfill%2CArray.prototype.forEach-polyfill"></script>
+  {%- endif -%}
 
   {% comment %} hide parent collection pages from indexing {% endcomment %}
   {%- if template == 'collection' -%}
@@ -74,8 +86,19 @@
     };
 
     var kListId = '{{ shop.metafields["global"]["klaviyo-list-id"] }}';
+
+    var autocompletedata = [
+      {% for page in linklists.autocomplete-products.links %} { label: "{{ page.title }}", category: "Products", value: "{{ page.url }}" }, {% endfor %}
+      {% for page in linklists.autocomplete-collections.links %} { label: "{{ page.title }}", category: "Collections", value: "{{ page.url }}" }, {% endfor %}
+      {% comment %} 
+      {% for article in blogs.news.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+      {% for article in blogs.product-design.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+      {% for article in blogs.travel-inspiration.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+      {% for article in blogs.travel-style.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+      {% for article in blogs.travel-tips-guides.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+      {% endcomment %}
+    ];
   </script>
-  {% include 'autocomplete-data' %}
 
   {% if template.directory == 'customers' %}
     <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
