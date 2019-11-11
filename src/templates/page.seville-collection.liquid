@@ -49,6 +49,22 @@
       </div>
     </div>
 
+    <div class="container pr-items">
+      {% include 'section-title', title: "Traveler Approved" %}
+      <div class="row topic-end-md">
+        {% include 'press-review',
+            med-right: false,
+            img: 'bloomberg.jpg',
+            alt: 'Bloomberg Logo',
+            quote: "Lo & Sons specializes in a two-in-one tote called the Seville, which has an interchangeable shell design to transform it into a travel bag. " %}
+        {% include 'press-review',
+            med-right: true,
+            img: 'fast-company_logo.svg',
+            alt: 'Fast Company Logo',
+            quote: "The key innovation of the bag is that you can easily swap the leather shell for a nylon one, transforming the bag into a lightweight travel bag that can be attached to your suitcase for easy wheeling. The swapping process takes under a minute and it was well worth it." %}
+      </div>
+    </div>
+
     {% include 'section-title', title: "Goes Everywhere You Do", text: "Dress your Seville bags up or down for work, travel, and weekend." %}
 
     {% include 'section-hero', title: 'The Seville', img: 'seville-system-collection-section4-hero1', alt: 'woman holding classic Seville at side' %}

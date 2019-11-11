@@ -1,0 +1,10 @@
+{% assign classes = "col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-0" %}
+{% if(med-right) %}
+    {% assign classes = "col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-0 col-lg-" %}
+{% endif %}
+<div class="{{ classes }}">
+    <blockquote class="pr">
+        <p class="pr-logo"><img alt="{{ alt }}" src="https://cdn.shopify.com/s/files/1/2185/1497/files/{{ img }}" /></p>
+        <p class="pr-quote">“{{ quote }}”</p>
+    </blockquote>
+</div>
