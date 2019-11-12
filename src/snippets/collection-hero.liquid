@@ -68,9 +68,6 @@
       <img src="{{ collection.metafields['global'][heroImageDKey] }}" alt="{{ collection.metafields["global"][heroImageAltKey] }}">
     {% endif %}
     <div class="content">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
             <{{tag}} class="title">{{ collection.title }}</{{tag}}>
             {% if heroDescription != blank %}<p class="description">{{ heroDescription }}</p>{% endif %}
             {%- if mode == "hero-only" -%}
@@ -99,9 +96,6 @@
                 </div>
               {%- endunless -%}
             {%- endif -%}
-          </div>
-        </div>
-      </div>
     </div>
   </header>
 
