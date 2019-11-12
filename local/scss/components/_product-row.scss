@@ -1,4 +1,10 @@
 .product-family{
+  &.without-products{
+    margin-bottom: 15px;
+    .collection-hero{
+      margin: 0;
+    }
+  }
   .hero{ // for home page
     @media (max-width: $screen-sm-max) { 
         @include mb(sm);

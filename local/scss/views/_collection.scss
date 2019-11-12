@@ -269,9 +269,8 @@ body.fixed-filters{
 	}
 	.btn{
 		@include alternateBtn;
-		min-width: 135px;
 		margin: 0 6px;
-		padding: 12px 24px;
+		padding: 12px 20px;
 		&:first-of-type {
 			margin-left: 0;
 		}
