@@ -268,9 +268,10 @@ body.fixed-filters{
 		}
 	}
 	.btn{
-		@include invertedSecondaryBtn;
+		@include alternateBtn;
 		min-width: 135px;
 		margin: 0 6px;
+		padding: 12px 24px;
 		&:first-of-type {
 			margin-left: 0;
 		}

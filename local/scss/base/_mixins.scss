@@ -110,6 +110,17 @@
 	}
 }
 
+@mixin alternateBtn{
+	color: $gray-darker;
+	background: #fff;
+	border-color: #fff;
+	&:hover {
+		color: $gray-darker;
+		border-color:  rgba(255,255,255,.8);
+		background: rgba(255,255,255,.8);
+	}
+}
+
 @mixin mb($size: 'default'){
 	@if $size == 'sm' {
 
