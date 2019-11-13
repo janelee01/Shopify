@@ -111,4 +111,18 @@ $(document).ready(function(){
 	    	LS.productVideoClose();
 	    }
 	});
+	// Gallery Videos
+	$('.pdp-gallery-video').each(function(){
+		var video = document.getElementById($(this).find('video').attr('id'));
+		video.addEventListener('loadedmetadata', function(){
+			var playPromise = video.play();
+			if (playPromise !== undefined) {
+				playPromise.then(function() {
+					// console.log('video started');
+				}).catch(function(error) {
+					console.log('Playback did not start. Reason: ' + error)
+				});
+			}
+		});
+	});
 });

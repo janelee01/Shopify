@@ -1,52 +1,82 @@
-{%- for siblingProduct in parentCollection.products -%}
-  {%- if siblingsList contains siblingProduct.id -%}
-  <div class="sibling-image-set {% if siblingProduct.id == product.id %}active{% endif %}" data-sibling="{{ siblingProduct.id }}">
-    
-    {% assign siblingImageCount = 0 %}
-    {% for image in siblingProduct.images %}
-      {%- unless image.alt contains 'swatch' -%}
-      <a class="item zoomable" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-index="{{ forloop.index0 }}">
-        {% if siblingProduct.id == product.id %}
-          {{ image | img_tag: image.alt, '', '343x' }}
-        {% else %} {% comment %} lazy load for all the siblings {% endcomment %}
-          <img src="//:0" class="lazy" width="343" data-lazy="{{ image | img_url: '343x' }}" alt="{{ image.alt }}">
-        {% endif %}
-      </a>
-      {% assign siblingImageCount = siblingImageCount | plus: 1 %}
-      {%- endunless -%}
-    {% endfor %}
+<div class="pdp-gallery">
+  
+  {%- for siblingProduct in parentCollection.products -%}
+    {%- if siblingsList contains siblingProduct.id -%}      
+      {% assign siblingImageCount = 0 %}
 
-    {% if parentCollection.metafields["global"]["collection-images"] %}
-      {% assign images = parentCollection.metafields["global"]["collection-images"] | split: ',' %}
-      {% for image in images %}
-        <a class="item zoomable" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-index="{{ forloop.index0 | plus: siblingImageCount }}">
-          {{ image | img_tag }} {% comment %} not lazy loading this since the active product download will cache the rest {% endcomment %}
+      {% comment %} images specific to this sibling {% endcomment %}
+      {% for image in siblingProduct.images %}
+        {%- unless image.alt contains 'swatch' -%}
+        <a class="item sibling-item zoomable {% if siblingProduct.id == product.id %}active{% endif %}" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-sibling="{{ siblingProduct.id }}" data-index="{{ forloop.index0 }}">
+          {% if siblingProduct.id == product.id %}
+            {{ image | img_tag: image.alt, '', '343x' }}
+          {% else %} {% comment %} lazy load for all the siblings {% endcomment %}
+            <img src="//:0" class="lazy" width="343" data-lazy="{{ image | img_url: '343x' }}" alt="{{ image.alt }}">
+          {% endif %}
         </a>
+        {% assign siblingImageCount = siblingImageCount | plus: 1 %}
+        {%- endunless -%}
       {% endfor %}
-    {% endif %}
-    
-    {%- if parentCollection.metafields["global"]["product-video"] -%}
-      {%- assign alt1 = 'play product video' -%}
-      {%- if parentCollection.metafields["global"]["product-video-title"] -%}
-        {%- assign alt1 = parentCollection.metafields["global"]["product-video-title"] | prepend: 'Watch: ' -%}
-      {%- endif-%}
-      <a class="item video-trigger btn-gtm-trk" data-gtm-a="10" data-video-id="1" href="#">
-        {{ parentCollection.metafields["global"]["product-video-thumb"] | img_tag: alt1, '', '343x' }}
-      </a>
-    {%- endif -%}
-    {%- if parentCollection.metafields["global"]["product-video-2"] -%}
-      {%- assign alt2 = 'play second product video' -%}
-      {%- if parentCollection.metafields["global"]["product-video-2-title"] -%}
-        {%- assign alt2 = parentCollection.metafields["global"]["product-video-2-title"] | prepend: 'Watch: ' -%}
-      {%- endif-%}
-      <a class="item video-trigger btn-gtm-trk" data-gtm-a="10" data-video-id="2" href="#">
-        {{ parentCollection.metafields["global"]["product-video-2-thumb"] | img_tag: alt2, '', '343x' }}
-      </a>
-    {%- endif -%}
 
-  </div>
+      {% comment %} images common to all siblings, included multiple times so the zoom gallery includes them {% endcomment %}
+      {% if parentCollection.metafields["global"]["collection-images"] %}
+        {% assign images = parentCollection.metafields["global"]["collection-images"] | split: ',' %}
+        {% for image in images %}
+          <a class="item sibling-item zoomable {% if siblingProduct.id == product.id %}active{% endif %}" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-sibling="{{ siblingProduct.id }}" data-index="{{ forloop.index0 | plus: siblingImageCount }}">
+            {{ image | img_tag }} {% comment %} not lazy loading this since the active product download will cache the rest {% endcomment %}
+          </a>
+        {% endfor %}
+      {% endif %}
+
+    {%- endif -%}
+  {%- endfor -%}
+
+  {% comment %} legacy product video implementation {% endcomment %}
+  {%- if parentCollection.metafields["global"]["product-video"] -%}
+    {%- assign alt1 = 'play product video' -%}
+    {%- if parentCollection.metafields["global"]["product-video-title"] -%}
+      {%- assign alt1 = parentCollection.metafields["global"]["product-video-title"] | prepend: 'Watch: ' -%}
+    {%- endif-%}
+    <a class="item active video-trigger btn-gtm-trk" data-gtm-a="10" data-video-id="1" href="#">
+      {{ parentCollection.metafields["global"]["product-video-thumb"] | img_tag: alt1, '', '343x' }}
+    </a>
   {%- endif -%}
-{%- endfor -%}
+  {%- if parentCollection.metafields["global"]["product-video-2"] -%}
+    {%- assign alt2 = 'play second product video' -%}
+    {%- if parentCollection.metafields["global"]["product-video-2-title"] -%}
+      {%- assign alt2 = parentCollection.metafields["global"]["product-video-2-title"] | prepend: 'Watch: ' -%}
+    {%- endif-%}
+    <a class="item active video-trigger btn-gtm-trk" data-gtm-a="10" data-video-id="2" href="#">
+      {{ parentCollection.metafields["global"]["product-video-2-thumb"] | img_tag: alt2, '', '343x' }}
+    </a>
+  {%- endif -%}
+
+  {% comment %} videos common to all siblings, only include once to avoid ID crashes {% endcomment %}
+  {%- if parentCollection.metafields["global"]["collection-video-1"] -%}
+    {% assign video = parentCollection.metafields["global"]["collection-video-1"] | split: ',' %}
+    <div class="item active">
+      <div class="pdp-gallery-video">
+        <video id="video-{{ parentCollection.id }}-1" width="100%" loop muted playsinline="true" poster="{{ video[0] }}">
+          <source src="{{ video[1] }}" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+    {% comment %} <script>var video1Embed = '<iframe src="https://player.vimeo.com/video/{{ video[0] }}" width="640" height="480" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';</script> {% endcomment %}
+  {%- endif -%}
+
+  {%- if parentCollection.metafields["global"]["collection-video-2"] -%}
+    {% assign video = parentCollection.metafields["global"]["collection-video-2"] | split: ',' %}
+    <div class="item active">
+      <div class="pdp-gallery-video">
+        <video id="video-{{ parentCollection.id }}-2" width="100%" loop muted playsinline="true" poster="{{ video[0] }}">
+          <source src="{{ video[1] }}" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+    {% comment %} <script>var video2Embed = '<iframe src="https://player.vimeo.com/video/{{ video[0] }}" width="640" height="480" frameborder="0" allowfullscreen="allowfullscreen"></iframe>'; </script> {% endcomment %}
+  {%- endif -%}
+
+</div>
 
 {% comment %} Root element of PhotoSwipe. Must have class pswp. {% endcomment %}
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" id="zoomed-gallery">

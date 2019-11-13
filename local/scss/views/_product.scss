@@ -16,41 +16,6 @@ body.product{
   }
 }
 
-// .pdp-header{
-//   background: #fff;
-//   padding: 15px 0;
-//   z-index: $zi-ui;
-//   height: 73px;
-//   border-bottom: solid 1px #fff;
-//   transition: all .25s ease-out;
-//   position: sticky;
-//   top: 0;
-//   @media (min-width: $screen-md) {
-//     height: auto;
-//     border-bottom-color: $gray-lighter;
-//   }
-//   .container{
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     height: 100%;
-//     &::before, &::after{
-//       display: none;
-//     }
-//     h1{
-//       font-size: 18px;
-//       font-family: $font-family-medium; 
-//       margin: 0;
-//       @media (min-width: $screen-md) {
-//         font-size: 28px;
-//       }
-//     }
-//     .btn-secondary{
-//       border-color: $gray-lighter;
-//       font-size: 13px;
-//     }
-//   }
-// }
 .product-main{
   padding-top: $pdp-spacing-xs;
   padding-bottom: $pdp-spacing-xs;
@@ -110,26 +75,26 @@ body.product{
   }
 }
 
-.sibling-image-set{
+.pdp-gallery{
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
+  display: flex;
   @media (min-width: $screen-md) {
     flex-wrap: wrap;
     justify-content: space-between;
     overflow-x: initial;
   }
-  display: none;
-  &.active{
-    display: flex;
-  }
   .item{
-    display: block;
     min-height: 300px;
     min-width: 300px;
     width: 300px;
     overflow: hidden;
     position: relative;
     margin-right: 10px;
+    display: none;
+    &.active{
+      display: block;
+    }
     @media (min-width: $screen-md) {
       margin-right: 0;
       margin-bottom: 10px;
@@ -138,12 +103,11 @@ body.product{
       min-height: unset;
     }
     &.video-trigger{
-      @media (max-width: $screen-sm-max) {
-        display: none;
-      }
-      &:hover{
-        &::after{
-          opacity: .7;
+      @media (min-width: $screen-md) {
+        &:hover{
+          &::after{
+            opacity: .7;
+          }
         }
       }
       &::after{
@@ -186,6 +150,9 @@ body.product{
           opacity: 0;
         }
       }
+    }
+    video{
+      display: block;
     }
   }
 }
