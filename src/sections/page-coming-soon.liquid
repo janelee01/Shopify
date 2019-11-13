@@ -10,7 +10,7 @@
     {% when 'right' %}
     {% assign contentClasses = 'col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-6 col-lg-5 col-lg-offset-7' %}
   {% endcase %}
-	<section class="block hero coming-soon mb-negate">
+	<section class="hero is-stacked">
     {% include 'picture', name: block.settings.imageHandle, alt: block.settings.imageAlt %}
     <div class="content {{ block.settings.contentColor }}">
       <div class="container">

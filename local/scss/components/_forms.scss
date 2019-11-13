@@ -238,6 +238,18 @@
 	}
 }
 
+/*
+Coming soon .more-window
+*/
+#comingsoon .inner{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	.container{
+		min-width: calc(100% - 30px);
+	}
+}
 #coming-soon-signup.has-errors{
 	.validation-error{
 		display: block;

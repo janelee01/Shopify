@@ -48,6 +48,10 @@
 			background-image: url('hero-arrow-black.svg');
 		}
 	}
+	// hero only-layouts
+	&.is-stacked{
+		margin-bottom: 15px;
+	}
 	picture{
 		img{
 			width: 100%;
