@@ -117,12 +117,8 @@
         {% include 'hanover-materials' %}
     </div>
 
-    {% comment %} {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
-      {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
-    {% endunless %} {% endcomment %}
-
     {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
-      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The Hanover 2" %}
+      {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
     {% endunless %}
 
     <a id="nav-target-4" class="jumptarget"></a>        

@@ -153,25 +153,11 @@
 </div>
 </div>
 
-<div class="image-panel fw-xs legacy-has-overlay ">
-<div id="section-1item-0" class="item active"><picture> <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/shop_crossbody_claremont_large_aa4ea2ec-61b1-40be-9468-338463e929b4.jpg" media="(min-width: 768px)" /> <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/shop_crossbody_claremont_small_072308d5-467a-4f63-910c-5ba0905a3724.jpg" alt="" /> </picture>
-<div class="image-panel-content h-aligned-left v-aligned-m-center v-aligned-d-center" id="claremont-cta">
-<div class="topic-content">
-<h3 class="noSwipe title">{{ ctaTitle }}</h3>
-<p class="noSwipe final-price">{{ ctaPrice }}</p>
-<div class="btn-set">
-<p class="noSwipe"><a class="btn btn-gtm-trk" data-gtm-a="8" href="{{ ctaLink }}">View colors &amp; sizes</a></p>
-</div>
-</div>
-</div>
-</div>
 </div>
 
-</div>
-
-{% comment %} {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+{% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
   {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
-{% endunless %} {% endcomment %}
+{% endunless %}
 
 
 
