@@ -234,25 +234,28 @@ body.fixed-filters{
 	@include mb;
 	.content{
 		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
+		left: 30px;
+		bottom: 30px;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: center;
 		color: #fff;
-		text-align: center;
+		right: 30px;
+		max-width: 600px;
+		@media (min-width: $screen-md-max) {
+			left: 60px;
+			bottom: 60px;	
+		}
 		[class^="col-"] *:last-child{
 			margin-bottom: 0;
 		}
 	}
 	.title{
 		color: currentColor;
+		margin-bottom: 15px;
 	}
 	.description{
 		@include heroDescription;
+		margin-bottom: 15px;
 	}
 	&.as-h1{
 		.title{
@@ -265,21 +268,19 @@ body.fixed-filters{
 		}
 	}
 	.btn{
-		@include invertedSecondaryBtn;
-		min-width: 135px;
+		@include alternateBtn;
 		margin: 0 6px;
+		padding: 12px 20px;
+		&:first-of-type {
+			margin-left: 0;
+		}
 	}
 	img{
 		width: 100%;
 	}
 	.actions{
-		@media (max-width: $screen-xs-max) {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			.btn{
-				margin-bottom: 10px;
-			}
+		.btn{
+			margin-bottom: 10px;
 		}
 	}
 }
