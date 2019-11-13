@@ -31,6 +31,26 @@
     {%- endif -%}
   {%- endfor -%}
 
+  {% comment %} legacy product video implementation {% endcomment %}
+  {%- if parentCollection.metafields["global"]["product-video"] -%}
+    {%- assign alt1 = 'play product video' -%}
+    {%- if parentCollection.metafields["global"]["product-video-title"] -%}
+      {%- assign alt1 = parentCollection.metafields["global"]["product-video-title"] | prepend: 'Watch: ' -%}
+    {%- endif-%}
+    <a class="item active video-trigger btn-gtm-trk" data-gtm-a="10" data-video-id="1" href="#">
+      {{ parentCollection.metafields["global"]["product-video-thumb"] | img_tag: alt1, '', '343x' }}
+    </a>
+  {%- endif -%}
+  {%- if parentCollection.metafields["global"]["product-video-2"] -%}
+    {%- assign alt2 = 'play second product video' -%}
+    {%- if parentCollection.metafields["global"]["product-video-2-title"] -%}
+      {%- assign alt2 = parentCollection.metafields["global"]["product-video-2-title"] | prepend: 'Watch: ' -%}
+    {%- endif-%}
+    <a class="item active video-trigger btn-gtm-trk" data-gtm-a="10" data-video-id="2" href="#">
+      {{ parentCollection.metafields["global"]["product-video-2-thumb"] | img_tag: alt2, '', '343x' }}
+    </a>
+  {%- endif -%}
+
   {% comment %} videos common to all siblings, only include once to avoid ID crashes {% endcomment %}
   {%- if parentCollection.metafields["global"]["collection-video-1"] -%}
     {% assign video = parentCollection.metafields["global"]["collection-video-1"] | split: ',' %}
