@@ -95,10 +95,9 @@
 		</div>
 	</div>
 
-
 	{% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
-      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
-    {% endunless %}
+		{% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The Collection" %}
+	{% endunless %}
 
 </div>
 </article>
