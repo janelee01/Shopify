@@ -29,6 +29,10 @@
 	h3.title{
 		font-family: $font-family-medium;
 	}
+	// fix scrolla elements in overlays, since scrolling is attached to the document
+	.animate{
+		opacity: 1;
+	}
 }
 body.more-window-open{
 	overflow: hidden;

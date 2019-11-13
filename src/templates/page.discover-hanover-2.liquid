@@ -5,7 +5,7 @@
 {%- assign ctaPrice = hanoverPrice -%}
 {%- assign ctaLink = hanoverPdp -%}
 
-{% comment %} {% include 'cta-overrides' %} {% endcomment %}
+{% include 'cta-overrides' %}
 
 <article class="discover">
 
@@ -140,12 +140,8 @@
       </div>
     </div>
 
-    {% comment %} {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
-      {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
-    {% endunless %} {% endcomment %}
-
     {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
-      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The Hanover 2" %}
+      {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
     {% endunless %}
 
     <a id="nav-target-5" class="jumptarget"></a>        
@@ -157,7 +153,5 @@
     // ]]></script>
 
     {% include 'video-modal' %}
-
-    {% comment %} {% include 'catalina-deluxe-dimensions' %} {% endcomment %}
 
 </article>

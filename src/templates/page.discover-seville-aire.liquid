@@ -4,7 +4,7 @@
 {%- assign ctaPrice = '$385 - $395' -%}
 {%- assign ctaLink = '/products/seville-aire-tote-nylon-black-gold-grey' -%}
 
-{% comment %} {% include 'cta-overrides' %} {% endcomment %}
+{% include 'cta-overrides' %}
 
 <article>
 
@@ -140,14 +140,10 @@
       </div>
     </div>
 
-    {% comment %} {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
-      {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
-    {% endunless %} {% endcomment %}
-    
     {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
-      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The Seville Aire" %}
+      {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
     {% endunless %}
-
+    
     {% include 'seville-collection-cta' %}
 
     <script>// <![CDATA[
