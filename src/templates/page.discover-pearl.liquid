@@ -238,37 +238,27 @@
           </div>
        </div>
       
-      <a id="nav-target-4" class="jumptarget"></a>   
-       <div class="pr-items animate" {{ animateFadeInUp }}>
-           <div class="row">
-               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">        
-                        
-                  <div class="section-heading">
-                    <h2 class="title">Traveler Approved</h2>
-                  </div>
-               </div>
-           </div>
-           <div class="row mb-default">
-                <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-0">
-                    <blockquote class="pr">
-                        <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/travel-leisure-logo.svg?1376882258591607478" alt="Travel + Leisure logo"></p>
-                        <p class="pr-quote">&ldquo;A cross-body bag with a top zipper is a must in crowded markets and busy tourist areas where pickpockets and bag snatchers might be on the prowl. The Lo & Sons Pearl has a minimalist exterior design, so it'll go with pretty much any outfit, but the interior is packed with slots and zippered pockets to keep all your valuables and money secure. The adjustable strap even comes off to convert into a clutch for a fancier night out.&rdquo;</p>
-                    </blockquote>
-                </div>
-               <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-0 col-lg-4 col-lg-offset-0">
-                   <blockquote class="pr">
-                       <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/The_Huffington_Post_logo.png?15023891854137734588" alt="The Huffington Post logo"></p>
-                       <p class="pr-quote">&ldquo;Classy and practical and as precious as its namesake, The Pearl Bag won’t leave your side on your next day trip or weekend getaway.&rdquo;</p>
-                   </blockquote>
-               </div>
-               <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-0">
-                   <blockquote class="pr">
-                       <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/new-york-logo.jpg?1376882258591607478" alt="New York logo" width="157"></p>
-                       <p class="pr-quote">&ldquo;I always use the Pearl when I’m on a trip. It’s designed with the traveler in mind, so everything fits in it. That is, my camera, my phone, a charger, lipstick, my wallet, a small notebook, and a pen.&rdquo;</p>
-                   </blockquote>
-               </div>
-           </div>
-       </div>
+        <a id="nav-target-4" class="jumptarget"></a>  
+        <div class="container pr-items">
+            {% include 'section-title', title: "Press" %}
+            <div class="row topic-end-md">
+                {% include 'press-review',
+                    med-right: false,
+                    img: 'ny_mag_logo_120.svg',
+                    alt: 'New Yord Mag Logo',
+                    quote: "I always use the Pearl when I'm on a trip.  It's designed with the traveler in mind, so everything fits in it.  That is, my camera, my phone, a charger, lipstick, my wallet, a small notebook, and a pen." %}
+                {% include 'press-review',
+                    med-right: true,
+                    img: 'huffington-post-logo_120.svg',
+                    alt: 'Huffington Post Logo',
+                    quote: "Classy and practical and so precious as its namesake, The Pearl won't leave your side on your next day trip or weekend getaway." %}
+                {% include 'press-review',
+                    med-right: false,
+                    img: 'travel-leisure-logo_120.svg',
+                    alt: 'Travel+Leisure Logo',
+                    quote: "The Lo & Sons Pearl has a minimalist exterior design, so it'll go with pretty much any outfit, but the interior is packed with slots and zippered pockets to keep all your valuables and money secure. The adjustable strap even comes off to convert into a clutch for a fancier night out." %}
+            </div>
+        </div> 
     </div>
     
     {% comment %} {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}

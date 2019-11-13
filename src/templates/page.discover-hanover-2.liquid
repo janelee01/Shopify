@@ -9,7 +9,7 @@
 
 <article class="discover">
 
-    {% include 'discover-nav', labels:'Features,Size,Materials,Compare' %}
+    {% include 'discover-nav', labels:'Features,Size,Materials,Press,Compare' %}
     
     <div class="max-container">
         <div class="hero has-arrow" id="hanover-hero">
@@ -116,6 +116,29 @@
         <a id="nav-target-3" class="jumptarget"></a>        
         {% include 'hanover-materials' %}
     </div>
+    
+    <a id="nav-target-4" class="jumptarget"></a>        
+    <div class="container pr-items">
+      {% include 'section-title', title: "Press" %}
+      <div class="row topic-end-md">
+        {% include 'press-review',
+            med-right: false,
+            img: 'ny_mag_logo_120.svg',
+            alt: 'New York Magazine Logo',
+            quote: "An attachable backpack, Lo & Sons’s Hanover bag also includes a removable insert with separate pockets for all your essentials, like a water bottle sleeve and a dedicated laptop section." %}
+        {% include 'press-review',
+            med-right: true,
+            img: 'entrepreneur-logo_120.svg',
+            alt: 'Entrepreneur Logo',
+            quote: "The Hanover Backpack is not just fashionable, it’s functional. This pack includes a soft removable center insert and storage compartments perfect for keys, a passport and a water bottle, making it an ideal travel companion. Plus, its eco-friendly materials, including polyester made from recycled plastic bottles, help reduce your carbon footprint." %}
+        {% include 'press-review',
+            med-right: false,
+            img: 'travel-leisure-logo_120.svg',
+            alt: 'Travel+Leisure Logo',
+            quote: "Lo & Sons’ weekender wins praise across outlets, and they’ve applied their winning expertise to backpacks with the Hanover. The standard model fits up to a 13” laptop, while the larger Hanover Deluxe adds space for up to a 15.6” computer, larger front pocket, and a side water bottle sleeve Bonus: It’s made from recycled polyester, so you’re staying sustainable." %}
+
+      </div>
+    </div>
 
     {% comment %} {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
       {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
@@ -125,7 +148,7 @@
       {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The Hanover 2" %}
     {% endunless %}
 
-    <a id="nav-target-4" class="jumptarget"></a>        
+    <a id="nav-target-5" class="jumptarget"></a>        
     {% include 'discover-hanover-compare', url: hanoverCompare %}
     {% include 'compare-backpacks-cta-hanover' %}
 

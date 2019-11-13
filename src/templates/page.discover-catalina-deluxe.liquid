@@ -10,7 +10,7 @@
 
 <article class="discover">
 
-    {% include 'discover-nav', labels:'Functionality,Size,Materials' %}
+    {% include 'discover-nav', labels:'Functionality,Size,Materials,Press' %}
     
     {% include 'hero',
       img: 'catalina-deluxe-fw19-hero',
@@ -128,6 +128,48 @@
 
     <a id="nav-target-3" class="jumptarget"></a>    
     {% include 'catalina-materials' %}
+
+    <a id="nav-target-4" class="jumptarget"></a>
+    <div class="container pr-items">
+      {% include 'section-title', title: "Press" %}
+      <div class="row topic-end-md">
+        {% include 'press-review',
+            med-right: false,
+            img: 'travel-leisure-logo_120.svg',
+            alt: 'Travel+Leisure Logo',
+            quote: "With interior and exterior pockets for organizing your stuff, a drop-strap that makes hauling it around easy, and a bottom zip compartment for keeping shoes or dirty clothes separate, it’s a practical pick for long weekend excursions." %}
+        {% include 'press-review',
+            med-right: true,
+            img: 'domino_logo_120.svg',
+            alt: 'Domino Logo',
+            quote: "When it comes to weekenders, Lo and Sons reigns supreme because they live and breathe organization. Every single design element is thoughtfully planned out, so much so, that the brand even has awesome videos to demonstrate just how much stuff you can fit inside each of their bags." %}
+        {% include 'press-review',
+            med-right: false,
+            img: 'bustle_logo_120.svg',
+            alt: 'Bustle Logo',
+            quote: "The Catalina Canvas Weekender is a no-fuss canvas bag that seems unassuming, but is ground-breaking in its organization. If you live for compartments and labels, you're going to drool." %}
+        {% include 'press-review',
+            med-right: true,
+            img: 'smartertravel_logo_120.svg',
+            alt: 'SmarterTravel Logo',
+            quote: "The Lo & Son’s Catalina Deluxe is the perfect weekender bag to take with you on your next getaway. Whether you’re traveling by bus, train, plane, or car, it fits everything you need and doesn’t take up too much space on any form of transportation." %}
+        {% include 'press-review',
+            med-right: false,
+            img: 'Refinery29_logo_120.svg',
+            alt: 'Refinery29 Logo',
+            quote: "This canvas weekender comes in a small yet powerful size with multi compartments for strategic long-weekend outfit storage (hello, separate shoe compartment) and convertible straps for adaptable toting (over-shoulder or cross-body)." %}
+        {% include 'press-review',
+            med-right: true,
+            img: 'fodors-logo_120.svg',
+            alt: 'Fodors Logo',
+            quote: "This bag does double duty with a smart bottom zipper pocket for wet clothes after a day at the beach or shoes if you’re using it as a carry-on. It’s bigger than your average one-person beach bag, but would make the perfect weekend bag, easy to toss in the back of the car." %}
+        {% include 'press-review',
+            med-right: false,
+            img: 'expedia_logo_120.svg',
+            alt: 'Expedia Logo',
+            quote: "The base of the tote bag is a compartment that can store shoes and bulkier ponchos, and the top compartment is extra spacious and easily fits everything you would need for a weekend away!" %}
+      </div>
+    </div>
 
     {% include 'discover-cta' %}
 
