@@ -48,6 +48,10 @@
 			background-image: url('hero-arrow-black.svg');
 		}
 	}
+	// hero only-layouts
+	&.is-stacked{
+		margin-bottom: 15px;
+	}
 	picture{
 		img{
 			width: 100%;
@@ -76,6 +80,11 @@
 		&.black-md{
 			@media (min-width: $screen-md) {
 				color: $brand-black;
+			}
+		}
+		&.white{
+			.btn.btn-secondary{
+				@include invertedSecondaryBtn;
 			}
 		}
 		.title{
