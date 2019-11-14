@@ -11,15 +11,27 @@
 
   {% include 'style-tags' %}
 
-  {% include 'optimize-page-hiding' %}
-  {% include 'google-tag-manager' %}
-  {% include 'optimize-tag' %}
-  {% include 'sentry' %}
+  {% include 'head-common' %}
+  
+  <!-- sentry.io -->
+  <script src="https://browser.sentry-cdn.com/4.6.4/bundle.min.js" crossorigin="anonymous"></script>
+  <script>
+  Sentry.init({
+    dsn: 'https://4535afa6763441cabf738a5947fb6308@sentry.io/1417909',
+    environment: ~document.location.href.indexOf('localhost') ? 'dev' : 'production',
+    debug: false,
+    whitelistUrls: [
+      "{{ 'test.jpg' | asset_url }}".replace(/test.jpg\?\d*/,'')
+    ],
+    ignoreErrors: ['localhost']
+  });
+  </script>
 
-    {%- comment -%}Include polyfill for IE browser only{%- endcomment -%}
-    {%- if template contains 'product' -%}
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.includes-polyfill%2CArray.prototype.forEach-polyfill"></script>
-    {%- endif -%}
+
+  {%- comment -%}Include polyfill for IE browser only{%- endcomment -%}
+  {%- if template contains 'product' -%}
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.includes-polyfill%2CArray.prototype.forEach-polyfill"></script>
+  {%- endif -%}
 
   {% comment %} hide parent collection pages from indexing {% endcomment %}
   {%- if template == 'collection' -%}
@@ -55,7 +67,59 @@
     <meta name="description" content="{{ page_description | escape }}">
   {% endif %}
 
-  {% include 'social-meta-tags' %}
+  {%- assign og_title = page_title -%}
+  {%- assign og_url = canonical_url -%}
+  {%- assign og_type = 'website' -%}
+  {%- assign og_description = page_description | default: shop.description | default: shop.name -%}
+
+  {% comment %}
+    Template specific overides
+  {% endcomment %}
+  {%- if template.name == 'product' -%}
+    {%- assign og_title = product.title | strip_html -%}
+    {%- assign og_type = 'product' -%}
+    {%- capture og_image_tags -%}
+      {%- for image in product.images limit: 3 -%}
+        <meta property="og:image" content="http:{{ image.src | product_img_url: '1024x1024' }}">
+      {%- endfor -%}
+    {%- endcapture -%}
+    {%- capture og_image_secure_url_tags -%}
+      {%- for image in product.images limit: 3 -%}
+        <meta property="og:image:secure_url" content="https:{{ image.src | product_img_url: '1024x1024' }}">
+      {%- endfor -%}
+    {%- endcapture -%}
+
+  {%- elsif template.name == 'article' -%}
+    {%- assign og_title = article.title | strip_html -%}
+    {%- assign og_type = 'article' -%}
+    {%- assign og_description = article.excerpt_or_content | strip_html -%}
+    {%- if article.image -%}
+      {%- capture og_image_tags -%}<meta property="og:image" content="http:{{ article.image | img_url: '1024x1024' }}">{%- endcapture -%}
+      {%- capture og_image_secure_url_tags -%}<meta property="og:image:secure_url" content="https:{{ article.image | img_url: '1024x1024' }}">{%- endcapture -%}
+    {%- endif -%}
+
+  {%- elsif template.name == 'password' -%}
+    {%- assign og_title = shop.name -%}
+    {%- assign og_url = shop.url -%}
+    {%- assign og_description = shop.description | default: shop.name -%}
+  {%- endif -%}
+
+  <meta property="og:site_name" content="{{ shop.name }}">
+  <meta property="og:url" content="{{ og_url }}">
+  <meta property="og:title" content="{{ og_title }}">
+  <meta property="og:type" content="{{ og_type }}">
+  <meta property="og:description" content="{{ og_description }}">
+  {%- if template.name == 'product' -%}
+    <meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html }}">
+    <meta property="og:price:currency" content="{{ shop.currency }}">
+  {%- endif -%}
+  {{ og_image_tags }}
+  {{ og_image_secure_url_tags }}
+
+  <meta name="twitter:site" content="{{ settings.social_twitter_link | split: 'twitter.com/' | last | prepend: '@' }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ og_title }}">
+  <meta name="twitter:description" content="{{ og_description }}">
 
   <script>
     window.slate = window.slate || {};
@@ -74,8 +138,19 @@
     };
 
     var kListId = '{{ shop.metafields["global"]["klaviyo-list-id"] }}';
+
+    var autocompletedata = [
+      {% for page in linklists.autocomplete-products.links %} { label: "{{ page.title }}", category: "Products", value: "{{ page.url }}" }, {% endfor %}
+      {% for page in linklists.autocomplete-collections.links %} { label: "{{ page.title }}", category: "Collections", value: "{{ page.url }}" }, {% endfor %}
+      {% comment %} 
+      {% for article in blogs.news.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+      {% for article in blogs.product-design.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+      {% for article in blogs.travel-inspiration.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+      {% for article in blogs.travel-style.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+      {% for article in blogs.travel-tips-guides.articles %}{ label: "{{ article.title }}", category: "Stories", value: "{{ article.url }}" }, {% endfor %}
+      {% endcomment %}
+    ];
   </script>
-  {% include 'autocomplete-data' %}
 
   {% if template.directory == 'customers' %}
     <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
@@ -90,8 +165,6 @@
 
   {{ content_for_header | replace: "<body onload='document._boomrl();'>", "<bodx onload='document._boomrl();'>" }}
 
-
-  {% comment %} {% include 'page-assets' %} {% endcomment %}
 
   <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/1BRcvEm4otuzCinl2NlZx7eeyApg3H6EPGJ0Zv74/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
 </head>
@@ -110,13 +183,13 @@
       <div class="icon-set">
         <div class="icon">
           <a href="#" id="site-menu-open">
-            {% include 'header-icons', icon: 'menu' %}
+            {% include 'get-icon', icon: 'menu' %}
             <span class="sr-only">Open Menu</span>
           </a>
         </div>
         <div class="icon">
           <a href="#" id="help-menu-toggle">
-            {% include 'header-icons', icon: 'help' %}
+            {% include 'get-icon', icon: 'help' %}
             <span class="sr-only">{{ 'layout.help.title' | t }}</span>
           </a>
           {% section 'help-menu' %}
@@ -124,25 +197,25 @@
       </div>
       {% if template.name == 'index' %}
         <h1 id="site-logo" itemscope itemtype="http://schema.org/Organization">
-          {% include 'header-icons', icon: 'logo' %}
+          {% include 'get-icon', icon: 'logo' %}
           <span class="sr-only">{{ shop.name }}</span>
         </h1>
       {% else %}
         <a href="/" id="site-logo" itemscope itemtype="http://schema.org/Organization">
-          {% include 'header-icons', icon: 'logo' %}
+          {% include 'get-icon', icon: 'logo' %}
           <span class="sr-only">{{ shop.name }}</span>
         </a>
       {% endif %}
       <div class="icon-set">
         <div class="icon">
           <a href="/account/login" class="login-link">
-            {% include 'header-icons', icon: 'login' %}
+            {% include 'get-icon', icon: 'login' %}
             <span class="sr-only">{{ 'layout.login.title' | t }}</span>
           </a>
         </div>
         <div class="icon">
           <a href="/cart" class="cart-link {% if cart.item_count < 1 %}empty{% endif %}">
-            {% include 'header-icons', icon: 'cart' %}
+            {% include 'get-icon', icon: 'cart' %}
             <span class="sr-only">{{ 'layout.cart.title' | t }}</span>
             <span class="cart-count">{{ cart.item_count }}</span>
           </a>
@@ -157,10 +230,23 @@
     </main>
     {% section 'footer' %}
   </div>
+
+  <div id="product-video">
+    <div id="product-video-container"></div>
+    <a href="#" class="panel-close"><span class="sr-only">Close</span></a>
+  </div>
   
 
- {% include 'sweettooth-initializer' %}
- {% include 'sweettooth-tab-widget' %}
+  {% if customer %}
+    {% assign digest = customer.id | append: shop.metafields['sweettooth'].api_secret | md5 %}
+    {% assign customerId = customer.id %}
+  {% endif %}
+
+  <div class="sweettooth-init"
+      data-channel-api-key="{{ shop.metafields['sweettooth'].api_key }}"
+      data-external-customer-id="{{ customerId }}"
+      data-customer-auth-digest="{{ digest }}"></div>
+  <div class="sweettooth-tab"></div>
 
   {% comment %}For any page, admin can define products shown on the page to report back to GTM for remarking pixels {% endcomment %}
   {%- unless page.metafields["global"]["gtm-products"] == blank -%}

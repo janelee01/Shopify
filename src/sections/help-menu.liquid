@@ -1,11 +1,11 @@
 {%- assign help_menu = linklists[section.settings.help_linklist] -%}
 <nav class="primary-links">
   <a onclick="olark('api.box.expand')" href="#">
-    {% include 'header-icons', icon: 'chat' %}
+    {% include 'get-icon', icon: 'chat' %}
     {{ 'layout.help.chat' | t }}
   </a>
   <a href="mailto:{{settings['social_email_address']}}" target="_blank">
-    {% include 'header-icons', icon: 'email' %}
+    {% include 'get-icon', icon: 'email' %}
     {{ 'layout.help.email' | t }}
   </a>
 </nav>

@@ -1,10 +1,10 @@
 {% include 'vars' %}
-{%- assign assetVersion = 7708660678233707015 -%}
+{%- assign assetVersion = 850053417828143397 -%}
 {%- assign ctaImgCol = 'col-md-5 col-md-offset-1' -%}
 {%- assign ctaContentCol = 'col-md-6' -%} 
 {%- assign ctaTitle = 'Hanover' -%}
 {%- assign ctaPrice = '$128' -%}
-{%- assign ctaLink = '/products/the-hanover-ripstop-recycled-poly-black' -%}
+{%- assign ctaLink = '/products/hanover-600d-recycled-poly-onyx' -%}
 {%- assign ctaImg = 'hanover-cta' -%}
 
 
@@ -13,9 +13,9 @@
     {% include 'discover-nav', labels:'Features,Design,Materials,Press,Compare' %}
     
     <div class="max-container">
-        <div class="hero has-arrow">
-            {% include 'discover-picture', name: 'hanover-w-hero-image', alt: 'woman walking with Hanover on suitcase', retina: true, fw: false %}
-            <div class="hero-content white left">
+        <div class="hero has-black-arrow">
+            {% include 'discover-picture', name: 'hanover-m-hero-image', alt: 'man with Hanover walking away', retina: true, fw: false, lg: true %}
+            <div class="hero-content left">
                 <h1 class="title"><span class="subtitle">Discover</span> Hanover</h1>
                 <p class="description">A super lightweight and minimal travel backpack made from eco-friendly materials.</p>
             </div>
@@ -44,7 +44,7 @@
 
         <div class="row animate topic-block aligned-md mb-negate-xs mb-negate-sm" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-1 col-lg-6 col-lg-offset-0">
-                {% include 'discover-picture', name: 'hanover-w-suitcase-sleeve', alt: 'Suitcase Handle Sleeve', retina: true, fw: true %}                    
+                {% include 'discover-picture', name: 'hanover-m-suitcase-sleeve', alt: 'Suitcase Handle Sleeve', retina: true, fw: true %}                    
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
                 <div class="topic-content text-center-sm">
@@ -55,12 +55,13 @@
         </div>
 
         <div class="row animate topic-block aligned-md reversed mb-negate-xs mb-negate-sm" {{ animateFadeInUp }}>
-            <div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-1 col-md-6">
-                <picture class="fw-xs">
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/hanover-w-removable-insert-md.gif?{{ assetVersion }}" media="(min-width: {{ screenMd }})" />
-                    <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/hanover-w-removable-insert-sm.gif?{{ assetVersion }}" media="(min-width: {{ screenSm }})" />
-                    <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/hanover-w-removable-insert-xs.gif?{{ assetVersion }}" alt="removable insert animation" />
-                </picture>
+            <div id="hanover-m-removable" class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-1 col-lg-6">
+                {% include 'discover-picture', name: 'hanover-m-removable-insert', alt: 'watch Removable Insert video', retina: true, fw: true %}       
+                <div class="content-col">
+                    <a href="#" data-video-id="1" class="video-trigger">
+                        <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video">
+                    </a>
+                </div>
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
                 <div class="topic-content text-center-sm">
@@ -72,7 +73,7 @@
 
         <div class="row animate topic-block aligned-md reversed mb-negate-xs mb-negate-sm" {{ animateFadeInUp }}>
             <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-1">  
-                {% include 'discover-picture', name: 'hanover-airline', alt: 'sample airline seat', retina: true, fw: false %}                         
+                {% include 'discover-picture', name: 'hanover-airline', alt: 'sample airline seat', retina: true, fw: false %}                              
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
                 <div class="topic-content text-center-sm">
@@ -84,7 +85,7 @@
 
         <div class="row animate topic-block aligned-md mb-large mb-negate-sm" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0">   
-                {% include 'discover-picture', name: 'hanover-w-ultra-comfortable', alt: 'Adjustable shoulder straps', retina: true, fw: true %}                        
+                {% include 'discover-picture', name: 'hanover-m-ultra-comfortable', alt: 'Adjustable shoulder straps', retina: true, fw: true %}                        
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
                 <div class="topic-content text-center-sm">
@@ -96,7 +97,7 @@
         
         <div class="row mb-large hidden-xs">
             <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-                <hr class="reset" />
+                <hr class="reset">
             </div>
         </div>
 <a id="nav-target-2" class="jumptarget"></a>
@@ -116,7 +117,7 @@
     <div class="container" id="hanover-organized">
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-0">
-                {% include 'discover-picture', name: 'hanover-w-laptop-storage', alt: 'Laptop Storage', retina: true, fw: true %}  
+                {% include 'discover-picture', name: 'hanover-m-laptop-storage', alt: 'Laptop Storage', retina: true, fw: true %}  
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-offset-0">
                         <div class="topic-content text-center-sm">
@@ -127,7 +128,7 @@
                 </div>
             </div>
             <div class="col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-0">
-                {% include 'discover-picture', name: 'hanover-w-key-leash', alt: 'Key Leash', retina: true, fw: true %}  
+                {% include 'discover-picture', name: 'hanover-m-key-leash', alt: 'Key Leash', retina: true, fw: true %}  
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-offset-0">
                         <div class="topic-content text-center-sm">
@@ -138,7 +139,7 @@
                 </div>
             </div>
             <div class="col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-0">
-                {% include 'discover-picture', name: 'hanover-w-side-pocket', alt: 'Side Stash Pocket', retina: true, fw: true %}  
+                {% include 'discover-picture', name: 'hanover-m-side-pocket', alt: 'Side Stash Pocket', retina: true, fw: true %}  
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-offset-0">
                         <div class="topic-content text-center-sm">
@@ -149,7 +150,7 @@
                 </div>
             </div>
             <div class="col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-0">
-                {% include 'discover-picture', name: 'hanover-w-interior-pocket', alt: 'Interior Pockets', retina: true, fw: true %}  
+                {% include 'discover-picture', name: 'hanover-m-interior-pocket', alt: 'Interior Pockets', retina: true, fw: true %}  
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-offset-0">
                         <div class="topic-content text-center-sm">
@@ -163,7 +164,7 @@
     </div>
     
     <div class="max-container has-overlay-xs topic-block mb-large animate" {{ animateFadeInUp }}>
-        {% include 'discover-picture', name: 'hanover-w-what-fits-inside', alt: 'video showing how to pack the Hanover', retina: true, fw: false %}  
+        {% include 'discover-picture', name: 'hanover-m-what-fits-inside', alt: 'video showing how to pack the Hanover', retina: true, fw: false %}  
         <div class="topic-content">
             <h3 class="title">What Fits Inside</h3>
             <a href="#" data-video-id="2" class="video-trigger">
@@ -185,26 +186,27 @@
        <div class="row animate mb-default" {{ animateFadeInUp }}>
            <div class="col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-5 col-lg-offset-1">
                 <div id="hanover-minimalist-1">
-                    {% include 'discover-picture', name: 'hanover-w-minimalist-design-01', alt: 'Hanover shown on suitcase', retina: true, fw: true %}  
+                    {% include 'discover-picture', name: 'hanover-m-minimalist-design-01', alt: 'Hanover shown on one shoulder', retina: true, fw: true %}  
                 </div>
            </div>
            <div class="col-sm-5 col-md-4 col-lg-5 offset-top-sm offset-top-md offset-top-lg">
-                {% include 'discover-picture', name: 'hanover-w-minimalist-design-02', alt: 'carrying the Hanover by the top strap', retina: true, fw: false %}  
+                {% include 'discover-picture', name: 'hanover-m-minimalist-design-02', alt: 'Hanover shown on both shoulders', retina: true, fw: false %}  
            </div>
        </div>
        <div class="row animate mb-large" {{ animateFadeInUp }}>
            <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">
-                {% include 'discover-picture', name: 'hanover-w-minimalist-design-03', alt: 'Hanover shown on both shoulders', retina: true, fw: true %}  
+                {% include 'discover-picture', name: 'hanover-m-minimalist-design-03', alt: 'Hanover shown on suitcase', retina: true, fw: true %}  
            </div>
        </div>
 <a id="nav-target-3" class="jumptarget"></a>
        <div class="animate" {{ animateFadeInUp }}>
            <div class="row">
-               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">                    
+               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">                    
                    <div class="section-heading">
                     <h2 class="title">High-Quality Materials</h2>
-                    <p class="description">The Hanover is crafted from premium grade materials that are both durable and eco-friendly.</p>
+                    <p class="description">The Hanover is crafted from premium grade materials that are both durable and eco-friendly.  </p>
                   </div>
+                   
                </div>
            </div>
        </div>
@@ -241,17 +243,18 @@
            </div>
        </div>
 
-       <div class="row mb-large hidden-xs">
+       <div class="row mb-large">
            <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-               <hr class="reset" />
+               <hr class="reset">
            </div>
        </div>
 <a id="nav-target-4" class="jumptarget"></a>
        <div class="container pr-items animate" {{ animateFadeInUp }}>
-           <div class="section-heading">
-            <h2 class="title">Traveler Approved</h2>  
-           </div>
-           <div class="row mb-default">
+          <div class="section-heading">
+            <h2 class="title">Traveler Approved</h2>
+          </div>
+           
+           <div class="row mb-large">
                <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
                    <blockquote class="pr">
                         <p class="pr-logo"><img src="https://cdn.shopify.com/s/files/1/2185/1497/files/today-logo.svg?15338545032145631141" alt="Today logo"></p>
@@ -267,28 +270,26 @@
            </div>
        </div>
 
-       <div class="row mb-large visible-xs visible-sm">
+       <div class="row mb-large">
            <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-               <hr class="reset" />
+               <hr class="reset">
            </div>
        </div>
 
         <a id="nav-target-5" class="jumptarget"></a>
-       {% include 'hanover-compare-w' %}
+       {% include 'hanover-compare-m' %}
         
     </div>
     
     <div id="hanover-cta">
-   {% include 'discover-cta', retina: true %}
+    {% include 'discover-cta', retina: true %}
     </div>
 
     {% include 'compare-backpacks-cta' %}
 
     <script>// <![CDATA[
-    var video1Embed = '<iframe src="//player.vimeo.com/video/191847101?player_id=vimeo-hanover&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-hanover" class="vimeo"></iframe>';
-    var video2Embed = '<iframe src="//player.vimeo.com/video/191847312?player_id=vimeo-hanover&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-hanover" class="vimeo"></iframe>';
+    var video1Embed = '<iframe src="//player.vimeo.com/video/191846280?player_id=vimeo-hanover&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-hanover" class="vimeo"></iframe>';
+    var video2Embed = '<iframe src="//player.vimeo.com/video/191846909?player_id=vimeo-hanover&amp;title=0&amp;byline=0&amp;portrait=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen id="vimeo-hanover" class="vimeo"></iframe>';
     // ]]></script>
-
-    {% include 'video-modal' %}
 
 </article>

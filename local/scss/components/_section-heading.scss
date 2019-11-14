@@ -37,5 +37,21 @@
   }
   *:last-child{
     margin-bottom: 0;
-  }
+	}
+	&.is-h1{
+		margin-top: $mb-default-xs / 2;
+		margin-bottom: $mb-default-xs / 2;
+		@media (min-width: $screen-sm) {
+			margin-top: $mb-default-sm / 2;
+			margin-bottom: $mb-default-sm / 2;
+		}
+		@media (min-width: $screen-md) {
+			margin-top: $mb-default-md / 2;
+			margin-bottom: $mb-default-md / 2;
+		}
+		@media (min-width: $screen-lg) {
+			margin-top: $mb-default-lg / 2;
+			margin-bottom: $mb-default-lg / 2;
+		}
+	}
 }

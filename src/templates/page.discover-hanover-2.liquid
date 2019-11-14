@@ -38,7 +38,7 @@
 
         {% include 'discover-section-heading', title: "Travel", text: "Whether you’re going near or far, pack everything you need for that upcoming vacation." %}
         
-        <div class="row">
+        <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-4">
                 {% include 'discover-picture', name: 'hanover2-discover-section1-block1', alt: 'man walking across cross-walk with luggage', retina: true, fw: false, lg: true %}
                 {% include 'discover-topic-content', title: "Seamless Security", text: "The luggage sleeve slides right over a suitcase handle." %}
@@ -54,7 +54,7 @@
         </div>
 
         {% include 'discover-section-heading', title: "Weekend", text: "Keep your necessities neat and organized on your next weekend adventure." %}
-        <div class="row">
+        <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-4">
                 {% include 'inline-video', ratio: '3-4', index: 4, poster: 'hanover2-discover-section2-block1-md', src: '660d-Collection-Launch-Discover-Refresh-Catalina-and-Hanover-2_Sophie-Sahara_Williamsburg-Hotel_June-2019_Shot_20_Female' %}
                 {% include 'discover-topic-content', title: "Functional Freedom", text: "Remove the interior insert to lighten your load." %}
@@ -70,7 +70,7 @@
         </div>
 
         {% include 'discover-section-heading', title: "Work", text: "Effortlessly get through the daily grind and take care of business in true style." %}
-        <div class="row">
+        <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-4">
                 {% include 'discover-picture', name: 'hanover2-discover-section3-block1', alt: 'man putting laptop in backpack', retina: true, fw: false, lg: true %}
                 {% include 'discover-topic-content', title: "Smarter Storage", text: "Now with a NEW separate sleeve to slip your laptop right in." %}
@@ -86,7 +86,7 @@
         </div>
 
         {% include 'discover-section-heading', title: "Workout Session", text: "The definition of form meets function — this is the bag you’ll want to add to your fitness routine." %}
-        <div class="row">
+        <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-4">
                 {% include 'discover-picture', name: 'hanover2-discover-section4-block1', alt: 'man putting waterbottle in bag', retina: true, fw: false, lg: true %}
                 {% include 'discover-topic-content', title: "Genius Convenience", text: "A water bottle stays in place with the interior mesh pocket. " %}
@@ -112,7 +112,17 @@
     </div>
 
     <div class="container">
-        {% include 'hanover-carry-on' %}
+        {% include 'discover-section-heading', title: "Carry-On Friendly", text: "We designed Hanover 2 to be the ideal travel partner." %}
+        <div class="row animate mb-large" {{ animateFadeInUp }}>
+        <div class="col-sm-6">  
+            {% include 'discover-picture', name: 'hanover2-discover-section6-block1', alt: 'airplane seating', retina: true, fw: false, lg: true %}
+            {% include 'discover-topic-content', title: "Under Seat Ready", text: "The Hanover 2 fits seamlessly under any airline seat." %}               
+        </div>
+        <div class="col-sm-6">    
+            {% include 'discover-picture', name: 'hanover2-discover-section6-block2', alt: 'bag in airplane overhead compartment', retina: true, fw: false, lg: true %}                
+            {% include 'discover-topic-content', title: "Compatible with Overhead Storage  ", text: "The Hanover 2 fits seamlessly in the overhead cabin storage." %}
+        </div>
+        </div>
         <a id="nav-target-3" class="jumptarget"></a>        
         {% include 'hanover-materials' %}
     </div>
@@ -151,7 +161,5 @@
     <script>// <![CDATA[
     var video1Embed = '<iframe src="https://player.vimeo.com/video/355334593" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
     // ]]></script>
-
-    {% include 'video-modal' %}
 
 </article>

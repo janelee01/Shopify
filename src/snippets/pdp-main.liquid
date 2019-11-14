@@ -24,9 +24,142 @@
   </div>
 </header>
 <section class="product-main container">
+
   <div class="gallery-col fw-xs fw-sm">
-    {% include 'pdp-galleries' %}
+    <div class="pdp-gallery">
+      {%- for siblingProduct in parentCollection.products -%}
+        {%- if siblingsList contains siblingProduct.id -%}      
+          {% assign siblingImageCount = 0 %}
+
+          {% comment %} images specific to this sibling {% endcomment %}
+          {% for image in siblingProduct.images %}
+            {%- unless image.alt contains 'swatch' -%}
+            <a class="item sibling-item zoomable {% if siblingProduct.id == product.id %}active{% endif %}" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-sibling="{{ siblingProduct.id }}" data-index="{{ forloop.index0 }}">
+              {% if siblingProduct.id == product.id %}
+                {{ image | img_tag: image.alt, '', '343x' }}
+              {% else %} {% comment %} lazy load for all the siblings {% endcomment %}
+                <img src="//:0" class="lazy" width="343" data-lazy="{{ image | img_url: '343x' }}" alt="{{ image.alt }}">
+              {% endif %}
+            </a>
+            {% assign siblingImageCount = siblingImageCount | plus: 1 %}
+            {%- endunless -%}
+          {% endfor %}
+
+          {% comment %} images common to all siblings, included multiple times so the zoom gallery includes them {% endcomment %}
+          {% if parentCollection.metafields["global"]["collection-images"] %}
+            {% assign images = parentCollection.metafields["global"]["collection-images"] | split: ',' %}
+            {% for image in images %}
+              <a class="item sibling-item zoomable {% if siblingProduct.id == product.id %}active{% endif %}" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-sibling="{{ siblingProduct.id }}" data-index="{{ forloop.index0 | plus: siblingImageCount }}">
+                {{ image | img_tag }} {% comment %} not lazy loading this since the active product download will cache the rest {% endcomment %}
+              </a>
+            {% endfor %}
+          {% endif %}
+
+        {%- endif -%}
+      {%- endfor -%}
+
+      {% comment %} legacy product video implementation {% endcomment %}
+      {%- if parentCollection.metafields["global"]["product-video"] -%}
+        {%- assign alt1 = 'play product video' -%}
+        {%- if parentCollection.metafields["global"]["product-video-title"] -%}
+          {%- assign alt1 = parentCollection.metafields["global"]["product-video-title"] | prepend: 'Watch: ' -%}
+        {%- endif-%}
+        <a class="item active video-trigger btn-gtm-trk" data-gtm-a="10" data-video-id="1" href="#">
+          {{ parentCollection.metafields["global"]["product-video-thumb"] | img_tag: alt1, '', '343x' }}
+        </a>
+      {%- endif -%}
+      {%- if parentCollection.metafields["global"]["product-video-2"] -%}
+        {%- assign alt2 = 'play second product video' -%}
+        {%- if parentCollection.metafields["global"]["product-video-2-title"] -%}
+          {%- assign alt2 = parentCollection.metafields["global"]["product-video-2-title"] | prepend: 'Watch: ' -%}
+        {%- endif-%}
+        <a class="item active video-trigger btn-gtm-trk" data-gtm-a="10" data-video-id="2" href="#">
+          {{ parentCollection.metafields["global"]["product-video-2-thumb"] | img_tag: alt2, '', '343x' }}
+        </a>
+      {%- endif -%}
+
+      {% comment %} videos common to all siblings, only include once to avoid ID crashes {% endcomment %}
+      {%- if parentCollection.metafields["global"]["collection-video-1"] -%}
+        {% assign video = parentCollection.metafields["global"]["collection-video-1"] | split: ',' %}
+        <div class="item active">
+          <div class="pdp-gallery-video">
+            <video id="video-{{ parentCollection.id }}-1" width="100%" loop muted playsinline="true" poster="{{ video[0] }}">
+              <source src="{{ video[1] }}" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        {% comment %} <script>var video1Embed = '<iframe src="https://player.vimeo.com/video/{{ video[0] }}" width="640" height="480" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';</script> {% endcomment %}
+      {%- endif -%}
+
+      {%- if parentCollection.metafields["global"]["collection-video-2"] -%}
+        {% assign video = parentCollection.metafields["global"]["collection-video-2"] | split: ',' %}
+        <div class="item active">
+          <div class="pdp-gallery-video">
+            <video id="video-{{ parentCollection.id }}-2" width="100%" loop muted playsinline="true" poster="{{ video[0] }}">
+              <source src="{{ video[1] }}" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        {% comment %} <script>var video2Embed = '<iframe src="https://player.vimeo.com/video/{{ video[0] }}" width="640" height="480" frameborder="0" allowfullscreen="allowfullscreen"></iframe>'; </script> {% endcomment %}
+      {%- endif -%}
+
+    </div>
+
+    {% comment %} Root element of PhotoSwipe. Must have class pswp. {% endcomment %}
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" id="zoomed-gallery">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+          <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+          </div>
+          {% comment %} has to be here or zooming breaks {% endcomment %}
+          <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar"></div>
+          </div>
+        </div>
+        <button class="panel-close"><span class="sr-only">close</span></button>
+        <button class="arrow next"><span class="sr-only">next</span></button>
+        <button class="arrow prev"><span class="sr-only">previous</span></button>
+    </div>
+    {% comment %} Photoswipe data, easier to read outside of the script tag below {% endcomment %}
+    {% capture pswpData %}
+      var pswpData = {
+      {%- for siblingProduct in parentCollection.products -%}
+        {%- if siblingsList contains siblingProduct.id -%}
+          {{ siblingProduct.id }} : [
+            {%- for image in siblingProduct.images -%}
+              {%- unless image.alt contains 'swatch' -%}
+              {
+                src: "{{ image | img_url: 'master' }}",
+                msrc: "{{ image | img_url: '343x' }}",
+                w: {{ image.width }},
+                h: {{ image.height }},
+              },
+              {%- endunless -%}
+            {%- endfor -%}
+            {%- if parentCollection.metafields["global"]["collection-images"] -%}
+              {%- assign images = parentCollection.metafields["global"]["collection-images"] | split: ',' -%}
+              {%- for image in images -%}
+              {
+                src: "{{ image }}",
+                w: 1500,
+                h: 1500,
+              },
+              {%- endfor -%}
+            {%- endif -%}
+          ],
+        {%- endif -%}
+      {%- endfor -%}
+      };
+    {% endcapture %}
+    <script>
+      {{ pswpData }}
+    </script>
+
   </div>
+
   <div class="form-col">
     <div class="form">
       <div class="form-row" id="price-wrapper">
@@ -43,7 +176,98 @@
 
           <div class="form-row" id="selected-color">{{ product.metafields["global"]["swatch-label"] }}</div>
           
-          {% include 'pdp-swatches' %}
+          <div id="swatch-groups" class="fw-xs">
+            {%- assign swatchGroup1Label = parentCollection.metafields["global"]["swatch-group-1-label"] -%}
+            {%- assign swatchGroup2Label = parentCollection.metafields["global"]["swatch-group-2-label"] -%}
+            {%- assign swatchGroup3Label = parentCollection.metafields["global"]["swatch-group-3-label"] -%}
+
+            {%- comment -%}
+            DETECT PRESELECTED material/color IF ANY
+            {%- endcomment -%}
+            {%- for siblingProduct in parentCollection.products -%}
+              {%- assign siblingProductColor = siblingProduct.title | split: '-' | last | strip -%}
+              {%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-1' -%}
+                {%- if siblingProductColor == product.metafields["global"]["swatch-label"] -%}
+                  {%- assign selectedColor1 = siblingProductColor -%}
+                {%- endif -%}
+              {%- elsif siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-2' -%}
+                {%- if siblingProductColor == product.metafields["global"]["swatch-label"] -%}
+                  {%- assign selectedColor2 = siblingProductColor -%}
+                {%- endif -%}
+              {%- elsif siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-3' -%}
+                {%- if siblingProductColor == product.metafields["global"]["swatch-label"] -%}
+                  {%- assign selectedColor3 = siblingProductColor -%}
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+
+            {%- if swatchGroup2Label == blank -%}{% comment %} no extra grouping, show them all {% endcomment %}
+              {% capture swatches %}
+                  {%- for siblingProduct in parentCollection.products -%}{% comment %} all products of this type {% endcomment %}
+                    {%- if siblingsList contains siblingProduct.id -%}{% comment %} make sure this product can be shown {% endcomment %}
+                      {%- assign siblingUrl = siblingProduct.url -%}
+                      {%- if referringCollectionHandle -%}
+                        {%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
+                      {%- endif -%}
+                      {% include "pdp-swatch" %}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {% endcapture %}
+              {% include "pdp-swatch-group", name: swatchGroup1Label, swatches: swatches %}
+            {%- else -%}
+              {% comment %}TODO: maybe DRY this up a bit{% endcomment %}
+              {%- capture swatchGroup1 -%}
+                {%- for siblingProduct in parentCollection.products -%}
+                  {%- if siblingsList contains siblingProduct.id -%}
+                    {%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-1' -%}
+                      {%- assign siblingUrl = siblingProduct.url -%}
+                      {%- if referringCollectionHandle -%}
+                        {%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
+                      {%- endif -%}
+                      {% include "pdp-swatch" %}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endcapture -%}
+              {% if swatchGroup1 != blank %}{% comment %} these can be blank if the collection-aware URL filters out all products in this group {% endcomment %}
+                {% include "pdp-swatch-group", name: swatchGroup1Label, swatches: swatchGroup1 %}
+              {%- endif -%}
+              {%- capture swatchGroup2 -%}
+                {%- for siblingProduct in parentCollection.products -%}
+                  {%- if siblingsList contains siblingProduct.id -%}
+                    {%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-2' -%}
+                      {%- assign siblingUrl = siblingProduct.url -%}
+                      {%- if referringCollectionHandle -%}
+                        {%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
+                      {%- endif -%}
+                      {% include "pdp-swatch" %}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endcapture -%}
+              {% if swatchGroup2 != blank %}
+                {% include "pdp-swatch-group", name: swatchGroup2Label, swatches: swatchGroup2 %}
+              {%- endif -%}
+              {%- capture swatchGroup3 -%}
+                {%- for siblingProduct in parentCollection.products -%}
+                  {%- if siblingsList contains siblingProduct.id -%}
+                    {%- if siblingProduct.metafields["global"]["swatch-group"] == 'swatch-group-3' -%}
+                      {%- assign siblingUrl = siblingProduct.url -%}
+                      {%- if referringCollectionHandle -%}
+                        {%- assign siblingUrl = siblingProduct.url | within: collections[referringCollectionHandle] -%}
+                      {%- endif -%}
+                      {% include "pdp-swatch" %}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endcapture -%}
+              {% if swatchGroup3 != blank %}
+                {% include "pdp-swatch-group", name: swatchGroup3Label, swatches: swatchGroup3 %}
+              {%- endif -%}
+            {%- endif -%}
+            {% comment %}
+            {% endcomment %}
+          </div>
           
           {% unless materialsGuide contains 'Liquid error' %}
           <div class="form-row">
@@ -51,8 +275,26 @@
           </div>
           {% endunless %}
 
-          {% include 'pdp-variants' %}
-          
+          <div class="form-row">
+            {%- unless product.has_only_default_variant -%}
+              <div class="variants">
+                <label for="variant-selector">Select Size</label>
+                {% for variant in product.variants %}
+                  {%- assign selected = nil -%}
+                  {%- if variant.id == current_variant.id -%}
+                    {%- assign selected = 'selected' -%}
+                  {%- endif -%}
+                  <a href="#" data-id="{{ variant.id }}" class="btn btn-secondary {{ selected }}">{{ variant.title }}</a>
+                {% endfor %}
+              </div>
+            {%- endunless -%}
+            <select name="id" id="variant-selector" class="hidden" data-product-select>
+              {%- for variant in product.variants -%} 
+                <option value="{{ variant.id }}"{% if variant.id == product.selected_variant.id or variant.id == current_variant.id %} selected="selected"{% endif %}>{{ variant.title }}</option>
+              {%- endfor -%}
+            </select>
+          </div>
+                    
           {% unless sizeFitGuide contains 'Liquid error' %}
             <div class="form-row">
               <a href="#size-fit-guide" class="more-window-trigger" id="size-fit-trigger">Size & Fit Guide</a>
@@ -122,32 +364,25 @@
           {% assign handle = block | replace: ' ', '-' | downcase %}
           {% assign content = parentCollection.metafields["global"][handle] %}
           {% if content != blank %}
-            {% include 'pdp-expandable', title: block, copy: content %}
+            <div class="pdp-expandable">
+              <button>{{ block }}{% include 'get-icon', icon: 'expandable' %}</button>
+              <div class="content">
+                {{ content }}
+              </div>
+            </div>
           {% endif %}
         {% endfor %}
         {% comment %} global metafield {% endcomment %}
-        {% include 'pdp-expandable', title: 'Shipping, Returns, Exchanges', copy: shop.metafields["global"]["shipping-returns-exchanges"] %}
+        <div class="pdp-expandable">
+          <button>Shipping, Returns, Exchanges{% include 'get-icon', icon: 'expandable' %}</button>
+          <div class="content">
+            {{ shop.metafields["global"]["shipping-returns-exchanges"] }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
-{%- assign embedCode = nil -%}
-{%- assign embedCode2 = nil -%}
-{%- if parentCollection.metafields["global"]["product-video"] -%}
-  {% assign embedCode = parentCollection.metafields["global"]["product-video"] | remove: '<p>' | remove: '</p>' %}
-  <script>// <![CDATA[
-    var video1Embed = '{{ embedCode }}';
-    // ]]></script>
-{%- endif -%}
-{%- if parentCollection.metafields["global"]["product-video-2"] -%}
-  {% assign embedCode2 = parentCollection.metafields["global"]["product-video-2"] | remove: '<p>' | remove: '</p>' %}
-  <script>// <![CDATA[
-    var video2Embed = '{{ embedCode2 }}';
-    // ]]></script>
-{%- endif -%}
-
-{%- include 'video-modal' -%}
 
 {% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
   {%- include 'pdp-reviews' -%}
@@ -169,6 +404,21 @@
     <button class="panel-close"><span class="sr-only">close</span></button>
   </div>
 {% endunless %}
+
+{%- assign embedCode = nil -%}
+{%- assign embedCode2 = nil -%}
+{%- if parentCollection.metafields["global"]["product-video"] -%}
+  {% assign embedCode = parentCollection.metafields["global"]["product-video"] | remove: '<p>' | remove: '</p>' %}
+  <script>// <![CDATA[
+    var video1Embed = '{{ embedCode }}';
+    // ]]></script>
+{%- endif -%}
+{%- if parentCollection.metafields["global"]["product-video-2"] -%}
+  {% assign embedCode2 = parentCollection.metafields["global"]["product-video-2"] | remove: '<p>' | remove: '</p>' %}
+  <script>// <![CDATA[
+    var video2Embed = '{{ embedCode2 }}';
+    // ]]></script>
+{%- endif -%}
 
 {%- capture siblingsJson -%}
   {
