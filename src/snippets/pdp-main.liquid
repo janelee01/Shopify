@@ -30,7 +30,6 @@
       {%- for siblingProduct in parentCollection.products -%}
         {%- if siblingsList contains siblingProduct.id -%}      
           {% assign siblingImageCount = 0 %}
-
           {% comment %} images specific to this sibling {% endcomment %}
           {% for image in siblingProduct.images %}
             {%- unless image.alt contains 'swatch' -%}
@@ -44,7 +43,6 @@
             {% assign siblingImageCount = siblingImageCount | plus: 1 %}
             {%- endunless -%}
           {% endfor %}
-
           {% comment %} images common to all siblings, included multiple times so the zoom gallery includes them {% endcomment %}
           {% if parentCollection.metafields["global"]["collection-images"] %}
             {% assign images = parentCollection.metafields["global"]["collection-images"] | split: ',' %}
@@ -54,7 +52,6 @@
               </a>
             {% endfor %}
           {% endif %}
-
         {%- endif -%}
       {%- endfor -%}
 
