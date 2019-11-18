@@ -110,7 +110,8 @@
 	display: flex;
 	flex-direction: column;
 	transform: translateX(100%);
-	transition: .3s ease-in-out;
+	opacity: 0;
+	transition: transform .3s ease-in-out;
 	@media (min-width: $screen-md) {
 		left: 0;
 		right: auto;
@@ -163,6 +164,7 @@ body.site-menu-open{
 	#shopify-section-site-menu{
 		transform: translateX(0);
 		box-shadow: 0 2px 4px rgba(147,147,147,.5);
+		opacity: 1;
 	}
 }
 
