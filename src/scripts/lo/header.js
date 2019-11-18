@@ -6,11 +6,6 @@ $(document).ready(function(){
     $('body').removeClass('site-menu-open help-menu-shown');
   };
 
-  // fixes iOS back button behavior that restores menu open state
-  $(window).on('beforeunload', function(){
-    closeHeaderPanels();
-  });
-  
   // keyboard close things
   $('body').on('keyup', function(e){
     // keyCode is getting deprecated use key instead when supported, which makes this messy
