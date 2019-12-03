@@ -1,0 +1,44 @@
+{% include 'vars' %}
+{%- assign assetVersion = 161701 -%}
+
+<article>
+
+    {% include 'hero', img: 'pins-hero', alt: 'limited edition pins on bag', title: nil %}
+
+    <div id="pins-title">
+      {% include 'section-title', title: 'Limited Edition Pins', hTag: 'h1', smWidth: 8, text: 'Special edition pins made of brass and plated in silver, with black hard enamel. All pins have Deluxe Clutch backing for extra security.' %}
+    </div>
+    {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+      {% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
+    {% endunless %}
+
+    {% include 'section-title', title: 'Behind the Design', smWidth: 8, text: 'Inspired by Fred Lo, our father, a radio astronomer who discovered the black hole in the center of our galaxy. The pins are our way to commemorate him and the anniversary of his passing.' %}
+    <div class="max-container animate" {{ animateFadeInUp }}">
+      {% include 'picture', name: 'pins-collage', alt: 'collage of pin sketches', fw: false, extraClasses: 'mb-large' %}
+    </div>
+
+    {% include 'section-title', title: 'Remembering Fred Lo', smWidth: 8, text: 'In December 2016, we lost our father. We miss him everyday. He was the chairman of our board of directors, our biggest supporter and fan, and he was instrumental in the launch of Lo & Sons.' %}
+    <div class="max-container animate" {{ animateFadeInUp }}" id="pins-cta">
+      {% include 'picture', name: 'pins-cta', alt: 'photo of Fred Lo', fw: false %}
+      <a href="/pages/in-memory-of/" class="btn btn-secondary inverted">This is his story</a>
+    </div>
+
+    <style>
+      .hero.has-arrow .scroll-down-indicator{
+        display: none;
+      }
+      #pins-title .section-title.is-h1{
+        margin-top: 0;
+      }
+      #pins-cta{
+        position: relative;
+      }
+      #pins-cta .btn{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
+    </style>
+
+</article>
