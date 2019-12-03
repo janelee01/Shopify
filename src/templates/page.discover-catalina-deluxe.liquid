@@ -171,8 +171,6 @@
       </div>
     </div>
 
-    {% include 'discover-cta' %}
-
     {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
       {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
     {% endunless %}
