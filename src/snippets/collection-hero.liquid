@@ -10,28 +10,12 @@
     {%- assign priceMin = 99999999 -%}
     {%- assign priceMax = 0 -%}
     {%- for product in collection.products -%}
-      {% comment %} find the max price {% endcomment %}
-      {%- if product.compare_at_price_max > product.price_max -%}
-        {% comment %} if compare_at is more than price, the product is on sale but we still want the regular price {% endcomment %}
-        {%- if product.compare_at_price_max > priceMax -%}
-          {%- assign priceMax = product.compare_at_price_max -%}
-        {%- endif -%}
-      {%- else -%}
-        {% comment %} not on sale {% endcomment %}
-        {%- if product.price_max > priceMax -%}
-          {%- assign priceMax = product.price_max -%}
-        {%- endif -%}
-      {%- endif -%}
-      {% comment %} find the min price, same logic as above but comparing for less than the initial priceMin {% endcomment %}
-      {%- if product.compare_at_price_min > product.price_min -%}
-        {%- if product.compare_at_price_min < priceMin -%}
-          {%- assign priceMin = product.compare_at_price_min -%}
-        {%- endif -%}
-      {%- else -%}
-        {%- if product.price_min < priceMin -%}
-          {%- assign priceMin = product.price_min -%}
-        {%- endif -%}
-      {%- endif -%}
+      {% if product.price_min < priceMin %}
+        {% assign priceMin = product.price_min %}
+      {% endif %}
+      {% if product.price_max > priceMax %}
+        {% assign priceMax = product.price_max %}
+      {% endif %}
     {%- endfor -%}
   {%- endif -%}
 
