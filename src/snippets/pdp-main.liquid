@@ -9,10 +9,13 @@
 {% if parentCollection.metafields["global"]["male-discover-page-handle"] %}
   {% comment %} make sure we're at a collection-aware URL {% endcomment %}
   {% if collection.title %}
-    {% comment %} make sure we're coming from a male collection {% endcomment %}
-    {% if collection.handle contains "mens" %}
-      {% assign discoverPageHandle = parentCollection.metafields["global"]["male-discover-page-handle"] %}
-    {% endif %}
+    {% comment %} protect against matching "mens" in a womens collection handle {% endcomment %}
+    {% unless collection.handle contains "womens" %}
+      {% comment %} make sure we're coming from a male collection {% endcomment %}
+      {% if collection.handle contains "mens" %}
+        {% assign discoverPageHandle = parentCollection.metafields["global"]["male-discover-page-handle"] %}
+      {% endif %}
+    {% endunless %}
   {% endif %}
 {% endif %}
 
