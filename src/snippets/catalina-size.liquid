@@ -1,32 +1,50 @@
 {% include 'section-title', title: 'Dimensions &amp; Weight', noContainer: true %}
 	{%- capture dimsToteA -%}
-		{% include 'picture', name: 'Catalina-Comparison-dimensions-tote-1', alt: 'woman packing The Catalina Deluxe' %}
-		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+		{% include 'card',
+			img: 'Catalina-Comparison-dimensions-tote-1',
+			alt: 'woman packing The Catalina Deluxe',
+			title: "The Catalina Deluxe Tote",
+			cardModifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture dimsToteB -%}
-		{% include 'picture', name: 'Catalina-Comparison-dimensions-tote-2', alt: 'sliding passport into exterior pocket' %}
-		{% include 'discover-topic-content', title: "The Catalina Deluxe Tote", modifiers: 'text-center smaller' %}
+		{% include 'card',
+			img: 'Catalina-Comparison-dimensions-tote-2',
+			alt: 'sliding passport into exterior pocket',
+			title: "The Catalina Deluxe Tote",
+			cardModifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 
 	{%- capture dimsSmallA -%}
-		{% include 'picture', name: 'Catalina-Comparison-dimensions-small-1', alt: 'woman packing The Catalina Deluxe' %}
-		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+		{% include 'card',
+			img: 'Catalina-Comparison-dimensions-small-1',
+			alt: 'woman packing The Catalina Deluxe',
+			title: "The Catalina Deluxe Small",
+			cardModifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture dimsSmallB -%}
-		{% include 'picture', name: 'Catalina-Comparison-dimensions-small-2', alt: 'sliding passport into exterior pocket' %}
-		{% include 'discover-topic-content', title: "The Catalina Deluxe Small", modifiers: 'text-center smaller' %}
+		{% include 'card',
+			img: 'Catalina-Comparison-dimensions-small-2',
+			alt: 'sliding passport into exterior pocket',
+			title: "The Catalina Deluxe Small",
+			cardModifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	
 	{%- capture dimsLargeA -%}
-		{% include 'picture', name: 'Catalina-Comparison-dimensions-large-1', alt: 'woman packing The Catalina Deluxe' %}
-		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+		{% include 'card',
+			img: 'Catalina-Comparison-dimensions-large-1',
+			alt: 'woman packing The Catalina Deluxe',
+			title: "The Catalina Deluxe Large",
+			cardModifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	{%- capture dimsLargeB -%}
-		{% include 'picture', name: 'Catalina-Comparison-dimensions-large-2', alt: 'sliding passport into exterior pocket' %}
-		{% include 'discover-topic-content', title: "The Catalina Deluxe Large", modifiers: 'text-center smaller' %}
+		{% include 'card',
+			img: 'Catalina-Comparison-dimensions-large-2',
+			alt: 'sliding passport into exterior pocket',
+			title: "The Catalina Deluxe Large",
+			cardModifiers: 'text-center smaller' %}
 	{%- endcapture -%}
 	
-	<div class="hidden-xs mb-large{% if withAnimations %} animate{% endif %}" {{ animateFadeInUp }}>
+	<div class="block has-cards hidden-xs{% if withAnimations %} animate{% endif %}" {{ animateFadeInUp }}>
 		<div class="row-slider">
 			<div class="row">
 				<div class="col-sm-4">{{ dimsToteA }}</div>
@@ -44,15 +62,15 @@
 		{%- capture col1 -%} {{ dimsToteA }} {%- endcapture -%}
 		{%- capture col2 -%} {{ dimsToteB }} {%- endcapture -%}
 		{%- assign col3 = false -%}
-		{% include 'discover-sliding-3-col' %}
+		<div class="block has-cards">{% include 'discover-sliding-3-col' %}</div>
 
 		{%- capture col1 -%} {{ dimsSmallA }} {%- endcapture -%}
 		{%- capture col2 -%} {{ dimsSmallB }} {%- endcapture -%}
-		{% include 'discover-sliding-3-col' %}
+		<div class="block has-cards">{% include 'discover-sliding-3-col' %}</div>
 
 		{%- capture col1 -%} {{ dimsLargeA }} {%- endcapture -%}
 		{%- capture col2 -%} {{ dimsLargeB }} {%- endcapture -%}
-		{% include 'discover-sliding-3-col' %}
+		<div class="block has-cards">{% include 'discover-sliding-3-col' %}</div>
 	</div>
 
 	<div style="background: #F8F8F8; padding: 50px 0" class="mb-large fw-xs text-center{% if withAnimations %} animate{% endif %}" {{ animateFadeInUp }}>

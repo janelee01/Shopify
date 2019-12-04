@@ -42,62 +42,71 @@
 	{%- endcapture -%}
 
 	<div class="mb-default{% if withAnimations %} animate{% endif %}" {{ animateFadeInUp }}>
-		<div class="row">
-			{% include 'discover-topic-content', title: "The Hanover 2", modifiers: 'text-center smaller col-xs-6 col-sm-4 col-sm-offset-2' %}
-			{% include 'discover-topic-content', title: "The Hanover Deluxe 2", modifiers: 'text-center smaller col-xs-6 col-sm-4' %}
-		</div>
-		<div class="row-slider">
-			<div class="row mb-small">
+		<div class="row-slider mb-gutter">
+			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2">{{ fitHanover1A }}</div>
 			</div>
-			<div class="row mb-small">
+			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2">{{ fitHanover2A }}</div>
 			</div>
+		</div>
+		<div class="row">
+			{% include 'card', title: "The Hanover 2", cardModifiers: 'text-center smaller col-xs-6 col-sm-4 col-sm-offset-2' %}
+			{% include 'card', title: "The Hanover Deluxe 2", cardModifiers: 'text-center smaller col-xs-6 col-sm-4' %}
 		</div>
 	</div>
 
 	<div class="mb-large{% if withAnimations %} animate{% endif %}" {{ animateFadeInUp }}>
-		<div class="row hidden-xs hidden-sm">
-			{% include 'discover-topic-content', title: "The Hanover 2", modifiers: 'text-center smaller col-sm-4 col-sm-offset-2' %}
-			{% include 'discover-topic-content', title: "The Hanover Deluxe 2", modifiers: 'text-center smaller col-sm-4' %}
-		</div>
-		<div class="row-slider">
-			<div class="row mb-small">
+		<div class="row-slider mb-gutter">
+			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2">{{ fitHanover1B }}</div>
 			</div>
-			<div class="row mb-small">
+			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2">{{ fitHanover2B }}</div>
 			</div>
 		</div>
+		<div class="row">
+			{% include 'card', title: "The Hanover 2", cardModifiers: 'text-center smaller col-xs-6 col-sm-4 col-sm-offset-2' %}
+			{% include 'card', title: "The Hanover Deluxe 2", cardModifiers: 'text-center smaller col-xs-6 col-sm-4' %}
+		</div>
 	</div>
 
+</div>
 
-	<a id="nav-target-3" class="jumptarget page-has-nav"></a>
-	{% include 'hanover-materials' %}
+<a id="nav-target-3" class="jumptarget page-has-nav"></a>
+{% include 'hanover-materials' %}
 
+<div class="container">
 	<a id="nav-target-4" class="jumptarget page-has-nav"></a>
 	{% include 'section-title', noContainer: true, title: 'Dimensions' %}
-	<div class="mb-default animate" {{ animateFadeInUp }}>
-		<div class="row hidden-xs">
-			{% include 'discover-topic-content', title: "The Hanover 2", modifiers: 'text-center smaller col-sm-4 col-sm-offset-2' %}
-			{% include 'discover-topic-content', title: "The Hanover Deluxe 2", modifiers: 'text-center smaller col-sm-4' %}
-		</div>
-		<div class="row hidden-xs">
+	<div class="mb-large animate" {{ animateFadeInUp }}>
+		<div class="row mb-gutter hidden-xs">
 			<div class="col-sm-8 col-sm-offset-2">
 				{% include 'picture', name: 'hanover2-comparison-section-4', alt: 'Hanover 2 and Hanover Deluxe 2 dimension charts' %}
 			</div>
 		</div>
-		<div class="row hidden-sm hidden-md hidden-lg mb-default">
-			{% include 'discover-topic-content', title: "The Hanover 2", modifiers: 'text-center smaller xs-padding-small' %}
-			{% include 'picture', name: 'hanover2-comparison-section-4-block-1', alt: 'Hanover 2 dimension chart' %}
-			{% include 'discover-topic-content', title: "The Hanover Deluxe 2", modifiers: 'text-center smaller xs-padding-small' %}
-			{% include 'picture', name: 'hanover2-comparison-section-4-block-2', alt: 'Hanover Deluxe 2 dimension chart' %}
+		<div class="row hidden-xs">
+			{% include 'card', title: "The Hanover 2", cardModifiers: 'text-center smaller col-sm-4 col-sm-offset-2' %}
+			{% include 'card', title: "The Hanover Deluxe 2", cardModifiers: 'text-center smaller col-sm-4' %}
+		</div>
+		<div class="hidden-sm hidden-md hidden-lg mb-default">
+			{% include 'card',
+				img: 'hanover2-comparison-section-4-block-1',
+				alt: 'Hanover 2 dimension chart',
+				title: 'The Hanover 2',
+				cardModifiers: 'text-center smaller xs-padding-small' %}
+
+			{% include 'card',
+				img: 'hanover2-comparison-section-4-block-2',
+				alt: 'Hanover Deluxe 2 dimension chart',
+				title: 'The Hanover Deluxe 2',
+				cardModifiers: 'text-center smaller xs-padding-small' %}
 		</div>
 	</div>
 
-	{% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
-		{% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The Collection" %}
-	{% endunless %}
-
 </div>
+
+{% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
+	{% include 'shop-block', handle: page.metafields["global"]["shop-block-collection-handle"], title: "Shop The Collection" %}
+{% endunless %}
 </article>

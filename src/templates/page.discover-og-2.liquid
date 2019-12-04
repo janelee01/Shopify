@@ -242,59 +242,58 @@
     </div>
 
     <div class="more-window" id="whatsnew">
-        <div class="section-heading first">
-            <h2 class="title">Updated Design</h2>
-            <p style="padding: 0 28px">A decade of customer feedback informed the O.G. 2. Here’s what’s new.</p>
-        </div>
+
+        {% include 'section-title', title: 'Updated Design', text: 'A decade of customer feedback informed the O.G. 2. Here’s what’s new.' %}
+
         <div class="columns">
 
             {% capture topicOpen %}
-            <div class="container"><div class="row"><div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <div class="container block has-cards"><div class="row"><div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
             {% endcapture %}
             {% capture topicClose %}
             </div></div></div>
             {% endcapture %}
 
             <div class="max-container">
-                {% include 'picture', name: 'og2-discover-compare-1', alt: 'O.G. 2 laptop sleeve illustration', gif: true %}
+                {% include 'picture', name: 'og2-discover-compare-1', alt: 'O.G. 2 laptop sleeve illustration', gif: true, extraClasses: 'mb-gutter' %}
             </div>
             {{ topicOpen }}
-            {% include 'discover-topic-content', title: "External Laptop Sleeve", text: "Sprinting through security? The O.G. 2’s laptop sleeve is now separate from the main compartment, providing easy access even when your bag is full.", modifiers: "text-center text-left-xs" %}
+            {% include 'card', title: "External Laptop Sleeve", text: "Sprinting through security? The O.G. 2’s laptop sleeve is now separate from the main compartment, providing easy access even when your bag is full.", cardModifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'picture', name: 'og2-discover-compare-2', alt: 'O.G. 2 structure illustration', gif: true %}
+                {% include 'picture', name: 'og2-discover-compare-2', alt: 'O.G. 2 structure illustration', gif: true, extraClasses: 'mb-gutter' %}
             </div>
             {{ topicOpen }}
-            {% include 'discover-topic-content', title: "Reinforced for Stability", text: "We’ve re-engineered the design to add structure and stability—without added weight. The new reinforced framework prevents the O.G. 2 from leaning when fully packed.", modifiers: "text-center text-left-xs" %}
+            {% include 'card', title: "Reinforced for Stability", text: "We’ve re-engineered the design to add structure and stability—without added weight. The new reinforced framework prevents the O.G. 2 from leaning when fully packed.", cardModifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'picture', name: 'og2-discover-compare-3', alt: 'O.G. 2 water bottle pocket illustration', gif: true %}
+                {% include 'picture', name: 'og2-discover-compare-3', alt: 'O.G. 2 water bottle pocket illustration', gif: true, extraClasses: 'mb-gutter' %}
             </div>
             {{ topicOpen }}
-            {% include 'discover-topic-content', title: "Mesh Water-Bottle Pocket", text: "We support your hydration goals! The O.G. 2 now has an interior pocket so your H2O is always close at hand.", modifiers: "text-center text-left-xs" %}
+            {% include 'card', title: "Mesh Water-Bottle Pocket", text: "We support your hydration goals! The O.G. 2 now has an interior pocket so your H2O is always close at hand.", cardModifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'picture', name: 'og2-discover-compare-4', alt: 'O.G. 2 strap pad illustration', gif: true %}
+                {% include 'picture', name: 'og2-discover-compare-4', alt: 'O.G. 2 strap pad illustration', gif: true, extraClasses: 'mb-gutter' %}
             </div>
             {{ topicOpen }}
-            {% include 'discover-topic-content', title: "Ultra-Comfy Messenger Strap", text: "You have no patience for straps that dig—and neither do we. Our slip-resistant strap comes with a removable memory-foam pad for extra comfort.", modifiers: "text-center text-left-xs" %}
+            {% include 'card', title: "Ultra-Comfy Messenger Strap", text: "You have no patience for straps that dig—and neither do we. Our slip-resistant strap comes with a removable memory-foam pad for extra comfort.", cardModifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'picture', name: 'og2-discover-compare-5', alt: 'O.G. 2 straps illustration', gif: true %}
+                {% include 'picture', name: 'og2-discover-compare-5', alt: 'O.G. 2 straps illustration', gif: true, extraClasses: 'mb-gutter' %}
             </div>
             {{ topicOpen }}
-            {% include 'discover-topic-content', title: "Extra-Luxe Leather", text: "We’ve upgraded our handles using buttery, high-grade Nappa leather that’s easy on the hands and shoulders.", modifiers: "text-center text-left-xs" %}
+            {% include 'card', title: "Extra-Luxe Leather", text: "We’ve upgraded our handles using buttery, high-grade Nappa leather that’s easy on the hands and shoulders.", cardModifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'picture', name: 'og2-discover-compare-6', alt: 'O.G. 2 medallion illustration', gif: true %}
+                {% include 'picture', name: 'og2-discover-compare-6', alt: 'O.G. 2 medallion illustration', gif: true, extraClasses: 'mb-gutter' %}
             </div>
             {{ topicOpen }}
-            {% include 'discover-topic-content', title: "Medallion Now Optional", text: "Some of you loved our branded medallion; some of you could do without it. To minimize waste, we now sell it separately for those who like a little flair.", modifiers: "text-center text-left-xs" %}
+            {% include 'card', title: "Medallion Now Optional", text: "Some of you loved our branded medallion; some of you could do without it. To minimize waste, we now sell it separately for those who like a little flair.", cardModifiers: "text-center text-left-xs" %}
             {{ topicClose }}
             
         </div>

@@ -11,6 +11,9 @@
 .col-slider,
 .row-slider{
   .slick-dots{
+    @media screen and (min-width: $screen-md){
+      top: 100%;
+    }
     li{
       margin: 0;
     }

@@ -1,15 +1,28 @@
-{% include 'section-title', title: "High Quality Materials", text: "Each backpack is crafted from the best fabric with a keen attention to design details.", noContainer: true %}
-<div class="row animate" {{ animateFadeInUp }}>
-    <div class="col-sm-4">
-        {% include 'picture', name: 'hanover2-discover-section7-block1', alt: 'close up of Recylced Poly material' %} 
-        {% include 'discover-topic-content', title: "600D Recycled Poly", text: "Water-resistant, extra durable and eco-friendly.", %}
-    </div>
-    <div class="col-sm-4">
-        {% include 'picture', name: 'hanover2-discover-section7-block2', alt: 'close up of bag shoulder straps' %} 
-        {% include 'discover-topic-content', title: "Shoulder Straps", text: "Comfy memory foam padding that stays put on your shoulders.", %}
-    </div>
-    <div class="col-sm-4">
-        {% include 'picture', name: 'hanover2-discover-section7-block3', alt: 'close up of bag inner lining' %} 
-        {% include 'discover-topic-content', title: "Wave Lining", text: "Our founders designed this lining as an homage to their late father, Fred Lo, whose life was full of waves — he was a radio astronomer who loved the ocean.", %}
+{% include 'section-title', title: "High Quality Materials", text: "Each backpack is crafted from the best fabric with a keen attention to design details." %}
+<div class="container animate" {{ animateFadeInUp }}">
+    <div class="block has-cards">
+        <div class="row">
+            <div class="col-sm-4">
+                {% include 'card',
+                    img: 'hanover2-discover-section7-block1',
+                    alt: 'close up of Recylced Poly material',
+                    title: "600D Recycled Poly",
+                    text: "Water-resistant, extra durable and eco-friendly." %}
+            </div>
+            <div class="col-sm-4">
+                {% include 'card',
+                    img: 'hanover2-discover-section7-block2',
+                    alt: 'close up of bag shoulder straps',
+                    title: "Shoulder Straps",
+                    text: "Comfy memory foam padding that stays put on your shoulders." %}
+            </div>
+            <div class="col-sm-4">
+                {% include 'card',
+                    img: 'hanover2-discover-section7-block3',
+                    alt: 'close up of bag inner lining',
+                    title: "Wave Lining",
+                    text: "Our founders designed this lining as an homage to their late father, Fred Lo, whose life was full of waves — he was a radio astronomer who loved the ocean." %}
+            </div>
+        </div>
     </div>
 </div>

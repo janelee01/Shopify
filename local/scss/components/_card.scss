@@ -54,6 +54,20 @@
   img{
     width: 100%;
   }
+  &.smaller{
+		.title{
+			font-size: 16px;
+			@media (min-width: $screen-sm) {
+				font-size: 18px;
+			}
+		}
+  }
+  &.text-center{
+    text-align: center;
+    p{
+      max-width: 100%;
+    }
+  }
 }
 
 // ugh

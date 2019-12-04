@@ -23,110 +23,168 @@
             {% include 'hero-jump-btn' %}
         </div>
     </div>
-    
-    <div class="container">{% include 'hero-jump-target' %}
 
-        <div class="row animate mb-large" {{ animateZoomIn }}>
-            <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-                <div class="text-center">
-                    {% include 'picture', name: 'hanoverdlx2-discover-hero2', alt: 'The Hanover Deluxe 2 backpack' %}
+    {% include 'hero-jump-target' %}
+    
+    {% include 'product-hero', img: 'hanoverdlx2-discover-hero2', alt: 'The Hanover Deluxe 2 backpack' %}
+    
+    <a id="nav-target-1" class="jumptarget"></a>
+
+    {% include 'section-title', title: "Travel", text: "Whether you’re going near or far, pack everything you need for that upcoming vacation." %}
+    <div class="container animate" {{ animateFadeInUp }}>
+        <div class="block has-cards">
+            <div class="row">
+                <div class="col-sm-4">
+                    {% include 'card',
+                        img: 'hanoverdlx2-discover-section1-block1',
+                        alt: 'woman walking across cross-walk with luggage',
+                        title: "Seamless Security",
+                        text: "The luggage sleeve slides right over a suitcase handle." %}
+                </div>
+                <div class="col-sm-4">
+                    {% include 'card',
+                        video: true,
+                        ratio: '3-4',
+                        index: 3,
+                        poster: 'hanoverdlx2-discover-section1-block2-md',
+                        src: '660d-Collection-Launch-Discover-Refresh-Catalina-and-Hanover-2_Sophie-Sahara_Williamsburg-Hotel_June-2019_Shot_19_Female',
+                        title: "Easy Access",
+                        text: "Plenty of pockets to keep your travel essentials within reach." %}
+                </div>
+                <div class="col-sm-4">
+                    {% include 'card',
+                        img: 'hanoverdlx2-discover-section1-block3',
+                        alt: 'man putting passport in bag',
+                        title: "Improved Design",
+                        text: "Passports fit and stay secure in the newly added top stash pocket." %}
                 </div>
             </div>
         </div>
-        
-        <a id="nav-target-1" class="jumptarget"></a>
-
-        {% include 'section-title', noContainer: true, title: "Travel", text: "Whether you’re going near or far, pack everything you need for that upcoming vacation." %}
-        
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-4">
-                {% include 'picture', name: 'hanoverdlx2-discover-section1-block1', alt: 'woman walking across cross-walk with luggage' %}
-                {% include 'discover-topic-content', title: "Seamless Security", text: "The luggage sleeve slides right over a suitcase handle." %}
-            </div>
-            <div class="col-sm-4">
-                {% include 'inline-video', ratio: '3-4', index: 3, poster: 'hanoverdlx2-discover-section1-block2-md', src: '660d-Collection-Launch-Discover-Refresh-Catalina-and-Hanover-2_Sophie-Sahara_Williamsburg-Hotel_June-2019_Shot_19_Female' %}
-                {% include 'discover-topic-content', title: "Easy Access", text: "Plenty of pockets to keep your travel essentials within reach." %}
-            </div>
-            <div class="col-sm-4">
-                {% include 'picture', name: 'hanoverdlx2-discover-section1-block3', alt: 'man putting passport in bag' %}
-                {% include 'discover-topic-content', title: "Improved Design", text: "Passports fit and stay secure in the newly added top stash pocket." %}
-            </div>
-        </div>
-
-
-        {% include 'section-title', noContainer: true, title: "Weekend", text: "Keep your necessities neat and organized on your next weekend adventure." %}
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-4">
-                {% include 'inline-video', ratio: '3-4', index: 4, poster: 'hanoverdlx2-discover-section2-block1-md', src: '660d-Collection-Launch-Discover-Refresh-Catalina-and-Hanover-2_Sophie-Sahara_Williamsburg-Hotel_June-2019_Shot_21_Female' %}
-                {% include 'discover-topic-content', title: "Functional Freedom", text: "Remove the interior insert to lighten your load." %}
-            </div>
-            <div class="col-sm-4">
-                {% include 'picture', name: 'hanoverdlx2-discover-section2-block2', alt: 'man wearing Hanover Deluxe 2 backpack' %}
-                {% include 'discover-topic-content', title: "Carrier Comfort", text: "The adjustable shoulder straps are lined with Memory Foam." %}
-            </div>
-            <div class="col-sm-4">
-                {% include 'picture', name: 'hanoverdlx2-discover-section2-block3', alt: 'man putting phone in backpack' %}
-                {% include 'discover-topic-content', title: "New Clever Compartments", text: "The top stash pocket is the perfect place to stow your phone." %}
-            </div>
-        </div>
-
-        {% include 'section-title', noContainer: true, title: "Work", text: "Effortlessly get through the daily grind and take care of business in true style." %}
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-4">
-                {% include 'picture', name: 'hanoverdlx2-discover-section3-block1', alt: 'man putting laptop in backpack' %}
-                {% include 'discover-topic-content', title: "Smarter Storage", text: "Now with a NEW separate sleeve to slip your laptop right in." %}
-            </div>
-            <div class="col-sm-4">
-                {% include 'picture', name: 'hanoverdlx2-discover-section3-block2', alt: 'woman entering subway train with backpack' %}
-                {% include 'discover-topic-content', title: "Practical Portability", text: "Lightweight and just the right size for crowded commutes." %}
-            </div>
-            <div class="col-sm-4">
-                {% include 'picture', name: 'hanover2-discover-section3-block3', alt: 'woman crossing street with luggage' %}
-                {% include 'discover-topic-content', title: "Transit Friendly", text: "Easily secure onto your luggage and go straight from work to business trip." %}
-            </div>
-        </div>
-
-        {% include 'section-title', noContainer: true, title: "Workout Session", text: "The definition of form meets function — this is the bag you’ll want to add to your fitness routine." %}
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-4">
-                {% include 'picture', name: 'hanoverdlx2-discover-section4-block1', alt: 'man putting waterbottle in bag' %}
-                {% include 'discover-topic-content', title: "Genius Convenience", text: "A water bottle stays in place with the updated expandable side pocket. " %}
-            </div>
-            <div class="col-sm-4">
-                {% include 'picture', name: 'hanoverdlx2-discover-section4-block2', alt: 'man opening front of bage' %}
-                {% include 'discover-topic-content', title: "Streamlined Security", text: "Keep your essentials safe and secure within the 3D front pocket." %}
-            </div>
-            <div class="col-sm-4">
-                {% include 'picture', name: 'hanoverdlx2-discover-section4-block3', alt: 'removing headphones from bag' %}
-                {% include 'discover-topic-content', title: "Quick Access", text: "The top stash pocket assures headphones are easy to find." %}
-            </div>
-        </div>
-
-        <a id="nav-target-2" class="jumptarget"></a>
-        {% include 'section-title', noContainer: true, title: "Organized Interior", text: "Designed to maximize what you can take on your travels." %}
-
     </div>
 
+    {% include 'section-title', title: "Weekend", text: "Keep your necessities neat and organized on your next weekend adventure." %}
+    <div class="container animate" {{ animateFadeInUp }}>
+        <div class="block has-cards">
+            <div class="row">
+                <div class="col-sm-4">
+                    {% include 'card',
+                        video: true,
+                        ratio: '3-4',
+                        index: 4,
+                        poster: 'hanoverdlx2-discover-section2-block1-md',
+                        src: '660d-Collection-Launch-Discover-Refresh-Catalina-and-Hanover-2_Sophie-Sahara_Williamsburg-Hotel_June-2019_Shot_21_Female',
+                        title: "Functional Freedom",
+                        text: "Remove the interior insert to lighten your load." %}
+                </div>
+                <div class="col-sm-4">
+                    {% include 'card',
+                        img: 'hanoverdlx2-discover-section2-block2',
+                        alt: 'man wearing Hanover Deluxe 2 backpack',
+                        title: "Carrier Comfort", text: "The adjustable shoulder straps are lined with Memory Foam." %}
+                </div>
+                <div class="col-sm-4">
+                    {% include 'card',
+                        img: 'hanoverdlx2-discover-section2-block3',
+                        alt: 'man putting phone in backpack',
+                        title: "New Clever Compartments",
+                        text: "The top stash pocket is the perfect place to stow your phone." %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'section-title', title: "Work", text: "Effortlessly get through the daily grind and take care of business in true style." %}
+    <div class="container animate" {{ animateFadeInUp }}>
+        <div class="block has-cards">
+            <div class="row">
+                <div class="col-sm-4">
+                    {% include 'card',
+                        img: 'hanoverdlx2-discover-section3-block1',
+                        alt: 'man putting laptop in backpack',
+                        title: "Smarter Storage",
+                        text: "Now with a NEW separate sleeve to slip your laptop right in." %}
+                </div>
+                <div class="col-sm-4">
+                    {% include 'card',
+                        img: 'hanoverdlx2-discover-section3-block2',
+                        alt: 'woman entering subway train with backpack',
+                        title: "Practical Portability",
+                        text: "Lightweight and just the right size for crowded commutes." %}
+                </div>
+                <div class="col-sm-4">
+                    {% include 'card',
+                        img: 'hanover2-discover-section3-block3',
+                        alt: 'woman crossing street with luggage',
+                        title: "Transit Friendly",
+                        text: "Easily secure onto your luggage and go straight from work to business trip." %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    {% include 'section-title', title: "Workout Session",
+    text: "The definition of form meets function — this is the bag you’ll want to add to your fitness routine." %}
+    <div class="container animate" {{ animateFadeInUp }}>
+        <div class="block has-cards">
+            <div class="row">
+                <div class="col-sm-4">
+                    {% include 'card',
+                        img: 'hanoverdlx2-discover-section4-block1',
+                        alt: 'man putting waterbottle in bag',
+                        title: "Genius Convenience",
+                        text: "A water bottle stays in place with the updated expandable side pocket. " %}
+                </div>
+                <div class="col-sm-4">
+                    {% include 'card',
+                        img: 'hanoverdlx2-discover-section4-block2',
+                        alt: 'man opening front of bage',
+                        title: "Streamlined Security",
+                        text: "Keep your essentials safe and secure within the 3D front pocket." %}
+                </div>
+                <div class="col-sm-4">
+                    {% include 'card',
+                        img: 'hanoverdlx2-discover-section4-block3',
+                        alt: 'removing headphones from bag',
+                        title: "Quick Access",
+                        text: "The top stash pocket assures headphones are easy to find." %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <a id="nav-target-2" class="jumptarget"></a>
+    {% include 'section-title', title: "Organized Interior", text: "Designed to maximize what you can take on your travels." %}
     <div class="max-container topic-block mb-default animate video-block" {{ animateFadeInUp }}>
         {% include 'picture', name: 'hanoverdlx2-discover-section5-block1', alt: 'video showing how to pack the Hanover 2' %}
         <a href="#" data-video-id="1" class="video-trigger">See What Fits Inside</a>
     </div>
 
-    <div class="container">
-        {% include 'section-title', noContainer: true, title: "Carry-On Friendly", text: "We designed Hanover Deluxe 2 to be the ideal travel partner." %}
-        <div class="row animate mb-large" {{ animateFadeInUp }}>
-        <div class="col-sm-6">  
-            {% include 'picture', name: 'hanover2-discover-section6-block1', alt: 'airplane seating' %}
-            {% include 'discover-topic-content', title: "Under Seat Ready", text: "The Hanover Deluxe 2 fits seamlessly under any airline seat." %}               
+    {% include 'section-title', title: "Carry-On Friendly", text: "We designed Hanover Deluxe 2 to be the ideal travel partner." %}
+    <div class="container animate" {{ animateFadeInUp }}>
+        <div class="block has-cards">
+            <div class="row">
+                <div class="col-sm-6">  
+                    {% include 'card',
+                        img: 'hanover2-discover-section6-block1',
+                        alt: 'airplane seating',
+                        title: "Under Seat Ready",
+                        text: "The Hanover Deluxe 2 fits seamlessly under any airline seat." %}               
+               </div>
+                <div class="col-sm-6">    
+                    {% include 'card',
+                        img: 'hanover2-discover-section6-block2',
+                        alt: 'bag in airplane overhead compartment',             
+                        title: "Compatible with Overhead Storage",
+                        text: "The Hanover Deluxe 2 fits seamlessly in the overhead cabin storage." %}
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6">    
-            {% include 'picture', name: 'hanover2-discover-section6-block2', alt: 'bag in airplane overhead compartment' %}                
-            {% include 'discover-topic-content', title: "Compatible with Overhead Storage  ", text: "The Hanover Deluxe 2 fits seamlessly in the overhead cabin storage." %}
-        </div>
-        </div>
-        <a id="nav-target-3" class="jumptarget"></a>        
-        {% include 'hanover-materials' %}
     </div>
+
+    <a id="nav-target-3" class="jumptarget"></a> 
+    {% include 'hanover-materials' %}
 
     {% unless page.metafields["global"]["shop-block-collection-handle"] == blank %}
       {% include 'product-cta-block', handle: page.metafields["global"]["shop-block-collection-handle"] %}
