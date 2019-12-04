@@ -1,4 +1,7 @@
-{% include 'discover-section-heading', title: 'The Fit', text: 'To help compare the different styles in our weekender collection, we asked two women of different heights to carry each bag.<br/><br/>Francine is 5’ 10”' %}
+{% include 'section-title',
+  title: 'The Fit',
+  noContainer: true,
+  text: 'To help compare the different styles in our weekender collection, we asked two women of different heights to carry each bag.<br/><br/>Francine is 5’ 10”' %}
 	
 {%- capture fitToteA -%}
   {% include 'picture', name: 'Catalina-Comparison-tall-tote-1', alt: 'tall woman with Catalina Deluxe Tote - front view' %}
@@ -74,7 +77,7 @@
   {% include 'discover-sliding-3-col' %}
 </div>
 
-{% include 'discover-section-heading', text: 'Eyesmin is 5’ 4”' %}
+{% include 'section-title', text: 'Eyesmin is 5’ 4”', noContainer: true %}
 
 {%- capture fitToteA -%}
   {% include 'picture', name: 'Catalina-Comparison-short-tote-1', alt: 'short woman with Catalina Deluxe Tote - front view' %}

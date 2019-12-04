@@ -17,7 +17,7 @@
 
     <div class="container">{% include 'hero-jump-target' %}
         
-        {% include 'discover-section-heading', title: "Travel Smart", text: "We believe that travel should be as stress free and easy as possible, so we designed a collection of bags with thoughtful features and high-quality lightweight materials to help make any flight as enjoyable as the destination." %}
+        {% include 'section-title', noContainer: true, title: "Travel Smart", text: "We believe that travel should be as stress free and easy as possible, so we designed a collection of bags with thoughtful features and high-quality lightweight materials to help make any flight as enjoyable as the destination." %}
 
         <div class="row animate mb-large" {{ animateFadeInUp }}>
             <div class="col-sm-6 col-md-5 col-md-offset-1">  
@@ -32,7 +32,7 @@
         
         {% include 'catalina-materials' %}
 
-        {% include 'discover-section-heading', title: "Fits all the Essentials", text: "Each of our weekender bags is surprisingly spacious bags and designed to fit all your essentials—whether it be a long weekend trip or a weeklong trip." %}
+        {% include 'section-title', noContainer: true, title: "Fits all the Essentials", text: "Each of our weekender bags is surprisingly spacious bags and designed to fit all your essentials—whether it be a long weekend trip or a weeklong trip." %}
 
     </div>
     
@@ -43,7 +43,7 @@
     </div>
     
     <div class="container">
-        {% include 'discover-section-heading', title: "An Option for Every Trip", text: "Whether it be a European vacation, trip to the gym, or a weekend getaway to the beach — the Catalina Collection is perfect for any kind of destination." %}
+        {% include 'section-title', noContainer: true, title: "An Option for Every Trip", text: "Whether it be a European vacation, trip to the gym, or a weekend getaway to the beach — the Catalina Collection is perfect for any kind of destination." %}
         {%- capture col1 -%}
             {% include 'picture', name: 'Catalina-Collection-travel', alt: 'woman standing next to luggage with Catalina on handle' %}
             {% include 'discover-topic-content', title: "Travel", text: "Whether you’re going near or far, pack everything you need for that upcoming vacation.", modifiers: 'text-center-xs' %}
@@ -58,7 +58,7 @@
         {%- endcapture -%}
         {% include 'discover-sliding-3-col' %}
 
-        {% include 'discover-section-heading', title: "Traveler Approved" %}
+        {% include 'section-title', noContainer: true, title: "Traveler Approved" %}
 
         <div class="row pr-items mb-large animate" {{ animateFadeInUp }}>
             <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-0">
@@ -93,7 +93,7 @@
             </div>
         </div>
 
-        {% include 'discover-section-heading', title: "Shop The Collection" %}
+        {% include 'section-title', noContainer: true, title: "Shop The Collection" %}
 
         <div id="catalina-collection-cta" class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-6">
