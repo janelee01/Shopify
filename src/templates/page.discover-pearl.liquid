@@ -12,19 +12,18 @@
 <article class="discover">
     
     {% include 'discover-nav', labels:'Features,Design,Materials,Press' %}
+
+    {% include 'hero'
+      img: 'pearl-hero-image',
+      alt: 'woman wearing Pearl as crossbody',
+      subtitle: 'Discover',
+      title: ctaTitle,
+      align: 'left',
+      color: 'black',
+      text: "A practical yet stylish crossbody bag that's perfect for any trip." %}
     
-    <div class="max-container">
-        <div class="hero has-black-arrow soft-load" id="pearl-hero">
-            {% include 'picture', name: 'pearl-hero-image', alt: 'woman with O.G. on luggage' %}
-            <div class="hero-content left">
-                <h1 class="title"><span class="subtitle">Discover</span> Pearl</h1>
-                <p class="description">A practical yet stylish crossbody bag that's perfect for any trip.</p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
     
-    <div class="container">{% include 'hero-jump-target' %}
+    <div class="container">
         <div class="row animate mb-large" {{ animateFadeInUp }}>
             <div class="col-md-10 col-md-offset-1">
               {% include 'picture', name: 'pearl-product-shot', alt: 'Pearl product shot', mdSupport: true, fw: true %}

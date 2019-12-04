@@ -14,17 +14,15 @@
 
     {% include 'discover-nav', labels:'Versatile Design,What Fits Inside,Materials,Specs,Compare' %}
 
-    <div class="max-container">
-        <div class="hero has-arrow" id="rowledge-hero">
-            {% include 'picture', name: 'rowledge-hero', alt: 'woman with Rowledge on shoulder' %}
-            <div class="hero-content left white">
-                <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
-                <p class="description">A do-it-all nylon backpack for women who mean business. It even converts to a tote.</p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
-    <div class="container">{% include 'hero-jump-target' %}
+    {% include 'hero'
+      img: 'rowledge-hero',
+      alt: 'woman with Rowledge on shoulder',
+      subtitle: 'Discover',
+      title: ctaTitle,
+      align: 'left',
+      text: 'A do-it-all nylon backpack for women who mean business. It even converts to a tote.' %}
+
+    <div class="container">
         <div class="row animate mb-gutter" {{ animateFadeInUp }}>
             <div class="col-sm-6 col-sm-offset-3">
                 {% include 'picture', name: 'rowledge-product-img', alt: 'Rowledge product shot', fw: true %}

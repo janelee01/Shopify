@@ -12,36 +12,20 @@
 
     {% include 'discover-nav', labels:'Organization,Materials,Specs,Compatibility' %}
     
-    <div class="fw-container">
-        <div class="hero has-arrow">
-            {% include 'picture', name: 'leather-wallet-hero', alt: 'close up of woman holding Leather Wallet', xxl: true %}
-            <div class="hero-content white right">
-                <h1 class="title"><span class="subtitle">Discover</span> {{ctaTitle}}</h1>
-                <p class="description">A slim travel wallet that fits all of your essentials.</p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
+    {% include 'hero'
+      img: 'leather-wallet-hero',
+      alt: 'close up of woman holding Leather Wallet',
+      subtitle: 'Discover',
+      title: ctaTitle,
+      text: 'A slim travel wallet that fits all of your essentials.',
+      align: 'right' %}
+
+    {% include 'product-hero', img: 'leather-wallet-product-image', alt: 'Leather Wallet product shot' %}
     
-    <div class="container">{% include 'hero-jump-target' %}
-
-        <div class="row animate mb-large" {{ animateZoomIn }}>
-            <div class="col-sm-10 col-sm-offset-1 text-center">
-                {% include 'picture', name: 'leather-wallet-product-image', alt: 'Leather Wallet product shot', fw: true %}
-            </div>
-        </div>
-
-        <a id="nav-target-1" class="jumptarget"></a>
-        <div class="animate" {{ animateFadeInUp }}>
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">                    
-                    <div class="section-heading">
-                        <h2 class="title">Slim, Sleek Design</h2>
-                        <p class="description">With its minimal design and slim shape, the Leather Wallet is a timeless necessity whether you’re traveling near or far.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <a id="nav-target-1" class="jumptarget"></a>
+    {% include 'section-title', title: 'Slim, Sleek Design', text: 'With its minimal design and slim shape, the Leather Wallet is a timeless necessity whether you’re traveling near or far.' %}
+    
+    <div class="container">
 
         <div class="row mb-large animate" {{ animateFadeInUp }}>
           <div class="col-sm-5 col-sm-offset-1 col-md-6 col-md-offset-0"> 

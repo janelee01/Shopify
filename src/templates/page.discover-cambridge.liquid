@@ -9,19 +9,17 @@
 <article class="discover">
     
     {% include 'discover-nav', labels:'Features,See What Fits Inside,Material' %}
+
+    {% include 'hero'
+        img: 'cambridge-hero',
+        alt: 'two women with Claremont bags',
+        subtitle: 'Discover',
+        title: ctaTitle,
+        align: 'right',
+        color: 'black',
+        text: 'An overnight bag and briefcase designed for the modern traveler.' %}
     
-    <div class="max-container">
-        <div class="hero has-black-arrow" id="cambridge-hero">
-            <picture> <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/2-cambridge-Hero-desktop.jpg" media="(min-width: 768px)"> <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/2-cambridge-Hero-mobile.jpg" alt=""> </picture>
-            <div class="hero-content right">
-                <h1 class="title"><span class="subtitle">Discover</span> Cambridge</h1>
-                <p class="description">An overnight bag and briefcase designed for the modern traveler.</p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
-    
-    <div class="container">{% include 'hero-jump-target' %}
+    <div class="container">
         <a id="nav-target-1" class="jumptarget"></a>
         
         <div class="row topic-block aligned-sm mb-negate-xs">

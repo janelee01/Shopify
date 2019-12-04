@@ -11,17 +11,15 @@
 
   {% include 'discover-nav', labels:'Features,Size,Materials,Specs,Compare' %}
 
-  <div class="max-container">
-    <div class="hero has-arrow">
-      {% include 'picture', name: heroImg, alt: heroAlt %}
-      <div class="hero-content left white">
-        <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
-        <p class="description">A sleek unisex backpack that converts<br id="prospect-hero-break" /> to a briefcase.</p>
-      </div>
-      {% include 'hero-jump-btn' %}
-    </div>
-  </div>
-  <div class="container">{% include 'hero-jump-target' %}
+  {% include 'hero'
+    img: heroImg,
+    alt: heroAlt,
+    subtitle: 'Discover',
+    title: ctaTitle,
+    align: 'left',
+    text: 'A sleek unisex backpack that converts<br id="prospect-hero-break" /> to a briefcase.' %}
+
+  <div class="container">
     <div class="row animate text-center mb-gutter" {{ animateZoomIn }}>
       <div class="col-sm-10 col-sm-offset-1">
         {% include 'picture', name: 'prospect-product-image', alt: 'Prospect product shot', fw: true %}

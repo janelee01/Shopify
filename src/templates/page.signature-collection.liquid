@@ -2,18 +2,15 @@
 {%- assign assetVersion = 158227 -%}
 
 <article class="discover">
-    
-    <div class="max-container">
-      <div class="hero has-arrow">
-        {% include 'picture', name: 'signature-nylon-collection-hero1', alt: 'woman holding bag low at her side' %}
-        <div class="hero-content white left">
-          <h1 class="title"><span class="subtitle">Discover</span> The Signature <br />Collection</h1>
-          <p class="description">Shop best-selling bags that are sleek enough for the office but functional enough for the road.</p>
-        </div>
-        {% include 'hero-jump-btn' %}
-      </div>
-    </div>
-    {% include 'hero-jump-target' %}
+
+    {% include 'hero'
+      img: 'signature-nylon-collection-hero1',
+      alt: 'woman holding bag low at her side',
+      subtitle: 'Discover',
+      title: 'The Signature Collection',
+      align: 'left',
+      text: 'Shop best-selling bags that are sleek enough for the office but functional enough for the road.' %}
+
     
     {% include 'section-title', title: "Travel Light", text: "A fine-weave nylon is perfect for the traveling professional." %}
     <div class="container animate" {{ animateFadeInUp }}>

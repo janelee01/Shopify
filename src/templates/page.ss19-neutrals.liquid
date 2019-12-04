@@ -84,18 +84,13 @@
 
 <article class="discover">
     
-    <div class="fw-container">
-        <div class="hero has-arrow" id="neutrals-hero">
-            {% include 'picture', name: 'neutrals-hero', alt: 'woman walking with Waverley 2 in city', xxl: true %}
-            <div class="hero-content white">
-                <h1 class="title">The New Neutrals</h1>
-                <p class="description">Introducing Rose Quartz and Sand, two versatile colors that fit in anywhere, anytime.</p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
+    {% include 'hero'
+      img: 'neutrals-hero',
+      alt: 'woman walking with Waverley 2 in city',
+      title: 'The New Neutrals',
+      text: 'Introducing Rose Quartz and Sand, two versatile colors that fit in anywhere, anytime.' %}
     
-    <div class="container">{% include 'hero-jump-target' %}
+    <div class="container">
       <div class="row animate" {{ animateFadeInUp }}>
         <div class="col-sm-8 col-sm-offset-2">                    
           <div class="section-heading">
@@ -133,7 +128,7 @@
       </div>
     </div>
 
-    <div class="container">{% include 'hero-jump-target' %}
+    <div class="container">
       <div class="row animate" {{ animateFadeInUp }}>
         <div class="col-sm-8 col-sm-offset-2">                    
           <div class="topic-content text-center">

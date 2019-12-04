@@ -9,16 +9,15 @@
 
   {% include 'discover-nav', labels:'Design,Features,Device Compatibility,Press' %}
 
-  <div class="max-container">
-    <div class="hero has-arrow"><picture> <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/LightGreyClaremont_OverviewPage_Large_03.jpg" media="(min-width: 768px)" /> <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/LightGreyClaremont_OverviewPage_Small_03.jpg" alt="The Claremont camera bag, a stylish crossbody camera bag for DSLR cameras" /> </picture>
-      <div class="hero-content white right">
-        <h1 class="title"><span class="subtitle">Discover</span> Claremont</h1>
-        <p class="description">A chic travel bag designed to protect DSLR cameras.</p>
-      </div>
-      {% include 'hero-jump-btn' %}
-    </div>
-  </div>
-  <div class="container"><a id="nav-target-1" class="jumptarget page-has-nav"></a>{% include 'hero-jump-target' %}
+  {% include 'hero'
+    img: 'claremont-hero',
+    alt: 'two women with Claremont bags',
+    subtitle: 'Discover',
+    title: ctaTitle,
+    align: 'right',
+    text: 'A chic travel bag designed to protect DSLR cameras.' %}
+
+  <div class="container"><a id="nav-target-1" class="jumptarget page-has-nav"></a>
     <div class="section-heading " id="section-heading-1">
       <h3 class="title">Designed for DSLR Cameras</h3>
       <p class="description"><span>We asked 2 NYC-based photographers, Lindsay Brown and Chaunté Vaughn to take the Claremont camera bag on a day trip touring some of their favorite NYC landmarks.</span></p>

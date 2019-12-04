@@ -12,18 +12,16 @@
 
     {% include 'discover-nav', labels:'Convertibility,Materials,Specs,Compare,Fit' %}
     
-    <div class="fw-container">
-        <div class="hero has-arrow">
-            {% include 'picture', name: 'waverley2-hero', alt: 'woman walking with Waverley 2 in city', xxl: true %}
-            <div class="hero-content white right">
-                <h1 class="title"><span class="subtitle">Discover</span> {{ctaTitle}}</h1>
-                <p class="description">Our most versatile crossbody bag just got even better.</p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
+    {% include 'hero'
+      img: 'waverley2-hero',
+      alt: 'woman walking with Waverley 2 in city',
+      subtitle: 'Discover',
+      title: ctaTitle,
+      align: 'right',
+      text: 'Our most versatile crossbody bag just got even better.' %}
+
     
-    <div class="container">{% include 'hero-jump-target' %}
+    <div class="container">
 
         <div class="row animate mb-large" {{ animateZoomIn }}>
             <div class="col-sm-10 col-sm-offset-1 text-center">

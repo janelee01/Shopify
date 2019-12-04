@@ -3,17 +3,16 @@
 
 <article class="discover">
 
-    <div class="fw-container">
-        <div class="hero has-arrow" id="recycled-poly-hero">
-            {% include 'picture', name: 'recycled-poly-hero', alt: 'woman on stairs', xxl: true %}
-            <div class="hero-content left white">
-                <h1 class="title"><span class="subtitle">Discover</span> Recycled Poly Collection</h1>
-                <p class="description">Made from recycled plastic bottles, this technical fabric is extra durable—and good for the earth!</p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
+    {% include 'hero'
+      img: 'recycled-poly-hero',
+      alt: 'woman on stairs',
+      subtitle: 'Discover',
+      title: 'Recycled Poly Collection',
+      text: 'Made from recycled plastic bottles, this technical fabric is extra durable—and good for the earth!',
+      align: 'left' %}
+      <style>.hero.block{margin-bottom: 0;}</style>
 
+<div class="max-container">
     <div id="recycled-poly-process" class="mb-default mb-gutter-xs">
       <div class="container">
         <h2>From Bottles <br class="visible-xs">to Bags</h2>
@@ -39,6 +38,7 @@
         </div>
       </div>
     </div>
+</div>
 
     <div class="container mb-default mb-negate-xs">
       <div class="row">
@@ -66,6 +66,7 @@
         </div>
       </div>
     </div>
+
 
     <div class="topic-block" style="margin: 0">
       {% include 'picture', name: 'recycled-poly-landfill', alt: 'landfill', fw: true, xxl: true %}

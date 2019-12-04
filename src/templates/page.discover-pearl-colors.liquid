@@ -2,28 +2,15 @@
 {%- assign assetVersion = 2305596928705014813 -%}
 
 <article class="discover">
-    
-    <div class="max-container">
-        <div class="hero soft-load has-arrow" id="pearl-colors-hero">
-            {% include 'picture', name: 'pearl-colors-hero', alt: 'new Pearl colors' %}
-            <div class="hero-content center white">
-                <h1 class="title">Polished Meets Practical</h1>
-                <p class="description">The Pearl now comes in three new rich colors that stand out everywhere and fit in anywhere.</p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
-    <div class="container">
-        {% include 'hero-jump-target' %}
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-                <div class="section-heading">
-                    <h2 class="title">Silver</h2>
-                    <p class="description">A subtle luster that elevates any outfit.</p>
-                </div>
-            </div>
-        </div>
 
+    {% include 'hero'
+      img: 'pearl-colors-hero',
+      alt: 'new Pearl colors',
+      title: 'Polished Meets Practical',
+      text: "The Pearl now comes in three new rich colors that stand out everywhere and fit in anywhere." %}
+    
+    {% include 'section-title', title: 'Silver', text: 'A subtle luster that elevates any outfit.' %}
+    <div class="container">
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-6">
                 <div class="mb-gutter fw-xs">
@@ -56,16 +43,10 @@
         <div class="row mb-large">
             <div class="col-sm-8 col-sm-offset-2"><hr class="fw-xs" style="margin-top: 0; margin-bottom: 0"></div>
         </div>
+    </div>
 
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-                <div class="section-heading">
-                    <h2 class="title">Graphite</h2>
-                    <p class="description">A shimmering neutral that goes with everything.</p>
-                </div>
-            </div>
-        </div>
-
+    {% include 'section-title', title: 'Graphite', text: 'A shimmering neutral that goes with everything.' %}
+    <div class="container">
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-6">
                 <div class="mb-gutter fw-xs">
@@ -98,16 +79,10 @@
         <div class="row mb-large">
             <div class="col-sm-8 col-sm-offset-2"><hr class="fw-xs" style="margin-top: 0; margin-bottom: 0"></div>
         </div>
+    </div>   
 
-        <div class="row animate" {{ animateFadeInUp }}>
-            <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-                <div class="section-heading">
-                    <h2 class="title">Pacific Blue</h2>
-                    <p class="description">A deep aquamarine that adds the perfect pop.</p>
-                </div>
-            </div>
-        </div>
-
+    {% include 'section-title', title: 'Pacific Blue', text: 'A deep aquamarine that adds the perfect pop.' %}
+    <div class="container">
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-6">
                 <div class="mb-gutter fw-xs">
@@ -186,7 +161,6 @@
                 </div>
             </div>
         </div>
-       
 
     </div>
 

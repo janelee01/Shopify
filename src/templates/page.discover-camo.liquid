@@ -3,17 +3,14 @@
 
 <article class="discover">
     
-    <div class="max-container">
-        <div class="hero soft-load has-black-arrow" id="camo-hero">
-            {% include 'picture', name: 'camo-hero', alt: 'new color - camo' %}
-            <div class="hero-content black center">
-                <h1 class="title">The Camo Collection</h1>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
+    {% include 'hero'
+        img: 'camo-hero',
+        alt: 'new camo color',
+        title: 'The Camo Collection',
+        color: 'black' %}
+    <style>.hero.block .content{ height: 50% }</style>
+
     <div class="container">
-        {% include 'hero-jump-target' %}
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
                 <div class="section-heading">

@@ -7,18 +7,13 @@
 
 <article class="discover sustainability">
 
-    <div class="fw-container">
-        <div class="hero has-arrow mb-gutter" id="sustainability-hero">
-            {% include 'picture', name: 'sustainability-hero', alt: 'woman hiking in jungle', xxl: true %}
-            <div class="hero-content white">
-                <h1 class="title">Sustainability at Lo & Sons</h1>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
+    {% include 'hero',
+      img: 'sustainability-hero',
+      alt: 'woman hiking in jungle',
+      title: 'Sustainability at Lo & Sons' %}
 
     <div class="container">
-      <div class="animate" {{ animateFadeInUp }}>{% include 'hero-jump-target' %}
+      <div class="animate" {{ animateFadeInUp }}>
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
             <h2 id="sustainability-mission">Our mission is to inspire and empower people to go places, while striving to leave a positive impact.</h2>
@@ -40,8 +35,10 @@
       </div>
     </div>
 
-    <div class="hidden-md hidden-lg mb-gutter">
-      {% include 'picture', name: 'sustainability-priorities', alt: 'beach cliffs', fw: true %}
+    <div class="max-container hidden-md hidden-lg">
+      <div class="block mb-gutter">
+        {% include 'picture', name: 'sustainability-priorities', alt: 'beach cliffs' %}
+      </div>
     </div>
 
     <div class="sustainability-icon-grid">
@@ -172,8 +169,10 @@
       </div>
     </div>
 
-    <div class="topic-block mb-large">
-    {% include 'picture', name: 'sustainability-challenges', alt: 'woman and man with bags walking towards eachother', fw: true, xxl: true %}
+    <div class="max-container">
+      <div class="block">
+        {% include 'picture', name: 'sustainability-challenges', alt: 'woman and man with bags walking towards eachother' %}
+      </div>
     </div>
 
     <div class="container mb-default">

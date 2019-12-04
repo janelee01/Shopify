@@ -3,19 +3,14 @@
 
 <article class="discover" style="background: #F8F8F8">
     
-        
-    <div class="max-container">
-        <div class="hero has-black-arrow soft-load">
-            {% include 'picture', name: 'Catalina-Collection-hero', alt: 'the Catalina Collection' %}
-            <div class="hero-content center medium">
-                <h1 class="title">The Catalina Collection</h1>
-                <p class="description">Classic travel bags for any weekend getaway.</p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
+    {% include 'hero'
+        img: 'Catalina-Collection-hero',
+        alt: 'the Catalina Collection',
+        title: 'The Catalina Collection',
+        color: 'black',
+        text: 'Classic travel bags for any weekend getaway.' %}
 
-    <div class="container">{% include 'hero-jump-target' %}
+    <div class="container">
         
         {% include 'section-title', noContainer: true, title: "Travel Smart", text: "We believe that travel should be as stress free and easy as possible, so we designed a collection of bags with thoughtful features and high-quality lightweight materials to help make any flight as enjoyable as the destination." %}
         <div class="block has-cards animate" {{ animateFadeInUp }}>

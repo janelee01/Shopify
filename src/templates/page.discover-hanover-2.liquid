@@ -10,21 +10,13 @@
 <article class="discover">
 
     {% include 'discover-nav', labels:'Features,Size,Materials,Press,Compare' %}
-    
-    <div class="max-container">
-        <div class="hero has-arrow" id="hanover-hero">
-            {% include 'picture', name: 'hanover2-discover-hero1', alt: 'two people with hanover backpacks' %}
-            <div class="hero-content white center">
-                <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
-                <p class="description">
-                    A new and improved version of the Hanover travel backpack — versatile, eco-friendly, and even more thoughtfully designed.
-                </p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
-    
-    {% include 'hero-jump-target' %}
+
+    {% include 'hero'
+      img: 'hanover2-discover-hero1',
+      alt: 'two people with hanover backpacks',
+      subtitle: 'Discover',
+      title: ctaTitle,
+      text: 'A new and improved version of the Hanover travel backpack — versatile, eco-friendly, and even more thoughtfully designed.' %}
 
     {% include 'product-hero', img: 'hanover2-discover-hero2', alt: 'The Hanover 2 backpack' %}
 
