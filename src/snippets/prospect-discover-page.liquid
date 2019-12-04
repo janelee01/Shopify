@@ -13,7 +13,7 @@
 
   <div class="max-container">
     <div class="hero has-arrow">
-      {% include 'discover-picture', name: heroImg, alt: heroAlt, retina: true, fw: false, lg: true %}
+      {% include 'picture', name: heroImg, alt: heroAlt %}
       <div class="hero-content left white">
         <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
         <p class="description">A sleek unisex backpack that converts<br id="prospect-hero-break" /> to a briefcase.</p>
@@ -24,7 +24,7 @@
   <div class="container">{% include 'hero-jump-target' %}
     <div class="row animate text-center mb-gutter" {{ animateZoomIn }}>
       <div class="col-sm-10 col-sm-offset-1">
-        {% include 'discover-picture', name: 'prospect-product-image', alt: 'Prospect product shot', retina: true, fw: true, lg: true %}
+        {% include 'picture', name: 'prospect-product-image', alt: 'Prospect product shot', fw: true %}
       </div>
     </div>
     <div class="row animate" {{ animateFadeInUp }}>
@@ -111,18 +111,18 @@
 
   <div class="max-container mb-large">
       <div class="topic-block mb-gutter mb-negate-xs">
-        {% include 'discover-picture', name: lifestyle1Img, alt: lifestyle1Alt, retina: true, fw: false, lg: true %}
+        {% include 'picture', name: lifestyle1Img, alt: lifestyle1Alt %}
       </div>
       <div class="topic-block" id="prospect-lifestyle">
-        {% include 'discover-picture', name: lifestyle2Img, alt: lifestyle2Alt, retina: true, fw: false, lg: true %}
-        {% include 'discover-picture', name: lifestyle3Img, alt: lifestyle3Alt, retina: true, fw: false, lg: true %}
+        {% include 'picture', name: lifestyle2Img, alt: lifestyle2Alt %}
+        {% include 'picture', name: lifestyle3Img, alt: lifestyle3Alt %}
       </div>
   </div>
 
   <a id="nav-target-2" class="jumptarget"></a>
 
   <div class="max-container topic-block mb-default animate video-block" {{ animateFadeInUp }}>
-    {% include 'discover-picture', name: 'prospect-video', alt: 'video showing how to pack the Prospect', retina: true, fw: false, lg: true %}
+    {% include 'picture', name: 'prospect-video', alt: 'video showing how to pack the Prospect' %}
     <a href="#" data-video-id="5" class="video-trigger">See What Fits Inside</a>
   </div>
   <div class="text-center mb-large">
@@ -135,7 +135,7 @@
     <div class="row animate" {{ animateFadeInUp }}>
       <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
         <div class="fw-xs">
-        {% include 'discover-picture', name: 'prospect-materials-1', alt: 'prospect rare earth magnets', retina: true, fw: false, lg: true %}
+        {% include 'picture', name: 'prospect-materials-1', alt: 'prospect rare earth magnets' %}
         </div>
       </div>
       <div class="col-sm-10 col-sm-offset-1">
@@ -149,7 +149,7 @@
     <div class="row animate" {{ animateFadeInUp }}>
       <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
         <div class="fw-xs">
-        {% include 'discover-picture', name: 'prospect-materials-2', alt: 'prospect vachetta leather', retina: true, fw: false, lg: true %}
+        {% include 'picture', name: 'prospect-materials-2', alt: 'prospect vachetta leather' %}
         </div>
       </div>
       <div class="col-sm-10 col-sm-offset-1">
@@ -162,7 +162,7 @@
     <div class="row animate" {{ animateFadeInUp }}>
       <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
         <div class="fw-xs">
-          {% include 'discover-picture', name: 'prospect-materials-3', alt: 'prospect 1200D recycled poly material', retina: true, fw: false, lg: true %}
+          {% include 'picture', name: 'prospect-materials-3', alt: 'prospect 1200D recycled poly material' %}
         </div>
       </div>
       <div class="col-sm-10 col-sm-offset-1">
@@ -175,7 +175,7 @@
     <div class="row animate" {{ animateFadeInUp }}>
       <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
         <div class="fw-xs">
-          {% include 'discover-picture', name: 'prospect-materials-4', alt: 'Jacquard lining wave pattern', retina: true, fw: false, lg: true %}
+          {% include 'picture', name: 'prospect-materials-4', alt: 'Jacquard lining wave pattern' %}
         </div>
       </div>
       <div class="col-sm-10 col-sm-offset-1">
@@ -194,7 +194,7 @@
             <button class="toggle collapsed">Specs &amp; Dimensions</button>
             <div class="content">
               <div class="text-center">
-                <div class="mb-default">{% include 'discover-picture', name: 'prospect-dimensions', alt: 'Jacquard lining pattern', retina: true, fw: true, lg: true %}</div>
+                <div class="mb-default">{% include 'picture', name: 'prospect-dimensions', alt: 'Jacquard lining pattern', fw: true %}</div>
                 <p>The Prospect weighs 3.8 lbs. <br />Laptop insert fits most 15” laptops.</p>
               </div>
             </div>

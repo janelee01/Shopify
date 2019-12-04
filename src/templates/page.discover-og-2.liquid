@@ -31,7 +31,6 @@
             {% include 'card',
               img: 'og2-discover-section1-block1',
               alt: 'woman walking with O.G. 2 on luggage',
-              retina: true, fw: false, lg: true,
               title: "Suitcase Handle Sleeve",
               text: "A pass-through sleeve slides onto most bags for fuss-free travel.." %}
           </div>
@@ -39,7 +38,6 @@
             {% include 'card',
               img: 'og2-discover-section1-block2',
               alt: 'close up of laptop compartment',
-              retina: true, fw: false, lg: true,
               title: "Easy Laptop Access",
               text: "An external laptop compartment means no more rifling through your bag at TSA." %}
           </div>
@@ -64,7 +62,6 @@
             {% include 'card',
               img: 'og2-discover-section2-block1',
               alt: 'overhead view of packed interior',
-              retina: true, fw: false, lg: true,
               title: "Ultra-Organized Interior",
               text: "A thoughtful array of pockets keep your documents and electronics safe." %}
           </div>
@@ -72,7 +69,6 @@
             {% include 'card',
               img: 'og2-discover-section2-block2',
               alt: 'front pocket opened to showcase storage',
-              retina: true, fw: false, lg: true,
               title: "Easy-to-Reach Essentials",
               text: "Keys, wallet, phone—your most important items are always at the ready." %}
           </div>
@@ -97,7 +93,6 @@
             {% include 'card',
               img: 'og2-discover-section3-block1',
               alt: 'close up of interior bottle pocket',
-              retina: true, fw: false, lg: true,
               title: "Water Bottle Pocket",
               text: "This new mesh pocket means you have no excuse not to hydrate (and hydrate some more)." %}
           </div>
@@ -105,7 +100,6 @@
             {% include 'card',
               img: 'OG2-discover-section3-block2',
               alt: 'front pocket opened to showcase storage',
-              retina: true, fw: false, lg: true,
               title: "Shoe Compartment",
               text: "Important work documents and gym shoes need not mix, thanks to a convenient side pocket." %}
           </div>
@@ -135,7 +129,6 @@
             {% include 'card',
               img: 'og2-discover-section5-block1',
               alt: 'close up of nylon exterior material',
-              retina: true, fw: false, lg: true,
               title: "High-Quality Nylon",
               text: "Lightweight, fine-weave, water-resistant nylon provides a sturdy and chic exterior." %}
           </div>
@@ -143,7 +136,6 @@
             {% include 'card',
               img: 'og2-discover-section5-block2',
               alt: 'close up of nappa leather accents',
-              retina: true, fw: false, lg: true,
               title: "Nappa Leather Accents",
               text: "Handles and trim are made from a buttery, luxurious leather that molds to your hand or shoulder." %}
           </div>
@@ -151,7 +143,6 @@
             {% include 'card',
               img: 'og2-discover-section5-block3',
               alt: 'close up of zipper',
-              retina: true, fw: false, lg: true,
               title: "Water-Resistant Zippers",
               text: "Specially designed to keep rain (and coffee) out of your laptop sleeve." %}
           </div>
@@ -167,7 +158,6 @@
             {% include 'card',
               img: 'og2-discover-section6-block1',
               alt: 'woman walking toward plane with bag on luggage',
-              retina: true, fw: false, lg: true,
               title: "The Perfect Personal Item",
               text: "Every bag is designed to maximize space, so your “personal item” can hold all your in-flight essentials." %}
           </div>
@@ -175,7 +165,6 @@
             {% include 'card',
               img: 'og2-discover-section6-block2',
               alt: 'close up of nappa leather accents',
-              retina: true, fw: false, lg: true,
               title: "Fits Under Your Seat",
               text: "The O.G. 2 slides easily under most airline seats for easy access. Linear inches range from 37 (Medium) to 37.5 (Large)." %}
           </div>
@@ -187,14 +176,14 @@
     {% include 'section-title', title: "Updated Design", text: 'See what’s new with an illustrated guide to every upgrade.<br /><br /><a href="#whatsnew" class="more-window-trigger">Compare versions +</a>' %}
     <div class="container animate" {{ animateFadeInUp }}">
       <div class="block text-center">
-        {% include 'picture', name: 'og2-discover-section7-block1', alt: 'diagram showing O.G. 2 updates', fw: false %}
+        {% include 'picture', name: 'og2-discover-section7-block1', alt: 'diagram showing O.G. 2 updates' %}
       </div>
     </div>
 
     {% include 'section-title', title: "Available in Two Sizes", text: "The O.G. 2 comes in Medium and Large." %}
     <div class="container animate" {{ animateFadeInUp }}">
       <div class="block text-center">
-        {% include 'picture', name: 'og2-discover-section8-block1', alt: 'O.G. 2 shown in two sizes', fw: false, extraClasses: 'mb-gutter' %}
+        {% include 'picture', name: 'og2-discover-section8-block1', alt: 'O.G. 2 shown in two sizes', extraClasses: 'mb-gutter' %}
         <p class="section-description"><a href="#size-fit" class="more-window-trigger">Size &amp; Fit +</a></p>
       </div>
     </div>
@@ -267,42 +256,42 @@
             {% endcapture %}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-1', alt: 'O.G. 2 laptop sleeve illustration', gif: true, lg: true %}
+                {% include 'picture', name: 'og2-discover-compare-1', alt: 'O.G. 2 laptop sleeve illustration', gif: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "External Laptop Sleeve", text: "Sprinting through security? The O.G. 2’s laptop sleeve is now separate from the main compartment, providing easy access even when your bag is full.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-2', alt: 'O.G. 2 structure illustration', gif: true, lg: true %}
+                {% include 'picture', name: 'og2-discover-compare-2', alt: 'O.G. 2 structure illustration', gif: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Reinforced for Stability", text: "We’ve re-engineered the design to add structure and stability—without added weight. The new reinforced framework prevents the O.G. 2 from leaning when fully packed.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-3', alt: 'O.G. 2 water bottle pocket illustration', gif: true, lg: true %}
+                {% include 'picture', name: 'og2-discover-compare-3', alt: 'O.G. 2 water bottle pocket illustration', gif: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Mesh Water-Bottle Pocket", text: "We support your hydration goals! The O.G. 2 now has an interior pocket so your H2O is always close at hand.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-4', alt: 'O.G. 2 strap pad illustration', gif: true, lg: true %}
+                {% include 'picture', name: 'og2-discover-compare-4', alt: 'O.G. 2 strap pad illustration', gif: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Ultra-Comfy Messenger Strap", text: "You have no patience for straps that dig—and neither do we. Our slip-resistant strap comes with a removable memory-foam pad for extra comfort.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-5', alt: 'O.G. 2 straps illustration', gif: true, lg: true %}
+                {% include 'picture', name: 'og2-discover-compare-5', alt: 'O.G. 2 straps illustration', gif: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Extra-Luxe Leather", text: "We’ve upgraded our handles using buttery, high-grade Nappa leather that’s easy on the hands and shoulders.", modifiers: "text-center text-left-xs" %}
             {{ topicClose }}
 
             <div class="max-container">
-                {% include 'discover-picture', name: 'og2-discover-compare-6', alt: 'O.G. 2 medallion illustration', gif: true, lg: true %}
+                {% include 'picture', name: 'og2-discover-compare-6', alt: 'O.G. 2 medallion illustration', gif: true %}
             </div>
             {{ topicOpen }}
             {% include 'discover-topic-content', title: "Medallion Now Optional", text: "Some of you loved our branded medallion; some of you could do without it. To minimize waste, we now sell it separately for those who like a little flair.", modifiers: "text-center text-left-xs" %}
