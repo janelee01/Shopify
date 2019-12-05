@@ -14,19 +14,6 @@ body{
 		padding-top: 0;
 	}
 }
-
-
-/*
-Kill scrollbars
-*/
-html { -ms-overflow-style: none; } // IE
-* { scrollbar-width: none } // FF
-*::-webkit-scrollbar{ width: 0 !important; height: 0 !important; background-color: transparent; display: none; } // Chrome / Safari
-*::-webkit-scrollbar-track,
-*::-webkit-scrollbar-thumb {
-  background-color: transparent;
-}
-
 .max-container{
 	max-width: $site-max-width;
 	margin-left: auto;

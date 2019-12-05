@@ -94,6 +94,7 @@
   -webkit-overflow-scrolling: touch;
   display: flex;
   padding-bottom: 15px;
+  @include killScrollbars;
   .item{
     position: relative; // fixes body side scrolling even with overflow scrolling 
     padding: 0 $mobile-gutter 0 0;

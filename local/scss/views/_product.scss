@@ -79,6 +79,7 @@ body.product{
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   display: flex;
+  @include killScrollbars;
   @media (min-width: $screen-md) {
     flex-wrap: wrap;
     justify-content: space-between;
