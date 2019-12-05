@@ -35,9 +35,9 @@
             {%- unless image.alt contains 'swatch' -%}
             <a class="item sibling-item zoomable {% if siblingProduct.id == product.id %}active{% endif %}" href="#zoomed-gallery" data-gallery-id="{{ siblingProduct.id }}" data-sibling="{{ siblingProduct.id }}" data-index="{{ forloop.index0 }}">
               {% if siblingProduct.id == product.id %}
-                {{ image | img_tag: image.alt, '', '343x' }}
+                {{ image | img_tag: image.alt, '', '686x' }}
               {% else %} {% comment %} lazy load for all the siblings {% endcomment %}
-                <img src="//:0" class="lazy" width="343" data-lazy="{{ image | img_url: '343x' }}" alt="{{ image.alt }}">
+                <img src="//:0" class="lazy" width="343" data-lazy="{{ image | img_url: '686x' }}" alt="{{ image.alt }}">
               {% endif %}
             </a>
             {% assign siblingImageCount = siblingImageCount | plus: 1 %}
