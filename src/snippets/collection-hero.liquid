@@ -3,7 +3,6 @@
 
   {%- assign heroDescription = collection.metafields["global"]["hero-description"] -%}
   {%- assign firstProduct = collection.products | first -%}
-  {%- assign discoverPageHandle = collection.metafields["global"]["discover-page-handle"] -%}
   {%- assign isParentCollection = collection.metafields['global']['is-parent-collection'] -%}
   {% comment %} find the price or price range for a parent collection in hero only mode {% endcomment %}
   {%- if isParentCollection == "true" -%}
@@ -35,6 +34,22 @@
   {%- assign heroImageMKey = "hero-image-mobile" -%}
   {%- assign heroImageAltKey = "hero-image-alt" -%}
   {%- endif -%}
+
+  {% comment %} 
+    support gendered discover page links
+    female or unisex by default 
+  {% endcomment %}
+  {% assign discoverPageHandle = collection.metafields["global"]["discover-page-handle"] %}
+  {% comment %} do we have a mens alternate page {% endcomment %}
+  {% if collection.metafields["global"]["male-discover-page-handle"]  %}
+    {% comment %} protect against matching "mens" in a womens collection handle {% endcomment %}
+    {% unless referringCollection.handle contains "womens" %}
+      {% comment %} is this a male layout or male collection {% endcomment %}
+      {% if gender == 'male' or referringCollection.handle contains "mens" %}
+        {% assign discoverPageHandle = collection.metafields["global"]["male-discover-page-handle"] %}
+      {% endif %}
+    {% endunless %}
+  {% endif %}
 
   {%- capture discoverBtn -%}
     {%- unless discoverPageHandle == blank -%}

@@ -1,5 +1,23 @@
 {% include 'vars' %}
+
+{% comment %} 
+  support gendered discover page link
+  female or unisex by default
+{% endcomment %}
 {% assign discoverPageHandle = parentCollection.metafields["global"]["discover-page-handle"] %}
+{% comment %} do we have a mens alternate page {% endcomment %}
+{% if parentCollection.metafields["global"]["male-discover-page-handle"] %}
+  {% comment %} make sure we're at a collection-aware URL {% endcomment %}
+  {% if collection.title %}
+    {% comment %} protect against matching "mens" in a womens collection handle {% endcomment %}
+    {% unless collection.handle contains "womens" %}
+      {% comment %} make sure we're coming from a male collection {% endcomment %}
+      {% if collection.handle contains "mens" %}
+        {% assign discoverPageHandle = parentCollection.metafields["global"]["male-discover-page-handle"] %}
+      {% endif %}
+    {% endunless %}
+  {% endif %}
+{% endif %}
 
 {% comment %} grab the content for our more windows {% endcomment %}
 {% assign snippetSlug = parentCollection.title | handleize | remove: 'the-' %}
