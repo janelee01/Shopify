@@ -1,45 +1,85 @@
-{% include 'section-title', noContainer: true, title: 'Size & Fit Guide', withAnimations: false %}
+{%- assign assetVersion = 1575414719 -%}
+<div class="fit-guide">
+  <div class="section-heading fit-heading">
+    <h2>Fit</h2>
+    <p class="description">We asked real women of different heights to carry the Brookline</p>
+  </div>
+  <div class="block product-family">
+    <div class="section-heading fit-sub-heading">
+      <h3 class="mb-negate">Patricia</h3>
+      <h4>Height: 5&rsquo; 1&rdquo;</h4>
+    </div>
+    <div class="product-row-wrap">
+      <div class="product-row fit-row">
+        <div class="item">
+          {% include 'picture', name: 'Brookline_fit_short_angle_01', alt: 'The Brookline Short Fit Guide 1', fw: false%}
+        </div>
+        <div class="item">
+          {% include 'picture', name: 'Brookline_fit_short_angle_02', alt: 'The Brookline Short Fit Guide 2', fw: false %}
+        </div>
+        <div class="item">
+          {% include 'picture', name: 'Brookline_fit_short_angle_03', alt: 'The Brookline Short Fit Guide 3', fw: false %}
+        </div>
+      </div>
+    </div> 
+  </div>
+  <div class="block product-family">
+    <div class="section-heading fit-sub-heading">
+      <h3 class="mb-negate">Kerry</h3>
+      <h4>Height: 5&rsquo; 6&rdquo;</h4>
+    </div>
+    <div class="product-row-wrap">
+      <div class="product-row fit-row">
+        <div class="item">
+          {% include 'picture', name: 'Brookline_fit_average_angle_01', alt: 'The Brookline Average Fit Guide 1', fw: false %}
+        </div>
+        <div class="item">
+          {% include 'picture', name: 'Brookline_fit_average_angle_02', alt: 'The Brookline Average Fit Guide 2', fw: false %}
+        </div>
+        <div class="item">
+          {% include 'picture', name: 'Brookline_fit_average_angle_03', alt: 'The Brookline Average Fit Guide 3', fw: false %}
+        </div>
+      </div>
+    </div> 
+  </div>
+  <div class="block product-family mb-negate">
+    <div class="section-heading fit-sub-heading">
+      <h3 class="mb-negate">Bojana</h3>
+      <h4>Height: 6&rsquo;</h4>
+    </div>
+    <div class="product-row-wrap">
+      <div class="product-row fit-row">
+        <div class="item">
+          {% include 'picture', name: 'Brookline_fit_tall_angle_01', alt: 'The Brookline Tall Fit Guide 1', fw: false %}
+        </div>
+        <div class="item">
+          {% include 'picture', name: 'Brookline_fit_tall_angle_02', alt: 'The Brookline Tall Fit Guide 2', fw: false %}
+        </div>
+        <div class="item">
+          {% include 'picture', name: 'Brookline_fit_tall_angle_03', alt: 'The Brookline Tall Fit Guide 3', fw: false %}
+        </div>
+      </div>
+    </div> 
+  </div>
 
-<h3 class="table-label">Size, Weight, Dimensions</h3>
-<div class="product-specs">
-  <table>
-    <thead>
-      <tr>
-        <th>Width</th>
-        <th>Depth</th>
-        <th>Height</th>
-        <th>Handle Drop Length</th>
-        <th>Weight</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>16"</td>
-        <td>5"</td>
-        <td>12.5"</td>
-        <td>6.5"</td>
-        <td>2.1 lbs</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <div class="section-divider"></div>
 
-<h3 class="table-label">Laptop Pocket Dimensions</h3>
-<div class="product-specs">
-  <table>
-    <thead>
-      <tr>
-        <th>Width</th>
-        <th>Height</th>
-        <th>Depth</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>14.5"</td>
-        <td>9"</td>
-        <td>1.4"</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="section-heading fit-heading">
+    <h2>Scale</h2>
+    <p class="description">
+      See how the Brookline falls on various heights of real women to compare size.
+    </p>
+  </div>
+  <div class="section-heading fit-sub-heading">
+    <h3 class="mb-negate">The Brookline</h3>
+  </div>
+  {% include 'picture', name: 'Brookline_scale', alt: 'The Brookline scale comparison', fw: false %}
+
+  <div class="section-divider"></div>
+
+  <div class="section-heading fit-heading">
+    <h2>Dimensions & Weight</h2>
+  </div>
+
+  {% include 'picture', name: 'Brookline_dimensions_weight', alt: 'The Brookline Dimensions and Weight table', fw: false %}
 </div>
