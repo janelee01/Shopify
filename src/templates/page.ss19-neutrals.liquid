@@ -4,9 +4,9 @@
 
 {% capture roseSlide1 %}
 <div class="toggle">
-  {% include 'discover-picture', name: 'neutrals-rose-nappa-pearl', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+  {% include 'picture', name: 'neutrals-rose-nappa-pearl', alt: 'Waverley 2 as a Shoulder Bag' %}
   <div class="alternate">
-    {% include 'discover-picture', name: 'neutrals-rose-saffiano-pearl', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+    {% include 'picture', name: 'neutrals-rose-saffiano-pearl', alt: 'Waverley 2 as a Shoulder Bag' %}
   </div>
   <div class="controls">
     <button class="active">Nappa</button>
@@ -17,9 +17,9 @@
 {% endcapture %}
 {% capture roseSlide2 %}
 <div class="toggle">
-  {% include 'discover-picture', name: 'neutrals-rose-nappa-waverley', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+  {% include 'picture', name: 'neutrals-rose-nappa-waverley', alt: 'Waverley 2 as a Shoulder Bag' %}
   <div class="alternate">
-    {% include 'discover-picture', name: 'neutrals-rose-saffiano-waverley', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+    {% include 'picture', name: 'neutrals-rose-saffiano-waverley', alt: 'Waverley 2 as a Shoulder Bag' %}
   </div>
   <div class="controls">
     <button class="active">Nappa</button>
@@ -30,9 +30,9 @@
 {% endcapture %}
 {% capture roseSlide3 %}
 <div class="toggle">
-  {% include 'discover-picture', name: 'neutrals-rose-nappa-wallet', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+  {% include 'picture', name: 'neutrals-rose-nappa-wallet', alt: 'Waverley 2 as a Shoulder Bag' %}
   <div class="alternate">
-    {% include 'discover-picture', name: 'neutrals-rose-saffiano-wallet', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+    {% include 'picture', name: 'neutrals-rose-saffiano-wallet', alt: 'Waverley 2 as a Shoulder Bag' %}
   </div>
   <div class="controls">
     <button class="active">Nappa</button>
@@ -44,9 +44,9 @@
 
 {% capture sandSlide1 %}
 <div class="toggle">
-  {% include 'discover-picture', name: 'neutrals-sand-nappa-pearl', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+  {% include 'picture', name: 'neutrals-sand-nappa-pearl', alt: 'Waverley 2 as a Shoulder Bag' %}
   <div class="alternate">
-    {% include 'discover-picture', name: 'neutrals-sand-saffiano-pearl', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+    {% include 'picture', name: 'neutrals-sand-saffiano-pearl', alt: 'Waverley 2 as a Shoulder Bag' %}
   </div>
   <div class="controls">
     <button class="active">Nappa</button>
@@ -57,9 +57,9 @@
 {% endcapture %}
 {% capture sandSlide2 %}
 <div class="toggle">
-  {% include 'discover-picture', name: 'neutrals-sand-nappa-waverley', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+  {% include 'picture', name: 'neutrals-sand-nappa-waverley', alt: 'Waverley 2 as a Shoulder Bag' %}
   <div class="alternate">
-    {% include 'discover-picture', name: 'neutrals-sand-saffiano-waverley', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+    {% include 'picture', name: 'neutrals-sand-saffiano-waverley', alt: 'Waverley 2 as a Shoulder Bag' %}
   </div>
   <div class="controls">
     <button class="active">Nappa</button>
@@ -70,9 +70,9 @@
 {% endcapture %}
 {% capture sandSlide3 %}
 <div class="toggle">
-  {% include 'discover-picture', name: 'neutrals-sand-nappa-wallet', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+  {% include 'picture', name: 'neutrals-sand-nappa-wallet', alt: 'Waverley 2 as a Shoulder Bag' %}
   <div class="alternate">
-    {% include 'discover-picture', name: 'neutrals-sand-saffiano-wallet', alt: 'Waverley 2 as a Shoulder Bag', retina: true, fw: false, lg: true %}
+    {% include 'picture', name: 'neutrals-sand-saffiano-wallet', alt: 'Waverley 2 as a Shoulder Bag' %}
   </div>
   <div class="controls">
     <button class="active">Nappa</button>
@@ -84,18 +84,13 @@
 
 <article class="discover">
     
-    <div class="fw-container">
-        <div class="hero has-arrow" id="neutrals-hero">
-            {% include 'discover-picture', name: 'neutrals-hero', alt: 'woman walking with Waverley 2 in city', retina: true, fw: false, xxl: true %}
-            <div class="hero-content white">
-                <h1 class="title">The New Neutrals</h1>
-                <p class="description">Introducing Rose Quartz and Sand, two versatile colors that fit in anywhere, anytime.</p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
+    {% include 'hero'
+      img: 'neutrals-hero',
+      alt: 'woman walking with Waverley 2 in city',
+      title: 'The New Neutrals',
+      text: 'Introducing Rose Quartz and Sand, two versatile colors that fit in anywhere, anytime.' %}
     
-    <div class="container">{% include 'hero-jump-target' %}
+    <div class="container">
       <div class="row animate" {{ animateFadeInUp }}>
         <div class="col-sm-8 col-sm-offset-2">                    
           <div class="section-heading">
@@ -110,7 +105,7 @@
             <h3 class="title">Chic Neutrals</h3>
             <p class="description">Muted neutrals for warmer weather. These understated tones make the most subtle statement.</p>
           </div>                 
-          {% include 'discover-picture', name: 'neutrals-chic-1', alt: 'woman walking with Waverley 2 in city', retina: true, fw: false, lg: true %}
+          {% include 'picture', name: 'neutrals-chic-1', alt: 'woman walking with Waverley 2 in city' %}
           <p class="neutrals-caption">Pearl in Sand Saffiano Leather, $248</p>
         </div>
         <div class="col-sm-5 col-lg-6">                    
@@ -118,22 +113,22 @@
             <h3 class="title">Chic Neutrals</h3>
             <p class="description">Muted neutrals for warmer weather. These understated tones make the most subtle statement.</p>
           </div>
-          {% include 'discover-picture', name: 'neutrals-chic-2', alt: 'woman walking with Waverley 2 in city', retina: true, fw: false, lg: true %}
+          {% include 'picture', name: 'neutrals-chic-2', alt: 'woman walking with Waverley 2 in city' %}
         </div>
       </div>
     </div>
 
     <div class="max-container">
       <div id="neutrals-chic" class="mb-default">
-        <div class="col">{% include 'discover-picture', name: 'neutrals-chic-3', alt: 'woman walking with Waverley 2 in city', retina: true, fw: true, lg: true %}</div>
+        <div class="col">{% include 'picture', name: 'neutrals-chic-3', alt: 'woman walking with Waverley 2 in city', fw: true %}</div>
         <div class="col narrow">
-          {% include 'discover-picture', name: 'neutrals-chic-4', alt: 'woman walking with Waverley 2 in city', retina: true, fw: false, lg: true %}
+          {% include 'picture', name: 'neutrals-chic-4', alt: 'woman walking with Waverley 2 in city' %}
           <p class="neutrals-caption">Waverley 2 Small in Rose Quartz Nappa Leather, $169</p>
         </div>
       </div>
     </div>
 
-    <div class="container">{% include 'hero-jump-target' %}
+    <div class="container">
       <div class="row animate" {{ animateFadeInUp }}>
         <div class="col-sm-8 col-sm-offset-2">                    
           <div class="topic-content text-center">
@@ -145,11 +140,11 @@
       <div class="row mb-gutter animate" {{ animateFadeInUp }}>
         <div class="col-sm-5 col-sm-offset-1 col-lg-6 col-lg-offset-0"> 
           <div class="mb-gutter-xs">
-          {% include 'discover-picture', name: 'neutrals-seamless-1', alt: 'woman walking with Waverley 2 in city', retina: true, fw: false, lg: true %}
+          {% include 'picture', name: 'neutrals-seamless-1', alt: 'woman walking with Waverley 2 in city' %}
           </div>                   
         </div>
         <div class="col-sm-5 col-lg-6">                    
-          {% include 'discover-picture', name: 'neutrals-seamless-2', alt: 'woman walking with Waverley 2 in city', retina: true, fw: false, lg: true %}
+          {% include 'picture', name: 'neutrals-seamless-2', alt: 'woman walking with Waverley 2 in city' %}
           <p class="neutrals-caption">Leather Wallet in Sand Nappa Leather, $138</p>
         </div>
       </div>

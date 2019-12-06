@@ -25,12 +25,13 @@
                     <img src="{{ 'play-v2.svg' | asset_url }}" alt="Play video" />
                 </a>
             </div>
-            {% include 'hero-jump-btn' %}
+            <a href="#first-section-target" class="scroll-down-indicator"><span class="sr-only">Next section</span></a>
         </div>
     </div>
+    <a id="first-section-target"></a>
 
     <div class="container">
-        {% include 'hero-jump-target' %}
+        
         <a id="nav-target-1" class="jumptarget"></a>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">                    

@@ -8,19 +8,18 @@
 <article class="discover">
 
     {% include 'discover-nav', labels:'Features,See What Fits Inside,Material' %}
+
+    {% include 'hero'
+      img: 'Rhodes1-Hero',
+      alt: 'man with Rhodes on shoulder',
+      subtitle: 'Discover',
+      title: ctaTitle,
+      align: 'left',
+      contentAlign: 'top',
+      color: 'black',
+      text: 'A spacious and durable travel bag that fits everything you need for a weekend getaway.' %}
     
-    <div class="max-container">
-        <div class="hero has-black-arrow" id="rhodes-hero">
-            <picture> <source srcset="https://cdn.shopify.com/s/files/1/2185/1497/files/Rhodes1-Hero-desktop.jpg" media="(min-width: 768px)" /> <img src="https://cdn.shopify.com/s/files/1/2185/1497/files/Rhodes1-Hero-mobile.jpg" alt="" /> </picture>
-            <div class="hero-content black left">
-                <h1 class="title"><span class="subtitle">Discover</span> Rhodes</h1>
-                <p class="description">A spacious and durable travel bag that fits everything you need for a weekend getaway.</p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
-    
-    <div class="container">{% include 'hero-jump-target' %}
+    <div class="container">
         <a id="nav-target-1" class="jumptarget"></a>
         
         <div class="row topic-block aligned-sm mb-negate-xs">

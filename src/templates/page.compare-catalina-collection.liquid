@@ -14,27 +14,27 @@
 	</div>
 </div>
 
-<div class="container">{% include 'hero-jump-target' %}
+<div class="container">
 
 	<a id="nav-target-1" class="jumptarget page-has-nav"></a>
-  {% include 'discover-section-heading', title: "The Features" %}
+  {% include 'section-title', noContainer: true, title: "The Features" %}
 
 	<div class="mb-large text-center animate" {{ animateFadeInUp }}>
-		{% include 'discover-picture', name: 'Catalina-Comparison-features', alt: 'features chart', retina: true, fw: false, lg: true %}
+		{% include 'picture', name: 'Catalina-Comparison-features', alt: 'features chart' %}
 	</div>
 
 	<a id="nav-target-2" class="jumptarget page-has-nav"></a>
 
 	{% include 'catalina-fit-w' %}
-
-	<a id="nav-target-3" class="jumptarget page-has-nav"></a>
-  {% include 'catalina-materials' %}
-
+</div>
+<a id="nav-target-3" class="jumptarget page-has-nav"></a>
+{% include 'catalina-materials' %}
+<div class="container">
 	<a id="nav-target-4" class="jumptarget page-has-nav"></a>
 	{% include 'catalina-size' %}
 
 	<a id="nav-target-5" class="jumptarget page-has-nav"></a>
-  {% include 'discover-section-heading', title: 'FAQ', text: 'Below are some of our most frequently asked questions about the Catalina Collection.' %}
+  {% include 'section-title', noContainer: true, title: 'FAQ', text: 'Below are some of our most frequently asked questions about the Catalina Collection.' %}
 
 	<div class="row mb-default animate" {{ animateFadeInUp }}>
 		<div class="col-sm-10 col-sm-offset-1">
@@ -51,7 +51,7 @@
 		</div>
 	</div>
 
-	{% include 'discover-section-heading', title: 'Shop The Collection' %}
+	{% include 'section-title', noContainer: true, title: 'Shop The Collection' %}
 
 	<div class="row fw-xs cta-block">
 		<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-push-6 col-md-offset-0">

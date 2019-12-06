@@ -7,18 +7,13 @@
 
 <article class="discover sustainability">
 
-    <div class="fw-container">
-        <div class="hero has-arrow mb-gutter" id="sustainability-hero">
-            {% include 'discover-picture', name: 'sustainability-hero', alt: 'woman hiking in jungle', retina: true, fw: false, xxl: true %}
-            <div class="hero-content white">
-                <h1 class="title">Sustainability at Lo & Sons</h1>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
+    {% include 'hero',
+      img: 'sustainability-hero',
+      alt: 'woman hiking in jungle',
+      title: 'Sustainability at Lo & Sons' %}
 
     <div class="container">
-      <div class="animate" {{ animateFadeInUp }}>{% include 'hero-jump-target' %}
+      <div class="animate" {{ animateFadeInUp }}>
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
             <h2 id="sustainability-mission">Our mission is to inspire and empower people to go places, while striving to leave a positive impact.</h2>
@@ -34,14 +29,16 @@
           </div>
           <div class="col-sm-12 col-md-6 hidden-xs hidden-sm">
             <div class="mb-large">
-              {% include 'discover-picture', name: 'sustainability-priorities', alt: 'beach cliffs', retina: true, fw: true, lg: true %}
+              {% include 'picture', name: 'sustainability-priorities', alt: 'beach cliffs', fw: true %}
             </div>
           </div>
       </div>
     </div>
 
-    <div class="hidden-md hidden-lg mb-gutter">
-      {% include 'discover-picture', name: 'sustainability-priorities', alt: 'beach cliffs', retina: true, fw: true, lg: true %}
+    <div class="max-container hidden-md hidden-lg">
+      <div class="block mb-gutter">
+        {% include 'picture', name: 'sustainability-priorities', alt: 'beach cliffs' %}
+      </div>
     </div>
 
     <div class="sustainability-icon-grid">
@@ -77,7 +74,7 @@
       </div>
       <div class="row topic-block aligned-md mb-gutter mb-negate-xs mb-negate-sm animate" {{ animateFadeInUp }}>
         <div class="{{ topicBlockImgCol }}">
-          {% include 'discover-picture', name: 'sustainability-products-1', alt: 'woman looking over shoulder', retina: true, fw: false, lg: true %}
+          {% include 'picture', name: 'sustainability-products-1', alt: 'woman looking over shoulder' %}
         </div>
         <div class="{{ topicBlockContentCol }}">
           <div class="topic-content">
@@ -89,7 +86,7 @@
       </div>
       <div class="row topic-block aligned-md mb-large mb-negate-xs mb-negate-sm animate" {{ animateFadeInUp }}>
         <div class="{{ topicBlockImgCol }}">
-          {% include 'discover-picture', name: 'sustainability-products-2', alt: 'The Catalina in picnic scene', retina: true, fw: false, lg: true %}
+          {% include 'picture', name: 'sustainability-products-2', alt: 'The Catalina in picnic scene' %}
         </div>
         <div class="{{ topicBlockContentCol }}">   
           <div class="topic-content mb-negate-">
@@ -139,7 +136,7 @@
       </div>
       <div class="row topic-block aligned-md mb-gutter mb-negate-xs mb-negate-sm animate" {{ animateFadeInUp }}>
         <div class="{{ topicBlockImgCol }}">
-          {% include 'discover-picture', name: 'sustainability-partners-1', alt: 'close up of cotton plant', retina: true, fw: false, lg: true %}
+          {% include 'picture', name: 'sustainability-partners-1', alt: 'close up of cotton plant' %}
         </div>
         <div class="{{ topicBlockContentCol }}">
           <div class="topic-content">
@@ -150,7 +147,7 @@
       </div>
       <div class="row topic-block aligned-md mb-gutter mb-negate-xs mb-negate-sm animate" {{ animateFadeInUp }}>
         <div class="{{ topicBlockImgCol }}">
-          {% include 'discover-picture', name: 'sustainability-partners-2', alt: 'close up of sewing machine', retina: true, fw: false, lg: true %}
+          {% include 'picture', name: 'sustainability-partners-2', alt: 'close up of sewing machine' %}
         </div>
         <div class="{{ topicBlockContentCol }}">   
           <div class="topic-content">
@@ -161,7 +158,7 @@
       </div>
       <div class="row topic-block aligned-md mb-large mb-negate-xs mb-negate-sm animate" {{ animateFadeInUp }}>
         <div class="{{ topicBlockImgCol }}">
-          {% include 'discover-picture', name: 'sustainability-partners-3', alt: 'Jan Lo holding Catalina', retina: true, fw: false, lg: true %}
+          {% include 'picture', name: 'sustainability-partners-3', alt: 'Jan Lo holding Catalina' %}
         </div>
         <div class="{{ topicBlockContentCol }}">   
           <div class="topic-content">
@@ -172,8 +169,10 @@
       </div>
     </div>
 
-    <div class="topic-block mb-large">
-    {% include 'discover-picture', name: 'sustainability-challenges', alt: 'woman and man with bags walking towards eachother', retina: true, fw: true, xxl: true %}
+    <div class="max-container">
+      <div class="block">
+        {% include 'picture', name: 'sustainability-challenges', alt: 'woman and man with bags walking towards eachother' %}
+      </div>
     </div>
 
     <div class="container mb-default">

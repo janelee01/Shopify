@@ -69,6 +69,11 @@
 		text-align: center;
 		@include heroDescription;
 		color: white;
+		&.top{
+			@media (max-width: $screen-xs-max) {
+				height: 50%;
+			}
+		}
 		&.black{
 			color: $brand-black;
 		}

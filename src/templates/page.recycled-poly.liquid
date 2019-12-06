@@ -3,17 +3,16 @@
 
 <article class="discover">
 
-    <div class="fw-container">
-        <div class="hero has-arrow" id="recycled-poly-hero">
-            {% include 'discover-picture', name: 'recycled-poly-hero', alt: 'woman on stairs', retina: true, fw: false, xxl: true %}
-            <div class="hero-content left white">
-                <h1 class="title"><span class="subtitle">Discover</span> Recycled Poly Collection</h1>
-                <p class="description">Made from recycled plastic bottles, this technical fabric is extra durable—and good for the earth!</p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
+    {% include 'hero'
+      img: 'recycled-poly-hero',
+      alt: 'woman on stairs',
+      subtitle: 'Discover',
+      title: 'Recycled Poly Collection',
+      text: 'Made from recycled plastic bottles, this technical fabric is extra durable—and good for the earth!',
+      align: 'left' %}
+      <style>.hero.block{margin-bottom: 0;}</style>
 
+<div class="max-container">
     <div id="recycled-poly-process" class="mb-default mb-gutter-xs">
       <div class="container">
         <h2>From Bottles <br class="visible-xs">to Bags</h2>
@@ -39,6 +38,7 @@
         </div>
       </div>
     </div>
+</div>
 
     <div class="container mb-default mb-negate-xs">
       <div class="row">
@@ -46,19 +46,19 @@
           <div class="row">
             <div class="col-sm-4">
               <figure class="recycled-poly-lifestyle animate" data-animate="fadeInUp"  data-delay=".3s" data-duration=".5s" data-offset="200">
-                {% include 'discover-picture', name: 'recycled-poly-lifestyle-1', alt: 'woman wearing The Edgemont', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'recycled-poly-lifestyle-1', alt: 'woman wearing The Edgemont' %}
                 <footer>The Edgemont, $128</footer>
               </figure>
             </div>
             <div class="col-sm-4">
               <figure class="recycled-poly-lifestyle offset animate" data-animate="fadeInUp"  data-delay=".6s" data-duration=".5s" data-offset="200">
-                {% include 'discover-picture', name: 'recycled-poly-lifestyle-2', alt: 'woman holding The Hanover', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'recycled-poly-lifestyle-2', alt: 'woman holding The Hanover' %}
                 <footer>The Hanover, $128</footer>
               </figure>
             </div>
             <div class="col-sm-4">
               <figure class="recycled-poly-lifestyle animate" data-animate="fadeInUp"  data-delay=".9s" data-duration=".5s" data-offset="200">
-                {% include 'discover-picture', name: 'recycled-poly-lifestyle-3', alt: 'man wearing The Hanover Deluxe', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'recycled-poly-lifestyle-3', alt: 'man wearing The Hanover Deluxe' %}
                 <footer>The Hanover Deluxe, $148</footer>
               </figure>
             </div>
@@ -67,8 +67,9 @@
       </div>
     </div>
 
+
     <div class="topic-block" style="margin: 0">
-      {% include 'discover-picture', name: 'recycled-poly-landfill', alt: 'landfill', retina: true, fw: true, xxl: true %}
+      {% include 'picture', name: 'recycled-poly-landfill', alt: 'landfill', fw: true, xxl: true %}
     </div>
 
     <div id="recycled-poly-benefits">
@@ -97,7 +98,7 @@
 
     <div class="fw-container">
       <div class="topic-block has-overlay-xs mb-large" id="organic-canvas-foliage">
-        {% include 'discover-picture', name: 'organic-canvas-foliage', alt: 'foliage background', retina: true, fw: true, xxl: true %}
+        {% include 'picture', name: 'organic-canvas-foliage', alt: 'foliage background', fw: true, xxl: true %}
         <div class="topic-content">
           <h2 class="title">Investing in Sustainability</h2>
           <p class="description lh-increased">As our business grows, we don’t want to focus only on minimizing harm to our planet, but we also want to enhance the beauty of the wonderful places we travel to.</p>

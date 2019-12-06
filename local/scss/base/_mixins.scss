@@ -240,3 +240,13 @@
 	@media (min-width: $screen-md) { font-size: 14px; }
 	@media (min-width: $screen-lg) { font-size: 16px; line-height: 1.375;}
 }
+
+@mixin killScrollbars{
+  -ms-overflow-style: none; // IE
+  scrollbar-width: none; // FF
+  &::-webkit-scrollbar{ width: 0 !important; height: 0 !important; background-color: transparent; display: none; } // Chrome / Safari
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+}

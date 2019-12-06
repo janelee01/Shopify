@@ -1,11 +1,13 @@
 <div class="card {{ cardModifiers }}">
+  {% if video or img %}
   <div class="media">
     {% if video %}
       {% include 'inline-video', ratio: '3-4', index: index, poster: poster, src: src %}
     {% else %}
-      {% include 'picture', name: img, alt: alt, fw: fw %}
+      {% include 'picture', name: img, alt: alt, fw: fw, gif: gif %}
     {% endif %}
   </div>
+  {% endif %}
   {% if title %}<{{ tag | default: 'h3'}} class="title">{{ title }}</{{ tag | default: 'h3' }}>{% endif %}
   {% if text %}<p>{{ text }}</p>{% endif %}
   {% if text2 %}<p>{{ text2 }}</p>{% endif %}

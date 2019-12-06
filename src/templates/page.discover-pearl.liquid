@@ -12,22 +12,21 @@
 <article class="discover">
     
     {% include 'discover-nav', labels:'Features,Design,Materials,Press' %}
+
+    {% include 'hero'
+      img: 'pearl-hero-image',
+      alt: 'woman wearing Pearl as crossbody',
+      subtitle: 'Discover',
+      title: ctaTitle,
+      align: 'left',
+      color: 'black',
+      text: "A practical yet stylish crossbody bag that's perfect for any trip." %}
     
-    <div class="max-container">
-        <div class="hero has-black-arrow soft-load" id="pearl-hero">
-            {% include 'discover-picture', name: 'pearl-hero-image', alt: 'woman with O.G. on luggage', retina: true, fw: false, lg: true %}
-            <div class="hero-content left">
-                <h1 class="title"><span class="subtitle">Discover</span> Pearl</h1>
-                <p class="description">A practical yet stylish crossbody bag that's perfect for any trip.</p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
     
-    <div class="container">{% include 'hero-jump-target' %}
+    <div class="container">
         <div class="row animate mb-large" {{ animateFadeInUp }}>
             <div class="col-md-10 col-md-offset-1">
-              {% include 'discover-picture', name: 'pearl-product-shot', alt: 'Pearl product shot', retina: true, fw: true %}
+              {% include 'picture', name: 'pearl-product-shot', alt: 'Pearl product shot', mdSupport: true, fw: true %}
             </div>
         </div>
 
@@ -44,13 +43,13 @@
 
         <div class="row">
             <div class="col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-5 col-lg-offset-1 animate" {{ animateFadeInUp }}>
-                {% include 'discover-picture', name: 'pearl-crossbody', alt: 'Pearl as a crossbody', retina: true, fw: true %}  
+                {% include 'picture', name: 'pearl-crossbody', alt: 'Pearl as a crossbody', mdSupport: true, fw: true %}  
                 <div class="topic-content">
                     <h3 class="title">Crossbody</h3>
                 </div>                  
             </div>
             <div class="col-sm-5 col-md-4 col-lg-5 offset-top-sm offset-top-md offset-top-lg animate" {{ animateFadeInUp }}>
-                {% include 'discover-picture', name: 'pearl-wristlet', alt: 'Pearl as a wristlet', retina: true, fw: true %}  
+                {% include 'picture', name: 'pearl-wristlet', alt: 'Pearl as a wristlet', mdSupport: true, fw: true %}  
                 <div class="topic-content">
                     <h3 class="title">Wristlet</h3>
                 </div>                  
@@ -59,7 +58,7 @@
 
         <div class="row mb-large topic-block has-overlay-xs animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1"> 
-                {% include 'discover-picture', name: 'pearl-convertible-strap', alt: "Watch how the Pearl's convertible strap works", retina: true, fw: true %}  
+                {% include 'picture', name: 'pearl-convertible-strap', alt: "Watch how the Pearl's convertible strap works", mdSupport: true, fw: true %}  
                 <div class="topic-content">
                     <h3 class="title">Convertible Strap</h3>
                     <a href="#" data-video-id="1" class="video-trigger">
@@ -81,7 +80,7 @@
 
         <div class="row topic-block aligned-md animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 col-lg-7 col-lg-offset-0">
-                {% include 'discover-picture', name: 'pearl-interior-pockets', alt: 'Pearl interior zipper pocket', retina: true, fw: true %}                    
+                {% include 'picture', name: 'pearl-interior-pockets', alt: 'Pearl interior zipper pocket', mdSupport: true, fw: true %}                    
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
                 <div class="topic-content text-center-sm">
@@ -93,7 +92,7 @@
 
         <div class="row topic-block aligned-md reversed animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-1 col-lg-7">
-                {% include 'discover-picture', name: 'pearl-slip-pockets', alt: 'Pearl slip pockets', retina: true, fw: true %}                    
+                {% include 'picture', name: 'pearl-slip-pockets', alt: 'Pearl slip pockets', mdSupport: true, fw: true %}                    
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 col-lg-offset-0 content-col">                    
                 <div class="topic-content text-center-sm">
@@ -105,7 +104,7 @@
 
         <div class="row topic-block aligned-md animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 col-lg-7 col-lg-offset-0">
-                {% include 'discover-picture', name: 'pearl-zipper-pockets', alt: 'Pearl padded zipper pockets', retina: true, fw: true %}                    
+                {% include 'picture', name: 'pearl-zipper-pockets', alt: 'Pearl padded zipper pockets', mdSupport: true, fw: true %}                    
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 content-col">                    
                 <div class="topic-content text-center-sm">
@@ -117,7 +116,7 @@
 
         <div class="row topic-block aligned-md reversed reversed animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-1 col-lg-7">
-                {% include 'discover-picture', name: 'pearl-key-leash', alt: 'Pearl includes a key leash', retina: true, fw: true %}                    
+                {% include 'picture', name: 'pearl-key-leash', alt: 'Pearl includes a key leash', mdSupport: true, fw: true %}                    
             </div>
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 col-lg-offset-0 content-col">                
                 <div class="topic-content text-center-sm">
@@ -129,7 +128,7 @@
     </div>
 
     <div class="max-container topic-block has-overlay-xs mb-large animate" {{ animateFadeInUp }}>
-        {% include 'discover-picture', name: 'pearl-what-fits-inside', alt: 'video showing how to pack the Pearl', retina: true, fw: false %}  
+        {% include 'picture', name: 'pearl-what-fits-inside', alt: 'video showing how to pack the Pearl', mdSupport: true %}  
         <div class="topic-content">
             <h3 class="title">What Fits Inside</h3>
             <a href="#" data-video-id="2" class="video-trigger">
@@ -154,7 +153,7 @@
        <div class="animate" {{ animateFadeInUp }}>
            <div class="row">
                <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">  
-                    {% include 'discover-picture', name: 'pearl-nappa-leather', alt: 'Pearl in nappa leather', retina: true, fw: true %}                    
+                    {% include 'picture', name: 'pearl-nappa-leather', alt: 'Pearl in nappa leather', mdSupport: true, fw: true %}                    
                </div>
            </div>
            <div class="row">
@@ -175,7 +174,7 @@
        <div class="animate" {{ animateFadeInUp }}>
            <div class="row">
                <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0">  
-                    {% include 'discover-picture', name: 'pearl-saffiano-leather', alt: 'Pearl in saffiano leather', retina: true, fw: true %}                    
+                    {% include 'picture', name: 'pearl-saffiano-leather', alt: 'Pearl in saffiano leather', mdSupport: true, fw: true %}                    
                </div>
            </div>
            <div class="row">
@@ -205,13 +204,13 @@
 
        <div id="pearl-anywhere-1" class="row animate" {{ animateFadeInUp }}>
           <div class="col-sm-10 col-sm-offset-1 col-lg-12 col-lg-offset-0 col-lg-14">                    
-              {% include 'discover-picture', name: 'pearl-take-it-anywhere-1', alt: 'woman holding Pearl by pink wall', retina: true, fw: true %}                    
+              {% include 'picture', name: 'pearl-take-it-anywhere-1', alt: 'woman holding Pearl by pink wall', mdSupport: true, fw: true %}                    
           </div>
        </div>
 
        <div id="pearl-anywhere-2" class="row animate topic-block has-overlay-xs" {{ animateFadeInUp }}>
           <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">                    
-              {% include 'discover-picture', name: 'pearl-take-it-anywhere-2', alt: 'woman walking with Pearl', retina: true, fw: false %}
+              {% include 'picture', name: 'pearl-take-it-anywhere-2', alt: 'woman walking with Pearl', mdSupport: true %}
               <div class="topic-content">
                   <h3 class="title">Take it anywhere</h3>
                   <a href="#" data-video-id="3" class="video-trigger">
@@ -223,18 +222,18 @@
 
        <div class="row animate" {{ animateFadeInUp }}>
           <div id="pearl-anywhere-col-1" class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-5 col-lg-offset-1">                    
-              <div id="pearl-anywhere-3">{% include 'discover-picture', name: 'pearl-take-it-anywhere-3', alt: 'woman in red dress holding Pearl', retina: true, fw: true %}</div>
-              <div id="pearl-anywhere-5">{% include 'discover-picture', name: 'pearl-take-it-anywhere-5', alt: 'woman by plants wearing Pearl as crossbody', retina: true, fw: true %}</div>
+              <div id="pearl-anywhere-3">{% include 'picture', name: 'pearl-take-it-anywhere-3', alt: 'woman in red dress holding Pearl', mdSupport: true, fw: true %}</div>
+              <div id="pearl-anywhere-5">{% include 'picture', name: 'pearl-take-it-anywhere-5', alt: 'woman by plants wearing Pearl as crossbody', mdSupport: true, fw: true %}</div>
           </div>
           <div id="pearl-anywhere-col-2" class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-0 col-lg-5">                    
-              <div id="pearl-anywhere-4">{% include 'discover-picture', name: 'pearl-take-it-anywhere-4', alt: 'woman wearing Pearl looking over shoulder', retina: true, fw: false %}</div>
-              <div id="pearl-anywhere-6">{% include 'discover-picture', name: 'pearl-take-it-anywhere-6', alt: 'woman wearing Pearl walking away', retina: true, fw: false %}</div>
+              <div id="pearl-anywhere-4">{% include 'picture', name: 'pearl-take-it-anywhere-4', alt: 'woman wearing Pearl looking over shoulder', mdSupport: true %}</div>
+              <div id="pearl-anywhere-6">{% include 'picture', name: 'pearl-take-it-anywhere-6', alt: 'woman wearing Pearl walking away', mdSupport: true %}</div>
           </div>
        </div>
 
        <div class="row animate mb-large" {{ animateFadeInUp }}>
           <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">                  
-              {% include 'discover-picture', name: 'pearl-take-it-anywhere-7', alt: 'woman holding Pearl while taking a photo', retina: true, fw: true %}                    
+              {% include 'picture', name: 'pearl-take-it-anywhere-7', alt: 'woman holding Pearl while taking a photo', mdSupport: true, fw: true %}                    
           </div>
        </div>
       

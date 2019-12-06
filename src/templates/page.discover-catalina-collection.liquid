@@ -3,62 +3,84 @@
 
 <article class="discover" style="background: #F8F8F8">
     
+    {% include 'hero'
+        img: 'Catalina-Collection-hero',
+        alt: 'the Catalina Collection',
+        title: 'The Catalina Collection',
+        color: 'black',
+        text: 'Classic travel bags for any weekend getaway.' %}
+
+    <div class="container">
         
-    <div class="max-container">
-        <div class="hero has-black-arrow soft-load">
-            {% include 'discover-picture', name: 'Catalina-Collection-hero', alt: 'the Catalina Collection', retina: false, fw: false %}
-            <div class="hero-content center medium">
-                <h1 class="title">The Catalina Collection</h1>
-                <p class="description">Classic travel bags for any weekend getaway.</p>
+        {% include 'section-title', noContainer: true, title: "Travel Smart", text: "We believe that travel should be as stress free and easy as possible, so we designed a collection of bags with thoughtful features and high-quality lightweight materials to help make any flight as enjoyable as the destination." %}
+        <div class="block has-cards animate" {{ animateFadeInUp }}>
+            <div class="row">
+                <div class="col-sm-6 col-md-5 col-md-offset-1">  
+                    {% include 'card',
+                        img: 'Catalina-Collection-travel-smart-1',
+                        alt: 'Catalina with handle sleeve on luggage',
+                        fw: true,
+                        title: "Luggage Handle Sleeve",
+                        text: "A convenient pass through sleeve that secures your bag to a suitcase.",
+                        cardModifiers: 'text-center' %}               
+                </div>
+                <div class="col-sm-6 col-md-5">    
+                    {% include 'card',
+                        img: 'Catalina-Collection-travel-smart-2',
+                        alt: 'Catalina with opened bottom pocket',
+                        fw: true,
+                        title: "Bottom Pocket",
+                        text: "Designed to help separate shoes, dirty clothes, or anything you want." ,
+                        cardModifiers: 'text-center' %}
+                </div>
             </div>
-            {% include 'hero-jump-btn' %}
         </div>
+
     </div>
 
-    <div class="container">{% include 'hero-jump-target' %}
-        
-        {% include 'discover-section-heading', title: "Travel Smart", text: "We believe that travel should be as stress free and easy as possible, so we designed a collection of bags with thoughtful features and high-quality lightweight materials to help make any flight as enjoyable as the destination." %}
-
-        <div class="row animate mb-large" {{ animateFadeInUp }}>
-            <div class="col-sm-6 col-md-5 col-md-offset-1">  
-                {% include 'discover-picture', name: 'Catalina-Collection-travel-smart-1', alt: 'Catalina with handle sleeve on luggage', retina: true, fw: true, lg: true %}
-                {% include 'discover-topic-content', title: "Luggage Handle Sleeve", text: "A convenient pass through sleeve that secures your bag to a suitcase.", modifiers: 'text-center' %}               
-            </div>
-            <div class="col-sm-6 col-md-5">    
-                {% include 'discover-picture', name: 'Catalina-Collection-travel-smart-2', alt: 'Catalina with opened bottom pocket', retina: true, fw: true, lg: true %}                
-                {% include 'discover-topic-content', title: "Bottom Pocket", text: "Designed to help separate shoes, dirty clothes, or anything you want." , modifiers: 'text-center' %}
-            </div>
-        </div>
-        
-        {% include 'catalina-materials' %}
-
-        {% include 'discover-section-heading', title: "Fits all the Essentials", text: "Each of our weekender bags is surprisingly spacious bags and designed to fit all your essentials—whether it be a long weekend trip or a weeklong trip." %}
-
-    </div>
+    {% include 'catalina-materials' %}
     
+    {% include 'section-title', title: "Fits all the Essentials", text: "Each of our weekender bags is surprisingly spacious bags and designed to fit all your essentials—whether it be a long weekend trip or a weeklong trip." %}
     <div class="max-container">
-        <div class="mb-large">
-        {% include 'discover-picture', name: 'Catalina-Deluxe-packing', alt: 'Catalina with items ready to be packed on bed', retina: true, fw: false, lg: true %}
+        <div class="block">
+            {% include 'picture', name: 'Catalina-Deluxe-packing', alt: 'Catalina with items ready to be packed on bed' %}
         </div>
     </div>
+
+    {% include 'section-title', title: "An Option for Every Trip", text: "Whether it be a European vacation, trip to the gym, or a weekend getaway to the beach — the Catalina Collection is perfect for any kind of destination." %}
+    <div class="block has-cards">
+        <div class="container">
+            {%- capture col1 -%}
+                {% include 'card',
+                    img: 'Catalina-Collection-travel',
+                    alt: 'woman standing next to luggage with Catalina on handle',
+                    title: "Travel",
+                    text: "Whether you’re going near or far, pack everything you need for that upcoming vacation.",
+                    cardModifiers: 'text-center-xs' %}
+            {%- endcapture -%}
+            {%- capture col2 -%}
+                {% include 'card',
+                    img: 'Catalina-Collection-weekend',
+                    alt: "woman with feet in pool with Catalina's bottom pocket opened",
+                    title: "Weekend",
+                    text: "Carry your necessities in style on your next seaside, poolside, or city escape. ",
+                    cardModifiers: 'text-center-xs' %}
+            {%- endcapture -%}
+            {%- capture col3 -%}
+                {% include 'card',
+                    img: 'Catalina-Collection-workout-session',
+                    alt: 'man with Catalina at track',
+                    title: "Workout Session",
+                    text: "The definition of form meets function — this is the bag you’ll want to add to your fitness routine.",
+                    cardModifiers: 'text-center-xs' %}
+            {%- endcapture -%}
+            {% include 'discover-sliding-3-col' %}
+        </div>
+    </div>
+
+    {% include 'section-title', title: "Traveler Approved" %}
     
     <div class="container">
-        {% include 'discover-section-heading', title: "An Option for Every Trip", text: "Whether it be a European vacation, trip to the gym, or a weekend getaway to the beach — the Catalina Collection is perfect for any kind of destination." %}
-        {%- capture col1 -%}
-            {% include 'discover-picture', name: 'Catalina-Collection-travel', alt: 'woman standing next to luggage with Catalina on handle', retina: true, fw: false, lg: true %}
-            {% include 'discover-topic-content', title: "Travel", text: "Whether you’re going near or far, pack everything you need for that upcoming vacation.", modifiers: 'text-center-xs' %}
-        {%- endcapture -%}
-        {%- capture col2 -%}
-            {% include 'discover-picture', name: 'Catalina-Collection-weekend', alt: "woman with feet in pool with Catalina's bottom pocket opened", retina: true, fw: false, lg: true %}
-            {% include 'discover-topic-content', title: "Weekend", text: "Carry your necessities in style on your next seaside, poolside, or city escape. ", modifiers: 'text-center-xs' %}
-        {%- endcapture -%}
-        {%- capture col3 -%}
-            {% include 'discover-picture', name: 'Catalina-Collection-workout-session', alt: 'man with Catalina at track', retina: true, fw: false, lg: true %}
-            {% include 'discover-topic-content', title: "Workout Session", text: "The definition of form meets function — this is the bag you’ll want to add to your fitness routine.", modifiers: 'text-center-xs' %}
-        {%- endcapture -%}
-        {% include 'discover-sliding-3-col' %}
-
-        {% include 'discover-section-heading', title: "Traveler Approved" %}
 
         <div class="row pr-items mb-large animate" {{ animateFadeInUp }}>
             <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-0">
@@ -93,7 +115,7 @@
             </div>
         </div>
 
-        {% include 'discover-section-heading', title: "Shop The Collection" %}
+        {% include 'section-title', noContainer: true, title: "Shop The Collection" %}
 
         <div id="catalina-collection-cta" class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-6">

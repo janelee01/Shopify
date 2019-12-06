@@ -5,10 +5,14 @@
 {% if align == 'right' %}
  {% assign desktopLayout = 'col-md-6 col-md-offset-6 col-lg-5 col-lg-offset-7' %}
 {% endif %}
+{% assign arrowClass = 'has-arrow' %}
+{% if color == 'black' %}
+{% assign arrowClass = 'has-black-arrow' %}
+{% endif %}
 <div class="max-container">
-    <div class="block hero has-arrow">
-        {% include 'picture', name: img, alt: alt, fw: false %}
-        <div class="content {{ color | default: 'white' }}">
+    <div class="block hero {{ arrowClass }}">
+        {% include 'picture', name: img, alt: alt %}
+        <div class="content {{ color | default: 'white' }} {{ contentAlign | default: '' }}">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 {{ desktopLayout }}">

@@ -14,20 +14,18 @@
 
     {% include 'discover-nav', labels:'Versatile Design,What Fits Inside,Materials,Specs,Compare' %}
 
-    <div class="max-container">
-        <div class="hero has-arrow" id="rowledge-hero">
-            {% include 'discover-picture', name: 'rowledge-hero', alt: 'woman with Rowledge on shoulder', retina: true, fw: false, lg: true %}
-            <div class="hero-content left white">
-                <h1 class="title"><span class="subtitle">Discover</span> {{ ctaTitle }}</h1>
-                <p class="description">A do-it-all nylon backpack for women who mean business. It even converts to a tote.</p>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
-    <div class="container">{% include 'hero-jump-target' %}
+    {% include 'hero'
+      img: 'rowledge-hero',
+      alt: 'woman with Rowledge on shoulder',
+      subtitle: 'Discover',
+      title: ctaTitle,
+      align: 'left',
+      text: 'A do-it-all nylon backpack for women who mean business. It even converts to a tote.' %}
+
+    <div class="container">
         <div class="row animate mb-gutter" {{ animateFadeInUp }}>
             <div class="col-sm-6 col-sm-offset-3">
-                {% include 'discover-picture', name: 'rowledge-product-img', alt: 'Rowledge product shot', retina: true, fw: true, lg: true %}
+                {% include 'picture', name: 'rowledge-product-img', alt: 'Rowledge product shot', fw: true %}
             </div>
         </div>
          <div class="animate" {{ animateFadeInUp }}>
@@ -39,7 +37,7 @@
     <a id="nav-target-1" class="jumptarget"></a>
     <div class="max-container animate" {{ animateFadeInUp }}>
         <div class="topic-block has-overlay-xs mb-gutter mb-negate-sm">
-            {% include 'discover-picture', name: 'rowledge-work-hero', alt: 'woman carrying Rowledge with handles', retina: true, fw: true, lg: true %}
+            {% include 'picture', name: 'rowledge-work-hero', alt: 'woman carrying Rowledge with handles', fw: true %}
             <div class="topic-content">
                 <h2 class="title">Work Mode</h2>
             </div>
@@ -48,28 +46,28 @@
     <div class="container has-scrolling">
         <div class="row side-scrolling mb-default mb-negate-xs">
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-work-1', alt: 'Rowledge luxe details', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-work-1', alt: 'Rowledge luxe details' %}
                 <div class="topic-content">
                     <h3 class="title">CEO-Tested, <br class="hidden-xs">Client-Approved</h3>
                     <p class="description">With its luxe details, this bag looks right at home in the boardroom, the courtroom, and beyond.</p>
                 </div>
             </div>
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-work-2', alt: 'Rowledge laptop sleeve', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-work-2', alt: 'Rowledge laptop sleeve' %}
                 <div class="topic-content">
                     <h3 class="title">Your Laptop Will Love&hellip;</h3>
                     <p class="description">&hellip;having its own compartment, with water-resistant zippers to keep rain (and happy-hour spills) out.</p>
                 </div>
             </div>
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-work-3', alt: 'Rowledge interior pockets', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-work-3', alt: 'Rowledge interior pockets' %}
                 <div class="topic-content">
                     <h3 class="title">Inside That Counts</h3>
                     <p class="description">A clever array of pockets hold your documents, small electronics, and emergency chocolate stash.</p>
                 </div>
             </div>
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-work-4', alt: 'Rowledge front pocket', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-work-4', alt: 'Rowledge front pocket' %}
                 <div class="topic-content">
                     <h3 class="title">Everything in Its Place</h3>
                     <p class="description">Your days of rifling through a shapeless tote are over. This front pocket keeps pens, keys, and earbuds at the ready.</p>
@@ -79,7 +77,7 @@
     </div>
     <div class="max-container animate" {{ animateFadeInUp }}>
         <div class="topic-block has-overlay-xs mb-gutter mb-negate-sm">
-            {% include 'discover-picture', name: 'rowledge-travel-hero', alt: 'woman getting in car', retina: true, fw: true, lg: true %}
+            {% include 'picture', name: 'rowledge-travel-hero', alt: 'woman getting in car', fw: true %}
             <div class="topic-content">
                 <h2 class="title">Travel Mode</h2>
             </div>
@@ -88,28 +86,28 @@
     <div class="container has-scrolling">
         <div class="row side-scrolling mb-default mb-negate-xs">
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-travel-1', alt: 'Rowledge handle sleeve slides onto luggage', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-travel-1', alt: 'Rowledge handle sleeve slides onto luggage' %}
                 <div class="topic-content">
                     <h3 class="title">Ready to Roll</h3>
                     <p class="description">A convenient pass-through sleeve slides onto most roller bags for fuss-free travel.</p>
                 </div>
             </div>
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-travel-2', alt: 'close up of Rowledge stash pocket', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-travel-2', alt: 'close up of Rowledge stash pocket' %}
                 <div class="topic-content">
                     <h3 class="title">VIP Area</h3>
                     <p class="description">Keep important items like your passport, phone, and money in the easy-to-reach stash pocket.</p>
                 </div>
             </div>
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-travel-3', alt: 'Rowledge sleeve is easily removed', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-travel-3', alt: 'Rowledge sleeve is easily removed' %}
                 <div class="topic-content">
                     <h3 class="title">Speed Through Security</h3>
                     <p class="description">Need to remove your laptop at TSA? Not a problem when it’s in an easy-to-access sleeve.</p>
                 </div>
             </div>
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-travel-4', alt: 'airline seats', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-travel-4', alt: 'airline seats' %}
                 <div class="topic-content">
                     <h3 class="title">Fit in Everywhere</h3>
                     <p class="description">The Rowledge qualifies as a personal item and fits under any airline seat. Bon voyage! </p>
@@ -119,7 +117,7 @@
     </div>
     <div class="max-container animate" {{ animateFadeInUp }}>
         <div class="topic-block has-overlay-xs mb-gutter mb-negate-sm">
-            {% include 'discover-picture', name: 'rowledge-weekend-hero', alt: 'woman at coffee shop', retina: true, fw: true, lg: true %}
+            {% include 'picture', name: 'rowledge-weekend-hero', alt: 'woman at coffee shop', fw: true %}
             <div class="topic-content">
                 <h2 class="title">Weekend Mode</h2>
             </div>
@@ -128,28 +126,28 @@
     <div class="container has-scrolling">
         <div class="row side-scrolling mb-default mb-negate-xs">
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-weekend-1', alt: 'removing the Rowledge laptop sleeve', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-weekend-1', alt: 'removing the Rowledge laptop sleeve' %}
                 <div class="topic-content">
                     <h3 class="title">Room to Relax</h3>
                     <p class="description">Did someone say Saturday? Trade out the removable insert for a picnic blanket and a bottle of ros&eacute;.</p>
                 </div>
             </div>
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-weekend-2', alt: 'phone inserted into Rowledge stash pocket', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-weekend-2', alt: 'phone inserted into Rowledge stash pocket' %}
                 <div class="topic-content">
                     <h3 class="title">Make It Quick</h3>
                     <p class="description">A stash pocket provides easy access to essential items like your phone, money, and a few business cards.</p>
                 </div>
             </div>
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-weekend-3', alt: 'Rowledge key leash', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-weekend-3', alt: 'Rowledge key leash' %}
                 <div class="topic-content">
                     <h3 class="title">Keeper of the Keys</h3>
                     <p class="description">Never misplace those bad-boys again, thanks to a key leash that attaches to the right or left side of your bag.</p>
                 </div>
             </div>
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-weekend-4', alt: 'woman wearing Rowledge as backpack', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-weekend-4', alt: 'woman wearing Rowledge as backpack' %}
                 <div class="topic-content">
                     <h3 class="title">Hands-Free Adventures</h3>
                     <p class="description">Whether you’re hitting the road or exploring a new city, it’s always easier with a backpack.</p>
@@ -159,7 +157,7 @@
     </div>
     <div class="max-container animate" {{ animateFadeInUp }}>
         <div class="topic-block has-overlay-xs mb-gutter mb-negate-sm">
-            {% include 'discover-picture', name: 'rowledge-workout-hero', alt: 'woman walking into gym', retina: true, fw: true, lg: true %}
+            {% include 'picture', name: 'rowledge-workout-hero', alt: 'woman walking into gym', fw: true %}
             <div class="topic-content">
                 <h2 class="title">Workout Mode</h2>
             </div>
@@ -168,21 +166,21 @@
     <div class="container has-scrolling">
         <div class="row side-scrolling mb-gutter mb-large-sm mb-negate-xs">
             <div class="col-sm-4">
-                {% include 'discover-picture', name: 'rowledge-workout-1', alt: 'Rowledge bottle side pocket', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-workout-1', alt: 'Rowledge bottle side pocket' %}
                 <div class="topic-content">
                     <h3 class="title">Hydrate, Ladies</h3>
                     <p class="description">Discreet zippered side pockets lay flat when not in use—but stretch to fit your water bottle when you’re ready to rock.</p>
                 </div>
             </div>
             <div class="col-sm-4">
-                {% include 'discover-picture', name: 'rowledge-workout-2', alt: 'removable insert keeps things separate', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-workout-2', alt: 'removable insert keeps things separate' %}
                 <div class="topic-content">
                     <h3 class="title">Keep It Clean</h3>
                     <p class="description">Sweaty gym clothes have met their match: The removable insert’s water-resistant coating makes it simple to clean.</p>
                 </div>
             </div>
             <div class="col-sm-4">
-                {% include 'discover-picture', name: 'rowledge-workout-3', alt: 'Rowledge converts from tote to backpack', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-workout-3', alt: 'Rowledge converts from tote to backpack' %}
                 <div class="topic-content">
                     <h3 class="title">From Desk to <br class="hidden-xs">Downward Dog</h3>
                     <p class="description">Easily convert your bag from tote to backpack to book it from the office to that 7pm yoga class.</p>
@@ -209,7 +207,7 @@
     <a id="nav-target-3" class="jumptarget"></a>
     <div class="max-container animate" {{ animateFadeInUp }}>
         <div class="topic-block has-overlay-xs mb-gutter mb-negate-sm">
-            {% include 'discover-picture', name: 'rowledge-materials-hero', alt: 'womean carrying Rowledge as tote', retina: true, fw: true, lg: true %}
+            {% include 'picture', name: 'rowledge-materials-hero', alt: 'womean carrying Rowledge as tote', fw: true %}
             <div class="topic-content">
                 <h2 class="title">Premium Materials</h2>
             </div>
@@ -218,28 +216,28 @@
     <div class="container has-scrolling">
         <div class="row side-scrolling mb-default mb-negate-xs">
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-materials-1', alt: 'Rowledge nylon exterior', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-materials-1', alt: 'Rowledge nylon exterior' %}
                 <div class="topic-content">
                     <h3 class="title">A Sleek Nylon Exterior</h3>
                     <p class="description">We’ve checked all the boxes with this lightweight, fine-weave, water-resistant nylon.</p>
                 </div>
             </div>
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-materials-2', alt: 'Rowledge nappa leather accents', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-materials-2', alt: 'Rowledge nappa leather accents' %}
                 <div class="topic-content">
                     <h3 class="title">Elevated Nappa Leather Accents</h3>
                     <p class="description">Known for its buttery texture and adaptable shape, this natural-grain leather adds a luxurious touch to pockets, zipper pulls, and handles.</p>
                 </div>
             </div>
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-materials-3', alt: 'Rowledge padded straps', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-materials-3', alt: 'Rowledge padded straps' %}
                 <div class="topic-content">
                     <h3 class="title">Extra Comfortable Straps</h3>
                     <p class="description">Cloud-like memory foam molds to your body without digging, and diamond-shaped stitching prevents your straps from sliding off.</p>
                 </div>
             </div>
             <div class="col-sm-3">
-                {% include 'discover-picture', name: 'rowledge-materials-4', alt: 'Jacquard lining pattern', retina: true, fw: false, lg: true %}
+                {% include 'picture', name: 'rowledge-materials-4', alt: 'Jacquard lining pattern' %}
                 <div class="topic-content">
                     <h3 class="title">Our Signature Jacquard Lining</h3>
                     <p class="description">The final touch? A luxuriously-lined interior that features premium-quality jacquard in our signature hummingbird print.</p>
@@ -259,7 +257,7 @@
             </div>
             <div class="row mb-large text-center">
                 <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
-                    {% include 'discover-picture', name: 'rowledge-dimensions', alt: 'Rowledge dimensions diagram', retina: true, fw: true, lg: true %}
+                    {% include 'picture', name: 'rowledge-dimensions', alt: 'Rowledge dimensions diagram', fw: true %}
                      <div class="topic-content">
                         <p class="description">The Rowledge weighs 3 lbs.<br> Laptop sleeve fits 13” and select 14” laptops.</p>
                         <p class="description"><a href="#compatibility-overlay" class="more-window-trigger">Laptop Compatability +</a></p>

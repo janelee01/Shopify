@@ -3,17 +3,14 @@
 
 <article class="discover">
     
-    <div class="max-container">
-        <div class="hero soft-load has-black-arrow" id="camo-hero">
-            {% include 'discover-picture', name: 'camo-hero', alt: 'new color - camo', retina: true, fw: false, lg: true %}
-            <div class="hero-content black center">
-                <h1 class="title">The Camo Collection</h1>
-            </div>
-            {% include 'hero-jump-btn' %}
-        </div>
-    </div>
+    {% include 'hero'
+        img: 'camo-hero',
+        alt: 'new camo color',
+        title: 'The Camo Collection',
+        color: 'black' %}
+    <style>.hero.block .content{ height: 50% }</style>
+
     <div class="container">
-        {% include 'hero-jump-target' %}
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
                 <div class="section-heading">
@@ -24,16 +21,16 @@
         </div>
 
         <div class="animate mb-gutter" {{ animateFadeInUp }}>
-            {% include 'discover-picture', name: 'camo-work-1', alt: 'man with Hanover in camo on shoulder', retina: true, fw: false, lg: true %}
+            {% include 'picture', name: 'camo-work-1', alt: 'man with Hanover in camo on shoulder' %}
         </div>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-6"> 
                 <div class="mb-gutter-xs">
-                    {% include 'discover-picture', name: 'camo-work-2', alt: 'close up of Hanover on luggage', retina: true, fw: false, lg: true %}  
+                    {% include 'picture', name: 'camo-work-2', alt: 'close up of Hanover on luggage' %}  
                 </div>
             </div>
             <div class="col-sm-6"> 
-                {% include 'discover-picture', name: 'camo-work-3', alt: 'man walking with Hanover on luggage', retina: true, fw: false, lg: true %}  
+                {% include 'picture', name: 'camo-work-3', alt: 'man walking with Hanover on luggage' %}  
             </div>
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <div class="topic-content text-center">
@@ -46,17 +43,17 @@
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-6"> 
                 <div class="mb-gutter">
-                    {% include 'discover-picture', name: 'camo-fitness-1', alt: 'close up of Hanover side pocket', retina: true, fw: false, lg: true %}  
+                    {% include 'picture', name: 'camo-fitness-1', alt: 'close up of Hanover side pocket' %}  
                 </div>
             </div>
             <div class="col-sm-6"> 
                 <div class="mb-gutter">
-                    {% include 'discover-picture', name: 'camo-fitness-2', alt: 'woman with Hanover in camo on shoulder', retina: true, fw: false, lg: true %}  
+                    {% include 'picture', name: 'camo-fitness-2', alt: 'woman with Hanover in camo on shoulder' %}  
                 </div>
             </div>
         </div>
         <div class="animate" {{ animateFadeInUp }}>
-            {% include 'discover-picture', name: 'camo-fitness-3', alt: 'woman walking with Hanover in camo on shoulder', retina: true, fw: false, lg: true %}
+            {% include 'picture', name: 'camo-fitness-3', alt: 'woman walking with Hanover in camo on shoulder' %}
         </div>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
@@ -68,16 +65,16 @@
         </div>
 
         <div class="animate mb-gutter" {{ animateFadeInUp }}>
-            {% include 'discover-picture', name: 'camo-weekend-1', alt: 'woman and man in fall scene with camo products', retina: true, fw: false, lg: true %}
+            {% include 'picture', name: 'camo-weekend-1', alt: 'woman and man in fall scene with camo products' %}
         </div>
         <div class="row animate" {{ animateFadeInUp }}>
             <div class="col-sm-6"> 
                 <div class="mb-gutter-xs">
-                    {% include 'discover-picture', name: 'camo-weekend-2', alt: 'woman and man walking away with camo products', retina: true, fw: false, lg: true %}  
+                    {% include 'picture', name: 'camo-weekend-2', alt: 'woman and man walking away with camo products' %}  
                 </div>
             </div>
             <div class="col-sm-6"> 
-                {% include 'discover-picture', name: 'camo-weekend-3', alt: 'close up of Edgemont in camo', retina: true, fw: false, lg: true %}  
+                {% include 'picture', name: 'camo-weekend-3', alt: 'close up of Edgemont in camo' %}  
             </div>
             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <div class="topic-content text-center">
@@ -91,7 +88,7 @@
         <div class="row fw-xs animate cta-block" {{ animateFadeInUp }}>
             <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-push-6 col-md-offset-0">
                 <a class="btn-gtm-trk" data-gtm-a="7" href="/products/hanover-600d-recycled-poly-navy-camo">
-                    {% include 'discover-picture', name: 'camo-cta-hanover', alt: 'Shop The Hanover in camo', retina: true, fw: false %}
+                    {% include 'picture', name: 'camo-cta-hanover', alt: 'Shop The Hanover in camo', mdSupport: true %}
                 </a>
             </div>
             <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-5 col-md-pull-5 col-md-offset-0 content-col">
@@ -107,7 +104,7 @@
         <div class="row fw-xs animate cta-block" {{ animateFadeInUp }}>
             <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-push-6 col-md-offset-0">
                 <a class="btn-gtm-trk" data-gtm-a="7" href="/products/hanover-deluxe-600d-recycled-poly-navy-camo">
-                    {% include 'discover-picture', name: 'camo-cta-hanover-deluxe', alt: 'Shop The Hanover Deluxe in camo', retina: true, fw: false %}
+                    {% include 'picture', name: 'camo-cta-hanover-deluxe', alt: 'Shop The Hanover Deluxe in camo', mdSupport: true %}
                 </a>
             </div>
             <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-5 col-md-pull-5 col-md-offset-0 content-col">
@@ -123,7 +120,7 @@
         <div class="row fw-xs animate cta-block" {{ animateFadeInUp }}>
             <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-push-6 col-md-offset-0">
                 <a class="btn-gtm-trk" data-gtm-a="7" href="/products/edgemont-600d-recycled-poly-navy-camo">
-                    {% include 'discover-picture', name: 'camo-cta-edgemont', alt: 'Shop The Edgemont in camo', retina: true, fw: false %}
+                    {% include 'picture', name: 'camo-cta-edgemont', alt: 'Shop The Edgemont in camo', mdSupport: true %}
                 </a>
             </div>
             <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-5 col-md-pull-5 col-md-offset-0 content-col">
