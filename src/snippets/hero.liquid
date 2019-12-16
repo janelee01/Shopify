@@ -12,16 +12,18 @@
 <div class="max-container">
     <div class="block hero {{ arrowClass }}">
         {% include 'picture', name: img, alt: alt %}
-        <div class="content {{ color | default: 'white' }} {{ contentAlign | default: '' }}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2 {{ desktopLayout }}">
-                        <h1 class="title">{% if subtitle %}<span class="subtitle">{{ subtitle }}</span>{% endif %} {{ title }}</h1>
-                        {% if text %}<p>{{ text }}</p>{% endif %}
+        {% if title %}
+            <div class="content {{ color | default: 'white' }} {{ contentAlign | default: '' }}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 {{ desktopLayout }}">
+                            <h1 class="title">{% if subtitle %}<span class="subtitle">{{ subtitle }}</span>{% endif %} {{ title }}</h1>
+                            {% if text %}<p>{{ text }}</p>{% endif %}
+                        </div> 
                     </div>            
                 </div>
             </div>
-        </div>
+        {% endif %}
         <a href="#first-section-target" class="scroll-down-indicator"><span class="sr-only">Next section</span></a>
     </div>
 </div>
